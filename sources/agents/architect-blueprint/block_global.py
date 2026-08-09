@@ -274,7 +274,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 file=chunk_log_file,
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(active_loop_messages), chunk_idx, phase_chunk)
             )
-            logger.info(f"                   | ✅ [ SUCCESS ] Found {len(historic_ledger_map_chunks)} sub-task(s) from Phase {phase_idx}.")
+            logger.info(f"                   | ✅ [ SUCCESS ] Found {len(found_tags)} sub-task(s) from Phase {phase_idx}.")
             logger.info(f"                   |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
 
