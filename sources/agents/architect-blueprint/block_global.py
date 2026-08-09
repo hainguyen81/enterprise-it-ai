@@ -198,11 +198,13 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_1)
         
         # write chunk log
+        chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(
             dir=out_dir,
-            file=GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx),
+            file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(conversation_history_messages), chunk_idx, chunk_1)
         )
+        logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
         # ==============================================================================
@@ -243,11 +245,13 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             accumulated_blueprint_chunks.append(phase_chunk)
 
             # write chunk log
+            chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
             write_file(
                 dir=out_dir,
-                file=GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx),
+                file=chunk_log_file,
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(active_loop_messages), chunk_idx, phase_chunk)
             )
+            logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
 
         # ==============================================================================
@@ -277,11 +281,13 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_3)
 
         # write chunk log
+        chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(
             dir=out_dir,
-            file=GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx),
+            file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(final_messages), chunk_idx, chunk_3)
         )
+        logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
 
         # ==============================================================================
