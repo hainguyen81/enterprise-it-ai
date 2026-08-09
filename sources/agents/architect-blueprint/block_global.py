@@ -2,6 +2,7 @@
 
 import os
 import re
+import time
 
 # GEMINI
 # from google import genai
@@ -218,6 +219,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
+        # sleep 5 seconds to guard rate limit
+        logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
+        time.sleep(5)
+        
         # ==============================================================================
         # CHUNK 2: LOOP PHASE IN SECTION 5
         # ==============================================================================
@@ -277,6 +282,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             logger.info(f"                   | ✅ [ SUCCESS ] Found {len(found_tags)} sub-task(s) from Phase {phase_idx}.")
             logger.info(f"                   |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
+        
+            # sleep 5 seconds to guard rate limit
+            logger.debug("              |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
+            time.sleep(5)
 
         # ==============================================================================
         # CHUNK 3: from Section 6 to the end
