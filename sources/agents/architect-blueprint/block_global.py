@@ -20,7 +20,8 @@ from sources.agents.agent_helper import (
     get_logger,
     storage_info,
     datetime_for_agent,
-    merge_master_prompt
+    merge_master_prompt,
+    json_tostring
 )
 
 # ==============================================================================
@@ -154,6 +155,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
     model_name_safe = model_name if model_name else "gpt-4o"
     safe_name = project_name.replace(' ', '-').lower()
     blueprint_file = f"{safe_name}.global.blueprint.md"
+    chunk_prompts = {}
     
     # result chunks
     accumulated_blueprint_chunks = []
@@ -190,6 +192,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             {"role": "system", "content": sys_prompt_p1},
             {"role": "user", "content": usr_prompt_p1}
         ]
+        chunk_prompts["chunk_1"] = conversation_history_messages
         
         # communicate AI
         response = client.chat.completions.create(
@@ -209,7 +212,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         write_file(
             dir=out_dir,
             file=chunk_log_file,
-            data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(conversation_history_messages), chunk_idx, chunk_1)
+            data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(conversation_history_messages), chunk_idx, chunk_1)
         )
         logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
         logger.info(f"              |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
@@ -243,6 +246,9 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 {"role": "system", "content": sys_prompt_p2},
                 {"role": "user", "content": usr_prompt_p2}
             ]
+            chunk_prompts["chunk_2"] = {
+                phase_idx: active_loop_messages
+            }
             
             # communicate AI
             response = client.chat.completions.create(
@@ -264,7 +270,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             write_file(
                 dir=out_dir,
                 file=chunk_log_file,
-                data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(active_loop_messages), chunk_idx, phase_chunk)
+                data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(active_loop_messages), chunk_idx, phase_chunk)
             )
             logger.info(f"              | ✅ [ SUCCESS ] Found {detected_sub_tasks} sub-task(s) from Phase {phase_idx}.")
             logger.info(f"              |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
@@ -288,6 +294,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         final_messages = [
             {"role": "system", "content": sys_prompt_p3}
         ] + pure_historic_chat_stack_final + [{"role": "user", "content": local_final_instruction}]
+        chunk_prompts["chunk_3"] = final_messages
         
         # communicate AI
         response = client.chat.completions.create(
@@ -303,7 +310,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         write_file(
             dir=out_dir,
             file=chunk_log_file,
-            data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(final_messages), chunk_idx, chunk_3)
+            data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(final_messages), chunk_idx, chunk_3)
         )
         logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
@@ -328,7 +335,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         )
         
         # write log
-        write_blueprint_log(0, "\n\n".join(conversation_history_messages), raw_data, False, model_name_safe, out_dir)
+        write_blueprint_log(0, json_tostring(chunk_prompts), raw_data, False, model_name_safe, out_dir)
         
         logger.info(f"✅ [BLOCK 1 SUCCESS] Saved Global Blueprint: {out_path}")
         return raw_data
