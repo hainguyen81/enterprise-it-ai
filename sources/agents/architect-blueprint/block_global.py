@@ -227,7 +227,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1
         historic_ledger_map_chunks = []
         for phase_idx in range(1, num_phases + 1):
-            logger.info(f"             |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
+            logger.info(f"              |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
             ctx_part2 = {
                 **base_prompt_context,
                 "target_segment": "PART_2_PHASE_LOOP",
