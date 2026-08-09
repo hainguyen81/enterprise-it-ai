@@ -173,7 +173,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             "language": language or DEFAULT_BLUEPRINT_LANGUAGE,
             "num_phases": num_phases,
             "max_days_per_phase": max_days_per_phase,
-            "force_full_export": False
+            "force_full_export": False,
         }
 
         # ==============================================================================
@@ -182,7 +182,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         logger.info(f"    |__ [ PART 1/3 ] Generating System Matrix and Master Product Backlog...")
         ctx_part1 = {
             **base_prompt_context,
-            "target_segment": "PART_1_INITIAL"
+            "target_segment": "PART_1_INITIAL",
         }
         
         # build conversation
@@ -225,7 +225,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # --- extract only synopsis table from section 4.2 ---
         matrix_extract_match = re.search(r'<!--START_PHASE_SYNOPSIS_GRID-->(.*?)<!--END_PHASE_SYNOPSIS_GRID-->', chunk_1, re.DOTALL)
         clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1
-        detected_sub_tasks = 0
+        historic_ledger_map_chunks = []
         for phase_idx in range(1, num_phases + 1):
             logger.info(f"             |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
             ctx_part2 = {
@@ -234,9 +234,9 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 "target_phase_index": phase_idx,
                 "total_tasks_registered": actual_registered_tasks,
                 # only using for latest phase for audit
-                "historic_sub_tasks_count": detected_sub_tasks if phase_idx == num_phases else 0,
+                "historic_ledger_map": "\n".join(historic_ledger_map_chunks),
                 # inject synopsis table context for phase generation refer
-                "master_backlog_context": clean_matrix_context
+                "master_backlog_context": clean_matrix_context,
             }
             
             # build conversation
@@ -261,9 +261,11 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             # append conversation history for generating next phase
             accumulated_blueprint_chunks.append(phase_chunk)
 
-            # count the generated sub-tasks from previous phases (Phase 1 -> Latest Phase - 1)
-            sub_task_anchor_pattern = re.compile(r'<!--START_ATOMIC_SUB_TASK_NODE-->')
-            detected_sub_tasks += len(sub_task_anchor_pattern.findall(phase_chunk))
+            # --- use Regex to extract hidden HTML for next phase history generation ---
+            # extract `START_ATOMIC_SUB_TASK_NODE`
+            found_tags = re.findall(r'<!--START_ATOMIC_SUB_TASK_NODE-->', phase_chunk)
+            clean_tags_line = "".join(found_tags)
+            historic_ledger_map_chunks.append(f"Phase {phase_idx}: {clean_tags_line}")
 
             # write chunk log
             chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
@@ -272,7 +274,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 file=chunk_log_file,
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(active_loop_messages), chunk_idx, phase_chunk)
             )
-            logger.info(f"              | ✅ [ SUCCESS ] Found {detected_sub_tasks} sub-task(s) from Phase {phase_idx}.")
+            logger.info(f"              | ✅ [ SUCCESS ] Found {len(historic_ledger_map_chunks)} sub-task(s) from Phase {phase_idx}.")
             logger.info(f"              |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
 
@@ -283,17 +285,16 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         ctx_part3 = {
             **base_prompt_context,
             "target_segment": "PART_3_FINAL",
-            # provide phase detail logs
-            "generated_phases_context": "\n\n".join(accumulated_blueprint_chunks[1:])
+            "total_tasks_registered": actual_registered_tasks,
         }
         
         # build conversation
         sys_prompt_p3 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part3))
-        local_final_instruction = "STRICT COMPLIANCE CONSTRAINT: Execute target segment PART_3_FINAL. Generate Section 6, 7, and 8. Do not repeat previous sections."
-        pure_historic_chat_stack_final = [m for m in conversation_history_messages if m["role"] != "system"]
+        usr_prompt_p3 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part3)
         final_messages = [
-            {"role": "system", "content": sys_prompt_p3}
-        ] + pure_historic_chat_stack_final + [{"role": "user", "content": local_final_instruction}]
+            {"role": "system", "content": sys_prompt_p3},
+            {"role": "user", "content": usr_prompt_p3}
+        ]
         chunk_prompts["chunk_3"] = final_messages
         
         # communicate AI

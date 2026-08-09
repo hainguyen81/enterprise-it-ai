@@ -256,7 +256,16 @@ MANDATORY INSTRUCTION: You must generate the complete blueprint report from Sect
   - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase {{ target_phase_index }}'.
   - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
   - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+  - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+    * If this is the FINAL phase (Phase {{ num_phases }}), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+    * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+    * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+    * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
   - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn {{ target_phase_index }}'.
+
+  <HISTORIC_LEDGER_MAP>
+  {{ historic_ledger_map }}
+  </HISTORIC_LEDGER_MAP>
   </RULE>
   
   {% endif %}
@@ -361,7 +370,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE={{ max_days_per_phase }}
   TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
   TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1={{ total_tasks_registered }}
-  TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=computed_sum_of_historic_count_{{ historic_sub_tasks_count }}_plus_current_phase_sub_tasks
+  TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum here based on the strict mandate rule above]
   SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
   ```
 
