@@ -210,7 +210,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(
-            dir=out_dir,
+            dir=os.path.join(out_dir, "chunks"),
             file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(conversation_history_messages), chunk_idx, chunk_1)
         )
@@ -270,7 +270,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             # write chunk log
             chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
             write_file(
-                dir=out_dir,
+                dir=os.path.join(out_dir, "chunks"),
                 file=chunk_log_file,
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(active_loop_messages), chunk_idx, phase_chunk)
             )
@@ -309,7 +309,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(
-            dir=out_dir,
+            dir=os.path.join(out_dir, "chunks"),
             file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(final_messages), chunk_idx, chunk_3)
         )

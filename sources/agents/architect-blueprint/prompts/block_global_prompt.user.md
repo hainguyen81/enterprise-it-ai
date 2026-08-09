@@ -199,7 +199,8 @@ MANDATORY INSTRUCTION: You must generate the complete blueprint report from Sect
   <RULE>
   [STRICT TABLE EMITTING MANDATE]
   - You MUST dynamically analyze the comprehensive tasks generated in '4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG' immediately above.
-  - You MUST systematically divide the entire workload into exactly {{ num_phases }} distinct phases.
+  - You MUST systematically divide and CONSOLIDATE the entire workload into EXACTLY AND ONLY {{ num_phases }} distinct rows. 
+  - CRITICAL INDEX CEILING: The maximum phase index allowed is {{ num_phases }}. You are ABSOLUTELY FORBIDDEN from generating Phase {{ num_phases + 1 }} or creating a separate phase row for every single backlog task. You MUST group and aggregate multiple tasks from 4.1 together into these {{ num_phases }} milestones.
   - For each phase row, you are critically ordered to enforce absolute information symmetry by scanning all Tag IDs and Task types from section 4.1.
   - CRITICAL INFRASTRUCTURE RULE: If you detect any DevOps, Cloud, Deployment, CI/CD, Containerization, or Infrastructure tasks in section 4.1 (such as Docker, GCP, GKE, Kubernetes, or Git pipelines), you MUST explicitly list the path (e.g., './sources/infrastructure/devops/') in the Component column, and you MUST permanently declare 'DevOps' alongside Coder, Tester, Reviewer, and Doc in the 'Assigned Sub-Agent' column for that targeted phase. Do not drop the DevOps agent under any circumstance.
   - TIME RAILS: Every phase duration is strictly bound. The Day Range column for each row MUST read exactly 'Day 1 - {{ max_days_per_phase }}'. No variation or estimation allowed.
@@ -237,9 +238,12 @@ MANDATORY INSTRUCTION: You must generate the complete blueprint report from Sect
 
   | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
   | :--- | :--- | :--- | :--- | :--- | :--- |
-  | ... | ... | ... | ... | ... | ... |
-  | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** [Compute real-world N calculated phases, e.g., 5 Phases] | **MAPPED CAPACITY STATUS:** [You MUST mathematically count and cross-verify the sum of all distributed tasks against Section 4.1. Output the literal dynamic execution statement matching this pattern: 'Verified: X out of Y Total Master Backlog Tasks successfully distributed across calculated phases with 100% coverage'] | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
-  
+  | Phase 1 | Day 1 - {{ max_days_per_phase }} | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+  | Phase 2 | Day 1 - {{ max_days_per_phase }} | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+  | ... | Day 1 - {{ max_days_per_phase }} | ... | ... | ... | ... |
+  | Phase {{ num_phases }} | Day 1 - {{ max_days_per_phase }} | [Final engineering paths / deploy logs] | [Final cloud infrastructure deployment manifests] | Coder, Tester, Reviewer, Doc, DevOps | [Map final baseline Tag IDs] |
+  | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** {{ num_phases }} Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly {{ num_phases }} calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
+
   <!--END_PHASE_SYNOPSIS_GRID-->
   
   {% endif %}
