@@ -200,6 +200,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         chunk_1 = parseAIResponseData(response)
         accumulated_blueprint_chunks.append(chunk_1)
         
+        # --- count the task in section 4.1 trong chunk_1 ---
+        backlog_anchor_pattern = re.compile(r'<!--REGISTERED_BACKLOG_TASK_ROW-->')
+        actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1))
+        
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(
@@ -207,19 +211,18 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(conversation_history_messages), chunk_idx, chunk_1)
         )
-        logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
+        logger.info(f"              |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
         # ==============================================================================
         # CHUNK 2: LOOP PHASE IN SECTION 5
         # ==============================================================================
         logger.info(f"    |__ [ PART 2/3 ] Extracting Granular Daylog for {num_phases} phases...")
-        # --- count the task in section 4.1 trong chunk_1 ---
-        backlog_anchor_pattern = re.compile(r'<!--REGISTERED_BACKLOG_TASK_ROW-->')
-        actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1))
         # --- extract only synopsis table from section 4.2 ---
         matrix_extract_match = re.search(r'<!--START_PHASE_SYNOPSIS_GRID-->(.*?)<!--END_PHASE_SYNOPSIS_GRID-->', chunk_1, re.DOTALL)
         clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1
+        detected_sub_tasks = 0
         for phase_idx in range(1, num_phases + 1):
             logger.info(f"             |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
             ctx_part2 = {
@@ -227,24 +230,11 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 "target_segment": "PART_2_PHASE_LOOP",
                 "target_phase_index": phase_idx,
                 "total_tasks_registered": actual_registered_tasks,
+                # only using for latest phase for audit
+                "historic_sub_tasks_count": detected_sub_tasks if phase_idx == num_phases else 0,
                 # inject synopsis table context for phase generation refer
                 "master_backlog_context": clean_matrix_context
             }
-            
-            # --- calculate for audit at the latest loop phase ---
-            if phase_idx == num_phases:
-                logger.info(f"             |__ Final Phase Detected. Computing dynamic audit thresholds inside the loop...")
-                
-                # 2. count the generated sub-tasks from previous phases (Phase 1 -> Latest Phase - 1)
-                previous_phases_text = "\n".join(accumulated_blueprint_chunks[1:])
-                sub_task_anchor_pattern = re.compile(r'<!--START_ATOMIC_SUB_TASK_NODE-->')
-                detected_historic_sub_tasks = len(sub_task_anchor_pattern.findall(previous_phases_text))
-                
-                # 3. inject tasks counter to prompt context
-                ctx_part2["historic_sub_tasks_count"] = detected_historic_sub_tasks
-            else:
-                # not audit, so not using these parameters
-                ctx_part2["historic_sub_tasks_count"] = 0
             
             # build conversation
             sys_prompt_p2 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part2))
@@ -265,6 +255,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             # append conversation history for generating next phase
             accumulated_blueprint_chunks.append(phase_chunk)
 
+            # count the generated sub-tasks from previous phases (Phase 1 -> Latest Phase - 1)
+            sub_task_anchor_pattern = re.compile(r'<!--START_ATOMIC_SUB_TASK_NODE-->')
+            detected_sub_tasks += len(sub_task_anchor_pattern.findall(phase_chunk))
+
             # write chunk log
             chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
             write_file(
@@ -272,7 +266,8 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 file=chunk_log_file,
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(active_loop_messages), chunk_idx, phase_chunk)
             )
-            logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+            logger.info(f"              | ✅ [ SUCCESS ] Found {detected_sub_tasks} sub-task(s) from Phase {phase_idx}.")
+            logger.info(f"              |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
 
         # ==============================================================================
