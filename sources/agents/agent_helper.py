@@ -16,7 +16,12 @@ from datetime import datetime
 from pathlib import Path
 
 # to load prompt template
-from jinja2 import Template as JinjaTemplate
+from jinja2 import (
+    Template as JinjaTemplate,
+    Environment,
+    FileSystemLoader,
+    meta
+)
 
 # ==============================================================================
 # 🏢 ENTERPRISE INTER-PACKAGE ROUTING LAYER
@@ -281,9 +286,38 @@ def delete_log(out_dir=None):
         log_file = os.path.join(out_dir, "architecture-blueprint.md")
     delete_file(file=log_file)
 
+def jinja2_required_variables(template: str) -> set[str]:
+    if not os.path.exists(template):
+        return None
+    
+    # detect template directory
+    template_dir = Path(template)
+    template_file = None
+    if template_dir.suffix or os.path.isfile(template):
+        template_file = template_dir.name
+        template_dir = template_dir.parent
+    
+    # due to template is directory
+    else:
+        return None
+    env = Environment(loader=FileSystemLoader(template_dir))
+
+    # 1. parse template to get required variables
+    template_source = env.loader.get_source(env, template_file)[0]
+    parsed_content = env.parse(template_source)
+
+    # 2. get all variables in template
+    return meta.find_undeclared_variables(parsed_content)
+
 def render_prompt(template: str, context: dict) -> str:
     if not os.path.exists(template):
         return None
+    
+    # for tracing
+    required_variables = jinja2_required_variables(template=template)
+    missing_vars = required_variables - set(context.keys())
+    if missing_vars and len(missing_vars) > 0:
+        print(f"[WARING] - Render Template {template} maybe wrong, due to missing required variables: {missing_vars}")
     
     # read prompt template
     _, template_content = read_file_raw(template)
