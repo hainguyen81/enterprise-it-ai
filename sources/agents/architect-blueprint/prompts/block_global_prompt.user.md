@@ -356,12 +356,12 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   [AUTOMATED_SELF_AUDIT_REPORT]
   TOTAL_PHASES_DECLARED_IN_SECTION_4_2={{ num_phases }}
   TOTAL_PHASES_EXPECTED_BY_PARAMETERS={{ num_phases }}
-  PHASE_COUNT_COMPLIANCE_STATUS=Verified_{{ num_phases }}_out_of_{{ num_phases }}
+  PHASE_COUNT_COMPLIANCE_STATUS=Verified_{{ num_phases }}
   MAX_DAYS_PER_PHASE_LIMIT_PARAMETER={{ max_days_per_phase }}
   ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE={{ max_days_per_phase }}
   TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
   TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1={{ total_tasks_registered }}
-  TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5={{ historic_sub_tasks_count }}
+  TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=computed_sum_of_historic_count_{{ historic_sub_tasks_count }}_plus_current_phase_sub_tasks
   SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
   ```
 
