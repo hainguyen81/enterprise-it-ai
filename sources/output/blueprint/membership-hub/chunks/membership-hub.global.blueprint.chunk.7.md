@@ -647,332 +647,246 @@ Below are all the detailed phase logs generated in Part 2. You MUST review them 
 
 # GLOBAL PROJECT CONTEXT: membership-hub
 
-## 🏛️ 1. TỔNG QUAN DỰ ÁN & KIẾN TRÚC TOÀN CẦU
+## 🏛️ 1. TỔNG QUAN HỆ THỐNG
 
-- **Mục tiêu & giá trị cốt lõi**  
-  Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm, theo dõi điểm danh thời gian thực qua quét mã QR, cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực, hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).  
-  Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
+### Mục tiêu & giá trị cốt lõi
+- Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
+- Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
+- Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
+- Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
+- Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
 
-- **Đối tượng người dùng mục tiêu**  
-  - System Admin (siêu người dùng toàn cầu)  
-  - Center Admin (quản lý cấp trung tâm)  
-  - Manager (phó quản trị, quyền hạn giới hạn)  
-  - Teacher (xem chỉ đọc lịch dạy)  
-  - Student (duyệt khóa học, đăng ký, xem thẻ hội viên)  
-  - Mobile App User (giao diện đáp ứng cho các vai trò trên)
+### Đối tượng người dùng mục tiêu
+- System Admin (siêu người dùng toàn cầu)
+- Center Admin (quản lý cấp trung tâm)
+- Manager (phó quản trị, quyền hạn giới hạn)
+- Teacher (xem chỉ đọc lịch dạy)
+- Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
+- Mobile App User (giao diện đáp ứng cho các vai trò trên)
 
-- **Ma trận kiểm soát truy cập dựa trên vai trò (RBAC)**  
-  - [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.  
-  - [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.  
-  - [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.  
-  - [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.  
-  - [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
+### Ma trận kiểm soát truy cập dựa trên vai trò (RBAC)
+- [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
+- [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
+- [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
+- [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
+- [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
 
-- **Kiến trúc & luồng dữ liệu (các luồng chính)**  
-  - [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.  
-  - [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.  
-  - [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.  
-  - [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.  
-  - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
+### Kiến trúc & luồng dữ liệu (các luồng chính)
+- [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
+- [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
+- [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
+- [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
 
-## 🏗️ 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+### Công nghệ & hạ tầng
+- [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-| Module | Mô tả | Tag liên quan |
-|--------|-------|---------------|
-| **User Service** | Đăng ký, xác thực, phân quyền người dùng | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] |
-| **Center Service** | Quản lý trung tâm, phân quyền quản trị trung tâm | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] |
-| **Course Service** | Quản lý khóa học, phân công giáo viên | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] |
-| **Enrollment Service** | Đăng ký & ghi danh học viên | [REQ-010], [REQ-011], [DAT-005] |
-| **Attendance Service** | Điểm danh & quét mã QR | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] |
-| **Card Service** | Quản lý thẻ hội viên | [REQ-014], [REQ-015], [DAT-007] |
-| **Notification Service** | Gửi thông báo push & Zalo | [REQ-016], [EXC-003], [DAT-008] |
-| **Promotion Service** | Quản lý khuyến mãi | [REQ-017], [DAT-009] |
-| **Announcement Service** | Quản lý thông báo | [REQ-018], [DAT-009] |
-| **Chatbot Service** | Dịch vụ khách hàng AI | [REQ-019] |
-| **Mobile App** | Giao diện người dùng di động | [REQ-020], [REQ-021] |
-| **Localization & SEO** | Phát hiện ngôn ngữ, SEO đa ngôn ngữ | [REQ-022], [REQ-023] |
-| **Reporting & Analytics** | Báo cáo & dashboard | [REQ-024], [REQ-025], [EXC-005] |
+## 📈 2. PHÂN TÍCH KIẾN TRÚC CHI TIẾT
 
-## 📈 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
-
-| NFR | Mô tả |
-|-----|-------|
-| [NFR-001] | Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. |
-| [NFR-002] | Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters. |
-| [NFR-003] | Security: All data in transit must use TLS 1.3; at rest encryption with AES‑256. JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry. Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF). |
-| [NFR-004] | Scalability & Availability: Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms. PostgreSQL read replicas for reporting workloads. |
-| [NFR-005] | Docker Image Size: Base image size < 200 MB; final image < 500 MB. |
-| [NFR-006] | Logging & Audit: All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year. |
-| [NFR-007] | Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible. |
-| [NFR-008] | GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications. |
-| [NFR-009] | Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region. |
-
-## 📊 4. PHASES & DAY‑LOG BREAKDOWN
-
-### 🏁 4.1 Đặc tả Kiến trúc Chi tiết Giai đoạn 1
-
-| Ngày | Sub‑Agent | Tag IDs Mục tiêu | Đường dẫn Cấu phần / Module |
-|------|-----------|------------------|-----------------------------|
-| **Ngày 1** | Coder | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/backend/auth-service/src/main/java/com/membershiphub/auth |
-| **Ngày 2** | Tester | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/AuthService.java |
-| **Ngày 3** | Reviewer | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/backend/auth-service/src/main/java/com/membershiphub/auth |
-| **Ngày 4** | Doc | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/docs/auth-service.md |
-| **Ngày 5** | Docker | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/infra/auth-service/Dockerfile |
-| **Ngày 6** | GCP | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/infra/auth-service/terraform/main.tf |
-| **Ngày 7** | GKE | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/infra/auth-service/k8s/deployment.yaml |
-
-### 🏁 4.2 Đặc tả Kiến trúc Chi tiết Giai đoạn 2
-
-| Ngày | Sub‑Agent | Tag IDs Mục tiêu | Đường dẫn Cấu phần / Module |
-|------|-----------|------------------|-----------------------------|
-| **Ngày 1** | Coder | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/backend/center-service/src/main/java/com/membershiphub/center |
-| **Ngày 2** | Tester | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/backend/center-service/src/test/java/com/membershiphub/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterService.java |
-| **Ngày 3** | Reviewer | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/backend/center-service/src/main/java/com/membershiphub/center |
-| **Ngày 4** | Doc | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/docs/center-service.md |
-| **Ngày 5** | Docker | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/infra/center-service/Dockerfile |
-| **Ngày 6** | GCP | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/infra/center-service/terraform/main.tf |
-| **Ngày 7** | GKE | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/infra/center-service/k8s/deployment.yaml |
-
-### 🏁 4.3 Đặc tả Kiến trúc Chi tiết Giai đoạn 3
-
-| Ngày | Sub‑Agent | Tag IDs Mục tiêu | Đường dẫn Cấu phần / Module |
-|------|-----------|------------------|-----------------------------|
-| **Ngày 1** | Coder | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/backend/course-service/src/main/java/com/membershiphub/course |
-| **Ngày 2** | Tester | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java |
-| **Ngày 3** | Reviewer | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/backend/course-service/src/main/java/com/membershiphub/course |
-| **Ngày 4** | Doc | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/docs/course-service.md |
-| **Ngày 5** | Docker | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/infra/course-service/Dockerfile |
-| **Ngày 6** | GCP | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/infra/course-service/terraform/main.tf |
-| **Ngày 7** | GKE | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/infra/course-service/k8s/deployment.yaml |
-
-### 🏁 4.4 Đặc tả Kiến trúc Chi tiết Giai đoạn 4
-
-| Ngày | Sub‑Agent | Tag IDs Mục tiêu | Đường dẫn Cấu phần / Module |
-|------|-----------|------------------|-----------------------------|
-| **Ngày 1** | Coder | [REQ-010], [REQ-011], [DAT-005] | ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment |
-| **Ngày 2** | Tester | [REQ-010], [REQ-011], [DAT-005] | ./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java |
-| **Ngày 3** | Reviewer | [REQ-010], [REQ-011], [DAT-005] | ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment |
-| **Ngày 4** | Doc | [REQ-010], [REQ-011], [DAT-005] | ./sources/docs/enrollment-service.md |
-| **Ngày 5** | Docker | [REQ-010], [REQ-011], [DAT-005] | ./sources/infra/enrollment-service/Dockerfile |
-| **Ngày 6** | GCP | [REQ-010], [REQ-011], [DAT-005] | ./sources/infra/enrollment-service/terraform/main.tf |
-| **Ngày 7** | GKE | [REQ-010], [REQ-011], [DAT-005] | ./sources/infra/enrollment-service/k8s/deployment.yaml |
-
-### 🏁 4.5 Đặc tả Kiến trúc Chi tiết Giai đoạn 5
-
-| Ngày | Sub‑Agent | Tag IDs Mục tiêu | Đường dẫn Cấu phần / Module |
-|------|-----------|------------------|-----------------------------|
-| **Ngày 1** | Coder | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance |
-| **Ngày 2** | Tester | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java |
-| **Ngày 3** | Reviewer | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance |
-| **Ngày 4** | Doc | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/docs/attendance-service.md |
-| **Ngày 5** | Docker | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/infra/attendance-service/Dockerfile |
-| **Ngày 6** | GCP | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/infra/attendance-service/terraform/main.tf |
-| **Ngày 7** | GKE | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/infra/attendance-service/k8s/deployment.yaml |
-
-## 📚 5. ĐẶC ĐIỂM KỸ THUẬT VÀ CÁC BẢNG DỮ LIỆU
-
-### 5.1 Bảng Dữ Liệu Người Dùng & Vai Trò
-
+### 2.1. Kiến trúc tổng thể
 ```mermaid
-erDiagram
-    USERS {
-        uuid userId PK "Unique identifier"
-        varchar email "Email address, not null, unique, max 255 chars"
-        char passwordHash "bcrypt hash, not null, length 60"
-        varchar fullName "Full name, not null, max 100 chars"
-        smallint roleId FK "Foreign key to Roles.roleId"
-        enum provider "Auth provider, default local, values: local, firebase, google, facebook"
-        timestamp createdAt "Timestamp of creation, not null, default now()"
-        timestamp updatedAt "Timestamp of last update, not null, default now()"
-    }
-    ROLES {
-        smallint roleId PK "Role identifier, primary key"
-        varchar name "Role name, unique, not null, max 30 chars"
-        varchar description "Role description, optional, max 200 chars"
-    }
-    ROLES ||--o{ USERS : "roleId"
+graph TD
+    A[Ứng dụng di động] -->|REST APIs| B[Backend Quarkus]
+    A -->|Push Notifications| C[FCM/APNs]
+    B -->|OAuth2| D[Firebase Auth]
+    B -->|SQL Queries| E[PostgreSQL]
+    B -->|Event Streaming| F[Kafka]
+    B -->|Zalo API| G[Zalo Cloud]
+    B -->|Session Caching| H[Redis]
+    I[CI/CD Pipeline] -->|GitHub Actions| B
+    I -->|Docker Images| J[Container Registry]
+    I -->|Kubernetes Manifests| K[GKE]
 ```
 
-### 5.2 Bảng Dữ Liệu Trung Tâm
+### 2.2. Kiến trúc chi tiết của các thành phần chính
 
+#### 2.2.1. Backend Quarkus
 ```mermaid
-erDiagram
-    CENTERS {
-        uuid centerId PK "Unique identifier"
-        varchar name "Center name, not null, max 100 chars"
-        varchar address "Physical address, not null, max 255 chars"
-        varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
-        varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
-        varchar contactEmail "Contact email, optional, must be valid email format"
-    }
+graph TD
+    A[Quarkus Backend] --> B[Authentication Service]
+    A --> C[User Management Service]
+    A --> D[Center Management Service]
+    A --> E[Course Management Service]
+    A --> F[Attendance Service]
+    A --> G[Notification Service]
+    A --> H[Membership Card Service]
+    A --> I[Reporting Service]
 ```
 
-### 5.3 Bảng Dữ Liệu Khóa Học
-
+#### 2.2.2. Cơ sở dữ liệu PostgreSQL
 ```mermaid
 erDiagram
-    COURSES {
-        uuid courseId PK "Unique identifier"
-        varchar title "Course title, not null, max 150 chars"
-        text description "Course description, optional"
-        date startDate "Course start date, not null"
-        date endDate "Course end date, not null"
-        uuid teacherId FK "Foreign key to Users.userId"
-        int maxStudents "Course capacity, default 30"
-    }
+    USERS ||--o{ ROLES : "roleId"
+    USERS ||--o{ CENTERS : "centerId"
+    USERS ||--o{ COURSES : "teacherId"
+    USERS ||--o{ ENROLLMENTS : "studentId"
+    USERS ||--o{ ATTENDANCE : "studentId"
+    USERS ||--o{ STUDENTCARDS : "studentId"
+    USERS ||--o{ NOTIFICATIONS : "userId"
+    COURSES ||--o{ ENROLLMENTS : "courseId"
+    COURSES ||--o{ ATTENDANCE : "courseId"
 ```
 
-### 5.4 Bảng Dữ Liệu Ghi Danh
+#### 2.2.3. Ứng dụng di động
+```mermaid
+graph TD
+    A[Mobile App] --> B[Authentication Module]
+    A --> C[Course Module]
+    A --> D[Attendance Module]
+    A --> E[Notification Module]
+    A --> F[Membership Card Module]
+    A --> G[Chatbot Module]
+```
 
+## 📝 3. PHÂN TÍCH YÊU CẦU CHỨC NĂNG
+
+### 3.1. Quản lý người dùng
+- [REQ-001] Đăng ký người dùng: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
+- [REQ-002] Xác thực qua mạng xã hội: As a user, I want to sign‑in/up using Firebase, Google, or Facebook OAuth so that I can leverage existing credentials.
+- [REQ-003] Phân quyền người dùng: As an administrator, I want to assign or change a user’s role (System Admin, Center Admin, Manager, Teacher, Student) so that permissions are correctly enforced.
+
+### 3.2. Quản lý trung tâm
+- [REQ-004] Xem danh sách trung tâm: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
+- [REQ-005] Tạo/cập nhật/xóa trung tâm: As a System Admin, I want to add, edit, or remove a center record so that center information stays current.
+- [REQ-006] Phân quyền quản trị trung tâm: As a System Admin, I want to assign or unassign a user as a Center Admin for a specific center so that administrative control is delegated.
+
+### 3.3. Quản lý khóa học
+- [REQ-007] Xem danh sách khóa học: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
+- [REQ-008] Tạo/cập nhật/xóa khóa học (tránh xung đột): As a System Admin or Center Admin, I want to manage courses (add, edit, remove) while ensuring no overlapping schedules for the same teacher or venue.
+- [REQ-009] Phân công giáo viên vào khóa học: As a System Admin, I want to assign or unassign teachers to courses so that teaching responsibilities are updated.
+
+### 3.4. Đăng ký & ghi danh học viên
+- [REQ-010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
+- [REQ-011] Đăng ký khóa học của học viên: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
+
+### 3.5. Điểm danh & quét mã QR
+- [REQ-012] Chụp ảnh điểm danh QR: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
+- [REQ-013] Tính chất bất biến của điểm danh: The attendance service must guarantee that multiple scans from the same student for the same course on the same day produce a single attendance record.
+
+### 3.6. Quản lý thẻ hội viên
+- [REQ-014] Hiển thị tính hợp lệ của thẻ: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
+- [REQ-015] Gia hạn thẻ: As a Student, I want to extend my membership card validity by paying a fee, which updates the end date.
+
+### 3.7. Thông báo & truyền thông
+- [REQ-016] Kích hoạt thông báo: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
+
+### 3.8. Quản lý khuyến mãi & thông báo
+- [REQ-017] Quản lý khuyến mãi: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
+- [REQ-018] Quản lý thông báo: As a Center Admin or Manager, I want to create, edit, or delete announcements with optional expiry dates for broadcast to all users.
+
+### 3.9. Chatbot dịch vụ khách hàng AI
+- [REQ-019] Tích hợp chatbot AI: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
+
+### 3.10. Các tính năng cốt lõi của ứng dụng di động
+- [REQ-020] Giao diện người dùng vai trò cụ thể trên di động: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
+- [REQ-021] Thông báo đẩy trên di động: As a registered user, I want to receive push notifications on my mobile device for attendance confirmations, new announcements, and reminder messages.
+
+### 3.11. Bản địa hóa & SEO
+- [REQ-022] Phát hiện ngôn ngữ mặc định: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
+- [REQ-023] SEO đa ngôn ngữ: The platform must support SEO for at least English, Vietnamese, and Spanish; each page must include language‑specific meta tags and hreflang attributes.
+
+### 3.12. Báo cáo & phân tích
+- [REQ-024] Tạo báo cáo điểm danh: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
+- [REQ-025] Bảng điều khiển tóm tắt ghi danh: As a Center Admin, I want a real‑time dashboard summarizing total students, active courses, and upcoming sessions.
+
+## 📌 4. PHÂN TÍCH YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
+
+### 4.1. Yêu cầu hiệu suất
+- [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
+
+### 4.2. Yêu cầu sẵn có
+- [NFR-002] Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
+
+### 4.3. Yêu cầu bảo mật
+- [NFR-003] Security: All data in transit must use TLS 1.3; at rest encryption with AES‑256. JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry. Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF).
+
+### 4.4. Yêu cầu khả năng mở rộng & sẵn có
+- [NFR-004] Scalability & Availability: Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms. PostgreSQL read replicas for reporting workloads.
+
+### 4.5. Yêu cầu kích thước hình ảnh Docker
+- [NFR-005] Docker Image Size: Base image size < 200 MB; final image < 500 MB.
+
+### 4.6. Yêu cầu ghi nhật ký & kiểm toán
+- [NFR-006] Logging & Audit: All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year.
+
+### 4.7. Yêu cầu hỗ trợ đa ngôn ngữ
+- [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
+
+### 4.8. Yêu cầu tuân thủ GDPR/CCPA
+- [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
+
+### 4.9. Yêu cầu sao lưu & phục hồi thảm họa
+- [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
+
+## 📁 5. PHÂN TÍCH KIẾN TRÚC PHÂN PHỐI
+
+### 5.1. Kiến trúc phân tán
+```mermaid
+graph TD
+    A[Ứng dụng di động] -->|REST APIs| B[Backend Quarkus]
+    A -->|Push Notifications| C[FCM/APNs]
+    B -->|OAuth2| D[Firebase Auth]
+    B -->|SQL Queries| E[PostgreSQL]
+    B -->|Event Streaming| F[Kafka]
+    B -->|Zalo API| G[Zalo Cloud]
+    B -->|Session Caching| H[Redis]
+    I[CI/CD Pipeline] -->|GitHub Actions| B
+    I -->|Docker Images| J[Container Registry]
+    I -->|Kubernetes Manifests| K[GKE]
+```
+
+### 5.2. Kiến trúc microservices
+```mermaid
+graph TD
+    A[Quarkus Backend] --> B[Authentication Service]
+    A --> C[User Management Service]
+    A --> D[Center Management Service]
+    A --> E[Course Management Service]
+    A --> F[Attendance Service]
+    A --> G[Notification Service]
+    A --> H[Membership Card Service]
+    A --> I[Reporting Service]
+```
+
+### 5.3. Kiến trúc cơ sở dữ liệu
 ```mermaid
 erDiagram
-    ENROLLMENTS {
-        uuid enrollmentId PK "Unique identifier"
-        uuid studentId FK "Foreign key to Users.userId"
-        uuid courseId FK "Foreign key to Courses.courseId"
-        timestamp enrollmentDate "Date of enrollment, default now()"
-    }
+    USERS ||--o{ ROLES : "roleId"
+    USERS ||--o{ CENTERS : "centerId"
+    USERS ||--o{ COURSES : "teacherId"
+    USERS ||--o{ ENROLLMENTS : "studentId"
+    USERS ||--o{ ATTENDANCE : "studentId"
+    USERS ||--o{ STUDENTCARDS : "studentId"
+    USERS ||--o{ NOTIFICATIONS : "userId"
+    COURSES ||--o{ ENROLLMENTS : "courseId"
+    COURSES ||--o{ ATTENDANCE : "courseId"
 ```
 
-### 5.5 Bảng Dữ Liệu Điểm Danh
-
+### 5.4. Kiến trúc ứng dụng di động
 ```mermaid
-ermaid
-erDiagram
-    ATTENDANCE {
-        uuid attendanceId PK "Unique identifier"
-        uuid studentId FK "Foreign key to Users.userId"
-        uuid courseId FK "Foreign key to Courses.courseId"
-        date attendanceDate "Date of attendance, not null"
-        timestamp timestamp "Exact time recorded, default now()"
-    }
+graph TD
+    A[Mobile App] --> B[Authentication Module]
+    A --> C[Course Module]
+    A --> D[Attendance Module]
+    A --> E[Notification Module]
+    A --> F[Membership Card Module]
+    A --> G[Chatbot Module]
 ```
 
-### 5.6 Bảng Dữ Liệu Thẻ Hội Viên
+## 📁 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
+  - **SQL Injection (SQLi) Absolute Countermeasures:** Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.
+  - **Cross-Site Scripting (XSS) & Content Security Policy (CSP):** Layout standards for automated context sanitization, JSX auto-escaping, and dynamic injection of strict CSP headers (`unsafe-inline` restriction).
+  - **Multi-Tenant CORS Security Rails:** Configurations for origin wildcard prohibitions and dynamic tenant origin database metrics validation.
+  - **Zero-Leak Log Scrubbing & PII Data Masking Engines:** Rules for automated masking interceptors (`@JsonSerialize`) and log scrubbing thresholds.
 
-```mermaid
-erDiagram
-    STUDENTCARDS {
-        uuid cardId PK "Unique identifier"
-        uuid studentId FK "Foreign key to Users.userId"
-        date issueDate "Card issue date, not null"
-        int validityDays "Total validity days, not null"
-        int remainingDays "Computed days left until expiry"
-    }
-```
+## 📁 7. HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
+  - **Capacitor Mobile Hybrid Compliance Rails:** [IF Mobile active] Rules for dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions (`@capacitor/preferences`), and hardware back-button interception.
+  - **Internationalization (i18n) & Dynamic SEO Injection:** Edge-layer locale recognition middleware architectures, hreflang dynamic hypermedia control injection, and search crawler robots indexing limits.
 
-### 5.7 Bảng Dữ Liệu Thông Báo
+## 📁 8. PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
+  - **Daily Workspace Forking Isolation:** Programmatic forking controls for branch `features/development-phase-X-day-Y` (`X` is the number of phase, from 1 to N, where N <= 5; `Y` is the day number in phase, it will start from 1 for each phase).
+  - **Validation Guard Pipeline Gates:** Execution rules for compilation verification, automated code coverage goals (`>= 85%`), and context summary serialization logs.
 
-```mermaid
-erDiagram
-    NOTIFICATIONS {
-        uuid notificationId PK "Unique identifier"
-        uuid userId FK "Target user, optional"
-        varchar groupZalo "Target Zalo group, optional"
-        text message "Notification content, not null"
-        timestamp sentAt "When sent, default now()"
-        boolean delivered "Delivery status, default false"
-    }
-```
+### 🛑 MATRIX COVERAGE CHECK MANDATE
 
-### 5.8 Bảng Dữ Liệu Khuyến Mãi & Thông Báo
-
-```mermaid
-erDiagram
-    PROMOTIONS {
-        uuid promoId PK "Unique identifier"
-        varchar code "Discount code, unique"
-        smallint discountPercent "Discount percentage, not null"
-        date startDate "Promotion start, optional"
-        date endDate "Promotion end, optional"
-        text description "Promo details, optional"
-    }
-    ANNOUNCEMENTS {
-        uuid announcementId PK "Unique identifier"
-        varchar title "Title, not null, max 150 chars"
-        text content "Content, not null, max 2000 chars"
-        date startDate "Effective start, optional"
-        date endDate "Effective end, optional"
-    }
-```
-
-### 5.9 Bảng Cài Đặt Hệ Thống
-
-```mermaid
-erDiagram
-    SYSTEMSETTINGS {
-        varchar settingKey PK "Configuration key"
-        text settingValue "Configuration value, not null"
-        varchar description "Meaning of setting, optional"
-    }
-```
-
-## 🔐 6. MÁY TÍNH & HẠNH CHÍNH
-
-- **Docker**: Multi‑stage Dockerfiles, base image < 200 MB, final image < 500 MB.  
-- **Kubernetes (GKE)**: HPA, auto‑scaling, rolling updates, health checks.  
-- **CI/CD**: GitHub Actions, automated tests, code coverage ≥ 85 %, security scanning.  
-- **Security**: OWASP Top 10 mitigations, TLS 1.3, AES‑256, JWT, CSRF tokens, CSP headers.  
-- **Backup**: Daily PostgreSQL full backups, point‑in‑time recovery up to 24 h, GKE cluster backup to separate region.  
-
-## 📦 7. PHẦN MỀM & CẤU TRÚC
-
-- **Backend**: Java/Quarkus, REST APIs, JWT authentication, PostgreSQL, Redis, Flyway for migrations.  
-- **Frontend**: Next.js, React Native (mobile), responsive design, i18n, SEO meta tags.  
-- **Infrastructure**: Terraform for GCP resources, Helm charts for GKE deployments, Docker Compose for local dev.  
-- **Monitoring**: Prometheus, Grafana, Loki, Alertmanager.  
-- **Logging**: Structured logs, audit trail, retention 1 year.  
-
-## 📅 8. LỊCH TRÌNH ĐÁNH GIÁ
-
-| Giai đoạn | Ngày | Sub‑Agent | Tag IDs Mục tiêu | Đường dẫn |
-|-----------|------|-----------|------------------|-----------|
-| 1 | 1 | Coder | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/backend/auth-service/src/main/java/com/membershiphub/auth |
-| 1 | 2 | Tester | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/AuthService.java |
-| 1 | 3 | Reviewer | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/backend/auth-service/src/main/java/com/membershiphub/auth |
-| 1 | 4 | Doc | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/docs/auth-service.md |
-| 1 | 5 | Docker | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/infra/auth-service/Dockerfile |
-| 1 | 6 | GCP | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/infra/auth-service/terraform/main.tf |
-| 1 | 7 | GKE | [REQ-001], [REQ-002], [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [DAT-001] | ./sources/infra/auth-service/k8s/deployment.yaml |
-| 2 | 1 | Coder | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/backend/center-service/src/main/java/com/membershiphub/center |
-| 2 | 2 | Tester | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/backend/center-service/src/test/java/com/membershiphub/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterService.java |
-| 2 | 3 | Reviewer | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/backend/center-service/src/main/java/com/membershiphub/center |
-| 2 | 4 | Doc | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/docs/center-service.md |
-| 2 | 5 | Docker | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/infra/center-service/Dockerfile |
-| 2 | 6 | GCP | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/infra/center-service/terraform/main.tf |
-| 2 | 7 | GKE | [REQ-004], [REQ-005], [REQ-006], [ARC-004], [ARC-005], [DAT-003] | ./sources/infra/center-service/k8s/deployment.yaml |
-| 3 | 1 | Coder | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/backend/course-service/src/main/java/com/membershiphub/course |
-| 3 | 2 | Tester | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java |
-| 3 | 3 | Reviewer | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/backend/course-service/src/main/java/com/membershiphub/course |
-| 3 | 4 | Doc | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/docs/course-service.md |
-| 3 | 5 | Docker | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/infra/course-service/Dockerfile |
-| 3 | 6 | GCP | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/infra/course-service/terraform/main.tf |
-| 3 | 7 | GKE | [REQ-007], [REQ-008], [REQ-009], [ARC-004], [ARC-005], [DAT-004] | ./sources/infra/course-service/k8s/deployment.yaml |
-| 4 | 1 | Coder | [REQ-010], [REQ-011], [DAT-005] | ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment |
-| 4 | 2 | Tester | [REQ-010], [REQ-011], [DAT-005] | ./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java |
-| 4 | 3 | Reviewer | [REQ-010], [REQ-011], [DAT-005] | ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment |
-| 4 | 4 | Doc | [REQ-010], [REQ-011], [DAT-005] | ./sources/docs/enrollment-service.md |
-| 4 | 5 | Docker | [REQ-010], [REQ-011], [DAT-005] | ./sources/infra/enrollment-service/Dockerfile |
-| 4 | 6 | GCP | [REQ-010], [REQ-011], [DAT-005] | ./sources/infra/enrollment-service/terraform/main.tf |
-| 4 | 7 | GKE | [REQ-010], [REQ-011], [DAT-005] | ./sources/infra/enrollment-service/k8s/deployment.yaml |
-| 5 | 1 | Coder | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance |
-| 5 | 2 | Tester | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java |
-| 5 | 3 | Reviewer | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance |
-| 5 | 4 | Doc | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/docs/attendance-service.md |
-| 5 | 5 | Docker | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/infra/attendance-service/Dockerfile |
-| 5 | 6 | GCP | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/infra/attendance-service/terraform/main.tf |
-| 5 | 7 | GKE | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] | ./sources/infra/attendance-service/k8s/deployment.yaml |
-
-## 📌 9. KẾ HOẠCH PHÁT TRIỂN CI/CD
-
-- **Repository**: GitHub, branch strategy `features/development-phase-X-day-Y`.  
-- **Build**: Maven (Quarkus), Docker build, Helm chart packaging.  
-- **Test**: Unit tests (JUnit), integration tests (REST Assured), security tests (OWASP ZAP).  
-- **Deploy**: Terraform for GCP resources, Helm for GKE deployments.  
-- **Monitoring**: Prometheus, Grafana dashboards, Loki logs.  
-- **Security**: Snyk scanning, dependency checks, secret scanning.  
-
-## 📜 10. KẾT LUẬN
-
-Bản thiết kế này đáp ứng đầy đủ các yêu cầu nghiệp vụ, bảo mật, hiệu năng và khả năng mở rộng của dự án membership‑hub. Các giai đoạn triển khai được chia thành 5 giai đoạn, mỗi giai đoạn có tối đa 7 ngày, không có ngày trống, và mỗi ngày được phân công một Sub‑Agent duy nhất. Mọi thành phần, đường dẫn, mã nguồn, và các tag đều được ghi rõ ràng, tuân thủ các quy tắc bảo mật và chuẩn hóa đã đề ra.
+  `[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`
 

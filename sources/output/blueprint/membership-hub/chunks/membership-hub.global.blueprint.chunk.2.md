@@ -722,9 +722,9 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 
 ---
 
-# BẢNG CỔNG DỰ ÁN: membership-hub
+# GLOBAL PROJECT CONTEXT: membership-hub
 
-## 1. TỔNG QUAN DỰ ÁN & KIẾN TRÚC TOÀN CẦU
+## 🏛️ 1. TỔNG QUAN HỆ THỐNG
 
 ### Mục tiêu & giá trị cốt lõi
 - Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
@@ -806,7 +806,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           varchar description "Role description, optional, max 200 chars"
       }
   ```
-
 ### 2.2 Quản lý trung tâm
 
 #### Yêu cầu chức năng cốt lõi
@@ -837,7 +836,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
-
 ### 2.3 Quản lý khóa học
 
 #### Yêu cầu chức năng cốt lõi
@@ -869,7 +867,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           int maxStudents "Course capacity, default 30"
       }
   ```
-
 ### 2.4 Đăng ký & ghi danh học viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -896,7 +893,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
-
 ### 2.5 Điểm danh & quét mã QR
 
 #### Yêu cầu chức năng cốt lõi
@@ -925,7 +921,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           timestamp timestamp "Exact time recorded, default now()"
       }
   ```
-
 ### 2.6 Quản lý thẻ hội viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -953,7 +948,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           int remainingDays "Computed days left until expiry"
       }
   ```
-
 ### 2.7 Thông báo & truyền thông
 
 #### Yêu cầu chức năng cốt lõi
@@ -980,7 +974,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           boolean delivered "Delivery status, default false"
       }
   ```
-
 ### 2.8 Quản lý khuyến mãi & thông báo
 
 #### Yêu cầu chức năng cốt lõi
@@ -1020,7 +1013,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           date endDate "Effective end, optional"
       }
   ```
-
 ### 2.9 Chatbot dịch vụ khách hàng AI
 
 #### Yêu cầu chức năng cốt lõi
@@ -1059,7 +1051,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 
 #### Tiêu chí chấp nhận & tương tác
 - Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
-- Given a page is requested with a specific locale, When the page renders, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
+- Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
 
 #### Luồng ngoại lệ của mô-đun
 - (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
@@ -1076,6 +1068,21 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           varchar description "Meaning of setting, optional"
       }
   ```
+### 2.12 Báo cáo & phân tích
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-024] Tạo báo cáo điểm danh: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
+- [REQ-025] Bảng điều khiển tóm tắt ghi danh: As a Center Admin, I want a real‑time dashboard summarizing total students, active courses, and upcoming sessions.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin selects a center and date range, When the report is requested, Then a CSV file is produced with columns: StudentName, CourseName, AttendanceDate, Status. `[REQ-024]`
+- Given an admin opens the dashboard, When the data refreshes, Then cards display totalStudents, activeCourses, upcomingSessions (next 7 days). `[REQ-025]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-005] System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
 
 ## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
 
@@ -1088,4 +1095,734 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
+
+## 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHÂN TÁN
+
+### 4.1 KIẾN TRÚC TOÀN CẦU
+
+#### Kiến trúc hệ thống
+- **Backend:** Microservices architecture sử dụng Java/Quarkus.
+- **Frontend:** Ứng dụng web sử dụng Next.js và ứng dụng di động sử dụng React Native.
+- **Database:** PostgreSQL với schema phân tán.
+- **Caching:** Redis cho session caching.
+- **Message Broker:** Apache Kafka cho xử lý thông báo bất đồng bộ.
+- **Containerization:** Docker với Kubernetes (GKE) cho orchestration.
+- **CI/CD:** GitHub Actions cho pipeline tự động hóa.
+
+#### Kiến trúc dữ liệu
+- **Database Schema:** PostgreSQL với các bảng được chuẩn bị sẵn cho các tính năng chính.
+- **Data Flow:** Dữ liệu được lưu trữ và truy xuất thông qua các API RESTful và sự kiện Kafka.
+
+#### Kiến trúc giao diện người dùng
+- **Web UI:** Next.js với các thành phần React.
+- **Mobile UI:** React Native với các thành phần tái sử dụng.
+- **Responsive Design:** Đảm bảo tương thích trên các thiết bị di động và máy tính để bàn.
+
+### 4.2 MA TRẬN TÓM TẮT PHÂN PHỐI PHÂN TÁN
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|------------------------|---------------------------|-----------|------------------|
+| Giai đoạn 1 | Ngày 1-2 | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth. | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-001], [REQ-002], [ARC-006] |
+| Giai đoạn 2 | Ngày 1-3 | ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý khóa học với các tính năng CRUD và phân công giáo viên. | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| Giai đoạn 3 | Ngày 1-2 | ./sources/backend/attendance-service/ | Xây dựng dịch vụ điểm danh với tính năng quét QR và xử lý bất biến. | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
+| Giai đoạn 4 | Ngày 1-3 | ./sources/frontend/ | Xây dựng giao diện người dùng cho web và di động với các tính năng quản lý người dùng, khóa học, điểm danh. | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-003], [REQ-004], [REQ-005], [REQ-010], [REQ-011], [REQ-020], [REQ-021] |
+| Giai đoạn 5 | Ngày 1-2 | ./sources/infra/ | Triển khai hạ tầng với Docker, Kubernetes (GKE), và các dịch vụ cloud. | Docker, GCP, GKE | [NFR-002], [NFR-004], [NFR-005], [NFR-009] |
+
+## 5. GRANULAR PHASE SPECIALIZATIONS & DAY-BY-DAY DELIVERABLES
+
+### 📈 Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/auth-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** ```sql
+CREATE TABLE users (
+    userId UUID PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    passwordHash CHAR(60) NOT NULL,
+    fullName VARCHAR(100) NOT NULL,
+    roleId SMALLINT NOT NULL,
+    provider VARCHAR(10) NOT NULL DEFAULT 'local' CHECK (provider IN ('local', 'firebase', 'google', 'facebook')),
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (roleId) REFERENCES roles(roleId)
+);
+
+CREATE TABLE roles (
+    roleId SMALLINT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL UNIQUE,
+    description VARCHAR(200)
+);
+
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_roleId ON users(roleId);
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Giai đoạn 1)
+
+  <!--START_DAY_LOG_INDEX_1-->
+
+  - **DAY 1:** Xây dựng dịch vụ xác thực cơ bản với email/mật khẩu
+    
+    ##### SUB-TASK 1: Thiết kế schema cơ sở dữ liệu cho người dùng và vai trò
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [DAT-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế schema cơ sở dữ liệu cho bảng người dùng và vai trò với các trường và ràng buộc như đã chỉ định trong đặc tả DDL SQL. [DAT-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho dịch vụ xác thực cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho dịch vụ xác thực cơ bản với email/mật khẩu, bao gồm các endpoint API và logic xác thực. [REQ-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho dịch vụ xác thực cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/src/test/java/com/example/auth/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/AuthService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho dịch vụ xác thực cơ bản, bao gồm các trường hợp thành công và thất bại. [REQ-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho dịch vụ xác thực cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho dịch vụ xác thực cơ bản, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa dịch vụ xác thực cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết Dockerfile cho dịch vụ xác thực cơ bản và xây dựng hình ảnh Docker. [REQ-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai dịch vụ xác thực cơ bản lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/auth-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho dịch vụ xác thực cơ bản và triển khai lên GKE. [REQ-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+  <!--START_DAY_LOG_INDEX_2-->
+
+  - **DAY 2:** Thêm tính năng xác thực qua mạng xã hội
+    
+    ##### SUB-TASK 1: Thiết kế schema cơ sở dữ liệu cho xác thực qua mạng xã hội
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [DAT-001]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế schema cơ sở dữ liệu cho xác thực qua mạng xã hội, bao gồm các trường và ràng buộc bổ sung. [DAT-001]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho xác thực qua mạng xã hội
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-002]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho xác thực qua mạng xã hội, bao gồm các endpoint API và logic xác thực. [REQ-002]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho xác thực qua mạng xã hội
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-002]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/src/test/java/com/example/auth/SocialAuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/SocialAuthService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho xác thực qua mạng xã hội, bao gồm các trường hợp thành công và thất bại. [REQ-002]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho xác thực qua mạng xã hội
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-002]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho xác thực qua mạng xã hội, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-002]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa dịch vụ xác thực qua mạng xã hội
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-002]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật Dockerfile cho dịch vụ xác thực qua mạng xã hội và xây dựng hình ảnh Docker. [REQ-002]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai dịch vụ xác thực qua mạng xã hội lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-002]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/auth-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực qua mạng xã hội và triển khai lên GKE. [REQ-002]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_2-->
+
+### 📈 Giai đoạn 2 - Xây Dựng Dịch Vụ Quản Lý Khóa Học
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ quản lý khóa học với các tính năng CRUD và phân công giáo viên.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/course-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** ```sql
+CREATE TABLE courses (
+    courseId UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    teacherId UUID,
+    maxStudents INT NOT NULL DEFAULT 30,
+    FOREIGN KEY (teacherId) REFERENCES users(userId)
+);
+
+CREATE INDEX idx_courses_teacherId ON courses(teacherId);
+CREATE INDEX idx_courses_startDate ON courses(startDate);
+CREATE INDEX idx_courses_endDate ON courses(endDate);
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Giai đoạn 2)
+
+  <!--START_DAY_LOG_INDEX_1-->
+
+  - **DAY 1:** Thiết kế schema cơ sở dữ liệu cho khóa học
+    
+    ##### SUB-TASK 1: Thiết kế schema cơ sở dữ liệu cho khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [DAT-004]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế schema cơ sở dữ liệu cho bảng khóa học với các trường và ràng buộc như đã chỉ định trong đặc tả DDL SQL. [DAT-004]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho dịch vụ quản lý khóa học cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-007]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho dịch vụ quản lý khóa học cơ bản, bao gồm các endpoint API và logic quản lý khóa học. [REQ-007]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho dịch vụ quản lý khóa học cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-007]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/src/test/java/com/example/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/CourseService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho dịch vụ quản lý khóa học cơ bản, bao gồm các trường hợp thành công và thất bại. [REQ-007]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho dịch vụ quản lý khóa học cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-007]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho dịch vụ quản lý khóa học cơ bản, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-007]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa dịch vụ quản lý khóa học cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-007]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết Dockerfile cho dịch vụ quản lý khóa học cơ bản và xây dựng hình ảnh Docker. [REQ-007]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai dịch vụ quản lý khóa học cơ bản lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-007]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/course-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho dịch vụ quản lý khóa học cơ bản và triển khai lên GKE. [REQ-007]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+  <!--START_DAY_LOG_INDEX_2-->
+
+  - **DAY 2:** Thêm tính năng tạo/cập nhật/xóa khóa học
+    
+    ##### SUB-TASK 1: Viết mã nguồn cho tính năng tạo/cập nhật/xóa khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-008]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho tính năng tạo/cập nhật/xóa khóa học, bao gồm các endpoint API và logic quản lý khóa học. [REQ-008]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết test cho tính năng tạo/cập nhật/xóa khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-008]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/src/test/java/com/example/course/CourseCRUDServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/CourseCRUDService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho tính năng tạo/cập nhật/xóa khóa học, bao gồm các trường hợp thành công và thất bại. [REQ-008]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Review mã nguồn cho tính năng tạo/cập nhật/xóa khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-008]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho tính năng tạo/cập nhật/xóa khóa học, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-008]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Container hóa dịch vụ quản lý khóa học với tính năng tạo/cập nhật/xóa khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-008]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật Dockerfile cho dịch vụ quản lý khóa học với tính năng tạo/cập nhật/xóa khóa học và xây dựng hình ảnh Docker. [REQ-008]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Triển khai dịch vụ quản lý khóa học với tính năng tạo/cập nhật/xóa khóa học lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-008]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/course-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tệp triển khai Kubernetes cho dịch vụ quản lý khóa học với tính năng tạo/cập nhật/xóa khóa học và triển khai lên GKE. [REQ-008]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_2-->
+
+  <!--START_DAY_LOG_INDEX_3-->
+
+  - **DAY 3:** Thêm tính năng phân công giáo viên vào khóa học
+    
+    ##### SUB-TASK 1: Viết mã nguồn cho tính năng phân công giáo viên vào khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho tính năng phân công giáo viên vào khóa học, bao gồm các endpoint API và logic quản lý khóa học. [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết test cho tính năng phân công giáo viên vào khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/src/test/java/com/example/course/TeacherAssignmentServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/TeacherAssignmentService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho tính năng phân công giáo viên vào khóa học, bao gồm các trường hợp thành công và thất bại. [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Review mã nguồn cho tính năng phân công giáo viên vào khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho tính năng phân công giáo viên vào khóa học, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Container hóa dịch vụ quản lý khóa học với tính năng phân công giáo viên vào khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/course-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật Dockerfile cho dịch vụ quản lý khóa học với tính năng phân công giáo viên vào khóa học và xây dựng hình ảnh Docker. [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Triển khai dịch vụ quản lý khóa học với tính năng phân công giáo viên vào khóa học lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/course-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tệp triển khai Kubernetes cho dịch vụ quản lý khóa học với tính năng phân công giáo viên vào khóa học và triển khai lên GKE. [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_3-->
+
+### 📈 Giai đoạn 3 - Xây Dựng Dịch Vụ Điểm Danh Và Quét QR
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ điểm danh với tính năng quét QR và xử lý bất biến.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/attendance-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-006]:** ```sql
+CREATE TABLE attendance (
+    attendanceId UUID PRIMARY KEY,
+    studentId UUID NOT NULL,
+    courseId UUID NOT NULL,
+    attendanceDate DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (studentId) REFERENCES users(userId),
+    FOREIGN KEY (courseId) REFERENCES courses(courseId),
+    UNIQUE (studentId, courseId, attendanceDate)
+);
+
+CREATE INDEX idx_attendance_studentId ON attendance(studentId);
+CREATE INDEX idx_attendance_courseId ON attendance(courseId);
+CREATE INDEX idx_attendance_attendanceDate ON attendance(attendanceDate);
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Giai đoạn 3)
+
+  <!--START_DAY_LOG_INDEX_1-->
+
+  - **DAY 1:** Thiết kế schema cơ sở dữ liệu cho điểm danh
+    
+    ##### SUB-TASK 1: Thiết kế schema cơ sở dữ liệu cho điểm danh
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [DAT-006]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế schema cơ sở dữ liệu cho bảng điểm danh với các trường và ràng buộc như đã chỉ định trong đặc tả DDL SQL. [DAT-006]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho dịch vụ điểm danh cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-012]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho dịch vụ điểm danh cơ bản, bao gồm các endpoint API và logic điểm danh. [REQ-012]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho dịch vụ điểm danh cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-012]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/src/test/java/com/example/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/AttendanceService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho dịch vụ điểm danh cơ bản, bao gồm các trường hợp thành công và thất bại. [REQ-012]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho dịch vụ điểm danh cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-012]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho dịch vụ điểm danh cơ bản, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-012]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa dịch vụ điểm danh cơ bản
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-012]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết Dockerfile cho dịch vụ điểm danh cơ bản và xây dựng hình ảnh Docker. [REQ-012]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai dịch vụ điểm danh cơ bản lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-012]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/attendance-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho dịch vụ điểm danh cơ bản và triển khai lên GKE. [REQ-012]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+  <!--START_DAY_LOG_INDEX_2-->
+
+  - **DAY 2:** Thêm tính năng xử lý bất biến cho điểm danh
+    
+    ##### SUB-TASK 1: Viết mã nguồn cho tính năng xử lý bất biến cho điểm danh
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho tính năng xử lý bất biến cho điểm danh, bao gồm các endpoint API và logic điểm danh. [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết test cho tính năng xử lý bất biến cho điểm danh
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/src/test/java/com/example/attendance/IdempotentAttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/IdempotentAttendanceService.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho tính năng xử lý bất biến cho điểm danh, bao gồm các trường hợp thành công và thất bại. [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Review mã nguồn cho tính năng xử lý bất biến cho điểm danh
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho tính năng xử lý bất biến cho điểm danh, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Container hóa dịch vụ điểm danh với tính năng xử lý bất biến
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/attendance-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật Dockerfile cho dịch vụ điểm danh với tính năng xử lý bất biến và xây dựng hình ảnh Docker. [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Triển khai dịch vụ điểm danh với tính năng xử lý bất biến lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/attendance-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tệp triển khai Kubernetes cho dịch vụ điểm danh với tính năng xử lý bất biến và triển khai lên GKE. [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_2-->
+
+### 📈 Giai đoạn 4 - Xây Dựng Giao Diện Người Dùng Cho Web Và Di Động
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng giao diện người dùng cho web và di động với các tính năng quản lý người dùng, khóa học, điểm danh.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/frontend/
+- **Hợp đồng Định tuyến API và Sự kiện:** ```json
+{
+  "auth": {
+    "register": "POST /api/auth/register",
+    "login": "POST /api/auth/login",
+    "socialLogin": "POST /api/auth/social-login"
+  },
+  "courses": {
+    "list": "GET /api/courses",
+    "create": "POST /api/courses",
+    "update": "PUT /api/courses/{courseId}",
+    "delete": "DELETE /api/courses/{courseId}",
+    "assignTeacher": "POST /api/courses/{courseId}/assign-teacher"
+  },
+  "attendance": {
+    "scanQR": "POST /api/attendance/scan-qr"
+  }
+}
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Giai đoạn 4)
+
+  <!--START_DAY_LOG_INDEX_1-->
+
+  - **DAY 1:** Thiết kế giao diện người dùng cho quản lý người dùng
+    
+    ##### SUB-TASK 1: Thiết kế giao diện người dùng cho quản lý người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-003]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế giao diện người dùng cho quản lý người dùng, bao gồm các thành phần và logic giao diện. [REQ-003]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho giao diện người dùng quản lý người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-003]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho giao diện người dùng quản lý người dùng, bao gồm các thành phần và logic giao diện. [REQ-003]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho giao diện người dùng quản lý người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-003]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/src/test/java/com/example/frontend/UserManagementTest.java;./sources/frontend/src/main/java/com/example/frontend/UserManagement.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho giao diện người dùng quản lý người dùng, bao gồm các trường hợp thành công và thất bại. [REQ-003]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho giao diện người dùng quản lý người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-003]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho giao diện người dùng quản lý người dùng, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-003]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa giao diện người dùng quản lý người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-003]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết Dockerfile cho giao diện người dùng quản lý người dùng và xây dựng hình ảnh Docker. [REQ-003]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai giao diện người dùng quản lý người dùng lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-003]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/frontend-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho giao diện người dùng quản lý người dùng và triển khai lên GKE. [REQ-003]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+  <!--START_DAY_LOG_INDEX_2-->
+
+  - **DAY 2:** Thiết kế giao diện người dùng cho quản lý khóa học
+    
+    ##### SUB-TASK 1: Thiết kế giao diện người dùng cho quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế giao diện người dùng cho quản lý khóa học, bao gồm các thành phần và logic giao diện. [REQ-007], [REQ-008], [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho giao diện người dùng quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho giao diện người dùng quản lý khóa học, bao gồm các thành phần và logic giao diện. [REQ-007], [REQ-008], [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho giao diện người dùng quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/src/test/java/com/example/frontend/CourseManagementTest.java;./sources/frontend/src/main/java/com/example/frontend/CourseManagement.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho giao diện người dùng quản lý khóa học, bao gồm các trường hợp thành công và thất bại. [REQ-007], [REQ-008], [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho giao diện người dùng quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho giao diện người dùng quản lý khóa học, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-007], [REQ-008], [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa giao diện người dùng quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật Dockerfile cho giao diện người dùng quản lý khóa học và xây dựng hình ảnh Docker. [REQ-007], [REQ-008], [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai giao diện người dùng quản lý khóa học lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/frontend-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tệp triển khai Kubernetes cho giao diện người dùng quản lý khóa học và triển khai lên GKE. [REQ-007], [REQ-008], [REQ-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_2-->
+
+  <!--START_DAY_LOG_INDEX_3-->
+
+  - **DAY 3:** Thiết kế giao diện người dùng cho điểm danh và quét QR
+    
+    ##### SUB-TASK 1: Thiết kế giao diện người dùng cho điểm danh và quét QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết kế giao diện người dùng cho điểm danh và quét QR, bao gồm các thành phần và logic giao diện. [REQ-012], [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết mã nguồn cho giao diện người dùng điểm danh và quét QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      * **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết mã nguồn cho giao diện người dùng điểm danh và quét QR, bao gồm các thành phần và logic giao diện. [REQ-012], [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho giao diện người dùng điểm danh và quét QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      * **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/src/test/java/com/example/frontend/AttendanceManagementTest.java;./sources/frontend/src/main/java/com/example/frontend/AttendanceManagement.java
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho giao diện người dùng điểm danh và quét QR, bao gồm các trường hợp thành công và thất bại. [REQ-012], [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Review mã nguồn cho giao diện người dùng điểm danh và quét QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Reviewer]
+      * **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Review mã nguồn cho giao diện người dùng điểm danh và quét QR, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật. [REQ-012], [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 5: Container hóa giao diện người dùng điểm danh và quét QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật Dockerfile cho giao diện người dùng điểm danh và quét QR và xây dựng hình ảnh Docker. [REQ-012], [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 6: Triển khai giao diện người dùng điểm danh và quét QR lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/frontend-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tệp triển khai Kubernetes cho giao diện người dùng điểm danh và quét QR và triển khai lên GKE. [REQ-012], [REQ-013]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_3-->
+
+### 📈 Giai đoạn 5 - Triển Khai Hạ Tầng Với Docker, Kubernetes (GKE), Và Các Dịch Vụ Cloud
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hạ tầng với Docker, Kubernetes (GKE), và các dịch vụ cloud.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/infra/
+- **Hợp đồng Định tuyến API và Sự kiện:** ```json
+{
+  "infra": {
+    "docker": "Dockerfile",
+    "k8s": "k8s-deployment.yaml",
+    "cloud": "cloud-services.yaml"
+  }
+}
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Giai đoạn 5)
+
+  <!--START_DAY_LOG_INDEX_1-->
+
+  - **DAY 1:** Triển khai hạ tầng với Docker
+    
+    ##### SUB-TASK 1: Viết Dockerfile cho các dịch vụ backend
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [NFR-005]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/backend/auth-service/Dockerfile;./sources/backend/course-service/Dockerfile;./sources/backend/attendance-service/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết Dockerfile cho các dịch vụ backend và xây dựng hình ảnh Docker. [NFR-005]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Viết Dockerfile cho giao diện người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker]
+      * **Tag IDs Mục tiêu:** [NFR-005]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/frontend/Dockerfile
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết Dockerfile cho giao diện người dùng và xây dựng hình ảnh Docker. [NFR-005]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai các dịch vụ backend lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [NFR-002], [NFR-004]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/auth-service-deployment.yaml;./sources/infra/k8s/course-service-deployment.yaml;./sources/infra/k8s/attendance-service-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho các dịch vụ backend và triển khai lên GKE. [NFR-002], [NFR-004]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Triển khai giao diện người dùng lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [NFR-002], [NFR-004]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/frontend-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho giao diện người dùng và triển khai lên GKE. [NFR-002], [NFR-004]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+  <!--START_DAY_LOG_INDEX_2-->
+
+  - **DAY 2:** Triển khai hạ tầng với các dịch vụ cloud
+    
+    ##### SUB-TASK 1: Thiết lập các dịch vụ cloud
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GCP]
+      * **Tag IDs Mục tiêu:** [NFR-002], [NFR-004], [NFR-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/cloud-services.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập các dịch vụ cloud như PostgreSQL, Redis, Apache Kafka, và các dịch vụ khác. [NFR-002], [NFR-004], [NFR-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Cấu hình các dịch vụ cloud
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GCP]
+      * **Tag IDs Mục tiêu:** [NFR-002], [NFR-004], [NFR-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/cloud-config.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình các dịch vụ cloud như PostgreSQL, Redis, Apache Kafka, và các dịch vụ khác. [NFR-002], [NFR-004], [NFR-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai các dịch vụ cloud lên GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [GKE]
+      * **Tag IDs Mục tiêu:** [NFR-002], [NFR-004], [NFR-009]
+      * **Đường dẫn Cấu phần / Module Path:** ./sources/infra/k8s/cloud-services-deployment.yaml
+      * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết tệp triển khai Kubernetes cho các dịch vụ cloud và triển khai lên GKE. [NFR-002], [NFR-004], [NFR-009]
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_2-->
 

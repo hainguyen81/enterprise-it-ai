@@ -627,8 +627,8 @@ You MUST include every single section below without exception to satisfy enterpr
     - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 3'.
 
     <HISTORIC_LEDGER_MAP>
-    Phase 1: 
-Phase 2: 
+    Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
     </HISTORIC_LEDGER_MAP>
     </RULE>
   
@@ -722,4 +722,1318 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 ---
 
 # GLOBAL PROJECT CONTEXT: membership-hub
+
+## 🏛️ 1. TỔNG QUAN HỆ THỐNG
+
+### Mục tiêu & giá trị cốt lõi
+- Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
+- Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
+- Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
+- Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
+- Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
+
+### Đối tượng người dùng mục tiêu
+- System Admin (siêu người dùng toàn cầu)
+- Center Admin (quản lý cấp trung tâm)
+- Manager (phó quản trị, quyền hạn giới hạn)
+- Teacher (xem chỉ đọc lịch dạy)
+- Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
+- Mobile App User (giao diện đáp ứng cho các vai trò trên)
+
+### Ma trận kiểm soát truy cập dựa trên vai trò (RBAC)
+- [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
+- [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
+- [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
+- [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
+- [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
+
+### Kiến trúc & luồng dữ liệu (các luồng chính)
+- [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
+- [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
+- [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
+- [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
+
+### Công nghệ & hạ tầng
+- [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
+
+## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+
+### 2.1 Quản lý người dùng
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-001] Đăng ký người dùng: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
+- [REQ-002] Xác thực qua mạng xã hội: As a user, I want to sign‑in/up using Firebase, Google, or Facebook OAuth so that I can leverage existing credentials.
+- [REQ-003] Phân quyền người dùng: As an administrator, I want to assign or change a user’s role (System Admin, Center Admin, Manager, Teacher, Student) so that permissions are correctly enforced.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user provides a unique email, a strong password, and agrees to terms, When they submit the registration form, Then the system validates the input, creates a new user record with role ‘Student’ (or ‘Teacher’ if invited), and returns a success response with a JWT token. `[REQ-001]`
+- Given a user selects a social provider, When they authenticate through the provider’s popup, Then the system receives an OAuth2 code, exchanges it for user info, creates or updates the local user record, and issues a JWT token. `[REQ-002]`
+- Given an admin selects a user and a new role, When the assignment is confirmed, Then the user’s role column is updated, and appropriate permissions are applied immediately. `[REQ-003]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-004] Xác thực đầu vào không hợp lệ (ví dụ: email không đúng định dạng, thiếu trường bắt buộc): Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-001] Bảng người dùng & vai trò
+
+  **Users**
+  ```mermaid
+  erDiagram
+      USERS {
+          uuid userId PK "Unique identifier"
+          varchar email "Email address, not null, unique, max 255 chars"
+          char passwordHash "bcrypt hash, not null, length 60"
+          varchar fullName "Full name, not null, max 100 chars"
+          smallint roleId FK "Foreign key to Roles.roleId"
+          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
+          timestamp createdAt "Timestamp of creation, not null, default now()"
+          timestamp updatedAt "Timestamp of last update, not null, default now()"
+      }
+      ROLES {
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
+      }
+      ROLES ||--o{ USERS : "roleId"
+  ```
+  **Roles**
+  ```mermaid
+  erDiagram
+      ROLES {
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
+      }
+  ```
+
+### 2.2 Quản lý trung tâm
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-004] Xem danh sách trung tâm: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
+- [REQ-005] Tạo/cập nhật/xóa trung tâm: As a System Admin, I want to add, edit, or remove a center record so that center information stays current.
+- [REQ-006] Phân quyền quản trị trung tâm: As a System Admin, I want to assign or unassign a user as a Center Admin for a specific center so that administrative control is delegated.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. `[REQ-004]`
+- Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. `[REQ-005]`
+- Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. `[REQ-006]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-003] Bảng trung tâm
+
+  **Centers**
+  ```mermaid
+  erDiagram
+      CENTERS {
+          uuid centerId PK "Unique identifier"
+          varchar name "Center name, not null, max 100 chars"
+          varchar address "Physical address, not null, max 255 chars"
+          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
+          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
+          varchar contactEmail "Contact email, optional, must be valid email format"
+      }
+  ```
+
+### 2.3 Quản lý khóa học
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-007] Xem danh sách khóa học: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
+- [REQ-008] Tạo/cập nhật/xóa khóa học (tránh xung đột): As a System Admin or Center Admin, I want to manage courses (add, edit, remove) while ensuring no overlapping schedules for the same teacher or venue.
+- [REQ-009] Phân công giáo viên vào khóa học: As a System Admin, I want to assign or unassign teachers to courses so that teaching responsibilities are updated.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. `[REQ-007]`
+- Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. `[REQ-008]`
+- Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. `[REQ-009]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-004] Bảng khóa học
+
+  **Courses**
+  ```mermaid
+  erDiagram
+      COURSES {
+          uuid courseId PK "Unique identifier"
+          varchar title "Course title, not null, max 150 chars"
+          text description "Course description, optional"
+          date startDate "Course start date, not null"
+          date endDate "Course end date, not null"
+          uuid teacherId FK "Foreign key to Users.userId"
+          int maxStudents "Course capacity, default 30"
+      }
+  ```
+
+### 2.4 Đăng ký & ghi danh học viên
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
+- [REQ-011] Đăng ký khóa học của học viên: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. `[REQ-010]`
+- Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. `[REQ-011]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-005] Bảng ghi danh
+
+  **Enrollments**
+  ```mermaid
+  erDiagram
+      ENROLLMENTS {
+          uuid enrollmentId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          timestamp enrollmentDate "Date of enrollment, default now()"
+      }
+  ```
+
+### 2.5 Điểm danh & quét mã QR
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-012] Chụp ảnh điểm danh QR: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
+- [REQ-013] Tính chất bất biến của điểm danh: The attendance service must guarantee that multiple scans from the same student for the same course on the same day produce a single attendance record.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student opens the scanner, scans a valid course QR, and confirms attendance, When the API receives the payload, Then the system validates the student‑course relationship, creates an Attendance record with timestamp, and returns a success response; duplicate scans on the same day are ignored. `[REQ-012]`
+- Given a student scans a QR twice within a minute, When the service processes both requests, Then only one attendance row is created; subsequent requests return a success with a ‘duplicate’ flag. `[REQ-013]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-001] Network & Connectivity Drops During QR Scan: If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
+- [EXC-002] Duplicate Attendance Submission: If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-006] Bảng điểm danh
+
+  **Attendance**
+  ```mermaid
+  erDiagram
+      ATTENDANCE {
+          uuid attendanceId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          date attendanceDate "Date of attendance, not null"
+          timestamp timestamp "Exact time recorded, default now()"
+      }
+  ```
+
+### 2.6 Quản lý thẻ hội viên
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-014] Hiển thị tính hợp lệ của thẻ: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
+- [REQ-015] Gia hạn thẻ: As a Student, I want to extend my membership card validity by paying a fee, which updates the end date.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. `[REQ-014]`
+- Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. `[REQ-015]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-007] Bảng thẻ hội viên
+
+  **StudentCards**
+  ```mermaid
+  erDiagram
+      STUDENTCARDS {
+          uuid cardId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          date issueDate "Card issue date, not null"
+          int validityDays "Total validity days, not null"
+          int remainingDays "Computed days left until expiry"
+      }
+  ```
+
+### 2.7 Thông báo & truyền thông
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-016] Kích hoạt thông báo: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin performs an action that requires notification, When the action is saved, Then a Notification record is created, a push notification payload is queued for the mobile app, and a text message is sent to the Zalo group chat. `[REQ-016]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-003] Failed Notification Delivery: When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-008] Bảng thông báo
+
+  **Notifications**
+  ```mermaid
+  erDiagram
+      NOTIFICATIONS {
+          uuid notificationId PK "Unique identifier"
+          uuid userId FK "Target user, optional"
+          varchar groupZalo "Target Zalo group, optional"
+          text message "Notification content, not null"
+          timestamp sentAt "When sent, default now()"
+          boolean delivered "Delivery status, default false"
+      }
+  ```
+
+### 2.8 Quản lý khuyến mãi & thông báo
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-017] Quản lý khuyến mãi: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
+- [REQ-018] Quản lý thông báo: As a Center Admin or Manager, I want to create, edit, or delete announcements with optional expiry dates for broadcast to all users.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. `[REQ-017]`
+- Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. `[REQ-018]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-009] Bảng khuyến mãi & thông báo
+
+  **Promotions**
+  ```mermaid
+  erDiagram
+      PROMOTIONS {
+          uuid promoId PK "Unique identifier"
+          varchar code "Discount code, unique"
+          smallint discountPercent "Discount percentage, not null"
+          date startDate "Promotion start, optional"
+          date endDate "Promotion end, optional"
+          text description "Promo details, optional"
+      }
+  ```
+  **Announcements**
+  ```mermaid
+  erDiagram
+      ANNOUNCEMENTS {
+          uuid announcementId PK "Unique identifier"
+          varchar title "Title, not null, max 150 chars"
+          text content "Content, not null, max 2000 chars"
+          date startDate "Effective start, optional"
+          date endDate "Effective end, optional"
+      }
+  ```
+
+### 2.9 Chatbot dịch vụ khách hàng AI
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-019] Tích hợp chatbot AI: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. `[REQ-019]`
+
+#### Luồng ngoại lệ của mô-đun
+- [NOT APPLICABLE] Chatbot AI không có bảng dữ liệu chuyên biệt; tất cả các tương tác được ghi lại trong bảng AuditLog (xem [ARC-006] để biết chi tiết logging).
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
+
+### 2.10 Các tính năng cốt lõi của ứng dụng di động
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-020] Giao diện người dùng vai trò cụ thể trên di động: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
+- [REQ-021] Thông báo đẩy trên di động: As a registered user, I want to receive push notifications on my mobile device for attendance confirmations, new announcements, and reminder messages.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. `[REQ-020]`
+- Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. `[REQ-021]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
+
+### 2.11 Bản địa hóa & SEO
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-022] Phát hiện ngôn ngữ mặc định: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
+- [REQ-023] SEO đa ngôn ngữ: The platform must support SEO for at least English, Vietnamese, and Spanish; each page must include language‑specific meta tags and hreflang attributes.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
+- Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-011] Bảng cài đặt hệ thống
+
+  **SystemSettings**
+  ```mermaid
+  erDiagram
+      SYSTEMSETTINGS {
+          varchar settingKey PK "Configuration key"
+          text settingValue "Configuration value, not null"
+          varchar description "Meaning of setting, optional"
+      }
+  ```
+
+### 2.12 Báo cáo & phân tích
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-024] Tạo báo cáo điểm danh: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
+- [REQ-025] Bảng điều khiển tóm tắt ghi danh: As a Center Admin, I want a real‑time dashboard summarizing total students, active courses, and upcoming sessions.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin selects a center and date range, When the report is requested, Then a CSV file is produced with columns: StudentName, CourseName, AttendanceDate, Status. `[REQ-024]`
+- Given an admin opens the dashboard, When the data refreshes, Then cards display totalStudents, activeCourses, upcomingSessions (next 7 days). `[REQ-025]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-005] System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
+
+## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
+
+- [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
+- [NFR-002] Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
+- [NFR-003] Security: All data in transit must use TLS 1.3; at rest encryption with AES‑256. JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry. Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF).
+- [NFR-004] Scalability & Availability: Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms. PostgreSQL read replicas for reporting workloads.
+- [NFR-005] Docker Image Size: Base image size < 200 MB; final image < 500 MB.
+- [NFR-006] Logging & Audit: All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year.
+- [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
+- [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
+- [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
+
+## 📝 4. PHÂN TÍCH KIẾN TRÚC VÀ TÀI NGUYÊN
+
+### 4.1 KIẾN TRÚC TOÀN CẦU
+
+#### Kiến trúc hệ thống
+- **Backend**: Microservices architecture sử dụng Java/Quarkus.
+- **Frontend**: Next.js cho web và React Native cho mobile.
+- **Database**: PostgreSQL với schema phân tán.
+- **Caching**: Redis cho session và caching.
+- **Messaging**: Apache Kafka cho event-driven communication.
+- **Containerization**: Docker với Kubernetes (GKE) orchestration.
+- **CI/CD**: GitHub Actions với multi-stage pipelines.
+- **Monitoring**: Prometheus và Grafana.
+- **Logging**: ELK Stack (Elasticsearch, Logstash, Kibana).
+
+#### Ma trận tài nguyên và công nghệ
+| Tài nguyên | Công nghệ |
+|------------|-----------|
+| Backend Framework | Quarkus |
+| Frontend Framework | Next.js, React Native |
+| Database | PostgreSQL |
+| Caching | Redis |
+| Messaging | Apache Kafka |
+| Containerization | Docker |
+| Orchestration | Kubernetes (GKE) |
+| CI/CD | GitHub Actions |
+| Monitoring | Prometheus, Grafana |
+| Logging | ELK Stack |
+| Authentication | Firebase Auth, OAuth2 |
+| Push Notifications | FCM, APNs |
+| Zalo Integration | Zalo API |
+
+### 4.2 Ma trận tóm tắt giai đoạn đa giai đoạn
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|---------------------|----------------------------|-----------|------------------|
+| Giai đoạn 1 | Ngày 1-3 | `./sources/backend/auth-service/`, `./sources/backend/user-service/`, `./sources/frontend/web/`, `./sources/docs/` | Triển khai hệ thống xác thực và quản lý người dùng, thiết lập cơ sở hạ tầng cơ bản, tạo tài liệu thiết kế | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [ARC-006], [NFR-001], [NFR-002], [NFR-003] |
+| Giai đoạn 2 | Ngày 4-6 | `./sources/backend/center-service/`, `./sources/backend/course-service/`, `./sources/frontend/web/`, `./sources/docs/` | Triển khai hệ thống quản lý trung tâm và khóa học, tích hợp giao diện người dùng, cập nhật tài liệu | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [DAT-003], [DAT-004], [ARC-007], [NFR-004], [NFR-005] |
+| Giai đoạn 3 | Ngày 7-9 | `./sources/backend/enrollment-service/`, `./sources/backend/attendance-service/`, `./sources/frontend/mobile/`, `./sources/docs/` | Triển khai hệ thống đăng ký và điểm danh, tích hợp ứng dụng di động, cập nhật tài liệu | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [REQ-012], [REQ-013], [DAT-005], [DAT-006], [ARC-008], [NFR-006], [NFR-007] |
+| Giai đoạn 4 | Ngày 10-12 | `./sources/backend/membership-service/`, `./sources/backend/notification-service/`, `./sources/frontend/web/`, `./sources/docs/` | Triển khai hệ thống quản lý thẻ hội viên và thông báo, tích hợp giao diện người dùng, cập nhật tài liệu | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-014], [REQ-015], [REQ-016], [DAT-007], [DAT-008], [ARC-009], [NFR-008], [NFR-009] |
+| Giai đoạn 5 | Ngày 13-15 | `./sources/backend/promotion-service/`, `./sources/backend/announcement-service/`, `./sources/frontend/web/`, `./sources/docs/` | Triển khai hệ thống quản lý khuyến mãi và thông báo, tích hợp giao diện người dùng, cập nhật tài liệu | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-017], [REQ-018], [DAT-009], [ARC-010], [NFR-010], [NFR-011] |
+
+## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
+
+### Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống xác thực và quản lý người dùng, thiết lập cơ sở hạ tầng cơ bản, tạo tài liệu thiết kế.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/auth-service/`, `./sources/backend/user-service/`, `./sources/frontend/web/`, `./sources/docs/`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:**
+  ```sql
+  CREATE TABLE users (
+      userId UUID PRIMARY KEY,
+      email VARCHAR(255) NOT NULL UNIQUE,
+      passwordHash CHAR(60) NOT NULL,
+      fullName VARCHAR(100) NOT NULL,
+      roleId SMALLINT NOT NULL,
+      provider VARCHAR(20) NOT NULL DEFAULT 'local' CHECK (provider IN ('local', 'firebase', 'google', 'facebook')),
+      createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
+      updatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
+      FOREIGN KEY (roleId) REFERENCES roles(roleId)
+  );
+
+  CREATE TABLE roles (
+      roleId SMALLINT PRIMARY KEY,
+      name VARCHAR(30) NOT NULL UNIQUE,
+      description VARCHAR(200)
+  );
+  ```
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/auth/register",
+        "method": "POST",
+        "request": {
+          "email": "string",
+          "password": "string",
+          "fullName": "string"
+        },
+        "response": {
+          "token": "string",
+          "userId": "uuid"
+        }
+      },
+      {
+        "path": "/api/auth/login",
+        "method": "POST",
+        "request": {
+          "email": "string",
+          "password": "string"
+        },
+        "response": {
+          "token": "string",
+          "userId": "uuid"
+        }
+      },
+      {
+        "path": "/api/auth/oauth",
+        "method": "POST",
+        "request": {
+          "provider": "string",
+          "code": "string"
+        },
+        "response": {
+          "token": "string",
+          "userId": "uuid"
+        }
+      },
+      {
+        "path": "/api/users/{userId}/role",
+        "method": "PUT",
+        "request": {
+          "roleId": "smallint"
+        },
+        "response": {
+          "status": "string"
+        }
+      }
+    ]
+  }
+  ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:**
+  - Xác thực đầu vào không hợp lệ: Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
+
+#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 1)
+
+  <!--START_DAY_LOG_INDEX_1-->
+
+  - **DAY 1: Triển khai hệ thống xác thực cơ bản**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ xác thực
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-006]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/auth-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ xác thực, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API đăng ký người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-001], [DAT-001]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/auth/register` với logic xác thực đầu vào và mã hóa mật khẩu bcrypt.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API đăng ký
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-001]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/AuthService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API đăng ký.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Tạo tài liệu thiết kế hệ thống
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-006]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu thiết kế hệ thống bao gồm kiến trúc tổng quan, luồng dữ liệu, và mô hình dữ liệu.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 2: Triển khai xác thực OAuth và quản lý người dùng**
+    ##### SUB-TASK 1: Thiết lập xác thực OAuth với Firebase, Google, Facebook
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/OAuthService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/auth/oauth` với logic xử lý mã OAuth và tạo JWT token.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API phân quyền người dùng
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-003], [DAT-001]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/users/{userId}/role` với logic cập nhật vai trò người dùng.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API phân quyền
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-003]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/user-service/src/test/java/com/membershiphub/user/UserServiceTest.java;./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API phân quyền.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-006]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về luồng xác thực OAuth và quản lý người dùng.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 3: Triển khai giao diện người dùng và kiểm thử hệ thống**
+    ##### SUB-TASK 1: Thiết lập giao diện đăng ký và đăng nhập
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-001], [REQ-002]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/web/pages/auth/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai giao diện đăng ký và đăng nhập với Next.js.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Kiểm thử hệ thống xác thực
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/AuthIntegrationTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/AuthService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test tích hợp cho hệ thống xác thực.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai Docker và GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker], [GCP], [GKE]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/auth-service/Dockerfile`, `./sources/infra/gke/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai Dockerfile và cấu hình GKE cho dịch vụ xác thực.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+### Giai đoạn 2 - Triển khai Lõi Nghiệp Vụ Trung Tâm Và Khóa Học
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống quản lý trung tâm và khóa học, tích hợp giao diện người dùng, cập nhật tài liệu.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/center-service/`, `./sources/backend/course-service/`, `./sources/frontend/web/`, `./sources/docs/`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003], [DAT-004]:**
+  ```sql
+  CREATE TABLE centers (
+      centerId UUID PRIMARY KEY,
+      name VARCHAR(100) NOT NULL,
+      address VARCHAR(255) NOT NULL,
+      taxId VARCHAR(13) NOT NULL UNIQUE,
+      contactPhone VARCHAR(20),
+      contactEmail VARCHAR(255)
+  );
+
+  CREATE TABLE courses (
+      courseId UUID PRIMARY KEY,
+      title VARCHAR(150) NOT NULL,
+      description TEXT,
+      startDate DATE NOT NULL,
+      endDate DATE NOT NULL,
+      teacherId UUID,
+      maxStudents INT NOT NULL DEFAULT 30,
+      FOREIGN KEY (teacherId) REFERENCES users(userId)
+  );
+  ```
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-007]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/centers",
+        "method": "GET",
+        "response": {
+          "centers": [
+            {
+              "centerId": "uuid",
+              "name": "string",
+              "address": "string",
+              "taxId": "string",
+              "contactPhone": "string",
+              "contactEmail": "string"
+            }
+          ]
+        }
+      },
+      {
+        "path": "/api/centers",
+        "method": "POST",
+        "request": {
+          "name": "string",
+          "address": "string",
+          "taxId": "string",
+          "contactPhone": "string",
+          "contactEmail": "string"
+        },
+        "response": {
+          "centerId": "uuid"
+        }
+      },
+      {
+        "path": "/api/centers/{centerId}",
+        "method": "PUT",
+        "request": {
+          "name": "string",
+          "address": "string",
+          "taxId": "string",
+          "contactPhone": "string",
+          "contactEmail": "string"
+        },
+        "response": {
+          "status": "string"
+        }
+      },
+      {
+        "path": "/api/centers/{centerId}",
+        "method": "DELETE",
+        "response": {
+          "status": "string"
+        }
+      },
+      {
+        "path": "/api/courses",
+        "method": "GET",
+        "response": {
+          "courses": [
+            {
+              "courseId": "uuid",
+              "title": "string",
+              "startDate": "date",
+              "endDate": "date",
+              "teacherName": "string"
+            }
+          ]
+        }
+      },
+      {
+        "path": "/api/courses",
+        "method": "POST",
+        "request": {
+          "title": "string",
+          "description": "string",
+          "startDate": "date",
+          "endDate": "date",
+          "teacherId": "uuid"
+        },
+        "response": {
+          "courseId": "uuid"
+        }
+      },
+      {
+        "path": "/api/courses/{courseId}/assign",
+        "method": "POST",
+        "request": {
+          "teacherId": "uuid"
+        },
+        "response": {
+          "status": "string"
+        }
+      }
+    ]
+  }
+  ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:**
+  - (Không có luồng ngoại lệ chuyên biệt được xác định cho giai đoạn này.)
+
+#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 2)
+
+  <!--START_DAY_LOG_INDEX_2-->
+
+  - **DAY 1: Triển khai hệ thống quản lý trung tâm**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ trung tâm
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-007]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/center-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ trung tâm, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API quản lý trung tâm
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [DAT-003]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/center-service/src/main/java/com/membershiphub/center/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các endpoint `/api/centers` với logic quản lý trung tâm.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API quản lý trung tâm
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-004], [REQ-005]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/center-service/src/test/java/com/membershiphub/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API quản lý trung tâm.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-007]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống quản lý trung tâm.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 2: Triển khai hệ thống quản lý khóa học**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-007]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ khóa học, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [DAT-004]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/course/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các endpoint `/api/courses` với logic quản lý khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API quản lý khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-007], [REQ-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API quản lý khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-007]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống quản lý khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 3: Tích hợp giao diện người dùng và kiểm thử hệ thống**
+    ##### SUB-TASK 1: Thiết lập giao diện quản lý trung tâm và khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-007], [REQ-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/web/pages/center/`, `./sources/frontend/web/pages/course/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai giao diện quản lý trung tâm và khóa học với Next.js.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Kiểm thử hệ thống quản lý trung tâm và khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-007], [REQ-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/center-service/src/test/java/com/membershiphub/center/CenterIntegrationTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterService.java`, `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseIntegrationTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test tích hợp cho hệ thống quản lý trung tâm và khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai Docker và GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker], [GCP], [GKE]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/center-service/Dockerfile`, `./sources/backend/course-service/Dockerfile`, `./sources/infra/gke/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai Dockerfile và cấu hình GKE cho dịch vụ trung tâm và khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_2-->
+
+### Giai đoạn 3 - Triển khai Hệ thống Đăng ký và Điểm danh
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống đăng ký và điểm danh, tích hợp ứng dụng di động, cập nhật tài liệu.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/enrollment-service/`, `./sources/backend/attendance-service/`, `./sources/frontend/mobile/`, `./sources/docs/`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-005], [DAT-006]:**
+  ```sql
+  CREATE TABLE enrollments (
+      enrollmentId UUID PRIMARY KEY,
+      studentId UUID NOT NULL,
+      courseId UUID NOT NULL,
+      enrollmentDate TIMESTAMP NOT NULL DEFAULT NOW(),
+      FOREIGN KEY (studentId) REFERENCES users(userId),
+      FOREIGN KEY (courseId) REFERENCES courses(courseId)
+  );
+
+  CREATE TABLE attendance (
+      attendanceId UUID PRIMARY KEY,
+      studentId UUID NOT NULL,
+      courseId UUID NOT NULL,
+      attendanceDate DATE NOT NULL,
+      timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
+      FOREIGN KEY (studentId) REFERENCES users(userId),
+      FOREIGN KEY (courseId) REFERENCES courses(courseId)
+  );
+  ```
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-010], [REQ-011], [REQ-012], [REQ-013], [ARC-008]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/courses/available",
+        "method": "GET",
+        "response": {
+          "courses": [
+            {
+              "courseId": "uuid",
+              "title": "string",
+              "startDate": "date",
+              "endDate": "date",
+              "teacherName": "string"
+            }
+          ]
+        }
+      },
+      {
+        "path": "/api/enrollments",
+        "method": "POST",
+        "request": {
+          "courseId": "uuid"
+        },
+        "response": {
+          "enrollmentId": "uuid"
+        }
+      },
+      {
+        "path": "/api/attendance",
+        "method": "POST",
+        "request": {
+          "studentId": "uuid",
+          "courseId": "uuid",
+          "timestamp": "string"
+        },
+        "response": {
+          "attendanceId": "uuid"
+        }
+      }
+    ]
+  }
+  ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:**
+  - Network & Connectivity Drops During QR Scan: If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
+  - Duplicate Attendance Submission: If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
+
+#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 3)
+
+  <!--START_DAY_LOG_INDEX_3-->
+
+  - **DAY 1: Triển khai hệ thống đăng ký học viên**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ đăng ký
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/enrollment-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ đăng ký, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API đăng ký khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-010], [REQ-011], [DAT-005]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các endpoint `/api/courses/available` và `/api/enrollments` với logic đăng ký khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API đăng ký khóa học
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-010], [REQ-011]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API đăng ký khóa học.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống đăng ký học viên.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 2: Triển khai hệ thống điểm danh QR**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ điểm danh
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/attendance-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ điểm danh, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API điểm danh QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-012], [REQ-013], [DAT-006]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/attendance` với logic điểm danh QR.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API điểm danh QR
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API điểm danh QR.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống điểm danh QR.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 3: Tích hợp ứng dụng di động và kiểm thử hệ thống**
+    ##### SUB-TASK 1: Thiết lập giao diện điểm danh QR trên di động
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/mobile/screens/attendance/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai giao diện điểm danh QR với React Native.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Kiểm thử hệ thống đăng ký và điểm danh
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-010], [REQ-011], [REQ-012], [REQ-013]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentIntegrationTest.java;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java`, `./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceIntegrationTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test tích hợp cho hệ thống đăng ký và điểm danh.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai Docker và GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker], [GCP], [GKE]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/enrollment-service/Dockerfile`, `./sources/backend/attendance-service/Dockerfile`, `./sources/infra/gke/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai Dockerfile và cấu hình GKE cho dịch vụ đăng ký và điểm danh.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_3-->
+
+### Giai đoạn 4 - Triển khai Hệ thống Quản lý Thẻ Hội viên và Thông báo
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống quản lý thẻ hội viên và thông báo, tích hợp giao diện người dùng, cập nhật tài liệu.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/membership-service/`, `./sources/backend/notification-service/`, `./sources/frontend/web/`, `./sources/docs/`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-007], [DAT-008]:**
+  ```sql
+  CREATE TABLE studentCards (
+      cardId UUID PRIMARY KEY,
+      studentId UUID NOT NULL,
+      issueDate DATE NOT NULL,
+      validityDays INT NOT NULL,
+      remainingDays INT NOT NULL,
+      FOREIGN KEY (studentId) REFERENCES users(userId)
+  );
+
+  CREATE TABLE notifications (
+      notificationId UUID PRIMARY KEY,
+      userId UUID,
+      groupZalo VARCHAR(255),
+      message TEXT NOT NULL,
+      sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
+      delivered BOOLEAN NOT NULL DEFAULT FALSE,
+      FOREIGN KEY (userId) REFERENCES users(userId)
+  );
+  ```
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-014], [REQ-015], [REQ-016], [ARC-009]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/membership/card",
+        "method": "GET",
+        "response": {
+          "card": {
+            "cardId": "uuid",
+            "issueDate": "date",
+            "validityDays": "int",
+            "remainingDays": "int"
+          }
+        }
+      },
+      {
+        "path": "/api/membership/renew",
+        "method": "POST",
+        "request": {
+          "days": "int"
+        },
+        "response": {
+          "status": "string"
+        }
+      },
+      {
+        "path": "/api/notifications",
+        "method": "POST",
+        "request": {
+          "userId": "uuid",
+          "groupZalo": "string",
+          "message": "string"
+        },
+        "response": {
+          "notificationId": "uuid"
+        }
+      }
+    ]
+  }
+  ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-003]:**
+  - Failed Notification Delivery: When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
+
+#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 4)
+
+  <!--START_DAY_LOG_INDEX_4-->
+
+  - **DAY 1: Triển khai hệ thống quản lý thẻ hội viên**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ thẻ hội viên
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-009]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/membership-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ thẻ hội viên, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API quản lý thẻ hội viên
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-014], [REQ-015], [DAT-007]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/membership-service/src/main/java/com/membershiphub/membership/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các endpoint `/api/membership/card` và `/api/membership/renew` với logic quản lý thẻ hội viên.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API quản lý thẻ hội viên
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-014], [REQ-015]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/membership-service/src/test/java/com/membershiphub/membership/MembershipServiceTest.java;./sources/backend/membership-service/src/main/java/com/membershiphub/membership/MembershipService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API quản lý thẻ hội viên.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-009]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống quản lý thẻ hội viên.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 2: Triển khai hệ thống thông báo**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-009]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/notification-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ thông báo, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-016], [DAT-008]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/notification-service/src/main/java/com/membershiphub/notification/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/notifications` với logic thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-016]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/notification-service/src/test/java/com/membershiphub/notification/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-009]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 3: Tích hợp giao diện người dùng và kiểm thử hệ thống**
+    ##### SUB-TASK 1: Thiết lập giao diện quản lý thẻ hội viên và thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-014], [REQ-015], [REQ-016]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/web/pages/membership/`, `./sources/frontend/web/pages/notification/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai giao diện quản lý thẻ hội viên và thông báo với Next.js.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Kiểm thử hệ thống quản lý thẻ hội viên và thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-014], [REQ-015], [REQ-016]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/membership-service/src/test/java/com/membershiphub/membership/MembershipIntegrationTest.java;./sources/backend/membership-service/src/main/java/com/membershiphub/membership/MembershipService.java`, `./sources/backend/notification-service/src/test/java/com/membershiphub/notification/NotificationIntegrationTest.java;./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test tích hợp cho hệ thống quản lý thẻ hội viên và thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai Docker và GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker], [GCP], [GKE]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/membership-service/Dockerfile`, `./sources/backend/notification-service/Dockerfile`, `./sources/infra/gke/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai Dockerfile và cấu hình GKE cho dịch vụ quản lý thẻ hội viên và thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_4-->
+
+### Giai đoạn 5 - Triển khai Hệ thống Quản lý Khuyến mãi và Thông báo
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống quản lý khuyến mãi và thông báo, tích hợp giao diện người dùng, cập nhật tài liệu.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/promotion-service/`, `./sources/backend/announcement-service/`, `./sources/frontend/web/`, `./sources/docs/`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-009]:**
+  ```sql
+  CREATE TABLE promotions (
+      promoId UUID PRIMARY KEY,
+      code VARCHAR(20) UNIQUE,
+      discountPercent SMALLINT NOT NULL,
+      startDate DATE,
+      endDate DATE,
+      description TEXT
+  );
+
+  CREATE TABLE announcements (
+      announcementId UUID PRIMARY KEY,
+      title VARCHAR(150) NOT NULL,
+      content TEXT NOT NULL,
+      startDate DATE,
+      endDate DATE
+  );
+  ```
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-017], [REQ-018], [ARC-010]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/promotions",
+        "method": "POST",
+        "request": {
+          "code": "string",
+          "discountPercent": "smallint",
+          "startDate": "date",
+          "endDate": "date",
+          "description": "string"
+        },
+        "response": {
+          "promoId": "uuid"
+        }
+      },
+      {
+        "path": "/api/announcements",
+        "method": "POST",
+        "request": {
+          "title": "string",
+          "content": "string",
+          "startDate": "date",
+          "endDate": "date"
+        },
+        "response": {
+          "announcementId": "uuid"
+        }
+      }
+    ]
+  }
+  ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:**
+  - (Không có luồng ngoại lệ chuyên biệt được xác định cho giai đoạn này.)
+
+#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 5)
+
+  <!--START_DAY_LOG_INDEX_5-->
+
+  - **DAY 1: Triển khai hệ thống quản lý khuyến mãi**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ khuyến mãi
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/promotion-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ khuyến mãi, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API quản lý khuyến mãi
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-017], [DAT-009]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/promotions` với logic quản lý khuyến mãi.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API quản lý khuyến mãi
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-017]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/PromotionServiceTest.java;./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API quản lý khuyến mãi.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống quản lý khuyến mãi.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 2: Triển khai hệ thống quản lý thông báo**
+    ##### SUB-TASK 1: Thiết lập cơ sở hạ tầng backend cho dịch vụ thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/announcement-service/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thiết lập dự án Quarkus mới cho dịch vụ thông báo, cấu hình cơ sở dữ liệu PostgreSQL, và thiết lập Dockerfile cơ bản.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Triển khai API quản lý thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-018], [DAT-009]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/announcement-service/src/main/java/com/membershiphub/announcement/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai endpoint `/api/announcements` với logic quản lý thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Viết test cho API quản lý thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-018]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/announcement-service/src/test/java/com/membershiphub/announcement/AnnouncementServiceTest.java;./sources/backend/announcement-service/src/main/java/com/membershiphub/announcement/AnnouncementService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test case cho các trường hợp thành công và thất bại của API quản lý thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 4: Cập nhật tài liệu thiết kế
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Doc]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/system-design.md`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cập nhật tài liệu thiết kế với chi tiết về hệ thống quản lý thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  - **DAY 3: Tích hợp giao diện người dùng và kiểm thử hệ thống**
+    ##### SUB-TASK 1: Thiết lập giao diện quản lý khuyến mãi và thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Coder]
+      - **Tag IDs Mục tiêu:** [REQ-017], [REQ-018]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/web/pages/promotion/`, `./sources/frontend/web/pages/announcement/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai giao diện quản lý khuyến mãi và thông báo với Next.js.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 2: Kiểm thử hệ thống quản lý khuyến mãi và thông báo
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Tester]
+      - **Tag IDs Mục tiêu:** [REQ-017], [REQ-018]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/PromotionIntegrationTest.java;./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java`, `./sources/backend/announcement-service/src/test/java/com/membershiphub/announcement/AnnouncementIntegrationTest.java;./sources/backend/announcement-service/src/main/java/com/membershiphub/announcement/AnnouncementService.java`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các test tích hợp cho hệ thống quản lý khuyến mãi và thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+    ##### SUB-TASK 3: Triển khai Docker và GKE
+      <!--START_ATOMIC_SUB_TASK_NODE-->
+      [Docker], [GCP], [GKE]
+      - **Tag IDs Mục tiêu:** [ARC-010]
+      - **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/promotion-service/Dockerfile`, `./sources/backend/announcement-service/Dockerfile`, `./sources/infra/gke/`
+      - **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai Dockerfile và cấu hình GKE cho dịch vụ quản lý khuyến mãi và thông báo.
+      <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  <!--END_PHASE_LOG_BLOCK_INDEX_5-->
 
