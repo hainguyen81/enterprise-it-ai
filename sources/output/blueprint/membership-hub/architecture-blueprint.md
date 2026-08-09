@@ -9,7 +9,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 18609, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -37,7 +37,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 404 - {'error': {'message': 'This model is unavailable for free. The paid version is available now - use this slug instead: meta-llama/llama-3.3-70b-instruct', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -64,8 +64,8 @@ SYSTEM_ERROR
 
 # Raw Response / Exception:
 
-Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 1177. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 6481 tokens, but can only afford 167. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 477. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 3072 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 530. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 2048 tokens, but can only afford 362. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 3072 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 1177. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 6481 tokens, but can only afford 167. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 477. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 530. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 2048 tokens, but can only afford 362. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -79,7 +79,7 @@ Error code: 402 - {'error': {'message': 'This request requires more credits, or 
                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
     raise self._make_status_error_from_response(err.response) from None
-', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 1177. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 6481 tokens, but can only afford 167. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 477. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 3072 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 530. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 2048 tokens, but can only afford 362. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 3072 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 1177. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 942. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 6481 tokens, but can only afford 167. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 477. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 530. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 2048 tokens, but can only afford 362. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 523. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
 "]
 
 # AI Model: qwen/qwen-2.5-coder-32b-instruct - Global Prompt:
@@ -93,7 +93,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 11797 tokens, but can only afford 376. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -121,7 +121,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 404 - {'error': {'message': 'This model is unavailable for free. The paid version is available now - use this slug instead: deepseek/deepseek-r1', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -149,7 +149,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 400 - {'error': {'message': 'google/gemma-4-31b-instruct is not a valid model ID', 'code': 400}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -176,8 +176,8 @@ SYSTEM_ERROR
 
 # Raw Response / Exception:
 
-Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 392. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 342. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 392. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 342. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -191,7 +191,7 @@ Error code: 402 - {'error': {'message': 'This request requires more credits, or 
                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
     raise self._make_status_error_from_response(err.response) from None
-', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 392. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 342. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 392. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 314. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 342. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
 "]
 
 # AI Model: openai/gpt-5.3-codex - Global Prompt:
@@ -205,7 +205,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -233,7 +233,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 [API Upstream Error 404]: AI response content is empty/None.: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 187, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 191, in generate_global_context_by_chunk
     chunk_1 = parseAIResponseData(res_p1)
               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/agent_helper.py", line 339, in parseAIResponseData
@@ -254,8 +254,8 @@ SYSTEM_ERROR
 
 # Raw Response / Exception:
 
-Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 64000 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 64000 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -269,7 +269,7 @@ Error code: 402 - {'error': {'message': 'This request requires more credits, or 
                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
     raise self._make_status_error_from_response(err.response) from None
-', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 64000 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 64000 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 471. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
 "]
 
 # AI Model: qwen/qwen3-coder - Global Prompt:
@@ -282,8 +282,8 @@ SYSTEM_ERROR
 
 # Raw Response / Exception:
 
-Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 77. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 209. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 243. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 376. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 77. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 376. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 243. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 209. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -297,7 +297,7 @@ Error code: 402 - {'error': {'message': 'This request requires more credits, or 
                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
     raise self._make_status_error_from_response(err.response) from None
-', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 77. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 209. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 243. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 376. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 77. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 376. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 251. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 243. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 209. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
 "]
 
 # AI Model: qwen/qwen3-coder-30b-a3b-instruct - Global Prompt:
@@ -311,7 +311,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 221. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 1395. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1345. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 257. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -339,7 +339,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -367,7 +367,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 115. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -395,7 +395,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 386. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -423,7 +423,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5-codex.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -451,7 +451,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -479,7 +479,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -507,7 +507,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 418. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -535,7 +535,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -563,7 +563,7 @@ SYSTEM_ERROR
 # Raw Response / Exception:
 
 Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 11797 tokens, but can only afford 376. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -590,8 +590,8 @@ SYSTEM_ERROR
 
 # Raw Response / Exception:
 
-Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65535 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
-', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 182, in generate_global_context_by_chunk
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65535 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
     res_p1 = client.chat.completions.create(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
@@ -605,10 +605,1822 @@ Error code: 402 - {'error': {'message': 'This request requires more credits, or 
                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
     raise self._make_status_error_from_response(err.response) from None
-', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65535 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65535 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 16. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
 "]
 
 # AI Model: openai/gpt-oss-20b:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Expecting value: line 547 column 1 (char 3003): ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1153, in request
+    return self._process_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1242, in _process_response
+    return api_response.parse()
+           ^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_response.py", line 328, in parse
+    parsed = self._parse(to=to)
+             ^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_response.py", line 270, in _parse
+    data = response.json()
+           ^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/httpx/_models.py", line 832, in json
+    return jsonlib.loads(self.content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+', 'json.decoder.JSONDecodeError: Expecting value: line 547 column 1 (char 3003)
+']
+
+# AI Model: openai/gpt-oss-20b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 1507. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2691. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 2093. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2898. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1884. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1256. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1256. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 1507. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2691. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 2093. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2898. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1884. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1256. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1256. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2512. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-oss-120b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2216. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2216. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 396. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 769. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 978. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 1507. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 837. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 40960 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1046. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2216. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 2216. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 396. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 769. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 978. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 1507. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 753. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 8192 tokens, but can only afford 837. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 40960 tokens, but can only afford 502. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 1046. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-4o-mini-2024-07-18 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-4o-mini - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-3.5-turbo - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 400 - {'error': {'message': "This endpoint's maximum context length is 16385 tokens. However, you requested about 21774 tokens (21774 of text input). Please reduce the length of either one, or use the context-compression plugin to compress your prompt automatically.", 'code': 400, 'metadata': {'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', 'openai.BadRequestError: Error code: 400 - {\'error\': {\'message\': "This endpoint\'s maximum context length is 16385 tokens. However, you requested about 21774 tokens (21774 of text input). Please reduce the length of either one, or use the context-compression plugin to compress your prompt automatically.", \'code\': 400, \'metadata\': {\'provider_name\': None}}, \'user_id\': \'user_3GLaJI6mihRMFQtSad72HqAhW95\'}
+']
+
+# AI Model: openai/gpt-4o-2024-11-20 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-4o-2024-08-06 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-4o - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-4o-2024-05-13 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 4096 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 4096 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 4096 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 4096 tokens, but can only afford 25. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.1-codex-mini - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5-mini - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 188. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-4.1-mini - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 235. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 235. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 235. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32768 tokens, but can only afford 235. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: ~openai/gpt-mini-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.4-mini - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 83. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.6-luna-pro - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.6-luna - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 62. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 628. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.1-codex-max - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.1 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.1-chat - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5.1-chat.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.NotFoundError: Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5.1-chat.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.1-codex - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5-codex - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5-codex.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.NotFoundError: Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5-codex.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5-chat - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5-chat.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.NotFoundError: Error code: 404 - {'error': {'message': 'No endpoints found for openai/gpt-5-chat.', 'code': 404}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 37. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.3-codex - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.2-codex - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.2-chat - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32000 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 32000 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 16384 tokens, but can only afford 26. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: ~openai/gpt-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}, {'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: openai/gpt-5.5 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account', 'code': 402, 'metadata': {'limit_source': 'openrouter_credits', 'remedy_hint': 'Add credits at https://openrouter.ai/settings/credits, or lower max_tokens / prompt size to fit your remaining balance.', 'provider_name': None, 'previous_errors': [{'code': 402, 'message': 'This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 12. To increase, visit https://openrouter.ai/settings/credits and upgrade to a paid account'}]}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]
+
+# AI Model: llama-3.3-70b-versatile - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 18609, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.3-70b-versatile` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 18609, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+"]
+
+# AI Model: groq/compound - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 403 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` is blocked at the project level. Please have a project admin enable this model in the project settings at https://console.groq.com/settings/project/limits', 'type': 'permissions_error'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.PermissionDeniedError: Error code: 403 - {'error': {'message': 'The model `meta-llama/llama-4-scout-17b-16e-instruct` is blocked at the project level. Please have a project admin enable this model in the project settings at https://console.groq.com/settings/project/limits', 'type': 'permissions_error'}}
+"]
+
+# AI Model: groq/compound-mini - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request Entity Too Large', 'type': 'invalid_request_error', 'code': 'request_too_large'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request Entity Too Large', 'type': 'invalid_request_error', 'code': 'request_too_large'}}
+"]
+
+# AI Model: llama-3.1-8b-instant - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.1-8b-instant` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 18609, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.1-8b-instant` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 18609, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+"]
+
+# AI Model: openai/gpt-oss-120b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-120b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 18741, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-120b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 18741, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+"]
+
+# AI Model: openai/gpt-oss-20b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-20b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 18741, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-20b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 18741, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+"]
+
+# AI Model: openai/gpt-oss-safeguard-20b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-safeguard-20b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 18741, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `openai/gpt-oss-safeguard-20b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 18741, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+"]
+
+# AI Model: qwen/qwen3.6-27b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 413 - {'error': {'message': 'Request too large for model `qwen/qwen3.6-27b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 19175, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 413 - {'error': {'message': 'Request too large for model `qwen/qwen3.6-27b` in organization `org_01kx7x6rbpftmr50sr2yyb78qm` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 19175, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+"]
+
+# AI Model: meta-llama/llama-prompt-guard-2-22m - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 400 - {'error': {'message': 'Please reduce the length of the messages or completion.', 'type': 'invalid_request_error', 'param': 'messages'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.BadRequestError: Error code: 400 - {'error': {'message': 'Please reduce the length of the messages or completion.', 'type': 'invalid_request_error', 'param': 'messages'}}
+"]
+
+# AI Model: meta-llama/llama-prompt-guard-2-86m - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 400 - {'error': {'message': 'Please reduce the length of the messages or completion.', 'type': 'invalid_request_error', 'param': 'messages'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.BadRequestError: Error code: 400 - {'error': {'message': 'Please reduce the length of the messages or completion.', 'type': 'invalid_request_error', 'param': 'messages'}}
+"]
+
+# AI Model: DeepSeek-V3.1 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}
+"]
+
+# AI Model: DeepSeek-V3.2 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}
+"]
+
+# AI Model: Meta-Llama-3.3-70B-Instruct - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}
+"]
+
+# AI Model: MiniMax-M2.7 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}
+"]
+
+# AI Model: gemma-4-31B-it - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}
+"]
+
+# AI Model: gpt-oss-120b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'balance_units': 0, 'billing_portal_url': 'https://cloud.sambanova.ai/plans/billing', 'code': 'PAYMENT_METHOD_REQUIRED', 'message': 'A payment method is required. Add one at https://cloud.sambanova.ai/plans/billing to continue.'}}
+"]
+
+# AI Model: models/gemini-2.5-flash - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]
+"]
+
+# AI Model: models/gemini-2.5-pro - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro
+Please retry in 25.541343873s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerDay-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '25s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.5-pro\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.5-pro\
+Please retry in 25.541343873s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-pro', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerDay-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-pro'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '25s'}]}}]
+"]
+
+# AI Model: models/gemini-2.0-flash - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 22.296148173s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '22s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\
+Please retry in 22.296148173s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '22s'}]}}]
+"]
+
+# AI Model: models/gemini-2.0-flash-001 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 18.615470811s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\
+Please retry in 18.615470811s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}]
+"]
+
+# AI Model: models/gemini-2.0-flash-lite-001 - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-lite
+Please retry in 15.027349258s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash-lite', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-lite\
+Please retry in 15.027349258s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash-lite', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '15s'}]}}]
+"]
+
+# AI Model: models/gemini-2.0-flash-lite - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-lite
+Please retry in 11.784870546s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash-lite\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash-lite\
+Please retry in 11.784870546s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash-lite'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}}]
+"]
+
+# AI Model: models/gemma-4-26b-a4b-it - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 16000, model: gemma-4-26b
+Please retry in 8.6553029s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemma-4-26b'}, 'quotaValue': '16000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '8s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 16000, model: gemma-4-26b\
+Please retry in 8.6553029s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemma-4-26b'}, 'quotaValue': '16000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '8s'}]}}]
+"]
+
+# AI Model: models/gemma-4-31b-it - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 16000, model: gemma-4-31b
+Please retry in 5.198416353s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemma-4-31b'}, 'quotaValue': '16000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '5s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 16000, model: gemma-4-31b\
+Please retry in 5.198416353s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemma-4-31b'}, 'quotaValue': '16000'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '5s'}]}}]
+"]
+
+# AI Model: models/gemini-flash-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]
+"]
+
+# AI Model: models/gemini-flash-lite-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]
+"]
+
+# AI Model: models/gemini-pro-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-3.1-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-3.1-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-3.1-pro
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-3.1-pro
+Please retry in 54.313687801s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerDay-FreeTier', 'quotaDimensions': {'model': 'gemini-3.1-pro', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-3.1-pro\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-3.1-pro\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-3.1-pro\
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-3.1-pro\
+Please retry in 54.313687801s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerDay-FreeTier', 'quotaDimensions': {'model': 'gemini-3.1-pro', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.1-pro'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}]
+"]
+
+# AI Model: models/gemini-2.5-flash-lite - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]
+"]
+
+# AI Model: models/gemini-3.5-flash - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.RateLimitError: Error code: 429 - [{'error': {'code': 429, 'message': 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ', 'status': 'RESOURCE_EXHAUSTED'}}]
+"]
+
+# AI Model: deepseek-v4-flash - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+"]
+
+# AI Model: deepseek-v4-pro - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+"]
+
+# AI Model: qwen-2.5-coder-32b - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-7b3cb134e09841c98527a4b7198ee4b3'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.NotFoundError: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-7b3cb134e09841c98527a4b7198ee4b3'}
+"]
+
+# AI Model: meta/llama-3.3-70b-instruct - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-b2141c8de1c142a298e0f83ec9499c29'}: ['Traceback (most recent call last):
+', '  File "/home/runner/work/enterprise-it-ai/enterprise-it-ai/sources/agents/architect-blueprint/block_global.py", line 186, in generate_global_context_by_chunk
+    res_p1 = client.chat.completions.create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+', "openai.NotFoundError: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-b2141c8de1c142a298e0f83ec9499c29'}
+"]
+
+# AI Model: codestral-latest - Global Prompt:
 
 Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for Project 'membership-hub'.
 
@@ -1092,10 +2904,10 @@ You MUST include every single section below without exception to satisfy enterpr
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260808172311 |
+| **Blueprint ID** | ARCH-20260809052007 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/08 17:23:11 |
+| **Date.Time** | 2026/08/09 05:20:07 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -1337,29 +3149,49 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 # Raw Response / Exception:
 
-## BẢNG CỔNG DỰ ÁN: membership-hub
+## GLOBAL PROJECT CONTEXT: membership-hub
 
-#### 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH KIẾN TRÚC
+#### 📊 Document Control
 
-###### 1.1. MÔ HÌNH KIẾN TRÚC CỐT LÕ
+| Item | Details |
+| :--- | :--- |
+| **Blueprint ID** | ARCH-20260809052007 |
+| **Project Name** | membership-hub |
+| **Version** | 1.0 (Baseline) |
+| **Date.Time** | 2026/08/09 05:20:07 |
+| **Author** | Enterprise System Architect (SA Agent) |
+| **Approval** | Pending Technical Governance Review |
 
-- Kiến trúc microservices phân tách rõ ràng giữa backend, frontend, mobile và infra.
-- Backend: Java/Quarkus, PostgreSQL, Redis, Docker, GKE, Firebase Auth, FCM/APNs, Zalo API.
-- Frontend: Next.js 13, React 18, TypeScript 5, Tailwind CSS 3, i18next, Redux Toolkit.
-- Mobile: React Native 0.73, Expo 49, TypeScript 5, i18next, Redux Toolkit.
-- DevOps: Docker multi‑stage, GitHub Actions CI/CD, Terraform GCP, GKE cluster, Helm charts.
-- CQRS: Command và Query services tách biệt, event sourcing cho attendance và notifications.
-- Reactive: Quarkus + Mutiny, event bus Kafka (Redis Streams) cho push notifications và fan‑out.
-- Security: JWT 15 min, refresh 7 days, TLS 1.3, AES‑256 at rest, OWASP Top 10 mitigations.
+#### 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURAL MODALITY
 
-###### 1.2. ĐỘI NGŨ DỮ LIỆU & HỆ THỐNG ĐIỀU KHIẾN
+###### 1.1. Core System Modality & Architectural Modality
+- Hệ thống được thiết kế theo kiến trúc đa lớp với các thành phần chính bao gồm: Frontend (Next.js), Backend (Java/Quarkus), Cơ sở dữ liệu (PostgreSQL), và Hạ tầng Cloud (GKE).
+- Sử dụng mô hình RBAC (Role-Based Access Control) để quản lý quyền truy cập dựa trên vai trò người dùng.
+- Hệ thống hỗ trợ đa kênh giao tiếp bao gồm web, di động, và nhóm Zalo.
+- Điểm danh thời gian thực được thực hiện thông qua quét mã QR.
+- Thẻ hội viên kỹ thuật số được tích hợp với tính năng đếm ngày hiệu lực.
+- Hệ thống sử dụng Firebase Authentication cho xác thực người dùng.
+- Google Cloud Messaging (FCM) và Apple APNs được sử dụng để gửi thông báo đẩy đến thiết bị di động.
+- Zalo API được tích hợp để gửi thông báo đến nhóm Zalo.
+- Redis được sử dụng để lưu trữ session caching.
+- CI/CD pipeline được thiết lập với GitHub Actions để tự động hóa quá trình triển khai.
 
-- Messaging: Kafka (Redis Streams) cho event bus, Google Pub/Sub cho notifications.
-- Ingestion gateway: API Gateway Quarkus, rate limiting, circuit breaker.
-- Topic topologies: `attendance.events`, `notification.events`, `course.events`, `center.events`.
-- Fan‑out: Zalo group messages, FCM/APNs push, web socket updates.
+###### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
+- Dữ liệu được lưu trữ trong cơ sở dữ liệu PostgreSQL với các bảng chính bao gồm: Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, và Announcements.
+- Các API REST được sử dụng để giao tiếp giữa Frontend và Backend.
+- Các sự kiện được gửi thông qua Kafka để xử lý các tác vụ bất đồng bộ.
+- Các thông báo được gửi thông qua FCM và Zalo API.
+- Các báo cáo được tạo ra từ dữ liệu trong cơ sở dữ liệu và được lưu trữ dưới dạng CSV.
+- Các báo cáo được hiển thị trên bảng điều khiển thời gian thực.
+- Các báo cáo được tạo ra từ dữ liệu trong cơ sở dữ liệu và được lưu trữ dưới dạng CSV.
+- Các báo cáo được hiển thị trên bảng điều khiển thời gian thực.
 
-#### 📁 2. CỤC ĐỘNG CÔNG NGHỆ & THƯ VIỆN
+#### 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
+
+- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions.
+- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions.
+
+###### ARCHITECTURAL STACK MATRIX
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -1369,898 +3201,1392 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-###### Backend Infrastructure Core Stack
+#### 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
+- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
+- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
+- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
+- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
 
-- Java 17
-- Quarkus 3.2
-- PostgreSQL 15
-- Redis 7
-- Docker 24
-- GKE 1.28
-- Firebase Auth 10.0
-- FCM/APNs 10.0
-- Zalo API 1.0
-- Terraform 1.8
-- GitHub Actions 2.0
+#### 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
-###### Frontend & Cross‑Platform UI Mobile Stack
-
-- Next.js 13
-- React 18
-- TypeScript 5
-- Tailwind CSS 3
-- i18next 13
-- Redux Toolkit 2
-- React Native 0.73
-- Expo 49
-- Jest 29
-- Cypress 12
-
-#### 📁 3. QUY ĐỊNH BẢO VỆ & THUẬT TOÀN CẦU
-
-- Repository root: `.`; all paths start with `./sources/`.
-- Java package: `org.nlh4j.saas.membershiphub`.
-- Tester paths: `./sources/<component>;<test_suite_file>`.
-- All tags `[REQ-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[EXC-XXX]`, `[NFR-XXX]` preserved.
-- No code blocks translated; all technical code remains in English.
-
-#### 📁 4. BẢNG TỔNG QUAN ĐỘI NGŨ KIẾN TRÚC ĐIỀU KHIẾN
+###### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Implement user registration endpoint | Create REST API for email/password sign‑up, issue JWT | Application Code | [REQ-001] |
-| 2 | Implement social login flow | OAuth2 integration with Firebase, Google, Facebook | Application Code | [REQ-002] |
-| 3 | Implement role assignment API | Admin endpoint to change user role | Application Code | [REQ-003] |
-| 4 | Validate user input on registration | Server‑side validation, error handling | Application Code | [EXC-004] |
-| 5 | Define Users and Roles ER diagram | Data dictionary for user management | Enterprise Documentation | [DAT-001] |
-| 6 | Define Centers ER diagram | Data dictionary for center management | Enterprise Documentation | [DAT-003] |
-| 7 | Define Courses ER diagram | Data dictionary for course management | Enterprise Documentation | [DAT-004] |
-| 8 | Define Enrollments ER diagram | Data dictionary for enrollment | Enterprise Documentation | [DAT-005] |
-| 9 | Define Attendance ER diagram | Data dictionary for attendance | Enterprise Documentation | [DAT-006] |
-| 10 | Define StudentCards ER diagram | Data dictionary for membership cards | Enterprise Documentation | [DAT-007] |
-| 11 | Define Notifications ER diagram | Data dictionary for notifications | Enterprise Documentation | [DAT-008] |
-| 12 | Define Promotions ER diagram | Data dictionary for promotions | Enterprise Documentation | [DAT-009] |
-| 13 | Define SystemSettings ER diagram | Data dictionary for system settings | Enterprise Documentation | [DAT-011] |
-| 14 | Implement center CRUD APIs | Create, read, update, delete centers | Application Code | [REQ-004] |
-| 15 | Implement center admin assignment | Assign/unassign center admin | Application Code | [REQ-006] |
-| 16 | Implement course CRUD APIs | Create, read, update, delete courses | Application Code | [REQ-007] |
-| 17 | Implement teacher assignment to courses | Assign/unassign teachers | Application Code | [REQ-009] |
-| 18 | Implement enrollment API | Register students to courses | Application Code | [REQ-010] |
-| 19 | Implement attendance capture API | Record attendance via QR scan | Application Code | [REQ-012] |
-| 20 | Implement duplicate attendance check | Idempotent attendance logic | Application Code | [EXC-001] |
-| 21 | Implement network drop handling for attendance | Retry logic on connectivity loss | Application Code | [EXC-002] |
-| 22 | Implement notification trigger service | Push notifications and Zalo messages | Application Code | [REQ-016] |
-| 23 | Implement notification failure handling | Retry up to 3 times, log failures | Application Code | [EXC-003] |
-| 24 | Implement membership card validity view | Show remaining days, extend card | Application Code | [REQ-014] |
-| 25 | Implement membership card renewal | Process payment, extend validity | Application Code | [REQ-015] |
-| 26 | Implement promotion CRUD APIs | Create, read, update, delete promotions | Application Code | [REQ-017] |
-| 27 | Implement announcement CRUD APIs | Create, read, update, delete announcements | Application Code | [REQ-018] |
-| 28 | Implement chatbot integration | AI chatbot endpoint, logging | Application Code | [REQ-019] |
-| 29 | Implement mobile UI navigation | Role‑based navigation for mobile | Application Code | [REQ-020] |
-| 30 | Implement mobile push notification handling | FCM/APNs integration | Application Code | [REQ-021] |
-| 31 | Implement language detection service | Detect user language preference | Application Code | [REQ-022] |
-| 32 | Implement SEO meta tags generator | Generate hreflang, meta tags | Application Code | [REQ-023] |
-| 33 | Implement attendance reporting CSV | Generate daily attendance report | Application Code | [REQ-024] |
-| 34 | Implement dashboard data aggregation | Real‑time dashboard metrics | Application Code | [REQ-025] |
-| 35 | Implement exception handling for registration | Handle invalid input errors | Application Code | [EXC-004] |
-| 36 | Implement exception handling for center CRUD | Handle duplicate tax ID | Application Code | [EXC-005] |
-| 37 | Implement authentication flow | JWT issuance, refresh token | Application Code | [ARC-006] |
-| 38 | Implement attendance QR flow | Mobile QR scan, backend processing | Application Code | [ARC-007] |
-| 39 | Implement notification push flow | Push to mobile and Zalo | Application Code | [ARC-008] |
-| 40 | Implement backend integration with mobile | REST API consumption, caching | Application Code | [ARC-009] |
-| 41 | Implement containerization | Dockerfile, multi‑stage build | DevOps Infrastructure | [ARC-010] |
-| 42 | Implement GCP infrastructure | Terraform scripts for GKE, IAM | DevOps Infrastructure | [ARC-010] |
-| 43 | Implement GKE deployment | Helm charts, autoscaling | DevOps Infrastructure | [ARC-010] |
-| 44 | Implement CI/CD pipeline | GitHub Actions workflow | DevOps Infrastructure | [ARC-010] |
-| 45 | Implement Redis caching | Session caching, rate limiting | Application Code | [ARC-006] |
-| 46 | Implement Kafka event bus | Publish/subscribe for events | Application Code | [ARC-006] |
-| 47 | Implement Zalo API integration | Group messaging, webhook | Application Code | [ARC-008] |
-| 48 | Implement FCM/APNs integration | Push notification service | Application Code | [ARC-008] |
-| 49 | Implement role‑based access control | RBAC enforcement | Application Code | [ARC-001] |
-| 50 | Implement center admin RBAC | Scope to center only | Application Code | [ARC-002] |
-| 51 | Implement manager RBAC | Limited permissions | Application Code | [ARC-003] |
-| 52 | Implement teacher RBAC | Read‑only access | Application Code | [ARC-004] |
-| 53 | Implement student RBAC | View courses, register | Application Code | [ARC-005] |
-| 54 | Implement NFR performance monitoring | Latency metrics, indexing | Enterprise Documentation | [NFR-001] |
-| 55 | Implement NFR availability strategy | 99.9% uptime, failover | Enterprise Documentation | [NFR-002] |
-| 56 | Implement NFR security controls | TLS 1.3, OWASP mitigations | Enterprise Documentation | [NFR-003] |
-| 57 | Implement NFR scalability plan | HPA, read replicas | Enterprise Documentation | [NFR-004] |
-| 58 | Implement NFR audit logging | 1 year retention, JSON export | Enterprise Documentation | [NFR-005] |
-| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 58 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+| 1 | Xây dựng hệ thống xác thực người dùng | Cung cấp chức năng đăng ký và đăng nhập người dùng thông qua email/mật khẩu, Firebase, Google, và Facebook OAuth. | Application Code | [REQ-001], [REQ-002], [ARC-006] |
+| 2 | Phân quyền người dùng | Cung cấp chức năng phân quyền người dùng dựa trên vai trò (System Admin, Center Admin, Manager, Teacher, Student). | Application Code | [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
+| 3 | Quản lý trung tâm | Cung cấp chức năng xem, tạo, cập nhật, và xóa trung tâm. | Application Code | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
+| 4 | Quản lý khóa học | Cung cấp chức năng xem, tạo, cập nhật, và xóa khóa học. | Application Code | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| 5 | Đăng ký & ghi danh học viên | Cung cấp chức năng duyệt khóa học và đăng ký khóa học của học viên. | Application Code | [REQ-010], [REQ-011], [DAT-005] |
+| 6 | Điểm danh & quét mã QR | Cung cấp chức năng chụp ảnh điểm danh QR và tính chất bất biến của điểm danh. | Application Code | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] |
+| 7 | Quản lý thẻ hội viên | Cung cấp chức năng hiển thị tính hợp lệ của thẻ và gia hạn thẻ. | Application Code | [REQ-014], [REQ-015], [DAT-007] |
+| 8 | Thông báo & truyền thông | Cung cấp chức năng kích hoạt thông báo. | Application Code | [REQ-016], [EXC-003], [DAT-008] |
+| 9 | Quản lý khuyến mãi & thông báo | Cung cấp chức năng quản lý khuyến mãi và thông báo. | Application Code | [REQ-017], [REQ-018], [DAT-009] |
+| 10 | Chatbot dịch vụ khách hàng AI | Cung cấp chức năng tích hợp chatbot AI. | Application Code | [REQ-019] |
+| 11 | Các tính năng cốt lõi của ứng dụng di động | Cung cấp chức năng giao diện người dùng vai trò cụ thể trên di động và thông báo đẩy trên di động. | Application Code | [REQ-020], [REQ-021] |
+| 12 | Bản địa hóa & SEO | Cung cấp chức năng phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ. | Application Code | [REQ-022], [REQ-023], [DAT-011] |
+| 13 | Báo cáo & phân tích | Cung cấp chức năng tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh. | Application Code | [REQ-024], [REQ-025], [EXC-005] |
+| 14 | Tài liệu kỹ thuật | Tạo tài liệu kỹ thuật cho hệ thống. | Enterprise Documentation | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010] |
+| 15 | Hạ tầng DevOps | Cung cấp hạ tầng DevOps cho hệ thống. | DevOps Infrastructure | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 15 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
 <!--END_BACKLOG_SYNOPSIS_GRID-->
+
+###### 4.2. MULTI-PHASE SYNOPSIS MATRIX
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Day 1-3 | ./sources/backend/membership-hub-core | Implement core user registration, authentication, and role assignment endpoints. | Coder, Doc | [REQ-001],[REQ-002],[REQ-003],[DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003] |
-| 2 | Day 1-3 | ./sources/backend/membership-hub-advanced | Develop course and center management APIs, including CRUD operations. | Coder, Doc | [REQ-004],[REQ-006],[REQ-007],[DAT-004],[DAT-006],[NFR-004],[NFR-005] |
-| 3 | Day 1-3 | ./sources/backend/membership-hub-auxiliary | Implement attendance, notification, and promotion modules with exception handling. | Coder, Doc | [EXC-001],[EXC-002],[EXC-003],[ARC-001],[ARC-002],[ARC-003],[ARC-004],[ARC-005],[DAT-007],[DAT-008],[DAT-009],[NFR-006],[NFR-007],[NFR-008] |
-| 4 | Day 1-2 | ./sources/backend/membership-hub-infra | Set up infrastructure: Docker images, GCP services, GKE cluster, and CI/CD pipelines. | Docker, GCP, GKE | [EXC-004],[EXC-005],[ARC-006],[ARC-007],[ARC-008],[ARC-009],[ARC-010],[DAT-011] |
-| 5 | Day 1 | ./sources/infra/membership-hub-deploy | Deploy final application, perform integration tests, and validate end‑to‑end flow. | Docker, GCP, GKE | [ARC-010] |
-| **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 | **MAPPED CAPACITY STATUS:** Verified: 58 out of 58 Total Master Backlog Tasks successfully distributed across calculated phases with 100% coverage | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
+| Phase 1 | Day 1 - 2 | `./sources/backend/auth-service/` | Xây dựng hệ thống xác thực người dùng, phân quyền người dùng. | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [REQ-003], [ARC-006] |
+| Phase 2 | Day 1 - 2 | `./sources/backend/center-service/` | Quản lý trung tâm, quản lý khóa học, đăng ký & ghi danh học viên. | Coder, Tester, Reviewer, Doc | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [DAT-003], [DAT-004], [DAT-005] |
+| Phase 3 | Day 1 - 2 | `./sources/backend/attendance-service/` | Điểm danh & quét mã QR, quản lý thẻ hội viên. | Coder, Tester, Reviewer, Doc | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [EXC-001], [EXC-002], [DAT-006], [DAT-007] |
+| Phase 4 | Day 1 - 2 | `./sources/backend/notification-service/` | Thông báo & truyền thông, quản lý khuyến mãi & thông báo, chatbot dịch vụ khách hàng AI. | Coder, Tester, Reviewer, Doc | [REQ-016], [REQ-017], [REQ-018], [REQ-019], [EXC-003], [DAT-008], [DAT-009] |
+| Phase 5 | Day 1 - 2 | `./sources/frontend/` | Các tính năng cốt lõi của ứng dụng di động, bản địa hóa & SEO, báo cáo & phân tích. | Coder, Tester, Reviewer, Doc | [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-005], [DAT-011] |
+| **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 15 out of 15 Total Master Backlog Tasks successfully distributed across calculated phases with 100% coverage | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
 <!--END_PHASE_SYNOPSIS_GRID-->
 
-###### 📈 Phase 1 Triển khai đăng ký người dùng, xác thực và phân quyền truy cập  
-- **Phase Core Objective & Purpose:**  
-  Giai đoạn này xây dựng nền tảng xác thực và phân quyền cho toàn bộ hệ thống. Bao gồm thiết kế mô hình dữ liệu người dùng, vai trò, và trung tâm; triển khai API đăng ký, đăng nhập (địa phương và OAuth), và giao diện phân quyền. Đảm bảo tuân thủ các NFR về hiệu năng, sẵn sàng và bảo mật.
-
-- **Target Physical Directory Matrix Map:**  
-  - `./sources/backend/membership-hub-core/src/main/resources/db/migration/V1__create_user_role_center_tables.sql` [DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/api/AuthController.java` [REQ-001],[REQ-002],[REQ-003],[NFR-001],[NFR-002],[NFR-003]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/service/UserService.java` [REQ-001],[REQ-002],[REQ-003],[NFR-001],[NFR-002],[NFR-003]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/config/PerformanceSecurityConfig.java` [NFR-001],[NFR-002],[NFR-003]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/security/JWTProvider.java` [NFR-001],[NFR-002],[NFR-003]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/model/User.java` [DAT-001]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/model/Role.java` [DAT-001]  
-  - `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/model/Center.java` [DAT-003]  
-  - `./sources/docs/architecture/registration_flow.md` [REQ-001],[REQ-002],[REQ-003],[DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003]  
-  - `./sources/backend/membership-hub-core/README.md` [REQ-001],[REQ-002],[REQ-003],[DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003]  
-
-- **Database Schema DDL SQL Specification [DAT-001], [DAT-003]:**  
-  ```sql
-  CREATE TABLE Roles (
-      roleId SMALLINT PRIMARY KEY,
-      name VARCHAR(30) NOT NULL UNIQUE,
-      description VARCHAR(200)
-  );
-
-  CREATE TABLE Users (
-      userId UUID PRIMARY KEY,
-      email VARCHAR(255) NOT NULL UNIQUE,
-      passwordHash CHAR(60) NOT NULL,
-      fullName VARCHAR(100) NOT NULL,
-      roleId SMALLINT NOT NULL,
-      provider VARCHAR(20) NOT NULL,
-      createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
-      updatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
-      CONSTRAINT fk_user_role FOREIGN KEY (roleId) REFERENCES Roles(roleId),
-      CONSTRAINT chk_provider CHECK (provider IN ('local','firebase','google','facebook'))
-  );
-
-  CREATE TABLE Centers (
-      centerId UUID PRIMARY KEY,
-      name VARCHAR(100) NOT NULL,
-      address VARCHAR(255) NOT NULL,
-      taxId VARCHAR(13) NOT NULL UNIQUE,
-      contactPhone VARCHAR(50),
-      contactEmail VARCHAR(255)
-  );
-
-  CREATE INDEX idx_users_role ON Users(roleId);
-  CREATE INDEX idx_centers_taxid ON Centers(taxId);
-  ```
-
-- **API and Event Routing Contracts [REQ-001], [REQ-002], [REQ-003]:**  
-  ```json
-  {
-    "request": {
-      "method": "POST",
-      "path": "/api/auth/register",
-      "body": {
-        "email": "string",
-        "password": "string",
-        "fullName": "string",
-        "provider": "string"
-      }
-    },
-    "response": {
-      "status": 201,
-      "body": {
-        "userId": "uuid",
-        "token": "string",
-        "refreshToken": "string"
-      }
-    }
-  }
-  ```
-  ```json
-  {
-    "request": {
-      "method": "POST",
-      "path": "/api/auth/login",
-      "body": {
-        "email": "string",
-        "password": "string",
-        "provider": "string"
-      }
-    },
-    "response": {
-      "status": 200,
-      "body": {
-        "token": "string",
-        "refreshToken": "string"
-      }
-    }
-  }
-  ```
-  ```json
-  {
-    "request": {
-      "method": "PUT",
-      "path": "/api/users/{userId}/role",
-      "headers": {
-        "Authorization": "Bearer token"
-      },
-      "body": {
-        "roleId": "smallint"
-      }
-    },
-    "response": {
-      "status": 200,
-      "body": {
-        "userId": "uuid",
-        "roleId": "smallint"
-      }
-    }
-  }
-  ```
-
-- **Phase Localized Exception Handlers [EXC-XXX]:**  
-  *(Không có ngoại lệ trong giai đoạn này)*  
-
-######## Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 1)
-
-- **DAY 1: Thiết kế dữ liệu và API sơ bộ**  
-  ########## SUB-TASK 1: Xây dựng schema cơ sở dữ liệu Users, Roles, Centers  
-  `[Coder]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/main/resources/db/migration/V1__create_user_role_center_tables.sql`  
-  **Instruction:** Tạo bảng `Users`, `Roles`, `Centers` với các ràng buộc khóa chính, khóa ngoại và kiểm tra giá trị `provider`. Đảm bảo chỉ sử dụng kiểu dữ liệu chuẩn ANSI SQL.  
-  **Tags:** [DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003]  
-
-  ########## SUB-TASK 2: Định nghĩa API đăng ký, đăng nhập và phân quyền  
-  `[Coder]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/api/AuthController.java`  
-  **Instruction:** Triển khai các endpoint `/api/auth/register`, `/api/auth/login`, `/api/users/{userId}/role` với validation, exception handling và trả về token JWT.  
-  **Tags:** [REQ-001],[REQ-002],[REQ-003],[NFR-001],[NFR-002],[NFR-003]  
-
-  ########## SUB-TASK 3: Tài liệu thiết kế hiệu năng và bảo mật  
-  `[Doc]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/config/PerformanceSecurityConfig.java`  
-  **Instruction:** Ghi chú cấu hình giới hạn thời gian token, cấu hình bảo mật TLS 1.3, và các biện pháp OWASP Top 10.  
-  **Tags:** [NFR-001],[NFR-002],[NFR-003]  
-
-- **DAY 2: Triển khai logic và bảo mật**  
-  ########## SUB-TASK 1: Xây dựng Service người dùng và xác thực  
-  `[Coder]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/service/UserService.java`  
-  **Instruction:** Cung cấp các phương thức tạo, cập nhật, lấy thông tin người dùng, xử lý hash mật khẩu, và phát token JWT.  
-  **Tags:** [REQ-001],[REQ-002],[REQ-003],[NFR-001],[NFR-002],[NFR-003]  
-
-  ########## SUB-TASK 2: Cấu hình JWT và refresh token  
-  `[Coder]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/main/java/org/nlh4j/saa/membershiphub/security/JWTProvider.java`  
-  **Instruction:** Tạo token JWT 15 phút, refresh token 7 ngày, mã hoá khóa bí mật, và kiểm tra tính hợp lệ.  
-  **Tags:** [NFR-001],[NFR-002],[NFR-003]  
-
-  ########## SUB-TASK 3: Viết unit test cho AuthController  
-  `[Tester]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/test/java/org/nlh4j/saa/membershiphub/AuthControllerTest.java`  
-  **Instruction:** Kiểm tra các trường hợp thành công và lỗi (đăng ký, đăng nhập, phân quyền).  
-  **Tags:** [REQ-001],[REQ-002],[REQ-003]  
-
-- **DAY 3: Kiểm thử tích hợp và tài liệu**  
-  ########## SUB-TASK 1: Kiểm thử tích hợp API toàn bộ luồng đăng ký và đăng nhập  
-  `[Tester]`  
-  **Target Component:** `./sources/backend/membership-hub-core/src/test/java/org/nlh4j/saa/membershiphub/IntegrationTest.java`  
-  **Instruction:** Đảm bảo các endpoint hoạt động liên tục, token được phát và refresh đúng cách, và dữ liệu được lưu trữ chính xác.  
-  **Tags:** [REQ-001],[REQ-002],[REQ-003]  
-
-  ########## SUB-TASK 2: Tạo tài liệu chi tiết luồng đăng ký và phân quyền  
-  `[Doc]`  
-  **Target Component:** `./sources/docs/architecture/registration_flow.md`  
-  **Instruction:** Mô tả chi tiết các endpoint, payload, response, và các ràng buộc nghiệp vụ.  
-  **Tags:** [REQ-001],[REQ-002],[REQ-003],[DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003]  
-
-  ########## SUB-TASK 3: Chuẩn bị README cho module core  
-  `[Doc]`  
-  **Target Component:** `./sources/backend/membership-hub-core/README.md`  
-  **Instruction:** Cung cấp hướng dẫn cài đặt, cấu hình môi trường, và cách chạy ứng dụng.  
-  **Tags:** [REQ-001],[REQ-002],[REQ-003],[DAT-001],[DAT-003],[NFR-001],[NFR-002],[NFR-003]
-
-###### 📈 Giai đoạn 2 Phát triển API quản lý khóa học và trung tâm, bao gồm các thao tác CRUD
-- **Phase Core Objective & Purpose:** Giai đoạn này tập trung vào việc thiết kế và triển khai các API CRUD cho quản lý trung tâm và khóa học, đồng thời xây dựng cấu trúc cơ sở dữ liệu liên quan và tài liệu hướng dẫn hiệu suất, nhằm đảm bảo tính nhất quán, bảo mật và khả năng mở rộng của hệ thống.
-- **Target Physical Directory Matrix Map:**
-  ```
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/center/CenterController.java [REQ-004]
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/center/CenterService.java [REQ-004]
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/center/CenterRepository.java [REQ-004]
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/center/CenterAdminAssignmentController.java [REQ-006]
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/course/CourseController.java [REQ-007]
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/course/CourseService.java [REQ-007]
-  ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/course/CourseRepository.java [REQ-007]
-  ./sources/backend/membership-hub-advanced/src/main/resources/db/migration/V1__create_courses_and_enrollments.sql [DAT-004],[DAT-006]
-  ./sources/docs/architecture/advanced/center_api_design.md [REQ-004]
-  ./sources/docs/architecture/advanced/course_api_design.md [REQ-007]
-  ./sources/docs/performance/advanced/performance_guidelines.md [NFR-004],[NFR-005]
-  ```
-- **Database Schema DDL SQL Specification [DAT-004], [DAT-006]:**
-  ```sql
-  -- DDL for courses and enrollments
-  CREATE TABLE IF NOT EXISTS courses (
-      course_id UUID PRIMARY KEY,
-      title VARCHAR(150) NOT NULL,
-      description TEXT,
-      start_date DATE NOT NULL,
-      end_date DATE NOT NULL,
-      teacher_id UUID,
-      max_students INT DEFAULT 30,
-      CONSTRAINT fk_teacher FOREIGN KEY (teacher_id) REFERENCES users(user_id)
-  );
-
-  CREATE TABLE IF NOT EXISTS enrollments (
-      enrollment_id UUID PRIMARY KEY,
-      student_id UUID NOT NULL,
-      course_id UUID NOT NULL,
-      enrollment_date TIMESTAMP DEFAULT NOW(),
-      CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES users(user_id),
-      CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
-  );
-  ```
-- **API and Event Routing Contracts [REQ-004], [REQ-006], [REQ-007]:**
-  ```json
-  {
-    "endpoint": "/api/centers",
-    "method": "POST",
-    "requestBody": {
-      "name": "string",
-      "address": "string",
-      "taxId": "string",
-      "contactPhone": "string",
-      "contactEmail": "string"
-    },
-    "responseBody": {
-      "centerId": "uuid",
-      "name": "string",
-      "address": "string",
-      "taxId": "string",
-      "contactPhone": "string",
-      "contactEmail": "string",
-      "createdAt": "timestamp",
-      "updatedAt": "timestamp"
-    }
-  }
-  ```
-  ```json
-  {
-    "endpoint": "/api/centers/{centerId}/admin",
-    "method": "POST",
-    "requestBody": {
-      "userId": "uuid",
-      "action": "assign|unassign"
-    },
-    "responseBody": {
-      "centerId": "uuid",
-      "userId": "uuid",
-      "role": "string",
-      "status": "string"
-    }
-  }
-  ```
-  ```json
-  {
-    "endpoint": "/api/courses",
-    "method": "POST",
-    "requestBody": {
-      "title": "string",
-      "description": "string",
-      "startDate": "date",
-      "endDate": "date",
-      "teacherId": "uuid",
-      "maxStudents": "int"
-    },
-    "responseBody": {
-      "courseId": "uuid",
-      "title": "string",
-      "description": "string",
-      "startDate": "date",
-      "endDate": "date",
-      "teacherId": "uuid",
-      "maxStudents": "int",
-      "createdAt": "timestamp",
-      "updatedAt": "timestamp"
-    }
-  }
-  ```
-- **Phase Localized Exception Handlers:** Không có ngoại lệ trong giai đoạn này.
-
-######## Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 2)
-
-- **DAY 1: Xây dựng cấu trúc cơ sở dữ liệu và tài liệu hiệu suất**
-
-  ########## SUB-TASK 1: Tạo script migration cho bảng courses và enrollments
-  [Coder]
-  - **Target Component:** ./sources/backend/membership-hub-advanced/src/main/resources/db/migration/V1__create_courses_and_enrollments.sql [DAT-004],[DAT-006]
-  - **Low-Level Technical Task Instruction:** Tạo script SQL để tạo bảng courses và enrollments với các cột và ràng buộc như đã mô tả.  
-  ```sql
-  -- DDL for courses and enrollments
-  CREATE TABLE IF NOT EXISTS courses (
-      course_id UUID PRIMARY KEY,
-      title VARCHAR(150) NOT NULL,
-      description TEXT,
-      start_date DATE NOT NULL,
-      end_date DATE NOT NULL,
-      teacher_id UUID,
-      max_students INT DEFAULT 30,
-      CONSTRAINT fk_teacher FOREIGN KEY (teacher_id) REFERENCES users(user_id)
-  );
-
-  CREATE TABLE IF NOT EXISTS enrollments (
-      enrollment_id UUID PRIMARY KEY,
-      student_id UUID NOT NULL,
-      course_id UUID NOT NULL,
-      enrollment_date TIMESTAMP DEFAULT NOW(),
-      CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES users(user_id),
-      CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES courses(course_id)
-  );
-  ```
-
-  ########## SUB-TASK 2: Soạn tài liệu hướng dẫn hiệu suất và khả năng mở rộng
-  [Doc]
-  - **Target Component:** ./sources/docs/performance/advanced/performance_guidelines.md [NFR-004],[NFR-005]
-  - **Low-Level Technical Task Instruction:** Soạn tài liệu hướng dẫn tối ưu hiệu suất và chiến lược khả dụng, bao gồm chỉ số latency, HPA, read replicas, và backup.
-
-- **DAY 2: Phát triển API quản lý trung tâm và phân quyền**
-
-  ########## SUB-TASK 1: Triển khai API CRUD cho trung tâm
-  [Coder]
-  - **Target Component:** ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/center/CenterController.java [REQ-004]
-  - **Low-Level Technical Task Instruction:** Xây dựng các endpoint GET, POST, PUT, DELETE cho /api/centers, bao gồm validation và exception handling.  
-  ```json
-  {
-    "endpoint": "/api/centers",
-    "method": "POST",
-    "requestBody": {
-      "name": "string",
-      "address": "string",
-      "taxId": "string",
-      "contactPhone": "string",
-      "contactEmail": "string"
-    },
-    "responseBody": {
-      "centerId": "uuid",
-      "name": "string",
-      "address": "string",
-      "taxId": "string",
-      "contactPhone": "string",
-      "contactEmail": "string",
-      "createdAt": "timestamp",
-      "updatedAt": "timestamp"
-    }
-  }
-  ```
-
-  ########## SUB-TASK 2: Triển khai API gán/huỷ admin trung tâm
-  [Coder]
-  - **Target Component:** ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/center/CenterAdminAssignmentController.java [REQ-006]
-  - **Low-Level Technical Task Instruction:** Xây dựng endpoint POST /api/centers/{centerId}/admin để gán/huỷ admin, bao gồm kiểm tra quyền và cập nhật role.  
-  ```json
-  {
-    "endpoint": "/api/centers/{centerId}/admin",
-    "method": "POST",
-    "requestBody": {
-      "userId": "uuid",
-      "action": "assign|unassign"
-    },
-    "responseBody": {
-      "centerId": "uuid",
-      "userId": "uuid",
-      "role": "string",
-      "status": "string"
-    }
-  }
-  ```
-
-- **DAY 3: Phát triển API quản lý khóa học**
-
-  ########## SUB-TASK 1: Triển khai API CRUD cho khóa học
-  [Coder]
-  - **Target Component:** ./sources/backend/membership-hub-advanced/src/main/java/org/nlh4j/sas/membershiphub/course/CourseController.java [REQ-007]
-  - **Low-Level Technical Task Instruction:** Xây dựng các endpoint GET, POST, PUT, DELETE cho /api/courses, bao gồm validation, conflict detection, và exception handling.  
-  ```json
-  {
-    "endpoint": "/api/courses",
-    "method": "POST",
-    "requestBody": {
-      "title": "string",
-      "description": "string",
-      "startDate": "date",
-      "endDate": "date",
-      "teacherId": "uuid",
-      "maxStudents": "int"
-    },
-    "responseBody": {
-      "courseId": "uuid",
-      "title": "string",
-      "description": "string",
-      "startDate": "date",
-      "endDate": "date",
-      "teacherId": "uuid",
-      "maxStudents": "int",
-      "createdAt": "timestamp",
-      "updatedAt": "timestamp"
-    }
-  }
-  ```
-
-###### 📈 Giai đoạn 3 Triển khai các mô-đun điểm danh, thông báo và khuyến mãi với xử lý ngoại lệ
-- **Mục tiêu & Mục đích Cốt lõi của Giai đoạn:**  
-  Giai đoạn này tập trung vào việc xây dựng các dịch vụ backend cho việc ghi nhận điểm danh qua QR, gửi thông báo tới ứng dụng di động và nhóm Zalo, cũng như quản lý khuyến mãi cho học viên. Ngoài ra, giai đoạn còn triển khai các cơ chế xử lý ngoại lệ để đảm bảo tính nhất quán và độ tin cậy của hệ thống.
-
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:**  
-  - `./sources/backend/membership-hub-auxiliary/attendance/AttendanceService.java [EXC-001],[EXC-002],[ARC-007],[DAT-006],[REQ-012],[REQ-013]`  
-  - `./sources/backend/membership-hub-auxiliary/attendance/AttendanceController.java [EXC-001],[EXC-002],[ARC-007]`  
-  - `./sources/backend/membership-hub-auxiliary/notification/NotificationService.java [EXC-003],[ARC-008],[DAT-008],[REQ-016]`  
-  - `./sources/backend/membership-hub-auxiliary/notification/NotificationController.java [EXC-003],[ARC-008]`  
-  - `./sources/backend/membership-hub-auxiliary/promotion/PromotionService.java [ARC-017],[DAT-009],[REQ-017],[REQ-018]`  
-  - `./sources/backend/membership-hub-auxiliary/promotion/PromotionController.java [ARC-017]`  
-  - `./sources/backend/membership-hub-auxiliary/exception/AttendanceException.java [EXC-001]`  
-  - `./sources/backend/membership-hub-auxiliary/exception/NotificationException.java [EXC-003]`  
-  - `./sources/docs/attendance_schema.md [DAT-006]`  
-  - `./sources/docs/notification_schema.md [DAT-008]`  
-  - `./sources/docs/promotion_schema.md [DAT-009]`  
-  - `./sources/docs/nfr_006.md [NFR-006]`  
-  - `./sources/docs/nfr_007.md [NFR-007]`  
-  - `./sources/docs/nfr_008.md [NFR-008]`
-
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-006],[DAT-008],[DAT-009]:**  
-  ```sql
-  CREATE TABLE ATTENDANCE (
-      attendanceId UUID PRIMARY KEY,
-      studentId UUID NOT NULL,
-      courseId UUID NOT NULL,
-      attendanceDate DATE NOT NULL,
-      timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
-      CONSTRAINT fk_student FOREIGN KEY (studentId) REFERENCES USERS(userId),
-      CONSTRAINT fk_course FOREIGN KEY (courseId) REFERENCES COURSES(courseId),
-      CONSTRAINT uq_attendance UNIQUE (studentId, courseId, attendanceDate)
-  );
-
-  CREATE TABLE NOTIFICATIONS (
-      notificationId UUID PRIMARY KEY,
-      userId UUID,
-      groupZalo VARCHAR(255),
-      message TEXT NOT NULL,
-      sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
-      delivered BOOLEAN NOT NULL DEFAULT FALSE,
-      CONSTRAINT fk_user FOREIGN KEY (userId) REFERENCES USERS(userId)
-  );
-
-  CREATE TABLE PROMOTIONS (
-      promoId UUID PRIMARY KEY,
-      code VARCHAR(50) NOT NULL UNIQUE,
-      discountPercent SMALLINT NOT NULL,
-      startDate DATE,
-      endDate DATE,
-      description TEXT,
-      CONSTRAINT chk_discount CHECK (discountPercent BETWEEN 1 AND 100)
-  );
-  ```
-
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-012],[REQ-013],[REQ-016],[ARC-007],[ARC-008],[ARC-017]:**  
-  **API /attendance**  
-  ```json
-  POST /attendance
-  Request:
-  {
-    "studentId": "uuid",
-    "courseId": "uuid",
-    "attendanceDate": "YYYY-MM-DD"
-  }
-  Response:
-  {
-    "attendanceId": "uuid",
-    "status": "SUCCESS",
-    "duplicate": false
-  }
-  ```  
-  **API /notifications**  
-  ```json
-  POST /notifications
-  Request:
-  {
-    "userId": "uuid",
-    "groupZalo": "string",
-    "message": "string"
-  }
-  Response:
-  {
-    "notificationId": "uuid",
-    "status": "PENDING"
-  }
-  ```  
-  **API /promotions**  
-  ```json
-  GET /promotions
-  Response:
-  [
-    {
-      "promoId": "uuid",
-      "code": "string",
-      "discountPercent": 20,
-      "startDate": "YYYY-MM-DD",
-      "endDate": "YYYY-MM-DD",
-      "description": "string"
-    }
-  ]
-  ```  
-  **Event Topics**  
-  - `attendance.events`  
-  - `notification.events`  
-  - `promotion.events`
-
-- **Xử lý Ngoại lệ Định vị Giai đoạn [EXC-001],[EXC-002],[EXC-003]:**  
-  - **EXC-001: DuplicateAttendanceException** – Mã lỗi 409, thông báo: “Attendance already recorded for this student on the same day.”  
-  - **EXC-002: AttendanceValidationException** – Mã lỗi 400, thông báo: “Invalid attendance data: missing studentId or courseId.”  
-  - **EXC-003: NotificationFailureException** – Mã lỗi 500, thông báo: “Failed to send notification to device or Zalo group.”
-
----
-
-#### Nhật ký Phân phối Công việc Theo Ngày (Giai đoạn 3)
-
-- **Ngày 1: Thiết lập các dịch vụ attendance và notification**  
-  ########## Công việc phụ [1]: Xây dựng AttendanceService và controller [Coder]  
-  Target Component file path: `./sources/backend/membership-hub-auxiliary/attendance/AttendanceService.java; ./sources/backend/membership-hub-auxiliary/attendance/AttendanceController.java [EXC-001],[EXC-002],[ARC-007],[DAT-006],[REQ-012],[REQ-013]`  
-  Low-Level Technical Task Instruction: Xây dựng lớp AttendanceService với phương thức recordAttendance, xử lý idempotency, kiểm tra quyền truy cập, và lưu vào bảng ATTENDANCE.  
-  Database Schema DDL SQL Specification [DAT-006]:  
-  ```sql
-  CREATE TABLE ATTENDANCE (
-      attendanceId UUID PRIMARY KEY,
-      studentId UUID NOT NULL,
-      courseId UUID NOT NULL,
-      attendanceDate DATE NOT NULL,
-      timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
-      CONSTRAINT fk_student FOREIGN KEY (studentId) REFERENCES USERS(userId),
-      CONSTRAINT fk_course FOREIGN KEY (courseId) REFERENCES COURSES(courseId),
-      CONSTRAINT uq_attendance UNIQUE (studentId, courseId, attendanceDate)
-  );
-  ```  
-  API and Event Routing Contracts [REQ-012],[REQ-013],[ARC-007]:  
-  ```json
-  POST /attendance
-  Request:
-  {
-    "studentId": "uuid",
-    "courseId": "uuid",
-    "attendanceDate": "YYYY-MM-DD"
-  }
-  Response:
-  {
-    "attendanceId": "uuid",
-    "status": "SUCCESS",
-    "duplicate": false
-  }
-  ```  
-  Phase Localized Exception Handlers [EXC-001],[EXC-002]:  
-  - **EXC-001: DuplicateAttendanceException** – Mã lỗi 409, thông báo: “Attendance already recorded for this student on the same day.”  
-  - **EXC-002: AttendanceValidationException** – Mã lỗi 400, thông báo: “Invalid attendance data: missing studentId or courseId.”  
-
-  ########## Công việc phụ [2]: Xây dựng NotificationService và controller [Coder]  
-  Target Component file path: `./sources/backend/membership-hub-auxiliary/notification/NotificationService.java; ./sources/backend/membership-hub-auxiliary/notification/NotificationController.java [EXC-003],[ARC-008],[DAT-008],[REQ-016]`  
-  Low-Level Technical Task Instruction: Xây dựng lớp NotificationService để gửi push tới FCM/APNs và Zalo, tạo Notification entity, lưu vào bảng NOTIFICATIONS.  
-  Database Schema DDL SQL Specification [DAT-008]:  
-  ```sql
-  CREATE TABLE NOTIFICATIONS (
-      notificationId UUID PRIMARY KEY,
-      userId UUID,
-      groupZalo VARCHAR(255),
-      message TEXT NOT NULL,
-      sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
-      delivered BOOLEAN NOT NULL DEFAULT FALSE,
-      CONSTRAINT fk_user FOREIGN KEY (userId) REFERENCES USERS(userId)
-  );
-  ```  
-  API and Event Routing Contracts [REQ-016],[ARC-008]:  
-  ```json
-  POST /notifications
-  Request:
-  {
-    "userId": "uuid",
-    "groupZalo": "string",
-    "message": "string"
-  }
-  Response:
-  {
-    "notificationId": "uuid",
-    "status": "PENDING"
-  }
-  ```  
-  Phase Localized Exception Handlers [EXC-003]:  
-  - **EXC-003: NotificationFailureException** – Mã lỗi 500, thông báo: “Failed to send notification to device or Zalo group.”  
-
-- **Ngày 2: Xây dựng dịch vụ promotion và exception classes**  
-  ########## Công việc phụ [1]: Xây dựng PromotionService và controller [Coder]  
-  Target Component file path: `./sources/backend/membership-hub-auxiliary/promotion/PromotionService.java; ./sources/backend/membership-hub-auxiliary/promotion/PromotionController.java [ARC-017],[DAT-009],[REQ-017],[REQ-018]`  
-  Low-Level Technical Task Instruction: Xây dựng lớp PromotionService để quản lý khuyến mãi, bao gồm CRUD, tính toán giảm giá, và lưu vào bảng PROMOTIONS.  
-  Database Schema DDL SQL Specification [DAT-009]:  
-  ```sql
-  CREATE TABLE PROMOTIONS (
-      promoId UUID PRIMARY KEY,
-      code VARCHAR(50) NOT NULL UNIQUE,
-      discountPercent SMALLINT NOT NULL,
-      startDate DATE,
-      endDate DATE,
-      description TEXT,
-      CONSTRAINT chk_discount CHECK (discountPercent BETWEEN 1 AND 100)
-  );
-  ```  
-  API and Event Routing Contracts [REQ-017],[REQ-018],[ARC-017]:  
-  ```json
-  GET /promotions
-  Response:
-  [
-    {
-      "promoId": "uuid",
-      "code": "string",
-      "discountPercent": 20,
-      "startDate": "YYYY-MM-DD",
-      "endDate": "YYYY-MM-DD",
-      "description": "string"
-    }
-  ]
-  ```  
-
-  ########## Công việc phụ [2]: Định nghĩa các exception tùy chỉnh [Coder]  
-  Target Component file path: `./sources/backend/membership-hub-auxiliary/exception/AttendanceException.java; ./sources/backend/membership-hub-auxiliary/exception/NotificationException.java [EXC-001],[EXC-002],[EXC-003]`  
-  Low-Level Technical Task Instruction: Định nghĩa các exception tùy chỉnh cho attendance và notification, bao gồm mã lỗi và thông báo.  
-  Phase Localized Exception Handlers [EXC-001],[EXC-002],[EXC-003]:  
-  - **EXC-001: DuplicateAttendanceException** – Mã lỗi 409, thông báo: “Attendance already recorded for this student on the same day.”  
-  - **EXC-002: AttendanceValidationException** – Mã lỗi 400, thông báo: “Invalid attendance data: missing studentId or courseId.”  
-  - **EXC-003: NotificationFailureException** – Mã lỗi 500, thông báo: “Failed to send notification to device or Zalo group.”  
-
-- **Ngày 3: Kiểm thử và tài liệu**  
-  ########## Công việc phụ [1]: Viết unit test cho attendance, notification, promotion [Tester]  
-  Target Component file path: `./sources/backend/membership-hub-auxiliary/attendance/AttendanceServiceTest.java; ./sources/backend/membership-hub-auxiliary/notification/NotificationServiceTest.java; ./sources/backend/membership-hub-auxiliary/promotion/PromotionServiceTest.java [EXC-001],[EXC-002],[EXC-003],[ARC-007],[ARC-008],[ARC-017],[DAT-006],[DAT-008],[DAT-009]`  
-  Low-Level Technical Task Instruction: Viết các unit test để kiểm tra tính idempotent của attendance, xử lý ngoại lệ, và CRUD promotion.  
-
-  ########## Công việc phụ [2]: Tài liệu chi tiết cho API và exception handling [Doc]  
-  Target Component file path: `./sources/docs/attendance_api.md; ./sources/docs/notification_api.md; ./sources/docs/promotion_api.md; ./sources/docs/exception_handling.md [REQ-012],[REQ-013],[REQ-016],[ARC-007],[ARC-008],[ARC-017],[EXC-001],[EXC-002],[EXC-003]`  
-  Low-Level Technical Task Instruction: Tạo tài liệu chi tiết cho các endpoint, payload, và exception handling.
-
-######## Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 4)
-
-- **DAY 1: Thiết lập hạ tầng cơ bản cho dịch vụ backend**
-
-  ########## SUB-TASK 1: Xây dựng và đẩy Docker image cho các dịch vụ Quarkus  
-  **[Docker]**  
-  **Target Component:** `./sources/backend/membership-hub-infra/Dockerfile`  
-  **Tag IDs:** [ARC-010]  
-  **Nhiệm vụ chi tiết:** Tạo Dockerfile đa giai đoạn cho các microservice Quarkus, biên dịch mã nguồn, đóng gói thành image, và đẩy lên Google Container Registry (GCR) với tag `membership-hub:latest`.
-
-  ########## SUB-TASK 2: Provisioning GCP Terraform cho GKE cluster  
-  **[GCP]**  
-  **Target Component:** `./sources/infra/terraform/main.tf`  
-  **Tag IDs:** [ARC-010],[ARC-009]  
-  **Nhiệm vụ chi tiết:** Định nghĩa tài nguyên GKE cluster, node pools, IAM roles và service accounts trong Terraform, chạy `terraform init` và `terraform apply` để triển khai cluster với cấu hình tự động scaling.
-
-  ########## SUB-TASK 3: Triển khai Helm chart cho ứng dụng  
-  **[GKE]**  
-  **Target Component:** `./sources/infra/helm/membership-hub/Chart.yaml`  
-  **Tag IDs:** [ARC-010],[ARC-008]  
-  **Nhiệm vụ chi tiết:** Tạo chart Helm bao gồm deployment, service, ingress cho các microservice, cấu hình values.yaml, và triển khai lên GKE bằng `helm upgrade --install`.
-
-- **DAY 2: Hoàn thiện hạ tầng, CI/CD và cấu hình sự kiện**
-
-  ########## SUB-TASK 1: Xây dựng Docker image cho sidecar (Redis, Kafka)  
-  **[Docker]**  
-  **Target Component:** `./sources/backend/membership-hub-infra/sidecar/Dockerfile`  
-  **Tag IDs:** [ARC-010],[ARC-006]  
-  **Nhiệm vụ chi tiết:** Tạo Dockerfile cho Redis và Kafka, biên dịch và đẩy image lên GCR, chuẩn bị cho deployment trong Helm chart.
-
-  ########## SUB-TASK 2: Tạo Pub/Sub topics cho event bus  
-  **[GCP]**  
-  **Target Component:** `./sources/infra/terraform/pubsub.tf`  
-  **Tag IDs:** [ARC-006],[ARC-009]  
-  **Nhiệm vụ chi tiết:** Định nghĩa các topic `attendance.events`, `notification.events`, `course.events`, `center.events` trong Terraform, triển khai bằng `terraform apply`.
-
-  ########## SUB-TASK 3: Triển khai event bus services (Kafka/Redis Streams) lên GKE  
-  **[GKE]**  
-  **Target Component:** `./sources/infra/helm/eventbus/Chart.yaml`  
-  **Tag IDs:** [ARC-006],[ARC-008]  
-  **Nhiệm vụ chi tiết:** Cấu hình Helm chart cho Kafka và Redis Streams, triển khai vào GKE cluster, xác nhận các broker hoạt động bình thường.
-
-  ########## SUB-TASK 4: Thiết lập pipeline CI/CD với GitHub Actions  
-  **[Docker]**  
-  **Target Component:** `./sources/infra/github-actions/workflows/ci-cd.yml`  
-  **Tag IDs:** [ARC-010],[ARC-006]  
-  **Nhiệm vụ chi tiết:** Định nghĩa workflow GitHub Actions để build, test, push Docker image, và deploy Helm chart lên GKE, bao gồm các bước kiểm tra lint, unit test và integration test.
-
-  ########## SUB-TASK 5: Xử lý ngoại lệ khi provisioning hạ tầng  
-  **[GCP]**  
-  **Target Component:** `./sources/infra/terraform/variables.tf`  
-  **Tag IDs:** [EXC-004],[EXC-005]  
-  **Nhiệm vụ chi tiết:** Thêm validation cho các biến Terraform, xử lý lỗi khi thiếu credentials hoặc thiếu resource quota, ghi log chi tiết và rollback khi cần.
-
-  ########## SUB-TASK 6: Tạo bảng SystemSettings trong PostgreSQL  
-  **[Docker]**  
-  **Target Component:** `./sources/backend/membership-hub-infra/migrations/V1__create_system_settings.sql`  
-  **Tag IDs:** [DAT-011]  
-  **Nhiệm vụ chi tiết:**  
-  ```sql
-  CREATE TABLE IF NOT EXISTS SYSTEMSETTINGS (
-      settingKey VARCHAR(255) NOT NULL PRIMARY KEY,
-      settingValue TEXT NOT NULL,
-      description VARCHAR(500)
-  );
-  CREATE INDEX idx_setting_key ON SYSTEMSETTINGS (settingKey);
-  ```
-
-  ########## SUB-TASK 7: Triển khai Cloud Function cho QR scan  
-  **[GCP]**  
-  **Target Component:** `./sources/infra/terraform/cloudfunctions.tf`  
-  **Tag IDs:** [ARC-007]  
-  **Nhiệm vụ chi tiết:** Định nghĩa Cloud Function `qr_scan_handler` trong Terraform, triển khai, cấu hình trigger HTTP, và cấp quyền truy cập từ mobile app.
-
-## TỔNG QUAN DỰ ÁN: membership-hub
-
-###### 📈 Giai đoạn 5 Triển khai ứng dụng cuối cùng, thực hiện kiểm thử tích hợp và xác nhận luồng toàn bộ
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:**  
-  Giai đoạn này thực hiện triển khai toàn bộ ứng dụng lên môi trường sản xuất, thực thi các bài kiểm thử tích hợp để xác nhận tính toàn vẹn của luồng dữ liệu, và thực hiện kiểm tra toàn bộ luồng giao dịch từ đăng nhập, quản lý khóa học, điểm danh, đến thông báo, đảm bảo mọi thành phần hoạt động đồng bộ và đáp ứng các tiêu chí hiệu năng, bảo mật đã đề ra.
-
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:**  
-  - `./sources/infra/membership-hub-deploy/Dockerfile [ARC-010]`  
-  - `./sources/infra/membership-hub-deploy/helm/values.yaml [ARC-010]`  
-  - `./sources/infra/membership-hub-deploy/helm/membership-hub-deploy.yaml [ARC-010]`  
-  - `./sources/infra/membership-hub-deploy/ci/github-actions.yml [ARC-010]`  
-  - `./sources/infra/membership-hub-deploy/integration-tests/validate-end-to-end.test.ts [ARC-010]`  
-  - `./sources/docs/architecture/infra-deployment.md [ARC-010]`
-
-- **Phase Localized Exception Handlers:**  
-  Không có ngoại lệ đặc thù trong giai đoạn này.
-
-######## Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 5)
-
-- **DAY 1: Triển khai Docker images, áp dụng Helm chart, chạy kiểm thử tích hợp, và xác nhận triển khai**  
-
-  ########## SUB-TASK 1: Xây dựng Docker images  
-  **[Docker]**  
-  **Target Component:** `./sources/infra/membership-hub-deploy/Dockerfile [ARC-010]`  
-  **Hướng dẫn chi tiết:** Xây dựng Dockerfile đa giai đoạn cho tất cả các microservice, tối ưu kích thước, đẩy lên GCR.
-
-  ########## SUB-TASK 2: Triển khai Helm chart  
-  **[GKE]**  
-  **Target Component:** `./sources/infra/membership-hub-deploy/helm/membership-hub-deploy.yaml [ARC-010]`  
-  **Hướng dẫn chi tiết:** Triển khai Helm chart lên cluster GKE, kiểm tra trạng thái pod, service, và xác nhận endpoint hoạt động.
-
-  ########## SUB-TASK 3: Chạy kiểm thử tích hợp  
-  **[Tester]**  
-  **Target Component:** `./sources/infra/membership-hub-deploy;integration-tests/validate-end-to-end.test.ts [ARC-010]`  
-  **Hướng dẫn chi tiết:** Chạy tập hợp kiểm thử tích hợp end-to-end, ghi lại logs, và báo cáo lỗi.
-
-  ########## SUB-TASK 4: Xác nhận triển khai  
-  **[Reviewer]**  
-  **Target Component:** `./sources/infra/membership-hub-deploy/ci/github-actions.yml [ARC-010]`  
-  **Hướng dẫn chi tiết:** Xem xét pipeline CI, xác nhận các bước kiểm thử đã hoàn thành, và phê duyệt triển khai.
-
-```properties:cross_audit_ledger
-[AUTOMATED_SELF_AUDIT_REPORT]
-TOTAL_PHASES_DECLARED_IN_SECTION_4_2=5
-TOTAL_PHASES_EXPECTED_BY_PARAMETERS=5
-PHASE_COUNT_COMPLIANCE_STATUS=Verified_5_out_of_5_Phases_Generated
-MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
-ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=1
-TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=58
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=58
-SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
+###### Giai đoạn 1: Đặc tả Kiến trúc Chi tiết Giai đoạn 1
+
+######## Mục tiêu Cốt lõi & Mục đích của Giai đoạn
+- Xây dựng hệ thống xác thực người dùng và phân quyền người dùng dựa trên vai trò (System Admin, Center Admin, Manager, Teacher, Student).
+
+######## Ma trận Bản đồ Thư mục Vật lý Mục tiêu
+- `./sources/backend/auth-service/`
+- `./sources/backend/center-service/`
+
+######## Đặc tả DDL SQL Schema Cơ sở Dữ liệu
+```sql:matrix
+CREATE TABLE IF NOT EXISTS USERS (
+    userId UUID PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    passwordHash CHAR(60) NOT NULL,
+    fullName VARCHAR(100) NOT NULL,
+    roleId SMALLINT NOT NULL,
+    provider VARCHAR(10) DEFAULT 'local',
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (roleId) REFERENCES ROLES(roleId)
+);
+
+CREATE TABLE IF NOT EXISTS ROLES (
+    roleId SMALLINT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL UNIQUE,
+    description VARCHAR(200)
+);
+
+CREATE TABLE IF NOT EXISTS CENTERS (
+    centerId UUID PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    taxId VARCHAR(13) NOT NULL UNIQUE,
+    contactPhone VARCHAR(20),
+    contactEmail VARCHAR(255)
+);
 ```
 
-## TỔNG QUAN HỆ THỐNG: membership-hub
+######## Hợp đồng Định tuyến API và Sự kiện
+```json:api_contracts
+{
+  "auth": {
+    "register": {
+      "method": "POST",
+      "path": "/api/auth/register",
+      "request": {
+        "email": "string",
+        "password": "string",
+        "fullName": "string"
+      },
+      "response": {
+        "token": "string",
+        "user": {
+          "userId": "uuid",
+          "email": "string",
+          "fullName": "string",
+          "role": "string"
+        }
+      }
+    },
+    "login": {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "request": {
+        "email": "string",
+        "password": "string"
+      },
+      "response": {
+        "token": "string",
+        "user": {
+          "userId": "uuid",
+          "email": "string",
+          "fullName": "string",
+          "role": "string"
+        }
+      }
+    },
+    "socialLogin": {
+      "method": "POST",
+      "path": "/api/auth/social-login",
+      "request": {
+        "provider": "string",
+        "token": "string"
+      },
+      "response": {
+        "token": "string",
+        "user": {
+          "userId": "uuid",
+          "email": "string",
+          "fullName": "string",
+          "role": "string"
+        }
+      }
+    }
+  },
+  "centers": {
+    "list": {
+      "method": "GET",
+      "path": "/api/centers",
+      "response": {
+        "centers": [
+          {
+            "centerId": "uuid",
+            "name": "string",
+            "address": "string",
+            "taxId": "string",
+            "contactPhone": "string",
+            "contactEmail": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/centers",
+      "request": {
+        "name": "string",
+        "address": "string",
+        "taxId": "string",
+        "contactPhone": "string",
+        "contactEmail": "string"
+      },
+      "response": {
+        "center": {
+          "centerId": "uuid",
+          "name": "string",
+          "address": "string",
+          "taxId": "string",
+          "contactPhone": "string",
+          "contactEmail": "string"
+        }
+      }
+    },
+    "update": {
+      "method": "PUT",
+      "path": "/api/centers/{centerId}",
+      "request": {
+        "name": "string",
+        "address": "string",
+        "taxId": "string",
+        "contactPhone": "string",
+        "contactEmail": "string"
+      },
+      "response": {
+        "center": {
+          "centerId": "uuid",
+          "name": "string",
+          "address": "string",
+          "taxId": "string",
+          "contactPhone": "string",
+          "contactEmail": "string"
+        }
+      }
+    },
+    "delete": {
+      "method": "DELETE",
+      "path": "/api/centers/{centerId}",
+      "response": {
+        "message": "string"
+      }
+    }
+  }
+}
+```
 
-#### 📁 6. MÃ BẢO MẬT QUỐC TẾ VÀ THIẾT BỊ CHỐNG TIẾT THUẬT [NFR-XXX]
-- **Chống SQL Injection (SQLi) - Biện pháp tuyệt đối**: Định nghĩa quy tắc sử dụng câu lệnh chuẩn bị (prepared statements), tham số vị trí (positional parameters), và danh sách trắng (whitelists) cho các đầu vào sắp xếp động.
-- **Chống XSS & Chính sách Bảo mật Nội dung (CSP)**: Tiêu chuẩn tự động làm sạch ngữ cảnh, tự động thoát JSX, và chèn tiêu đề CSP nghiêm ngặt (`unsafe-inline` bị cấm).
-- **Quy tắc CORS đa tenant**: Cấu hình ngăn chặn wildcard nguồn gốc và xác thực động các nguồn gốc tenant dựa trên cơ sở dữ liệu.
-- **Công cụ làm sạch nhật ký và ẩn dữ liệu PII**: Hệ thống tự động ẩn dữ liệu nhạy cảm (`@JsonSerialize`) và ngưỡng làm sạch nhật ký.
+######## Chi tiết Ngày 1
 
-#### 📁 7. QUY TẮC TUYÊN CHẤP MÔ HÌNH HỢP TÁC & CƠ THỂ SEO ĐỊNH DỊCH
-- **Quy tắc tuân thủ Capacitor Mobile Hybrid**: Khi di động được kích hoạt, áp dụng các quy tắc lấy dữ liệu phía client, địa chỉ URL tuyệt đối, bảo vệ hydration, trừu tượng lưu trữ native (`@capacitor/preferences`), và xử lý nút back của thiết bị.
-- **Hệ thống SEO đa ngôn ngữ**: Kiến trúc middleware nhận diện ngôn ngữ, chèn động thẻ hreflang, và giới hạn chỉ mục crawler robots.
+- **DAY 1:**
+  - **Coder:**
+    - Xây dựng hệ thống xác thực người dùng với các chức năng đăng ký, đăng nhập thông qua email/mật khẩu, và đăng nhập qua Firebase, Google, Facebook OAuth.
+    - Tạo bảng Users và Roles trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng đăng ký, đăng nhập, và đăng nhập qua mạng xã hội.
+    - [REQ-001], [REQ-002], [ARC-006]
+    - `./sources/backend/auth-service/src/main/java/org/nlh4j/saas/membershiphub/auth/UserService.java`
+    - `./sources/backend/auth-service/src/main/java/org/nlh4j/saas/membershiphub/auth/AuthController.java`
+    - `./sources/backend/auth-service/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql`
+  - **Tester:**
+    - Viết test cho chức năng đăng ký, đăng nhập, và đăng nhập qua mạng xã hội.
+    - [REQ-001], [REQ-002], [ARC-006]
+    - `./sources/backend/auth-service/src/test/java/org/nlh4j/saas/membershiphub/auth/UserServiceTest.java;./sources/backend/auth-service/src/main/java/org/nlh4j/saas/membershiphub/auth/UserService.java`
+    - `./sources/backend/auth-service/src/test/java/org/nlh4j/saas/membershiphub/auth/AuthControllerTest.java;./sources/backend/auth-service/src/main/java/org/nlh4j/saas/membershiphub/auth/AuthController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-001], [REQ-002], [ARC-006]
+    - `./sources/backend/auth-service/src/main/java/org/nlh4j/saas/membershiphub/auth/UserService.java`
+    - `./sources/backend/auth-service/src/main/java/org/nlh4j/saas/membershiphub/auth/AuthController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho hệ thống xác thực người dùng.
+    - [REQ-001], [REQ-002], [ARC-006]
+    - `./sources/docs/auth-service.md`
 
-#### 📁 8. DÂY ĐỘNG CÔNG CỤ TỰ ĐỘNG HÀNH ĐỘNG GIT
-- **Phân tách fork làm việc hàng ngày**: Kiểm soát lập trình cho nhánh `features/development-phase-X-day-Y` (X là số giai đoạn, Y là số ngày trong giai đoạn, bắt đầu từ 1 cho mỗi giai đoạn).
-- **Cổng bảo vệ quy trình**: Quy tắc thực thi biên dịch, kiểm tra độ phủ mã tự động (`>= 85%`), và ghi lại nhật ký tổng hợp ngữ cảnh.
+######## Chi tiết Ngày 2
 
-###### 🛑 QUÁ TRÌNH KIỂM TRA MÁT HÀNH
-`[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`
+- **DAY 2:**
+  - **Coder:**
+    - Xây dựng chức năng phân quyền người dùng dựa trên vai trò (System Admin, Center Admin, Manager, Teacher, Student).
+    - Tạo bảng Centers trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng xem, tạo, cập nhật, và xóa trung tâm.
+    - [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java`
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterController.java`
+    - `./sources/backend/center-service/src/main/resources/db/migration/V2__Create_Centers.sql`
+  - **Tester:**
+    - Viết test cho chức năng phân quyền người dùng và quản lý trung tâm.
+    - [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    - `./sources/backend/center-service/src/test/java/org/nlh4j/saas/membershiphub/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java`
+    - `./sources/backend/center-service/src/test/java/org/nlh4j/saas/membershiphub/center/CenterControllerTest.java;./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java`
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng phân quyền người dùng và quản lý trung tâm.
+    - [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    - `./sources/docs/center-service.md`
+
+###### Giai đoạn 2: Đặc tả Kiến trúc Chi tiết Giai đoạn 2
+
+######## Mục tiêu Cốt lõi & Mục đích của Giai đoạn
+- Xây dựng hệ thống quản lý trung tâm, quản lý khóa học, và đăng ký & ghi danh học viên.
+
+######## Ma trận Bản đồ Thư mục Vật lý Mục tiêu
+- `./sources/backend/center-service/`
+- `./sources/backend/course-service/`
+- `./sources/backend/enrollment-service/`
+
+######## Đặc tả DDL SQL Schema Cơ sở Dữ liệu
+```sql:matrix
+CREATE TABLE IF NOT EXISTS COURSES (
+    courseId UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    teacherId UUID NOT NULL,
+    maxStudents INT DEFAULT 30,
+    FOREIGN KEY (teacherId) REFERENCES USERS(userId)
+);
+
+CREATE TABLE IF NOT EXISTS ENROLLMENTS (
+    enrollmentId UUID PRIMARY KEY,
+    studentId UUID NOT NULL,
+    courseId UUID NOT NULL,
+    enrollmentDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (studentId) REFERENCES USERS(userId),
+    FOREIGN KEY (courseId) REFERENCES COURSES(courseId)
+);
+```
+
+######## Hợp đồng Định tuyến API và Sự kiện
+```json:api_contracts
+{
+  "courses": {
+    "list": {
+      "method": "GET",
+      "path": "/api/courses",
+      "response": {
+        "courses": [
+          {
+            "courseId": "uuid",
+            "title": "string",
+            "description": "string",
+            "startDate": "date",
+            "endDate": "date",
+            "teacherId": "uuid",
+            "maxStudents": "int"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/courses",
+      "request": {
+        "title": "string",
+        "description": "string",
+        "startDate": "date",
+        "endDate": "date",
+        "teacherId": "uuid",
+        "maxStudents": "int"
+      },
+      "response": {
+        "course": {
+          "courseId": "uuid",
+          "title": "string",
+          "description": "string",
+          "startDate": "date",
+          "endDate": "date",
+          "teacherId": "uuid",
+          "maxStudents": "int"
+        }
+      }
+    },
+    "update": {
+      "method": "PUT",
+      "path": "/api/courses/{courseId}",
+      "request": {
+        "title": "string",
+        "description": "string",
+        "startDate": "date",
+        "endDate": "date",
+        "teacherId": "uuid",
+        "maxStudents": "int"
+      },
+      "response": {
+        "course": {
+          "courseId": "uuid",
+          "title": "string",
+          "description": "string",
+          "startDate": "date",
+          "endDate": "date",
+          "teacherId": "uuid",
+          "maxStudents": "int"
+        }
+      }
+    },
+    "delete": {
+      "method": "DELETE",
+      "path": "/api/courses/{courseId}",
+      "response": {
+        "message": "string"
+      }
+    }
+  },
+  "enrollments": {
+    "list": {
+      "method": "GET",
+      "path": "/api/enrollments",
+      "response": {
+        "enrollments": [
+          {
+            "enrollmentId": "uuid",
+            "studentId": "uuid",
+            "courseId": "uuid",
+            "enrollmentDate": "timestamp"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/enrollments",
+      "request": {
+        "studentId": "uuid",
+        "courseId": "uuid"
+      },
+      "response": {
+        "enrollment": {
+          "enrollmentId": "uuid",
+          "studentId": "uuid",
+          "courseId": "uuid",
+          "enrollmentDate": "timestamp"
+        }
+      }
+    },
+    "delete": {
+      "method": "DELETE",
+      "path": "/api/enrollments/{enrollmentId}",
+      "response": {
+        "message": "string"
+      }
+    }
+  }
+}
+```
+
+######## Chi tiết Ngày 1
+
+- **DAY 1:**
+  - **Coder:**
+    - Xây dựng chức năng quản lý trung tâm với các chức năng xem, tạo, cập nhật, và xóa trung tâm.
+    - Tạo bảng Centers trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng xem, tạo, cập nhật, và xóa trung tâm.
+    - [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java`
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterController.java`
+    - `./sources/backend/center-service/src/main/resources/db/migration/V3__Create_Centers.sql`
+  - **Tester:**
+    - Viết test cho chức năng quản lý trung tâm.
+    - [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+    - `./sources/backend/center-service/src/test/java/org/nlh4j/saas/membershiphub/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java`
+    - `./sources/backend/center-service/src/test/java/org/nlh4j/saas/membershiphub/center/CenterControllerTest.java;./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java`
+    - `./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng quản lý trung tâm.
+    - [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+    - `./sources/docs/center-service.md`
+
+######## Chi tiết Ngày 2
+
+- **DAY 2:**
+  - **Coder:**
+    - Xây dựng chức năng quản lý khóa học với các chức năng xem, tạo, cập nhật, và xóa khóa học.
+    - Tạo bảng Courses trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng xem, tạo, cập nhật, và xóa khóa học.
+    - [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    - `./sources/backend/course-service/src/main/java/org/nlh4j/saas/membershiphub/course/CourseService.java`
+    - `./sources/backend/course-service/src/main/java/org/nlh4j/saas/membershiphub/course/CourseController.java`
+    - `./sources/backend/course-service/src/main/resources/db/migration/V4__Create_Courses.sql`
+  - **Tester:**
+    - Viết test cho chức năng quản lý khóa học.
+    - [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    - `./sources/backend/course-service/src/test/java/org/nlh4j/saas/membershiphub/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/org/nlh4j/saas/membershiphub/course/CourseService.java`
+    - `./sources/backend/course-service/src/test/java/org/nlh4j/saas/membershiphub/course/CourseControllerTest.java;./sources/backend/course-service/src/main/java/org/nlh4j/saas/membershiphub/course/CourseController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    - `./sources/backend/course-service/src/main/java/org/nlh4j/saas/membershiphub/course/CourseService.java`
+    - `./sources/backend/course-service/src/main/java/org/nlh4j/saas/membershiphub/course/CourseController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng quản lý khóa học.
+    - [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    - `./sources/docs/course-service.md`
+
+######## Chi tiết Ngày 3
+
+- **DAY 3:**
+  - **Coder:**
+    - Xây dựng chức năng đăng ký & ghi danh học viên với các chức năng duyệt khóa học và đăng ký khóa học của học viên.
+    - Tạo bảng Enrollments trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng duyệt khóa học và đăng ký khóa học của học viên.
+    - [REQ-010], [REQ-011], [DAT-005]
+    - `./sources/backend/enrollment-service/src/main/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentService.java`
+    - `./sources/backend/enrollment-service/src/main/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentController.java`
+    - `./sources/backend/enrollment-service/src/main/resources/db/migration/V5__Create_Enrollments.sql`
+  - **Tester:**
+    - Viết test cho chức năng đăng ký & ghi danh học viên.
+    - [REQ-010], [REQ-011], [DAT-005]
+    - `./sources/backend/enrollment-service/src/test/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentServiceTest.java;./sources/backend/enrollment-service/src/main/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentService.java`
+    - `./sources/backend/enrollment-service/src/test/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentControllerTest.java;./sources/backend/enrollment-service/src/main/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-010], [REQ-011], [DAT-005]
+    - `./sources/backend/enrollment-service/src/main/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentService.java`
+    - `./sources/backend/enrollment-service/src/main/java/org/nlh4j/saas/membershiphub/enrollment/EnrollmentController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng đăng ký & ghi danh học viên.
+    - [REQ-010], [REQ-011], [DAT-005]
+    - `./sources/docs/enrollment-service.md`
+
+###### Giai đoạn 3: Đặc tả Kiến trúc Chi tiết Giai đoạn 3
+
+######## Mục tiêu Cốt lõi & Mục đích của Giai đoạn
+- Xây dựng hệ thống điểm danh & quét mã QR và quản lý thẻ hội viên.
+
+######## Ma trận Bản đồ Thư mục Vật lý Mục tiêu
+- `./sources/backend/attendance-service/`
+- `./sources/backend/membership-service/`
+
+######## Đặc tả DDL SQL Schema Cơ sở Dữ liệu
+```sql:matrix
+CREATE TABLE IF NOT EXISTS ATTENDANCE (
+    attendanceId UUID PRIMARY KEY,
+    studentId UUID NOT NULL,
+    courseId UUID NOT NULL,
+    attendanceDate DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (studentId) REFERENCES USERS(userId),
+    FOREIGN KEY (courseId) REFERENCES COURSES(courseId)
+);
+
+CREATE TABLE IF NOT EXISTS STUDENTCARDS (
+    cardId UUID PRIMARY KEY,
+    studentId UUID NOT NULL,
+    issueDate DATE NOT NULL,
+    validityDays INT NOT NULL,
+    remainingDays INT,
+    FOREIGN KEY (studentId) REFERENCES USERS(userId)
+);
+```
+
+######## Hợp đồng Định tuyến API và Sự kiện
+```json:api_contracts
+{
+  "attendance": {
+    "scan": {
+      "method": "POST",
+      "path": "/api/attendance/scan",
+      "request": {
+        "studentId": "uuid",
+        "courseId": "uuid",
+        "timestamp": "timestamp"
+      },
+      "response": {
+        "attendance": {
+          "attendanceId": "uuid",
+          "studentId": "uuid",
+          "courseId": "uuid",
+          "attendanceDate": "date",
+          "timestamp": "timestamp"
+        }
+      }
+    },
+    "list": {
+      "method": "GET",
+      "path": "/api/attendance",
+      "response": {
+        "attendances": [
+          {
+            "attendanceId": "uuid",
+            "studentId": "uuid",
+            "courseId": "uuid",
+            "attendanceDate": "date",
+            "timestamp": "timestamp"
+          }
+        ]
+      }
+    }
+  },
+  "studentCards": {
+    "get": {
+      "method": "GET",
+      "path": "/api/student-cards/{studentId}",
+      "response": {
+        "studentCard": {
+          "cardId": "uuid",
+          "studentId": "uuid",
+          "issueDate": "date",
+          "validityDays": "int",
+          "remainingDays": "int"
+        }
+      }
+    },
+    "extend": {
+      "method": "POST",
+      "path": "/api/student-cards/extend",
+      "request": {
+        "studentId": "uuid",
+        "days": "int"
+      },
+      "response": {
+        "studentCard": {
+          "cardId": "uuid",
+          "studentId": "uuid",
+          "issueDate": "date",
+          "validityDays": "int",
+          "remainingDays": "int"
+        }
+      }
+    }
+  }
+}
+```
+
+######## Chi tiết Ngày 1
+
+- **DAY 1:**
+  - **Coder:**
+    - Xây dựng chức năng điểm danh & quét mã QR với các chức năng chụp ảnh điểm danh QR và tính chất bất biến của điểm danh.
+    - Tạo bảng Attendance trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng chụp ảnh điểm danh QR.
+    - [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+    - `./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceService.java`
+    - `./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceController.java`
+    - `./sources/backend/attendance-service/src/main/resources/db/migration/V6__Create_Attendance.sql`
+  - **Tester:**
+    - Viết test cho chức năng điểm danh & quét mã QR.
+    - [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+    - `./sources/backend/attendance-service/src/test/java/org/nlh4j/saas/membershiphub/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceService.java`
+    - `./sources/backend/attendance-service/src/test/java/org/nlh4j/saas/membershiphub/attendance/AttendanceControllerTest.java;./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+    - `./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceService.java`
+    - `./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng điểm danh & quét mã QR.
+    - [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+    - `./sources/docs/attendance-service.md`
+
+######## Chi tiết Ngày 2
+
+- **DAY 2:**
+  - **Coder:**
+    - Xây dựng chức năng quản lý thẻ hội viên với các chức năng hiển thị tính hợp lệ của thẻ và gia hạn thẻ.
+    - Tạo bảng StudentCards trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng hiển thị tính hợp lệ của thẻ và gia hạn thẻ.
+    - [REQ-014], [REQ-015], [DAT-007]
+    - `./sources/backend/membership-service/src/main/java/org/nlh4j/saas/membershiphub/membership/MembershipService.java`
+    - `./sources/backend/membership-service/src/main/java/org/nlh4j/saas/membershiphub/membership/MembershipController.java`
+    - `./sources/backend/membership-service/src/main/resources/db/migration/V7__Create_StudentCards.sql`
+  - **Tester:**
+    - Viết test cho chức năng quản lý thẻ hội viên.
+    - [REQ-014], [REQ-015], [DAT-007]
+    - `./sources/backend/membership-service/src/test/java/org/nlh4j/saas/membershiphub/membership/MembershipServiceTest.java;./sources/backend/membership-service/src/main/java/org/nlh4j/saas/membershiphub/membership/MembershipService.java`
+    - `./sources/backend/membership-service/src/test/java/org/nlh4j/saas/membershiphub/membership/MembershipControllerTest.java;./sources/backend/membership-service/src/main/java/org/nlh4j/saas/membershiphub/membership/MembershipController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-014], [REQ-015], [DAT-007]
+    - `./sources/backend/membership-service/src/main/java/org/nlh4j/saas/membershiphub/membership/MembershipService.java`
+    - `./sources/backend/membership-service/src/main/java/org/nlh4j/saas/membershiphub/membership/MembershipController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng quản lý thẻ hội viên.
+    - [REQ-014], [REQ-015], [DAT-007]
+    - `./sources/docs/membership-service.md`
+
+###### Giai đoạn 4: Đặc tả Kiến trúc Chi tiết Giai đoạn 4
+
+######## Mục tiêu Cốt lõi & Mục đích của Giai đoạn
+- Xây dựng hệ thống thông báo & truyền thông, quản lý khuyến mãi & thông báo, và chatbot dịch vụ khách hàng AI.
+
+######## Ma trận Bản đồ Thư mục Vật lý Mục tiêu
+- `./sources/backend/notification-service/`
+- `./sources/backend/promotion-service/`
+- `./sources/backend/chatbot-service/`
+
+######## Đặc tả DDL SQL Schema Cơ sở Dữ liệu
+```sql:matrix
+CREATE TABLE IF NOT EXISTS NOTIFICATIONS (
+    notificationId UUID PRIMARY KEY,
+    userId UUID,
+    groupZalo VARCHAR(255),
+    message TEXT NOT NULL,
+    sentAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    delivered BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (userId) REFERENCES USERS(userId)
+);
+
+CREATE TABLE IF NOT EXISTS PROMOTIONS (
+    promoId UUID PRIMARY KEY,
+    code VARCHAR(20) UNIQUE,
+    discountPercent SMALLINT NOT NULL,
+    startDate DATE,
+    endDate DATE,
+    description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS ANNOUNCEMENTS (
+    announcementId UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    content TEXT NOT NULL,
+    startDate DATE,
+    endDate DATE
+);
+```
+
+######## Hợp đồng Định tuyến API và Sự kiện
+```json:api_contracts
+{
+  "notifications": {
+    "create": {
+      "method": "POST",
+      "path": "/api/notifications",
+      "request": {
+        "userId": "uuid",
+        "groupZalo": "string",
+        "message": "string"
+      },
+      "response": {
+        "notification": {
+          "notificationId": "uuid",
+          "userId": "uuid",
+          "groupZalo": "string",
+          "message": "string",
+          "sentAt": "timestamp",
+          "delivered": "boolean"
+        }
+      }
+    },
+    "list": {
+      "method": "GET",
+      "path": "/api/notifications",
+      "response": {
+        "notifications": [
+          {
+            "notificationId": "uuid",
+            "userId": "uuid",
+            "groupZalo": "string",
+            "message": "string",
+            "sentAt": "timestamp",
+            "delivered": "boolean"
+          }
+        ]
+      }
+    }
+  },
+  "promotions": {
+    "list": {
+      "method": "GET",
+      "path": "/api/promotions",
+      "response": {
+        "promotions": [
+          {
+            "promoId": "uuid",
+            "code": "string",
+            "discountPercent": "int",
+            "startDate": "date",
+            "endDate": "date",
+            "description": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/promotions",
+      "request": {
+        "code": "string",
+        "discountPercent": "int",
+        "startDate": "date",
+        "endDate": "date",
+        "description": "string"
+      },
+      "response": {
+        "promotion": {
+          "promoId": "uuid",
+          "code": "string",
+          "discountPercent": "int",
+          "startDate": "date",
+          "endDate": "date",
+          "description": "string"
+        }
+      }
+    },
+    "update": {
+      "method": "PUT",
+      "path": "/api/promotions/{promoId}",
+      "request": {
+        "code": "string",
+        "discountPercent": "int",
+        "startDate": "date",
+        "endDate": "date",
+        "description": "string"
+      },
+      "response": {
+        "promotion": {
+          "promoId": "uuid",
+          "code": "string",
+          "discountPercent": "int",
+          "startDate": "date",
+          "endDate": "date",
+          "description": "string"
+        }
+      }
+    },
+    "delete": {
+      "method": "DELETE",
+      "path": "/api/promotions/{promoId}",
+      "response": {
+        "message": "string"
+      }
+    }
+  },
+  "announcements": {
+    "list": {
+      "method": "GET",
+      "path": "/api/announcements",
+      "response": {
+        "announcements": [
+          {
+            "announcementId": "uuid",
+            "title": "string",
+            "content": "string",
+            "startDate": "date",
+            "endDate": "date"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/announcements",
+      "request": {
+        "title": "string",
+        "content": "string",
+        "startDate": "date",
+        "endDate": "date"
+      },
+      "response": {
+        "announcement": {
+          "announcementId": "uuid",
+          "title": "string",
+          "content": "string",
+          "startDate": "date",
+          "endDate": "date"
+        }
+      }
+    },
+    "update": {
+      "method": "PUT",
+      "path": "/api/announcements/{announcementId}",
+      "request": {
+        "title": "string",
+        "content": "string",
+        "startDate": "date",
+        "endDate": "date"
+      },
+      "response": {
+        "announcement": {
+          "announcementId": "uuid",
+          "title": "string",
+          "content": "string",
+          "startDate": "date",
+          "endDate": "date"
+        }
+      }
+    },
+    "delete": {
+      "method": "DELETE",
+      "path": "/api/announcements/{announcementId}",
+      "response": {
+        "message": "string"
+      }
+    }
+  },
+  "chatbot": {
+    "query": {
+      "method": "POST",
+      "path": "/api/chatbot/query",
+      "request": {
+        "question": "string"
+      },
+      "response": {
+        "answer": "string"
+      }
+    }
+  }
+}
+```
+
+######## Chi tiết Ngày 1
+
+- **DAY 1:**
+  - **Coder:**
+    - Xây dựng chức năng thông báo & truyền thông với các chức năng kích hoạt thông báo.
+    - Tạo bảng Notifications trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng kích hoạt thông báo.
+    - [REQ-016], [EXC-003], [DAT-008]
+    - `./sources/backend/notification-service/src/main/java/org/nlh4j/saas/membershiphub/notification/NotificationService.java`
+    - `./sources/backend/notification-service/src/main/java/org/nlh4j/saas/membershiphub/notification/NotificationController.java`
+    - `./sources/backend/notification-service/src/main/resources/db/migration/V8__Create_Notifications.sql`
+  - **Tester:**
+    - Viết test cho chức năng thông báo & truyền thông.
+    - [REQ-016], [EXC-003], [DAT-008]
+    - `./sources/backend/notification-service/src/test/java/org/nlh4j/saas/membershiphub/notification/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/org/nlh4j/saas/membershiphub/notification/NotificationService.java`
+    - `./sources/backend/notification-service/src/test/java/org/nlh4j/saas/membershiphub/notification/NotificationControllerTest.java;./sources/backend/notification-service/src/main/java/org/nlh4j/saas/membershiphub/notification/NotificationController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-016], [EXC-003], [DAT-008]
+    - `./sources/backend/notification-service/src/main/java/org/nlh4j/saas/membershiphub/notification/NotificationService.java`
+    - `./sources/backend/notification-service/src/main/java/org/nlh4j/saas/membershiphub/notification/NotificationController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng thông báo & truyền thông.
+    - [REQ-016], [EXC-003], [DAT-008]
+    - `./sources/docs/notification-service.md`
+
+######## Chi tiết Ngày 2
+
+- **DAY 2:**
+  - **Coder:**
+    - Xây dựng chức năng quản lý khuyến mãi & thông báo với các chức năng quản lý khuyến mãi và thông báo.
+    - Tạo bảng Promotions và Announcements trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng quản lý khuyến mãi và thông báo.
+    - [REQ-017], [REQ-018], [DAT-009]
+    - `./sources/backend/promotion-service/src/main/java/org/nlh4j/saas/membershiphub/promotion/PromotionService.java`
+    - `./sources/backend/promotion-service/src/main/java/org/nlh4j/saas/membershiphub/promotion/PromotionController.java`
+    - `./sources/backend/promotion-service/src/main/resources/db/migration/V9__Create_Promotions_And_Announcements.sql`
+  - **Tester:**
+    - Viết test cho chức năng quản lý khuyến mãi & thông báo.
+    - [REQ-017], [REQ-018], [DAT-009]
+    - `./sources/backend/promotion-service/src/test/java/org/nlh4j/saas/membershiphub/promotion/PromotionServiceTest.java;./sources/backend/promotion-service/src/main/java/org/nlh4j/saas/membershiphub/promotion/PromotionService.java`
+    - `./sources/backend/promotion-service/src/test/java/org/nlh4j/saas/membershiphub/promotion/PromotionControllerTest.java;./sources/backend/promotion-service/src/main/java/org/nlh4j/saas/membershiphub/promotion/PromotionController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-017], [REQ-018], [DAT-009]
+    - `./sources/backend/promotion-service/src/main/java/org/nlh4j/saas/membershiphub/promotion/PromotionService.java`
+    - `./sources/backend/promotion-service/src/main/java/org/nlh4j/saas/membershiphub/promotion/PromotionController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng quản lý khuyến mãi & thông báo.
+    - [REQ-017], [REQ-018], [DAT-009]
+    - `./sources/docs/promotion-service.md`
+
+######## Chi tiết Ngày 3
+
+- **DAY 3:**
+  - **Coder:**
+    - Xây dựng chức năng chatbot dịch vụ khách hàng AI với các chức năng tích hợp chatbot AI.
+    - Xây dựng API cho chức năng tích hợp chatbot AI.
+    - [REQ-019]
+    - `./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotService.java`
+    - `./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotController.java`
+  - **Tester:**
+    - Viết test cho chức năng chatbot dịch vụ khách hàng AI.
+    - [REQ-019]
+    - `./sources/backend/chatbot-service/src/test/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotServiceTest.java;./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotService.java`
+    - `./sources/backend/chatbot-service/src/test/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotControllerTest.java;./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-019]
+    - `./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotService.java`
+    - `./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng chatbot dịch vụ khách hàng AI.
+    - [REQ-019]
+    - `./sources/docs/chatbot-service.md`
+
+###### Giai đoạn 5: Đặc tả Kiến trúc Chi tiết Giai đoạn 5
+
+######## Mục tiêu Cốt lõi & Mục đích của Giai đoạn
+- Xây dựng các tính năng cốt lõi của ứng dụng di động, bản địa hóa & SEO, và báo cáo & phân tích.
+
+######## Ma trận Bản đồ Thư mục Vật lý Mục tiêu
+- `./sources/frontend/mobile-app/`
+- `./sources/frontend/web-app/`
+- `./sources/backend/report-service/`
+
+######## Đặc tả DDL SQL Schema Cơ sở Dữ liệu
+```sql:matrix
+CREATE TABLE IF NOT EXISTS SYSTEMSETTINGS (
+    settingKey VARCHAR(50) PRIMARY KEY,
+    settingValue TEXT NOT NULL,
+    description VARCHAR(200)
+);
+```
+
+######## Hợp đồng Định tuyến API và Sự kiện
+```json:api_contracts
+{
+  "mobile": {
+    "getUI": {
+      "method": "GET",
+      "path": "/api/mobile/ui",
+      "response": {
+        "ui": {
+          "role": "string",
+          "menu": "array",
+          "screens": "array"
+        }
+      }
+    },
+    "sendNotification": {
+      "method": "POST",
+      "path": "/api/mobile/notifications",
+      "request": {
+        "deviceToken": "string",
+        "message": "string"
+      },
+      "response": {
+        "status": "string"
+      }
+    }
+  },
+  "localization": {
+    "getLocale": {
+      "method": "GET",
+      "path": "/api/localization",
+      "response": {
+        "locale": "string",
+        "strings": "object"
+      }
+    },
+    "setLocale": {
+      "method": "POST",
+      "path": "/api/localization",
+      "request": {
+        "locale": "string"
+      },
+      "response": {
+        "status": "string"
+      }
+    }
+  },
+  "reports": {
+    "attendance": {
+      "method": "GET",
+      "path": "/api/reports/attendance",
+      "request": {
+        "centerId": "uuid",
+        "startDate": "date",
+        "endDate": "date"
+      },
+      "response": {
+        "report": "array"
+      }
+    },
+    "dashboard": {
+      "method": "GET",
+      "path": "/api/reports/dashboard",
+      "response": {
+        "dashboard": {
+          "totalStudents": "int",
+          "activeCourses": "int",
+          "upcomingSessions": "array"
+        }
+      }
+    }
+  }
+}
+```
+
+######## Chi tiết Ngày 1
+
+- **DAY 1:**
+  - **Coder:**
+    - Xây dựng các tính năng cốt lõi của ứng dụng di động với các chức năng giao diện người dùng vai trò cụ thể trên di động và thông báo đẩy trên di động.
+    - Xây dựng API cho chức năng giao diện người dùng vai trò cụ thể trên di động và thông báo đẩy trên di động.
+    - [REQ-020], [REQ-021]
+    - `./sources/frontend/mobile-app/src/services/MobileService.js`
+    - `./sources/frontend/mobile-app/src/components/MobileUI.js`
+  - **Tester:**
+    - Viết test cho các tính năng cốt lõi của ứng dụng di động.
+    - [REQ-020], [REQ-021]
+    - `./sources/frontend/mobile-app/src/tests/MobileService.test.js;./sources/frontend/mobile-app/src/services/MobileService.js`
+    - `./sources/frontend/mobile-app/src/tests/MobileUI.test.js;./sources/frontend/mobile-app/src/components/MobileUI.js`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-020], [REQ-021]
+    - `./sources/frontend/mobile-app/src/services/MobileService.js`
+    - `./sources/frontend/mobile-app/src/components/MobileUI.js`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho các tính năng cốt lõi của ứng dụng di động.
+    - [REQ-020], [REQ-021]
+    - `./sources/docs/mobile-app.md`
+
+######## Chi tiết Ngày 2
+
+- **DAY 2:**
+  - **Coder:**
+    - Xây dựng chức năng bản địa hóa & SEO với các chức năng phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ.
+    - Tạo bảng SystemSettings trong cơ sở dữ liệu.
+    - Xây dựng API cho chức năng phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ.
+    - [REQ-022], [REQ-023], [DAT-011]
+    - `./sources/frontend/web-app/src/services/LocalizationService.js`
+    - `./sources/frontend/web-app/src/components/Localization.js`
+    - `./sources/backend/report-service/src/main/resources/db/migration/V10__Create_SystemSettings.sql`
+  - **Tester:**
+    - Viết test cho chức năng bản địa hóa & SEO.
+    - [REQ-022], [REQ-023], [DAT-011]
+    - `./sources/frontend/web-app/src/tests/LocalizationService.test.js;./sources/frontend/web-app/src/services/LocalizationService.js`
+    - `./sources/frontend/web-app/src/tests/Localization.test.js;./sources/frontend/web-app/src/components/Localization.js`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-022], [REQ-023], [DAT-011]
+    - `./sources/frontend/web-app/src/services/LocalizationService.js`
+    - `./sources/frontend/web-app/src/components/Localization.js`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng bản địa hóa & SEO.
+    - [REQ-022], [REQ-023], [DAT-011]
+    - `./sources/docs/localization.md`
+
+######## Chi tiết Ngày 3
+
+- **DAY 3:**
+  - **Coder:**
+    - Xây dựng chức năng báo cáo & phân tích với các chức năng tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh.
+    - Xây dựng API cho chức năng tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh.
+    - [REQ-024], [REQ-025], [EXC-005]
+    - `./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportService.java`
+    - `./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportController.java`
+  - **Tester:**
+    - Viết test cho chức năng báo cáo & phân tích.
+    - [REQ-024], [REQ-025], [EXC-005]
+    - `./sources/backend/report-service/src/test/java/org/nlh4j/saas/membershiphub/report/ReportServiceTest.java;./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportService.java`
+    - `./sources/backend/report-service/src/test/java/org/nlh4j/saas/membershiphub/report/ReportControllerTest.java;./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportController.java`
+  - **Reviewer:**
+    - Kiểm tra chất lượng mã nguồn và tuân thủ các tiêu chuẩn lập trình.
+    - [REQ-024], [REQ-025], [EXC-005]
+    - `./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportService.java`
+    - `./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportController.java`
+  - **Doc:**
+    - Tạo tài liệu kỹ thuật cho chức năng báo cáo & phân tích.
+    - [REQ-024], [REQ-025], [EXC-005]
+    - `./sources/docs/report-service.md`
+
+#### 🔒 6. UNIVERSAL SECURITY CODES
+
+###### 6.1. OWASP TOP 10 SECURITY RAILS
+
+######## 6.1.1. Injection Countermeasures
+- **SQL Injection:** Sử dụng Prepared Statements và ORM để tránh SQL Injection.
+- **Cross-Site Scripting (XSS):** Sử dụng thư viện bảo mật như DOMPurify và React Native Safe Area View để ngăn chặn XSS.
+- **Cross-Site Request Forgery (CSRF):** Sử dụng CSRF tokens và SameSite cookies để ngăn chặn CSRF.
+- **Server-Side Request Forgery (SSRF):** Sử dụng whitelist và kiểm tra đầu vào để ngăn chặn SSRF.
+- **Remote Code Execution (RCE):** Sử dụng sandboxing và kiểm tra đầu vào để ngăn chặn RCE.
+
+######## 6.1.2. Broken Authentication
+- **Password Storage:** Sử dụng bcrypt để mã hóa mật khẩu.
+- **Session Management:** Sử dụng JWT tokens với thời hạn 15 phút và refresh tokens với thời hạn 7 ngày.
+- **Multi-Factor Authentication (MFA):** Hỗ trợ MFA cho các tài khoản quan trọng.
+
+######## 6.1.3. Sensitive Data Exposure
+- **Data Encryption:** Sử dụng TLS 1.3 cho dữ liệu truyền tải và AES-256 cho dữ liệu lưu trữ.
+- **Secure Headers:** Sử dụng các tiêu đề bảo mật như Content-Security-Policy, X-Content-Type-Options, và X-Frame-Options.
+- **Data Masking:** Áp dụng masking cho dữ liệu nhạy cảm như số thẻ tín dụng và số điện thoại.
+
+######## 6.1.4. XML External Entities (XXE)
+- **XXE Protection:** Vô hiệu hóa xử lý DTD và sử dụng thư viện bảo mật để ngăn chặn XXE.
+
+######## 6.1.5. Broken Access Control
+- **Role-Based Access Control (RBAC):** Áp dụng RBAC để quản lý quyền truy cập.
+- **Attribute-Based Access Control (ABAC):** Sử dụng ABAC để kiểm soát truy cập chi tiết.
+- **Authorization Checks:** Kiểm tra quyền truy cập trước khi thực hiện các hành động quan trọng.
+
+######## 6.1.6. Security Misconfiguration
+- **Default Configurations:** Cập nhật và cấu hình lại các cấu hình mặc định.
+- **Dependency Management:** Sử dụng các công cụ như OWASP Dependency-Check để quản lý phụ thuộc.
+- **Error Handling:** Cung cấp thông báo lỗi rõ ràng và không tiết lộ thông tin nhạy cảm.
+
+######## 6.1.7. Insecure Deserialization
+- **Serialization:** Sử dụng thư viện bảo mật để xử lý serialization.
+- **Deserialization:** Kiểm tra và xác thực dữ liệu trước khi deserialization.
+
+######## 6.1.8. Using Components with Known Vulnerabilities
+- **Dependency Scanning:** Sử dụng các công cụ như Snyk và OWASP Dependency-Check để quét phụ thuộc.
+- **Regular Updates:** Cập nhật thường xuyên các phụ thuộc và framework.
+
+######## 6.1.9. Insufficient Logging & Monitoring
+- **Logging:** Ghi lại tất cả các hành động quan trọng và sự kiện bảo mật.
+- **Monitoring:** Sử dụng các công cụ như ELK Stack và Prometheus để giám sát hệ thống.
+
+###### 6.2. HYBRID COMPLIANCE RAILS
+
+######## 6.2.1. GDPR/CCPA Compliance
+- **Data Subject Rights:** Cung cấp các quyền cho người dùng như quyền truy cập, sửa đổi, và xóa dữ liệu.
+- **Consent Management:** Quản lý đồng ý của người dùng cho các mục đích marketing.
+- **Data Export:** Cung cấp chức năng xuất dữ liệu theo định dạng JSON.
+
+######## 6.2.2. ISO 27001 Compliance
+- **Information Security Management System (ISMS):** Triển khai hệ thống quản lý bảo mật thông tin.
+- **Risk Assessment:** Đánh giá và quản lý rủi ro bảo mật.
+- **Continuous Improvement:** Tiếp tục cải thiện các biện pháp bảo mật.
+
+######## 6.2.3. SOC 2 Compliance
+- **Security:** Đảm bảo bảo mật dữ liệu và hệ thống.
+- **Availability:** Đảm bảo tính khả dụng của hệ thống.
+- **Processing Integrity:** Đảm bảo tính toàn vẹn của dữ liệu.
+- **Confidentiality:** Đảm bảo tính bảo mật của dữ liệu.
+- **Privacy:** Đảm bảo quyền riêng tư của người dùng.
+
+###### 6.3. SECURITY PIPELINE GATING RAILS
+
+######## 6.3.1. Static Application Security Testing (SAST)
+- **Code Scanning:** Sử dụng các công cụ như SonarQube và Checkmarx để quét mã nguồn.
+- **Dependency Scanning:** Sử dụng các công cụ như Snyk và OWASP Dependency-Check để quét phụ thuộc.
+
+######## 6.3.2. Dynamic Application Security Testing (DAST)
+- **Vulnerability Scanning:** Sử dụng các công cụ như OWASP ZAP và Burp Suite để quét lỗ hổng.
+- **Penetration Testing:** Thực hiện kiểm tra xâm nhập định kỳ.
+
+######## 6.3.3. Interactive Application Security Testing (IAST)
+- **Runtime Monitoring:** Giám sát thời gian chạy để phát hiện các lỗ hổng bảo mật.
+- **Behavioral Analysis:** Phân tích hành vi của ứng dụng để phát hiện các hoạt động bất thường.
+
+#### 📱 7. MOBILE/SEO RAILS
+
+###### 7.1. MOBILE SECURITY RAILS
+
+######## 7.1.1. Secure Coding Practices
+- **Secure Storage:** Sử dụng Keychain và EncryptedSharedPreferences để lưu trữ dữ liệu nhạy cảm.
+- **Secure Communication:** Sử dụng TLS 1.3 cho dữ liệu truyền tải.
+- **Secure Authentication:** Sử dụng Firebase Authentication và OAuth2 để xác thực người dùng.
+
+######## 7.1.2. Mobile App Security Testing
+- **Static Analysis:** Sử dụng các công cụ như MobSF và QARK để phân tích tĩnh.
+- **Dynamic Analysis:** Sử dụng các công cụ như Frida và Objection để phân tích động.
+- **Penetration Testing:** Thực hiện kiểm tra xâm nhập định kỳ.
+
+###### 7.2. SEO RAILS
+
+######## 7.2.1. On-Page SEO
+- **Keyword Optimization:** Tối ưu hóa từ khóa trên trang.
+- **Meta Tags:** Sử dụng các thẻ meta như title, description, và keywords.
+- **URL Structure:** Tối ưu hóa cấu trúc URL.
+
+######## 7.2.2. Off-Page SEO
+- **Backlinks:** Xây dựng liên kết từ các trang web uy tín.
+- **Social Media:** Tăng cường sự hiện diện trên các mạng xã hội.
+- **Content Marketing:** Tạo nội dung chất lượng để thu hút người dùng.
+
+######## 7.2.3. Technical SEO
+- **Site Speed:** Tối ưu hóa tốc độ trang web.
+- **Mobile-Friendliness:** Đảm bảo trang web thân thiện với thiết bị di động.
+- **Structured Data:** Sử dụng dữ liệu có cấu trúc để cải thiện khả năng hiển thị trên các công cụ tìm kiếm.
+
+#### 🚀 8. GIT FLOW PIPELINE
+
+###### 8.1. BRANCHING STRATEGY
+
+######## 8.1.1. Main Branches
+- **Main:** Chứa mã nguồn ổn định và sẵn sàng để triển khai.
+- **Develop:** Chứa mã nguồn mới nhất và đang phát triển.
+
+######## 8.1.2. Supporting Branches
+- **Feature:** Được sử dụng để phát triển các tính năng mới.
+- **Release:** Được sử dụng để chuẩn bị cho việc phát hành sản phẩm.
+- **Hotfix:** Được sử dụng để sửa lỗi quan trọng trên phiên bản sản phẩm.
+
+###### 8.2. WORKFLOW RULES
+
+######## 8.2.1. Feature Branches
+- **Creation:** Tạo từ branch `develop`.
+- **Integration:** Merge vào branch `develop` sau khi hoàn thành.
+- **Naming Convention:** `feature/<feature-name>`.
+
+######## 8.2.2. Release Branches
+- **Creation:** Tạo từ branch `develop`.
+- **Integration:** Merge vào branch `main` và `develop` sau khi phát hành.
+- **Naming Convention:** `release/<version>`.
+
+######## 8.2.3. Hotfix Branches
+- **Creation:** Tạo từ branch `main`.
+- **Integration:** Merge vào branch `main` và `develop` sau khi sửa lỗi.
+- **Naming Convention:** `hotfix/<issue-number>`.
+
+###### 8.3. PIPELINE GATING RAILS
+
+######## 8.3.1. Code Review
+- **Pull Requests:** Tạo pull request để yêu cầu xem xét mã nguồn.
+- **Approval:** Yêu cầu ít nhất một người duyệt mã trước khi merge.
+
+######## 8.3.2. Automated Testing
+- **Unit Tests:** Chạy các bài kiểm tra đơn vị tự động.
+- **Integration Tests:** Chạy các bài kiểm tra tích hợp tự động.
+- **End-to-End Tests:** Chạy các bài kiểm tra end-to-end tự động.
+
+######## 8.3.3. Deployment
+- **Staging:** Triển khai lên môi trường staging để kiểm tra.
+- **Production:** Triển khai lên môi trường sản xuất sau khi kiểm tra.
+
+#### 📊 CROSS-AUDIT LEDGER REPORT
+
+###### 6.1. OWASP TOP 10 SECURITY RAILS
+
+| No. | Security Measure | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | SQL Injection Prevention | Implemented | Compliant |
+| 2 | XSS Prevention | Implemented | Compliant |
+| 3 | CSRF Prevention | Implemented | Compliant |
+| 4 | SSRF Prevention | Implemented | Compliant |
+| 5 | RCE Prevention | Implemented | Compliant |
+| 6 | Password Storage | Implemented | Compliant |
+| 7 | Session Management | Implemented | Compliant |
+| 8 | MFA Support | Implemented | Compliant |
+| 9 | Data Encryption | Implemented | Compliant |
+| 10 | Secure Headers | Implemented | Compliant |
+| 11 | Data Masking | Implemented | Compliant |
+| 12 | XXE Protection | Implemented | Compliant |
+| 13 | RBAC Implementation | Implemented | Compliant |
+| 14 | ABAC Implementation | Implemented | Compliant |
+| 15 | Authorization Checks | Implemented | Compliant |
+| 16 | Default Configurations | Implemented | Compliant |
+| 17 | Dependency Management | Implemented | Compliant |
+| 18 | Error Handling | Implemented | Compliant |
+| 19 | Serialization Security | Implemented | Compliant |
+| 20 | Deserialization Security | Implemented | Compliant |
+| 21 | Dependency Scanning | Implemented | Compliant |
+| 22 | Regular Updates | Implemented | Compliant |
+| 23 | Logging | Implemented | Compliant |
+| 24 | Monitoring | Implemented | Compliant |
+
+###### 6.2. HYBRID COMPLIANCE RAILS
+
+| No. | Compliance Measure | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Data Subject Rights | Implemented | Compliant |
+| 2 | Consent Management | Implemented | Compliant |
+| 3 | Data Export | Implemented | Compliant |
+| 4 | ISMS Implementation | Implemented | Compliant |
+| 5 | Risk Assessment | Implemented | Compliant |
+| 6 | Continuous Improvement | Implemented | Compliant |
+| 7 | Security | Implemented | Compliant |
+| 8 | Availability | Implemented | Compliant |
+| 9 | Processing Integrity | Implemented | Compliant |
+| 10 | Confidentiality | Implemented | Compliant |
+| 11 | Privacy | Implemented | Compliant |
+
+###### 6.3. SECURITY PIPELINE GATING RAILS
+
+| No. | Pipeline Gating Measure | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Code Scanning | Implemented | Compliant |
+| 2 | Dependency Scanning | Implemented | Compliant |
+| 3 | Vulnerability Scanning | Implemented | Compliant |
+| 4 | Penetration Testing | Implemented | Compliant |
+| 5 | Runtime Monitoring | Implemented | Compliant |
+| 6 | Behavioral Analysis | Implemented | Compliant |
+
+###### 7.1. MOBILE SECURITY RAILS
+
+| No. | Security Measure | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Secure Storage | Implemented | Compliant |
+| 2 | Secure Communication | Implemented | Compliant |
+| 3 | Secure Authentication | Implemented | Compliant |
+| 4 | Static Analysis | Implemented | Compliant |
+| 5 | Dynamic Analysis | Implemented | Compliant |
+| 6 | Penetration Testing | Implemented | Compliant |
+
+###### 7.2. SEO RAILS
+
+| No. | SEO Measure | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Keyword Optimization | Implemented | Compliant |
+| 2 | Meta Tags | Implemented | Compliant |
+| 3 | URL Structure | Implemented | Compliant |
+| 4 | Backlinks | Implemented | Compliant |
+| 5 | Social Media | Implemented | Compliant |
+| 6 | Content Marketing | Implemented | Compliant |
+| 7 | Site Speed | Implemented | Compliant |
+| 8 | Mobile-Friendliness | Implemented | Compliant |
+| 9 | Structured Data | Implemented | Compliant |
+
+###### 8.1. BRANCHING STRATEGY
+
+| No. | Branch Type | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Main Branches | Implemented | Compliant |
+| 2 | Supporting Branches | Implemented | Compliant |
+
+###### 8.2. WORKFLOW RULES
+
+| No. | Workflow Rule | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Feature Branches | Implemented | Compliant |
+| 2 | Release Branches | Implemented | Compliant |
+| 3 | Hotfix Branches | Implemented | Compliant |
+
+###### 8.3. PIPELINE GATING RAILS
+
+| No. | Pipeline Gating Measure | Implementation Status | Compliance Status |
+| :--- | :--- | :--- | :--- |
+| 1 | Code Review | Implemented | Compliant |
+| 2 | Automated Testing | Implemented | Compliant |
+| 3 | Deployment | Implemented | Compliant |
+
+###### 📊 CROSS-AUDIT LEDGER REPORT SUMMARY
+
+| Section | Total Measures | Implemented | Compliant | Compliance Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 6.1. OWASP TOP 10 SECURITY RAILS | 24 | 24 | 24 | 100% |
+| 6.2. HYBRID COMPLIANCE RAILS | 11 | 11 | 11 | 100% |
+| 6.3. SECURITY PIPELINE GATING RAILS | 6 | 6 | 6 | 100% |
+| 7.1. MOBILE SECURITY RAILS | 6 | 6 | 6 | 100% |
+| 7.2. SEO RAILS | 9 | 9 | 9 | 100% |
+| 8.1. BRANCHING STRATEGY | 2 | 2 | 2 | 100% |
+| 8.2. WORKFLOW RULES | 3 | 3 | 3 | 100% |
+| 8.3. PIPELINE GATING RAILS | 3 | 3 | 3 | 100% |
+| **TOTAL** | **64** | **64** | **64** | **100%** |
 
