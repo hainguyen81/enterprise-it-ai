@@ -605,53 +605,32 @@ You MUST include every single section below without exception to satisfy enterpr
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
 </RULE>
 
-# GLOBAL PROJECT CONTEXT: membership-hub
 
-
-
-  
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 3. Completely delete and skip all other sections.
-
-  
-
-
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
 
 
 
   
-
-  
   
 
-  <RULE>
-  [STRICT OPERATIONAL MANDATE FOR PHASE 3 OUT OF 5]
-  - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 3 out of 5.
-  - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-  - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 3'.
-  - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-  - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-  - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-    * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-    * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-    * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-    * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn 3'.
+    <RULE>
+    [STRICT OPERATIONAL MANDATE FOR PHASE 3 OUT OF 5]
+    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 3 out of 5.
+    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 3'.
+    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+      * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 3'.
 
-  <HISTORIC_LEDGER_MAP>
-  Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-  </HISTORIC_LEDGER_MAP>
-  </RULE>
+    <HISTORIC_LEDGER_MAP>
+    Phase 1: 
+Phase 2: 
+    </HISTORIC_LEDGER_MAP>
+    </RULE>
   
   
 
@@ -674,9 +653,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
   </COMMAND>
 
-  <PHASE_TEMPLATE_LOOP>
-
-  ### 📈 [Translated text for \"Phase\"] [X] [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4 SYNOPSIS TABLE. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
+  ### 📈 [Translated text for \"Phase\"] 3 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
   - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
   - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
       *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -687,8 +664,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   </RULE>
   - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
   - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-  </PHASE_TEMPLATE_LOOP>
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
@@ -720,6 +695,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
         </RULE>
 
       # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 3' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
       * **Database Schema DDL SQL Specification [DAT-XXX]:**
         <RULE>
         You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -746,424 +722,4 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 ---
 
 # GLOBAL PROJECT CONTEXT: membership-hub
-
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
-
-## 📈 Giai đoạn 3: Triển Khai Lõi Nghiệp Vụ Khóa Học
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai các chức năng quản lý khóa học, bao gồm tạo, cập nhật, xóa khóa học, phân công giáo viên vào khóa học, và xử lý xung đột lịch trình.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** Danh sách tất cả các đường dẫn tệp cụ thể nằm dưới `./sources/` được khởi tạo hoặc sửa đổi trong giai đoạn này. Mỗi dòng đường dẫn được tạo ra phải được thêm vào các Tag ID theo dõi tương ứng.
-    * *Documentation Gating Boundary:* Bất kỳ dòng nào đại diện cho một tài liệu kỹ thuật doanh nghiệp, bản tham khảo kiến trúc, danh mục ánh xạ cơ sở dữ liệu quan hệ, hoặc bố cục kiến trúc phải nằm dưới đường dẫn gốc thống nhất: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** Cung cấp các câu lệnh di chuyển DDL SQL thô, hoàn chỉnh và hợp lệ chứa các cột rõ ràng, kiểu dữ liệu, khóa chính/khóa ngoại, ánh xạ ma trận, chỉ mục và ràng buộc nullability được áp dụng dưới phạm vi giai đoạn này. (Bỏ qua hoàn toàn nếu dự án có yêu cầu lớp cơ sở dữ liệu hoặc lớp lưu trữ nào đó. Khối kỹ thuật này KHÔNG được dịch).
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-007], [REQ-008], [REQ-009], [ARC-006], [ARC-007], [ARC-008], [ARC-009]:** Tài liệu các hợp đồng kỹ thuật hoàn chỉnh (đường dẫn điểm cuối chính xác, phương thức HTTP, lược đồ JSON yêu cầu/phản hồi, hoặc cấu hình chủ đề bộ đệm tin nhắn. Khối kỹ thuật KHÔNG được dịch).
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005]:** Chi tiết các quy tắc xác thực kinh doanh rõ ràng, mã lỗi và đường dẫn xử lý ngoại lệ hệ thống ánh xạ nghiêm ngặt với phạm vi giai đoạn hiện tại, được dịch ngữ cảnh sang 🇻🇳 Vietnamese.
-
-#### Nhật ký Phân phối Công việc Theo Ngày (Giai đoạn 3)
-
-<!--START_DAY_LOG_INDEX_3-->
-
-- **DAY 1:** Khởi tạo cơ sở dữ liệu và dịch vụ quản lý khóa học
-
-  ##### SUB-TASK 1: Thiết lập cơ sở dữ liệu cho mô-đun khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [DAT-004]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_Courses_Table.sql`
-    * **Low-Level Technical Task Instruction:** Tạo bảng `Courses` với các cột: `courseId`, `title`, `description`, `startDate`, `endDate`, `teacherId`, `maxStudents`. Thiết lập khóa chính cho `courseId` và khóa ngoại cho `teacherId`. Thêm chỉ mục cho `startDate` và `endDate` để tối ưu hóa truy vấn lịch trình. [DAT-004]
-
-    ##### Database Schema DDL SQL Specification [DAT-004]:
-    ```sql
-    CREATE TABLE Courses (
-        courseId UUID PRIMARY KEY,
-        title VARCHAR(150) NOT NULL,
-        description TEXT,
-        startDate DATE NOT NULL,
-        endDate DATE NOT NULL,
-        teacherId UUID REFERENCES Users(userId),
-        maxStudents INT DEFAULT 30
-    );
-
-    CREATE INDEX idx_courses_start_date ON Courses(startDate);
-    CREATE INDEX idx_courses_end_date ON Courses(endDate);
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Thiết lập dịch vụ quản lý khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-007], [REQ-008], [REQ-009]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`
-    * **Low-Level Technical Task Instruction:** Triển khai dịch vụ `CourseService` với các phương thức: `getAllCourses()`, `createCourse()`, `updateCourse()`, `deleteCourse()`, `assignTeacherToCourse()`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-007], [REQ-008], [REQ-009]
-
-    ##### API and Event Routing Contracts [REQ-007], [REQ-008], [REQ-009]:
-    ```json
-    {
-      "getAllCourses": {
-        "method": "GET",
-        "path": "/api/courses",
-        "response": {
-          "courses": [
-            {
-              "courseId": "UUID",
-              "title": "string",
-              "startDate": "date",
-              "endDate": "date",
-              "teacherName": "string"
-            }
-          ]
-        }
-      },
-      "createCourse": {
-        "method": "POST",
-        "path": "/api/courses",
-        "request": {
-          "title": "string",
-          "startDate": "date",
-          "endDate": "date",
-          "teacherId": "UUID"
-        },
-        "response": {
-          "courseId": "UUID"
-        }
-      },
-      "assignTeacherToCourse": {
-        "method": "POST",
-        "path": "/api/courses/{courseId}/teachers",
-        "request": {
-          "teacherId": "UUID"
-        },
-        "response": {
-          "status": "string"
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2:** Triển khai chức năng phân công giáo viên vào khóa học
-
-  ##### SUB-TASK 1: Thêm bảng ánh xạ khóa học-giáo viên
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [DAT-004]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/resources/db/migration/V2__Create_Course_Teacher_Mapping_Table.sql`
-    * **Low-Level Technical Task Instruction:** Tạo bảng `CourseTeacherMapping` với các cột: `mappingId`, `courseId`, `teacherId`, `assignedDate`. Thiết lập khóa chính cho `mappingId` và khóa ngoại cho `courseId` và `teacherId`. [DAT-004]
-
-    ##### Database Schema DDL SQL Specification [DAT-004]:
-    ```sql
-    CREATE TABLE CourseTeacherMapping (
-        mappingId UUID PRIMARY KEY,
-        courseId UUID REFERENCES Courses(courseId),
-        teacherId UUID REFERENCES Users(userId),
-        assignedDate TIMESTAMP DEFAULT NOW()
-    );
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Triển khai chức năng phân công giáo viên
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-009]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseTeacherService.java`
-    * **Low-Level Technical Task Instruction:** Triển khai dịch vụ `CourseTeacherService` với các phương thức: `assignTeacherToCourse()`, `unassignTeacherFromCourse()`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-009]
-
-    ##### API and Event Routing Contracts [REQ-009]:
-    ```json
-    {
-      "assignTeacherToCourse": {
-        "method": "POST",
-        "path": "/api/courses/{courseId}/teachers",
-        "request": {
-          "teacherId": "UUID"
-        },
-        "response": {
-          "status": "string"
-        }
-      },
-      "unassignTeacherFromCourse": {
-        "method": "DELETE",
-        "path": "/api/courses/{courseId}/teachers/{teacherId}",
-        "response": {
-          "status": "string"
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 3:** Triển khai chức năng xử lý xung đột lịch trình
-
-  ##### SUB-TASK 1: Thêm ràng buộc kiểm tra xung đột lịch trình
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [DAT-004]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/resources/db/migration/V3__Add_Schedule_Conflict_Check.sql`
-    * **Low-Level Technical Task Instruction:** Thêm ràng buộc kiểm tra xung đột lịch trình cho bảng `Courses`. Đảm bảo rằng không có hai khóa học cùng một giáo viên hoặc cùng một địa điểm có lịch trình trùng lặp. [DAT-004]
-
-    ##### Database Schema DDL SQL Specification [DAT-004]:
-    ```sql
-    ALTER TABLE Courses
-    ADD CONSTRAINT chk_no_teacher_schedule_conflict
-    CHECK (
-        NOT EXISTS (
-            SELECT 1
-            FROM Courses c2
-            WHERE c2.teacherId = Courses.teacherId
-            AND c2.courseId != Courses.courseId
-            AND (
-                (Courses.startDate BETWEEN c2.startDate AND c2.endDate)
-                OR (Courses.endDate BETWEEN c2.startDate AND c2.endDate)
-                OR (c2.startDate BETWEEN Courses.startDate AND Courses.endDate)
-                OR (c2.endDate BETWEEN Courses.startDate AND Courses.endDate)
-            )
-        )
-    );
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Triển khai chức năng kiểm tra xung đột lịch trình
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-008]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseConflictService.java`
-    * **Low-Level Technical Task Instruction:** Triển khai dịch vụ `CourseConflictService` với phương thức `checkScheduleConflict()`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-008]
-
-    ##### API and Event Routing Contracts [REQ-008]:
-    ```json
-    {
-      "checkScheduleConflict": {
-        "method": "POST",
-        "path": "/api/courses/check-conflict",
-        "request": {
-          "teacherId": "UUID",
-          "startDate": "date",
-          "endDate": "date"
-        },
-        "response": {
-          "hasConflict": "boolean",
-          "conflictingCourses": [
-            {
-              "courseId": "UUID",
-              "title": "string",
-              "startDate": "date",
-              "endDate": "date"
-            }
-          ]
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 4:** Triển khai chức năng xem danh sách khóa học
-
-  ##### SUB-TASK 1: Triển khai chức năng xem danh sách khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-007]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java`
-    * **Low-Level Technical Task Instruction:** Triển khai controller `CourseController` với phương thức `getAllCourses()`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-007]
-
-    ##### API and Event Routing Contracts [REQ-007]:
-    ```json
-    {
-      "getAllCourses": {
-        "method": "GET",
-        "path": "/api/courses",
-        "response": {
-          "courses": [
-            {
-              "courseId": "UUID",
-              "title": "string",
-              "startDate": "date",
-              "endDate": "date",
-              "teacherName": "string"
-            }
-          ]
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 5:** Triển khai chức năng tạo/cập nhật/xóa khóa học
-
-  ##### SUB-TASK 1: Triển khai chức năng tạo khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-008]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java`
-    * **Low-Level Technical Task Instruction:** Triển khai phương thức `createCourse()` trong controller `CourseController`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-008]
-
-    ##### API and Event Routing Contracts [REQ-008]:
-    ```json
-    {
-      "createCourse": {
-        "method": "POST",
-        "path": "/api/courses",
-        "request": {
-          "title": "string",
-          "startDate": "date",
-          "endDate": "date",
-          "teacherId": "UUID"
-        },
-        "response": {
-          "courseId": "UUID"
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Triển khai chức năng cập nhật khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-008]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java`
-    * **Low-Level Technical Task Instruction:** Triển khai phương thức `updateCourse()` trong controller `CourseController`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-008]
-
-    ##### API and Event Routing Contracts [REQ-008]:
-    ```json
-    {
-      "updateCourse": {
-        "method": "PUT",
-        "path": "/api/courses/{courseId}",
-        "request": {
-          "title": "string",
-          "startDate": "date",
-          "endDate": "date",
-          "teacherId": "UUID"
-        },
-        "response": {
-          "status": "string"
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 3: Triển khai chức năng xóa khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-008]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java`
-    * **Low-Level Technical Task Instruction:** Triển khai phương thức `deleteCourse()` trong controller `CourseController`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-008]
-
-    ##### API and Event Routing Contracts [REQ-008]:
-    ```json
-    {
-      "deleteCourse": {
-        "method": "DELETE",
-        "path": "/api/courses/{courseId}",
-        "response": {
-          "status": "string"
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 6:** Triển khai chức năng kiểm tra xung đột lịch trình
-
-  ##### SUB-TASK 1: Triển khai chức năng kiểm tra xung đột lịch trình
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-008]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseConflictService.java`
-    * **Low-Level Technical Task Instruction:** Triển khai dịch vụ `CourseConflictService` với phương thức `checkScheduleConflict()`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-008]
-
-    ##### API and Event Routing Contracts [REQ-008]:
-    ```json
-    {
-      "checkScheduleConflict": {
-        "method": "POST",
-        "path": "/api/courses/check-conflict",
-        "request": {
-          "teacherId": "UUID",
-          "startDate": "date",
-          "endDate": "date"
-        },
-        "response": {
-          "hasConflict": "boolean",
-          "conflictingCourses": [
-            {
-              "courseId": "UUID",
-              "title": "string",
-              "startDate": "date",
-              "endDate": "date"
-            }
-          ]
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 7:** Triển khai chức năng phân công giáo viên vào khóa học
-
-  ##### SUB-TASK 1: Triển khai chức năng phân công giáo viên vào khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-
-    * **Sub-Agent:** [Coder]
-    * **Targeted Tag IDs:** [REQ-009]
-    * **Target Component file path (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseTeacherService.java`
-    * **Low-Level Technical Task Instruction:** Triển khai dịch vụ `CourseTeacherService` với các phương thức: `assignTeacherToCourse()`, `unassignTeacherFromCourse()`. Xử lý các trường hợp ngoại lệ cho các yêu cầu không hợp lệ. [REQ-009]
-
-    ##### API and Event Routing Contracts [REQ-009]:
-    ```json
-    {
-      "assignTeacherToCourse": {
-        "method": "POST",
-        "path": "/api/courses/{courseId}/teachers",
-        "request": {
-          "teacherId": "UUID"
-        },
-        "response": {
-          "status": "string"
-        }
-      },
-      "unassignTeacherFromCourse": {
-        "method": "DELETE",
-        "path": "/api/courses/{courseId}/teachers/{teacherId}",
-        "response": {
-          "status": "string"
-        }
-      }
-    }
-    ```
-
-  <!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_3-->
 

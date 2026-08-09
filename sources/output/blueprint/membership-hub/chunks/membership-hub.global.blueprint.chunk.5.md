@@ -605,54 +605,33 @@ You MUST include every single section below without exception to satisfy enterpr
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
 </RULE>
 
-# GLOBAL PROJECT CONTEXT: membership-hub
 
-
-
-  
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 4. Completely delete and skip all other sections.
-
-  
-
-
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
 
 
 
   
-
-  
   
 
-  <RULE>
-  [STRICT OPERATIONAL MANDATE FOR PHASE 4 OUT OF 5]
-  - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 4 out of 5.
-  - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-  - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 4'.
-  - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-  - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-  - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-    * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-    * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-    * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-    * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn 4'.
+    <RULE>
+    [STRICT OPERATIONAL MANDATE FOR PHASE 4 OUT OF 5]
+    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 4 out of 5.
+    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 4'.
+    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+      * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 4'.
 
-  <HISTORIC_LEDGER_MAP>
-  Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-  </HISTORIC_LEDGER_MAP>
-  </RULE>
+    <HISTORIC_LEDGER_MAP>
+    Phase 1: 
+Phase 2: 
+Phase 3: 
+    </HISTORIC_LEDGER_MAP>
+    </RULE>
   
   
 
@@ -675,9 +654,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
   </COMMAND>
 
-  <PHASE_TEMPLATE_LOOP>
-
-  ### 📈 [Translated text for \"Phase\"] [X] [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4 SYNOPSIS TABLE. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
+  ### 📈 [Translated text for \"Phase\"] 4 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
   - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
   - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
       *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -688,8 +665,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   </RULE>
   - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
   - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-  </PHASE_TEMPLATE_LOOP>
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
@@ -721,6 +696,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
         </RULE>
 
       # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 4' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
       * **Database Schema DDL SQL Specification [DAT-XXX]:**
         <RULE>
         You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -746,128 +722,5 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 
 ---
 
-# GLOBAL PROJECT CONTEXT: membership-hub
-
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
-
-## 📈 Giai đoạn 4 Khởi Tạo Hệ Thống Thông Báo Và Tích Hợp Zalo
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Khởi tạo hệ thống thông báo đa kênh bao gồm ứng dụng di động và nhóm Zalo, triển khai cơ sở dữ liệu cho thông báo, và tích hợp API Zalo để gửi tin nhắn.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** Danh sách tất cả các đường dẫn tệp cụ thể nằm dưới `./sources/` được khởi tạo hoặc sửa đổi trong giai đoạn này. Mỗi dòng đường dẫn được tạo ra phải được nối với các Tag ID theo dõi tương ứng.
-    * *Documentation Gating Boundary:* Bất kỳ dòng nào đại diện cho một tài liệu kỹ thuật doanh nghiệp, bản đồ cơ sở dữ liệu quan hệ, hoặc bố cục kiến trúc phải nằm nghiêm ngặt dưới đường dẫn gốc thống nhất: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-008]:** Cung cấp các câu lệnh di chuyển DDL SQL hoàn chỉnh, hợp lệ, chứa các cột rõ ràng, kiểu dữ liệu, khóa chính/khóa ngoại, ánh xạ ma trận, chỉ mục, và ràng buộc nullability được áp dụng trong phạm vi giai đoạn này. (Bỏ qua hoàn toàn nếu dự án không có cơ sở dữ liệu hoặc yêu cầu lớp lưu trữ. Các khối kỹ thuật này KHÔNG được dịch).
-
-```sql
-CREATE TABLE notifications (
-    notification_id UUID PRIMARY KEY,
-    user_id UUID REFERENCES users(user_id),
-    group_zalo VARCHAR(255),
-    message TEXT NOT NULL,
-    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    delivered BOOLEAN DEFAULT FALSE
-);
-
-CREATE INDEX idx_notifications_user_id ON notifications(user_id);
-CREATE INDEX idx_notifications_sent_at ON notifications(sent_at);
-```
-
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-016], [ARC-008]:** Tài liệu hợp đồng kỹ thuật hoàn chỉnh (đường dẫn điểm cuối chính xác, phương thức HTTP, lược đồ JSON yêu cầu/phản hồi, hoặc cấu hình chủ đề bộ đệm tin nhắn. Các khối kỹ thuật này KHÔNG được dịch).
-
-```json
-{
-  "endpoints": [
-    {
-      "path": "/api/notifications",
-      "method": "POST",
-      "request": {
-        "userId": "UUID",
-        "groupZalo": "string",
-        "message": "string"
-      },
-      "response": {
-        "notificationId": "UUID",
-        "status": "string"
-      }
-    }
-  ],
-  "eventTopics": [
-    {
-      "topic": "notifications",
-      "messageSchema": {
-        "userId": "UUID",
-        "groupZalo": "string",
-        "message": "string"
-      }
-    }
-  ]
-}
-```
-
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-003]:** Chi tiết các quy tắc xác thực kinh doanh rõ ràng, mã lỗi, và đường dẫn xử lý ngoại lệ hệ thống ánh xạ nghiêm ngặt với phạm vi giai đoạn hiện tại, được dịch ngữ cảnh vào 🇻🇳 Vietnamese.
-
-#### Nhật ký Phân phối Công việc Theo Ngày (Giai đoạn 4)
-
-<!--START_DAY_LOG_INDEX_4-->
-
-- **DAY 1: Khởi tạo Cơ sở Dữ liệu Thông báo và API Cơ bản**
-  ##### SUB-TASK 1: Thiết kế Schema Cơ sở Dữ liệu Thông báo
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [DAT-008]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/src/main/resources/db/migration/V4__Create_notifications_table.sql`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo bảng `notifications` với các cột `notification_id`, `user_id`, `group_zalo`, `message`, `sent_at`, và `delivered`. Thêm các chỉ mục cho `user_id` và `sent_at`.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Triển khai API Gửi Thông báo Cơ bản
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/src/main/java/com/membershiphub/api/NotificationController.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai điểm cuối `/api/notifications` với phương thức POST để nhận `userId`, `groupZalo`, và `message`. Lưu thông báo vào cơ sở dữ liệu và trả về `notificationId`.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2: Tích hợp Zalo API và Xử lý Ngoại lệ**
-  ##### SUB-TASK 1: Tích hợp Zalo API
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [ARC-008]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/src/main/java/com/membershiphub/service/ZaloService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo dịch vụ `ZaloService` để gửi tin nhắn đến nhóm Zalo sử dụng Zalo API. Sử dụng `groupZalo` và `message` từ thông báo để gửi tin nhắn.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Xử lý Ngoại lệ Gửi Thông báo
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [EXC-003]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/src/main/java/com/membershiphub/exception/NotificationExceptionHandler.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo bộ xử lý ngoại lệ để xử lý các trường hợp gửi thông báo thất bại. Ghi nhật ký lỗi và thử lại tối đa 3 lần trước khi đánh dấu là thất bại.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 3: Kiểm thử và Tối ưu Hiệu suất**
-  ##### SUB-TASK 1: Viết Bài kiểm thử cho API Thông báo
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [REQ-016]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/src/test/java/com/membershiphub/api/NotificationControllerTest.java;./sources/backend/src/main/java/com/membershiphub/api/NotificationController.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm thử cho điểm cuối `/api/notifications` để đảm bảo nó lưu thông báo vào cơ sở dữ liệu và trả về `notificationId` đúng cách.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Kiểm thử Tích hợp Zalo API
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [ARC-008]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/src/test/java/com/membershiphub/service/ZaloServiceTest.java;./sources/backend/src/main/java/com/membershiphub/service/ZaloService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm thử cho `ZaloService` để đảm bảo nó gửi tin nhắn đến nhóm Zalo đúng cách.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_4-->
+# TỔNG QUAN DỰ ÁN: membership-hub
 

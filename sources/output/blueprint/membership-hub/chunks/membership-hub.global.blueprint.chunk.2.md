@@ -605,52 +605,31 @@ You MUST include every single section below without exception to satisfy enterpr
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
 </RULE>
 
-# GLOBAL PROJECT CONTEXT: membership-hub
 
-
-
-  
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 1. Completely delete and skip all other sections.
-
-  
-
-
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
 
 
 
   
-
-  
   
 
-  <RULE>
-  [STRICT OPERATIONAL MANDATE FOR PHASE 1 OUT OF 5]
-  - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 1 out of 5.
-  - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-  - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 1'.
-  - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-  - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-  - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-    * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-    * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-    * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-    * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn 1'.
+    <RULE>
+    [STRICT OPERATIONAL MANDATE FOR PHASE 1 OUT OF 5]
+    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 1 out of 5.
+    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 1'.
+    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+      * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 1'.
 
-  <HISTORIC_LEDGER_MAP>
-  
-  </HISTORIC_LEDGER_MAP>
-  </RULE>
+    <HISTORIC_LEDGER_MAP>
+    
+    </HISTORIC_LEDGER_MAP>
+    </RULE>
   
   
 
@@ -675,9 +654,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
   </COMMAND>
 
-  <PHASE_TEMPLATE_LOOP>
-
-  ### 📈 [Translated text for \"Phase\"] [X] [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4 SYNOPSIS TABLE. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
+  ### 📈 [Translated text for \"Phase\"] 1 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
   - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
   - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
       *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -688,8 +665,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   </RULE>
   - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
   - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-  </PHASE_TEMPLATE_LOOP>
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
@@ -721,6 +696,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
         </RULE>
 
       # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 1' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
       * **Database Schema DDL SQL Specification [DAT-XXX]:**
         <RULE>
         You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -746,494 +722,370 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 
 ---
 
-# GLOBAL PROJECT CONTEXT: membership-hub
+# BẢNG CỔNG DỰ ÁN: membership-hub
 
-## 📊 Document Control
+## 1. TỔNG QUAN DỰ ÁN & KIẾN TRÚC TOÀN CẦU
 
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
+### Mục tiêu & giá trị cốt lõi
+- Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
+- Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
+- Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
+- Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
+- Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
 
-## 5. GRANULAR PHASE SPECIALIZATIONS & DAY-BY-DAY DELIVERABLES
+### Đối tượng người dùng mục tiêu
+- System Admin (siêu người dùng toàn cầu)
+- Center Admin (quản lý cấp trung tâm)
+- Manager (phó quản trị, quyền hạn giới hạn)
+- Teacher (xem chỉ đọc lịch dạy)
+- Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
+- Mobile App User (giao diện đáp ứng cho các vai trò trên)
 
-### 📈 Giai đoạn 1 Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Khởi tạo cơ sở hạ tầng người dùng và hệ thống xác thực, bao gồm việc thiết lập cơ sở dữ liệu người dùng, xác thực qua email/mật khẩu và mạng xã hội, và triển khai cơ chế phân quyền dựa trên vai trò.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** Danh sách tất cả các đường dẫn tệp cụ thể nằm dưới `./sources/` được khởi tạo hoặc sửa đổi trong giai đoạn này. Mỗi dòng đường dẫn được tạo ra phải được nối với các Tag ID theo dõi tương ứng.
-    * *Documentation Gating Boundary:* Bất kỳ dòng nào đại diện cho một tài liệu đặc tả doanh nghiệp, bản thiết kế tham khảo, danh mục ánh xạ cơ sở dữ liệu quan hệ, hoặc bố cục kiến trúc phải nằm nghiêm ngặt dưới đường dẫn gốc thống nhất: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Cung cấp các câu lệnh di chuyển DDL SQL thô, hoàn chỉnh và hợp lệ chứa các cột rõ ràng, kiểu dữ liệu, khóa chính/khóa ngoại, ánh xạ ma trận, chỉ mục và ràng buộc nullability được áp dụng trong phạm vi giai đoạn này. (Bỏ qua hoàn toàn nếu dự án không có cơ sở dữ liệu hoặc yêu cầu lớp lưu trữ. Khối kỹ thuật này KHÔNG ĐƯỢC dịch).
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:** Tài liệu các hợp đồng kỹ thuật hoàn chỉnh (đường dẫn điểm cuối chính xác, phương thức HTTP, lược đồ JSON yêu cầu/phản hồi, hoặc cấu hình chủ đề bộ đệm tin nhắn. Khối kỹ thuật KHÔNG ĐƯỢC dịch).
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:** Chi tiết các quy tắc xác thực kinh doanh rõ ràng, mã lỗi và đường dẫn xử lý ngoại lệ hệ thống ánh xạ nghiêm ngặt với phạm vi giai đoạn hiện tại, được dịch ngữ cảnh sang 🇻🇳 Vietnamese.
+### Ma trận kiểm soát truy cập dựa trên vai trò (RBAC)
+- [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
+- [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
+- [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
+- [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
+- [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
 
-#### Nhật ký Phân phối Công việc Theo Ngày (Giai đoạn 1)
+### Kiến trúc & luồng dữ liệu (các luồng chính)
+- [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
+- [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
+- [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
+- [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
 
-- **DAY 1:** Thiết lập cơ sở dữ liệu người dùng và xác thực
-    ##### SUB-TASK 1: Thiết lập cơ sở dữ liệu người dùng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [DAT-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/resources/db/migration/V1__Create_users_table.sql`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo bảng người dùng với các trường: userId (UUID), email (VARCHAR(255)), passwordHash (CHAR(60)), fullName (VARCHAR(100)), roleId (SMALLINT), provider (ENUM), createdAt (TIMESTAMP), updatedAt (TIMESTAMP). Thiết lập email là duy nhất và không được null. Thêm chỉ mục trên email và roleId.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### Công nghệ & hạ tầng
+- [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-    ##### SUB-TASK 2: Thiết lập cơ sở dữ liệu vai trò
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [DAT-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/resources/db/migration/V2__Create_roles_table.sql`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo bảng vai trò với các trường: roleId (SMALLINT), name (VARCHAR(30)), description (VARCHAR(200)). Thiết lập name là duy nhất và không được null. Thêm chỉ mục trên name.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
-    ##### SUB-TASK 3: Thiết lập quan hệ giữa bảng người dùng và vai trò
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [DAT-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/resources/db/migration/V3__Add_foreign_key_to_users.sql`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thêm khóa ngoại roleId trong bảng người dùng tham chiếu đến roleId trong bảng vai trò. Thiết lập hành động CASCADE cho cả INSERT và UPDATE.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.1 Quản lý người dùng
 
-    ##### SUB-TASK 4: Thiết lập dữ liệu ban đầu cho bảng vai trò
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [DAT-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/resources/db/migration/V4__Insert_initial_roles.sql`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Chèn các vai trò ban đầu: System Admin (roleId: 1), Center Admin (roleId: 2), Manager (roleId: 3), Teacher (roleId: 4), Student (roleId: 5).
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-001] Đăng ký người dùng: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
+- [REQ-002] Xác thực qua mạng xã hội: As a user, I want to sign‑in/up using Firebase, Google, or Facebook OAuth so that I can leverage existing credentials.
+- [REQ-003] Phân quyền người dùng: As an administrator, I want to assign or change a user’s role (System Admin, Center Admin, Manager, Teacher, Student) so that permissions are correctly enforced.
 
-    ##### SUB-TASK 5: Thiết lập dịch vụ xác thực qua email/mật khẩu
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-001], [ARC-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/LocalAuthService.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Triển khai dịch vụ xác thực qua email/mật khẩu. Sử dụng bcrypt để mã hóa mật khẩu. Tạo và trả về JWT token với thời hạn 15 phút và refresh token với thời hạn 7 ngày.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given a user provides a unique email, a strong password, and agrees to terms, When they submit the registration form, Then the system validates the input, creates a new user record with role ‘Student’ (or ‘Teacher’ if invited), and returns a success response with a JWT token. `[REQ-001]`
+- Given a user selects a social provider, When they authenticate through the provider’s popup, Then the system receives an OAuth2 code, exchanges it for user info, creates or updates the local user record, and issues a JWT token. `[REQ-002]`
+- Given an admin selects a user and a new role, When the assignment is confirmed, Then the user’s role column is updated, and appropriate permissions are applied immediately. `[REQ-003]`
 
-    ##### SUB-TASK 6: Thiết lập dịch vụ xác thực qua mạng xã hội
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/SocialAuthService.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Triển khai dịch vụ xác thực qua Firebase, Google và Facebook OAuth. Sử dụng thư viện OAuth2 để xử lý xác thực. Tạo và trả về JWT token với thời hạn 15 phút và refresh token với thời hạn 7 ngày.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- [EXC-004] Xác thực đầu vào không hợp lệ (ví dụ: email không đúng định dạng, thiếu trường bắt buộc): Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
 
-    ##### SUB-TASK 7: Thiết lập dịch vụ phân quyền người dùng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-003], [ARC-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserRoleService.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Triển khai dịch vụ phân quyền người dùng. Cập nhật vai trò của người dùng và áp dụng quyền hạn tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-001] Bảng người dùng & vai trò
 
-    ##### SUB-TASK 8: Viết các bài kiểm tra đơn vị cho dịch vụ xác thực
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/service/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/LocalAuthService.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho dịch vụ xác thực qua email/mật khẩu và mạng xã hội. Kiểm tra tính hợp lệ của đầu vào, quá trình mã hóa mật khẩu, và việc tạo JWT token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Users**
+  ```mermaid
+  erDiagram
+      USERS {
+          uuid userId PK "Unique identifier"
+          varchar email "Email address, not null, unique, max 255 chars"
+          char passwordHash "bcrypt hash, not null, length 60"
+          varchar fullName "Full name, not null, max 100 chars"
+          smallint roleId FK "Foreign key to Roles.roleId"
+          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
+          timestamp createdAt "Timestamp of creation, not null, default now()"
+          timestamp updatedAt "Timestamp of last update, not null, default now()"
+      }
+      ROLES {
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
+      }
+      ROLES ||--o{ USERS : "roleId"
+  ```
+  **Roles**
+  ```mermaid
+  erDiagram
+      ROLES {
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
+      }
+  ```
 
-    ##### SUB-TASK 9: Viết các bài kiểm tra đơn vị cho dịch vụ phân quyền
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [REQ-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/service/UserRoleServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserRoleService.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho dịch vụ phân quyền người dùng. Kiểm tra việc cập nhật vai trò của người dùng và áp dụng quyền hạn tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.2 Quản lý trung tâm
 
-    ##### SUB-TASK 10: Đóng gói và triển khai dịch vụ xác thực
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo Dockerfile cho dịch vụ xác thực. Sử dụng hình ảnh cơ sở Java/Quarkus. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-004] Xem danh sách trung tâm: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
+- [REQ-005] Tạo/cập nhật/xóa trung tâm: As a System Admin, I want to add, edit, or remove a center record so that center information stays current.
+- [REQ-006] Phân quyền quản trị trung tâm: As a System Admin, I want to assign or unassign a user as a Center Admin for a specific center so that administrative control is delegated.
 
-    ##### SUB-TASK 11: Triển khai dịch vụ xác thực trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. `[REQ-004]`
+- Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. `[REQ-005]`
+- Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. `[REQ-006]`
 
-- **DAY 2:** Triển khai các điểm cuối API xác thực
-    ##### SUB-TASK 1: Thiết lập điểm cuối API đăng ký người dùng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/AuthController.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo điểm cuối API cho đăng ký người dùng. Xác thực đầu vào và tạo người dùng mới với vai trò 'Student'. Trả về JWT token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
-    ##### SUB-TASK 2: Thiết lập điểm cuối API đăng nhập người dùng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/AuthController.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo điểm cuối API cho đăng nhập người dùng. Xác thực thông tin đăng nhập và trả về JWT token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-003] Bảng trung tâm
 
-    ##### SUB-TASK 3: Thiết lập điểm cuối API xác thực qua mạng xã hội
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-002]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/SocialAuthController.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo điểm cuối API cho xác thực qua mạng xã hội. Xử lý mã OAuth2, tạo hoặc cập nhật người dùng và trả về JWT token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Centers**
+  ```mermaid
+  erDiagram
+      CENTERS {
+          uuid centerId PK "Unique identifier"
+          varchar name "Center name, not null, max 100 chars"
+          varchar address "Physical address, not null, max 255 chars"
+          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
+          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
+          varchar contactEmail "Contact email, optional, must be valid email format"
+      }
+  ```
 
-    ##### SUB-TASK 4: Thiết lập điểm cuối API phân quyền người dùng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [REQ-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/UserRoleController.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Tạo điểm cuối API cho phân quyền người dùng. Cập nhật vai trò của người dùng và áp dụng quyền hạn tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.3 Quản lý khóa học
 
-    ##### SUB-TASK 5: Viết các bài kiểm tra tích hợp cho các điểm cuối API
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/controller/AuthControllerTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/AuthController.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra tích hợp cho các điểm cuối API đăng ký, đăng nhập và xác thực qua mạng xã hội. Kiểm tra tính hợp lệ của đầu vào, quá trình xác thực và trả về JWT token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-007] Xem danh sách khóa học: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
+- [REQ-008] Tạo/cập nhật/xóa khóa học (tránh xung đột): As a System Admin or Center Admin, I want to manage courses (add, edit, remove) while ensuring no overlapping schedules for the same teacher or venue.
+- [REQ-009] Phân công giáo viên vào khóa học: As a System Admin, I want to assign or unassign teachers to courses so that teaching responsibilities are updated.
 
-    ##### SUB-TASK 6: Viết các bài kiểm tra tích hợp cho điểm cuối API phân quyền
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [REQ-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/controller/UserRoleControllerTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/UserRoleController.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra tích hợp cho điểm cuối API phân quyền người dùng. Kiểm tra việc cập nhật vai trò của người dùng và áp dụng quyền hạn tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. `[REQ-007]`
+- Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. `[REQ-008]`
+- Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. `[REQ-009]`
 
-    ##### SUB-TASK 7: Đóng gói và triển khai các điểm cuối API
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật Dockerfile cho dịch vụ xác thực. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
-    ##### SUB-TASK 8: Triển khai các điểm cuối API trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker mới, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-004] Bảng khóa học
 
-- **DAY 3:** Triển khai cơ chế phân quyền và bảo mật
-    ##### SUB-TASK 1: Thiết lập cơ chế phân quyền dựa trên vai trò
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/SecurityConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế phân quyền dựa trên vai trò. Sử dụng Spring Security để bảo vệ các điểm cuối API. Áp dụng quyền hạn tương ứng cho từng vai trò.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Courses**
+  ```mermaid
+  erDiagram
+      COURSES {
+          uuid courseId PK "Unique identifier"
+          varchar title "Course title, not null, max 150 chars"
+          text description "Course description, optional"
+          date startDate "Course start date, not null"
+          date endDate "Course end date, not null"
+          uuid teacherId FK "Foreign key to Users.userId"
+          int maxStudents "Course capacity, default 30"
+      }
+  ```
 
-    ##### SUB-TASK 2: Thiết lập cơ chế mã hóa dữ liệu
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/EncryptionConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế mã hóa dữ liệu. Sử dụng AES-256 để mã hóa dữ liệu nhạy cảm. Áp dụng cơ chế mã hóa cho các trường dữ liệu nhạy cảm trong cơ sở dữ liệu.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.4 Đăng ký & ghi danh học viên
 
-    ##### SUB-TASK 3: Thiết lập cơ chế xác thực JWT
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [ARC-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/JwtTokenProvider.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế xác thực JWT. Tạo và xác thực JWT token. Áp dụng thời hạn 15 phút cho JWT token và 7 ngày cho refresh token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
+- [REQ-011] Đăng ký khóa học của học viên: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
 
-    ##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho cơ chế phân quyền
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/security/SecurityConfigTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/SecurityConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế phân quyền dựa trên vai trò. Kiểm tra việc áp dụng quyền hạn tương ứng cho từng vai trò.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. `[REQ-010]`
+- Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. `[REQ-011]`
 
-    ##### SUB-TASK 5: Viết các bài kiểm tra đơn vị cho cơ chế mã hóa dữ liệu
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/security/EncryptionConfigTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/EncryptionConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế mã hóa dữ liệu. Kiểm tra việc mã hóa và giải mã dữ liệu nhạy cảm.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
-    ##### SUB-TASK 6: Viết các bài kiểm tra đơn vị cho cơ chế xác thực JWT
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [ARC-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/security/JwtTokenProviderTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/JwtTokenProvider.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế xác thực JWT. Kiểm tra việc tạo và xác thực JWT token.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-005] Bảng ghi danh
 
-    ##### SUB-TASK 7: Đóng gói và triển khai cơ chế phân quyền và bảo mật
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật Dockerfile cho dịch vụ xác thực. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Enrollments**
+  ```mermaid
+  erDiagram
+      ENROLLMENTS {
+          uuid enrollmentId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          timestamp enrollmentDate "Date of enrollment, default now()"
+      }
+  ```
 
-    ##### SUB-TASK 8: Triển khai cơ chế phân quyền và bảo mật trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker mới, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.5 Điểm danh & quét mã QR
 
-- **DAY 4:** Triển khai cơ chế ghi nhật ký và giám sát
-    ##### SUB-TASK 1: Thiết lập cơ chế ghi nhật ký
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/logging/LoggingConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế ghi nhật ký. Sử dụng Logback để ghi nhật ký. Áp dụng mức độ ghi nhật ký tương ứng cho từng gói.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-012] Chụp ảnh điểm danh QR: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
+- [REQ-013] Tính chất bất biến của điểm danh: The attendance service must guarantee that multiple scans from the same student for the same course on the same day produce a single attendance record.
 
-    ##### SUB-TASK 2: Thiết lập cơ chế giám sát
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/monitoring/MonitoringConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế giám sát. Sử dụng Micrometer và Prometheus để giám sát. Áp dụng các chỉ số giám sát tương ứng cho từng dịch vụ.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student opens the scanner, scans a valid course QR, and confirms attendance, When the API receives the payload, Then the system validates the student‑course relationship, creates an Attendance record with timestamp, and returns a success response; duplicate scans on the same day are ignored. `[REQ-012]`
+- Given a student scans a QR twice within a minute, When the service processes both requests, Then only one attendance row is created; subsequent requests return a success with a ‘duplicate’ flag. `[REQ-013]`
 
-    ##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho cơ chế ghi nhật ký
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/logging/LoggingConfigTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/logging/LoggingConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế ghi nhật ký. Kiểm tra việc ghi nhật ký và mức độ ghi nhật ký tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- [EXC-001] Network & Connectivity Drops During QR Scan: If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
+- [EXC-002] Duplicate Attendance Submission: If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
 
-    ##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho cơ chế giám sát
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-006]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/monitoring/MonitoringConfigTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/monitoring/MonitoringConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế giám sát. Kiểm tra việc giám sát và các chỉ số giám sát tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-006] Bảng điểm danh
 
-    ##### SUB-TASK 5: Đóng gói và triển khai cơ chế ghi nhật ký và giám sát
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật Dockerfile cho dịch vụ xác thực. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Attendance**
+  ```mermaid
+  erDiagram
+      ATTENDANCE {
+          uuid attendanceId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          date attendanceDate "Date of attendance, not null"
+          timestamp timestamp "Exact time recorded, default now()"
+      }
+  ```
 
-    ##### SUB-TASK 6: Triển khai cơ chế ghi nhật ký và giám sát trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker mới, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.6 Quản lý thẻ hội viên
 
-- **DAY 5:** Triển khai cơ chế xử lý ngoại lệ và kiểm tra bảo mật
-    ##### SUB-TASK 1: Thiết lập cơ chế xử lý ngoại lệ
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [EXC-004]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/exception/GlobalExceptionHandler.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế xử lý ngoại lệ. Xử lý các ngoại lệ chung và trả về thông báo lỗi tương ứng. Áp dụng các mã lỗi tương ứng cho từng loại ngoại lệ.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-014] Hiển thị tính hợp lệ của thẻ: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
+- [REQ-015] Gia hạn thẻ: As a Student, I want to extend my membership card validity by paying a fee, which updates the end date.
 
-    ##### SUB-TASK 2: Thiết lập cơ chế kiểm tra bảo mật
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/SecurityChecker.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế kiểm tra bảo mật. Kiểm tra các yêu cầu bảo mật và trả về thông báo lỗi tương ứng. Áp dụng các quy tắc bảo mật tương ứng cho từng yêu cầu.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. `[REQ-014]`
+- Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. `[REQ-015]`
 
-    ##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho cơ chế xử lý ngoại lệ
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [EXC-004]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/exception/GlobalExceptionHandlerTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/exception/GlobalExceptionHandler.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế xử lý ngoại lệ. Kiểm tra việc xử lý các ngoại lệ chung và trả về thông báo lỗi tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
-    ##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho cơ chế kiểm tra bảo mật
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-003]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/security/SecurityCheckerTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/SecurityChecker.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế kiểm tra bảo mật. Kiểm tra việc kiểm tra các yêu cầu bảo mật và trả về thông báo lỗi tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-007] Bảng thẻ hội viên
 
-    ##### SUB-TASK 5: Đóng gói và triển khai cơ chế xử lý ngoại lệ và kiểm tra bảo mật
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật Dockerfile cho dịch vụ xác thực. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **StudentCards**
+  ```mermaid
+  erDiagram
+      STUDENTCARDS {
+          uuid cardId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          date issueDate "Card issue date, not null"
+          int validityDays "Total validity days, not null"
+          int remainingDays "Computed days left until expiry"
+      }
+  ```
 
-    ##### SUB-TASK 6: Triển khai cơ chế xử lý ngoại lệ và kiểm tra bảo mật trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker mới, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.7 Thông báo & truyền thông
 
-- **DAY 6:** Triển khai cơ chế kiểm tra hiệu suất và khả năng mở rộng
-    ##### SUB-TASK 1: Thiết lập cơ chế kiểm tra hiệu suất
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/performance/PerformanceChecker.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế kiểm tra hiệu suất. Kiểm tra hiệu suất của các điểm cuối API và trả về thông báo tương ứng. Áp dụng các quy tắc kiểm tra hiệu suất tương ứng cho từng điểm cuối.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-016] Kích hoạt thông báo: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
 
-    ##### SUB-TASK 2: Thiết lập cơ chế khả năng mở rộng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-004]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/scalability/ScalabilityConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế khả năng mở rộng. Áp dụng các quy tắc khả năng mở rộng tương ứng cho từng dịch vụ. Sử dụng Kubernetes HPA để mở rộng ngang các dịch vụ.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin performs an action that requires notification, When the action is saved, Then a Notification record is created, a push notification payload is queued for the mobile app, and a text message is sent to the Zalo group chat. `[REQ-016]`
 
-    ##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho cơ chế kiểm tra hiệu suất
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-001]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/performance/PerformanceCheckerTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/performance/PerformanceChecker.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế kiểm tra hiệu suất. Kiểm tra hiệu suất của các điểm cuối API và trả về thông báo tương ứng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- [EXC-003] Failed Notification Delivery: When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
 
-    ##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho cơ chế khả năng mở rộng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-004]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/scalability/ScalabilityConfigTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/scalability/ScalabilityConfig.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế khả năng mở rộng. Kiểm tra việc áp dụng các quy tắc khả năng mở rộng tương ứng cho từng dịch vụ.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-008] Bảng thông báo
 
-    ##### SUB-TASK 5: Đóng gói và triển khai cơ chế kiểm tra hiệu suất và khả năng mở rộng
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật Dockerfile cho dịch vụ xác thực. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Notifications**
+  ```mermaid
+  erDiagram
+      NOTIFICATIONS {
+          uuid notificationId PK "Unique identifier"
+          uuid userId FK "Target user, optional"
+          varchar groupZalo "Target Zalo group, optional"
+          text message "Notification content, not null"
+          timestamp sentAt "When sent, default now()"
+          boolean delivered "Delivery status, default false"
+      }
+  ```
 
-    ##### SUB-TASK 6: Triển khai cơ chế kiểm tra hiệu suất và khả năng mở rộng trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker mới, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.8 Quản lý khuyến mãi & thông báo
 
-- **DAY 7:** Triển khai cơ chế sao lưu và phục hồi thảm họa
-    ##### SUB-TASK 1: Thiết lập cơ chế sao lưu cơ sở dữ liệu
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-009]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/backup/DatabaseBackup.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế sao lưu cơ sở dữ liệu. Sao lưu cơ sở dữ liệu hàng ngày và lưu trữ trên Google Cloud Storage. Áp dụng các quy tắc sao lưu tương ứng cho từng bảng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Yêu cầu chức năng cốt lõi
+- [REQ-017] Quản lý khuyến mãi: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
+- [REQ-018] Quản lý thông báo: As a Center Admin or Manager, I want to create, edit, or delete announcements with optional expiry dates for broadcast to all users.
 
-    ##### SUB-TASK 2: Thiết lập cơ chế phục hồi thảm họa
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Coder]
-      * **Tag IDs Mục tiêu:** [NFR-009]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/main/java/com/membershiphub/auth/disasterrecovery/DisasterRecovery.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Thiết lập cơ chế phục hồi thảm họa. Phục hồi cơ sở dữ liệu từ bản sao lưu và khôi phục các dịch vụ. Áp dụng các quy tắc phục hồi tương ứng cho từng dịch vụ.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. `[REQ-017]`
+- Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. `[REQ-018]`
 
-    ##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho cơ chế sao lưu cơ sở dữ liệu
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-009]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/backup/DatabaseBackupTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/backup/DatabaseBackup.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế sao lưu cơ sở dữ liệu. Kiểm tra việc sao lưu cơ sở dữ liệu hàng ngày và lưu trữ trên Google Cloud Storage.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
-    ##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho cơ chế phục hồi thảm họa
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Tester]
-      * **Tag IDs Mục tiêu:** [NFR-009]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/src/test/java/com/membershiphub/auth/disasterrecovery/DisasterRecoveryTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/disasterrecovery/DisasterRecovery.java`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Viết các bài kiểm tra đơn vị cho cơ chế phục hồi thảm họa. Kiểm tra việc phục hồi cơ sở dữ liệu từ bản sao lưu và khôi phục các dịch vụ.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-009] Bảng khuyến mãi & thông báo
 
-    ##### SUB-TASK 5: Đóng gói và triển khai cơ chế sao lưu và phục hồi thảm họa
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [Docker]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/auth-service/Dockerfile`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật Dockerfile cho dịch vụ xác thực. Sao chép các tệp nguồn và tài nguyên. Triển khai dịch vụ trên cổng 8080.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+  **Promotions**
+  ```mermaid
+  erDiagram
+      PROMOTIONS {
+          uuid promoId PK "Unique identifier"
+          varchar code "Discount code, unique"
+          smallint discountPercent "Discount percentage, not null"
+          date startDate "Promotion start, optional"
+          date endDate "Promotion end, optional"
+          text description "Promo details, optional"
+      }
+  ```
+  **Announcements**
+  ```mermaid
+  erDiagram
+      ANNOUNCEMENTS {
+          uuid announcementId PK "Unique identifier"
+          varchar title "Title, not null, max 150 chars"
+          text content "Content, not null, max 2000 chars"
+          date startDate "Effective start, optional"
+          date endDate "Effective end, optional"
+      }
+  ```
 
-    ##### SUB-TASK 6: Triển khai cơ chế sao lưu và phục hồi thảm họa trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      * **Sub-Agent:** [GKE]
-      * **Tag IDs Mục tiêu:** [ARC-010]
-      * **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/gke/auth-service-deployment.yaml`
-      * **Hướng dẫn Công việc Kỹ thuật Cấp thấp:**
-        Cập nhật tệp triển khai Kubernetes cho dịch vụ xác thực. Định nghĩa Deployment với hình ảnh Docker mới, cổng 8080 và biến môi trường. Định nghĩa Service để暴露 dịch vụ trên cổng 80.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+### 2.9 Chatbot dịch vụ khách hàng AI
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-019] Tích hợp chatbot AI: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. `[REQ-019]`
+
+#### Luồng ngoại lệ của mô-đun
+- [NOT APPLICABLE] Chatbot AI không có bảng dữ liệu chuyên biệt; tất cả các tương tác được ghi lại trong bảng AuditLog (xem [ARC-006] để biết chi tiết logging).
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
+
+### 2.10 Các tính năng cốt lõi của ứng dụng di động
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-020] Giao diện người dùng vai trò cụ thể trên di động: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
+- [REQ-021] Thông báo đẩy trên di động: As a registered user, I want to receive push notifications on my mobile device for attendance confirmations, new announcements, and reminder messages.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. `[REQ-020]`
+- Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. `[REQ-021]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
+
+### 2.11 Bản địa hóa & SEO
+
+#### Yêu cầu chức năng cốt lõi
+- [REQ-022] Phát hiện ngôn ngữ mặc định: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
+- [REQ-023] SEO đa ngôn ngữ: The platform must support SEO for at least English, Vietnamese, and Spanish; each page must include language‑specific meta tags and hreflang attributes.
+
+#### Tiêu chí chấp nhận & tương tác
+- Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
+- Given a page is requested with a specific locale, When the page renders, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-011] Bảng cài đặt hệ thống
+
+  **SystemSettings**
+  ```mermaid
+  erDiagram
+      SYSTEMSETTINGS {
+          varchar settingKey PK "Configuration key"
+          text settingValue "Configuration value, not null"
+          varchar description "Meaning of setting, optional"
+      }
+  ```
+
+## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
+
+- [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
+- [NFR-002] Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
+- [NFR-003] Security: All data in transit must use TLS 1.3; at rest encryption with AES‑256. JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry. Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF).
+- [NFR-004] Scalability & Availability: Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms. PostgreSQL read replicas for reporting workloads.
+- [NFR-005] Docker Image Size: Base image size < 200 MB; final image < 500 MB.
+- [NFR-006] Logging & Audit: All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year.
+- [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
+- [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
+- [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 

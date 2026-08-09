@@ -605,52 +605,31 @@ You MUST include every single section below without exception to satisfy enterpr
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
 </RULE>
 
-# GLOBAL PROJECT CONTEXT: membership-hub
 
-
-
-  
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 2. Completely delete and skip all other sections.
-
-  
-
-
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
 
 
 
   
-
-  
   
 
-  <RULE>
-  [STRICT OPERATIONAL MANDATE FOR PHASE 2 OUT OF 5]
-  - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 2 out of 5.
-  - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-  - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 2'.
-  - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-  - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-  - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-    * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-    * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-    * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-    * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn 2'.
+    <RULE>
+    [STRICT OPERATIONAL MANDATE FOR PHASE 2 OUT OF 5]
+    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 2 out of 5.
+    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 2'.
+    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+      * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 2'.
 
-  <HISTORIC_LEDGER_MAP>
-  Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-  </HISTORIC_LEDGER_MAP>
-  </RULE>
+    <HISTORIC_LEDGER_MAP>
+    Phase 1: 
+    </HISTORIC_LEDGER_MAP>
+    </RULE>
   
   
 
@@ -673,9 +652,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
   </COMMAND>
 
-  <PHASE_TEMPLATE_LOOP>
-
-  ### 📈 [Translated text for \"Phase\"] [X] [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4 SYNOPSIS TABLE. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
+  ### 📈 [Translated text for \"Phase\"] 2 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
   - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
   - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
       *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -686,8 +663,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   </RULE>
   - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
   - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-  </PHASE_TEMPLATE_LOOP>
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
@@ -719,6 +694,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
         </RULE>
 
       # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 2' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
       * **Database Schema DDL SQL Specification [DAT-XXX]:**
         <RULE>
         You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -744,285 +720,40 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 
 ---
 
-# GLOBAL PROJECT CONTEXT: membership-hub
+# BẢNG CỔNG CÔNG NGHỆ: membership-hub
 
-## 📊 Document Control
+## 1. Tổng quan dự án
 
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260809140439 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 14:04:39 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
+- Mục tiêu & giá trị cốt lõi  
+- Đối tượng người dùng mục tiêu  
+- Ma trận kiểm soát truy cập dựa trên vai trò  
+- Kiến trúc & luồng dữ liệu  
+- Công nghệ & hạ tầng  
 
-## 📈 Giai đoạn 2: Triển Khai Lõi Nghiệp Vụ Khóa Học
+## 2. Mô hình kiến trúc
 
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai các chức năng quản lý khóa học, bao gồm tạo, cập nhật, xóa khóa học và phân công giáo viên vào khóa học. Đảm bảo rằng hệ thống có thể xử lý các yêu cầu xung đột lịch trình và cung cấp giao diện người dùng để quản lý khóa học một cách hiệu quả.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** Danh sách tất cả các đường dẫn tệp cụ thể nằm dưới `./sources/` được khởi tạo hoặc sửa đổi trong giai đoạn này. Mỗi dòng đường dẫn được tạo ra phải được thêm vào các Tag ID theo dõi tương ứng.
-    * *Documentation Gating Boundary:* Bất kỳ dòng nào đại diện cho một tài liệu kỹ thuật doanh nghiệp, bản đồ cơ sở dữ liệu quan hệ, hoặc bản thiết kế kiến trúc phải nằm dưới đường dẫn gốc thống nhất: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** Cung cấp các câu lệnh di chuyển DDL SQL hoàn chỉnh, hợp lệ, chứa các cột rõ ràng, kiểu dữ liệu, khóa chính/khóa ngoại, ánh xạ ma trận, chỉ mục và ràng buộc nullability được áp dụng trong phạm vi giai đoạn này. (Bỏ qua hoàn toàn nếu dự án không có cơ sở dữ liệu hoặc yêu cầu lớp lưu trữ. Các khối kỹ thuật này KHÔNG được dịch).
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-007], [REQ-008], [REQ-009], [ARC-006]:** Tài liệu các hợp đồng kỹ thuật hoàn chỉnh (đường dẫn điểm cuối chính xác, phương thức HTTP, lược đồ JSON yêu cầu/phản hồi, hoặc cấu hình chủ đề bộ đệm tin nhắn. Các khối kỹ thuật KHÔNG được dịch).
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:** Chi tiết các quy tắc xác thực kinh doanh rõ ràng, mã lỗi và các đường dẫn xử lý ngoại lệ hệ thống ánh xạ chặt chẽ với phạm vi giai đoạn hiện tại, được dịch ngữ cảnh sang 🇻🇳 Vietnamese.
+- Kiến trúc tổng quát  
+- Các thành phần chính  
+- Mô hình dữ liệu  
 
-#### Nhật ký Phân phối Công việc Theo Ngày (Giai đoạn 2)
+## 3. Yêu cầu chức năng
 
-- **DAY 1:** Triển khai cơ sở dữ liệu cho mô-đun quản lý khóa học
+- Danh sách các yêu cầu chức năng (REQ-001..RE)  
+- Các ngoại lệ (EXC-001..EX)  
+- Các bảng dữ liệu (DAT-001..DA)  
 
-  ##### SUB-TASK 1: Thiết kế lược đồ cơ sở dữ liệu cho khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [DAT-004]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_Courses_Table.sql`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      ```sql
-      CREATE TABLE Courses (
-          courseId UUID PRIMARY KEY,
-          title VARCHAR(150) NOT NULL,
-          description TEXT,
-          startDate DATE NOT NULL,
-          endDate DATE NOT NULL,
-          teacherId UUID REFERENCES Users(userId),
-          maxStudents INT DEFAULT 30
-      );
-      CREATE INDEX idx_courses_teacherId ON Courses(teacherId);
-      CREATE INDEX idx_courses_dates ON Courses(startDate, endDate);
-      ```
-    <!--END_ATOMIC_SUB_TASK_NODE-->
+## 4. Phân bổ giai đoạn
 
-  ##### SUB-TASK 2: Viết các kiểm thử cho lược đồ cơ sở dữ liệu
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [DAT-004]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/db/CourseSchemaTest.java;./sources/backend/course-service/src/main/resources/db/migration/V1__Create_Courses_Table.sql`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết các kiểm thử để đảm bảo rằng bảng Courses được tạo với các cột và ràng buộc chính xác.
-      - Kiểm tra các chỉ mục đã được tạo cho teacherId và các ngày bắt đầu/kết thúc.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
+- Giai đoạn 1: …  
+- Giai đoạn 2: …  
+- Giai đoạn 3: …  
+- Giai đoạn 4: …  
+- Giai đoạn 5: …  
 
-- **DAY 2:** Triển khai API quản lý khóa học
+## 5. Chi tiết kỹ thuật
 
-  ##### SUB-TASK 1: Thiết kế API cho quản lý khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseResource.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      ```java
-      @Path("/courses")
-      public class CourseResource {
-          @GET
-          @Produces(MediaType.APPLICATION_JSON)
-          public List<Course> getAllCourses() {
-              // Logic để lấy danh sách khóa học
-          }
-
-          @POST
-          @Consumes(MediaType.APPLICATION_JSON)
-          public Response createCourse(Course course) {
-              // Logic để tạo khóa học mới
-          }
-
-          @PUT
-          @Path("/{courseId}/assign-teacher")
-          @Consumes(MediaType.APPLICATION_JSON)
-          public Response assignTeacher(@PathParam("courseId") UUID courseId, UUID teacherId) {
-              // Logic để phân công giáo viên vào khóa học
-          }
-      }
-      ```
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết các kiểm thử cho API quản lý khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseResourceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseResource.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết các kiểm thử để đảm bảo rằng API trả về danh sách khóa học chính xác.
-      - Kiểm tra các trường hợp tạo khóa học mới và phân công giáo viên vào khóa học.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 3:** Triển khai giao diện người dùng cho quản lý khóa học
-
-  ##### SUB-TASK 1: Thiết kế giao diện người dùng cho quản lý khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/src/components/CourseManagement.js`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      ```javascript
-      import React, { useState, useEffect } from 'react';
-      import axios from 'axios';
-
-      const CourseManagement = () => {
-          const [courses, setCourses] = useState([]);
-          const [teachers, setTeachers] = useState([]);
-
-          useEffect(() => {
-              axios.get('/api/courses').then(response => {
-                  setCourses(response.data);
-              });
-              axios.get('/api/teachers').then(response => {
-                  setTeachers(response.data);
-              });
-          }, []);
-
-          const handleCreateCourse = (course) => {
-              axios.post('/api/courses', course).then(response => {
-                  setCourses([...courses, response.data]);
-              });
-          };
-
-          const handleAssignTeacher = (courseId, teacherId) => {
-              axios.put(`/api/courses/${courseId}/assign-teacher`, { teacherId }).then(response => {
-                  setCourses(courses.map(course => course.id === courseId ? response.data : course));
-              });
-          };
-
-          return (
-              <div>
-                  <h1>Quản lý Khóa Học</h1>
-                  <CourseList courses={courses} onAssignTeacher={handleAssignTeacher} teachers={teachers} />
-                  <CreateCourseForm onCreateCourse={handleCreateCourse} />
-              </div>
-          );
-      };
-
-      export default CourseManagement;
-      ```
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết các kiểm thử cho giao diện người dùng
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/frontend/src/tests/CourseManagement.test.js;./sources/frontend/src/components/CourseManagement.js`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết các kiểm thử để đảm bảo rằng giao diện người dùng hiển thị danh sách khóa học chính xác.
-      - Kiểm tra các trường hợp tạo khóa học mới và phân công giáo viên vào khóa học.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 4:** Triển khai xử lý xung đột lịch trình
-
-  ##### SUB-TASK 1: Thiết kế xử lý xung đột lịch trình
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [REQ-008]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      ```java
-      public class CourseService {
-          public Course createCourse(Course course) throws ConflictException {
-              // Kiểm tra xung đột lịch trình
-              if (hasScheduleConflict(course)) {
-                  throw new ConflictException("Teacher is already scheduled for another course during these dates.");
-              }
-              // Lưu khóa học mới
-              courseRepository.save(course);
-              return course;
-          }
-
-          private boolean hasScheduleConflict(Course course) {
-              // Logic để kiểm tra xung đột lịch trình
-          }
-      }
-      ```
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết các kiểm thử cho xử lý xung đột lịch trình
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [REQ-008]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết các kiểm thử để đảm bảo rằng xử lý xung đột lịch trình hoạt động chính xác.
-      - Kiểm tra các trường hợp tạo khóa học mới và phân công giáo viên vào khóa học.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 5:** Triển khai thông báo cho giáo viên
-
-  ##### SUB-TASK 1: Thiết kế thông báo cho giáo viên
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      ```java
-      public class NotificationService {
-          public void sendTeacherAssignmentNotification(UUID teacherId, Course course) {
-              // Logic để gửi thông báo cho giáo viên
-          }
-      }
-      ```
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết các kiểm thử cho thông báo cho giáo viên
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/notification-service/src/test/java/com/membershiphub/notification/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết các kiểm thử để đảm bảo rằng thông báo cho giáo viên được gửi chính xác.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 6:** Triển khai xử lý ngoại lệ cho điểm danh
-
-  ##### SUB-TASK 1: Thiết kế xử lý ngoại lệ cho điểm danh
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Coder]
-    * **Tag IDs Mục tiêu:** [EXC-001], [EXC-002]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      ```java
-      public class AttendanceService {
-          public Attendance recordAttendance(UUID studentId, UUID courseId) throws DuplicateAttendanceException, NetworkException {
-              // Kiểm tra điểm danh trùng lặp
-              if (isDuplicateAttendance(studentId, courseId)) {
-                  throw new DuplicateAttendanceException("Attendance already recorded for today.");
-              }
-              // Ghi lại điểm danh
-              Attendance attendance = new Attendance(studentId, courseId, LocalDate.now(), LocalDateTime.now());
-              attendanceRepository.save(attendance);
-              return attendance;
-          }
-
-          private boolean isDuplicateAttendance(UUID studentId, UUID courseId) {
-              // Logic để kiểm tra điểm danh trùng lặp
-          }
-      }
-      ```
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết các kiểm thử cho xử lý ngoại lệ cho điểm danh
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Tester]
-    * **Tag IDs Mục tiêu:** [EXC-001], [EXC-002]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết các kiểm thử để đảm bảo rằng xử lý ngoại lệ cho điểm danh hoạt động chính xác.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 7:** Triển khai tài liệu cho mô-đun quản lý khóa học
-
-  ##### SUB-TASK 1: Viết tài liệu cho mô-đun quản lý khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Doc]
-    * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/course-management.md`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Viết tài liệu chi tiết về các chức năng quản lý khóa học, bao gồm tạo, cập nhật, xóa khóa học và phân công giáo viên vào khóa học.
-      - Cung cấp các ví dụ về cách sử dụng API và giao diện người dùng.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Kiểm tra tài liệu cho mô-đun quản lý khóa học
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    * **Sub-Agent:** [Reviewer]
-    * **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-    * **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/docs/course-management.md`
-    * **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-      - Kiểm tra tài liệu để đảm bảo rằng nó đầy đủ và chính xác.
-      - Đảm bảo rằng các ví dụ và hướng dẫn sử dụng được cung cấp một cách rõ ràng.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
+- Đường dẫn cấu phần  
+- DDL SQL  
+- API và Event Contracts  
+- Exception Handlers
 
