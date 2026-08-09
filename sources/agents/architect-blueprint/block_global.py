@@ -35,6 +35,20 @@ STORAGE_AGENT_BLUEPRINT_PROMPTS         = STORAGE_AGENTS.get("storage_blueprint_
 GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH      = os.path.join(STORAGE_AGENT_BLUEPRINT_PROMPTS, "block_global_prompt.system.md")
 GLOBAL_USER_PROMPT_TEMPLATE_PATH        = os.path.join(STORAGE_AGENT_BLUEPRINT_PROMPTS, "block_global_prompt.user.md")
 
+GLOBAL_CHUNK_LOG_FILE                   = "().global.blueprint.chunk.().md"
+GLOBAL_CHUNK_LOG                        = "# Chunk ():\n\n---()\n\n---\n\n# Output Chunk ():\n\n---\n\n()\n\n"
+GLOBAL_CHUNK_PHASE_LOCAL_INSTRUCTION    = (
+    f"STRICT COMPLIANCE DIRECTIVE: Now, execute target segment PART_2_PHASE_LOOP. "
+    f"Generate ONLY the detailed daily logs, DDL, and API contracts for Phase (). "
+    f"Absolutely DO NOT duplicate the main document headers, global project overview, or any other phases. "
+    f"Output strictly starting from the translated sub-header '### Giai đoạn ()' or equivalent."
+)
+GLOBAL_CHUNK_FINAL_LOCAL_INSTRUCTION    = (
+    "STRICT COMPLIANCE DIRECTIVE: Now, execute target segment PART_3_FINAL. "
+    "Generate ONLY Section 6 (Universal Security Codes), Section 7 (Mobile/SEO Rails), and Section 8 (Git Flow Pipeline). "
+    "Completely freeze and skip sections 1 to 5. Execute the final CROSS-AUDIT ledger report block at the very end."
+)
+
 DEFAULT_BLUEPRINT_LANGUAGE              = "English"
 
 logger = get_logger("🏗️ EnterpriseSystemArchitectureGlobalAgent")
@@ -153,6 +167,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
     
     # result chunks
     accumulated_blueprint_chunks = []
+    chunk_idx = 1
     
     try:
         datetime_prompt, datetime_docid = datetime_for_agent()
@@ -176,6 +191,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         ctx_part1 = base_prompt_context.copy()
         ctx_part1["target_segment"] = "PART_1_INITIAL"
         
+        # build conversation
         sys_prompt_p1 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1))
         usr_prompt_p1 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1)
         conversation_history_messages = [
@@ -183,13 +199,22 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             {"role": "user", "content": usr_prompt_p1}
         ]
         
-        res_p1 = client.chat.completions.create(
+        # communicate AI
+        response = client.chat.completions.create(
             model=model_name_safe,
             messages=conversation_history_messages,
             temperature=0.2
         )
-        chunk_1 = parseAIResponseData(res_p1)
+        chunk_1 = parseAIResponseData(response)
         accumulated_blueprint_chunks.append(chunk_1)
+        
+        # write chunk log
+        write_file(
+            dir=out_dir,
+            file=GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx),
+            data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(conversation_history_messages), chunk_idx, chunk_1)
+        )
+        chunk_idx += 1
         
         # ==============================================================================
         # CHUNK 2: LOOP PHASE IN SECTION 5
@@ -205,31 +230,34 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             # provide backlog table from chunk 1
             ctx_part2["master_backlog_context"] = chunk_1
             
+            # build conversation
             sys_prompt_p2 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part2))
-            
             # mini local prompt to force AI focusing to generate only current phase
-            local_user_gating_instruction = (
-                f"STRICT COMPLIANCE DIRECTIVE: Now, execute target segment PART_2_PHASE_LOOP. "
-                f"Generate ONLY the detailed daily logs, DDL, and API contracts for Phase {phase_idx}. "
-                f"Absolutely DO NOT duplicate the main document headers, global project overview, or any other phases. "
-                f"Output strictly starting from the translated sub-header '### Giai đoạn {phase_idx}' or equivalent."
-            )
-            
+            local_user_gating_instruction = GLOBAL_CHUNK_PHASE_LOCAL_INSTRUCTION.format(phase_idx)
             # update conversation history prompts to update `target_phase_index``
             conversation_history_messages[0] = {"role": "system", "content": sys_prompt_p2}
             # include mini local prompt
             active_loop_messages = conversation_history_messages + [{"role": "user", "content": local_user_gating_instruction}]
             
-            res_p2 = client.chat.completions.create(
+            # communicate AI
+            response = client.chat.completions.create(
                 model=model_name_safe,
                 messages=active_loop_messages,
                 temperature=0.2
             )
-            phase_chunk = parseAIResponseData(res_p2)
+            phase_chunk = parseAIResponseData(response)
             
             # append conversation history for generating next phase
             conversation_history_messages.append({"role": "assistant", "content": phase_chunk})
             accumulated_blueprint_chunks.append(phase_chunk)
+
+            # write chunk log
+            write_file(
+                dir=out_dir,
+                file=GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx),
+                data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(active_loop_messages), chunk_idx, phase_chunk)
+            )
+            chunk_idx += 1
 
         # ==============================================================================
         # CHUNK 3: from Section 6 to the end
@@ -240,24 +268,28 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # provide phase detail logs
         ctx_part3["generated_phases_context"] = "\n\n".join(accumulated_blueprint_chunks[1:])
         
+        # build conversation
         sys_prompt_p3 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part3))
-        
-        local_final_instruction = (
-            "STRICT COMPLIANCE DIRECTIVE: Now, execute target segment PART_3_FINAL. "
-            "Generate ONLY Section 6 (Universal Security Codes), Section 7 (Mobile/SEO Rails), and Section 8 (Git Flow Pipeline). "
-            "Completely freeze and skip sections 1 to 5. Execute the final CROSS-AUDIT ledger report block at the very end."
-        )
-        
+        local_final_instruction = GLOBAL_CHUNK_FINAL_LOCAL_INSTRUCTION
         conversation_history_messages[0] = {"role": "system", "content": sys_prompt_p3}
         final_messages = conversation_history_messages + [{"role": "user", "content": local_final_instruction}]
         
-        res_p3 = client.chat.completions.create(
+        # communicate AI
+        response = client.chat.completions.create(
             model=model_name_safe,
             messages=final_messages,
             temperature=0.2
         )
-        chunk_3 = parseAIResponseData(res_p3)
+        chunk_3 = parseAIResponseData(response)
         accumulated_blueprint_chunks.append(chunk_3)
+
+        # write chunk log
+        write_file(
+            dir=out_dir,
+            file=GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx),
+            data=GLOBAL_CHUNK_LOG.format(chunk_idx, "\n\n".join(final_messages), chunk_idx, chunk_3)
+        )
+        chunk_idx += 1
 
         # ==============================================================================
         # COMBINE ALL CHUNKS
@@ -279,7 +311,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         )
         
         # write log
-        write_blueprint_log(0, sys_prompt_p1, usr_prompt_p1.replace('#', '##'), raw_data.replace('#', '##') if raw_data else "-", False, model_name_safe, out_dir)
+        write_blueprint_log(0, "\n\n".join(conversation_history_messages), raw_data, False, model_name_safe, out_dir)
         
         logger.info(f"✅ [BLOCK 1 SUCCESS] Saved Global Blueprint: {out_path}")
         return raw_data
