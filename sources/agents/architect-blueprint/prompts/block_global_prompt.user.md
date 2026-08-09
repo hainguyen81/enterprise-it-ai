@@ -192,6 +192,12 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 ### 4.2. MULTI-PHASE SYNOPSIS MATRIX
 Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= {{ num_phases }}) that naturally and completely covers 100% of the BA requirements and Tag IDs.
 <RULE>
+[STRICT TABLE EMITTING MANDATE]
+- You MUST dynamically analyze the comprehensive tasks generated in '4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG' immediately above.
+- You MUST systematically divide the entire workload into exactly {{ num_phases }} distinct phases.
+- For each phase row, you are critically ordered to enforce absolute information symmetry by scanning all Tag IDs and Task types from section 4.1.
+- CRITICAL INFRASTRUCTURE RULE: If you detect any DevOps, Cloud, Deployment, CI/CD, Containerization, or Infrastructure tasks in section 4.1 (such as Docker, GCP, GKE, Kubernetes, or Git pipelines), you MUST explicitly list the path (e.g., './sources/infrastructure/devops/') in the Component column, and you MUST permanently declare 'DevOps' alongside Coder, Tester, Reviewer, and Doc in the 'Assigned Sub-Agent' column for that targeted phase. Do not drop the DevOps agent under any circumstance.
+- TIME RAILS: Every phase duration is strictly bound. The Day Range column for each row MUST read exactly 'Day 1 - {{ max_days_per_phase }}'. No variation or estimation allowed.
 - Each row MUST specify a real-world engineering duration bounded between 1 to a strict upper ceiling of {{ max_days_per_phase }} days maximum per phase. Do NOT generate empty rows, placeholder phases, or artificial workloads. If the requirements are fully satisfied within fewer than {{ num_phases }} phases, terminate the matrix setup immediately at phase N.
 - LOCAL DAY RANGE BOUNDARY: In the "Day Range" column of this table, you MUST format the day sequence starting from relative integer 1 for EACH individual phase row (e.g., Phase 1: Day 1 - 2, Phase 2: Day 1 - 2). Compounding or running a linear progressive day count across phase boundaries is strictly prohibited.
 - DYNAMIC TECHNICAL DENSITY PRICING LAW (Project-Agnostic): Each row's "Day Range" MUST be computed dynamically based strictly on the actual volume and density of the allocated Tag IDs for that specific phase. You MUST evaluate the capacity weight: a single calculated operational calendar day log inside Section 5 MUST NOT contain more than 3 unique critical requirement tags (REQ/ARC/NFR) combined. If a phase contains low-density tasks, you MUST stop the index immediately (e.g., closing tightly at Day 1-2).
@@ -231,11 +237,22 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
 {% endif %}
 
 {% if force_full_export or target_segment == "PART_2_PHASE_LOOP" %}
+
+{# ─── MANDATORY PROGRESSIVE GATING ENGINE ─── #}
+{% if target_segment == "PART_2_PHASE_LOOP" %}
+<RULE>
+[STRICT OPERATIONAL MANDATE FOR PHASE {{ target_phase_index }} OUT OF {{ num_phases }}]
+- OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase {{ target_phase_index }} out of {{ num_phases }}.
+- TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day {{ max_days_per_phase }}. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day {{ max_days_per_phase + 1 }} or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+- DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase {{ target_phase_index }}'.
+- AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+- COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+- OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn {{ target_phase_index }}'.
+</RULE>
+{% endif %}
+
 ### GROUNDING CONTEXT FROM PREVIOUS STEPS
 Below is the definitive Master Product Backlog generated in Part 1. You MUST align your daylog task titles, Tag IDs, and components 100% symmetrically with this blueprint:
-<PREVIOUS_STEP_BACKLOG>
-{{ master_backlog_context }}
-</PREVIOUS_STEP_BACKLOG>
 
 {% if force_full_export or target_phase_index == 1 %}
 ## 5. GRANULAR PHASE SPECIALIZATIONS & DAY-BY-DAY DELIVERABLES

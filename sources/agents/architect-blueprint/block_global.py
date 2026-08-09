@@ -37,17 +37,6 @@ GLOBAL_USER_PROMPT_TEMPLATE_PATH        = os.path.join(STORAGE_AGENT_BLUEPRINT_P
 
 GLOBAL_CHUNK_LOG_FILE                   = "().global.blueprint.chunk.().md"
 GLOBAL_CHUNK_LOG                        = "# Chunk ():\n\n---()\n\n---\n\n# Output Chunk ():\n\n---\n\n()\n\n"
-GLOBAL_CHUNK_PHASE_LOCAL_INSTRUCTION    = (
-    f"STRICT COMPLIANCE DIRECTIVE: Now, execute target segment PART_2_PHASE_LOOP. "
-    f"Generate ONLY the detailed daily logs, DDL, and API contracts for Phase (). "
-    f"Absolutely DO NOT duplicate the main document headers, global project overview, or any other phases. "
-    f"Output strictly starting from the translated sub-header '### Giai đoạn ()' or equivalent."
-)
-GLOBAL_CHUNK_FINAL_LOCAL_INSTRUCTION    = (
-    "STRICT COMPLIANCE DIRECTIVE: Now, execute target segment PART_3_FINAL. "
-    "Generate ONLY Section 6 (Universal Security Codes), Section 7 (Mobile/SEO Rails), and Section 8 (Git Flow Pipeline). "
-    "Completely freeze and skip sections 1 to 5. Execute the final CROSS-AUDIT ledger report block at the very end."
-)
 
 DEFAULT_BLUEPRINT_LANGUAGE              = "English"
 
@@ -203,7 +192,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         response = client.chat.completions.create(
             model=model_name_safe,
             messages=conversation_history_messages,
-            temperature=0.2
+            temperature=0.1
         )
         chunk_1 = parseAIResponseData(response)
         accumulated_blueprint_chunks.append(chunk_1)
@@ -227,23 +216,25 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             ctx_part2 = base_prompt_context.copy()
             ctx_part2["target_segment"] = "PART_2_PHASE_LOOP"
             ctx_part2["target_phase_index"] = phase_idx
-            # provide backlog table from chunk 1
             ctx_part2["master_backlog_context"] = chunk_1
             
             # build conversation
             sys_prompt_p2 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part2))
-            # mini local prompt to force AI focusing to generate only current phase
-            local_user_gating_instruction = GLOBAL_CHUNK_PHASE_LOCAL_INSTRUCTION.format(phase_idx)
-            # update conversation history prompts to update `target_phase_index``
-            conversation_history_messages[0] = {"role": "system", "content": sys_prompt_p2}
-            # include mini local prompt
-            active_loop_messages = conversation_history_messages + [{"role": "user", "content": local_user_gating_instruction}]
+            forced_gating_trigger = (
+                f"STRICT COMPLIANCE CONSTRAINT:\n"
+                f"Execute target segment PART_2_PHASE_LOOP for Phase {phase_idx} strictly following the [STRICT OPERATIONAL MANDATE] inside the System Prompt.\n"
+                f"Completely ignore the outer <PHASE_TEMPLATE_LOOP> markers. Output must start immediately from the header '### Giai đoạn {phase_idx}'."
+            )
+            pure_historic_chat_stack = [m for m in conversation_history_messages if m["role"] != "system"]
+            active_loop_messages = [
+                {"role": "system", "content": sys_prompt_p2}
+            ] + pure_historic_chat_stack + [{"role": "user", "content": forced_gating_trigger}]
             
             # communicate AI
             response = client.chat.completions.create(
                 model=model_name_safe,
                 messages=active_loop_messages,
-                temperature=0.2
+                temperature=0.1
             )
             phase_chunk = parseAIResponseData(response)
             
@@ -270,15 +261,17 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         
         # build conversation
         sys_prompt_p3 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part3))
-        local_final_instruction = GLOBAL_CHUNK_FINAL_LOCAL_INSTRUCTION
-        conversation_history_messages[0] = {"role": "system", "content": sys_prompt_p3}
-        final_messages = conversation_history_messages + [{"role": "user", "content": local_final_instruction}]
+        local_final_instruction = "STRICT COMPLIANCE CONSTRAINT: Execute target segment PART_3_FINAL. Generate Section 6, 7, and 8. Do not repeat previous sections."
+        pure_historic_chat_stack_final = [m for m in conversation_history_messages if m["role"] != "system"]
+        final_messages = [
+            {"role": "system", "content": sys_prompt_p3}
+        ] + pure_historic_chat_stack_final + [{"role": "user", "content": local_final_instruction}]
         
         # communicate AI
         response = client.chat.completions.create(
             model=model_name_safe,
             messages=final_messages,
-            temperature=0.2
+            temperature=0.1
         )
         chunk_3 = parseAIResponseData(response)
         accumulated_blueprint_chunks.append(chunk_3)
