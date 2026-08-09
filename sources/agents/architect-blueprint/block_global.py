@@ -1,6 +1,7 @@
 # BLOCK 1: GENERATES GLOBAL CONTEXT
 
 import os
+import re
 
 # GEMINI
 # from google import genai
@@ -177,8 +178,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # CHUNK 1: from Section 1 to the end of Section 4
         # ==============================================================================
         logger.info(f"    |__ [ PART 1/3 ] Generating System Matrix and Master Product Backlog...")
-        ctx_part1 = base_prompt_context.copy()
-        ctx_part1["target_segment"] = "PART_1_INITIAL"
+        ctx_part1 = {
+            **base_prompt_context,
+            "target_segment": "PART_1_INITIAL"
+        }
         
         # build conversation
         sys_prompt_p1 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1))
@@ -211,26 +214,45 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # CHUNK 2: LOOP PHASE IN SECTION 5
         # ==============================================================================
         logger.info(f"    |__ [ PART 2/3 ] Extracting Granular Daylog for {num_phases} phases...")
-        # store chunk 1 to use it as context for loop phases
-        conversation_history_messages.append({"role": "assistant", "content": chunk_1})
+        # --- count the task in section 4.1 trong chunk_1 ---
+        backlog_anchor_pattern = re.compile(r'<!--REGISTERED_BACKLOG_TASK_ROW-->')
+        actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1))
+        # --- extract only synopsis table from section 4.2 ---
+        matrix_extract_match = re.search(r'<!--START_PHASE_SYNOPSIS_GRID-->(.*?)<!--END_PHASE_SYNOPSIS_GRID-->', chunk_1, re.DOTALL)
+        clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1
         for phase_idx in range(1, num_phases + 1):
             logger.info(f"             |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
-            ctx_part2 = base_prompt_context.copy()
-            ctx_part2["target_segment"] = "PART_2_PHASE_LOOP"
-            ctx_part2["target_phase_index"] = phase_idx
-            ctx_part2["master_backlog_context"] = chunk_1
+            ctx_part2 = {
+                **base_prompt_context,
+                "target_segment": "PART_2_PHASE_LOOP",
+                "target_phase_index": phase_idx,
+                "total_tasks_registered": actual_registered_tasks,
+                # inject synopsis table context for phase generation refer
+                "master_backlog_context": clean_matrix_context
+            }
+            
+            # --- calculate for audit at the latest loop phase ---
+            if phase_idx == num_phases:
+                logger.info(f"             |__ Final Phase Detected. Computing dynamic audit thresholds inside the loop...")
+                
+                # 2. count the generated sub-tasks from previous phases (Phase 1 -> Latest Phase - 1)
+                previous_phases_text = "\n".join(accumulated_blueprint_chunks[1:])
+                sub_task_anchor_pattern = re.compile(r'<!--START_ATOMIC_SUB_TASK_NODE-->')
+                detected_historic_sub_tasks = len(sub_task_anchor_pattern.findall(previous_phases_text))
+                
+                # 3. inject tasks counter to prompt context
+                ctx_part2["historic_sub_tasks_count"] = detected_historic_sub_tasks
+            else:
+                # not audit, so not using these parameters
+                ctx_part2["historic_sub_tasks_count"] = 0
             
             # build conversation
             sys_prompt_p2 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part2))
-            forced_gating_trigger = (
-                f"STRICT COMPLIANCE CONSTRAINT:\n"
-                f"Execute target segment PART_2_PHASE_LOOP for Phase {phase_idx} strictly following the [STRICT OPERATIONAL MANDATE] inside the System Prompt.\n"
-                f"Completely ignore the outer <PHASE_TEMPLATE_LOOP> markers. Output must start immediately from the header '### Giai đoạn {phase_idx}'."
-            )
-            pure_historic_chat_stack = [m for m in conversation_history_messages if m["role"] != "system"]
+            usr_prompt_p2 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part2)
             active_loop_messages = [
-                {"role": "system", "content": sys_prompt_p2}
-            ] + pure_historic_chat_stack + [{"role": "user", "content": forced_gating_trigger}]
+                {"role": "system", "content": sys_prompt_p2},
+                {"role": "user", "content": usr_prompt_p2}
+            ]
             
             # communicate AI
             response = client.chat.completions.create(
@@ -241,7 +263,6 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             phase_chunk = parseAIResponseData(response)
             
             # append conversation history for generating next phase
-            conversation_history_messages.append({"role": "assistant", "content": phase_chunk})
             accumulated_blueprint_chunks.append(phase_chunk)
 
             # write chunk log
@@ -258,10 +279,12 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # CHUNK 3: from Section 6 to the end
         # ==============================================================================
         logger.info(f"    |__ [ PART 3/3 ] Generating Universal Security Codes & Git Branch Flow...")
-        ctx_part3 = base_prompt_context.copy()
-        ctx_part3["target_segment"] = "PART_3_FINAL"
-        # provide phase detail logs
-        ctx_part3["generated_phases_context"] = "\n\n".join(accumulated_blueprint_chunks[1:])
+        ctx_part3 = {
+            **base_prompt_context,
+            "target_segment": "PART_3_FINAL",
+            # provide phase detail logs
+            "generated_phases_context": "\n\n".join(accumulated_blueprint_chunks[1:])
+        }
         
         # build conversation
         sys_prompt_p3 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part3))
