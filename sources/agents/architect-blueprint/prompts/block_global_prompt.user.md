@@ -97,11 +97,12 @@ You MUST include every single section below without exception to satisfy enterpr
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %} while completely freezing all technical paths, tags, and block codes.
 </RULE>
 
+{% if force_full_export or target_segment == "PART_1_INITIAL" %}
 # GLOBAL PROJECT CONTEXT: {{ project_name }}
 
 {% if force_full_export %}
-<!-- SYSTEM MODE: FULL_MONOLITHIC_GENERATION -->
-MANDATORY INSTRUCTION: You must generate the complete blueprint report from Section 1 to Section 8 seamlessly in one single response.
+  <!-- SYSTEM MODE: FULL_MONOLITHIC_GENERATION -->
+  MANDATORY INSTRUCTION: You must generate the complete blueprint report from Section 1 to Section 8 seamlessly in one single response.
 
 {% else %}
 
@@ -128,7 +129,6 @@ MANDATORY INSTRUCTION: You must generate the complete blueprint report from Sect
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-{% if force_full_export or target_segment == "PART_1_INITIAL" %}
 ## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
 ### 1.1. Core System Modality & Architecture Modality
@@ -188,7 +188,7 @@ MANDATORY INSTRUCTION: You must generate the complete blueprint report from Sect
 
   | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
   | :--- | :--- | :--- | :--- | :--- |
-  | [Numerical Index, starting from 1] | [Task Title] | [Clear technical delivery objective description] | [Literal configuration string: 'Application Code' OR 'Enterprise Documentation' OR 'DevOps Infrastructure'] | [Dynamic tracing Tag IDs mapped inline] | <!--REGISTERED_BACKLOG_TASK-->
+  | [Numerical Index, starting from 1] | [Task Title] | [Clear technical delivery objective description] | [Literal configuration string: 'Application Code' OR 'Enterprise Documentation' OR 'DevOps Infrastructure'] | [Dynamic tracing Tag IDs mapped inline] <!--REGISTERED_BACKLOG_TASK_ROW--> | 
   | ... | ... | ... | ... | ... |
   | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
 
@@ -246,31 +246,31 @@ MANDATORY INSTRUCTION: You must generate the complete blueprint report from Sect
 
   <!--END_PHASE_SYNOPSIS_GRID-->
   
-  {% endif %}
+{% endif %}
 
-  {% if force_full_export or target_segment == "PART_2_PHASE_LOOP" %}
+{% if force_full_export or target_segment == "PART_2_PHASE_LOOP" %}
 
   {# ─── MANDATORY PROGRESSIVE GATING ENGINE ─── #}
   {% if target_segment == "PART_2_PHASE_LOOP" %}
 
-  <RULE>
-  [STRICT OPERATIONAL MANDATE FOR PHASE {{ target_phase_index }} OUT OF {{ num_phases }}]
-  - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase {{ target_phase_index }} out of {{ num_phases }}.
-  - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day {{ max_days_per_phase }}. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day {{ max_days_per_phase + 1 }} or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-  - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase {{ target_phase_index }}'.
-  - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-  - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-  - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-    * If this is the FINAL phase (Phase {{ num_phases }}), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-    * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-    * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-    * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Ignore the `<PHASE_TEMPLATE_LOOP>` text tags. Start your generation immediately from the localized sub-header: '### Giai đoạn {{ target_phase_index }}'.
+    <RULE>
+    [STRICT OPERATIONAL MANDATE FOR PHASE {{ target_phase_index }} OUT OF {{ num_phases }}]
+    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase {{ target_phase_index }} out of {{ num_phases }}.
+    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day {{ max_days_per_phase }}. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day {{ max_days_per_phase + 1 }} or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase {{ target_phase_index }}'.
+    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+      * If this is the FINAL phase (Phase {{ num_phases }}), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase {{ target_phase_index }}'.
 
-  <HISTORIC_LEDGER_MAP>
-  {{ historic_ledger_map }}
-  </HISTORIC_LEDGER_MAP>
-  </RULE>
+    <HISTORIC_LEDGER_MAP>
+    {{ historic_ledger_map }}
+    </HISTORIC_LEDGER_MAP>
+    </RULE>
   
   {% endif %}
 
@@ -295,9 +295,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to {{ max_days_per_phase }} is completely banned.
   </COMMAND>
 
-  <PHASE_TEMPLATE_LOOP>
-
-  ### 📈 [Translated text for "Phase"] [X] [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4 SYNOPSIS TABLE. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: "Khởi Tạo Hệ Thống Người Dùng Và Xác Thực" OR "Triển Khai Lõi Nghiệp Vụ Khóa Học"]
+  ### 📈 [Translated text for "Phase"] {{ target_phase_index }} - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: "Khởi Tạo Hệ Thống Người Dùng Và Xác Thực" OR "Triển Khai Lõi Nghiệp Vụ Khóa Học"]
   - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}]
   - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
       *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -308,8 +306,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
   </RULE>
   - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
   - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
-
-  </PHASE_TEMPLATE_LOOP>
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
@@ -341,6 +337,9 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
         </RULE>
 
       # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+      <RULE>
+      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase {{ target_phase_index }}' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
+      </RULE>
       * **Database Schema DDL SQL Specification [DAT-XXX]:**
         <RULE>
         You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -357,8 +356,9 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
       <!--END_ATOMIC_SUB_TASK_NODE-->
 
   <!--END_PHASE_LOG_BLOCK_INDEX_{{ target_phase_index }}-->
+{% endif %}
 
-  {% if force_full_export or target_phase_index == num_phases %}
+{% if force_full_export or target_phase_index == num_phases %}
 
   ### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
   - Immediately beneath the final Phase log (Phase {{ num_phases }}) and before closing Section 5, you MUST execute a strict internal mathematical self-audit of the entire assembled architecture. 
