@@ -37,8 +37,8 @@ STORAGE_AGENT_BLUEPRINT_PROMPTS         = STORAGE_AGENTS.get("storage_blueprint_
 GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH      = os.path.join(STORAGE_AGENT_BLUEPRINT_PROMPTS, "block_global_prompt.system.md")
 GLOBAL_USER_PROMPT_TEMPLATE_PATH        = os.path.join(STORAGE_AGENT_BLUEPRINT_PROMPTS, "block_global_prompt.user.md")
 
-GLOBAL_CHUNK_LOG_FILE                   = "().global.blueprint.chunk.().md"
-GLOBAL_CHUNK_LOG                        = "# Chunk ():\n\n---()\n\n---\n\n# Output Chunk ():\n\n---\n\n()\n\n"
+GLOBAL_CHUNK_LOG_FILE                   = "{}.global.blueprint.chunk.{}.md"
+GLOBAL_CHUNK_LOG                        = "# Chunk {}:\n\n---\n\n{}\n\n---\n\n# Output Chunk {}:\n\n---\n\n{}\n\n"
 
 DEFAULT_BLUEPRINT_LANGUAGE              = "English"
 
