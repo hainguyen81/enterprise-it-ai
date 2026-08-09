@@ -215,7 +215,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(conversation_history_messages), chunk_idx, chunk_1)
         )
         logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
-        logger.info(f"              |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
         # ==============================================================================
@@ -275,7 +275,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(active_loop_messages), chunk_idx, phase_chunk)
             )
             logger.info(f"                   | ✅ [ SUCCESS ] Found {len(historic_ledger_map_chunks)} sub-task(s) from Phase {phase_idx}.")
-            logger.info(f"                   |__  Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+            logger.info(f"                   |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
 
         # ==============================================================================
@@ -313,7 +313,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(final_messages), chunk_idx, chunk_3)
         )
-        logger.info(f"              | ✅ [ SUCCESS ] Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"              | ✅ [ SUCCESS ] 👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
 
         # ==============================================================================
@@ -338,7 +338,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # write log
         write_blueprint_log(0, json_tostring(chunk_prompts), raw_data, False, model_name_safe, out_dir)
         
-        logger.info(f"✅ [BLOCK 1 SUCCESS] Saved Global Blueprint: {out_path}")
+        logger.info(f"✅ [ BLOCK 1 SUCCESS ] Saved Global Blueprint: {out_path}")
         return raw_data
 
     except Exception as e:
