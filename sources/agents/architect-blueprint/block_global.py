@@ -205,8 +205,22 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_1)
         
         # --- count the task in section 4.1 trong chunk_1 ---
-        backlog_anchor_pattern = re.compile(r'<!--REGISTERED_BACKLOG_TASK_ROW-->')
+        backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->')
         actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1))
+        if actual_registered_tasks <= 0:
+            logger.warning("              | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
+            task_row_count = 0
+            for line in chunk_1.split('\n'):
+                line_clean = line.strip()
+                # count task line (REQ/ARC/EXC/DAT/NFR)
+                if (
+                    line_clean.startswith('|') and line_clean.endswith('|')
+                    and re.search(r'\[(REQ|ARC|EXC|DAT|NFR)-\d+\]', line_clean)
+                    and not re.search(r'[:\-]{3,}', line_clean)
+                ):
+                    task_row_count += 1
+            actual_registered_tasks = task_row_count
+            logger.info(f"              |__  👉 📊 Fallback scan task line(s) (Calculated Task Rows): {actual_registered_tasks}")
         
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
