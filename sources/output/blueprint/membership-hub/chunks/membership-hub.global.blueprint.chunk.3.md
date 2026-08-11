@@ -603,114 +603,7 @@ You MUST include every single section below without exception to satisfy enterpr
 
 <RULE>
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
-</RULE>
-
-
-
-
-
-  
-  
-
-    <RULE>
-    [STRICT OPERATIONAL MANDATE FOR PHASE 2 OUT OF 5]
-    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 2 out of 5.
-    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 2'.
-    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-      * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 2'.
-
-    <HISTORIC_LEDGER_MAP>
-    Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-    </HISTORIC_LEDGER_MAP>
-    </RULE>
-  
-  
-
-### GROUNDING CONTEXT FROM PREVIOUS STEPS
-Below is the definitive Master Product Backlog generated in Part 1. You MUST align your daylog task titles, Tag IDs, and components 100% symmetrically with this blueprint:
-
-
-
-  <COMMAND>
-  # STRICT 1:1 SYNOPSIS MIRROR MANDATE:
-  - Section 5 MUST act as a strict structural mirror of the dynamic phases calculated in Section 4. You MUST generate an independent, complete detailed block below for EVERY phase sequence from Phase 1 up to Phase N (where N <= 5). Absolutely no phase that has been calculated in section 4 can be omitted.
-  - Truncating, omitting, or combining phases is an absolute pipeline violation. You are strictly commanded to detail every phase that appeared in your Section 4 table.
-
-  # DYNAMIC CEILING BOUNDARY ENFORCEMENT:
-  - For each active Phase [X], the day-by-day logs MUST strictly map to the exact day range defined for that phase in Section 4.
-      * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
-      * You ARE ABSOLUTELY AND CRITICALLY BANNED from chép lặp lại, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
-  - **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside Section 5 (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for EVERY single phase block (e.g., Phase 1 contains DAY 1, DAY 2; Phase 2 MUST restart and contain exactly DAY 1, DAY 2). You are permanently forbidden from bleeding the global progressive timeline into these sections.
-  - The total days within any single phase MUST NOT exceed the absolute upperbound of 7 days.
-  - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
-  </COMMAND>
-
-  ### 📈 [Translated text for \"Phase\"] 2 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
-  - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
-  - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
-      *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
-  - **Database Schema DDL SQL Specification [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
-  <RULE>
-    * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ` ```sql:matrix ` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
-    * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
-  </RULE>
-  - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
-  - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
-
-  <!--START_DAY_LOG_INDEX_2-->
-
-  - **DAY [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
-    
-    ##### SUB-TASK [Z]: SHORT SPECIFIC SUB-TASK TITLE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-
-      <RULE>
-      - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
-      <RULE>
-      * **Sub-Agent Workflow Specialization:**
-        <RULE>
-        You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
-        </RULE>
-      * **Targeted Tag IDs:**
-        <RULE>
-        Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
-        </RULE>
-      * **Target Component file path (target_component):**
-        <RULE>
-        Insert the explicit physical path starting with `./sources/` or Tester semi-colon pair syntax based strictly on the active persona domain. Append its targeted Tag IDs inline here.
-        </RULE>
-      * **Low-Level Technical Task Instruction:**
-        <RULE>
-        Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
-        </RULE>
-
-      # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 2' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
-      * **Database Schema DDL SQL Specification [DAT-XXX]:**
-        <RULE>
-        You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
-        </RULE>
-      * **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-        <RULE>
-        You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
-        </RULE>
-      * **Phase Localized Exception Handlers [EXC-XXX]:**
-        <RULE>
-        You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
-        </RULE>
-
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  <!--END_PHASE_LOG_BLOCK_INDEX_2-->"
+</RULE>"
     }
 ]
 
@@ -804,7 +697,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           varchar description "Role description, optional, max 200 chars"
       }
   ```
-
 ### 2.2 Quản lý trung tâm
 
 #### Yêu cầu chức năng cốt lõi
@@ -835,7 +727,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
-
 ### 2.3 Quản lý khóa học
 
 #### Yêu cầu chức năng cốt lõi
@@ -867,7 +758,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           int maxStudents "Course capacity, default 30"
       }
   ```
-
 ### 2.4 Đăng ký & ghi danh học viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -894,7 +784,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
-
 ### 2.5 Điểm danh & quét mã QR
 
 #### Yêu cầu chức năng cốt lõi
@@ -923,7 +812,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           timestamp timestamp "Exact time recorded, default now()"
       }
   ```
-
 ### 2.6 Quản lý thẻ hội viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -951,7 +839,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           int remainingDays "Computed days left until expiry"
       }
   ```
-
 ### 2.7 Thông báo & truyền thông
 
 #### Yêu cầu chức năng cốt lõi
@@ -978,7 +865,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           boolean delivered "Delivery status, default false"
       }
   ```
-
 ### 2.8 Quản lý khuyến mãi & thông báo
 
 #### Yêu cầu chức năng cốt lõi
@@ -1018,7 +904,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           date endDate "Effective end, optional"
       }
   ```
-
 ### 2.9 Chatbot dịch vụ khách hàng AI
 
 #### Yêu cầu chức năng cốt lõi
@@ -1074,7 +959,6 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
           varchar description "Meaning of setting, optional"
       }
   ```
-
 ### 2.12 Báo cáo & phân tích
 
 #### Yêu cầu chức năng cốt lõi
@@ -1102,379 +986,4 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
-
-## 📝 4. PHÂN TÍCH KIẾN TRÚC & ĐỊNH NGHĨA PHÂN PHỐI PHÂN TÁCH
-
-### 4.1 PHÂN TÍCH KIẾN TRÚC
-
-#### 4.1.1 KIẾN TRÚC TOÀN CẦU
-
-- **Kiến trúc hệ thống:** Microservices với các dịch vụ độc lập cho xác thực, quản lý người dùng, quản lý trung tâm, quản lý khóa học, điểm danh, và thông báo.
-- **Cơ sở dữ liệu:** PostgreSQL với schema riêng biệt cho mỗi dịch vụ.
-- **Containerization:** Docker containers cho mỗi microservice.
-- **Orchestration:** Kubernetes (GKE) cho quản lý containers và scaling.
-- **Authentication:** Firebase Authentication cho OAuth2 và JWT tokens.
-- **Push Notifications:** Firebase Cloud Messaging (FCM) và Apple APNs.
-- **Zalo Integration:** Zalo API cho thông báo qua nhóm Zalo.
-- **Caching:** Redis cho session caching.
-- **CI/CD:** GitHub Actions cho pipeline CI/CD.
-
-#### 4.1.2 KIẾN TRÚC MÔ-ĐUN
-
-- **Quản lý người dùng:** Microservice với API endpoints cho đăng ký, xác thực, và phân quyền.
-- **Quản lý trung tâm:** Microservice với API endpoints cho CRUD trung tâm và phân quyền quản trị.
-- **Quản lý khóa học:** Microservice với API endpoints cho CRUD khóa học và phân công giáo viên.
-- **Đăng ký & ghi danh học viên:** Microservice với API endpoints cho duyệt khóa học và đăng ký.
-- **Điểm danh & quét mã QR:** Microservice với API endpoints cho điểm danh và xử lý mã QR.
-- **Quản lý thẻ hội viên:** Microservice với API endpoints cho hiển thị và gia hạn thẻ.
-- **Thông báo & truyền thông:** Microservice với API endpoints cho tạo thông báo và gửi thông báo qua FCM và Zalo.
-- **Quản lý khuyến mãi & thông báo:** Microservice với API endpoints cho CRUD khuyến mãi và thông báo.
-- **Chatbot dịch vụ khách hàng AI:** Microservice với API endpoints cho tương tác với chatbot AI.
-- **Các tính năng cốt lõi của ứng dụng di động:** Microservice với API endpoints cho các tính năng cốt lõi của ứng dụng di động.
-- **Bản địa hóa & SEO:** Microservice với API endpoints cho phát hiện ngôn ngữ và SEO đa ngôn ngữ.
-- **Báo cáo & phân tích:** Microservice với API endpoints cho tạo báo cáo và bảng điều khiển tóm tắt.
-
-### 4.2 MULTI-PHASE SYNOPSIS MATRIX
-
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|--------------|-------------------------|---------------------------|-----------|------------------|
-| Giai đoạn 1 | Ngày 1-3 | `./sources/backend/auth-service/` | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
-| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/center-service/` | Triển khai lõi nghiệp vụ trung tâm | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [ARC-002] |
-| Giai đoạn 3 | Ngày 1-3 | `./sources/backend/course-service/` | Triển khai lõi nghiệp vụ khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-003] |
-| Giai đoạn 4 | Ngày 1-3 | `./sources/backend/attendance-service/` | Triển khai lõi nghiệp vụ điểm danh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002], [ARC-007] |
-| Giai đoạn 5 | Ngày 1-3 | `./sources/backend/notification-service/` | Triển khai lõi nghiệp vụ thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003], [ARC-008] |
-
-## 📅 5. PHÂN PHỐI PHÂN TÁCH THEO GIAI ĐOẠN
-
-### 📈 Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Trung Tâm
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai lõi nghiệp vụ trung tâm bao gồm các chức năng quản lý trung tâm, phân quyền quản trị trung tâm.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/center-service/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003]:**
-  ```sql
-  CREATE TABLE centers (
-      center_id UUID PRIMARY KEY,
-      name VARCHAR(100) NOT NULL,
-      address VARCHAR(255) NOT NULL,
-      tax_id VARCHAR(13) UNIQUE NOT NULL,
-      contact_phone VARCHAR(20),
-      contact_email VARCHAR(255),
-      created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-      updated_at TIMESTAMP NOT NULL DEFAULT NOW()
-  );
-
-  CREATE INDEX idx_centers_tax_id ON centers(tax_id);
-  ```
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [ARC-002]:**
-  ```json
-  {
-    "endpoints": [
-      {
-        "path": "/api/centers",
-        "method": "GET",
-        "description": "Lấy danh sách trung tâm",
-        "response": {
-          "centers": [
-            {
-              "centerId": "uuid",
-              "name": "string",
-              "address": "string",
-              "taxId": "string",
-              "contactPhone": "string",
-              "contactEmail": "string"
-            }
-          ]
-        }
-      },
-      {
-        "path": "/api/centers",
-        "method": "POST",
-        "description": "Tạo trung tâm mới",
-        "request": {
-          "name": "string",
-          "address": "string",
-          "taxId": "string",
-          "contactPhone": "string",
-          "contactEmail": "string"
-        },
-        "response": {
-          "centerId": "uuid"
-        }
-      },
-      {
-        "path": "/api/centers/{centerId}",
-        "method": "PUT",
-        "description": "Cập nhật trung tâm",
-        "request": {
-          "name": "string",
-          "address": "string",
-          "taxId": "string",
-          "contactPhone": "string",
-          "contactEmail": "string"
-        },
-        "response": {
-          "centerId": "uuid"
-        }
-      },
-      {
-        "path": "/api/centers/{centerId}",
-        "method": "DELETE",
-        "description": "Xóa trung tâm",
-        "response": {
-          "centerId": "uuid"
-        }
-      },
-      {
-        "path": "/api/centers/{centerId}/assign-admin",
-        "method": "POST",
-        "description": "Phân quyền quản trị trung tâm",
-        "request": {
-          "userId": "uuid"
-        },
-        "response": {
-          "centerId": "uuid",
-          "userId": "uuid"
-        }
-      }
-    ]
-  }
-  ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:**
-  - Xác thực đầu vào không hợp lệ: Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
-
-#### Nhật ký Ngày theo Ngày Phân phối Nhiệm vụ Sub-Agent (Giai đoạn 2)
-
-<!--START_DAY_LOG_INDEX_2-->
-
-- **DAY 1: Khởi tạo cơ sở dữ liệu và dịch vụ trung tâm**
-
-  ##### SUB-TASK 1: Thiết kế schema cơ sở dữ liệu trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Coder]
-    - Tag IDs Mục tiêu: [DAT-003]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo bảng `centers` với các cột: `center_id`, `name`, `address`, `tax_id`, `contact_phone`, `contact_email`, `created_at`, `updated_at`.
-      - Thiết lập `center_id` làm khóa chính.
-      - Thiết lập `tax_id` là duy nhất.
-      - Tạo chỉ mục cho `tax_id`.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết unit tests cho schema cơ sở dữ liệu
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Tester]
-    - Tag IDs Mục tiêu: [DAT-003]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/test/java/com/example/centerservice/repository/CenterRepositoryTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/repository/CenterRepository.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Viết unit tests cho các thao tác CRUD trên bảng `centers`.
-      - Kiểm tra tính duy nhất của `tax_id`.
-      - Kiểm tra các chỉ mục đã được tạo.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 3: Review code cho schema cơ sở dữ liệu
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Reviewer]
-    - Tag IDs Mục tiêu: [DAT-003]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Review code cho schema cơ sở dữ liệu trung tâm.
-      - Đảm bảo các ràng buộc và chỉ mục đã được thiết lập đúng.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 4: Tạo tài liệu cho schema cơ sở dữ liệu
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Doc]
-    - Tag IDs Mục tiêu: [DAT-003]
-    - Đường dẫn Cấu phần / Module: `./sources/docs/database-schema.md`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo tài liệu chi tiết cho schema cơ sở dữ liệu trung tâm.
-      - Mô tả các bảng, cột, ràng buộc, và chỉ mục.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 5: Viết Dockerfile cho dịch vụ trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Docker]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/Dockerfile`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo Dockerfile cho dịch vụ trung tâm.
-      - Sử dụng Java 17 và Maven để build ứng dụng.
-      - Copy các tệp cần thiết vào container.
-      - Expose cổng 8080.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 6: Triển khai dịch vụ trung tâm lên GCP
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [GCP]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/infra/gcp/center-service-deployment.yaml`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo tệp cấu hình triển khai dịch vụ trung tâm trên GCP.
-      - Thiết lập các tài nguyên cần thiết cho dịch vụ.
-      - Cấu hình các biến môi trường.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 7: Triển khai dịch vụ trung tâm lên GKE
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [GKE]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/infra/gke/center-service-deployment.yaml`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo tệp cấu hình triển khai dịch vụ trung tâm trên GKE.
-      - Thiết lập các tài nguyên cần thiết cho dịch vụ.
-      - Cấu hình các biến môi trường.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2: Triển khai API quản lý trung tâm**
-
-  ##### SUB-TASK 1: Thiết kế API quản lý trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Coder]
-    - Tag IDs Mục tiêu: [REQ-004], [REQ-005], [REQ-006]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo các endpoint cho quản lý trung tâm: GET `/api/centers`, POST `/api/centers`, PUT `/api/centers/{centerId}`, DELETE `/api/centers/{centerId}`, POST `/api/centers/{centerId}/assign-admin`.
-      - Thiết lập các phương thức HTTP tương ứng.
-      - Thiết lập các tham số và đối tượng yêu cầu.
-      - Thiết lập các đối tượng phản hồi.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết unit tests cho API quản lý trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Tester]
-    - Tag IDs Mục tiêu: [REQ-004], [REQ-005], [REQ-006]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/test/java/com/example/centerservice/controller/CenterControllerTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Viết unit tests cho các endpoint quản lý trung tâm.
-      - Kiểm tra các trường hợp thành công và thất bại.
-      - Kiểm tra các ràng buộc và xác thực đầu vào.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 3: Review code cho API quản lý trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Reviewer]
-    - Tag IDs Mục tiêu: [REQ-004], [REQ-005], [REQ-006]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Review code cho API quản lý trung tâm.
-      - Đảm bảo các endpoint đã được thiết lập đúng.
-      - Đảm bảo các ràng buộc và xác thực đầu vào đã được thực hiện.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 4: Tạo tài liệu cho API quản lý trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Doc]
-    - Tag IDs Mục tiêu: [REQ-004], [REQ-005], [REQ-006]
-    - Đường dẫn Cấu phần / Module: `./sources/docs/api-docs.md`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo tài liệu chi tiết cho API quản lý trung tâm.
-      - Mô tả các endpoint, phương thức HTTP, tham số, và đối tượng phản hồi.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 5: Cập nhật Dockerfile cho dịch vụ trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Docker]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/Dockerfile`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Cập nhật Dockerfile cho dịch vụ trung tâm.
-      - Thêm các tệp cần thiết cho API quản lý trung tâm.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 6: Cập nhật triển khai dịch vụ trung tâm lên GCP
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [GCP]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/infra/gcp/center-service-deployment.yaml`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Cập nhật tệp cấu hình triển khai dịch vụ trung tâm trên GCP.
-      - Thêm các tài nguyên cần thiết cho API quản lý trung tâm.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 7: Cập nhật triển khai dịch vụ trung tâm lên GKE
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [GKE]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/infra/gke/center-service-deployment.yaml`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Cập nhật tệp cấu hình triển khai dịch vụ trung tâm trên GKE.
-      - Thêm các tài nguyên cần thiết cho API quản lý trung tâm.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 3: Triển khai phân quyền quản trị trung tâm**
-
-  ##### SUB-TASK 1: Thiết kế phân quyền quản trị trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Coder]
-    - Tag IDs Mục tiêu: [REQ-006], [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/main/java/com/example/centerservice/service/CenterAdminService.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo dịch vụ phân quyền quản trị trung tâm.
-      - Thiết lập các phương thức để phân quyền và hủy phân quyền quản trị trung tâm.
-      - Thiết lập các ràng buộc và xác thực đầu vào.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 2: Viết unit tests cho phân quyền quản trị trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Tester]
-    - Tag IDs Mục tiêu: [REQ-006], [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/test/java/com/example/centerservice/service/CenterAdminServiceTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/service/CenterAdminService.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Viết unit tests cho dịch vụ phân quyền quản trị trung tâm.
-      - Kiểm tra các trường hợp thành công và thất bại.
-      - Kiểm tra các ràng buộc và xác thực đầu vào.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 3: Review code cho phân quyền quản trị trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Reviewer]
-    - Tag IDs Mục tiêu: [REQ-006], [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/src/main/java/com/example/centerservice/service/CenterAdminService.java`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Review code cho dịch vụ phân quyền quản trị trung tâm.
-      - Đảm bảo các phương thức đã được thiết lập đúng.
-      - Đảm bảo các ràng buộc và xác thực đầu vào đã được thực hiện.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 4: Tạo tài liệu cho phân quyền quản trị trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Doc]
-    - Tag IDs Mục tiêu: [REQ-006], [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/docs/rbac-docs.md`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Tạo tài liệu chi tiết cho phân quyền quản trị trung tâm.
-      - Mô tả các dịch vụ, phương thức, và ràng buộc.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 5: Cập nhật Dockerfile cho dịch vụ trung tâm
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [Docker]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/backend/center-service/Dockerfile`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Cập nhật Dockerfile cho dịch vụ trung tâm.
-      - Thêm các tệp cần thiết cho phân quyền quản trị trung tâm.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 6: Cập nhật triển khai dịch vụ trung tâm lên GCP
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [GCP]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/infra/gcp/center-service-deployment.yaml`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Cập nhật tệp cấu hình triển khai dịch vụ trung tâm trên GCP.
-      - Thêm các tài nguyên cần thiết cho phân quyền quản trị trung tâm.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  ##### SUB-TASK 7: Cập nhật triển khai dịch vụ trung tâm lên GKE
-    <!--START_ATOMIC_SUB_TASK_NODE-->
-    - Sub-Agent: [GKE]
-    - Tag IDs Mục tiêu: [ARC-002]
-    - Đường dẫn Cấu phần / Module: `./sources/infra/gke/center-service-deployment.yaml`
-    - Hướng dẫn Công việc Kỹ thuật Chi tiết:
-      - Cập nhật tệp cấu hình triển khai dịch vụ trung tâm trên GKE.
-      - Thêm các tài nguyên cần thiết cho phân quyền quản trị trung tâm.
-    <!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_2-->
 

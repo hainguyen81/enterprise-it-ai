@@ -612,30 +612,107 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+<RULE>
+[STRICT OPERATIONAL MANDATE FOR PHASE 4 OUT OF 5]
+- OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 4 out of 5.
+- TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+- DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 4'.
+- AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+- COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+- REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+  * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+  * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+  * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+  * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+- OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 4'.
+
+<HISTORIC_LEDGER_MAP>
+Phase 1: 
+Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+</HISTORIC_LEDGER_MAP>
+</RULE>
+
+
 
 ### GROUNDING CONTEXT FROM PREVIOUS STEPS
-Below are all the detailed phase logs generated in Part 2. You MUST review them to ensure the universal security codes match the tech stack implemented:
-<PREVIOUS_STEP_PHASE_LOGS>
+Below is the definitive Master Product Backlog generated in Part 1. You MUST align your daylog task titles, Tag IDs, and components 100% symmetrically with this blueprint:
 
-</PREVIOUS_STEP_PHASE_LOGS>
 
-## 📁 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
-  - **SQL Injection (SQLi) Absolute Countermeasures:** Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.
-  - **Cross-Site Scripting (XSS) & Content Security Policy (CSP):** Layout standards for automated context sanitization, JSX auto-escaping, and dynamic injection of strict CSP headers (`unsafe-inline` restriction).
-  - **Multi-Tenant CORS Security Rails:** Configurations for origin wildcard prohibitions and dynamic tenant origin database metrics validation.
-  - **Zero-Leak Log Scrubbing & PII Data Masking Engines:** Rules for automated masking interceptors (`@JsonSerialize`) and log scrubbing thresholds.
 
-## 📁 7. HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
-  - **Capacitor Mobile Hybrid Compliance Rails:** [IF Mobile active] Rules for dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions (`@capacitor/preferences`), and hardware back-button interception.
-  - **Internationalization (i18n) & Dynamic SEO Injection:** Edge-layer locale recognition middleware architectures, hreflang dynamic hypermedia control injection, and search crawler robots indexing limits.
+<COMMAND>
+# STRICT 1:1 SYNOPSIS MIRROR MANDATE:
+- Section 5 MUST act as a strict structural mirror of the dynamic phases calculated in Section 4. You MUST generate an independent, complete detailed block below for EVERY phase sequence from Phase 1 up to Phase N (where N <= 5). Absolutely no phase that has been calculated in section 4 can be omitted.
+- Truncating, omitting, or combining phases is an absolute pipeline violation. You are strictly commanded to detail every phase that appeared in your Section 4 table.
 
-## 📁 8. PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
-  - **Daily Workspace Forking Isolation:** Programmatic forking controls for branch `features/development-phase-X-day-Y` (`X` is the number of phase, from 1 to N, where N <= 5; `Y` is the day number in phase, it will start from 1 for each phase).
-  - **Validation Guard Pipeline Gates:** Execution rules for compilation verification, automated code coverage goals (`>= 85%`), and context summary serialization logs.
+# DYNAMIC CEILING BOUNDARY ENFORCEMENT:
+- For each active Phase [X], the day-by-day logs MUST strictly map to the exact day range defined for that phase in Section 4.
+    * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
+    * You ARE ABSOLUTELY AND CRITICALLY BANNED from chép lặp lại, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
+- **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside Section 5 (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for EVERY single phase block (e.g., Phase 1 contains DAY 1, DAY 2; Phase 2 MUST restart and contain exactly DAY 1, DAY 2). You are permanently forbidden from bleeding the global progressive timeline into these sections.
+- The total days within any single phase MUST NOT exceed the absolute upperbound of 7 days.
+- You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
+</COMMAND>
 
-### 🛑 MATRIX COVERAGE CHECK MANDATE
+### 📈 [Translated text for \"Phase\"] 4 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
+- **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
+- **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
+    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
+- **Database Schema DDL SQL Specification [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+<RULE>
+  * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ` ```sql:matrix ` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
+  * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
+</RULE>
+- **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
 
-  `[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`"
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
+
+<!--START_DAY_LOG_INDEX_4-->
+
+- **DAY [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
+  
+##### SUB-TASK [Z]: SHORT SPECIFIC SUB-TASK TITLE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+<RULE>
+- **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
+<RULE>
+* **Sub-Agent Workflow Specialization:**
+<RULE>
+You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
+</RULE>
+* **Targeted Tag IDs:**
+<RULE>
+Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
+</RULE>
+* **Target Component file path (target_component):**
+<RULE>
+Insert the explicit physical path starting with `./sources/` or Tester semi-colon pair syntax based strictly on the active persona domain. Append its targeted Tag IDs inline here.
+</RULE>
+* **Low-Level Technical Task Instruction:**
+<RULE>
+Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
+</RULE>
+
+# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 4' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
+* **Database Schema DDL SQL Specification [DAT-XXX]:**
+<RULE>
+You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
+</RULE>
+* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
+<RULE>
+You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
+</RULE>
+* **Phase Localized Exception Handlers [EXC-XXX]:**
+<RULE>
+You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
+</RULE>
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--END_PHASE_LOG_BLOCK_INDEX_4-->"
     }
 ]
 
@@ -680,213 +757,935 @@ Below are all the detailed phase logs generated in Part 2. You MUST review them 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 📈 2. PHÂN TÍCH KIẾN TRÚC CHI TIẾT
+## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
-### 2.1. Kiến trúc tổng thể
-```mermaid
-graph TD
-    A[Ứng dụng di động] -->|REST APIs| B[Backend Quarkus]
-    A -->|Push Notifications| C[FCM/APNs]
-    B -->|OAuth2| D[Firebase Auth]
-    B -->|SQL Queries| E[PostgreSQL]
-    B -->|Event Streaming| F[Kafka]
-    B -->|Zalo API| G[Zalo Cloud]
-    B -->|Session Caching| H[Redis]
-    I[CI/CD Pipeline] -->|GitHub Actions| B
-    I -->|Docker Images| J[Container Registry]
-    I -->|Kubernetes Manifests| K[GKE]
-```
+### 2.1 Quản lý người dùng
 
-### 2.2. Kiến trúc chi tiết của các thành phần chính
-
-#### 2.2.1. Backend Quarkus
-```mermaid
-graph TD
-    A[Quarkus Backend] --> B[Authentication Service]
-    A --> C[User Management Service]
-    A --> D[Center Management Service]
-    A --> E[Course Management Service]
-    A --> F[Attendance Service]
-    A --> G[Notification Service]
-    A --> H[Membership Card Service]
-    A --> I[Reporting Service]
-```
-
-#### 2.2.2. Cơ sở dữ liệu PostgreSQL
-```mermaid
-erDiagram
-    USERS ||--o{ ROLES : "roleId"
-    USERS ||--o{ CENTERS : "centerId"
-    USERS ||--o{ COURSES : "teacherId"
-    USERS ||--o{ ENROLLMENTS : "studentId"
-    USERS ||--o{ ATTENDANCE : "studentId"
-    USERS ||--o{ STUDENTCARDS : "studentId"
-    USERS ||--o{ NOTIFICATIONS : "userId"
-    COURSES ||--o{ ENROLLMENTS : "courseId"
-    COURSES ||--o{ ATTENDANCE : "courseId"
-```
-
-#### 2.2.3. Ứng dụng di động
-```mermaid
-graph TD
-    A[Mobile App] --> B[Authentication Module]
-    A --> C[Course Module]
-    A --> D[Attendance Module]
-    A --> E[Notification Module]
-    A --> F[Membership Card Module]
-    A --> G[Chatbot Module]
-```
-
-## 📝 3. PHÂN TÍCH YÊU CẦU CHỨC NĂNG
-
-### 3.1. Quản lý người dùng
+#### Yêu cầu chức năng cốt lõi
 - [REQ-001] Đăng ký người dùng: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
 - [REQ-002] Xác thực qua mạng xã hội: As a user, I want to sign‑in/up using Firebase, Google, or Facebook OAuth so that I can leverage existing credentials.
 - [REQ-003] Phân quyền người dùng: As an administrator, I want to assign or change a user’s role (System Admin, Center Admin, Manager, Teacher, Student) so that permissions are correctly enforced.
 
-### 3.2. Quản lý trung tâm
+#### Tiêu chí chấp nhận & tương tác
+- Given a user provides a unique email, a strong password, and agrees to terms, When they submit the registration form, Then the system validates the input, creates a new user record with role ‘Student’ (or ‘Teacher’ if invited), and returns a success response with a JWT token. `[REQ-001]`
+- Given a user selects a social provider, When they authenticate through the provider’s popup, Then the system receives an OAuth2 code, exchanges it for user info, creates or updates the local user record, and issues a JWT token. `[REQ-002]`
+- Given an admin selects a user and a new role, When the assignment is confirmed, Then the user’s role column is updated, and appropriate permissions are applied immediately. `[REQ-003]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-004] Xác thực đầu vào không hợp lệ (ví dụ: email không đúng định dạng, thiếu trường bắt buộc): Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-001] Bảng người dùng & vai trò
+
+  **Users**
+  ```mermaid
+  erDiagram
+      USERS {
+          uuid userId PK "Unique identifier"
+          varchar email "Email address, not null, unique, max 255 chars"
+          char passwordHash "bcrypt hash, not null, length 60"
+          varchar fullName "Full name, not null, max 100 chars"
+          smallint roleId FK "Foreign key to Roles.roleId"
+          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
+          timestamp createdAt "Timestamp of creation, not null, default now()"
+          timestamp updatedAt "Timestamp of last update, not null, default now()"
+      }
+      ROLES {
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
+      }
+      ROLES ||--o{ USERS : "roleId"
+  ```
+  **Roles**
+  ```mermaid
+  erDiagram
+      ROLES {
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
+      }
+  ```
+### 2.2 Quản lý trung tâm
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-004] Xem danh sách trung tâm: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
 - [REQ-005] Tạo/cập nhật/xóa trung tâm: As a System Admin, I want to add, edit, or remove a center record so that center information stays current.
 - [REQ-006] Phân quyền quản trị trung tâm: As a System Admin, I want to assign or unassign a user as a Center Admin for a specific center so that administrative control is delegated.
 
-### 3.3. Quản lý khóa học
+#### Tiêu chí chấp nhận & tương tác
+- Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. `[REQ-004]`
+- Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. `[REQ-005]`
+- Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. `[REQ-006]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-003] Bảng trung tâm
+
+  **Centers**
+  ```mermaid
+  erDiagram
+      CENTERS {
+          uuid centerId PK "Unique identifier"
+          varchar name "Center name, not null, max 100 chars"
+          varchar address "Physical address, not null, max 255 chars"
+          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
+          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
+          varchar contactEmail "Contact email, optional, must be valid email format"
+      }
+  ```
+### 2.3 Quản lý khóa học
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-007] Xem danh sách khóa học: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
 - [REQ-008] Tạo/cập nhật/xóa khóa học (tránh xung đột): As a System Admin or Center Admin, I want to manage courses (add, edit, remove) while ensuring no overlapping schedules for the same teacher or venue.
 - [REQ-009] Phân công giáo viên vào khóa học: As a System Admin, I want to assign or unassign teachers to courses so that teaching responsibilities are updated.
 
-### 3.4. Đăng ký & ghi danh học viên
+#### Tiêu chí chấp nhận & tương tác
+- Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. `[REQ-007]`
+- Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. `[REQ-008]`
+- Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. `[REQ-009]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-004] Bảng khóa học
+
+  **Courses**
+  ```mermaid
+  erDiagram
+      COURSES {
+          uuid courseId PK "Unique identifier"
+          varchar title "Course title, not null, max 150 chars"
+          text description "Course description, optional"
+          date startDate "Course start date, not null"
+          date endDate "Course end date, not null"
+          uuid teacherId FK "Foreign key to Users.userId"
+          int maxStudents "Course capacity, default 30"
+      }
+  ```
+### 2.4 Đăng ký & ghi danh học viên
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
 - [REQ-011] Đăng ký khóa học của học viên: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
 
-### 3.5. Điểm danh & quét mã QR
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. `[REQ-010]`
+- Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. `[REQ-011]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-005] Bảng ghi danh
+
+  **Enrollments**
+  ```mermaid
+  erDiagram
+      ENROLLMENTS {
+          uuid enrollmentId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          timestamp enrollmentDate "Date of enrollment, default now()"
+      }
+  ```
+### 2.5 Điểm danh & quét mã QR
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-012] Chụp ảnh điểm danh QR: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
 - [REQ-013] Tính chất bất biến của điểm danh: The attendance service must guarantee that multiple scans from the same student for the same course on the same day produce a single attendance record.
 
-### 3.6. Quản lý thẻ hội viên
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student opens the scanner, scans a valid course QR, and confirms attendance, When the API receives the payload, Then the system validates the student‑course relationship, creates an Attendance record with timestamp, and returns a success response; duplicate scans on the same day are ignored. `[REQ-012]`
+- Given a student scans a QR twice within a minute, When the service processes both requests, Then only one attendance row is created; subsequent requests return a success with a ‘duplicate’ flag. `[REQ-013]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-001] Network & Connectivity Drops During QR Scan: If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
+- [EXC-002] Duplicate Attendance Submission: If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-006] Bảng điểm danh
+
+  **Attendance**
+  ```mermaid
+  erDiagram
+      ATTENDANCE {
+          uuid attendanceId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          date attendanceDate "Date of attendance, not null"
+          timestamp timestamp "Exact time recorded, default now()"
+      }
+  ```
+### 2.6 Quản lý thẻ hội viên
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-014] Hiển thị tính hợp lệ của thẻ: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
 - [REQ-015] Gia hạn thẻ: As a Student, I want to extend my membership card validity by paying a fee, which updates the end date.
 
-### 3.7. Thông báo & truyền thông
+#### Tiêu chí chấp nhận & tương tác
+- Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. `[REQ-014]`
+- Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. `[REQ-015]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-007] Bảng thẻ hội viên
+
+  **StudentCards**
+  ```mermaid
+  erDiagram
+      STUDENTCARDS {
+          uuid cardId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          date issueDate "Card issue date, not null"
+          int validityDays "Total validity days, not null"
+          int remainingDays "Computed days left until expiry"
+      }
+  ```
+### 2.7 Thông báo & truyền thông
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-016] Kích hoạt thông báo: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
 
-### 3.8. Quản lý khuyến mãi & thông báo
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin performs an action that requires notification, When the action is saved, Then a Notification record is created, a push notification payload is queued for the mobile app, and a text message is sent to the Zalo group chat. `[REQ-016]`
+
+#### Luồng ngoại lệ của mô-đun
+- [EXC-003] Failed Notification Delivery: When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-008] Bảng thông báo
+
+  **Notifications**
+  ```mermaid
+  erDiagram
+      NOTIFICATIONS {
+          uuid notificationId PK "Unique identifier"
+          uuid userId FK "Target user, optional"
+          varchar groupZalo "Target Zalo group, optional"
+          text message "Notification content, not null"
+          timestamp sentAt "When sent, default now()"
+          boolean delivered "Delivery status, default false"
+      }
+  ```
+### 2.8 Quản lý khuyến mãi & thông báo
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-017] Quản lý khuyến mãi: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
 - [REQ-018] Quản lý thông báo: As a Center Admin or Manager, I want to create, edit, or delete announcements with optional expiry dates for broadcast to all users.
 
-### 3.9. Chatbot dịch vụ khách hàng AI
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. `[REQ-017]`
+- Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. `[REQ-018]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-009] Bảng khuyến mãi & thông báo
+
+  **Promotions**
+  ```mermaid
+  erDiagram
+      PROMOTIONS {
+          uuid promoId PK "Unique identifier"
+          varchar code "Discount code, unique"
+          smallint discountPercent "Discount percentage, not null"
+          date startDate "Promotion start, optional"
+          date endDate "Promotion end, optional"
+          text description "Promo details, optional"
+      }
+  ```
+  **Announcements**
+  ```mermaid
+  erDiagram
+      ANNOUNCEMENTS {
+          uuid announcementId PK "Unique identifier"
+          varchar title "Title, not null, max 150 chars"
+          text content "Content, not null, max 2000 chars"
+          date startDate "Effective start, optional"
+          date endDate "Effective end, optional"
+      }
+  ```
+### 2.9 Chatbot dịch vụ khách hàng AI
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-019] Tích hợp chatbot AI: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
 
-### 3.10. Các tính năng cốt lõi của ứng dụng di động
+#### Tiêu chí chấp nhận & tương tác
+- Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. `[REQ-019]`
+
+#### Luồng ngoại lệ của mô-đun
+- [NOT APPLICABLE] Chatbot AI không có bảng dữ liệu chuyên biệt; tất cả các tương tác được ghi lại trong bảng AuditLog (xem [ARC-006] để biết chi tiết logging).
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
+
+### 2.10 Các tính năng cốt lõi của ứng dụng di động
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-020] Giao diện người dùng vai trò cụ thể trên di động: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
 - [REQ-021] Thông báo đẩy trên di động: As a registered user, I want to receive push notifications on my mobile device for attendance confirmations, new announcements, and reminder messages.
 
-### 3.11. Bản địa hóa & SEO
+#### Tiêu chí chấp nhận & tương tác
+- Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. `[REQ-020]`
+- Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. `[REQ-021]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
+
+### 2.11 Bản địa hóa & SEO
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-022] Phát hiện ngôn ngữ mặc định: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
 - [REQ-023] SEO đa ngôn ngữ: The platform must support SEO for at least English, Vietnamese, and Spanish; each page must include language‑specific meta tags and hreflang attributes.
 
-### 3.12. Báo cáo & phân tích
+#### Tiêu chí chấp nhận & tương tác
+- Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
+- Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
+
+#### Luồng ngoại lệ của mô-đun
+- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [DAT-011] Bảng cài đặt hệ thống
+
+  **SystemSettings**
+  ```mermaid
+  erDiagram
+      SYSTEMSETTINGS {
+          varchar settingKey PK "Configuration key"
+          text settingValue "Configuration value, not null"
+          varchar description "Meaning of setting, optional"
+      }
+  ```
+### 2.12 Báo cáo & phân tích
+
+#### Yêu cầu chức năng cốt lõi
 - [REQ-024] Tạo báo cáo điểm danh: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
 - [REQ-025] Bảng điều khiển tóm tắt ghi danh: As a Center Admin, I want a real‑time dashboard summarizing total students, active courses, and upcoming sessions.
 
-## 📌 4. PHÂN TÍCH YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
+#### Tiêu chí chấp nhận & tương tác
+- Given an admin selects a center and date range, When the report is requested, Then a CSV file is produced with columns: StudentName, CourseName, AttendanceDate, Status. `[REQ-024]`
+- Given an admin opens the dashboard, When the data refreshes, Then cards display totalStudents, activeCourses, upcomingSessions (next 7 days). `[REQ-025]`
 
-### 4.1. Yêu cầu hiệu suất
+#### Luồng ngoại lệ của mô-đun
+- [EXC-005] System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
+
+#### Từ điển dữ liệu cục bộ của mô-đun
+- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
+
+## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
+
 - [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
-
-### 4.2. Yêu cầu sẵn có
 - [NFR-002] Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
-
-### 4.3. Yêu cầu bảo mật
 - [NFR-003] Security: All data in transit must use TLS 1.3; at rest encryption with AES‑256. JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry. Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF).
-
-### 4.4. Yêu cầu khả năng mở rộng & sẵn có
 - [NFR-004] Scalability & Availability: Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms. PostgreSQL read replicas for reporting workloads.
-
-### 4.5. Yêu cầu kích thước hình ảnh Docker
 - [NFR-005] Docker Image Size: Base image size < 200 MB; final image < 500 MB.
-
-### 4.6. Yêu cầu ghi nhật ký & kiểm toán
 - [NFR-006] Logging & Audit: All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year.
-
-### 4.7. Yêu cầu hỗ trợ đa ngôn ngữ
 - [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
-
-### 4.8. Yêu cầu tuân thủ GDPR/CCPA
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
-
-### 4.9. Yêu cầu sao lưu & phục hồi thảm họa
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📁 5. PHÂN TÍCH KIẾN TRÚC PHÂN PHỐI
+## 📝 4. PHÂN TÍCH KIẾN TRÚC VÀ TỔNG QUAN PHÂN PHÓI PHÂN PHASE
 
-### 5.1. Kiến trúc phân tán
-```mermaid
-graph TD
-    A[Ứng dụng di động] -->|REST APIs| B[Backend Quarkus]
-    A -->|Push Notifications| C[FCM/APNs]
-    B -->|OAuth2| D[Firebase Auth]
-    B -->|SQL Queries| E[PostgreSQL]
-    B -->|Event Streaming| F[Kafka]
-    B -->|Zalo API| G[Zalo Cloud]
-    B -->|Session Caching| H[Redis]
-    I[CI/CD Pipeline] -->|GitHub Actions| B
-    I -->|Docker Images| J[Container Registry]
-    I -->|Kubernetes Manifests| K[GKE]
-```
+### 4.1 PHÂN TÍCH KIẾN TRÚC
 
-### 5.2. Kiến trúc microservices
-```mermaid
-graph TD
-    A[Quarkus Backend] --> B[Authentication Service]
-    A --> C[User Management Service]
-    A --> D[Center Management Service]
-    A --> E[Course Management Service]
-    A --> F[Attendance Service]
-    A --> G[Notification Service]
-    A --> H[Membership Card Service]
-    A --> I[Reporting Service]
-```
+#### 4.1.1 KIẾN TRÚC TOÀN CẦU
 
-### 5.3. Kiến trúc cơ sở dữ liệu
-```mermaid
-erDiagram
-    USERS ||--o{ ROLES : "roleId"
-    USERS ||--o{ CENTERS : "centerId"
-    USERS ||--o{ COURSES : "teacherId"
-    USERS ||--o{ ENROLLMENTS : "studentId"
-    USERS ||--o{ ATTENDANCE : "studentId"
-    USERS ||--o{ STUDENTCARDS : "studentId"
-    USERS ||--o{ NOTIFICATIONS : "userId"
-    COURSES ||--o{ ENROLLMENTS : "courseId"
-    COURSES ||--o{ ATTENDANCE : "courseId"
-```
+- **Kiến trúc hệ thống:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho mỗi chức năng chính (quản lý người dùng, khóa học, điểm danh, v.v.).
+- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với các bảng được chuẩn hóa và các mối quan hệ được xác định rõ ràng.
+- **Kiến trúc giao diện người dùng:** Giao diện người dùng được xây dựng bằng Next.js cho web và React Native cho di động.
+- **Kiến trúc hạ tầng:** Sử dụng Docker để container hóa các dịch vụ và triển khai trên Kubernetes (GKE) để quản lý và mở rộng các dịch vụ.
 
-### 5.4. Kiến trúc ứng dụng di động
-```mermaid
-graph TD
-    A[Mobile App] --> B[Authentication Module]
-    A --> C[Course Module]
-    A --> D[Attendance Module]
-    A --> E[Notification Module]
-    A --> F[Membership Card Module]
-    A --> G[Chatbot Module]
-```
+#### 4.1.2 KIẾN TRÚC PHÂN PHÓI PHÂN PHASE
 
-## 📁 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
-  - **SQL Injection (SQLi) Absolute Countermeasures:** Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.
-  - **Cross-Site Scripting (XSS) & Content Security Policy (CSP):** Layout standards for automated context sanitization, JSX auto-escaping, and dynamic injection of strict CSP headers (`unsafe-inline` restriction).
-  - **Multi-Tenant CORS Security Rails:** Configurations for origin wildcard prohibitions and dynamic tenant origin database metrics validation.
-  - **Zero-Leak Log Scrubbing & PII Data Masking Engines:** Rules for automated masking interceptors (`@JsonSerialize`) and log scrubbing thresholds.
+- **Phase 1:** Khởi tạo hệ thống người dùng và xác thực.
+- **Phase 2:** Triển khai lõi nghiệp vụ khóa học và điểm danh.
+- **Phase 3:** Tích hợp giao diện người dùng và thông báo.
+- **Phase 4:** Triển khai các tính năng nâng cao như thẻ hội viên và chatbot AI.
+- **Phase 5:** Triển khai các tính năng cuối cùng như bản địa hóa và báo cáo.
 
-## 📁 7. HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
-  - **Capacitor Mobile Hybrid Compliance Rails:** [IF Mobile active] Rules for dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions (`@capacitor/preferences`), and hardware back-button interception.
-  - **Internationalization (i18n) & Dynamic SEO Injection:** Edge-layer locale recognition middleware architectures, hreflang dynamic hypermedia control injection, and search crawler robots indexing limits.
+### 4.2 MA TRẬN TÓM TẮT PHÂN PHÓI PHÂN PHASE
 
-## 📁 8. PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
-  - **Daily Workspace Forking Isolation:** Programmatic forking controls for branch `features/development-phase-X-day-Y` (`X` is the number of phase, from 1 to N, where N <= 5; `Y` is the day number in phase, it will start from 1 for each phase).
-  - **Validation Guard Pipeline Gates:** Execution rules for compilation verification, automated code coverage goals (`>= 85%`), and context summary serialization logs.
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|-------------------------|----------------------------|------------|------------------|
+| 1         | Ngày 1-3   | ./sources/backend/auth-service/ | Hệ thống xác thực người dùng hoàn chỉnh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [ARC-006] |
+| 2         | Ngày 4-6   | ./sources/backend/course-service/, ./sources/backend/attendance-service/ | Lõi nghiệp vụ khóa học và điểm danh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [REQ-012], [REQ-013], [DAT-004], [DAT-006], [ARC-007] |
+| 3         | Ngày 7-9   | ./sources/frontend/, ./sources/backend/notification-service/ | Giao diện người dùng và hệ thống thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [REQ-020], [REQ-021], [DAT-008], [ARC-008] |
+| 4         | Ngày 10-12 | ./sources/backend/membership-service/, ./sources/backend/chatbot-service/ | Tính năng thẻ hội viên và chatbot AI | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-014], [REQ-015], [REQ-019], [DAT-007] |
+| 5         | Ngày 13-15 | ./sources/backend/reporting-service/, ./sources/docs/ | Tính năng báo cáo và tài liệu | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-024], [REQ-025], [REQ-022], [REQ-023], [DAT-011], [NFR-007] |
 
-### 🛑 MATRIX COVERAGE CHECK MANDATE
+## 📅 5. CHI TIẾT PHÂN PHÓI PHÂN PHASE
 
-  `[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`
+### Phase 1: Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống xác thực người dùng với các tính năng đăng ký, đăng nhập và phân quyền.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/auth-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:**
+  ```sql
+  CREATE TABLE roles (
+      roleId SERIAL PRIMARY KEY,
+      name VARCHAR(30) UNIQUE NOT NULL,
+      description VARCHAR(200)
+  );
+
+  CREATE TABLE users (
+      userId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      email VARCHAR(255) UNIQUE NOT NULL,
+      passwordHash CHAR(60) NOT NULL,
+      fullName VARCHAR(100) NOT NULL,
+      roleId INTEGER REFERENCES roles(roleId),
+      provider VARCHAR(20) NOT NULL DEFAULT 'local' CHECK (provider IN ('local', 'firebase', 'google', 'facebook')),
+      createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
+      updatedAt TIMESTAMP NOT NULL DEFAULT NOW()
+  );
+
+  CREATE INDEX idx_users_email ON users(email);
+  CREATE INDEX idx_users_roleId ON users(roleId);
+  ```
+
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/auth/register",
+        "method": "POST",
+        "request": {
+          "email": "string",
+          "password": "string",
+          "fullName": "string"
+        },
+        "response": {
+          "token": "string",
+          "refreshToken": "string"
+        }
+      },
+      {
+        "path": "/api/auth/login",
+        "method": "POST",
+        "request": {
+          "email": "string",
+          "password": "string"
+        },
+        "response": {
+          "token": "string",
+          "refreshToken": "string"
+        }
+      },
+      {
+        "path": "/api/auth/oauth",
+        "method": "POST",
+        "request": {
+          "provider": "string",
+          "code": "string"
+        },
+        "response": {
+          "token": "string",
+          "refreshToken": "string"
+        }
+      },
+      {
+        "path": "/api/auth/refresh",
+        "method": "POST",
+        "request": {
+          "refreshToken": "string"
+        },
+        "response": {
+          "token": "string",
+          "refreshToken": "string"
+        }
+      }
+    ]
+  }
+  ```
+
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:**
+  - Xác thực đầu vào không hợp lệ: Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
+
+#### Nhật ký Ngày theo Ngày Phân Phối Nhiệm vụ Sub-Agent (Giai đoạn 1)
+
+<!--START_DAY_LOG_INDEX_1-->
+
+- **DAY 1: Thiết lập cơ sở dữ liệu và dịch vụ xác thực**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu PostgreSQL**
+    - [Coder]
+    - [REQ-001], [REQ-002], [REQ-003], [DAT-001]
+    - ./sources/backend/auth-service/src/main/resources/db/migration/V1__Create_users_and_roles.sql
+    - Tạo các bảng roles và users với các ràng buộc và chỉ mục cần thiết.
+
+  - **SUB-TASK 2: Thiết lập dịch vụ xác thực cơ bản**
+    - [Coder]
+    - [REQ-001], [REQ-002], [ARC-006]
+    - ./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java
+    - Xây dựng dịch vụ xác thực cơ bản với các phương thức đăng ký, đăng nhập và làm mới token.
+
+- **DAY 2: Triển khai xác thực OAuth và phân quyền**
+  - **SUB-TASK 1: Triển khai xác thực OAuth**
+    - [Coder]
+    - [REQ-002], [ARC-006]
+    - ./sources/backend/auth-service/src/main/java/com/example/auth/service/OAuthService.java
+    - Xây dựng dịch vụ xác thực OAuth với các nhà cung cấp như Firebase, Google và Facebook.
+
+  - **SUB-TASK 2: Triển khai phân quyền người dùng**
+    - [Coder]
+    - [REQ-003], [DAT-001]
+    - ./sources/backend/auth-service/src/main/java/com/example/auth/service/RoleService.java
+    - Xây dựng dịch vụ phân quyền người dùng với các vai trò như System Admin, Center Admin, Manager, Teacher và Student.
+
+- **DAY 3: Viết kiểm thử và triển khai**
+  - **SUB-TASK 1: Viết kiểm thử cho dịch vụ xác thực**
+    - [Tester]
+    - [REQ-001], [REQ-002], [REQ-003], [ARC-006]
+    - ./sources/backend/auth-service/src/test/java/com/example/auth/service/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java
+    - Viết các kiểm thử cho dịch vụ xác thực, bao gồm đăng ký, đăng nhập và làm mới token.
+
+  - **SUB-TASK 2: Triển khai dịch vụ xác thực**
+    - [Docker], [GCP], [GKE]
+    - [REQ-001], [REQ-002], [REQ-003], [ARC-006]
+    - ./sources/backend/auth-service/Dockerfile;./sources/infra/auth-service-deployment.yaml
+    - Xây dựng Docker image và triển khai dịch vụ xác thực lên GKE.
+
+<!--END_DAY_LOG_INDEX_1-->
+
+### Phase 2: Triển Khai Lõi Nghiệp Vụ Khóa Học
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng lõi nghiệp vụ khóa học và điểm danh với các tính năng quản lý khóa học, điểm danh và ghi danh học viên.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/course-service/, ./sources/backend/attendance-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004], [DAT-006]:**
+  ```sql
+  CREATE TABLE courses (
+      courseId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      title VARCHAR(150) NOT NULL,
+      description TEXT,
+      startDate DATE NOT NULL,
+      endDate DATE NOT NULL,
+      teacherId UUID REFERENCES users(userId),
+      maxStudents INTEGER NOT NULL DEFAULT 30
+  );
+
+  CREATE TABLE enrollments (
+      enrollmentId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      studentId UUID REFERENCES users(userId),
+      courseId UUID REFERENCES courses(courseId),
+      enrollmentDate TIMESTAMP NOT NULL DEFAULT NOW()
+  );
+
+  CREATE TABLE attendance (
+      attendanceId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      studentId UUID REFERENCES users(userId),
+      courseId UUID REFERENCES courses(courseId),
+      attendanceDate DATE NOT NULL,
+      timestamp TIMESTAMP NOT NULL DEFAULT NOW()
+  );
+
+  CREATE INDEX idx_courses_teacherId ON courses(teacherId);
+  CREATE INDEX idx_enrollments_studentId ON enrollments(studentId);
+  CREATE INDEX idx_enrollments_courseId ON enrollments(courseId);
+  CREATE INDEX idx_attendance_studentId ON attendance(studentId);
+  CREATE INDEX idx_attendance_courseId ON attendance(courseId);
+  CREATE INDEX idx_attendance_attendanceDate ON attendance(attendanceDate);
+  ```
+
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-007], [REQ-008], [REQ-009], [REQ-012], [REQ-013], [ARC-007]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/courses",
+        "method": "GET",
+        "response": {
+          "courses": [
+            {
+              "courseId": "string",
+              "title": "string",
+              "startDate": "string",
+              "endDate": "string",
+              "teacherName": "string"
+            }
+          ]
+        }
+      },
+      {
+        "path": "/api/courses",
+        "method": "POST",
+        "request": {
+          "title": "string",
+          "startDate": "string",
+          "endDate": "string",
+          "teacherId": "string"
+        },
+        "response": {
+          "courseId": "string"
+        }
+      },
+      {
+        "path": "/api/courses/{courseId}/assign",
+        "method": "POST",
+        "request": {
+          "teacherId": "string"
+        },
+        "response": {
+          "success": "boolean"
+        }
+      },
+      {
+        "path": "/api/attendance",
+        "method": "POST",
+        "request": {
+          "studentId": "string",
+          "courseId": "string"
+        },
+        "response": {
+          "attendanceId": "string"
+        }
+      }
+    ]
+  }
+  ```
+
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:**
+  - Network & Connectivity Drops During QR Scan: If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
+  - Duplicate Attendance Submission: If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
+
+#### Nhật ký Ngày theo Ngày Phân Phối Nhiệm vụ Sub-Agent (Giai đoạn 2)
+
+<!--START_DAY_LOG_INDEX_2-->
+
+- **DAY 1: Thiết lập cơ sở dữ liệu và dịch vụ khóa học**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu PostgreSQL**
+    - [Coder]
+    - [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    - ./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses.sql
+    - Tạo bảng courses với các ràng buộc và chỉ mục cần thiết.
+
+  - **SUB-TASK 2: Thiết lập dịch vụ khóa học cơ bản**
+    - [Coder]
+    - [REQ-007], [REQ-008], [ARC-007]
+    - ./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java
+    - Xây dựng dịch vụ khóa học cơ bản với các phương thức quản lý khóa học.
+
+- **DAY 2: Triển khai điểm danh và ghi danh học viên**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu điểm danh**
+    - [Coder]
+    - [REQ-012], [REQ-013], [DAT-006]
+    - ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_attendance.sql
+    - Tạo bảng attendance với các ràng buộc và chỉ mục cần thiết.
+
+  - **SUB-TASK 2: Triển khai dịch vụ điểm danh**
+    - [Coder]
+    - [REQ-012], [REQ-013], [ARC-007]
+    - ./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java
+    - Xây dựng dịch vụ điểm danh với các phương thức ghi nhận điểm danh.
+
+- **DAY 3: Viết kiểm thử và triển khai**
+  - **SUB-TASK 1: Viết kiểm thử cho dịch vụ khóa học**
+    - [Tester]
+    - [REQ-007], [REQ-008], [REQ-009], [ARC-007]
+    - ./sources/backend/course-service/src/test/java/com/example/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java
+    - Viết các kiểm thử cho dịch vụ khóa học, bao gồm quản lý khóa học và phân công giáo viên.
+
+  - **SUB-TASK 2: Viết kiểm thử cho dịch vụ điểm danh**
+    - [Tester]
+    - [REQ-012], [REQ-013], [ARC-007]
+    - ./sources/backend/attendance-service/src/test/java/com/example/attendance/service/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java
+    - Viết các kiểm thử cho dịch vụ điểm danh, bao gồm ghi nhận điểm danh và xử lý trùng lặp.
+
+  - **SUB-TASK 3: Triển khai dịch vụ khóa học và điểm danh**
+    - [Docker], [GCP], [GKE]
+    - [REQ-007], [REQ-008], [REQ-009], [REQ-012], [REQ-013], [ARC-007]
+    - ./sources/backend/course-service/Dockerfile;./sources/infra/course-service-deployment.yaml;./sources/backend/attendance-service/Dockerfile;./sources/infra/attendance-service-deployment.yaml
+    - Xây dựng Docker image và triển khai dịch vụ khóa học và điểm danh lên GKE.
+
+<!--END_DAY_LOG_INDEX_2-->
+
+### Phase 3: Tích Hợp Giao Diện Người Dùng Và Thông Báo
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng giao diện người dùng và hệ thống thông báo với các tính năng duyệt khóa học, đăng ký khóa học và gửi thông báo.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/frontend/, ./sources/backend/notification-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-008]:**
+  ```sql
+  CREATE TABLE notifications (
+      notificationId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      userId UUID REFERENCES users(userId),
+      groupZalo VARCHAR(255),
+      message TEXT NOT NULL,
+      sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
+      delivered BOOLEAN NOT NULL DEFAULT FALSE
+  );
+
+  CREATE INDEX idx_notifications_userId ON notifications(userId);
+  CREATE INDEX idx_notifications_groupZalo ON notifications(groupZalo);
+  ```
+
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-016], [REQ-020], [REQ-021], [ARC-008]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/notifications",
+        "method": "POST",
+        "request": {
+          "userId": "string",
+          "groupZalo": "string",
+          "message": "string"
+        },
+        "response": {
+          "notificationId": "string"
+        }
+      }
+    ]
+  }
+  ```
+
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-003]:**
+  - Failed Notification Delivery: When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
+
+#### Nhật ký Ngày theo Ngày Phân Phối Nhiệm vụ Sub-Agent (Giai đoạn 3)
+
+<!--START_DAY_LOG_INDEX_3-->
+
+- **DAY 1: Thiết lập giao diện người dùng**
+  - **SUB-TASK 1: Thiết lập giao diện người dùng với Next.js**
+    - [Coder]
+    - [REQ-020], [ARC-008]
+    - ./sources/frontend/src/pages/index.js
+    - Xây dựng giao diện người dùng cơ bản với Next.js.
+
+  - **SUB-TASK 2: Thiết lập giao diện di động với React Native**
+    - [Coder]
+    - [REQ-020], [ARC-008]
+    - ./sources/frontend/mobile/App.js
+    - Xây dựng giao diện di động cơ bản với React Native.
+
+- **DAY 2: Triển khai hệ thống thông báo**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu thông báo**
+    - [Coder]
+    - [REQ-016], [DAT-008]
+    - ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications.sql
+    - Tạo bảng notifications với các ràng buộc và chỉ mục cần thiết.
+
+  - **SUB-TASK 2: Triển khai dịch vụ thông báo**
+    - [Coder]
+    - [REQ-016], [ARC-008]
+    - ./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
+    - Xây dựng dịch vụ thông báo với các phương thức gửi thông báo.
+
+- **DAY 3: Viết kiểm thử và triển khai**
+  - **SUB-TASK 1: Viết kiểm thử cho giao diện người dùng**
+    - [Tester]
+    - [REQ-020], [ARC-008]
+    - ./sources/frontend/src/test/pages/index.test.js;./sources/frontend/src/pages/index.js
+    - Viết các kiểm thử cho giao diện người dùng, bao gồm duyệt khóa học và đăng ký khóa học.
+
+  - **SUB-TASK 2: Viết kiểm thử cho dịch vụ thông báo**
+    - [Tester]
+    - [REQ-016], [ARC-008]
+    - ./sources/backend/notification-service/src/test/java/com/example/notification/service/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
+    - Viết các kiểm thử cho dịch vụ thông báo, bao gồm gửi thông báo và xử lý lỗi.
+
+  - **SUB-TASK 3: Triển khai giao diện người dùng và dịch vụ thông báo**
+    - [Docker], [GCP], [GKE]
+    - [REQ-016], [REQ-020], [REQ-021], [ARC-008]
+    - ./sources/frontend/Dockerfile;./sources/infra/frontend-deployment.yaml;./sources/backend/notification-service/Dockerfile;./sources/infra/notification-service-deployment.yaml
+    - Xây dựng Docker image và triển khai giao diện người dùng và dịch vụ thông báo lên GKE.
+
+<!--END_DAY_LOG_INDEX_3-->
+
+### Phase 4: Triển Khai Các Tính Năng Nâng Cao
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng các tính năng nâng cao như thẻ hội viên và chatbot AI.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/membership-service/, ./sources/backend/chatbot-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-007]:**
+  ```sql
+  CREATE TABLE student_cards (
+      cardId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      studentId UUID REFERENCES users(userId),
+      issueDate DATE NOT NULL,
+      validityDays INTEGER NOT NULL,
+      remainingDays INTEGER NOT NULL
+  );
+
+  CREATE INDEX idx_student_cards_studentId ON student_cards(studentId);
+  ```
+
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-014], [REQ-015], [REQ-019]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/membership/card",
+        "method": "GET",
+        "response": {
+          "totalValidityDays": "integer",
+          "daysUsed": "integer",
+          "daysRemaining": "integer"
+        }
+      },
+      {
+        "path": "/api/membership/renew",
+        "method": "POST",
+        "request": {
+          "validityDays": "integer"
+        },
+        "response": {
+          "success": "boolean"
+        }
+      },
+      {
+        "path": "/api/chatbot",
+        "method": "POST",
+        "request": {
+          "question": "string"
+        },
+        "response": {
+          "answer": "string"
+        }
+      }
+    ]
+  }
+  ```
+
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:**
+  - (Không có luồng ngoại lệ chuyên biệt được xác định cho giai đoạn này.)
+
+#### Nhật ký Ngày theo Ngày Phân Phối Nhiệm vụ Sub-Agent (Giai đoạn 4)
+
+<!--START_DAY_LOG_INDEX_4-->
+
+- **DAY 1: Thiết lập dịch vụ thẻ hội viên**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu thẻ hội viên**
+    - [Coder]
+    - [REQ-014], [REQ-015], [DAT-007]
+    - ./sources/backend/membership-service/src/main/resources/db/migration/V1__Create_student_cards.sql
+    - Tạo bảng student_cards với các ràng buộc và chỉ mục cần thiết.
+
+  - **SUB-TASK 2: Triển khai dịch vụ thẻ hội viên**
+    - [Coder]
+    - [REQ-014], [REQ-015]
+    - ./sources/backend/membership-service/src/main/java/com/example/membership/service/MembershipService.java
+    - Xây dựng dịch vụ thẻ hội viên với các phương thức hiển thị và gia hạn thẻ.
+
+- **DAY 2: Triển khai dịch vụ chatbot AI**
+  - **SUB-TASK 1: Triển khai dịch vụ chatbot AI**
+    - [Coder]
+    - [REQ-019]
+    - ./sources/backend/chatbot-service/src/main/java/com/example/chatbot/service/ChatbotService.java
+    - Xây dựng dịch vụ chatbot AI với các phương thức trả lời câu hỏi.
+
+- **DAY 3: Viết kiểm thử và triển khai**
+  - **SUB-TASK 1: Viết kiểm thử cho dịch vụ thẻ hội viên**
+    - [Tester]
+    - [REQ-014], [REQ-015]
+    - ./sources/backend/membership-service/src/test/java/com/example/membership/service/MembershipServiceTest.java;./sources/backend/membership-service/src/main/java/com/example/membership/service/MembershipService.java
+    - Viết các kiểm thử cho dịch vụ thẻ hội viên, bao gồm hiển thị và gia hạn thẻ.
+
+  - **SUB-TASK 2: Viết kiểm thử cho dịch vụ chatbot AI**
+    - [Tester]
+    - [REQ-019]
+    - ./sources/backend/chatbot-service/src/test/java/com/example/chatbot/service/ChatbotServiceTest.java;./sources/backend/chatbot-service/src/main/java/com/example/chatbot/service/ChatbotService.java
+    - Viết các kiểm thử cho dịch vụ chatbot AI, bao gồm trả lời câu hỏi.
+
+  - **SUB-TASK 3: Triển khai dịch vụ thẻ hội viên và chatbot AI**
+    - [Docker], [GCP], [GKE]
+    - [REQ-014], [REQ-015], [REQ-019]
+    - ./sources/backend/membership-service/Dockerfile;./sources/infra/membership-service-deployment.yaml;./sources/backend/chatbot-service/Dockerfile;./sources/infra/chatbot-service-deployment.yaml
+    - Xây dựng Docker image và triển khai dịch vụ thẻ hội viên và chatbot AI lên GKE.
+
+<!--END_DAY_LOG_INDEX_4-->
+
+### Phase 5: Triển Khai Các Tính Năng Cuối Cùng
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng các tính năng cuối cùng như bản địa hóa và báo cáo.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/reporting-service/, ./sources/docs/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-011]:**
+  ```sql
+  CREATE TABLE system_settings (
+      settingKey VARCHAR(100) PRIMARY KEY,
+      settingValue TEXT NOT NULL,
+      description VARCHAR(255)
+  );
+  ```
+
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-024], [REQ-025], [REQ-022], [REQ-023], [NFR-007]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "path": "/api/reports/attendance",
+        "method": "GET",
+        "response": {
+          "csvData": "string"
+        }
+      },
+      {
+        "path": "/api/dashboard",
+        "method": "GET",
+        "response": {
+          "totalStudents": "integer",
+          "activeCourses": "integer",
+          "upcomingSessions": "integer"
+        }
+      }
+    ]
+  }
+  ```
+
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-005]:**
+  - System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
+
+#### Nhật ký Ngày theo Ngày Phân Phối Nhiệm vụ Sub-Agent (Giai đoạn 5)
+
+<!--START_DAY_LOG_INDEX_5-->
+
+- **DAY 1: Thiết lập dịch vụ báo cáo**
+  - **SUB-TASK 1: Thiết lập dịch vụ báo cáo**
+    - [Coder]
+    - [REQ-024], [REQ-025]
+    - ./sources/backend/reporting-service/src/main/java/com/example/reporting/service/ReportingService.java
+    - Xây dựng dịch vụ báo cáo với các phương thức tạo báo cáo điểm danh và bảng điều khiển tóm tắt.
+
+- **DAY 2: Triển khai bản địa hóa**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu cài đặt hệ thống**
+    - [Coder]
+    - [REQ-022], [REQ-023], [DAT-011]
+    - ./sources/backend/reporting-service/src/main/resources/db/migration/V1__Create_system_settings.sql
+    - Tạo bảng system_settings với các ràng buộc và chỉ mục cần thiết.
+
+  - **SUB-TASK 2: Triển khai dịch vụ bản địa hóa**
+    - [Coder]
+    - [REQ-022], [REQ-023], [NFR-007]
+    - ./sources/backend/reporting-service/src/main/java/com/example/reporting/service/LocalizationService.java
+    - Xây dựng dịch vụ bản địa hóa với các phương thức phát hiện ngôn ngữ và SEO đa ngôn ngữ.
+
+- **DAY 3: Viết kiểm thử và triển khai**
+  - **SUB-TASK 1: Viết kiểm thử cho dịch vụ báo cáo**
+    - [Tester]
+    - [REQ-024], [REQ-025]
+    - ./sources/backend/reporting-service/src/test/java/com/example/reporting/service/ReportingServiceTest.java;./sources/backend/reporting-service/src/main/java/com/example/reporting/service/ReportingService.java
+    - Viết các kiểm thử cho dịch vụ báo cáo, bao gồm tạo báo cáo điểm danh và bảng điều khiển tóm tắt.
+
+  - **SUB-TASK 2: Viết kiểm thử cho dịch vụ bản địa hóa**
+    - [Tester]
+    - [REQ-022], [REQ-023], [NFR-007]
+    - ./sources/backend/reporting-service/src/test/java/com/example/reporting/service/LocalizationServiceTest.java;./sources/backend/reporting-service/src/main/java/com/example/reporting/service/LocalizationService.java
+    - Viết các kiểm thử cho dịch vụ bản địa hóa, bao gồm phát hiện ngôn ngữ và SEO đa ngôn ngữ.
+
+  - **SUB-TASK 3: Triển khai dịch vụ báo cáo và bản địa hóa**
+    - [Docker], [GCP], [GKE]
+    - [REQ-024], [REQ-025], [REQ-022], [REQ-023], [NFR-007]
+    - ./sources/backend/reporting-service/Dockerfile;./sources/infra/reporting-service-deployment.yaml
+    - Xây dựng Docker image và triển khai dịch vụ báo cáo và bản địa hóa lên GKE.
+
+<!--END_DAY_LOG_INDEX_5-->
 
