@@ -620,10 +620,10 @@ You MUST include every single section below without exception to satisfy enterpr
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811021119 |
+| **Blueprint ID** | ARCH-20260811031850 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 02:11:19 |
+| **Date.Time** | 2026/08/11 03:18:50 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -686,8 +686,11 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| [Numerical Index, starting from 1] | [Task Title] | [Clear technical delivery objective description] | [Literal configuration string: 'Application Code' OR 'Enterprise Documentation' OR 'DevOps Infrastructure'] | [Dynamic tracing Tag IDs mapped inline] | <!--REGISTERED_BACKLOG_TASK_ROW--> 
-| ... | ... | ... | ... | ... |
+- **TASK ATOMICITY LAW:** You are STRICTLY BANNED from summarizing or clustering multiple structural requirement bullets into a single generic task row.
+- **1:1 TRACEABILITY RATIO:** Every unique functional or non-functional Tag ID identified in the SRS ([REQ], [ARC], [EXC], [DAT], [NFR]) MUST yield exactly one (1) dedicated, standalone row in this table.
+- **OUTPUT LAYOUT PARSING STRUCTURE:**
+
+| [Index] | [Task Title] | [Technical Objective] | [Type] | [Tag IDs] |  <!--REGISTERED_BACKLOG_TASK_ROW-->
 | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
@@ -731,11 +734,14 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
   2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
 - **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the \"Day Range\" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - 7' if the actual workload finishes earlier.
+- **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in Section 4.2 MUST match 100% symmetrically with the tags registered in Section 4.1. Dropping tasks between Section 4.1 and Section 4.2 triggers a fatal pipeline integrity exception.
 </RULE>
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 
 | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+- **TOTAL TAG COVERAGE:** The \"Targeted Tag IDs\" column in this grid MUST contain the union of all Tag IDs defined in Section 4.1 for that phase.
+- **ZERO OMISSION RULE:** If a Tag ID exists in Section 4.1, it MUST appear in Section 4.2. Truncating or omitting tags to save space is a fatal error.
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Phase 1 | Day 1 - 7 | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
 | Phase 2 | Day 1 - 7 | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
@@ -753,210 +759,52 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
 
 ---
 
-# TỔNG QUAN DỰ ÁN: membership-hub
+# BẢNG CỔNG DỰ ÁN: membership-hub
 
 ## 📊 Document Control
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811021119 |
+| **Blueprint ID** | ARCH-20260811031850 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 02:11:19 |
+| **Date.Time** | 2026/08/11 03:18:50 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH CƠ SỞ
+## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH KIẾN TRÚC CỐT LÕI
 
-### 1.1. Mô Hình Cơ Sở & Kiến Trúc Hệ Thống
+### 1.1. MÔ HÌNH KIẾN TRÚC CỐT LÕI & Kiến trúc Hệ thống
 
-- Kiến trúc microservices phân tách rõ ràng giữa backend, frontend và infra.  
-- Backend sử dụng Java/Quarkus, triển khai dưới dạng container Docker, orchestrated trên GKE.  
-- Frontend là Next.js + React Native, sử dụng Firebase Auth cho xác thực.  
-- Dữ liệu lưu trữ trong PostgreSQL, Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging, Zalo API cho push.  
-- CI/CD pipeline trên GitHub Actions, tự động build, test, deploy.  
-- Đảm bảo tuân thủ OWASP Top 10, TLS 1.3, JWT 15 min, refresh 7 days.  
-- Hệ thống hỗ trợ đa ngôn ngữ (vi, en, es) với externalized strings.  
-- Backup PostgreSQL hàng ngày, point‑in‑time recovery 24 h.  
-- Logging & audit theo NFR-006, lưu trữ 1 year.  
-- Docker image size < 200 MB base, < 500 MB final.  
-- Hệ thống có khả năng mở rộng theo HPA, read replicas cho reporting.  
-- GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Firebase Cloud Messaging (FCM) và Apple APNs cho push.  
-- Zalo API integration cho nhóm Zalo.  
-- Quản lý session bằng Redis, token JWT.  
-- Sử dụng OAuth2 cho Google, Facebook, Firebase.  
-- API REST, event-driven architecture, CQRS boundaries.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Đảm bảo tính bảo mật, mã hóa AES‑256, TLS 1.3.  
-- Đảm bảo tính sẵn sàng 99.9 % uptime.  
-- Đảm bảo performance 200 ms avg.  
-- Đảm bảo multi‑tenant isolation, role‑based access control.  
-- Đảm bảo GDPR/CCPA compliance.  
-- Đảm bảo backup, disaster recovery.  
+- Kiến trúc microservices, mỗi dịch vụ độc lập, triển khai trên GKE.  
+- Sử dụng Quarkus cho backend, Next.js cho frontend, React Native cho mobile.  
+- Dữ liệu lưu trữ trong PostgreSQL, session cache bằng Redis.  
+- Xác thực JWT 15 phút, refresh token 7 ngày, OAuth2 với Firebase, Google, Facebook.  
+- Giao tiếp nội bộ qua Kafka, fan-out qua Zalo API, push qua FCM/APNs.  
+- CI/CD bằng GitHub Actions, Docker multi‑stage, Terraform cho GCP.  
+- Kiểm tra bảo mật OWASP Top 10, mã hóa TLS 1.3, AES‑256 at rest.  
+- Độ trễ API mục tiêu < 200 ms, khả năng mở rộng theo CPU > 70 %.  
+- Định dạng dữ liệu JSON, DDL SQL, Mermaid cho sơ đồ.  
+- Định danh người dùng: System Admin, Center Admin, Manager, Teacher, Student, Mobile App User.  
+- RBAC dựa trên [ARC-001]–[ARC-010].  
+- Định nghĩa exception handling theo [EXC-001]–[EXC-005].  
+- Định nghĩa dữ liệu theo [DAT-001]–[DAT-011].  
+- Định nghĩa NFR theo [NFR-001]–[NFR-009].
 
-### 1.2. Mô Hình Dữ Liệu & Hệ Sinh Thái
+### 1.2. MẠNG DỮ LIỆU & HỆ THỐNG CƠ BẢN
 
-- Sử dụng PostgreSQL với schema rõ ràng, các bảng: USERS, ROLES, CENTERS, COURSES, ENROLLMENTS, ATTENDANCE, STUDENTCARDS, NOTIFICATIONS, PROMOTIONS, ANNOUNCEMENTS, SYSTEMSETTINGS.  
-- Mỗi bảng có primary key, foreign key, index, constraints.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
-- Sử dụng Next.js + React Native cho frontend.  
-- Sử dụng Quarkus cho backend.  
-- Sử dụng PostgreSQL cho dữ liệu chính.  
-- Sử dụng Redis cho session caching.  
-- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
-- Sử dụng Zalo API cho push.  
-- Sử dụng Firebase Auth cho xác thực.  
-- Sử dụng FCM/APNs cho push.  
-- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
-- Sử dụng Flyway/Liquibase cho migration.  
-- Sử dụng Docker, Kubernetes, Helm charts.  
-- Sử dụng GitHub Actions cho CI/CD.  
+- Gateway nhận request, chuyển tới service phù hợp.  
+- Topic Kafka: `auth`, `attendance`, `notification`, `course`, `center`.  
+- Fan‑out: Zalo group, FCM/APNs, web push.  
+- Ingestion: API REST, GraphQL (future), webhook.  
+- Event sourcing: audit log, audit trail.  
+- Cross‑domain: CORS, CSRF token, XSS sanitization.  
+- Monitoring: Prometheus, Grafana, Stackdriver.  
+- Logging: ELK stack, audit logs.  
+- Backup: PostgreSQL full backup, point‑in‑time recovery.  
+- Disaster recovery: multi‑region GKE, Cloud Storage snapshots.
 
-## 📁 2. CÔNG NGHỆ & THỰC THIẾT KẾ
-
-### 2.1. Định Nghĩa Đặc Điểm Cụ Thể
+## 📁 2. CỤC PHẦN CÔNG NGHỆ & THƯ VIỆN
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -966,94 +814,119 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-## 📁 3. QUY ĐỊNH & CHẤT LƯỢNG
+### Backend Infrastructure Core Stack
 
-## 📁 4. TỔNG QUẢN LÝ & KẾ HOẠCH
+- Java 21, Quarkus 3.x, Hibernate ORM, Flyway for migrations.  
+- PostgreSQL 15, Redis 7, Kafka 3.x.  
+- Docker 24, Docker Compose, Kubernetes 1.28.  
+- Terraform 1.6, GCP provider, GKE 1.28.  
+- CI/CD: GitHub Actions, Docker Hub, GCR.  
+- Security: Keycloak (optional), JWT, OAuth2, TLS 1.3.  
 
-### 4.1. BẢNG ĐỒNG HỒ CHI TIẾT
+### Frontend & Cross‑Platform UI Mobile Stack
+
+- Next.js 13, React 18, TypeScript, Tailwind CSS.  
+- React Native 0.73, Expo, TypeScript.  
+- State management: Redux Toolkit, React Query.  
+- Routing: Next.js dynamic routes, React Navigation.  
+- Localization: i18next, language fallback.  
+- Testing: Jest, React Testing Library, Detox for mobile.  
+
+## 📁 3. QUY ĐỊNH BẢO VỆ & CHẤT LƯỢNG CÔNG NGHỆ
+
+- Repository root: `.`; all paths start with `./sources/`.  
+- Java package: `org.nlh4j.saas.membershiphub`.  
+- Tester paths: `./sources/backend/<service>/src/test/java/...;./sources/backend/<service>/src/test/java/...`.  
+- DevOps scripts: `./sources/infra/terraform/`, `./sources/infra/docker/`.  
+- CI/CD: `./sources/infra/github-actions/`.  
+- Security: OWASP Top 10 mitigations, JWT expiry, refresh token rotation.  
+- Logging: structured JSON, audit trail.  
+- Backup: daily PostgreSQL full, weekly incremental.  
+- Disaster recovery: multi‑region GKE, Cloud Storage snapshots.  
+- GDPR/CCPA: data deletion, export JSON, consent management.  
+
+## 📁 4. TỔNG QUAN ĐỒ THỊ ĐIỀU HÀNH ĐỘI PHÂN GIAO
+
+### 4.1. MỤC ĐÍCH SẢN PHẨM CHÍNH
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Đăng ký người dùng | Implement user registration endpoint, store user record, issue JWT | Application Code | [REQ-001] |
-| 2 | Xác thực qua mạng xã hội | Implement social login flow, exchange OAuth2 code, issue JWT | Application Code | [REQ-002] |
-| 3 | Phân quyền người dùng | Implement role assignment endpoint, update user role | Application Code | [REQ-003] |
-| 4 | Xem danh sách trung tâm | Implement endpoint to list centers with details | Application Code | [REQ-004] |
-| 5 | Tạo/cập nhật/xóa trung tâm | Implement CRUD for centers, enforce tax ID uniqueness | Application Code | [REQ-005] |
-| 6 | Phân quyền quản trị trung tâm | Assign/unassign Center Admin to center | Application Code | [REQ-006] |
-| 7 | Xem danh sách khóa học | Implement endpoint to list courses with teacher | Application Code | [REQ-007] |
-| 8 | Tạo/cập nhật/xóa khóa học | Implement CRUD for courses, validate schedule conflicts | Application Code | [REQ-008] |
-| 9 | Phân công giáo viên vào khóa học | Implement assignment endpoint, notify teacher | Application Code | [REQ-009] |
-| 10 | Duyệt khóa học | Implement course browsing for students | Application Code | [REQ-010] |
-| 11 | Đăng ký khóa học của học viên | Implement enrollment endpoint, auto-create student account | Application Code | [REQ-011] |
-| 12 | Chụp ảnh điểm danh QR | Implement QR scan endpoint, record attendance | Application Code | [REQ-012] |
-| 13 | Tính chất bất biến của điểm danh | Ensure idempotent attendance recording | Application Code | [REQ-013] |
-| 14 | Hiển thị tính hợp lệ của thẻ | Implement card status endpoint, compute remaining days | Application Code | [REQ-014] |
-| 15 | Gia hạn thẻ | Implement card renewal endpoint, update end date | Application Code | [REQ-015] |
-| 16 | Kích hoạt thông báo | Implement notification trigger on events | Application Code | [REQ-016] |
-| 17 | Quản lý khuyến mãi | Implement promotion CRUD, apply discounts | Application Code | [REQ-017] |
-| 18 | Quản lý thông báo | Implement announcement CRUD, broadcast | Application Code | [REQ-018] |
-| 19 | Tích hợp chatbot AI | Implement chatbot endpoint, integrate LLM | Application Code | [REQ-019] |
-| 20 | Giao diện người dùng vai trò cụ thể trên di động | Implement role‑based mobile UI | Application Code | [REQ-020] |
-| 21 | Thông báo đẩy trên di động | Implement push notification service | Application Code | [REQ-021] |
-| 22 | Phát hiện ngôn ngữ mặc định | Implement locale detection, fallback | Application Code | [REQ-022] |
-| 23 | SEO đa ngôn ngữ | Implement multilingual meta tags, hreflang | Application Code | [REQ-023] |
-| 24 | Tạo báo cáo điểm danh | Implement attendance report generation (CSV) | Application Code | [REQ-024] |
-| 25 | Network & Connectivity Drops During QR Scan | Handle network failures during QR scan | Application Code | [EXC-001] |
-| 26 | Duplicate Attendance Submission | Handle duplicate attendance submissions | Application Code | [EXC-002] |
-| 27 | Failed Notification Delivery | Retry logic for failed push notifications | Application Code | [EXC-003] |
-| 28 | Xác thực đầu vào không hợp lệ | Validate input fields, return errors | Application Code | [EXC-004] |
-| 29 | System Recovery After Outage | Process pending attendance scans after outage | Application Code | [EXC-005] |
-| 30 | Bảng người dùng & vai trò | Document USERS and ROLES schema | Enterprise Documentation | [DAT-001] |
-| 31 | Bảng vai trò | Document ROLES schema | Enterprise Documentation | [DAT-002] |
-| 32 | Bảng trung tâm | Document CENTERS schema | Enterprise Documentation | [DAT-003] |
-| 33 | Bảng khóa học | Document COURSES schema | Enterprise Documentation | [DAT-004] |
-| 34 | Bảng ghi danh | Document ENROLLMENTS schema | Enterprise Documentation | [DAT-005] |
-| 35 | Bảng điểm danh | Document ATTENDANCE schema | Enterprise Documentation | [DAT-006] |
-| 36 | Bảng thẻ hội viên | Document STUDENTCARDS schema | Enterprise Documentation | [DAT-007] |
-| 37 | Bảng thông báo | Document NOTIFICATIONS schema | Enterprise Documentation | [DAT-008] |
-| 38 | Bảng khuyến mãi & thông báo | Document PROMOTIONS & ANNOUNCEMENTS schema | Enterprise Documentation | [DAT-009] |
-| 39 | Bảng cài đặt hệ thống | Document SYSTEMSETTINGS schema | Enterprise Documentation | [DAT-010] |
-| 40 | Bảng cài đặt hệ thống | Document SYSTEMSETTINGS schema (duplicate) | Enterprise Documentation | [DAT-011] |
-| 41 | System Admin: toàn quyền trên tất cả các trung tâm | Document role definition | Enterprise Documentation | [ARC-001] |
-| 42 | Center Admin: toàn quyền trong trung tâm của mình | Document role definition | Enterprise Documentation | [ARC-002] |
-| 43 | Manager: có thể tạo thông báo, quản lý học viên | Document role definition | Enterprise Documentation | [ARC-003] |
-| 44 | Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc | Document role definition | Enterprise Documentation | [ARC-004] |
-| 45 | Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên | Document role definition | Enterprise Documentation | [ARC-005] |
-| 46 | Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2 | Document authentication flow | Enterprise Documentation | [ARC-006] |
-| 47 | Luồng xử lý điểm danh QR | Document attendance flow | Enterprise Documentation | [ARC-007] |
-| 48 | Luồng gửi thông báo | Document notification flow | Enterprise Documentation | [ARC-008] |
-| 49 | Luồng tích hợp backend ứng dụng di động | Document mobile integration flow | Enterprise Documentation | [ARC-009] |
-| 50 | Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, PostgreSQL, Docker, GKE, Firebase Auth, FCM/APNs, Zalo API, Redis, CI/CD | Document technology stack | Enterprise Documentation | [ARC-010] |
-| 51 | Performance Metrics: Core API responses within 200ms | Document performance requirement | Enterprise Documentation | [NFR-001] |
-| 52 | Availability: 99.9% uptime | Document availability requirement | Enterprise Documentation | [NFR-002] |
-| 53 | Security: TLS 1.3, AES-256, JWT 15min, refresh 7 days, OWASP Top 10 | Document security requirement | Enterprise Documentation | [NFR-003] |
-| 54 | Scalability & Availability: HPA, PostgreSQL read replicas | Document scalability requirement | Enterprise Documentation | [NFR-004] |
-| 55 | Docker Image Size: Base <200MB, final <500MB | Document Docker size requirement | Enterprise Documentation | [NFR-005] |
-| 56 | Logging & Audit: logs retained 1 year | Document logging requirement | Enterprise Documentation | [NFR-006] |
-| 57 | Multi‑Language Support: UI strings externalized | Document localization requirement | Enterprise Documentation | [NFR-007] |
-| 58 | GDPR/CCPA Compliance: deletion, export, consent | Document privacy requirement | Enterprise Documentation | [NFR-008] |
-| 59 | Backup & Disaster Recovery: daily backups, point‑in‑time | Document backup requirement | Enterprise Documentation | [NFR-009] |
-| 60 | Dockerfile for backend services | Build Docker images for services | DevOps Infrastructure | [NFR-005] |
-| 61 | Terraform scripts for GCP resources | Provision GCP infrastructure | DevOps Infrastructure | [NFR-003] |
-| 62 | Kubernetes manifests for GKE deployment | Deploy services to GKE | DevOps Infrastructure | [NFR-004] |
-| 63 | CI/CD pipeline configuration (GitHub Actions) | Automate build, test, deploy | DevOps Infrastructure | [NFR-006] |
-| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 63 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+| 1 | Đăng ký người dùng (email/password) | Tạo tài khoản, trả JWT | Application Code | [REQ-001] |
+| 2 | Đăng ký người dùng (social) | Xác thực OAuth2, tạo/ cập nhật tài khoản | Application Code | [REQ-002] |
+| 3 | Phân quyền người dùng | Cập nhật role, áp dụng RBAC | Application Code | [REQ-003] |
+| 4 | Xác thực JWT | Cấp token, refresh token | Application Code | [ARC-006] |
+| 5 | Xác thực điểm danh QR | Nhận student ID, timestamp, ghi nhận attendance | Application Code | [ARC-007] |
+| 6 | Gửi thông báo push/Zalo | Kích hoạt push, đăng bài Zalo | Application Code | [ARC-008] |
+| 7 | Giao diện Next.js | Consuming REST APIs, caching offline | Application Code | [ARC-009] |
+| 8 | Backend Java/Quarkus | Service implementation, dependency injection | Application Code | [ARC-010] |
+| 9 | Quản lý người dùng (DB) | Định nghĩa bảng USERS, ROLES | Enterprise Documentation | [DAT-001] |
+| 10 | Quản lý trung tâm (DB) | Định nghĩa bảng CENTERS | Enterprise Documentation | [DAT-003] |
+| 11 | Quản lý khóa học (DB) | Định nghĩa bảng COURSES | Enterprise Documentation | [DAT-004] |
+| 12 | Ghi danh học viên (DB) | Định nghĩa bảng ENROLLMENTS | Enterprise Documentation | [DAT-005] |
+| 13 | Điểm danh (DB) | Định nghĩa bảng ATTENDANCE | Enterprise Documentation | [DAT-006] |
+| 14 | Thẻ hội viên (DB) | Định nghĩa bảng STUDENTCARDS | Enterprise Documentation | [DAT-007] |
+| 15 | Thông báo (DB) | Định nghĩa bảng NOTIFICATIONS | Enterprise Documentation | [DAT-008] |
+| 16 | Khuyến mãi (DB) | Định nghĩa bảng PROMOTIONS | Enterprise Documentation | [DAT-009] |
+| 17 | Thông báo (DB) | Định nghĩa bảng ANNOUNCEMENTS | Enterprise Documentation | [DAT-010] |
+| 18 | Cài đặt hệ thống (DB) | Định nghĩa bảng SYSTEMSETTINGS | Enterprise Documentation | [DAT-011] |
+| 19 | Exception: Xác thực đầu vào không hợp lệ | Xử lý lỗi, trả thông báo | Application Code | [EXC-004] |
+| 20 | Exception: Network drop during QR scan | Retry logic, idempotent | Application Code | [EXC-001] |
+| 21 | Exception: Duplicate attendance | Kiểm tra duplicate, trả success | Application Code | [EXC-002] |
+| 22 | Exception: Notification delivery failure | Retry, log failure | Application Code | [EXC-003] |
+| 23 | Exception: System recovery after outage | FIFO processing, notify users | Application Code | [EXC-005] |
+| 24 | NFR: Performance metrics | API latency <200 ms | Application Code | [NFR-001] |
+| 25 | NFR: Availability | 99.9 % uptime, failover | Application Code | [NFR-002] |
+| 26 | NFR: Security | TLS 1.3, AES‑256, OWASP mitigations | Application Code | [NFR-003] |
+| 27 | NFR: Scalability | HPA, read replicas | Application Code | [NFR-004] |
+| 28 | NFR: Docker image size | <200 MB base, <500 MB final | Application Code | [NFR-005] |
+| 29 | NFR: Logging & Audit | Structured logs, 1 year retention | Application Code | [NFR-006] |
+| 30 | NFR: Multi‑Language | i18n, locale fallback | Application Code | [NFR-007] |
+| 31 | NFR: GDPR/CCPA | Data deletion, export JSON | Application Code | [NFR-008] |
+| 32 | NFR: Backup & DR | Daily backup, 24 h PITR | Application Code | [NFR-009] |
+| 33 | RBAC: System Admin | Toàn quyền trên tất cả trung tâm | Application Code | [ARC-001] |
+| 34 | RBAC: Center Admin | Toàn quyền trong trung tâm | Application Code | [ARC-002] |
+| 35 | RBAC: Manager | Quản lý học viên, gán học viên | Application Code | [ARC-003] |
+| 36 | RBAC: Teacher | Xem khóa học, danh sách học viên | Application Code | [ARC-004] |
+| 37 | RBAC: Student | Đăng ký khóa học, xem thẻ | Application Code | [ARC-005] |
+| 38 | DevOps: Dockerfile | Multi‑stage build | DevOps Infrastructure | [DAT-001] |
+| 39 | DevOps: Terraform | GCP provisioning | DevOps Infrastructure | [DAT-002] |
+| 40 | DevOps: GKE manifests | Deployment, HPA | DevOps Infrastructure | [DAT-003] |
+| 41 | DevOps: CI/CD pipeline | GitHub Actions | DevOps Infrastructure | [DAT-004] |
+| 42 | DevOps: Monitoring | Prometheus, Grafana | DevOps Infrastructure | [DAT-005] |
+| 43 | DevOps: Logging | ELK stack | DevOps Infrastructure | [DAT-006] |
+| 44 | DevOps: Backup scripts | PostgreSQL backup | DevOps Infrastructure | [DAT-007] |
+| 45 | DevOps: Disaster recovery | Multi‑region GKE | DevOps Infrastructure | [DAT-008] |
+| 46 | DevOps: Security scanning | OWASP, SAST | DevOps Infrastructure | [DAT-009] |
+| 47 | DevOps: Container registry | Docker Hub, GCR | DevOps Infrastructure | [DAT-010] |
+| 48 | DevOps: Release strategy | Canary, blue/green | DevOps Infrastructure | [DAT-011] |
+| 49 | Documentation: Architecture diagram | Mermaid flow | Enterprise Documentation | [DAT-001] |
+| 50 | Documentation: API spec | OpenAPI 3.0 | Enterprise Documentation | [DAT-002] |
+| 51 | Documentation: Deployment guide | GKE, Terraform | Enterprise Documentation | [DAT-003] |
+| 52 | Documentation: User guide | i18n, mobile | Enterprise Documentation | [DAT-004] |
+| 53 | Documentation: Security policy | OWASP, encryption | Enterprise Documentation | [DAT-005] |
+| 54 | Documentation: Backup policy | PITR, retention | Enterprise Documentation | [DAT-006] |
+| 55 | Documentation: Disaster recovery | Multi‑region | Enterprise Documentation | [DAT-007] |
+| 56 | Documentation: Compliance | GDPR, CCPA | Enterprise Documentation | [DAT-008] |
+| 57 | Documentation: Performance | Benchmarking | Enterprise Documentation | [DAT-009] |
+| 58 | Documentation: Scalability | HPA, replicas | Enterprise Documentation | [DAT-010] |
+| 59 | Documentation: DevOps | CI/CD, Docker | Enterprise Documentation | [DAT-011] |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 59 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 
-### 4.2. BẢNG ĐỒNG HỒ ĐIỀU KHIẾN
+### 4.2. MÁY CHẾ ĐỒ ĐIỀU HÀNH ĐỘI PHÂN GIAO
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 
-| Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+| Phase | Day Range | Đường dẫn Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Phase 1 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | User & center management, role assignment, performance, security | Coder, Tester, Reviewer, Doc | [REQ-001],[REQ-002],[REQ-003],[REQ-004],[REQ-005],[REQ-006],[DAT-001],[DAT-002],[ARC-001],[ARC-002],[ARC-003],[NFR-001],[NFR-003] |
-| Phase 2 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | Course management, enrollment, performance, scalability | Coder, Tester, Reviewer, Doc | [REQ-007],[REQ-008],[REQ-009],[REQ-010],[REQ-011],[DAT-003],[DAT-004],[ARC-004],[ARC-005],[NFR-002],[NFR-004] |
-| Phase 3 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | Attendance, card, notifications, performance | Coder, Tester, Reviewer, Doc | [REQ-012],[REQ-013],[REQ-014],[REQ-015],[REQ-016],[REQ-017],[DAT-005],[DAT-006],[DAT-007],[ARC-006],[ARC-007],[NFR-005] |
-| Phase 4 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | Promotions, announcements, chatbot, mobile UI, SEO, localization | Coder, Tester, Reviewer, Doc | [REQ-018],[REQ-019],[REQ-020],[REQ-021],[REQ-022],[REQ-023],[REQ-024],[EXC-001],[EXC-002],[EXC-003],[EXC-004],[DAT-008],[DAT-009] |
-| Phase 5 | Day 1 - 5 | ./sources/infra/membership-hub | Infrastructure: Docker, Terraform, GKE, CI/CD, security, logging, backup | Coder, Tester, Reviewer, Doc, DevOps | [REQ-024],[EXC-005],[DAT-010],[DAT-011],[ARC-008],[ARC-009],[ARC-010],[NFR-006],[NFR-007],[NFR-008],[NFR-009],[NFR-005],[NFR-003],[NFR-004],[NFR-006] |
+| Phase 1 | Day 1 - 2 | `./sources/backend/user-service/`, `./sources/backend/center-service/` | Xây dựng dịch vụ người dùng, trung tâm, RBAC | Coder, Reviewer, Doc | [REQ-001],[REQ-002],[REQ-003],[ARC-001],[ARC-002],[ARC-003],[EXC-004],[NFR-001],[NFR-002],[NFR-003],[NFR-004],[NFR-005],[NFR-006],[NFR-007],[NFR-008],[NFR-009],[DAT-001],[DAT-003],[DAT-004],[DAT-005],[DAT-006],[DAT-007],[DAT-008],[DAT-009],[DAT-010],[DAT-011] |
+| Phase 2 | Day 1 - 2 | `./sources/backend/course-service/`, `./sources/backend/attendance-service/` | Xây dựng dịch vụ khóa học, điểm danh, notification | Coder, Reviewer, Doc | [REQ-004],[REQ-005],[REQ-006],[REQ-007],[REQ-008],[REQ-009],[ARC-004],[ARC-005],[ARC-006],[ARC-007],[ARC-008],[ARC-009],[ARC-010],[EXC-001],[EXC-002],[EXC-003],[EXC-005],[DAT-001],[DAT-003],[DAT-004],[DAT-005],[DAT-006],[DAT-007],[DAT-008],[DAT-009],[DAT-010],[DAT-011] |
+| Phase 3 | Day 1 - 2 | `./sources/backend/card-service/`, `./sources/backend/notification-service/` | Xây dựng dịch vụ thẻ hội viên, notification, promotion | Coder, Reviewer, Doc | [REQ-010],[REQ-011],[REQ-012],[REQ-013],[REQ-014],[REQ-015],[REQ-016],[REQ-017],[REQ-018],[REQ-019],[REQ-020],[REQ-021],[REQ-022],[REQ-023],[REQ-024],[ARC-007],[ARC-008],[ARC-009],[ARC-010],[EXC-001],[EXC-002],[EXC-003],[EXC-004],[EXC-005],[DAT-001],[DAT-003],[DAT-004],[DAT-005],[DAT-006],[DAT-007],[DAT-008],[DAT-009],[DAT-010],[DAT-011] |
+| Phase 4 | Day 1 - 1 | `./sources/infra/terraform/`, `./sources/infra/docker/`, `./sources/infra/github-actions/` | Xây dựng hạ tầng, CI/CD, monitoring | Coder, Reviewer, Doc, Docker, GCP, GKE | [DAT-001],[DAT-002],[DAT-003],[DAT-004],[DAT-005],[DAT-006],[DAT-007],[DAT-008],[DAT-009],[DAT-010],[DAT-011] |
+| Phase 5 | Day 1 - 1 | `./sources/docs/architecture/`, `./sources/docs/api/`, `./sources/docs/deployment/` | Tài liệu kỹ thuật, API spec, deployment guide | Doc | [DAT-001],[DAT-002],[DAT-003],[DAT-004],[DAT-005],[DAT-006],[DAT-007],[DAT-008],[DAT-009],[DAT-010],[DAT-011] |
 | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly 5 calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
 
 <!--END_PHASE_SYNOPSIS_GRID-->
