@@ -133,6 +133,8 @@ You MUST include every single section below without exception to satisfy enterpr
   {% endif %}
 {% endif %}
 
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
+
 ## 📊 Document Control
 
 | Item | Details |
@@ -144,7 +146,6 @@ You MUST include every single section below without exception to satisfy enterpr
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
 ## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
 ### 1.1. Core System Modality & Architecture Modality
@@ -185,6 +186,7 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
 - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "{{ project_name }}" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+
 {% endif %}
 
 {% if force_full_export or (target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1") %}
