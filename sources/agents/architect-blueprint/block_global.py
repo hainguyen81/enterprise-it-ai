@@ -71,7 +71,9 @@ def generate_global_context(client: OpenAI, model_name: str, master_rules: str, 
             "current_timestamp": datetime_prompt,
             "language": language or DEFAULT_BLUEPRINT_LANGUAGE,
             "num_phases": num_phases,
-            "max_days_per_phase": max_days_per_phase
+            "max_days_per_phase": max_days_per_phase,
+            # not using, it belongs to chunk case, add to avoid compile error
+            "target_phase_index": -1,
         }
         # parse system prompt from template
         system_prompt = render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, prompt_context)

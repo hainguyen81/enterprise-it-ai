@@ -97,7 +97,7 @@ You MUST include every single section below without exception to satisfy enterpr
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %} while completely freezing all technical paths, tags, and block codes.
 </RULE>
 
-{% if force_full_export or target_segment == "PART_1_INITIAL" %}
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
 # GLOBAL PROJECT CONTEXT: {{ project_name }}
 
 {% if force_full_export %}
@@ -106,28 +106,28 @@ You MUST include every single section below without exception to satisfy enterpr
 
 {% else %}
 
-  {% if target_segment == "PART_1_INITIAL" %}
+  {% if target_segment and target_segment.strip() == "PART_1_INITIAL" %}
   MANDATORY SEGMENT INSTRUCTION: 
   - You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
   - Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
-  {% elif target_segment == "PART_1_BACKLOG_4_1" %}
+  {% elif target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1" %}
   MANDATORY SEGMENT INSTRUCTION: 
   - You are strictly commanded to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG) inside the parsing hooks. 
   - You MUST perform an atomic expansion of all raw requirements from the SRS. 
   - Absolutely DO NOT generate any other sections, headers, or matrices. Halt execution immediately after closing the backlog table.
 
-  {% elif target_segment == "PART_1_MATRIX_4_2" %}
+  {% elif target_segment and target_segment.strip() == "PART_1_MATRIX_4_2" %}
   MANDATORY SEGMENT INSTRUCTION: 
   - You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks. 
   - You MUST distribute the exact workload from the previous backlog step into calculated phases. 
   - Enforce the **DYNAMIC RANGE COMPUTE LAW** to calculate 'Day 1 - K' based on task density. 
   - Absolutely DO NOT generate Section 1, 2, 3, 4.1, 5, 6, 7, or 8.
 
-  {% elif target_segment == "PART_2_PHASE_LOOP" %}
+  {% elif target_segment and target_segment.strip() == "PART_2_PHASE_LOOP" %}
   MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase {{ target_phase_index }}. Completely delete and skip all other sections.
 
-  {% elif target_segment == "PART_3_FINAL" %}
+  {% elif target_segment and target_segment.strip() == "PART_3_FINAL" %}
   MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 6, Section 7, and Section 8. Completely skip sections 1 to 5.
 
   {% endif %}
@@ -144,7 +144,7 @@ You MUST include every single section below without exception to satisfy enterpr
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-{% if force_full_export or target_segment == "PART_1_INITIAL" %}
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
 ## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
 ### 1.1. Core System Modality & Architecture Modality
@@ -187,7 +187,7 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
 {% endif %}
 
-{% if force_full_export or target_segment == "PART_1_BACKLOG_4_1" %}
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1") %}
 ## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
 ### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
@@ -216,10 +216,10 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 {% endif %}
 
-{% if force_full_export or target_segment == "PART_1_MATRIX_4_2" %}
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_MATRIX_4_2") %}
 ### 4.2. MULTI-PHASE SYNOPSIS MATRIX
 
-{% if target_segment == "PART_1_MATRIX_4_2" %}
+{% if (target_segment and target_segment.strip() == "PART_1_MATRIX_4_2") %}
 
 - **INPUT GROUNDING DATA:** You MUST analyze the generated Master Backlog below to distribute tasks symmetrically across phases:
 <master_backlog_context>
@@ -289,10 +289,10 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   
 {% endif %}
 
-{% if force_full_export or target_segment == "PART_2_PHASE_LOOP" %}
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_2_PHASE_LOOP") %}
 
 {# ─── MANDATORY PROGRESSIVE GATING ENGINE ─── #}
-{% if target_segment == "PART_2_PHASE_LOOP" %}
+{% if (target_segment and target_segment.strip() == "PART_2_PHASE_LOOP") %}
 
 <RULE>
 [STRICT OPERATIONAL MANDATE FOR PHASE {{ target_phase_index }} OUT OF {{ num_phases }}]
@@ -336,7 +336,11 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to {{ max_days_per_phase }} is completely banned.
 </COMMAND>
 
-### 📈 [Translated text for "Phase"] {{ target_phase_index }} - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: "Khởi Tạo Hệ Thống Người Dùng Và Xác Thực" OR "Triển Khai Lõi Nghiệp Vụ Khóa Học"]
+{% if force_full_export %}
+- **MONOLITHIC GENERATION EXECUTION RAIL:** You MUST sequentially execute and expand the following structural block for EVERY calculated phase from Phase 1 up to Phase N (where N = {{ num_phases }}) in a continuous stream. For each iteration, dynamically substitute the index X with the current phase number.
+{% endif %}
+
+### 📈 [Translated text for "Phase"] {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: "Khởi Tạo Hệ Thống Người Dùng Và Xác Thực" OR "Triển Khai Lõi Nghiệp Vụ Khóa Học"]
 - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}]
 - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
     *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -378,7 +382,7 @@ Output high-density technical instructions, operational validation steps, or sch
 </RULE>
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase {{ target_phase_index }}' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
+- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %}' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 * **Database Schema DDL SQL Specification [DAT-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -401,20 +405,21 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 {% if force_full_export or target_phase_index == num_phases %}
 
 ### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
+- **TIMING LOCATION:** This compliance ledger MUST be rendered exclusively at the absolute bottom of Section 5, immediately following the final day log of the final phase.
 - Immediately beneath the final Phase log (Phase {{ num_phases }}) and before closing Section 5, you MUST execute a strict internal mathematical self-audit of the entire assembled architecture. 
 - You MUST compile and render an isolated, clean Markdown Compliance Report block utilizing the exact Technical English structure below. 
-- You are critically ordered to dynamically compute the real-world values based strictly on the current generation instance metrics combined with the historic data provided in `<PREVIOUS_PHASES_HISTORY>`—no hardcoding or static placeholder strings allowed:
+- You are critically ordered to dynamically compute the real-world values based strictly on the current generation instance metrics—no hardcoding or static placeholder strings.
 
 ```properties:cross_audit_ledger
 [AUTOMATED_SELF_AUDIT_REPORT]
-TOTAL_PHASES_DECLARED_IN_SECTION_4_2={{ num_phases }}
+TOTAL_PHASES_DECLARED_IN_SECTION_4_2={% if force_full_export %}{{ num_phases }}{% else %}computed_integer_N{% endif %}
 TOTAL_PHASES_EXPECTED_BY_PARAMETERS={{ num_phases }}
 PHASE_COUNT_COMPLIANCE_STATUS=Verified_{{ num_phases }}
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER={{ max_days_per_phase }}
-ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE={{ max_days_per_phase }}
+ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE={% if force_full_export %}{{ max_days_per_phase }}{% else %}computed_highest_day_integer_found_in_section_5{% endif %}
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
 TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1={{ total_tasks_registered }}
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum here based on the strict mandate rule above]
+TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum of all listed atomic sub-task nodes generated across all phases]
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
 
@@ -425,10 +430,14 @@ SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_S
 {% if force_full_export or target_segment == "PART_3_FINAL" %}
 
 ### GROUNDING CONTEXT FROM PREVIOUS STEPS
+{% if not force_full_export %}
+
 Below are all the detailed phase logs generated in Part 2. You MUST review them to ensure the universal security codes match the tech stack implemented:
 <PREVIOUS_STEP_PHASE_LOGS>
 {{ generated_phases_context }}
 </PREVIOUS_STEP_PHASE_LOGS>
+
+{% endif %}
 
 ## 📁 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
 - **SQL Injection (SQLi) Absolute Countermeasures:** Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.
