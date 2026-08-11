@@ -610,6 +610,17 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 2. Completely delete and skip all other sections.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -726,6 +737,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 ---
 
+```markdown
 # GLOBAL PROJECT CONTEXT: membership-hub
 
 ## 🏛️ 1. TỔNG QUAN HỆ THỐNG
@@ -761,7 +773,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
 ### 2.1 Quản lý người dùng
 
@@ -810,6 +822,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           varchar description "Role description, optional, max 200 chars"
       }
   ```
+
 ### 2.2 Quản lý trung tâm
 
 #### Yêu cầu chức năng cốt lõi
@@ -821,9 +834,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. `[REQ-004]`
 - Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. `[REQ-005]`
 - Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. `[REQ-006]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-003] Bảng trung tâm
@@ -840,6 +850,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
+
 ### 2.3 Quản lý khóa học
 
 #### Yêu cầu chức năng cốt lõi
@@ -851,9 +862,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. `[REQ-007]`
 - Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. `[REQ-008]`
 - Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. `[REQ-009]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-004] Bảng khóa học
@@ -871,6 +879,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           int maxStudents "Course capacity, default 30"
       }
   ```
+
 ### 2.4 Đăng ký & ghi danh học viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -880,9 +889,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. `[REQ-010]`
 - Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. `[REQ-011]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-005] Bảng ghi danh
@@ -897,6 +903,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
+
 ### 2.5 Điểm danh & quét mã QR
 
 #### Yêu cầu chức năng cốt lõi
@@ -925,6 +932,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           timestamp timestamp "Exact time recorded, default now()"
       }
   ```
+
 ### 2.6 Quản lý thẻ hội viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -934,9 +942,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. `[REQ-014]`
 - Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. `[REQ-015]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-007] Bảng thẻ hội viên
@@ -952,6 +957,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           int remainingDays "Computed days left until expiry"
       }
   ```
+
 ### 2.7 Thông báo & truyền thông
 
 #### Yêu cầu chức năng cốt lõi
@@ -978,6 +984,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           boolean delivered "Delivery status, default false"
       }
   ```
+
 ### 2.8 Quản lý khuyến mãi & thông báo
 
 #### Yêu cầu chức năng cốt lõi
@@ -987,9 +994,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. `[REQ-017]`
 - Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. `[REQ-018]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-009] Bảng khuyến mãi & thông báo
@@ -1017,6 +1021,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           date endDate "Effective end, optional"
       }
   ```
+
 ### 2.9 Chatbot dịch vụ khách hàng AI
 
 #### Yêu cầu chức năng cốt lõi
@@ -1024,12 +1029,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 #### Tiêu chí chấp nhận & tương tác
 - Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. `[REQ-019]`
-
-#### Luồng ngoại lệ của mô-đun
-- [NOT APPLICABLE] Chatbot AI không có bảng dữ liệu chuyên biệt; tất cả các tương tác được ghi lại trong bảng AuditLog (xem [ARC-006] để biết chi tiết logging).
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
 
 ### 2.10 Các tính năng cốt lõi của ứng dụng di động
 
@@ -1041,12 +1040,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. `[REQ-020]`
 - Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. `[REQ-021]`
 
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
-
 ### 2.11 Bản địa hóa & SEO
 
 #### Yêu cầu chức năng cốt lõi
@@ -1056,9 +1049,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
 - Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-011] Bảng cài đặt hệ thống
@@ -1072,6 +1062,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           varchar description "Meaning of setting, optional"
       }
   ```
+
 ### 2.12 Báo cáo & phân tích
 
 #### Yêu cầu chức năng cốt lõi
@@ -1085,9 +1076,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Luồng ngoại lệ của mô-đun
 - [EXC-005] System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
 
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
-
 ## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
 
 - [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
@@ -1100,162 +1088,139 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHÂN TÍCH
+## 📝 4. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
 
 ### 4.1 KIẾN TRÚC TOÀN CẦU
 
-#### 4.1.1 KIẾN TRÚC HỆ THỐNG
+#### 4.1.1 Kiến trúc tổng quan
 
-- **Kiến trúc tổng quan:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho mỗi chức năng chính (quản lý người dùng, khóa học, điểm danh, v.v.). Các dịch vụ này giao tiếp với nhau thông qua REST APIs và sự kiện qua Kafka.
-- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với schema riêng biệt cho mỗi dịch vụ để đảm bảo tính cô lập và bảo mật.
-- **Kiến trúc giao diện người dùng:** Giao diện web được xây dựng bằng Next.js với React, trong khi ứng dụng di động được phát triển bằng React Native.
+- **Kiến trúc tổng quan:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, khóa học, điểm danh, và thông báo. Frontend sử dụng Next.js để cung cấp giao diện đáp ứng cho web và di động. Backend sử dụng Java/Quarkus với cơ sở dữ liệu PostgreSQL. Hệ thống sử dụng Firebase Authentication cho xác thực và Google Cloud Messaging (FCM)/Apple APNs cho push notification. Zalo API được tích hợp để gửi thông báo đến nhóm Zalo.
 
-#### 4.1.2 KIẾN TRÚC PHÂN TÍCH
+#### 4.1.2 Kiến trúc chi tiết
 
-- **Phân tích yêu cầu:** Các yêu cầu chức năng đã được phân tích và chia thành các tính năng độc lập, mỗi tính năng được gán với các Tag IDs tương ứng.
-- **Phân tích dữ liệu:** Các bảng dữ liệu đã được xác định và thiết kế với các quan hệ và ràng buộc phù hợp.
-- **Phân tích ngoại lệ:** Các luồng ngoại lệ đã được xác định và xử lý cho từng tính năng.
+- **Kiến trúc chi tiết:** Hệ thống bao gồm các dịch vụ sau:
+  - **User Service:** Quản lý người dùng, xác thực, và phân quyền.
+  - **Course Service:** Quản lý khóa học, đăng ký, và phân công giáo viên.
+  - **Attendance Service:** Xử lý điểm danh qua quét mã QR.
+  - **Notification Service:** Kích hoạt thông báo đẩy và tin nhắn Zalo.
+  - **Reporting Service:** Tạo báo cáo điểm danh và bảng điều khiển tóm tắt.
 
-### 4.2 MA TRẬN TỔNG QUAN NHIỀU PHASE
+### 4.2 Ma trận tóm tắt đa giai đoạn
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-------------------------|---------------------------|-----------|------------------|
-| Giai đoạn 1 | Ngày 1-2 | ./sources/backend/auth-service/, ./sources/backend/user-service/, ./sources/frontend/ | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
-| Giai đoạn 2 | Ngày 1-3 | ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/frontend/ | Triển khai lõi nghiệp vụ trung tâm và khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [DAT-003], [DAT-004], [ARC-002], [ARC-003] |
-| Giai đoạn 3 | Ngày 1-3 | ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/frontend/ | Triển khai hệ thống ghi danh và điểm danh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [REQ-012], [REQ-013], [DAT-005], [DAT-006], [EXC-001], [EXC-002], [ARC-007] |
-| Giai đoạn 4 | Ngày 1-2 | ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/frontend/ | Triển khai hệ thống thẻ hội viên và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-014], [REQ-015], [REQ-016], [DAT-007], [DAT-008], [EXC-003], [ARC-008] |
-| Giai đoạn 5 | Ngày 1-2 | ./sources/backend/promotion-service/, ./sources/backend/announcement-service/, ./sources/frontend/ | Triển khai hệ thống khuyến mãi và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-017], [REQ-018], [DAT-009], [ARC-009] |
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Sản phẩm bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|-------------------------|-------------------|------------|------------------|
+| Giai đoạn 1 | Ngày 1-2 | `./sources/backend/user-service/` | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
+| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/course-service/` | Triển khai lõi nghiệp vụ khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-007] |
+| Giai đoạn 3 | Ngày 1-2 | `./sources/backend/attendance-service/` | Triển khai hệ thống điểm danh QR | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002], [ARC-008] |
+| Giai đoạn 4 | Ngày 1-2 | `./sources/backend/notification-service/` | Triển khai hệ thống thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003], [ARC-009] |
+| Giai đoạn 5 | Ngày 1-2 | `./sources/frontend/` | Triển khai giao diện người dùng và tích hợp di động | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-020], [REQ-021], [REQ-022], [REQ-023], [DAT-011], [ARC-010] |
 
-## 5. CHI TIẾT KIẾN TRÚC THEO PHASE
+## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
 
-### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Trung Tâm Và Khóa Học
+### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Khóa Học
 
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống quản lý trung tâm và khóa học, bao gồm các tính năng xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, phân quyền quản trị trung tâm, xem danh sách khóa học, tạo/cập nhật/xóa khóa học, phân công giáo viên vào khóa học.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/frontend/
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003], [DAT-004]:**
-```sql
-CREATE TABLE centers (
-    centerId UUID PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    taxId VARCHAR(13) UNIQUE NOT NULL,
-    contactPhone VARCHAR(20),
-    contactEmail VARCHAR(255)
-);
-
-CREATE TABLE courses (
-    courseId UUID PRIMARY KEY,
-    title VARCHAR(150) NOT NULL,
-    description TEXT,
-    startDate DATE NOT NULL,
-    endDate DATE NOT NULL,
-    teacherId UUID REFERENCES users(userId),
-    maxStudents INT DEFAULT 30
-);
-```
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-002], [ARC-003]:**
-```json
-{
-    "GET /api/centers": {
-        "description": "Lấy danh sách trung tâm",
-        "response": {
-            "centers": [
-                {
-                    "centerId": "UUID",
-                    "name": "string",
-                    "address": "string",
-                    "taxId": "string",
-                    "contactPhone": "string",
-                    "contactEmail": "string"
-                }
-            ]
-        }
-    },
-    "POST /api/centers": {
-        "description": "Tạo trung tâm mới",
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai lõi nghiệp vụ quản lý khóa học bao gồm tạo/cập nhật/xóa khóa học, phân công giáo viên, và quản lý ghi danh học viên.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/course-service/`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** Triển khai bảng khóa học và bảng ghi danh.
+- **Hợp đồng Định tuyến API và Sự kiện:**
+  - **API Endpoints:**
+    ```json
+    {
+      "POST /api/courses": {
+        "description": "Tạo khóa học mới",
         "request": {
-            "name": "string",
-            "address": "string",
-            "taxId": "string",
-            "contactPhone": "string",
-            "contactEmail": "string"
+          "title": "string",
+          "description": "string",
+          "startDate": "date",
+          "endDate": "date",
+          "teacherId": "uuid",
+          "maxStudents": "integer"
         },
         "response": {
-            "centerId": "UUID"
+          "courseId": "uuid",
+          "title": "string",
+          "startDate": "date",
+          "endDate": "date"
         }
+      },
+      "GET /api/courses": {
+        "description": "Lấy danh sách khóa học",
+        "response": {
+          "courses": [
+            {
+              "courseId": "uuid",
+              "title": "string",
+              "startDate": "date",
+              "endDate": "date",
+              "teacherName": "string"
+            }
+          ]
+        }
+      },
+      "POST /api/courses/{courseId}/assign-teacher": {
+        "description": "Phân công giáo viên vào khóa học",
+        "request": {
+          "teacherId": "uuid"
+        },
+        "response": {
+          "status": "string"
+        }
+      },
+      "POST /api/enrollments": {
+        "description": "Đăng ký học viên vào khóa học",
+        "request": {
+          "studentId": "uuid",
+          "courseId": "uuid"
+        },
+        "response": {
+          "enrollmentId": "uuid",
+          "enrollmentDate": "timestamp"
+        }
+      }
     }
-}
-```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002], [EXC-003]:**
-  - Xử lý xung đột lịch trình khóa học: Khi giáo viên đã được phân công vào một khóa học khác trong cùng khoảng thời gian, hệ thống sẽ trả về lỗi và yêu cầu người dùng điều chỉnh lịch trình.
-  - Xử lý lỗi xác thực đầu vào: Khi người dùng nhập thông tin không hợp lệ, hệ thống sẽ trả về thông báo lỗi chi tiết và yêu cầu người dùng chỉnh sửa.
+    ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:** Xử lý xung đột lịch trình giáo viên và trùng lặp đăng ký học viên.
 
-#### Nhật ký Ngày theo Ngày Phân phối Nhiệm vụ Sub-Agent (Giai đoạn 2)
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 2)
 
 <!--START_DAY_LOG_INDEX_2-->
 
-- **DAY 1: Khởi tạo hệ thống quản lý trung tâm**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu trung tâm**
-    - Sub-Agent: [Coder]
-    - Tag IDs: [DAT-003]
-    - Target Component: ./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql
-    - Hướng dẫn Công việc Kỹ thuật: Tạo bảng trung tâm với các trường: centerId (UUID, khóa chính), name (VARCHAR(100), không được để trống), address (VARCHAR(255), không được để trống), taxId (VARCHAR(13), duy nhất, không được để trống), contactPhone (VARCHAR(20), tùy chọn), contactEmail (VARCHAR(255), tùy chọn).
+- **DAY 1: Khởi tạo dịch vụ khóa học và bảng cơ sở dữ liệu**
+  - **SUB-TASK 1: Thiết kế lược đồ cơ sở dữ liệu cho dịch vụ khóa học**
+    - [Coder]
+    - [DAT-004]
+    - `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_Courses_Table.sql`
+    - Thiết kế bảng khóa học và bảng ghi danh với các trường và ràng buộc cần thiết.
+  - **SUB-TASK 2: Viết mã khởi tạo dịch vụ khóa học**
+    - [Coder]
+    - [REQ-007], [REQ-008], [REQ-009]
+    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/`
+    - Viết mã khởi tạo dịch vụ khóa học bao gồm các endpoint API và logic nghiệp vụ.
 
-  - **SUB-TASK 2: Viết test cho schema trung tâm**
-    - Sub-Agent: [Tester]
-    - Tag IDs: [DAT-003]
-    - Target Component: ./sources/backend/center-service/src/test/java/com/example/centerservice/CenterServiceTest.java;./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql
-    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra việc tạo bảng trung tâm và các ràng buộc dữ liệu.
+- **DAY 2: Triển khai chức năng quản lý khóa học**
+  - **SUB-TASK 1: Triển khai chức năng tạo/cập nhật/xóa khóa học**
+    - [Coder]
+    - [REQ-008]
+    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/controller/CourseController.java`
+    - Triển khai các endpoint API cho tạo, cập nhật và xóa khóa học.
+  - **SUB-TASK 2: Triển khai chức năng phân công giáo viên**
+    - [Coder]
+    - [REQ-009]
+    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/controller/TeacherAssignmentController.java`
+    - Triển khai endpoint API cho phân công giáo viên vào khóa học.
 
-- **DAY 2: Triển khai API quản lý trung tâm**
-  - **SUB-TASK 1: Thiết kế API lấy danh sách trung tâm**
-    - Sub-Agent: [Coder]
-    - Tag IDs: [REQ-004]
-    - Target Component: ./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
-    - Hướng dẫn Công việc Kỹ thuật: Tạo endpoint GET /api/centers để lấy danh sách trung tâm với các trường: centerId, name, address, taxId, contactPhone, contactEmail.
-
-  - **SUB-TASK 2: Viết test cho API lấy danh sách trung tâm**
-    - Sub-Agent: [Tester]
-    - Tag IDs: [REQ-004]
-    - Target Component: ./sources/backend/center-service/src/test/java/com/example/centerservice/CenterControllerTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
-    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra endpoint GET /api/centers và xác thực dữ liệu trả về.
-
-  - **SUB-TASK 3: Thiết kế API tạo trung tâm mới**
-    - Sub-Agent: [Coder]
-    - Tag IDs: [REQ-005]
-    - Target Component: ./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
-    - Hướng dẫn Công việc Kỹ thuật: Tạo endpoint POST /api/centers để tạo trung tâm mới với các trường: name, address, taxId, contactPhone, contactEmail. Xác thực đầu vào và xử lý xung đột taxId.
-
-  - **SUB-TASK 4: Viết test cho API tạo trung tâm mới**
-    - Sub-Agent: [Tester]
-    - Tag IDs: [REQ-005]
-    - Target Component: ./sources/backend/center-service/src/test/java/com/example/centerservice/CenterControllerTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
-    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra endpoint POST /api/centers và xử lý xung đột taxId.
-
-- **DAY 3: Triển khai hệ thống quản lý khóa học**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu khóa học**
-    - Sub-Agent: [Coder]
-    - Tag IDs: [DAT-004]
-    - Target Component: ./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql
-    - Hướng dẫn Công việc Kỹ thuật: Tạo bảng khóa học với các trường: courseId (UUID, khóa chính), title (VARCHAR(150), không được để trống), description (TEXT, tùy chọn), startDate (DATE, không được để trống), endDate (DATE, không được để trống), teacherId (UUID, khóa ngoại tham chiếu đến bảng users), maxStudents (INT, mặc định 30).
-
-  - **SUB-TASK 2: Viết test cho schema khóa học**
-    - Sub-Agent: [Tester]
-    - Tag IDs: [DAT-004]
-    - Target Component: ./sources/backend/course-service/src/test/java/com/example/courseservice/CourseServiceTest.java;./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql
-    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra việc tạo bảng khóa học và các ràng buộc dữ liệu.
-
-  - **SUB-TASK 3: Thiết kế API lấy danh sách khóa học**
-    - Sub-Agent: [Coder]
-    - Tag IDs: [REQ-007]
-    - Target Component: ./sources/backend/course-service/src/main/java/com/example/courseservice/controller/CourseController.java
-    - Hướng dẫn Công việc Kỹ thuật: Tạo endpoint GET /api/courses để lấy danh sách khóa học với các trường: courseId, title, startDate, endDate, teacherId.
-
-  - **SUB-TASK 4: Viết test cho API lấy danh sách khóa học**
-    - Sub-Agent: [Tester]
-    - Tag IDs: [REQ-007]
-    - Target Component: ./sources/backend/course-service/src/test/java/com/example/courseservice/CourseControllerTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/controller/CourseController.java
-    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra endpoint GET /api/courses và xác thực dữ liệu trả về.
+- **DAY 3: Triển khai chức năng ghi danh học viên**
+  - **SUB-TASK 1: Triển khai chức năng đăng ký khóa học**
+    - [Coder]
+    - [REQ-011]
+    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/controller/EnrollmentController.java`
+    - Triển khai endpoint API cho đăng ký học viên vào khóa học.
+  - **SUB-TASK 2: Viết bộ kiểm thử cho dịch vụ khóa học**
+    - [Tester]
+    - [REQ-007], [REQ-008], [REQ-009], [REQ-011]
+    - `./sources/backend/course-service/src/test/java/com/membershiphub/courseservice/;./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/`
+    - Viết các bộ kiểm thử cho các chức năng quản lý khóa học và ghi danh học viên.
 
 <!--END_PHASE_LOG_BLOCK_INDEX_2-->
+```
 

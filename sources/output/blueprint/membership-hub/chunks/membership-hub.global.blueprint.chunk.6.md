@@ -610,6 +610,17 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 3. Completely delete and skip all other sections.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1103,943 +1114,209 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 ## 📝 4. PHÂN TÍCH KIẾN TRÚC & TÀI NGUYÊN
 
-### 4.1 TÀI NGUYÊN KIẾN TRÚC CỐT LÕI
+### 4.1 PHÂN TÍCH KIẾN TRÚC
 
-#### 4.1.1 Kiến trúc hệ thống
+#### 4.1.1 KIẾN TRÚC TOÀN CẦU
 
-- **Kiến trúc hệ thống:** Hệ thống được xây dựng theo kiến trúc microservices với các dịch vụ độc lập cho xác thực, quản lý người dùng, quản lý trung tâm, quản lý khóa học, điểm danh, và thông báo. Các dịch vụ này giao tiếp với nhau thông qua REST APIs và sự kiện.
-- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với các bảng được chuẩn hóa và các mối quan hệ được xác định rõ ràng. Các dịch vụ sử dụng các bảng riêng biệt cho các thực thể chính của họ và có thể truy cập các bảng của các dịch vụ khác thông qua các mối quan hệ.
-- **Kiến trúc giao diện người dùng:** Giao diện người dùng được xây dựng bằng Next.js cho web và React Native cho di động. Các giao diện này tiêu thụ các API từ các dịch vụ backend và hiển thị dữ liệu một cách tương tác.
+- **Kiến trúc hệ thống:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho mỗi chức năng chính (quản lý người dùng, quản lý trung tâm, quản lý khóa học, điểm danh, thẻ hội viên, thông báo, khuyến mãi, chatbot AI).
+- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với các bảng được chuẩn hóa để đảm bảo tính toàn vẹn dữ liệu và hiệu suất truy vấn.
+- **Kiến trúc giao diện người dùng:** Giao diện người dùng được xây dựng bằng Next.js cho web và React Native cho di động, với các thành phần UI được tái sử dụng giữa các nền tảng.
+- **Kiến trúc giao tiếp:** Sử dụng REST APIs cho các tương tác đồng bộ và WebSockets cho các tương tác thời gian thực như điểm danh và thông báo.
 
-#### 4.1.2 Công nghệ & công cụ
+#### 4.1.2 KIẾN TRÚC PHÂN TÁN
 
-- **Backend:** Java/Quarkus
-- **Cơ sở dữ liệu:** PostgreSQL
-- **Container hóa:** Docker
-- **Orchestration:** Kubernetes (GKE)
-- **Xác thực:** Firebase Authentication
-- **Thông báo đẩy:** Google Cloud Messaging (FCM)/Apple APNs
-- **Tích hợp Zalo:** Zalo API
-- **Caching:** Redis
-- **CI/CD:** GitHub Actions
+- **Phân tán dữ liệu:** Dữ liệu được phân tán theo các trung tâm, với mỗi trung tâm có thể có các bản sao dữ liệu cục bộ để giảm độ trễ truy cập.
+- **Phân tán xử lý:** Các dịch vụ được triển khai trên các cụm Kubernetes (GKE) để đảm bảo tính sẵn sàng và khả năng mở rộng.
+- **Phân tán giao tiếp:** Sử dụng các dịch vụ trung gian như Redis cho session caching và Apache Kafka cho xử lý sự kiện thời gian thực.
 
-### 4.2 Ma trận tổng quan các giai đoạn
+### 4.2 MA TRẬN TÓM TẮT PHÂN PHÁS
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Kiến trúc | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-----------------------------|---------------------------|-----------|------------------|
-| Giai đoạn 1 | Ngày 1-2 | `./sources/backend/auth-service/`, `./sources/backend/user-service/`, `./sources/docs/` | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
-| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/center-service/`, `./sources/docs/` | Triển khai lõi nghiệp vụ trung tâm | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [ARC-002] |
-| Giai đoạn 3 | Ngày 1-2 | `./sources/backend/course-service/`, `./sources/docs/` | Triển khai lõi nghiệp vụ khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-003] |
-| Giai đoạn 4 | Ngày 1-3 | `./sources/backend/attendance-service/`, `./sources/docs/` | Triển khai hệ thống điểm danh và thẻ hội viên | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002], [ARC-007] |
-| Giai đoạn 5 | Ngày 1-3 | `./sources/backend/notification-service/`, `./sources/docs/` | Triển khai hệ thống thông báo và tích hợp Zalo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003], [ARC-008] |
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|------------------------|---------------------------|-----------|------------------|
+| 1         | 1-2         | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [ARC-006], [DAT-001], [EXC-004] |
+| 2         | 3-4         | ./sources/backend/center-service/, ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý trung tâm và khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [DAT-003], [DAT-004] |
+| 3         | 5-7         | ./sources/backend/attendance-service/, ./sources/backend/notification-service/ | Xây dựng dịch vụ điểm danh và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-016], [DAT-006], [DAT-008], [EXC-001], [EXC-002], [EXC-003] |
+| 4         | 8-10        | ./sources/backend/membership-service/, ./sources/backend/promotion-service/ | Xây dựng dịch vụ quản lý thẻ hội viên và khuyến mãi | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-014], [REQ-015], [REQ-017], [REQ-018], [DAT-007], [DAT-009] |
+| 5         | 11-14       | ./sources/frontend/, ./sources/mobile-app/ | Xây dựng giao diện người dùng cho web và di động | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-011], [EXC-005] |
 
-## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
+### 4.3 PHÂN TÍCH TÀI NGUYÊN
 
-### Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống xác thực và quản lý người dùng với các tính năng đăng ký, đăng nhập, và phân quyền.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/auth-service/`, `./sources/backend/user-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Xem phần 2.1.4.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:**
-  ```json
-  {
-    "auth": {
-      "register": {
-        "method": "POST",
-        "path": "/api/auth/register",
-        "request": {
-          "email": "string",
-          "password": "string",
-          "fullName": "string"
-        },
-        "response": {
-          "token": "string"
-        }
-      },
-      "login": {
-        "method": "POST",
-        "path": "/api/auth/login",
-        "request": {
-          "email": "string",
-          "password": "string"
-        },
-        "response": {
-          "token": "string"
-        }
-      },
-      "socialLogin": {
-        "method": "POST",
-        "path": "/api/auth/social-login",
-        "request": {
-          "provider": "string",
-          "token": "string"
-        },
-        "response": {
-          "token": "string"
-        }
-      }
-    },
-    "users": {
-      "assignRole": {
-        "method": "POST",
-        "path": "/api/users/assign-role",
-        "request": {
-          "userId": "uuid",
-          "role": "string"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      }
-    }
-  }
-  ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:** Xử lý xác thực đầu vào không hợp lệ với thông báo rõ ràng cho người dùng.
+#### 4.3.1 PHÂN TÍCH TÀI NGUYÊN PHẦN MỀM
 
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 1)
+- **Backend:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Redis, Apache Kafka.
+- **Frontend:** Next.js, React Native.
+- **DevOps:** GitHub Actions, Docker, Kubernetes (GKE), Google Cloud Platform (GCP).
 
-<!--START_DAY_LOG_INDEX_1-->
+#### 4.3.2 PHÂN TÍCH TÀI NGUYÊN PHẦN CỨNG
 
-- **DAY 1: Khởi tạo hệ thống xác thực cơ bản**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu người dùng**
-    [Coder]
-    * Tag IDs: [DAT-001]
-    * Component: `./sources/backend/user-service/src/main/resources/db/migration/V1__Create_users_table.sql`
-    * Hướng dẫn: Tạo bảng người dùng và vai trò với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ xác thực**
-    [Coder]
-    * Tag IDs: [REQ-001], [REQ-002], [ARC-006]
-    * Component: `./sources/backend/auth-service/src/main/java/com/example/auth/`
-    * Hướng dẫn: Thiết lập dịch vụ xác thực với các endpoint đăng ký và đăng nhập.
-  - **SUB-TASK 3: Viết test cho dịch vụ xác thực**
-    [Tester]
-    * Tag IDs: [REQ-001], [REQ-002], [ARC-006]
-    * Component: `./sources/backend/auth-service/src/test/java/com/example/auth/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/AuthService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint đăng ký và đăng nhập.
-  - **SUB-TASK 4: Review code dịch vụ xác thực**
-    [Reviewer]
-    * Tag IDs: [REQ-001], [REQ-002], [ARC-006]
-    * Component: `./sources/backend/auth-service/src/main/java/com/example/auth/`
-    * Hướng dẫn: Review code dịch vụ xác thực và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ xác thực**
-    [Doc]
-    * Tag IDs: [REQ-001], [REQ-002], [ARC-006]
-    * Component: `./sources/docs/auth-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ xác thực.
-  - **SUB-TASK 6: Container hóa dịch vụ xác thực**
-    [Docker]
-    * Tag IDs: [ARC-006]
-    * Component: `./sources/backend/auth-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ xác thực.
-  - **SUB-TASK 7: Triển khai dịch vụ xác thực trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-006]
-    * Component: `./sources/infra/gcp/auth-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ xác thực trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ xác thực trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-006]
-    * Component: `./sources/infra/gke/auth-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ xác thực trên GKE.
+- **Máy chủ:** Các máy chủ được triển khai trên các cụm Kubernetes (GKE) để đảm bảo tính sẵn sàng và khả năng mở rộng.
+- **Mạng:** Sử dụng các dịch vụ mạng của Google Cloud Platform (GCP) để đảm bảo tính bảo mật và hiệu suất.
+- **Lưu trữ:** Sử dụng các dịch vụ lưu trữ của Google Cloud Platform (GCP) để lưu trữ dữ liệu và các tài nguyên tĩnh.
 
-- **DAY 2: Triển khai phân quyền người dùng**
-  - **SUB-TASK 1: Thêm endpoint phân quyền**
-    [Coder]
-    * Tag IDs: [REQ-003]
-    * Component: `./sources/backend/user-service/src/main/java/com/example/user/UserService.java`
-    * Hướng dẫn: Thêm endpoint phân quyền người dùng.
-  - **SUB-TASK 2: Viết test cho endpoint phân quyền**
-    [Tester]
-    * Tag IDs: [REQ-003]
-    * Component: `./sources/backend/user-service/src/test/java/com/example/user/UserServiceTest.java;./sources/backend/user-service/src/main/java/com/example/user/UserService.java`
-    * Hướng dẫn: Viết các test case cho endpoint phân quyền.
-  - **SUB-TASK 3: Review code endpoint phân quyền**
-    [Reviewer]
-    * Tag IDs: [REQ-003]
-    * Component: `./sources/backend/user-service/src/main/java/com/example/user/UserService.java`
-    * Hướng dẫn: Review code endpoint phân quyền và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 4: Tạo tài liệu cho endpoint phân quyền**
-    [Doc]
-    * Tag IDs: [REQ-003]
-    * Component: `./sources/docs/user-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho endpoint phân quyền.
-  - **SUB-TASK 5: Container hóa dịch vụ người dùng**
-    [Docker]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/backend/user-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ người dùng.
-  - **SUB-TASK 6: Triển khai dịch vụ người dùng trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gcp/user-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ người dùng trên GCP.
-  - **SUB-TASK 7: Triển khai dịch vụ người dùng trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gke/user-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ người dùng trên GKE.
+## 📅 5. CHI TIẾT KIẾN TRÚC THEO PHÂN PHÁS
 
-<!--END_DAY_LOG_INDEX_1-->
+### Phase 3 - Triển Khai Lõi Nghiệp Vụ Điểm Danh Và Thông Báo
 
-### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Trung Tâm
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống quản lý trung tâm với các tính năng xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/center-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003]:** Xem phần 2.2.4.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [ARC-002]:**
-  ```json
-  {
-    "centers": {
-      "list": {
-        "method": "GET",
-        "path": "/api/centers",
-        "response": {
-          "centers": [
-            {
-              "centerId": "uuid",
-              "name": "string",
-              "address": "string",
-              "taxId": "string",
-              "contactPhone": "string",
-              "contactEmail": "string"
-            }
-          ]
-        }
-      },
-      "create": {
-        "method": "POST",
-        "path": "/api/centers",
-        "request": {
-          "name": "string",
-          "address": "string",
-          "taxId": "string",
-          "contactPhone": "string",
-          "contactEmail": "string"
-        },
-        "response": {
-          "centerId": "uuid"
-        }
-      },
-      "update": {
-        "method": "PUT",
-        "path": "/api/centers/{centerId}",
-        "request": {
-          "name": "string",
-          "address": "string",
-          "taxId": "string",
-          "contactPhone": "string",
-          "contactEmail": "string"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      },
-      "delete": {
-        "method": "DELETE",
-        "path": "/api/centers/{centerId}",
-        "response": {
-          "success": "boolean"
-        }
-      },
-      "assignAdmin": {
-        "method": "POST",
-        "path": "/api/centers/{centerId}/assign-admin",
-        "request": {
-          "userId": "uuid"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      }
-    }
-  }
-  ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có.
+- **Phase Core Objective & Purpose:** Triển khai các dịch vụ lõi cho điểm danh và thông báo, bao gồm xử lý điểm danh qua mã QR, quản lý thông báo và gửi thông báo đến ứng dụng di động và nhóm Zalo.
+- **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
+    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
+- **Database Schema DDL SQL Specification [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+- **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
 
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 2)
-
-<!--START_DAY_LOG_INDEX_2-->
-
-- **DAY 1: Khởi tạo hệ thống quản lý trung tâm**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu trung tâm**
-    [Coder]
-    * Tag IDs: [DAT-003]
-    * Component: `./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql`
-    * Hướng dẫn: Tạo bảng trung tâm với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ quản lý trung tâm**
-    [Coder]
-    * Tag IDs: [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-    * Component: `./sources/backend/center-service/src/main/java/com/example/center/`
-    * Hướng dẫn: Thiết lập dịch vụ quản lý trung tâm với các endpoint xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-  - **SUB-TASK 3: Viết test cho dịch vụ quản lý trung tâm**
-    [Tester]
-    * Tag IDs: [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-    * Component: `./sources/backend/center-service/src/test/java/com/example/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint quản lý trung tâm.
-  - **SUB-TASK 4: Review code dịch vụ quản lý trung tâm**
-    [Reviewer]
-    * Tag IDs: [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-    * Component: `./sources/backend/center-service/src/main/java/com/example/center/`
-    * Hướng dẫn: Review code dịch vụ quản lý trung tâm và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ quản lý trung tâm**
-    [Doc]
-    * Tag IDs: [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-    * Component: `./sources/docs/center-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ quản lý trung tâm.
-  - **SUB-TASK 6: Container hóa dịch vụ quản lý trung tâm**
-    [Docker]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/backend/center-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý trung tâm.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý trung tâm trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gcp/center-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý trung tâm trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ quản lý trung tâm trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gke/center-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý trung tâm trên GKE.
-
-- **DAY 2: Triển khai endpoint xem danh sách trung tâm**
-  - **SUB-TASK 1: Thêm endpoint xem danh sách trung tâm**
-    [Coder]
-    * Tag IDs: [REQ-004]
-    * Component: `./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Thêm endpoint xem danh sách trung tâm.
-  - **SUB-TASK 2: Viết test cho endpoint xem danh sách trung tâm**
-    [Tester]
-    * Tag IDs: [REQ-004]
-    * Component: `./sources/backend/center-service/src/test/java/com/example/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Viết các test case cho endpoint xem danh sách trung tâm.
-  - **SUB-TASK 3: Review code endpoint xem danh sách trung tâm**
-    [Reviewer]
-    * Tag IDs: [REQ-004]
-    * Component: `./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Review code endpoint xem danh sách trung tâm và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 4: Tạo tài liệu cho endpoint xem danh sách trung tâm**
-    [Doc]
-    * Tag IDs: [REQ-004]
-    * Component: `./sources/docs/center-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho endpoint xem danh sách trung tâm.
-  - **SUB-TASK 5: Container hóa dịch vụ quản lý trung tâm**
-    [Docker]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/backend/center-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý trung tâm.
-  - **SUB-TASK 6: Triển khai dịch vụ quản lý trung tâm trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gcp/center-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý trung tâm trên GCP.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý trung tâm trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gke/center-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý trung tâm trên GKE.
-
-- **DAY 3: Triển khai endpoint tạo/cập nhật/xóa trung tâm**
-  - **SUB-TASK 1: Thêm endpoint tạo/cập nhật/xóa trung tâm**
-    [Coder]
-    * Tag IDs: [REQ-005]
-    * Component: `./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Thêm endpoint tạo/cập nhật/xóa trung tâm.
-  - **SUB-TASK 2: Viết test cho endpoint tạo/cập nhật/xóa trung tâm**
-    [Tester]
-    * Tag IDs: [REQ-005]
-    * Component: `./sources/backend/center-service/src/test/java/com/example/center/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Viết các test case cho endpoint tạo/cập nhật/xóa trung tâm.
-  - **SUB-TASK 3: Review code endpoint tạo/cập nhật/xóa trung tâm**
-    [Reviewer]
-    * Tag IDs: [REQ-005]
-    * Component: `./sources/backend/center-service/src/main/java/com/example/center/CenterService.java`
-    * Hướng dẫn: Review code endpoint tạo/cập nhật/xóa trung tâm và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 4: Tạo tài liệu cho endpoint tạo/cập nhật/xóa trung tâm**
-    [Doc]
-    * Tag IDs: [REQ-005]
-    * Component: `./sources/docs/center-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho endpoint tạo/cập nhật/xóa trung tâm.
-  - **SUB-TASK 5: Container hóa dịch vụ quản lý trung tâm**
-    [Docker]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/backend/center-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý trung tâm.
-  - **SUB-TASK 6: Triển khai dịch vụ quản lý trung tâm trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gcp/center-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý trung tâm trên GCP.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý trung tâm trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-002]
-    * Component: `./sources/infra/gke/center-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý trung tâm trên GKE.
-
-<!--END_DAY_LOG_INDEX_2-->
-
-### Giai đoạn 3 - Triển Khai Lõi Nghiệp Vụ Khóa Học
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống quản lý khóa học với các tính năng xem danh sách khóa học, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/course-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** Xem phần 2.3.4.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-007], [REQ-008], [REQ-009], [ARC-003]:**
-  ```json
-  {
-    "courses": {
-      "list": {
-        "method": "GET",
-        "path": "/api/courses",
-        "response": {
-          "courses": [
-            {
-              "courseId": "uuid",
-              "title": "string",
-              "description": "string",
-              "startDate": "date",
-              "endDate": "date",
-              "teacherId": "uuid",
-              "maxStudents": "int"
-            }
-          ]
-        }
-      },
-      "create": {
-        "method": "POST",
-        "path": "/api/courses",
-        "request": {
-          "title": "string",
-          "description": "string",
-          "startDate": "date",
-          "endDate": "date",
-          "teacherId": "uuid",
-          "maxStudents": "int"
-        },
-        "response": {
-          "courseId": "uuid"
-        }
-      },
-      "update": {
-        "method": "PUT",
-        "path": "/api/courses/{courseId}",
-        "request": {
-          "title": "string",
-          "description": "string",
-          "startDate": "date",
-          "endDate": "date",
-          "teacherId": "uuid",
-          "maxStudents": "int"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      },
-      "delete": {
-        "method": "DELETE",
-        "path": "/api/courses/{courseId}",
-        "response": {
-          "success": "boolean"
-        }
-      },
-      "assignTeacher": {
-        "method": "POST",
-        "path": "/api/courses/{courseId}/assign-teacher",
-        "request": {
-          "teacherId": "uuid"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      }
-    }
-  }
-  ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có.
-
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 3)
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 3)
 
 <!--START_DAY_LOG_INDEX_3-->
 
-- **DAY 1: Khởi tạo hệ thống quản lý khóa học**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu khóa học**
-    [Coder]
-    * Tag IDs: [DAT-004]
-    * Component: `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql`
-    * Hướng dẫn: Tạo bảng khóa học với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ quản lý khóa học**
-    [Coder]
-    * Tag IDs: [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-    * Component: `./sources/backend/course-service/src/main/java/com/example/course/`
-    * Hướng dẫn: Thiết lập dịch vụ quản lý khóa học với các endpoint xem danh sách khóa học, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
-  - **SUB-TASK 3: Viết test cho dịch vụ quản lý khóa học**
-    [Tester]
-    * Tag IDs: [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-    * Component: `./sources/backend/course-service/src/test/java/com/example/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/CourseService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint quản lý khóa học.
-  - **SUB-TASK 4: Review code dịch vụ quản lý khóa học**
-    [Reviewer]
-    * Tag IDs: [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-    * Component: `./sources/backend/course-service/src/main/java/com/example/course/`
-    * Hướng dẫn: Review code dịch vụ quản lý khóa học và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ quản lý khóa học**
-    [Doc]
-    * Tag IDs: [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-    * Component: `./sources/docs/course-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ quản lý khóa học.
-  - **SUB-TASK 6: Container hóa dịch vụ quản lý khóa học**
-    [Docker]
-    * Tag IDs: [ARC-003]
-    * Component: `./sources/backend/course-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý khóa học.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý khóa học trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-003]
-    * Component: `./sources/infra/gcp/course-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý khóa học trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ quản lý khóa học trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-003]
-    * Component: `./sources/infra/gke/course-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý khóa học trên GKE.
+- **DAY 1: Khởi tạo dịch vụ điểm danh và xử lý mã QR**
+  
+##### SUB-TASK 1: Thiết kế lược đồ cơ sở dữ liệu cho điểm danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-006]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_Attendance_Table.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng điểm danh với các trường: attendanceId (UUID, khóa chính), studentId (UUID, khóa ngoại tham chiếu đến Users.userId), courseId (UUID, khóa ngoại tham chiếu đến Courses.courseId), attendanceDate (DATE, không được để trống), timestamp (TIMESTAMP, mặc định là thời gian hiện tại). Thêm chỉ mục trên các trường studentId, courseId, và attendanceDate để tối ưu hóa hiệu suất truy vấn.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 2: Triển khai endpoint xem danh sách khóa học**
-  - **SUB-TASK 1: Thêm endpoint xem danh sách khóa học**
-    [Coder]
-    * Tag IDs: [REQ-007]
-    * Component: `./sources/backend/course-service/src/main/java/com/example/course/CourseService.java`
-    * Hướng dẫn: Thêm endpoint xem danh sách khóa học.
-  - **SUB-TASK 2: Viết test cho endpoint xem danh sách khóa học**
-    [Tester]
-    * Tag IDs: [REQ-007]
-    * Component: `./sources/backend/course-service/src/test/java/com/example/course/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/CourseService.java`
-    * Hướng dẫn: Viết các test case cho endpoint xem danh sách khóa học.
-  - **SUB-TASK 3: Review code endpoint xem danh sách khóa học**
-    [Reviewer]
-    * Tag IDs: [REQ-007]
-    * Component: `./sources/backend/course-service/src/main/java/com/example/course/CourseService.java`
-    * Hướng dẫn: Review code endpoint xem danh sách khóa học và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 4: Tạo tài liệu cho endpoint xem danh sách khóa học**
-    [Doc]
-    * Tag IDs: [REQ-007]
-    * Component: `./sources/docs/course-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho endpoint xem danh sách khóa học.
-  - **SUB-TASK 5: Container hóa dịch vụ quản lý khóa học**
-    [Docker]
-    * Tag IDs: [ARC-003]
-    * Component: `./sources/backend/course-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý khóa học.
-  - **SUB-TASK 6: Triển khai dịch vụ quản lý khóa học trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-003]
-    * Component: `./sources/infra/gcp/course-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý khóa học trên GCP.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý khóa học trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-003]
-    * Component: `./sources/infra/gke/course-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý khóa học trên GKE.
+##### SUB-TASK 2: Thiết kế API điểm danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/api/AttendanceApi.java
+* **Low-Level Technical Task Instruction:** Thiết kế API điểm danh với endpoint POST /api/attendance với payload JSON chứa studentId và courseId. Thêm xử lý idempotent để đảm bảo chỉ có một bản ghi điểm danh được tạo mỗi ngày cho mỗi học viên và khóa học.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--END_DAY_LOG_INDEX_3-->
+##### SUB-TASK 3: Viết test cho API điểm danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/api/AttendanceApiTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/api/AttendanceApi.java
+* **Low-Level Technical Task Instruction:** Viết các test case để kiểm tra tính năng điểm danh, bao gồm kiểm tra tạo bản ghi điểm danh mới, trùng lặp điểm danh trong cùng một ngày, và xử lý lỗi khi studentId hoặc courseId không hợp lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-### Giai đoạn 4 - Triển Khai Hệ Thống Điểm Danh Và Thẻ Hội Viên
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống điểm danh và quản lý thẻ hội viên với các tính năng quét mã QR, hiển thị tính hợp lệ của thẻ, và gia hạn thẻ.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/attendance-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-006], [DAT-007]:** Xem phần 2.5.4 và 2.6.4.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-012], [REQ-013], [REQ-014], [REQ-015], [ARC-007]:**
-  ```json
-  {
-    "attendance": {
-      "scanQR": {
-        "method": "POST",
-        "path": "/api/attendance/scan-qr",
-        "request": {
-          "studentId": "uuid",
-          "courseId": "uuid",
-          "timestamp": "timestamp"
-        },
-        "response": {
-          "success": "boolean",
-          "duplicate": "boolean"
-        }
-      }
-    },
-    "studentCards": {
-      "viewCard": {
-        "method": "GET",
-        "path": "/api/student-cards/{studentId}",
-        "response": {
-          "cardId": "uuid",
-          "studentId": "uuid",
-          "issueDate": "date",
-          "validityDays": "int",
-          "remainingDays": "int"
-        }
-      },
-      "renewCard": {
-        "method": "POST",
-        "path": "/api/student-cards/{studentId}/renew",
-        "request": {
-          "days": "int"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      }
-    }
-  }
-  ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:** Xử lý các trường hợp mạng không ổn định và điểm danh trùng lặp.
+##### SUB-TASK 4: Tài liệu API điểm danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013]
+* **Target Component file path (target_component):** ./sources/docs/api/attendance-api.md
+* **Low-Level Technical Task Instruction:** Tạo tài liệu chi tiết về API điểm danh, bao gồm các endpoint, payload yêu cầu và phản hồi, mã lỗi và ví dụ sử dụng.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 4)
+##### SUB-TASK 5: Triển khai dịch vụ điểm danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Tạo Dockerfile cho dịch vụ điểm danh, sử dụng Java/Quarkus làm cơ sở và cấu hình để chạy dịch vụ trên cổng 8080.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--START_DAY_LOG_INDEX_4-->
+##### SUB-TASK 6: Triển khai dịch vụ điểm danh trên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/attendance-service-deployment.yaml
+* **Low-Level Technical Task Instruction:** Tạo tệp triển khai Kubernetes cho dịch vụ điểm danh, bao gồm các cấu hình để triển khai dịch vụ trên cụm GKE, cấu hình dịch vụ và ingress.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 1: Khởi tạo hệ thống điểm danh**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu điểm danh**
-    [Coder]
-    * Tag IDs: [DAT-006]
-    * Component: `./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_attendance_table.sql`
-    * Hướng dẫn: Tạo bảng điểm danh với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ điểm danh**
-    [Coder]
-    * Tag IDs: [REQ-012], [REQ-013], [ARC-007]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/attendance/`
-    * Hướng dẫn: Thiết lập dịch vụ điểm danh với các endpoint quét mã QR và xử lý điểm danh trùng lặp.
-  - **SUB-TASK 3: Viết test cho dịch vụ điểm danh**
-    [Tester]
-    * Tag IDs: [REQ-012], [REQ-013], [ARC-007]
-    * Component: `./sources/backend/attendance-service/src/test/java/com/example/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/AttendanceService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint điểm danh.
-  - **SUB-TASK 4: Review code dịch vụ điểm danh**
-    [Reviewer]
-    * Tag IDs: [REQ-012], [REQ-013], [ARC-007]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/attendance/`
-    * Hướng dẫn: Review code dịch vụ điểm danh và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ điểm danh**
-    [Doc]
-    * Tag IDs: [REQ-012], [REQ-013], [ARC-007]
-    * Component: `./sources/docs/attendance-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ điểm danh.
-  - **SUB-TASK 6: Container hóa dịch vụ điểm danh**
-    [Docker]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/backend/attendance-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ điểm danh.
-  - **SUB-TASK 7: Triển khai dịch vụ điểm danh trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/infra/gcp/attendance-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ điểm danh trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ điểm danh trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/infra/gke/attendance-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ điểm danh trên GKE.
+- **DAY 2: Khởi tạo dịch vụ thông báo và tích hợp với ứng dụng di động và nhóm Zalo**
+  
+##### SUB-TASK 1: Thiết kế lược đồ cơ sở dữ liệu cho thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-008]
+* **Target Component file path (target_component):** ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_Notification_Table.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng thông báo với các trường: notificationId (UUID, khóa chính), userId (UUID, khóa ngoại tham chiếu đến Users.userId, có thể là null), groupZalo (VARCHAR, có thể là null), message (TEXT, không được để trống), sentAt (TIMESTAMP, mặc định là thời gian hiện tại), delivered (BOOLEAN, mặc định là false). Thêm chỉ mục trên các trường userId và groupZalo để tối ưu hóa hiệu suất truy vấn.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 2: Triển khai hệ thống quản lý thẻ hội viên**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu thẻ hội viên**
-    [Coder]
-    * Tag IDs: [DAT-007]
-    * Component: `./sources/backend/attendance-service/src/main/resources/db/migration/V2__Create_student_cards_table.sql`
-    * Hướng dẫn: Tạo bảng thẻ hội viên với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ quản lý thẻ hội viên**
-    [Coder]
-    * Tag IDs: [REQ-014], [REQ-015]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/studentcard/`
-    * Hướng dẫn: Thiết lập dịch vụ quản lý thẻ hội viên với các endpoint hiển thị tính hợp lệ của thẻ và gia hạn thẻ.
-  - **SUB-TASK 3: Viết test cho dịch vụ quản lý thẻ hội viên**
-    [Tester]
-    * Tag IDs: [REQ-014], [REQ-015]
-    * Component: `./sources/backend/attendance-service/src/test/java/com/example/studentcard/StudentCardServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/studentcard/StudentCardService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint quản lý thẻ hội viên.
-  - **SUB-TASK 4: Review code dịch vụ quản lý thẻ hội viên**
-    [Reviewer]
-    * Tag IDs: [REQ-014], [REQ-015]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/studentcard/`
-    * Hướng dẫn: Review code dịch vụ quản lý thẻ hội viên và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ quản lý thẻ hội viên**
-    [Doc]
-    * Tag IDs: [REQ-014], [REQ-015]
-    * Component: `./sources/docs/student-card-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ quản lý thẻ hội viên.
-  - **SUB-TASK 6: Container hóa dịch vụ quản lý thẻ hội viên**
-    [Docker]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/backend/attendance-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý thẻ hội viên.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý thẻ hội viên trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/infra/gcp/attendance-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý thẻ hội viên trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ quản lý thẻ hội viên trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/infra/gke/attendance-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý thẻ hội viên trên GKE.
+##### SUB-TASK 2: Thiết kế API thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-016]
+* **Target Component file path (target_component):** ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/api/NotificationApi.java
+* **Low-Level Technical Task Instruction:** Thiết kế API thông báo với endpoint POST /api/notifications với payload JSON chứa userId, groupZalo, và message. Thêm xử lý để gửi thông báo đến ứng dụng di động và nhóm Zalo.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 3: Triển khai xử lý ngoại lệ điểm danh**
-  - **SUB-TASK 1: Thêm xử lý ngoại lệ mạng không ổn định**
-    [Coder]
-    * Tag IDs: [EXC-001]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/attendance/AttendanceService.java`
-    * Hướng dẫn: Thêm xử lý ngoại lệ mạng không ổn định.
-  - **SUB-TASK 2: Thêm xử lý ngoại lệ điểm danh trùng lặp**
-    [Coder]
-    * Tag IDs: [EXC-002]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/attendance/AttendanceService.java`
-    * Hướng dẫn: Thêm xử lý ngoại lệ điểm danh trùng lặp.
-  - **SUB-TASK 3: Viết test cho xử lý ngoại lệ điểm danh**
-    [Tester]
-    * Tag IDs: [EXC-001], [EXC-002]
-    * Component: `./sources/backend/attendance-service/src/test/java/com/example/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/AttendanceService.java`
-    * Hướng dẫn: Viết các test case cho xử lý ngoại lệ điểm danh.
-  - **SUB-TASK 4: Review code xử lý ngoại lệ điểm danh**
-    [Reviewer]
-    * Tag IDs: [EXC-001], [EXC-002]
-    * Component: `./sources/backend/attendance-service/src/main/java/com/example/attendance/AttendanceService.java`
-    * Hướng dẫn: Review code xử lý ngoại lệ điểm danh và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho xử lý ngoại lệ điểm danh**
-    [Doc]
-    * Tag IDs: [EXC-001], [EXC-002]
-    * Component: `./sources/docs/attendance-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho xử lý ngoại lệ điểm danh.
-  - **SUB-TASK 6: Container hóa dịch vụ điểm danh**
-    [Docker]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/backend/attendance-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ điểm danh.
-  - **SUB-TASK 7: Triển khai dịch vụ điểm danh trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/infra/gcp/attendance-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ điểm danh trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ điểm danh trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-007]
-    * Component: `./sources/infra/gke/attendance-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ điểm danh trên GKE.
+##### SUB-TASK 3: Viết test cho API thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-016]
+* **Target Component file path (target_component):** ./sources/backend/notification-service/src/test/java/com/membershiphub/notification/api/NotificationApiTest.java;./sources/backend/notification-service/src/main/java/com/membershiphub/notification/api/NotificationApi.java
+* **Low-Level Technical Task Instruction:** Viết các test case để kiểm tra tính năng thông báo, bao gồm kiểm tra tạo thông báo mới, gửi thông báo đến ứng dụng di động và nhóm Zalo, và xử lý lỗi khi userId hoặc groupZalo không hợp lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--END_DAY_LOG_INDEX_4-->
+##### SUB-TASK 4: Tài liệu API thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-016]
+* **Target Component file path (target_component):** ./sources/docs/api/notification-api.md
+* **Low-Level Technical Task Instruction:** Tạo tài liệu chi tiết về API thông báo, bao gồm các endpoint, payload yêu cầu và phản hồi, mã lỗi và ví dụ sử dụng.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-### Giai đoạn 5 - Triển Khai Hệ Thống Thông Báo Và Tích Hợp Zalo
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống thông báo và tích hợp Zalo với các tính năng kích hoạt thông báo, xử lý thông báo không thành công, và quản lý khuyến mãi & thông báo.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/notification-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-008], [DAT-009]:** Xem phần 2.7.4 và 2.8.4.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-016], [REQ-017], [REQ-018], [ARC-008]:**
-  ```json
-  {
-    "notifications": {
-      "create": {
-        "method": "POST",
-        "path": "/api/notifications",
-        "request": {
-          "userId": "uuid",
-          "groupZalo": "string",
-          "message": "string"
-        },
-        "response": {
-          "notificationId": "uuid"
-        }
-      }
-    },
-    "promotions": {
-      "create": {
-        "method": "POST",
-        "path": "/api/promotions",
-        "request": {
-          "code": "string",
-          "discountPercent": "int",
-          "startDate": "date",
-          "endDate": "date",
-          "description": "string"
-        },
-        "response": {
-          "promoId": "uuid"
-        }
-      },
-      "update": {
-        "method": "PUT",
-        "path": "/api/promotions/{promoId}",
-        "request": {
-          "code": "string",
-          "discountPercent": "int",
-          "startDate": "date",
-          "endDate": "date",
-          "description": "string"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      },
-      "delete": {
-        "method": "DELETE",
-        "path": "/api/promotions/{promoId}",
-        "response": {
-          "success": "boolean"
-        }
-      }
-    },
-    "announcements": {
-      "create": {
-        "method": "POST",
-        "path": "/api/announcements",
-        "request": {
-          "title": "string",
-          "content": "string",
-          "startDate": "date",
-          "endDate": "date"
-        },
-        "response": {
-          "announcementId": "uuid"
-        }
-      },
-      "update": {
-        "method": "PUT",
-        "path": "/api/announcements/{announcementId}",
-        "request": {
-          "title": "string",
-          "content": "string",
-          "startDate": "date",
-          "endDate": "date"
-        },
-        "response": {
-          "success": "boolean"
-        }
-      },
-      "delete": {
-        "method": "DELETE",
-        "path": "/api/announcements/{announcementId}",
-        "response": {
-          "success": "boolean"
-        }
-      }
-    }
-  }
-  ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-003]:** Xử lý thông báo không thành công.
+##### SUB-TASK 5: Triển khai dịch vụ thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/notification-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Tạo Dockerfile cho dịch vụ thông báo, sử dụng Java/Quarkus làm cơ sở và cấu hình để chạy dịch vụ trên cổng 8080.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 5)
+##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/notification-service-deployment.yaml
+* **Low-Level Technical Task Instruction:** Tạo tệp triển khai Kubernetes cho dịch vụ thông báo, bao gồm các cấu hình để triển khai dịch vụ trên cụm GKE, cấu hình dịch vụ và ingress.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--START_DAY_LOG_INDEX_5-->
+- **DAY 3: Tích hợp dịch vụ điểm danh và thông báo với các dịch vụ khác**
+  
+##### SUB-TASK 1: Tích hợp dịch vụ điểm danh với dịch vụ khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Thêm xử lý để kiểm tra xem học viên có đăng ký khóa học hay không trước khi ghi nhận điểm danh. Nếu học viên chưa đăng ký khóa học, trả về lỗi.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 1: Khởi tạo hệ thống thông báo**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu thông báo**
-    [Coder]
-    * Tag IDs: [DAT-008]
-    * Component: `./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql`
-    * Hướng dẫn: Tạo bảng thông báo với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ thông báo**
-    [Coder]
-    * Tag IDs: [REQ-016], [ARC-008]
-    * Component: `./sources/backend/notification-service/src/main/java/com/example/notification/`
-    * Hướng dẫn: Thiết lập dịch vụ thông báo với các endpoint kích hoạt thông báo.
-  - **SUB-TASK 3: Viết test cho dịch vụ thông báo**
-    [Tester]
-    * Tag IDs: [REQ-016], [ARC-008]
-    * Component: `./sources/backend/notification-service/src/test/java/com/example/notification/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint thông báo.
-  - **SUB-TASK 4: Review code dịch vụ thông báo**
-    [Reviewer]
-    * Tag IDs: [REQ-016], [ARC-008]
-    * Component: `./sources/backend/notification-service/src/main/java/com/example/notification/`
-    * Hướng dẫn: Review code dịch vụ thông báo và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ thông báo**
-    [Doc]
-    * Tag IDs: [REQ-016], [ARC-008]
-    * Component: `./sources/docs/notification-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ thông báo.
-  - **SUB-TASK 6: Container hóa dịch vụ thông báo**
-    [Docker]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/backend/notification-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ thông báo.
-  - **SUB-TASK 7: Triển khai dịch vụ thông báo trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/infra/gcp/notification-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ thông báo trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ thông báo trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/infra/gke/notification-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ thông báo trên GKE.
+##### SUB-TASK 2: Tích hợp dịch vụ thông báo với dịch vụ người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-016]
+* **Target Component file path (target_component):** ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/service/NotificationService.java
+* **Low-Level Technical Task Instruction:** Thêm xử lý để lấy thông tin người dùng từ dịch vụ người dùng và gửi thông báo đến ứng dụng di động của người dùng.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 2: Triển khai hệ thống quản lý khuyến mãi & thông báo**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu khuyến mãi & thông báo**
-    [Coder]
-    * Tag IDs: [DAT-009]
-    * Component: `./sources/backend/notification-service/src/main/resources/db/migration/V2__Create_promotions_and_announcements_tables.sql`
-    * Hướng dẫn: Tạo bảng khuyến mãi và thông báo với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Thiết lập dịch vụ quản lý khuyến mãi & thông báo**
-    [Coder]
-    * Tag IDs: [REQ-017], [REQ-018]
-    * Component: `./sources/backend/notification-service/src/main/java/com/example/promotion/`, `./sources/backend/notification-service/src/main/java/com/example/announcement/`
-    * Hướng dẫn: Thiết lập dịch vụ quản lý khuyến mãi & thông báo với các endpoint quản lý khuyến mãi và thông báo.
-  - **SUB-TASK 3: Viết test cho dịch vụ quản lý khuyến mãi & thông báo**
-    [Tester]
-    * Tag IDs: [REQ-017], [REQ-018]
-    * Component: `./sources/backend/notification-service/src/test/java/com/example/promotion/PromotionServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/promotion/PromotionService.java`, `./sources/backend/notification-service/src/test/java/com/example/announcement/AnnouncementServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/announcement/AnnouncementService.java`
-    * Hướng dẫn: Viết các test case cho các endpoint quản lý khuyến mãi & thông báo.
-  - **SUB-TASK 4: Review code dịch vụ quản lý khuyến mãi & thông báo**
-    [Reviewer]
-    * Tag IDs: [REQ-017], [REQ-018]
-    * Component: `./sources/backend/notification-service/src/main/java/com/example/promotion/`, `./sources/backend/notification-service/src/main/java/com/example/announcement/`
-    * Hướng dẫn: Review code dịch vụ quản lý khuyến mãi & thông báo và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 5: Tạo tài liệu cho dịch vụ quản lý khuyến mãi & thông báo**
-    [Doc]
-    * Tag IDs: [REQ-017], [REQ-018]
-    * Component: `./sources/docs/promotion-service.md`, `./sources/docs/announcement-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho dịch vụ quản lý khuyến mãi & thông báo.
-  - **SUB-TASK 6: Container hóa dịch vụ quản lý khuyến mãi & thông báo**
-    [Docker]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/backend/notification-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ quản lý khuyến mãi & thông báo.
-  - **SUB-TASK 7: Triển khai dịch vụ quản lý khuyến mãi & thông báo trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/infra/gcp/notification-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý khuyến mãi & thông báo trên GCP.
-  - **SUB-TASK 8: Triển khai dịch vụ quản lý khuyến mãi & thông báo trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/infra/gke/notification-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ quản lý khuyến mãi & thông báo trên GKE.
+##### SUB-TASK 3: Viết test cho tích hợp dịch vụ điểm danh và thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013], [REQ-016]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/AttendanceServiceTest.java;./sources/backend/notification-service/src/test/java/com/membershiphub/notification/service/NotificationServiceTest.java
+* **Low-Level Technical Task Instruction:** Viết các test case để kiểm tra tích hợp dịch vụ điểm danh và thông báo, bao gồm kiểm tra ghi nhận điểm danh và gửi thông báo khi có điểm danh mới.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 3: Triển khai xử lý ngoại lệ thông báo**
-  - **SUB-TASK 1: Thêm xử lý ngoại lệ thông báo không thành công**
-    [Coder]
-    * Tag IDs: [EXC-003]
-    * Component: `./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java`
-    * Hướng dẫn: Thêm xử lý ngoại lệ thông báo không thành công.
-  - **SUB-TASK 2: Viết test cho xử lý ngoại lệ thông báo**
-    [Tester]
-    * Tag IDs: [EXC-003]
-    * Component: `./sources/backend/notification-service/src/test/java/com/example/notification/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java`
-    * Hướng dẫn: Viết các test case cho xử lý ngoại lệ thông báo.
-  - **SUB-TASK 3: Review code xử lý ngoại lệ thông báo**
-    [Reviewer]
-    * Tag IDs: [EXC-003]
-    * Component: `./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java`
-    * Hướng dẫn: Review code xử lý ngoại lệ thông báo và đảm bảo tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 4: Tạo tài liệu cho xử lý ngoại lệ thông báo**
-    [Doc]
-    * Tag IDs: [EXC-003]
-    * Component: `./sources/docs/notification-service.md`
-    * Hướng dẫn: Tạo tài liệu chi tiết cho xử lý ngoại lệ thông báo.
-  - **SUB-TASK 5: Container hóa dịch vụ thông báo**
-    [Docker]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/backend/notification-service/Dockerfile`
-    * Hướng dẫn: Tạo Dockerfile cho dịch vụ thông báo.
-  - **SUB-TASK 6: Triển khai dịch vụ thông báo trên GCP**
-    [GCP]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/infra/gcp/notification-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ thông báo trên GCP.
-  - **SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE**
-    [GKE]
-    * Tag IDs: [ARC-008]
-    * Component: `./sources/infra/gke/notification-service-deployment.yaml`
-    * Hướng dẫn: Tạo cấu hình triển khai dịch vụ thông báo trên GKE.
+##### SUB-TASK 4: Tài liệu tích hợp dịch vụ điểm danh và thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013], [REQ-016]
+* **Target Component file path (target_component):** ./sources/docs/integration/attendance-notification-integration.md
+* **Low-Level Technical Task Instruction:** Tạo tài liệu chi tiết về tích hợp dịch vụ điểm danh và thông báo, bao gồm các bước tích hợp, ví dụ sử dụng và xử lý lỗi.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--END_DAY_LOG_INDEX_5-->
+##### SUB-TASK 5: Triển khai tích hợp dịch vụ điểm danh và thông báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/Dockerfile;./sources/backend/notification-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Cập nhật Dockerfile cho dịch vụ điểm danh và thông báo để bao gồm các phụ thuộc cần thiết cho tích hợp.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 6: Triển khai tích hợp dịch vụ điểm danh và thông báo trên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/attendance-service-deployment.yaml;./sources/infra/gke/notification-service-deployment.yaml
+* **Low-Level Technical Task Instruction:** Cập nhật tệp triển khai Kubernetes cho dịch vụ điểm danh và thông báo để bao gồm các cấu hình cần thiết cho tích hợp.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--END_PHASE_LOG_BLOCK_INDEX_3-->
 

@@ -610,22 +610,25 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
-  
-  MANDATORY SEGMENT INSTRUCTION: 
-  - You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
-  - Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
-  
+
+MANDATORY SEGMENT INSTRUCTION: 
+- You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
+- Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
+
+
+
+
 
 
 ## 📊 Document Control
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811052540 |
+| **Blueprint ID** | ARCH-20260811072603 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 05:25:40 |
+| **Date.Time** | 2026/08/11 07:26:03 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -684,42 +687,35 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811052540 |
+| **Blueprint ID** | ARCH-20260811072603 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 05:25:40 |
+| **Date.Time** | 2026/08/11 07:26:03 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
 ## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
 ### 1.1. Core System Modality & Architecture Modality
-- Hệ thống được thiết kế theo mô hình kiến trúc đa lớp với các thành phần chính bao gồm: giao diện người dùng, lớp dịch vụ, lớp truy cập dữ liệu và cơ sở dữ liệu.
-- Sử dụng mô hình Event-Driven Architecture (EDA) để xử lý các sự kiện như điểm danh, đăng ký khóa học và thông báo.
-- Áp dụng mô hình Command Query Responsibility Segregation (CQRS) để tách biệt các thao tác ghi và đọc dữ liệu.
-- Sử dụng mô hình Reactive Programming để xử lý các luồng dữ liệu thời gian thực như điểm danh và thông báo.
-- Hệ thống được thiết kế để hoạt động trong môi trường phân tán với khả năng mở rộng cao.
-- Sử dụng mô hình Microservices để tách biệt các chức năng chính của hệ thống thành các dịch vụ độc lập.
-- Áp dụng mô hình Domain-Driven Design (DDD) để tổ chức mã nguồn theo các miền nghiệp vụ chính.
-- Sử dụng mô hình Clean Architecture để tách biệt các lớp logic và đảm bảo tính độc lập giữa các thành phần.
-- Áp dụng mô hình Hexagonal Architecture để tách biệt các cổng và bộ điều khiển của hệ thống.
-- Sử dụng mô hình Onion Architecture để tổ chức mã nguồn theo các lớp logic rõ ràng.
+- Hệ thống được thiết kế theo kiến trúc đa trung tâm với các thành phần chính bao gồm: quản lý người dùng, quản lý trung tâm, quản lý khóa học, đăng ký học viên, điểm danh, quản lý thẻ hội viên, thông báo và truyền thông, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa và SEO, báo cáo và phân tích.
+- Hệ thống sử dụng mô hình RBAC (Role-Based Access Control) để quản lý quyền truy cập của người dùng.
+- Hệ thống hỗ trợ xác thực qua email/mật khẩu, Firebase, Google và Facebook thông qua OAuth2.
+- Hệ thống sử dụng JWT token với thời hạn 15 phút và refresh token để quản lý phiên đăng nhập.
+- Hệ thống sử dụng cơ sở dữ liệu PostgreSQL để lưu trữ dữ liệu.
+- Hệ thống sử dụng Redis để quản lý session caching.
+- Hệ thống sử dụng Firebase Authentication và Google Cloud Messaging (FCM)/Apple APNs để quản lý thông báo đẩy trên di động.
+- Hệ thống sử dụng Zalo API để quản lý thông báo trên nhóm Zalo.
+- Hệ thống sử dụng CI/CD pipeline với GitHub Actions để quản lý quá trình triển khai.
 
 ### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-- Sử dụng Kafka để xử lý các sự kiện thời gian thực như điểm danh và thông báo.
-- Sử dụng Redis để lưu trữ các dữ liệu tạm thời và caching.
-- Sử dụng PostgreSQL để lưu trữ các dữ liệu quan trọng và quan hệ.
-- Sử dụng Firebase Authentication để xử lý xác thực người dùng.
-- Sử dụng Google Cloud Messaging (FCM) và Apple APNs để gửi thông báo đẩy đến ứng dụng di động.
-- Sử dụng Zalo API để gửi thông báo đến nhóm Zalo.
-- Sử dụng Docker để container hóa các dịch vụ và triển khai trên Kubernetes.
-- Sử dụng GitHub Actions để triển khai liên tục và tích hợp liên tục.
-- Sử dụng Prometheus và Grafana để giám sát và phân tích hiệu suất hệ thống.
-- Sử dụng ELK Stack để quản lý và phân tích các log hệ thống.
+- Hệ thống sử dụng các kênh truyền thông đa kênh bao gồm: web, di động và nhóm Zalo.
+- Hệ thống sử dụng các dịch vụ cốt lõi bao gồm: quản lý người dùng, quản lý trung tâm, quản lý khóa học, đăng ký học viên, điểm danh, quản lý thẻ hội viên, thông báo và truyền thông, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa và SEO, báo cáo và phân tích.
+- Hệ thống sử dụng các dịch vụ phụ trợ bao gồm: Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, CI/CD pipeline với GitHub Actions.
+- Hệ thống sử dụng các dịch vụ cơ sở hạ tầng bao gồm: PostgreSQL, Docker, Kubernetes (GKE).
 
 ## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions
-- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API
+- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, CI/CD pipeline với GitHub Actions.
+- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native.
 
 ### ARCHITECTURAL STACK MATRIX
 

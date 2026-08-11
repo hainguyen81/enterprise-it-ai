@@ -610,6 +610,17 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 4. Completely delete and skip all other sections.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -633,7 +644,7 @@ You MUST include every single section below without exception to satisfy enterpr
 <HISTORIC_LEDGER_MAP>
 Phase 1: 
 Phase 2: 
-Phase 3: 
+Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 </HISTORIC_LEDGER_MAP>
 </RULE>
 
@@ -728,6 +739,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 ---
 
+```markdown
 # GLOBAL PROJECT CONTEXT: membership-hub
 
 ## 🏛️ 1. TỔNG QUAN HỆ THỐNG
@@ -763,7 +775,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
 ### 2.1 Quản lý người dùng
 
@@ -1102,725 +1114,244 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📝 4. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
+## 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHÂN TÁN
 
 ### 4.1 KIẾN TRÚC TOÀN CẦU
 
-#### 4.1.1 Kiến trúc hệ thống
+#### 4.1.1 KIẾN TRÚC TOÀN CẦU
+
+- **Kiến trúc tổng quan:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, khóa học, điểm danh, và thông báo. Sử dụng API Gateway để định tuyến các yêu cầu đến các dịch vụ tương ứng.
+- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với các bảng được chuẩn hóa để lưu trữ dữ liệu người dùng, khóa học, điểm danh, và thông báo. Sử dụng Redis để lưu trữ session và caching.
+- **Kiến trúc giao diện người dùng:** Sử dụng Next.js cho frontend web và React Native cho ứng dụng di động. Sử dụng Firebase Authentication cho xác thực người dùng và Firebase Cloud Messaging (FCM) cho push notification.
+
+#### 4.1.2 KIẾN TRÚC PHÂN TÁN
+
+- **Kiến trúc phân tán:** Hệ thống được triển khai trên Google Kubernetes Engine (GKE) với các dịch vụ được container hóa bằng Docker. Sử dụng Kubernetes Horizontal Pod Autoscaler (HPA) để tự động mở rộng các dịch vụ dựa trên tải.
+- **Kiến trúc dữ liệu phân tán:** Sử dụng PostgreSQL read replicas để xử lý các truy vấn báo cáo và phân tích. Sử dụng Redis để lưu trữ session và caching.
+- **Kiến trúc giao diện người dùng phân tán:** Sử dụng Firebase Hosting để triển khai frontend web và ứng dụng di động. Sử dụng Firebase Cloud Functions để xử lý các sự kiện và thông báo.
+
+### 4.2 MULTI-PHASE SYNOPSIS MATRIX
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|-------------------------|---------------------------|------------|------------------|
+| 1         | 1-3         | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth2 | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001], [EXC-004] |
+| 2         | 4-6         | ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý khóa học với các chức năng tạo, cập nhật, xóa khóa học | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| 3         | 7-9         | ./sources/backend/attendance-service/ | Xây dựng dịch vụ điểm danh với chức năng quét mã QR và ghi lại điểm danh | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
+| 4         | 10-12       | ./sources/backend/notification-service/ | Xây dựng dịch vụ thông báo với chức năng gửi thông báo đến ứng dụng di động và nhóm Zalo | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003] |
+| 5         | 13-15       | ./sources/frontend/ | Xây dựng giao diện người dùng với các chức năng duyệt khóa học, đăng ký khóa học, xem thẻ hội viên | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-010], [REQ-011], [REQ-014], [REQ-015], [DAT-005], [DAT-007] |
 
-- **Kiến trúc hệ thống:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, trung tâm, khóa học, điểm danh, và thông báo. Các dịch vụ này giao tiếp qua REST APIs và sự kiện được phát hành qua message broker (Apache Kafka).
+## 5. PHÂN PHỐI NHIỆM VỤ THEO NGÀY
 
-- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với các bảng được chuẩn hóa để đảm bảo tính toàn vẹn dữ liệu. Các bảng được thiết kế với các khóa chính, khóa ngoại, và ràng buộc để đảm bảo tính toàn vẹn tham chiếu.
+### Phase 4: Triển Khai Lõi Nghiệp Vụ Thông Báo
 
-- **Kiến trúc giao diện người dùng:** Giao diện người dùng được xây dựng bằng Next.js cho web và React Native cho di động. Các giao diện này tiêu thụ REST APIs từ backend và sử dụng caching ngoại tuyến cho các tính năng quan trọng.
+- **Phase Core Objective & Purpose:** Triển khai dịch vụ thông báo với chức năng gửi thông báo đến ứng dụng di động và nhóm Zalo. Đảm bảo tính tin cậy và hiệu suất cao của dịch vụ thông báo.
+- **Target Physical Directory Matrix Map:** ./sources/backend/notification-service/
+- **Database Schema DDL SQL Specification [DAT-008]:**
+```sql
+CREATE TABLE notifications (
+    notification_id UUID PRIMARY KEY,
+    user_id UUID REFERENCES users(user_id),
+    group_zalo VARCHAR(255),
+    message TEXT NOT NULL,
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    delivered BOOLEAN DEFAULT FALSE
+);
+```
+- **API and Event Routing Contracts [REQ-016], [ARC-008]:**
+```json
+{
+    "sendNotification": {
+        "method": "POST",
+        "path": "/api/notifications",
+        "request": {
+            "userId": "UUID",
+            "groupZalo": "string",
+            "message": "string"
+        },
+        "response": {
+            "notificationId": "UUID",
+            "status": "string"
+        }
+    }
+}
+```
+- **Phase Localized Exception Handlers [EXC-003]:**
+- Nếu không thể gửi thông báo đến thiết bị di động, hệ thống sẽ ghi lại lỗi và thử lại tối đa 3 lần trước khi đánh dấu là thất bại.
 
-#### 4.1.2 Kiến trúc hạ tầng
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 4)
 
-- **Kiến trúc hạ tầng:** Hạ tầng được triển khai trên Google Kubernetes Engine (GKE) với các dịch vụ được container hóa bằng Docker. Các dịch vụ được triển khai trên các pod Kubernetes với các chính sách scaling tự động dựa trên CPU và độ trễ yêu cầu.
-
-- **Kiến trúc lưu trữ:** Dữ liệu được lưu trữ trên các instance PostgreSQL được quản lý bởi Google Cloud SQL. Các bản sao lưu hàng ngày được thực hiện và lưu trữ trong Google Cloud Storage.
-
-- **Kiến trúc mạng:** Mạng được cấu hình với các VPC riêng biệt cho các môi trường phát triển, thử nghiệm, và sản xuất. Các dịch vụ được truy cập qua các địa chỉ IP tĩnh và các chính sách bảo mật mạng được áp dụng để đảm bảo tính bảo mật.
-
-### 4.2 Ma trận tóm tắt đa giai đoạn
-
-| Giai đoạn | Khoảng ngày | Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|--------------------|---------------------------|------------|------------------|
-| 1         | 1-2         | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth2 | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [ARC-006], [NFR-001], [NFR-003], [NFR-004], [NFR-006] |
-| 2         | 3-4         | ./sources/backend/center-service/, ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý trung tâm và khóa học với các API CRUD và logic kiểm tra xung đột lịch trình | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-002], [ARC-003], [NFR-001], [NFR-003], [NFR-004], [NFR-006] |
-| 3         | 5-6         | ./sources/backend/attendance-service/, ./sources/backend/notification-service/ | Xây dựng dịch vụ điểm danh và thông báo với logic xử lý QR, idempotent và gửi thông báo qua FCM/APNs và Zalo API | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008], [NFR-001], [NFR-003], [NFR-004], [NFR-006] |
-| 4         | 7-8         | ./sources/frontend/, ./sources/mobile-app/ | Xây dựng giao diện người dùng cho web và di động với các tính năng quản lý người dùng, trung tâm, khóa học, điểm danh, và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-020], [REQ-021], [ARC-009], [NFR-001], [NFR-003], [NFR-004], [NFR-006] |
-| 5         | 9-10        | ./sources/docs/, ./sources/infra/ | Tạo tài liệu kỹ thuật và cấu hình hạ tầng với các tài liệu API, tài liệu hệ thống, và các cấu hình CI/CD | Doc, Docker, GCP, GKE | [NFR-005], [NFR-007], [NFR-008], [NFR-009] |
-
-## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
-
-### Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth2.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/auth-service/
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Xây dựng bảng người dùng và vai trò với các trường và ràng buộc như đã mô tả trong yêu cầu.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [ARC-006]:** Xây dựng các API cho đăng ký người dùng, xác thực qua mạng xã hội, và cấp JWT token.
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:** Xử lý xác thực đầu vào không hợp lệ với các thông báo rõ ràng.
-
-#### Nhật ký Ngày theo Ngày Phân phối Công việc Sub-Agent (Giai đoạn 1)
-
-<!--START_DAY_LOG_INDEX_1-->
-
-- **DAY 1: Xây dựng cơ sở dữ liệu và dịch vụ xác thực cơ bản**
-
-##### SUB-TASK 1: Thiết kế và triển khai cơ sở dữ liệu người dùng và vai trò
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-001]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/main/resources/db/migration/V1__Create_users_and_roles.sql
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo các bảng người dùng và vai trò với các trường và ràng buộc như đã mô tả trong yêu cầu. [DAT-001]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Xây dựng dịch vụ xác thực cơ bản với email/mật khẩu
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-001], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng dịch vụ xác thực cơ bản với email/mật khẩu. [REQ-001], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho dịch vụ xác thực cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-001], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/test/java/com/example/auth/service/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho dịch vụ xác thực cơ bản. [REQ-001], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Xây dựng API đăng ký người dùng
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-001], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/main/java/com/example/auth/controller/AuthController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng API đăng ký người dùng. [REQ-001], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Viết các bài kiểm tra tích hợp cho API đăng ký người dùng
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-001], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/test/java/com/example/auth/controller/AuthControllerTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/controller/AuthController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra tích hợp cho API đăng ký người dùng. [REQ-001], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Xây dựng tài liệu API cho dịch vụ xác thực
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-001], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/auth-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng tài liệu API cho dịch vụ xác thực. [REQ-001], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Xây dựng Dockerfile cho dịch vụ xác thực
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [NFR-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/Dockerfile
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng Dockerfile cho dịch vụ xác thực. [NFR-005]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 8: Triển khai dịch vụ xác thực trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gke/auth-service-deployment.yaml
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai dịch vụ xác thực trên GKE. [NFR-004]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2: Xây dựng dịch vụ xác thực qua mạng xã hội và hoàn thiện hệ thống**
-
-##### SUB-TASK 1: Xây dựng dịch vụ xác thực qua Firebase, Google, Facebook OAuth2
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/main/java/com/example/auth/service/SocialAuthService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng dịch vụ xác thực qua Firebase, Google, Facebook OAuth2. [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Viết các bài kiểm tra đơn vị cho dịch vụ xác thực qua mạng xã hội
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/test/java/com/example/auth/service/SocialAuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/service/SocialAuthService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho dịch vụ xác thực qua mạng xã hội. [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Xây dựng API xác thực qua mạng xã hội
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/main/java/com/example/auth/controller/SocialAuthController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng API xác thực qua mạng xã hội. [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Viết các bài kiểm tra tích hợp cho API xác thực qua mạng xã hội
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/src/test/java/com/example/auth/controller/SocialAuthControllerTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/controller/SocialAuthController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra tích hợp cho API xác thực qua mạng xã hội. [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Xây dựng tài liệu API cho dịch vụ xác thực qua mạng xã hội
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/social-auth-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng tài liệu API cho dịch vụ xác thực qua mạng xã hội. [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Xây dựng Dockerfile cho dịch vụ xác thực qua mạng xã hội
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [NFR-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/auth-service/Dockerfile
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng Dockerfile cho dịch vụ xác thực qua mạng xã hội. [NFR-005]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Triển khai dịch vụ xác thực qua mạng xã hội trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gke/social-auth-service-deployment.yaml
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai dịch vụ xác thực qua mạng xã hội trên GKE. [NFR-004]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_1-->
-
-### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Trung Tâm Và Khóa Học
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ quản lý trung tâm và khóa học với các API CRUD và logic kiểm tra xung đột lịch trình.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/center-service/, ./sources/backend/course-service/
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003], [DAT-004]:** Xây dựng bảng trung tâm và khóa học với các trường và ràng buộc như đã mô tả trong yêu cầu.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-002], [ARC-003]:** Xây dựng các API cho quản lý trung tâm và khóa học.
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có luồng ngoại lệ chuyên biệt được xác định cho giai đoạn này.
-
-#### Nhật ký Ngày theo Ngày Phân phối Công việc Sub-Agent (Giai đoạn 2)
-
-<!--START_DAY_LOG_INDEX_2-->
-
-- **DAY 1: Xây dựng cơ sở dữ liệu và dịch vụ quản lý trung tâm**
-
-##### SUB-TASK 1: Thiết kế và triển khai cơ sở dữ liệu trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers.sql
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo bảng trung tâm với các trường và ràng buộc như đã mô tả trong yêu cầu. [DAT-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Xây dựng dịch vụ quản lý trung tâm cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-004], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng dịch vụ quản lý trung tâm cơ bản. [REQ-004], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho dịch vụ quản lý trung tâm cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-004], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/center-service/src/test/java/com/example/center/service/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho dịch vụ quản lý trung tâm cơ bản. [REQ-004], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Xây dựng API quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-004], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/center-service/src/main/java/com/example/center/controller/CenterController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng API quản lý trung tâm. [REQ-004], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Viết các bài kiểm tra tích hợp cho API quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-004], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/center-service/src/test/java/com/example/center/controller/CenterControllerTest.java;./sources/backend/center-service/src/main/java/com/example/center/controller/CenterController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra tích hợp cho API quản lý trung tâm. [REQ-004], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Xây dựng tài liệu API cho dịch vụ quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-004], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/center-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng tài liệu API cho dịch vụ quản lý trung tâm. [REQ-004], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Xây dựng Dockerfile cho dịch vụ quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [NFR-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/center-service/Dockerfile
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng Dockerfile cho dịch vụ quản lý trung tâm. [NFR-005]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 8: Triển khai dịch vụ quản lý trung tâm trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gke/center-service-deployment.yaml
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai dịch vụ quản lý trung tâm trên GKE. [NFR-004]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2: Xây dựng dịch vụ quản lý khóa học và hoàn thiện hệ thống**
-
-##### SUB-TASK 1: Thiết kế và triển khai cơ sở dữ liệu khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses.sql
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo bảng khóa học với các trường và ràng buộc như đã mô tả trong yêu cầu. [DAT-004]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Xây dựng dịch vụ quản lý khóa học cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-007], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng dịch vụ quản lý khóa học cơ bản. [REQ-007], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho dịch vụ quản lý khóa học cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-007], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/course-service/src/test/java/com/example/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho dịch vụ quản lý khóa học cơ bản. [REQ-007], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Xây dựng API quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-007], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/course-service/src/main/java/com/example/course/controller/CourseController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng API quản lý khóa học. [REQ-007], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Viết các bài kiểm tra tích hợp cho API quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-007], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/course-service/src/test/java/com/example/course/controller/CourseControllerTest.java;./sources/backend/course-service/src/main/java/com/example/course/controller/CourseController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra tích hợp cho API quản lý khóa học. [REQ-007], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Xây dựng tài liệu API cho dịch vụ quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-007], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/course-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng tài liệu API cho dịch vụ quản lý khóa học. [REQ-007], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Xây dựng Dockerfile cho dịch vụ quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [NFR-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/course-service/Dockerfile
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng Dockerfile cho dịch vụ quản lý khóa học. [NFR-005]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 8: Triển khai dịch vụ quản lý khóa học trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gke/course-service-deployment.yaml
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai dịch vụ quản lý khóa học trên GKE. [NFR-004]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_2-->
-
-### Giai đoạn 3 - Triển Khai Lõi Nghiệp Vụ Điểm Danh Và Thông Báo
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ điểm danh và thông báo với logic xử lý QR, idempotent và gửi thông báo qua FCM/APNs và Zalo API.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/attendance-service/, ./sources/backend/notification-service/
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-006], [DAT-008]:** Xây dựng bảng điểm danh và thông báo với các trường và ràng buộc như đã mô tả trong yêu cầu.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]:** Xây dựng các API cho điểm danh và thông báo.
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002], [EXC-003]:** Xử lý các trường hợp ngoại lệ như mạng không ổn định và gửi thông báo thất bại.
-
-#### Nhật ký Ngày theo Ngày Phân phối Công việc Sub-Agent (Giai đoạn 3)
-
-<!--START_DAY_LOG_INDEX_3-->
-
-- **DAY 1: Xây dựng cơ sở dữ liệu và dịch vụ điểm danh**
-
-##### SUB-TASK 1: Thiết kế và triển khai cơ sở dữ liệu điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_attendance.sql
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo bảng điểm danh với các trường và ràng buộc như đã mô tả trong yêu cầu. [DAT-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Xây dựng dịch vụ điểm danh cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-012], [ARC-007]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng dịch vụ điểm danh cơ bản. [REQ-012], [ARC-007]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho dịch vụ điểm danh cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-012], [ARC-007]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/attendance-service/src/test/java/com/example/attendance/service/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho dịch vụ điểm danh cơ bản. [REQ-012], [ARC-007]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Xây dựng API điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-012], [ARC-007]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/attendance-service/src/main/java/com/example/attendance/controller/AttendanceController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng API điểm danh. [REQ-012], [ARC-007]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Viết các bài kiểm tra tích hợp cho API điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-012], [ARC-007]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/attendance-service/src/test/java/com/example/attendance/controller/AttendanceControllerTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/controller/AttendanceController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra tích hợp cho API điểm danh. [REQ-012], [ARC-007]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Xây dựng tài liệu API cho dịch vụ điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-012], [ARC-007]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/attendance-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng tài liệu API cho dịch vụ điểm danh. [REQ-012], [ARC-007]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Xây dựng Dockerfile cho dịch vụ điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [NFR-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/attendance-service/Dockerfile
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng Dockerfile cho dịch vụ điểm danh. [NFR-005]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 8: Triển khai dịch vụ điểm danh trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gke/attendance-service-deployment.yaml
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai dịch vụ điểm danh trên GKE. [NFR-004]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2: Xây dựng dịch vụ thông báo và hoàn thiện hệ thống**
-
-##### SUB-TASK 1: Thiết kế và triển khai cơ sở dữ liệu thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications.sql
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo bảng thông báo với các trường và ràng buộc như đã mô tả trong yêu cầu. [DAT-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Xây dựng dịch vụ thông báo cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng dịch vụ thông báo cơ bản. [REQ-016], [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Viết các bài kiểm tra đơn vị cho dịch vụ thông báo cơ bản
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/notification-service/src/test/java/com/example/notification/service/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho dịch vụ thông báo cơ bản. [REQ-016], [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Xây dựng API thông báo
+- **DAY 1: Khởi tạo dịch vụ thông báo**
+  
+##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho dịch vụ thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/notification-service/src/main/java/com/example/notification/controller/NotificationController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng API thông báo. [REQ-016], [ARC-008]
+* Sub-Agent: [Coder]
+* Targeted Tag IDs: [DAT-008]
+* Target Component file path: ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
+* Low-Level Technical Task Instruction: Tạo bảng notifications với các cột notification_id, user_id, group_zalo, message, sent_at, delivered. [DAT-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 5: Viết các bài kiểm tra tích hợp cho API thông báo
+##### SUB-TASK 2: Viết unit tests cho cơ sở dữ liệu
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/notification-service/src/test/java/com/example/notification/controller/NotificationControllerTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/controller/NotificationController.java
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra tích hợp cho API thông báo. [REQ-016], [ARC-008]
+* Sub-Agent: [Tester]
+* Targeted Tag IDs: [DAT-008]
+* Target Component file path: ./sources/backend/notification-service/src/test/java/com/example/notification/db/NotificationsTableTest.java;./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
+* Low-Level Technical Task Instruction: Viết unit tests để kiểm tra việc tạo bảng notifications. [DAT-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Xây dựng tài liệu API cho dịch vụ thông báo
+##### SUB-TASK 3: Review code cơ sở dữ liệu
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/notification-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng tài liệu API cho dịch vụ thông báo. [REQ-016], [ARC-008]
+* Sub-Agent: [Reviewer]
+* Targeted Tag IDs: [DAT-008]
+* Target Component file path: ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
+* Low-Level Technical Task Instruction: Review code cơ sở dữ liệu để đảm bảo tính đúng đắn và hiệu suất. [DAT-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 7: Xây dựng Dockerfile cho dịch vụ thông báo
+##### SUB-TASK 4: Tài liệu cơ sở dữ liệu
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [NFR-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/backend/notification-service/Dockerfile
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng Dockerfile cho dịch vụ thông báo. [NFR-005]
+* Sub-Agent: [Doc]
+* Targeted Tag IDs: [DAT-008]
+* Target Component file path: ./sources/docs/database/notification-service.md
+* Low-Level Technical Task Instruction: Tài liệu cơ sở dữ liệu cho dịch vụ thông báo. [DAT-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 8: Triển khai dịch vụ thông báo trên GKE
+##### SUB-TASK 5: Xây dựng Dockerfile cho dịch vụ thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gke/notification-service-deployment.yaml
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai dịch vụ thông báo trên GKE. [NFR-004]
+* Sub-Agent: [Docker]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/backend/notification-service/Dockerfile
+* Low-Level Technical Task Instruction: Xây dựng Dockerfile cho dịch vụ thông báo. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--END_PHASE_LOG_BLOCK_INDEX_3-->
-
-### Giai đoạn 4 - Triển Khai Giao Diện Người Dùng Web Và Di Động
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng giao diện người dùng cho web và di động với các tính năng quản lý người dùng, trung tâm, khóa học, điểm danh, và thông báo.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/frontend/, ./sources/mobile-app/
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu:** Không có thay đổi cơ sở dữ liệu trong giai đoạn này.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-020], [REQ-021], [ARC-009]:** Xây dựng các giao diện người dùng cho các tính năng quản lý người dùng, trung tâm, khóa học, điểm danh, và thông báo.
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có luồng ngoại lệ chuyên biệt được xác định cho giai đoạn này.
-
-#### Nhật ký Ngày theo Ngày Phân phối Công việc Sub-Agent (Giai đoạn 4)
-
-<!--START_DAY_LOG_INDEX_4-->
-
-- **DAY 1: Xây dựng giao diện người dùng cho web**
-
-##### SUB-TASK 1: Xây dựng giao diện đăng nhập và đăng ký người dùng
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/pages/auth/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện đăng nhập và đăng ký người dùng. [REQ-001], [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Viết các bài kiểm tra đơn vị cho giao diện đăng nhập và đăng ký người dùng
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/tests/pages/auth/;./sources/frontend/src/pages/auth/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện đăng nhập và đăng ký người dùng. [REQ-001], [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Xây dựng giao diện quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/pages/center/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện quản lý trung tâm. [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho giao diện quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/tests/pages/center/;./sources/frontend/src/pages/center/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện quản lý trung tâm. [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Xây dựng giao diện quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/pages/course/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện quản lý khóa học. [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Viết các bài kiểm tra đơn vị cho giao diện quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/tests/pages/course/;./sources/frontend/src/pages/course/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện quản lý khóa học. [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Xây dựng giao diện điểm danh và thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/pages/attendance/, ./sources/frontend/src/pages/notification/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện điểm danh và thông báo. [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 8: Viết các bài kiểm tra đơn vị cho giao diện điểm danh và thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/frontend/src/tests/pages/attendance/;./sources/frontend/src/pages/attendance/, ./sources/frontend/src/tests/pages/notification/;./sources/frontend/src/pages/notification/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện điểm danh và thông báo. [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 2: Xây dựng giao diện người dùng cho di động**
-
-##### SUB-TASK 1: Xây dựng giao diện đăng nhập và đăng ký người dùng cho di động
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/screens/auth/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện đăng nhập và đăng ký người dùng cho di động. [REQ-001], [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Viết các bài kiểm tra đơn vị cho giao diện đăng nhập và đăng ký người dùng cho di động
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/tests/screens/auth/;./sources/mobile-app/src/screens/auth/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện đăng nhập và đăng ký người dùng cho di động. [REQ-001], [REQ-002], [ARC-006]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Xây dựng giao diện quản lý trung tâm cho di động
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/screens/center/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện quản lý trung tâm cho di động. [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Viết các bài kiểm tra đơn vị cho giao diện quản lý trung tâm cho di động
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/tests/screens/center/;./sources/mobile-app/src/screens/center/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện quản lý trung tâm cho di động. [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Xây dựng giao diện quản lý khóa học cho di động
+##### SUB-TASK 6: Triển khai cơ sở hạ tầng trên GCP
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/screens/course/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện quản lý khóa học cho di động. [REQ-007], [REQ-008], [REQ-009], [ARC-003]
+* Sub-Agent: [GCP]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/infra/gcp/notification-service.yaml
+* Low-Level Technical Task Instruction: Triển khai cơ sở hạ tầng trên GCP cho dịch vụ thông báo. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Viết các bài kiểm tra đơn vị cho giao diện quản lý khóa học cho di động
+##### SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/tests/screens/course/;./sources/mobile-app/src/screens/course/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện quản lý khóa học cho di động. [REQ-007], [REQ-008], [REQ-009], [ARC-003]
+* Sub-Agent: [GKE]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/infra/gke/notification-service.yaml
+* Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 7: Xây dựng giao diện điểm danh và thông báo cho di động
+- **DAY 2: Triển khai chức năng gửi thông báo**
+  
+##### SUB-TASK 1: Thiết kế API gửi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/screens/attendance/, ./sources/mobile-app/src/screens/notification/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Xây dựng giao diện điểm danh và thông báo cho di động. [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
+* Sub-Agent: [Coder]
+* Targeted Tag IDs: [REQ-016]
+* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/api/NotificationApi.java
+* Low-Level Technical Task Instruction: Thiết kế API gửi thông báo với endpoint /api/notifications. [REQ-016]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 8: Viết các bài kiểm tra đơn vị cho giao diện điểm danh và thông báo cho di động
+##### SUB-TASK 2: Viết unit tests cho API gửi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/mobile-app/src/tests/screens/attendance/;./sources/mobile-app/src/screens/attendance/, ./sources/mobile-app/src/tests/screens/notification/;./sources/mobile-app/src/screens/notification/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm tra đơn vị cho giao diện điểm danh và thông báo cho di động. [REQ-012], [REQ-013], [REQ-016], [ARC-007], [ARC-008]
+* Sub-Agent: [Tester]
+* Targeted Tag IDs: [REQ-016]
+* Target Component file path: ./sources/backend/notification-service/src/test/java/com/example/notification/api/NotificationApiTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/api/NotificationApi.java
+* Low-Level Technical Task Instruction: Viết unit tests cho API gửi thông báo. [REQ-016]
 <!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_4-->
 
-### Giai đoạn 5 - Tài liệu Kỹ Thuật Và Cấu Hình Hạ Tầng
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Tạo tài liệu kỹ thuật và cấu hình hạ tầng với các tài liệu API, tài liệu hệ thống, và các cấu hình CI/CD.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/docs/, ./sources/infra/
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu:** Không có thay đổi cơ sở dữ liệu trong giai đoạn này.
-- **Hợp đồng Định tuyến API và Sự kiện:** Không có thay đổi hợp đồng API trong giai đoạn này.
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có luồng ngoại lệ chuyên biệt được xác định cho giai đoạn này.
-
-#### Nhật ký Ngày theo Ngày Phân phối Công việc Sub-Agent (Giai đoạn 5)
-
-<!--START_DAY_LOG_INDEX_5-->
-
-- **DAY 1: Tạo tài liệu kỹ thuật**
-
-##### SUB-TASK 1: Tạo tài liệu API cho dịch vụ xác thực
+##### SUB-TASK 3: Review code API gửi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [ARC-006]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/auth-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu API cho dịch vụ xác thực. [REQ-001], [REQ-002], [ARC-006]
+* Sub-Agent: [Reviewer]
+* Targeted Tag IDs: [REQ-016]
+* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/api/NotificationApi.java
+* Low-Level Technical Task Instruction: Review code API gửi thông báo để đảm bảo tính đúng đắn và hiệu suất. [REQ-016]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 2: Tạo tài liệu API cho dịch vụ quản lý trung tâm
+##### SUB-TASK 4: Tài liệu API gửi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/center-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu API cho dịch vụ quản lý trung tâm. [REQ-004], [REQ-005], [REQ-006], [ARC-002]
+* Sub-Agent: [Doc]
+* Targeted Tag IDs: [REQ-016]
+* Target Component file path: ./sources/docs/api/notification-service.md
+* Low-Level Technical Task Instruction: Tài liệu API gửi thông báo. [REQ-016]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 3: Tạo tài liệu API cho dịch vụ quản lý khóa học
+##### SUB-TASK 5: Xây dựng Dockerfile cho dịch vụ thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/course-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu API cho dịch vụ quản lý khóa học. [REQ-007], [REQ-008], [REQ-009], [ARC-003]
+* Sub-Agent: [Docker]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/backend/notification-service/Dockerfile
+* Low-Level Technical Task Instruction: Xây dựng Dockerfile cho dịch vụ thông báo. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 4: Tạo tài liệu API cho dịch vụ điểm danh
+##### SUB-TASK 6: Triển khai cơ sở hạ tầng trên GCP
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-012], [REQ-013], [ARC-007]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/attendance-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu API cho dịch vụ điểm danh. [REQ-012], [REQ-013], [ARC-007]
+* Sub-Agent: [GCP]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/infra/gcp/notification-service.yaml
+* Low-Level Technical Task Instruction: Triển khai cơ sở hạ tầng trên GCP cho dịch vụ thông báo. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 5: Tạo tài liệu API cho dịch vụ thông báo
+##### SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/api/notification-service.md
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu API cho dịch vụ thông báo. [REQ-016], [ARC-008]
+* Sub-Agent: [GKE]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/infra/gke/notification-service.yaml
+* Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Tạo tài liệu hệ thống cho hệ thống
+- **DAY 3: Triển khai chức năng xử lý lỗi thông báo**
+  
+##### SUB-TASK 1: Thiết kế xử lý lỗi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/docs/system/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo tài liệu hệ thống cho hệ thống. [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
+* Sub-Agent: [Coder]
+* Targeted Tag IDs: [EXC-003]
+* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
+* Low-Level Technical Task Instruction: Thiết kế xử lý lỗi thông báo với chức năng ghi lại lỗi và thử lại tối đa 3 lần. [EXC-003]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 2: Cấu hình hạ tầng**
-
-##### SUB-TASK 1: Cấu hình hạ tầng cho dịch vụ xác thực
+##### SUB-TASK 2: Viết unit tests cho xử lý lỗi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gcp/auth-service/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình hạ tầng cho dịch vụ xác thực. [NFR-004]
+* Sub-Agent: [Tester]
+* Targeted Tag IDs: [EXC-003]
+* Target Component file path: ./sources/backend/notification-service/src/test/java/com/example/notification/service/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
+* Low-Level Technical Task Instruction: Viết unit tests cho xử lý lỗi thông báo. [EXC-003]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 2: Cấu hình hạ tầng cho dịch vụ quản lý trung tâm
+##### SUB-TASK 3: Review code xử lý lỗi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gcp/center-service/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình hạ tầng cho dịch vụ quản lý trung tâm. [NFR-004]
+* Sub-Agent: [Reviewer]
+* Targeted Tag IDs: [EXC-003]
+* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
+* Low-Level Technical Task Instruction: Review code xử lý lỗi thông báo để đảm bảo tính đúng đắn và hiệu suất. [EXC-003]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 3: Cấu hình hạ tầng cho dịch vụ quản lý khóa học
+##### SUB-TASK 4: Tài liệu xử lý lỗi thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gcp/course-service/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình hạ tầng cho dịch vụ quản lý khóa học. [NFR-004]
+* Sub-Agent: [Doc]
+* Targeted Tag IDs: [EXC-003]
+* Target Component file path: ./sources/docs/exception/notification-service.md
+* Low-Level Technical Task Instruction: Tài liệu xử lý lỗi thông báo. [EXC-003]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 4: Cấu hình hạ tầng cho dịch vụ điểm danh
+##### SUB-TASK 5: Xây dựng Dockerfile cho dịch vụ thông báo
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gcp/attendance-service/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình hạ tầng cho dịch vụ điểm danh. [NFR-004]
+* Sub-Agent: [Docker]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/backend/notification-service/Dockerfile
+* Low-Level Technical Task Instruction: Xây dựng Dockerfile cho dịch vụ thông báo. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 5: Cấu hình hạ tầng cho dịch vụ thông báo
+##### SUB-TASK 6: Triển khai cơ sở hạ tầng trên GCP
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gcp/notification-service/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình hạ tầng cho dịch vụ thông báo. [NFR-004]
+* Sub-Agent: [GCP]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/infra/gcp/notification-service.yaml
+* Low-Level Technical Task Instruction: Triển khai cơ sở hạ tầng trên GCP cho dịch vụ thông báo. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Cấu hình CI/CD pipeline
+##### SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-004]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** ./sources/infra/gcp/ci-cd/
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Cấu hình CI/CD pipeline. [NFR-004]
+* Sub-Agent: [GKE]
+* Targeted Tag IDs: [ARC-008]
+* Target Component file path: ./sources/infra/gke/notification-service.yaml
+* Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-008]
 <!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_PHASE_LOG_BLOCK_INDEX_5-->
+```
 

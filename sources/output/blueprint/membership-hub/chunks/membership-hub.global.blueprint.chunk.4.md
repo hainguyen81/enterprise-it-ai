@@ -610,6 +610,17 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase 1. Completely delete and skip all other sections.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -763,7 +774,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
 ### 2.1 Quản lý người dùng
 
@@ -1090,7 +1101,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
 
-## 📜 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
+## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
 
 - [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
 - [NFR-002] Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
@@ -1102,463 +1113,108 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📝 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHÂN TÍCH
+## 5. GRANULAR PHASE SPECIALIZATIONS & DAY-BY-DAY DELIVERABLES
 
-### 4.1 KIẾN TRÚC TOÀN CẦU
+### 📈 Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Thiết lập cơ sở hạ tầng xác thực người dùng, bao gồm đăng ký qua email/mật khẩu, xác thực OAuth2 với Firebase, Google, và Facebook, và triển khai cơ chế cấp JWT token với thời hạn 15 phút và refresh token.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
+    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
 
-#### 4.1.1 Kiến trúc hệ thống
-
-- **Backend**: Sử dụng Java/Quarkus để xây dựng các dịch vụ microservices độc lập, mỗi dịch vụ chịu trách nhiệm cho một miền nghiệp vụ cụ thể (người dùng, khóa học, điểm danh, v.v.).
-- **Frontend**: Sử dụng Next.js để xây dựng giao diện người dùng đáp ứng, bao gồm cả ứng dụng web và ứng dụng di động (React Native).
-- **Cơ sở dữ liệu**: Sử dụng PostgreSQL với schema được chia thành các cơ sở dữ liệu riêng biệt cho mỗi dịch vụ microservice để đảm bảo tính cô lập và bảo mật.
-- **Containerization**: Sử dụng Docker để đóng gói các dịch vụ và triển khai trên Kubernetes (GKE) để quản lý hạ tầng và tự động hóa triển khai.
-- **Xác thực và ủy quyền**: Sử dụng Firebase Authentication cho xác thực người dùng và JWT cho ủy quyền. Cấp quyền dựa trên vai trò (RBAC) được triển khai thông qua các dịch vụ backend.
-- **Thông báo đẩy**: Sử dụng Firebase Cloud Messaging (FCM) và Apple APNs để gửi thông báo đẩy đến ứng dụng di động.
-- **Tích hợp Zalo**: Sử dụng Zalo API để gửi thông báo và tương tác với nhóm Zalo.
-- **Caching**: Sử dụng Redis để lưu trữ phiên và dữ liệu tạm thời.
-- **CI/CD**: Sử dụng GitHub Actions để tự động hóa quy trình tích hợp và triển khai liên tục.
-
-#### 4.1.2 Kiến trúc dữ liệu
-
-- **Schema cơ sở dữ liệu**: PostgreSQL với các bảng được chia thành các schema riêng biệt cho mỗi dịch vụ microservice.
-- **Chỉ mục**: Tạo chỉ mục cho các trường được truy vấn thường xuyên để tối ưu hóa hiệu suất.
-- **Backup và phục hồi**: Thiết lập các bản sao lưu hàng ngày cho cơ sở dữ liệu và phục hồi điểm trong thời gian (PITR) trong vòng 24 giờ.
-- **Read Replicas**: Sử dụng read replicas cho các truy vấn báo cáo để giảm tải cho cơ sở dữ liệu chính.
-
-#### 4.1.3 Kiến trúc giao diện người dùng
-
-- **Giao diện người dùng đáp ứng**: Sử dụng Next.js để xây dựng giao diện người dùng đáp ứng cho cả web và di động.
-- **Bản địa hóa**: Hỗ trợ nhiều ngôn ngữ (tiếng Anh, tiếng Việt, tiếng Tây Ban Nha) và chuyển đổi ngôn ngữ mà không cần tải lại trang.
-- **SEO**: Tối ưu hóa cho công cụ tìm kiếm với các thẻ meta ngôn ngữ cụ thể và thuộc tính hreflang.
-
-#### 4.1.4 Kiến trúc thông báo
-
-- **Thông báo đẩy**: Sử dụng FCM và APNs để gửi thông báo đẩy đến ứng dụng di động.
-- **Tích hợp Zalo**: Sử dụng Zalo API để gửi thông báo và tương tác với nhóm Zalo.
-- **Quản lý thông báo**: Hệ thống quản lý thông báo với các bảng thông báo và lịch sử thông báo.
-
-### 4.2 Ma trận tóm tắt giai đoạn đa giai đoạn
-
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-------------------------|---------------------------|------------|-------------------|
-| Giai đoạn 1 | Ngày 1-2 | `./sources/backend/auth-service/`, `./sources/backend/user-service/`, `./sources/docs/` | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
-| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/center-service/`, `./sources/docs/` | Triển khai lõi nghiệp vụ trung tâm | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [ARC-002] |
-| Giai đoạn 3 | Ngày 1-3 | `./sources/backend/course-service/`, `./sources/docs/` | Triển khai lõi nghiệp vụ khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-003] |
-| Giai đoạn 4 | Ngày 1-2 | `./sources/backend/attendance-service/`, `./sources/docs/` | Triển khai hệ thống điểm danh và thẻ hội viên | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002], [ARC-007] |
-| Giai đoạn 5 | Ngày 1-2 | `./sources/backend/notification-service/`, `./sources/docs/` | Triển khai hệ thống thông báo và tích hợp Zalo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003], [ARC-008] |
-
-## 📝 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
-
-### Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Khởi tạo hệ thống người dùng và xác thực, bao gồm đăng ký người dùng, xác thực qua mạng xã hội, và phân quyền người dùng.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/auth-service/`, `./sources/backend/user-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Tạo bảng người dùng và vai trò với các trường và ràng buộc tương ứng.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:**
-  - Đăng ký người dùng: `POST /api/users/register`
-  - Xác thực qua mạng xã hội: `POST /api/auth/social`
-  - Phân quyền người dùng: `PUT /api/users/{userId}/role`
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:** Xác thực đầu vào không hợp lệ.
-
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 1)
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
 <!--START_DAY_LOG_INDEX_1-->
 
-- **DAY 1: Khởi tạo cơ sở dữ liệu và dịch vụ xác thực**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu**
-    - [Coder]
-    - [DAT-001]
-    - `./sources/backend/user-service/src/main/resources/db/migration/V1__Create_users_and_roles.sql`
-    - Thiết kế schema cơ sở dữ liệu cho bảng người dùng và vai trò với các trường và ràng buộc tương ứng.
-
-  - **SUB-TASK 2: Viết mã nguồn cho dịch vụ xác thực**
-    - [Coder]
-    - [REQ-001], [REQ-002], [ARC-006]
-    - `./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java`
-    - Viết mã nguồn cho dịch vụ xác thực, bao gồm đăng ký người dùng và xác thực qua mạng xã hội.
-
-  - **SUB-TASK 3: Viết mã nguồn cho dịch vụ người dùng**
-    - [Coder]
-    - [REQ-003]
-    - `./sources/backend/user-service/src/main/java/com/example/user/service/UserService.java`
-    - Viết mã nguồn cho dịch vụ người dùng, bao gồm phân quyền người dùng.
-
-  - **SUB-TASK 4: Viết bài kiểm tra đơn vị**
-    - [Tester]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/backend/auth-service/src/test/java/com/example/auth/service/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java`
-    - Viết bài kiểm tra đơn vị cho dịch vụ xác thực và người dùng.
-
-  - **SUB-TASK 5: Viết tài liệu kỹ thuật**
-    - [Doc]
-    - [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006]
-    - `./sources/docs/auth-service.md`
-    - Viết tài liệu kỹ thuật cho dịch vụ xác thực và người dùng.
-
-  - **SUB-TASK 6: Xây dựng và đẩy Docker image**
+- **DAY 1: Khởi tạo cơ sở dữ liệu và mô hình người dùng**
+  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu PostgreSQL**
     - [Docker]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/backend/auth-service/Dockerfile`
-    - Xây dựng và đẩy Docker image cho dịch vụ xác thực và người dùng.
+    - [Targeted Tag IDs]: [ARC-010]
+    - [Target Component file path (target_component)]: ./sources/infra/docker-compose.yml
+    - [Low-Level Technical Task Instruction]: Tạo Docker Compose file để khởi chạy PostgreSQL với cấu hình mặc định và volume cho dữ liệu. [ARC-010]
 
-  - **SUB-TASK 7: Triển khai cơ sở hạ tầng trên GCP**
-    - [GCP]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/infra/gcp/terraform/main.tf`
-    - Triển khai cơ sở hạ tầng trên GCP, bao gồm thiết lập VPC, IAM, và Storage.
+  - **SUB-TASK 2: Thiết kế lược đồ cơ sở dữ liệu cho người dùng và vai trò**
+    - [Coder]
+    - [Targeted Tag IDs]: [DAT-001]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql
+    - [Low-Level Technical Task Instruction]: Viết script Flyway để tạo bảng Users và Roles với các ràng buộc khóa ngoại và kiểm tra. [DAT-001]
 
-  - **SUB-TASK 8: Triển khai dịch vụ trên GKE**
-    - [GKE]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/infra/gke/deployment.yaml`
-    - Triển khai dịch vụ xác thực và người dùng trên GKE, bao gồm thiết lập Deployment, Service, và Ingress.
-
-- **DAY 2: Triển khai và kiểm thử**
-  - **SUB-TASK 1: Triển khai dịch vụ**
-    - [GKE]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/infra/gke/deployment.yaml`
-    - Triển khai dịch vụ xác thực và người dùng trên GKE.
-
-  - **SUB-TASK 2: Kiểm thử tích hợp**
+  - **SUB-TASK 3: Viết unit tests cho lược đồ cơ sở dữ liệu**
     - [Tester]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/backend/auth-service/src/test/java/com/example/auth/service/AuthServiceIntegrationTest.java;./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java`
-    - Viết và chạy kiểm thử tích hợp cho dịch vụ xác thực và người dùng.
+    - [Targeted Tag IDs]: [DAT-001]
+    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/db/UserSchemaTest.java;./sources/backend/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql
+    - [Low-Level Technical Task Instruction]: Viết các test để xác minh cấu trúc bảng và ràng buộc. [DAT-001]
 
-  - **SUB-TASK 3: Đánh giá và sửa lỗi**
-    - [Reviewer]
-    - [REQ-001], [REQ-002], [REQ-003]
-    - `./sources/backend/auth-service/src/main/java/com/example/auth/service/AuthService.java`
-    - Đánh giá mã nguồn và sửa lỗi nếu có.
+- **DAY 2: Triển khai xác thực người dùng**
+  - **SUB-TASK 1: Thiết lập xác thực email/mật khẩu**
+    - [Coder]
+    - [Targeted Tag IDs]: [REQ-001], [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/LocalAuthService.java
+    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ xác thực cục bộ với mã hóa mật khẩu bcrypt. [REQ-001], [ARC-006]
+
+  - **SUB-TASK 2: Thiết lập xác thực OAuth2 với Firebase, Google, Facebook**
+    - [Coder]
+    - [Targeted Tag IDs]: [REQ-002], [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Service.java
+    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ xác thực OAuth2 với các nhà cung cấp khác nhau. [REQ-002], [ARC-006]
+
+  - **SUB-TASK 3: Viết unit tests cho dịch vụ xác thực**
+    - [Tester]
+    - [Targeted Tag IDs]: [REQ-001], [REQ-002], [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/auth/AuthServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/LocalAuthService.java;./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Service.java
+    - [Low-Level Technical Task Instruction]: Viết các test để xác minh tính năng đăng ký và đăng nhập. [REQ-001], [REQ-002], [ARC-006]
+
+- **DAY 3: Triển khai phân quyền người dùng**
+  - **SUB-TASK 1: Thiết lập phân quyền người dùng**
+    - [Coder]
+    - [Targeted Tag IDs]: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/RoleService.java
+    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ phân quyền với các vai trò System Admin, Center Admin, Manager, Teacher, Student. [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+  - **SUB-TASK 2: Viết unit tests cho dịch vụ phân quyền**
+    - [Tester]
+    - [Targeted Tag IDs]: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/auth/RoleServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/RoleService.java
+    - [Low-Level Technical Task Instruction]: Viết các test để xác minh tính năng phân quyền. [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+- **DAY 4: Triển khai JWT token và refresh token**
+  - **SUB-TASK 1: Thiết lập JWT token**
+    - [Coder]
+    - [Targeted Tag IDs]: [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/JwtService.java
+    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ JWT với thời hạn 15 phút. [ARC-006]
+
+  - **SUB-TASK 2: Thiết lập refresh token**
+    - [Coder]
+    - [Targeted Tag IDs]: [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/RefreshTokenService.java
+    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ refresh token với thời hạn 7 ngày. [ARC-006]
+
+  - **SUB-TASK 3: Viết unit tests cho dịch vụ JWT và refresh token**
+    - [Tester]
+    - [Targeted Tag IDs]: [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/auth/JwtServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/JwtService.java;./sources/backend/src/test/java/com/membershiphub/auth/RefreshTokenServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/RefreshTokenService.java
+    - [Low-Level Technical Task Instruction]: Viết các test để xác minh tính năng JWT và refresh token. [ARC-006]
+
+- **DAY 5: Triển khai xử lý ngoại lệ và kiểm tra tích hợp**
+  - **SUB-TASK 1: Thiết lập xử lý ngoại lệ**
+    - [Coder]
+    - [Targeted Tag IDs]: [EXC-004]
+    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/exception/GlobalExceptionHandler.java
+    - [Low-Level Technical Task Instruction]: Triển khai xử lý ngoại lệ toàn cầu với thông báo rõ ràng cho người dùng. [EXC-004]
+
+  - **SUB-TASK 2: Viết unit tests cho xử lý ngoại lệ**
+    - [Tester]
+    - [Targeted Tag IDs]: [EXC-004]
+    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/exception/GlobalExceptionHandlerTest.java;./sources/backend/src/main/java/com/membershiphub/exception/GlobalExceptionHandler.java
+    - [Low-Level Technical Task Instruction]: Viết các test để xác minh xử lý ngoại lệ. [EXC-004]
+
+  - **SUB-TASK 3: Thiết lập kiểm tra tích hợp**
+    - [Tester]
+    - [Targeted Tag IDs]: [REQ-001], [REQ-002], [REQ-003], [ARC-006]
+    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/integration/AuthIntegrationTest.java;./sources/backend/src/main/java/com/membershiphub/auth/LocalAuthService.java;./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Service.java;./sources/backend/src/main/java/com/membershiphub/auth/RoleService.java;./sources/backend/src/main/java/com/membershiphub/auth/JwtService.java;./sources/backend/src/main/java/com/membershiphub/auth/RefreshTokenService.java
+    - [Low-Level Technical Task Instruction]: Viết các test tích hợp để xác minh tính năng đăng ký, đăng nhập và phân quyền. [REQ-001], [REQ-002], [REQ-003], [ARC-006]
 
 <!--END_PHASE_LOG_BLOCK_INDEX_1-->
-
-### Giai đoạn 2 - Triển khai Lõi Nghiệp Vụ Trung Tâm
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai lõi nghiệp vụ trung tâm, bao gồm xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/center-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003]:** Tạo bảng trung tâm với các trường và ràng buộc tương ứng.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [ARC-002]:**
-  - Xem danh sách trung tâm: `GET /api/centers`
-  - Tạo/cập nhật/xóa trung tâm: `POST /api/centers`, `PUT /api/centers/{centerId}`, `DELETE /api/centers/{centerId}`
-  - Phân quyền quản trị trung tâm: `PUT /api/centers/{centerId}/admin`
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có.
-
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 2)
-
-<!--START_DAY_LOG_INDEX_2-->
-
-- **DAY 1: Khởi tạo cơ sở dữ liệu và dịch vụ trung tâm**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu**
-    - [Coder]
-    - [DAT-003]
-    - `./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers.sql`
-    - Thiết kế schema cơ sở dữ liệu cho bảng trung tâm với các trường và ràng buộc tương ứng.
-
-  - **SUB-TASK 2: Viết mã nguồn cho dịch vụ trung tâm**
-    - [Coder]
-    - [REQ-004], [REQ-005], [REQ-006], [ARC-002]
-    - `./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java`
-    - Viết mã nguồn cho dịch vụ trung tâm, bao gồm xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-
-  - **SUB-TASK 3: Viết bài kiểm tra đơn vị**
-    - [Tester]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/backend/center-service/src/test/java/com/example/center/service/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java`
-    - Viết bài kiểm tra đơn vị cho dịch vụ trung tâm.
-
-  - **SUB-TASK 4: Viết tài liệu kỹ thuật**
-    - [Doc]
-    - [REQ-004], [REQ-005], [REQ-006], [DAT-003], [ARC-002]
-    - `./sources/docs/center-service.md`
-    - Viết tài liệu kỹ thuật cho dịch vụ trung tâm.
-
-  - **SUB-TASK 5: Xây dựng và đẩy Docker image**
-    - [Docker]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/backend/center-service/Dockerfile`
-    - Xây dựng và đẩy Docker image cho dịch vụ trung tâm.
-
-  - **SUB-TASK 6: Triển khai dịch vụ trên GKE**
-    - [GKE]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/infra/gke/center-deployment.yaml`
-    - Triển khai dịch vụ trung tâm trên GKE, bao gồm thiết lập Deployment, Service, và Ingress.
-
-- **DAY 2: Triển khai và kiểm thử**
-  - **SUB-TASK 1: Triển khai dịch vụ**
-    - [GKE]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/infra/gke/center-deployment.yaml`
-    - Triển khai dịch vụ trung tâm trên GKE.
-
-  - **SUB-TASK 2: Kiểm thử tích hợp**
-    - [Tester]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/backend/center-service/src/test/java/com/example/center/service/CenterServiceIntegrationTest.java;./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java`
-    - Viết và chạy kiểm thử tích hợp cho dịch vụ trung tâm.
-
-  - **SUB-TASK 3: Đánh giá và sửa lỗi**
-    - [Reviewer]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java`
-    - Đánh giá mã nguồn và sửa lỗi nếu có.
-
-- **DAY 3: Tối ưu hóa và triển khai cuối cùng**
-  - **SUB-TASK 1: Tối ưu hóa hiệu suất**
-    - [Coder]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java`
-    - Tối ưu hóa hiệu suất cho dịch vụ trung tâm.
-
-  - **SUB-TASK 2: Triển khai cuối cùng**
-    - [GKE]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/infra/gke/center-deployment.yaml`
-    - Triển khai cuối cùng cho dịch vụ trung tâm trên GKE.
-
-  - **SUB-TASK 3: Kiểm thử cuối cùng**
-    - [Tester]
-    - [REQ-004], [REQ-005], [REQ-006]
-    - `./sources/backend/center-service/src/test/java/com/example/center/service/CenterServiceFinalTest.java;./sources/backend/center-service/src/main/java/com/example/center/service/CenterService.java`
-    - Viết và chạy kiểm thử cuối cùng cho dịch vụ trung tâm.
-
-<!--END_PHASE_LOG_BLOCK_INDEX_2-->
-
-### Giai đoạn 3 - Triển khai Lõi Nghiệp Vụ Khóa Học
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai lõi nghiệp vụ khóa học, bao gồm xem danh sách khóa học, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/course-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** Tạo bảng khóa học với các trường và ràng buộc tương ứng.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-007], [REQ-008], [REQ-009], [ARC-003]:**
-  - Xem danh sách khóa học: `GET /api/courses`
-  - Tạo/cập nhật/xóa khóa học: `POST /api/courses`, `PUT /api/courses/{courseId}`, `DELETE /api/courses/{courseId}`
-  - Phân công giáo viên vào khóa học: `PUT /api/courses/{courseId}/teacher`
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn:** Không có.
-
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 3)
-
-<!--START_DAY_LOG_INDEX_3-->
-
-- **DAY 1: Khởi tạo cơ sở dữ liệu và dịch vụ khóa học**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu**
-    - [Coder]
-    - [DAT-004]
-    - `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses.sql`
-    - Thiết kế schema cơ sở dữ liệu cho bảng khóa học với các trường và ràng buộc tương ứng.
-
-  - **SUB-TASK 2: Viết mã nguồn cho dịch vụ khóa học**
-    - [Coder]
-    - [REQ-007], [REQ-008], [REQ-009], [ARC-003]
-    - `./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java`
-    - Viết mã nguồn cho dịch vụ khóa học, bao gồm xem danh sách khóa học, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
-
-  - **SUB-TASK 3: Viết bài kiểm tra đơn vị**
-    - [Tester]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/src/test/java/com/example/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java`
-    - Viết bài kiểm tra đơn vị cho dịch vụ khóa học.
-
-  - **SUB-TASK 4: Viết tài liệu kỹ thuật**
-    - [Doc]
-    - [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-003]
-    - `./sources/docs/course-service.md`
-    - Viết tài liệu kỹ thuật cho dịch vụ khóa học.
-
-  - **SUB-TASK 5: Xây dựng và đẩy Docker image**
-    - [Docker]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/Dockerfile`
-    - Xây dựng và đẩy Docker image cho dịch vụ khóa học.
-
-  - **SUB-TASK 6: Triển khai dịch vụ trên GKE**
-    - [GKE]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/infra/gke/course-deployment.yaml`
-    - Triển khai dịch vụ khóa học trên GKE, bao gồm thiết lập Deployment, Service, và Ingress.
-
-- **DAY 2: Triển khai và kiểm thử**
-  - **SUB-TASK 1: Triển khai dịch vụ**
-    - [GKE]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/infra/gke/course-deployment.yaml`
-    - Triển khai dịch vụ khóa học trên GKE.
-
-  - **SUB-TASK 2: Kiểm thử tích hợp**
-    - [Tester]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/src/test/java/com/example/course/service/CourseServiceIntegrationTest.java;./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java`
-    - Viết và chạy kiểm thử tích hợp cho dịch vụ khóa học.
-
-  - **SUB-TASK 3: Đánh giá và sửa lỗi**
-    - [Reviewer]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java`
-    - Đánh giá mã nguồn và sửa lỗi nếu có.
-
-- **DAY 3: Tối ưu hóa và triển khai cuối cùng**
-  - **SUB-TASK 1: Tối ưu hóa hiệu suất**
-    - [Coder]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java`
-    - Tối ưu hóa hiệu suất cho dịch vụ khóa học.
-
-  - **SUB-TASK 2: Triển khai cuối cùng**
-    - [GKE]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/infra/gke/course-deployment.yaml`
-    - Triển khai cuối cùng cho dịch vụ khóa học trên GKE.
-
-  - **SUB-TASK 3: Kiểm thử cuối cùng**
-    - [Tester]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/src/test/java/com/example/course/service/CourseServiceFinalTest.java;./sources/backend/course-service/src/main/java/com/example/course/service/CourseService.java`
-    - Viết và chạy kiểm thử cuối cùng cho dịch vụ khóa học.
-
-<!--END_PHASE_LOG_BLOCK_INDEX_3-->
-
-### Giai đoạn 4 - Triển khai Hệ thống Điểm Danh Và Thẻ Hội Viên
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống điểm danh và thẻ hội viên, bao gồm chụp ảnh điểm danh QR, tính chất bất biến của điểm danh, hiển thị tính hợp lệ của thẻ, và gia hạn thẻ.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/attendance-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-006], [DAT-007]:** Tạo bảng điểm danh và thẻ hội viên với các trường và ràng buộc tương ứng.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-012], [REQ-013], [REQ-014], [REQ-015], [ARC-007]:**
-  - Chụp ảnh điểm danh QR: `POST /api/attendance/qr`
-  - Hiển thị tính hợp lệ của thẻ: `GET /api/cards/{cardId}`
-  - Gia hạn thẻ: `PUT /api/cards/{cardId}/renew`
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:** Network & Connectivity Drops During QR Scan, Duplicate Attendance Submission.
-
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 4)
-
-<!--START_DAY_LOG_INDEX_4-->
-
-- **DAY 1: Khởi tạo cơ sở dữ liệu và dịch vụ điểm danh**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu**
-    - [Coder]
-    - [DAT-006], [DAT-007]
-    - `./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_attendance_and_cards.sql`
-    - Thiết kế schema cơ sở dữ liệu cho bảng điểm danh và thẻ hội viên với các trường và ràng buộc tương ứng.
-
-  - **SUB-TASK 2: Viết mã nguồn cho dịch vụ điểm danh**
-    - [Coder]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015], [ARC-007]
-    - `./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java`
-    - Viết mã nguồn cho dịch vụ điểm danh, bao gồm chụp ảnh điểm danh QR, tính chất bất biến của điểm danh, hiển thị tính hợp lệ của thẻ, và gia hạn thẻ.
-
-  - **SUB-TASK 3: Viết bài kiểm tra đơn vị**
-    - [Tester]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-    - `./sources/backend/attendance-service/src/test/java/com/example/attendance/service/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java`
-    - Viết bài kiểm tra đơn vị cho dịch vụ điểm danh.
-
-  - **SUB-TASK 4: Viết tài liệu kỹ thuật**
-    - [Doc]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002], [ARC-007]
-    - `./sources/docs/attendance-service.md`
-    - Viết tài liệu kỹ thuật cho dịch vụ điểm danh.
-
-  - **SUB-TASK 5: Xây dựng và đẩy Docker image**
-    - [Docker]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-    - `./sources/backend/attendance-service/Dockerfile`
-    - Xây dựng và đẩy Docker image cho dịch vụ điểm danh.
-
-  - **SUB-TASK 6: Triển khai dịch vụ trên GKE**
-    - [GKE]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-    - `./sources/infra/gke/attendance-deployment.yaml`
-    - Triển khai dịch vụ điểm danh trên GKE, bao gồm thiết lập Deployment, Service, và Ingress.
-
-- **DAY 2: Triển khai và kiểm thử**
-  - **SUB-TASK 1: Triển khai dịch vụ**
-    - [GKE]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-    - `./sources/infra/gke/attendance-deployment.yaml`
-    - Triển khai dịch vụ điểm danh trên GKE.
-
-  - **SUB-TASK 2: Kiểm thử tích hợp**
-    - [Tester]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-    - `./sources/backend/attendance-service/src/test/java/com/example/attendance/service/AttendanceServiceIntegrationTest.java;./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java`
-    - Viết và chạy kiểm thử tích hợp cho dịch vụ điểm danh.
-
-  - **SUB-TASK 3: Đánh giá và sửa lỗi**
-    - [Reviewer]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-    - `./sources/backend/attendance-service/src/main/java/com/example/attendance/service/AttendanceService.java`
-    - Đánh giá mã nguồn và sửa lỗi nếu có.
-
-<!--END_PHASE_LOG_BLOCK_INDEX_4-->
-
-### Giai đoạn 5 - Triển khai Hệ thống Thông Báo Và Tích Hợp Zalo
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống thông báo và tích hợp Zalo, bao gồm kích hoạt thông báo và quản lý thông báo.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/notification-service/`, `./sources/docs/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-008]:** Tạo bảng thông báo với các trường và ràng buộc tương ứng.
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-016], [ARC-008]:**
-  - Kích hoạt thông báo: `POST /api/notifications`
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-003]:** Failed Notification Delivery.
-
-#### Nhật ký Ngày theo Ngày của Sub-Agent (Giai đoạn 5)
-
-<!--START_DAY_LOG_INDEX_5-->
-
-- **DAY 1: Khởi tạo cơ sở dữ liệu và dịch vụ thông báo**
-  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu**
-    - [Coder]
-    - [DAT-008]
-    - `./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications.sql`
-    - Thiết kế schema cơ sở dữ liệu cho bảng thông báo với các trường và ràng buộc tương ứng.
-
-  - **SUB-TASK 2: Viết mã nguồn cho dịch vụ thông báo**
-    - [Coder]
-    - [REQ-016], [ARC-008]
-    - `./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java`
-    - Viết mã nguồn cho dịch vụ thông báo, bao gồm kích hoạt thông báo và quản lý thông báo.
-
-  - **SUB-TASK 3: Viết bài kiểm tra đơn vị**
-    - [Tester]
-    - [REQ-016]
-    - `./sources/backend/notification-service/src/test/java/com/example/notification/service/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java`
-    - Viết bài kiểm tra đơn vị cho dịch vụ thông báo.
-
-  - **SUB-TASK 4: Viết tài liệu kỹ thuật**
-    - [Doc]
-    - [REQ-016], [DAT-008], [EXC-003], [ARC-008]
-    - `./sources/docs/notification-service.md`
-    - Viết tài liệu kỹ thuật cho dịch vụ thông báo.
-
-  - **SUB-TASK 5: Xây dựng và đẩy Docker image**
-    - [Docker]
-    - [REQ-016]
-    - `./sources/backend/notification-service/Dockerfile`
-    - Xây dựng và đẩy Docker image cho dịch vụ thông báo.
-
-  - **SUB-TASK 6: Triển khai dịch vụ trên GKE**
-    - [GKE]
-    - [REQ-016]
-    - `./sources/infra/gke/notification-deployment.yaml`
-    - Triển khai dịch vụ thông báo trên GKE, bao gồm thiết lập Deployment, Service, và Ingress.
-
-- **DAY 2: Triển khai và kiểm thử**
-  - **SUB-TASK 1: Triển khai dịch vụ**
-    - [GKE]
-    - [REQ-016]
-    - `./sources/infra/gke/notification-deployment.yaml`
-    - Triển khai dịch vụ thông báo trên GKE.
-
-  - **SUB-TASK 2: Kiểm thử tích hợp**
-    - [Tester]
-    - [REQ-016]
-    - `./sources/backend/notification-service/src/test/java/com/example/notification/service/NotificationServiceIntegrationTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java`
-    - Viết và chạy kiểm thử tích hợp cho dịch vụ thông báo.
-
-  - **SUB-TASK 3: Đánh giá và sửa lỗi**
-    - [Reviewer]
-    - [REQ-016]
-    - `./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java`
-    - Đánh giá mã nguồn và sửa lỗi nếu có.
-
-<!--END_PHASE_LOG_BLOCK_INDEX_5-->
 
