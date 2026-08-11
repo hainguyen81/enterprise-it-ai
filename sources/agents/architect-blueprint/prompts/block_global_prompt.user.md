@@ -188,8 +188,11 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| [Numerical Index, starting from 1] | [Task Title] | [Clear technical delivery objective description] | [Literal configuration string: 'Application Code' OR 'Enterprise Documentation' OR 'DevOps Infrastructure'] | [Dynamic tracing Tag IDs mapped inline] | <!--REGISTERED_BACKLOG_TASK_ROW--> 
-| ... | ... | ... | ... | ... |
+- **TASK ATOMICITY LAW:** You are STRICTLY BANNED from summarizing or clustering multiple structural requirement bullets into a single generic task row.
+- **1:1 TRACEABILITY RATIO:** Every unique functional or non-functional Tag ID identified in the SRS ([REQ], [ARC], [EXC], [DAT], [NFR]) MUST yield exactly one (1) dedicated, standalone row in this table.
+- **OUTPUT LAYOUT PARSING STRUCTURE:**
+
+| [Index] | [Task Title] | [Technical Objective] | [Type] | [Tag IDs] |  <!--REGISTERED_BACKLOG_TASK_ROW-->
 | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
@@ -233,11 +236,14 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
   2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
 - **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the "Day Range" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - {{ max_days_per_phase }}' if the actual workload finishes earlier.
+- **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in Section 4.2 MUST match 100% symmetrically with the tags registered in Section 4.1. Dropping tasks between Section 4.1 and Section 4.2 triggers a fatal pipeline integrity exception.
 </RULE>
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 
 | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+- **TOTAL TAG COVERAGE:** The "Targeted Tag IDs" column in this grid MUST contain the union of all Tag IDs defined in Section 4.1 for that phase.
+- **ZERO OMISSION RULE:** If a Tag ID exists in Section 4.1, it MUST appear in Section 4.2. Truncating or omitting tags to save space is a fatal error.
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Phase 1 | Day 1 - {{ max_days_per_phase }} | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
 | Phase 2 | Day 1 - {{ max_days_per_phase }} | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
