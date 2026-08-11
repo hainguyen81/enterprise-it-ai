@@ -166,6 +166,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
     
     try:
         datetime_prompt, datetime_docid = datetime_for_agent()
+        time_in_seconds = 5
         
         # prompt context
         base_prompt_context = {
@@ -254,7 +255,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # CHUNK 1A: SECTION 1 TO SECTION 3 (INITIAL ARCHITECTURE METRICS)
         # ==============================================================================
         logger.info(f"    |__ [ PART 1/3 ] Generating System Matrix and Master Product Backlog...")
-        logger.info(f"              |__ [ PART 1A ] Initial Global Context...")
+        logger.info(f"          |__ [ PART 1A ] Initial Global Context...")
         ctx_part1a = {
             **base_prompt_context,
             "target_segment": "PART_1_INITIAL",
@@ -279,18 +280,18 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
                    data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(msg_p1a), chunk_idx, chunk_1a))
-        logger.info(f"                   | ✅ [ SUCCESS ] Initial Global Context successfully.")
-        logger.info(f"                   |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"                | ✅ [ SUCCESS ] Initial Global Context successfully.")
+        logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
-        # sleep 5 seconds to guard rate limit
-        logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
-        time.sleep(5)
+        # sleep in few seconds to guard rate limit
+        logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
+        time.sleep(time_in_seconds)
 
         # ==============================================================================
         # CHUNK 1B: SECTION 4.1 (MASTER PRODUCT BACKLOG - ATOMIC EXPANSION)
         # ==============================================================================
-        logger.info(f"              |__ [ PART 1B ] Executing Atomic Extraction for Section 4.1 Backlog Table...")
+        logger.info(f"          |__ [ PART 1B ] Executing Atomic Extraction for Section 4.1 Backlog Table...")
         ctx_part1b = {
             **base_prompt_context,
             "target_segment": "PART_1_BACKLOG_4_1"
@@ -315,7 +316,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->')
         actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1b))
         if actual_registered_tasks <= 0:
-            logger.warning("                     | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
+            logger.warning("                | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
             task_row_count = 0
             for line in chunk_1b.split('\n'):
                 line_clean = line.strip()
@@ -327,24 +328,24 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 ):
                     task_row_count += 1
             actual_registered_tasks = task_row_count
-            logger.info(f"                       |__  👉 📊 Fallback scan task line(s) (Calculated Task Rows): {actual_registered_tasks}")
+            logger.info(f"                |__  👉 📊 Fallback scan task line(s) (Calculated Task Rows): {actual_registered_tasks}")
 
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
                    data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(msg_p1b), chunk_idx, chunk_1b))
-        logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
-        logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"                | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
+        logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
-        # sleep 5 seconds to guard rate limit
-        logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
-        time.sleep(5)
+        # sleep in few seconds to guard rate limit
+        logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
+        time.sleep(time_in_seconds)
 
         # ==============================================================================
         # CHUNK 1C: SECTION 4.2 (MULTI-PHASE SYNOPSIS MATRIX)
         # ==============================================================================
-        logger.info(f"              |__ [ PART 1C ] Distributing Workload into Section 4.2 Synopsis Matrix...")
+        logger.info(f"          |__ [ PART 1C ] Distributing Workload into Section 4.2 Synopsis Matrix...")
         ctx_part1c = {
             **base_prompt_context,
             "target_segment": "PART_1_MATRIX_4_2",
@@ -367,13 +368,13 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
         write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
                    data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(msg_p1c), chunk_idx, chunk_1c))
-        logger.info(f"              | ✅ [ SUCCESS ] Distributing Workload Synopsis Matrix successfully")
-        logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"                | ✅ [ SUCCESS ] Distributing Workload Synopsis Matrix successfully")
+        logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
-        # sleep 5 seconds to guard rate limit
-        logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
-        time.sleep(5)
+        # sleep in few seconds to guard rate limit
+        logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
+        time.sleep(time_in_seconds)
         
         # ==============================================================================
         # CHUNK 2: LOOP PHASE IN SECTION 5
@@ -384,7 +385,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1c
         historic_ledger_map_chunks = []
         for phase_idx in range(1, num_phases + 1):
-            logger.info(f"              |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
+            logger.info(f"          |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
             ctx_part2 = {
                 **base_prompt_context,
                 "target_segment": "PART_2_PHASE_LOOP",
@@ -439,13 +440,13 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 file=chunk_log_file,
                 data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(active_loop_messages), chunk_idx, phase_chunk)
             )
-            logger.info(f"                   | ✅ [ SUCCESS ] Found {len(found_tags)} sub-task(s) from Phase {phase_idx}.")
-            logger.info(f"                   |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+            logger.info(f"                | ✅ [ SUCCESS ] Found {len(found_tags)} sub-task(s) from Phase {phase_idx}.")
+            logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
         
-            # sleep 5 seconds to guard rate limit
-            logger.debug("              |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
-            time.sleep(5)
+            # sleep in few seconds to guard rate limit
+            logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
+            time.sleep(time_in_seconds)
 
         # ==============================================================================
         # CHUNK 3: from Section 6 to the end
@@ -483,7 +484,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             file=chunk_log_file,
             data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(final_messages), chunk_idx, chunk_3)
         )
-        logger.info(f"              | ✅ [ SUCCESS ] 👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        logger.info(f"          | ✅ [ SUCCESS ] 👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
 
         # ==============================================================================
