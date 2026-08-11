@@ -177,6 +177,14 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             "num_phases": num_phases,
             "max_days_per_phase": max_days_per_phase,
             "force_full_export": False,
+            
+            # chunk variables
+            "target_segment": None,
+            "total_tasks_registered": -1,
+            "master_backlog_context": None,  # Nạp bối cảnh bảng 4.1 vừa sinh để AI phân bổ Phase
+            "target_phase_index": -1,
+            # only using for latest phase for audit
+            "historic_ledger_map": None,
         }
 
         # # ==============================================================================
