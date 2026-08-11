@@ -177,40 +177,134 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             "force_full_export": False,
         }
 
+        # # ==============================================================================
+        # # CHUNK 1: from Section 1 to the end of Section 4
+        # # ==============================================================================
+        # logger.info(f"    |__ [ PART 1/3 ] Generating System Matrix and Master Product Backlog...")
+        # ctx_part1 = {
+        #     **base_prompt_context,
+        #     "target_segment": "PART_1_INITIAL",
+        # }
+        
+        # # build conversation
+        # sys_prompt_p1 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1))
+        # usr_prompt_p1 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1)
+        # conversation_history_messages = [
+        #     {"role": "system", "content": sys_prompt_p1},
+        #     {"role": "user", "content": usr_prompt_p1}
+        # ]
+        # chunk_prompts["chunk_1"] = conversation_history_messages
+        
+        # # communicate AI
+        # response = client.chat.completions.create(
+        #     model=model_name_safe,
+        #     messages=conversation_history_messages,
+        #     temperature=0.1
+        # )
+        # chunk_1 = parseAIResponseData(response)
+        # accumulated_blueprint_chunks.append(chunk_1)
+        
+        # # --- count the task in section 4.1 trong chunk_1 ---
+        # backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->')
+        # actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1))
+        # if actual_registered_tasks <= 0:
+        #     logger.warning("              | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
+        #     task_row_count = 0
+        #     for line in chunk_1.split('\n'):
+        #         line_clean = line.strip()
+        #         # count task line (REQ/ARC/EXC/DAT/NFR)
+        #         if (
+        #             line_clean.startswith('|') and line_clean.endswith('|')
+        #             and re.search(r'\[(REQ|ARC|EXC|DAT|NFR)-\d+\]', line_clean)
+        #             and not re.search(r'[:\-]{3,}', line_clean)
+        #         ):
+        #             task_row_count += 1
+        #     actual_registered_tasks = task_row_count
+        #     logger.info(f"              |__  👉 📊 Fallback scan task line(s) (Calculated Task Rows): {actual_registered_tasks}")
+        
+        # # write chunk log
+        # chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
+        # write_file(
+        #     dir=os.path.join(out_dir, "chunks"),
+        #     file=chunk_log_file,
+        #     data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(conversation_history_messages), chunk_idx, chunk_1)
+        # )
+        # logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
+        # logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        # chunk_idx += 1
+        
+        # # sleep 5 seconds to guard rate limit
+        # logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
+        # time.sleep(5)
+        
         # ==============================================================================
-        # CHUNK 1: from Section 1 to the end of Section 4
+        # CHUNK 1A: SECTION 1 TO SECTION 3 (INITIAL ARCHITECTURE METRICS)
         # ==============================================================================
         logger.info(f"    |__ [ PART 1/3 ] Generating System Matrix and Master Product Backlog...")
-        ctx_part1 = {
+        logger.info(f"              |__ [ PART 1A ] Initial Global Context...")
+        ctx_part1a = {
             **base_prompt_context,
             "target_segment": "PART_1_INITIAL",
         }
         
         # build conversation
-        sys_prompt_p1 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1))
-        usr_prompt_p1 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1)
-        conversation_history_messages = [
-            {"role": "system", "content": sys_prompt_p1},
-            {"role": "user", "content": usr_prompt_p1}
-        ]
-        chunk_prompts["chunk_1"] = conversation_history_messages
+        sys_prompt_p1a = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1a))
+        usr_prompt_p1a = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1a)
+        msg_p1a = [{"role": "system", "content": sys_prompt_p1a}, {"role": "user", "content": usr_prompt_p1a}]
+        chunk_prompts[f"chunk_{chunk_idx}"] = msg_p1a
         
         # communicate AI
-        response = client.chat.completions.create(
+        res_p1a = client.chat.completions.create(
             model=model_name_safe,
-            messages=conversation_history_messages,
+            messages=msg_p1a,
             temperature=0.1
         )
-        chunk_1 = parseAIResponseData(response)
-        accumulated_blueprint_chunks.append(chunk_1)
+        chunk_1a = parseAIResponseData(res_p1a)
+        accumulated_blueprint_chunks.append(chunk_1a)
         
+        # write chunk log
+        chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
+        write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
+                   data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(msg_p1a), chunk_idx, chunk_1a))
+        logger.info(f"                   | ✅ [ SUCCESS ] Initial Global Context successfully.")
+        logger.info(f"                   |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        chunk_idx += 1
+        
+        # sleep 5 seconds to guard rate limit
+        logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
+        time.sleep(5)
+
+        # ==============================================================================
+        # CHUNK 1B: SECTION 4.1 (MASTER PRODUCT BACKLOG - ATOMIC EXPANSION)
+        # ==============================================================================
+        logger.info(f"              |__ [ PART 1B ] Executing Atomic Extraction for Section 4.1 Backlog Table...")
+        ctx_part1b = {
+            **base_prompt_context,
+            "target_segment": "PART_1_BACKLOG_4_1"
+        }
+        
+        # build conversation
+        sys_prompt_p1b = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1b))
+        usr_prompt_p1b = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1b)
+        msg_p1b = [{"role": "system", "content": sys_prompt_p1b}, {"role": "user", "content": usr_prompt_p1b}]
+        chunk_prompts[f"chunk_{chunk_idx}"] = msg_p1b
+        
+        # communicate AI
+        res_p1b = client.chat.completions.create(
+            model=model_name_safe,
+            messages=msg_p1b,
+            temperature=0.1
+        )
+        chunk_1b = parseAIResponseData(res_p1b)
+        accumulated_blueprint_chunks.append(chunk_1b)
+
         # --- count the task in section 4.1 trong chunk_1 ---
         backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->')
-        actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1))
+        actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1b))
         if actual_registered_tasks <= 0:
-            logger.warning("              | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
+            logger.warning("                     | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
             task_row_count = 0
-            for line in chunk_1.split('\n'):
+            for line in chunk_1b.split('\n'):
                 line_clean = line.strip()
                 # count task line (REQ/ARC/EXC/DAT/NFR)
                 if (
@@ -220,16 +314,47 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 ):
                     task_row_count += 1
             actual_registered_tasks = task_row_count
-            logger.info(f"              |__  👉 📊 Fallback scan task line(s) (Calculated Task Rows): {actual_registered_tasks}")
+            logger.info(f"                       |__  👉 📊 Fallback scan task line(s) (Calculated Task Rows): {actual_registered_tasks}")
+
+        # write chunk log
+        chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
+        write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
+                   data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(msg_p1b), chunk_idx, chunk_1b))
+        logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
+        logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        chunk_idx += 1
+        
+        # sleep 5 seconds to guard rate limit
+        logger.debug("    |__ ⏳ Rate limit guard active... holding pipeline for 15 seconds to clear AI TPM window...")
+        time.sleep(5)
+
+        # ==============================================================================
+        # CHUNK 1C: SECTION 4.2 (MULTI-PHASE SYNOPSIS MATRIX)
+        # ==============================================================================
+        logger.info(f"              |__ [ PART 1C ] Distributing Workload into Section 4.2 Synopsis Matrix...")
+        ctx_part1c = {
+            **base_prompt_context,
+            "target_segment": "PART_1_MATRIX_4_2",
+            "total_tasks_registered": actual_registered_tasks,
+            "master_backlog_context": chunk_1b  # Nạp bối cảnh bảng 4.1 vừa sinh để AI phân bổ Phase
+        }
+        
+        # build conversation
+        sys_prompt_p1c = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1c))
+        usr_prompt_p1c = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1c)
+        msg_p1c = [{"role": "system", "content": sys_prompt_p1c}, {"role": "user", "content": usr_prompt_p1c}]
+        chunk_prompts[f"chunk_{chunk_idx}"] = msg_p1c
+        
+        # communicate AI
+        res_p1c = client.chat.completions.create(model=model_name_safe, messages=msg_p1c, temperature=0.1)
+        chunk_1c = parseAIResponseData(res_p1c)
+        accumulated_blueprint_chunks.append(chunk_1c)
         
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
-        write_file(
-            dir=os.path.join(out_dir, "chunks"),
-            file=chunk_log_file,
-            data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(conversation_history_messages), chunk_idx, chunk_1)
-        )
-        logger.info(f"              | ✅ [ SUCCESS ] Found total {actual_registered_tasks} tasks.")
+        write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
+                   data=GLOBAL_CHUNK_LOG.format(chunk_idx, json_tostring(msg_p1c), chunk_idx, chunk_1c))
+        logger.info(f"              | ✅ [ SUCCESS ] Distributing Workload Synopsis Matrix successfully")
         logger.info(f"              |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
         chunk_idx += 1
         
@@ -242,8 +367,8 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # ==============================================================================
         logger.info(f"    |__ [ PART 2/3 ] Extracting Granular Daylog for {num_phases} phases...")
         # --- extract only synopsis table from section 4.2 ---
-        matrix_extract_match = re.search(r'<!--START_PHASE_SYNOPSIS_GRID-->(.*?)<!--END_PHASE_SYNOPSIS_GRID-->', chunk_1, re.DOTALL)
-        clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1
+        matrix_extract_match = re.search(r'<!--START_PHASE_SYNOPSIS_GRID-->(.*?)<!--END_PHASE_SYNOPSIS_GRID-->', chunk_1c, re.DOTALL)
+        clean_matrix_context = matrix_extract_match.group(1).strip() if matrix_extract_match else chunk_1c
         historic_ledger_map_chunks = []
         for phase_idx in range(1, num_phases + 1):
             logger.info(f"              |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")

@@ -109,6 +109,12 @@ You MUST include every single section below without exception to satisfy enterpr
   {% if target_segment == "PART_1_INITIAL" %}
   MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 1, Section 2, Section 3, and Section 4. Absolutely DO NOT generate Section 5, 6, 7, or 8 in this request.
 
+  {% elif target_segment == "PART_1_BACKLOG_4_1" %}
+  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG). Ensure 100% atomic expansion of all raw requirements. Absolutely DO NOT generate any other sections.
+
+  {% elif target_segment == "PART_1_MATRIX_4_2" %}
+  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX). Rely 100% on the grounded tasks from the previous step.
+
   {% elif target_segment == "PART_2_PHASE_LOOP" %}
   MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase {{ target_phase_index }}. Completely delete and skip all other sections.
 
@@ -188,8 +194,8 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-- **TASK ATOMICITY LAW:** You are STRICTLY BANNED from summarizing or clustering multiple structural requirement bullets into a single generic task row.
-- **1:1 TRACEABILITY RATIO:** Every unique functional or non-functional Tag ID identified in the SRS ([REQ], [ARC], [EXC], [DAT], [NFR]) MUST yield exactly one (1) dedicated, standalone row in this table.
+- **TASK ATOMICITY LAW:** You are STRICTLY BANNED from summarizing, grouping, or clustering multiple operational requirement bullets into a single generic task row to save token space.
+- **1:1 TRACEABILITY RATIO:** Every unique functional or non-functional Tag ID identified in the raw SRS ([REQ], [ARC], [EXC], [DAT], [NFR]) MUST yield exactly one (1) dedicated, standalone row in this table.
 - **OUTPUT LAYOUT PARSING STRUCTURE:**
 
 | [Index] | [Task Title] | [Technical Objective] | [Type] | [Tag IDs] |  <!--REGISTERED_BACKLOG_TASK_ROW-->
@@ -236,19 +242,23 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
   2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
 - **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the "Day Range" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - {{ max_days_per_phase }}' if the actual workload finishes earlier.
-- **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in Section 4.2 MUST match 100% symmetrically with the tags registered in Section 4.1. Dropping tasks between Section 4.1 and Section 4.2 triggers a fatal pipeline integrity exception.
+- **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the "Day Range" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - {{ max_days_per_phase }}' if the actual workload finishes earlier.
+- **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in Section 4.2 MUST match 100% symmetrically with the tags registered in Section 4.1. Dropping or hiding tasks between Section 4.1 and Section 4.2 triggers a fatal pipeline integrity exception.
 </RULE>
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 
 | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+- **DYNAMIC RANGE COMPUTE LAW:** The "Day Range" column MUST NOT be hardcoded. You MUST dynamically compute the exact number of days (denoted as K, where K <= {{ max_days_per_phase }}) based on workload density. 
+- **FORMAT ENFORCEMENT:** You MUST write the computed range exactly as 'Day 1 - K' (e.g., 'Day 1 - 3' if the work finishes on Day 3). Do NOT write 'Day 1 - {{ max_days_per_phase }}' if there is no work to fill those days.
 - **TOTAL TAG COVERAGE:** The "Targeted Tag IDs" column in this grid MUST contain the union of all Tag IDs defined in Section 4.1 for that phase.
 - **ZERO OMISSION RULE:** If a Tag ID exists in Section 4.1, it MUST appear in Section 4.2. Truncating or omitting tags to save space is a fatal error.
+
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Phase 1 | Day 1 - {{ max_days_per_phase }} | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
-| Phase 2 | Day 1 - {{ max_days_per_phase }} | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
-| ... | Day 1 - {{ max_days_per_phase }} | ... | ... | ... | ... |
-| Phase {{ num_phases }} | Day 1 - {{ max_days_per_phase }} | [Final engineering paths / deploy logs] | [Final cloud infrastructure deployment manifests] | Coder, Tester, Reviewer, Doc, DevOps | [Map final baseline Tag IDs] |
+| Phase 1 | Day 1 - [Compute K1 <= {{ max_days_per_phase }}] | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+| Phase 2 | Day 1 - [Compute K2 <= {{ max_days_per_phase }}] | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+| ... | ... | ... | ... | ... | ... |
+| Phase {{ num_phases }} | Day 1 - [Compute KN <= {{ max_days_per_phase }}] | [Final engineering paths / deploy logs] | [Final cloud infrastructure deployment manifests] | Coder, Tester, Reviewer, Doc, DevOps | [Map final baseline Tag IDs] |
 | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** {{ num_phases }} Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly {{ num_phases }} calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
 
 <!--END_PHASE_SYNOPSIS_GRID-->
