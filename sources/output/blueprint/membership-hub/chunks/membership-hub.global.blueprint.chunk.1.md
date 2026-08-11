@@ -1,17 +1,14 @@
-# Chunk 1:
+# System Prompt 1:
 
 ---
 
-[
-    {
-        "role": "system",
-        "content": "<GLOBAL_GOVERNANCE_MATRIX>
+<GLOBAL_GOVERNANCE_MATRIX>
 # ==============================================================================
 # MASTER ENTERPRISE GOVERNANCE GUARDRAILS MATRIX (GLOBAL TASK ENFORCEMENT)
 # ==============================================================================
 
 ## 🌐 1. STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS
-- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: \"🇻🇳 Vietnamese\".
+- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "🇻🇳 Vietnamese".
 - **ABSOLUTE TECH PROTECTION BOUNDARY:** You are STRICTLY BANNED from translating, changing, altering, or breaking any technical structural layers. You MUST preserve these elements natively in their pristine Technical English/Primitive code state:
     * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
     * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
@@ -28,15 +25,15 @@
     * All absolute or relative file paths starting with `./sources/`.
     * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
-    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
-    * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
+    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like "GLOBAL PROJECT CONTEXT", "Document Control", "Item", "Details", "Blueprint ID", "Project Name", "Version", "Date.Time", "Author", "Approval", "SYSTEM OVERVIEW", "Core System Modality"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
+    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "🇻🇳 Vietnamese" before committing them to the final output buffer.
     * Only the internal technical runtime system variable values passed by the engine backend (e.g., ``, `ARCH-`, ``) MUST be preserved natively in pure Technical English. Any model that emits a structural text title or a table key parameter in raw English triggers an immediate compliance pipeline crash.
 - 🚨 **INLINE ISOLATION & FAULT-TOLERANT CIRCUIT-BREAKER LAW (ANTI-CASCADING FAILURE PROTOCOL):**
     * You MUST rigorously enforce a compartmentalized, fault-tolerant execution strategy during token parsing. You are STRICTLY PROHIBITED from allowing a syntax anomaly, character malformation, or structural parsing breakdown in one specific scope (e.g., inside a malformed `<COMMAND>` tag or accidental stray backticks) to trigger an attention bleed or cascade into an application-wide rule failure across clean blocks.
     * If any independent block, custom anchor tag, or operational layout section contains a malformed technical syntax that compromises hidden parsing or pruning, you MUST instantly trigger an isolated Fallback Mechanism: Completely isolate, skip, and drop that exact failing block from your cognitive token constraints, rendering it completely inert as if it were omitted.
     * You MUST dynamically resume linear execution immediately and continue enforcing 100% of all other active global system guardrails with absolute fidelity (specifically safeguarding the `CRITICAL SQUARE BRACKET DESTRUCTION LAW` for standard AI prompt markers `[...]`, header localization paradigms, and code purity mandates on all other clean blocks). Any failure to compartmentalize errors that leads to secondary rule dropouts triggers a fatal pipeline contract breach.
 - 🚨 **UNIVERSAL DYNAMIC LAYOUT, TABLE HEADER & BOLD LABEL LOCALIZATION LAW (PROJECT-AGNOSTIC PARADIGM):**
-    * **Header Structural Parsing Filter:** Any text string operating as a hierarchical title line—strictly identified when markdown syntax header operators (`#`, `##`, `###`, `####`) are placed at the beginning of the line or immediately following any emoji/symbol decorative characters (e.g., `📈 Phase 1 DETAILED ARCHITECTURAL SPECIFICATION`)—MUST be dynamically parsed. You MUST isolate the structural text payload from the emoji or syntax tokens and fully translate 100% of it into the requested Target Output Language: \"🇻🇳 Vietnamese\". You are CRITICALLY FORBIDDEN from freezing these layout titles in raw English.
+    * **Header Structural Parsing Filter:** Any text string operating as a hierarchical title line—strictly identified when markdown syntax header operators (`#`, `##`, `###`, `####`) are placed at the beginning of the line or immediately following any emoji/symbol decorative characters (e.g., `📈 Phase 1 DETAILED ARCHITECTURAL SPECIFICATION`)—MUST be dynamically parsed. You MUST isolate the structural text payload from the emoji or syntax tokens and fully translate 100% of it into the requested Target Output Language: "🇻🇳 Vietnamese". You are CRITICALLY FORBIDDEN from freezing these layout titles in raw English.
     * **Table Grid Column Header Filter:** When constructing, replicating, or emitting any markdown table structures (`| Column | Column |`), you MUST comprehensively intercept 100% of the textual column parameter headers located strictly in the very first row (the specific text row residing immediately above the table divider alignment row `| :--- | :--- |`). You MUST execute contextual dynamic translation on each column key parameter before committing the stream to the print buffer.
     * **Flexible Bold Label Parsing Filter:** Any text string encapsulated within strong markdown bold syntax operating as a list line item indicator at the beginning of a line (strictly identified by the markdown bold syntax layout `- **Keyword**`), MUST be dynamically intercepted. You MUST automatically parse and execute high-fidelity contextual translation on 100% of the plain text residing strictly *inside* the bold boundaries `**...**` into the target language (e.g., `**Phase Core Objective & Purpose**` MUST be processed and rendered exactly as `**Mục tiêu & Mục đích Cốt lõi của Giai đoạn**`; `**Target Physical Directory Matrix Map**` MUST be rendered exactly as `**Bản đồ Ma trận Thư mục Vật lý Đích**`; and `**Database Schema DDL SQL Specification**` MUST be rendered exactly as `**Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu**`). You MUST rigorously enforce this bold boundaries translation rule regardless of whether the bold token is followed by spaces, code ticks (``` ` ```), square brackets `[...]`, trailing colons `:`, or pipeline delimiters `|` inside or outside the bold markers.
     * **Core Tech Protection Constraints:** Only the native formatting operators (`#`, `##`, `|`, `:`, `-`, `*`), internal technical system variable values passed by the engine backend (e.g., ``, ``), and literal tracking Tag IDs (e.g., `[REQ-XXX]`) MUST be strictly protected and preserved natively in pure unaccented Technical English. Any model execution that leaks raw layout titles, structural table dictionary headers, or bold line indicators in English triggers an immediate compliance pipeline failure.
@@ -81,25 +78,25 @@
 - Treat all standard AI prompting structures and markdown behaviors naturally as baseline expectations. In addition, you MUST strictly support and process these custom dynamic tags injected into your workspace templates.
 The system strictly defines the comprehensive list (custom dynamic tags) of Mandatory Architectural Token Pairs as follows:
 
-    * Type 1 (XML Tag Pairs): Starts exactly with `\"<COMMAND>\"` and ends exactly with `\"</COMMAND>\"` (e.g., `<COMMAND>...instructions...</COMMAND>`).
+    * Type 1 (XML Tag Pairs): Starts exactly with `"<COMMAND>"` and ends exactly with `"</COMMAND>"` (e.g., `<COMMAND>...instructions...</COMMAND>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 2 (XML Tag Pairs): Starts exactly with `\"<PROMPT>\"` and ends exactly with `\"</PROMPT>\"` (e.g., `<PROMPT>...instructions...</PROMPT>`).
+    * Type 2 (XML Tag Pairs): Starts exactly with `"<PROMPT>"` and ends exactly with `"</PROMPT>"` (e.g., `<PROMPT>...instructions...</PROMPT>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 3 (XML Tag Pairs): Starts exactly with `\"<RULE>\"` and ends exactly with `\"</RULE>\"` (e.g., `<RULE>...instructions...</RULE>`).
+    * Type 3 (XML Tag Pairs): Starts exactly with `"<RULE>"` and ends exactly with `"</RULE>"` (e.g., `<RULE>...instructions...</RULE>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 4 (XML Tag Pairs): Starts exactly with `\"<RAILS>\"` and ends exactly with `\"</RAILS>\"` (e.g., `<RAILS>...instructions...</RAILS>`).
+    * Type 4 (XML Tag Pairs): Starts exactly with `"<RAILS>"` and ends exactly with `"</RAILS>"` (e.g., `<RAILS>...instructions...</RAILS>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 5 (HTML Comment Anchors): Starts exactly with `\"<!--START_COMMAND\"` and ends exactly with `\"END_COMMAND-->\"` (e.g., `<!--START_COMMAND...instructions...END_COMMAND-->`).
+    * Type 5 (HTML Comment Anchors): Starts exactly with `"<!--START_COMMAND"` and ends exactly with `"END_COMMAND-->"` (e.g., `<!--START_COMMAND...instructions...END_COMMAND-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 6 (HTML Comment Anchors): Starts exactly with `\"<!--START_PROMPT\"` and ends exactly with `\"END_PROMPT-->\"` (e.g., `<!--START_PROMPT...instructions...END_PROMPT-->`).
+    * Type 6 (HTML Comment Anchors): Starts exactly with `"<!--START_PROMPT"` and ends exactly with `"END_PROMPT-->"` (e.g., `<!--START_PROMPT...instructions...END_PROMPT-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 7 (HTML Comment Anchors): Starts exactly with `\"<!--START_RULE\"` and ends exactly with `\"END_RULE-->\"` (e.g., `<!--START_RULE...instructions...END_RULE-->`).
+    * Type 7 (HTML Comment Anchors): Starts exactly with `"<!--START_RULE"` and ends exactly with `"END_RULE-->"` (e.g., `<!--START_RULE...instructions...END_RULE-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 8 (HTML Comment Anchors): Starts exactly with `\"<!--START_RAILS\"` and ends exactly with `\"END_RAILS-->\"` (e.g., `<!--START_RAILS...instructions...END_RAILS-->`).
+    * Type 8 (HTML Comment Anchors): Starts exactly with `"<!--START_RAILS"` and ends exactly with `"END_RAILS-->"` (e.g., `<!--START_RAILS...instructions...END_RAILS-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 9 (XML Tag Pairs): Starts exactly with `\"<NO_TRANSLATION>\"` and ends exactly with `\"</NO_TRANSLATION>\"` (e.g., `<NO_TRANSLATION>...instructions...</NO_TRANSLATION>`).
+    * Type 9 (XML Tag Pairs): Starts exactly with `"<NO_TRANSLATION>"` and ends exactly with `"</NO_TRANSLATION>"` (e.g., `<NO_TRANSLATION>...instructions...</NO_TRANSLATION>`).
       *   **Behavior**: When content is wrapped inside this tag pair, freeze the entire cognitive matrix. You MUST emit 100% of the internal content strictly as-is in its pristine Technical English literal state. Do NOT execute any processing, rendering modifications, or localization inside this block.
-    * Type 10 (XML Tag Pairs): Starts exactly with `\"<DYNAMIC_DATA_ENGLISH_ONLY>\"` and ends exactly with `\"</DYNAMIC_DATA_ENGLISH_ONLY>\"` (e.g., `<DYNAMIC_DATA_ENGLISH_ONLY>...instructions...</DYNAMIC_DATA_ENGLISH_ONLY>`).
+    * Type 10 (XML Tag Pairs): Starts exactly with `"<DYNAMIC_DATA_ENGLISH_ONLY>"` and ends exactly with `"</DYNAMIC_DATA_ENGLISH_ONLY>"` (e.g., `<DYNAMIC_DATA_ENGLISH_ONLY>...instructions...</DYNAMIC_DATA_ENGLISH_ONLY>`).
       *   **Behavior**: When variables (`{{ ... }}`) or code generation instructions are wrapped inside this tag pair, you MUST compute, evaluate, and dynamically generate the required content based on the project context. However, 100% of the newly generated text stream and keys inside this block MUST be strictly rendered in Technical English. Translation is absolutely banned.
 
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
@@ -124,7 +121,7 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 
 5. **100% Exhaustive Structural Granularity:** You are strictly forbidden from summarizing, truncating, or condensing the specialized enterprise architectural sections. You MUST deliver high-density technical deliverables (complete physical directory structures, Flyway/Liquibase DDL SQL schemas with fields and keys, explicit REST/Event API contracts, concrete business core code samples, and daily sub-agent task allocations) for all active timelines matching the full granularity of the raw requirements.
 
-6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and \"Low-Level Technical Task Instructions\" strictly in the language specified by the user: **🇻🇳 Vietnamese**. 
+6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the language specified by the user: **🇻🇳 Vietnamese**. 
 
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
@@ -133,11 +130,15 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
 - **Explicit Start Mandate:** Your output response MUST start exactly with the top-level header: `# GLOBAL PROJECT CONTEXT: membership-hub` after translating it into the target language.
 - **Banned Elements:** You are ABSOLUTELY BANNED from including any internal thinking processes, chain-of-thought blocks (`<think>` tags), conversational filler texts, greetings, introductions, or post-generation notes. Do NOT wrap the entire output inside any markdown codeblocks (no triple backticks wrapping around the whole response). Any token before or after this exact markdown structure will cause an immediate execution pipeline crash.
-</ACTIVE_TASK_SYSTEM_INSTRUCTION>"
-    },
-    {
-        "role": "user",
-        "content": "Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for Project 'membership-hub'.
+</ACTIVE_TASK_SYSTEM_INSTRUCTION>
+
+---
+
+# User Prompt 1:
+
+---
+
+Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for Project 'membership-hub'.
 
 --- RAW REQUIREMENTS ---
 # SOFTWARE REQUIREMENTS SPECIFICATION: membership-hub
@@ -198,29 +199,29 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       USERS {
-          uuid userId PK \"Unique identifier\"
-          varchar email \"Email address, not null, unique, max 255 chars\"
-          char passwordHash \"bcrypt hash, not null, length 60\"
-          varchar fullName \"Full name, not null, max 100 chars\"
-          smallint roleId FK \"Foreign key to Roles.roleId\"
-          enum provider \"Auth provider, default local, values: local, firebase, google, facebook\"
-          timestamp createdAt \"Timestamp of creation, not null, default now()\"
-          timestamp updatedAt \"Timestamp of last update, not null, default now()\"
+          uuid userId PK "Unique identifier"
+          varchar email "Email address, not null, unique, max 255 chars"
+          char passwordHash "bcrypt hash, not null, length 60"
+          varchar fullName "Full name, not null, max 100 chars"
+          smallint roleId FK "Foreign key to Roles.roleId"
+          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
+          timestamp createdAt "Timestamp of creation, not null, default now()"
+          timestamp updatedAt "Timestamp of last update, not null, default now()"
       }
       ROLES {
-          smallint roleId PK \"Role identifier, primary key\"
-          varchar name \"Role name, unique, not null, max 30 chars\"
-          varchar description \"Role description, optional, max 200 chars\"
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
       }
-      ROLES ||--o{ USERS : \"roleId\"
+      ROLES ||--o{ USERS : "roleId"
   ```
   **Roles**
   ```mermaid
   erDiagram
       ROLES {
-          smallint roleId PK \"Role identifier, primary key\"
-          varchar name \"Role name, unique, not null, max 30 chars\"
-          varchar description \"Role description, optional, max 200 chars\"
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
       }
   ```
 ### 2.2 Quản lý trung tâm
@@ -245,12 +246,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       CENTERS {
-          uuid centerId PK \"Unique identifier\"
-          varchar name \"Center name, not null, max 100 chars\"
-          varchar address \"Physical address, not null, max 255 chars\"
-          varchar taxId \"Tax identification number, unique, not null, numeric 10‑13 digits\"
-          varchar contactPhone \"Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses\"
-          varchar contactEmail \"Contact email, optional, must be valid email format\"
+          uuid centerId PK "Unique identifier"
+          varchar name "Center name, not null, max 100 chars"
+          varchar address "Physical address, not null, max 255 chars"
+          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
+          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
+          varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
 ### 2.3 Quản lý khóa học
@@ -275,13 +276,13 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       COURSES {
-          uuid courseId PK \"Unique identifier\"
-          varchar title \"Course title, not null, max 150 chars\"
-          text description \"Course description, optional\"
-          date startDate \"Course start date, not null\"
-          date endDate \"Course end date, not null\"
-          uuid teacherId FK \"Foreign key to Users.userId\"
-          int maxStudents \"Course capacity, default 30\"
+          uuid courseId PK "Unique identifier"
+          varchar title "Course title, not null, max 150 chars"
+          text description "Course description, optional"
+          date startDate "Course start date, not null"
+          date endDate "Course end date, not null"
+          uuid teacherId FK "Foreign key to Users.userId"
+          int maxStudents "Course capacity, default 30"
       }
   ```
 ### 2.4 Đăng ký & ghi danh học viên
@@ -304,10 +305,10 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       ENROLLMENTS {
-          uuid enrollmentId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          uuid courseId FK \"Foreign key to Courses.courseId\"
-          timestamp enrollmentDate \"Date of enrollment, default now()\"
+          uuid enrollmentId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
 ### 2.5 Điểm danh & quét mã QR
@@ -331,11 +332,11 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       ATTENDANCE {
-          uuid attendanceId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          uuid courseId FK \"Foreign key to Courses.courseId\"
-          date attendanceDate \"Date of attendance, not null\"
-          timestamp timestamp \"Exact time recorded, default now()\"
+          uuid attendanceId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          date attendanceDate "Date of attendance, not null"
+          timestamp timestamp "Exact time recorded, default now()"
       }
   ```
 ### 2.6 Quản lý thẻ hội viên
@@ -358,11 +359,11 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       STUDENTCARDS {
-          uuid cardId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          date issueDate \"Card issue date, not null\"
-          int validityDays \"Total validity days, not null\"
-          int remainingDays \"Computed days left until expiry\"
+          uuid cardId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          date issueDate "Card issue date, not null"
+          int validityDays "Total validity days, not null"
+          int remainingDays "Computed days left until expiry"
       }
   ```
 ### 2.7 Thông báo & truyền thông
@@ -383,12 +384,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       NOTIFICATIONS {
-          uuid notificationId PK \"Unique identifier\"
-          uuid userId FK \"Target user, optional\"
-          varchar groupZalo \"Target Zalo group, optional\"
-          text message \"Notification content, not null\"
-          timestamp sentAt \"When sent, default now()\"
-          boolean delivered \"Delivery status, default false\"
+          uuid notificationId PK "Unique identifier"
+          uuid userId FK "Target user, optional"
+          varchar groupZalo "Target Zalo group, optional"
+          text message "Notification content, not null"
+          timestamp sentAt "When sent, default now()"
+          boolean delivered "Delivery status, default false"
       }
   ```
 ### 2.8 Quản lý khuyến mãi & thông báo
@@ -411,23 +412,23 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       PROMOTIONS {
-          uuid promoId PK \"Unique identifier\"
-          varchar code \"Discount code, unique\"
-          smallint discountPercent \"Discount percentage, not null\"
-          date startDate \"Promotion start, optional\"
-          date endDate \"Promotion end, optional\"
-          text description \"Promo details, optional\"
+          uuid promoId PK "Unique identifier"
+          varchar code "Discount code, unique"
+          smallint discountPercent "Discount percentage, not null"
+          date startDate "Promotion start, optional"
+          date endDate "Promotion end, optional"
+          text description "Promo details, optional"
       }
   ```
   **Announcements**
   ```mermaid
   erDiagram
       ANNOUNCEMENTS {
-          uuid announcementId PK \"Unique identifier\"
-          varchar title \"Title, not null, max 150 chars\"
-          text content \"Content, not null, max 2000 chars\"
-          date startDate \"Effective start, optional\"
-          date endDate \"Effective end, optional\"
+          uuid announcementId PK "Unique identifier"
+          varchar title "Title, not null, max 150 chars"
+          text content "Content, not null, max 2000 chars"
+          date startDate "Effective start, optional"
+          date endDate "Effective end, optional"
       }
   ```
 ### 2.9 Chatbot dịch vụ khách hàng AI
@@ -480,9 +481,9 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       SYSTEMSETTINGS {
-          varchar settingKey PK \"Configuration key\"
-          text settingValue \"Configuration value, not null\"
-          varchar description \"Meaning of setting, optional\"
+          varchar settingKey PK "Configuration key"
+          text settingValue "Configuration value, not null"
+          varchar description "Meaning of setting, optional"
       }
   ```
 ### 2.12 Báo cáo & phân tích
@@ -563,20 +564,20 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
     * Allowed Actions: Build, push configuration files, design Kubernetes deployment manifests, and manage container scaling and release strategies inside GKE clusters.
 
 #### 🔢 EQUAL REQUIREMENT DISTRIBUTION & ZERO-FILLER DAY-CAP PROTOCOL
-  - **Phase Boundary Count**: The total number of architectural phases MUST be exactly \"5\".
-  - **Requirement Distribution Mandate**: You MUST distribute 100% of all provided project requirements into exactly \"5\" phases. No requirement can be left unassigned, omitted, or bundled lazily. Every phase from Phase 1 to Phase \"5\" must receive a balanced subset of requirements.
+  - **Phase Boundary Count**: The total number of architectural phases MUST be exactly "5".
+  - **Requirement Distribution Mandate**: You MUST distribute 100% of all provided project requirements into exactly "5" phases. No requirement can be left unassigned, omitted, or bundled lazily. Every phase from Phase 1 to Phase "5" must receive a balanced subset of requirements.
   - **Strict Day-Cap & Anti-Filler Rail**:
-    * The maximum number of days within ANY single phase is strictly capped at: \"7\".
-    * The actual number of days per phase can be LESS than or EQUAL to \"7\" (e.g., `actual_days <= max_days_per_phase`).
-    * 🚨 **STRICT FORBIDDEN DIRECTIVE**: You are ABSOLUTELY FORBIDDEN from creating \"filler days\", redundant testing sessions, unnecessary sync setups, or placeholder tasks just to padding the day count up to the maximum limit. If a phase only requires 2 high-density days to fully implement its assigned requirements, you MUST stop at Day 2. Do not hallucinate Day 3 or Day 4.
+    * The maximum number of days within ANY single phase is strictly capped at: "7".
+    * The actual number of days per phase can be LESS than or EQUAL to "7" (e.g., `actual_days <= max_days_per_phase`).
+    * 🚨 **STRICT FORBIDDEN DIRECTIVE**: You are ABSOLUTELY FORBIDDEN from creating "filler days", redundant testing sessions, unnecessary sync setups, or placeholder tasks just to padding the day count up to the maximum limit. If a phase only requires 2 high-density days to fully implement its assigned requirements, you MUST stop at Day 2. Do not hallucinate Day 3 or Day 4.
     * Every generated day must contain high-utility, actionable enterprise engineering tasks. No empty or duplicate logs.
 
 #### 🚨 CRITICAL FULL TRANSLATION MANDATE
-  - The target generation language for all human-readable outputs is permanently bound to: \"🇻🇳 Vietnamese\". Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
+  - The target generation language for all human-readable outputs is permanently bound to: "🇻🇳 Vietnamese". Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
   - You MUST fully translate 100% of all headers, section titles, sub-headers, descriptive text, sentences, explanations, phase objectives, phase descriptions, phase section headers / titles / sub-headers / pullet titles, and task instructions into the designated target language.
 
 #### 🚨 DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
-  - Target Output Language Context: \"🇻🇳 Vietnamese\"
+  - Target Output Language Context: "🇻🇳 Vietnamese"
   - You MUST dynamically translate 100% of all user-facing structural components, table headers, phase layouts, and list prefixes into the designated Target Output Language Context.
   - 🚨 MANDATORY STRUCTURAL MAPPING DIRECTIVE (Translate these dynamically based on the target language context):
     * All Section and Sub-section Headers (including entire header of ouput markdown report, example `GLOBAL PROJECT CONTEXT`) MUST be translated contextually.
@@ -620,6 +621,7 @@ MANDATORY SEGMENT INSTRUCTION:
 
 
 
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
 
 
 
@@ -627,10 +629,10 @@ MANDATORY SEGMENT INSTRUCTION:
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811153831 |
+| **Blueprint ID** | ARCH-20260811164031 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 15:38:31 |
+| **Date.Time** | 2026/08/11 16:40:31 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -672,11 +674,8 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 ## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
 - **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
 - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
-- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string \"membership-hub\" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
+- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
-- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash."
-    }
-]
 
 ---
 
@@ -684,53 +683,33 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 ---
 
-# GLOBAL PROJECT CONTEXT: membership-hub
+## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH KIẾN TRÚC CỐT LÕI
 
-## 📊 Document Control
+### 1.1. MÔ HÌNH KIẾN TRÚC CỐT LÕI & CÁC BOUNDARY
 
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260811153831 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 15:38:31 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
+- Kiến trúc microservices phân tách rõ ràng: Auth, User, Center, Course, Attendance, Notification, Promotion, Report.
+- Mô hình CQRS: các lệnh (Command) ghi dữ liệu, truy vấn (Query) đọc dữ liệu, sử dụng Event Store để lưu trữ sự kiện.
+- Reactive core: Quarkus với Mutiny, xử lý bất đồng bộ, giảm độ trễ, hỗ trợ streaming.
+- Event‑driven: Kafka chủ đạo cho các sự kiện quan trọng (attendance, enrollment, promotion), Redis cho cache và session.
+- API Gateway: Quarkus RESTEasy, bảo vệ bằng JWT, rate‑limit, CORS.
+- GKE orchestrator: Deploy microservices, auto‑scale, HPA, liveness/readiness probes.
+- CI/CD: GitHub Actions, Docker multi‑stage, Helm charts, GCP Artifact Registry.
 
-## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
+### 1.2. CÁC ĐỘI CHUỘT DỮ LIỆU & HỆ THỐNG CƠ BẢN
 
-### 1.1. Core System Modality & Architecture Modality
-- Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, trung tâm, khóa học, điểm danh và thẻ hội viên.
-- Sử dụng mô hình CQRS (Command Query Responsibility Segregation) để tách biệt các hoạt động ghi và đọc dữ liệu.
-- Áp dụng mô hình Event-Driven Architecture (EDA) cho các tính năng như thông báo và điểm danh.
-- Sử dụng mô hình Reactive Programming cho các tính năng thời gian thực như điểm danh và thông báo.
-- Hệ thống được thiết kế để có thể mở rộng theo chiều ngang và chiều dọc để đáp ứng nhu cầu tăng trưởng của người dùng.
+- Ingestion gateway: Firebase Auth + OAuth2, chuyển đổi thành JWT, lưu vào PostgreSQL.
+- Topic topology: `attendance.events`, `enrollment.events`, `notification.events`, `promotion.events`.
+- Fan‑out: Kafka → Firebase Cloud Messaging, Zalo API, email service.
+- Cross‑channel: RESTful CRUD, gRPC cho internal microservice, gRPC‑JSON transcoding.
+- Data replication: PostgreSQL read replicas cho báo cáo, read‑only replicas cho frontend.
+- Cache layer: Redis, TTL 5 phút cho dữ liệu read‑heavy (course list, center list).
 
-### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-- Sử dụng Kafka để quản lý các luồng dữ liệu thời gian thực như điểm danh và thông báo.
-- Sử dụng Redis để lưu trữ các phiên làm việc và dữ liệu tạm thời.
-- Sử dụng PostgreSQL để lưu trữ dữ liệu quan hệ như thông tin người dùng, trung tâm, khóa học và điểm danh.
-- Sử dụng Firebase Authentication để quản lý xác thực người dùng.
-- Sử dụng Google Cloud Messaging (FCM) và Apple APNs để gửi thông báo đẩy đến ứng dụng di động.
-- Sử dụng Zalo API để gửi thông báo đến nhóm Zalo.
+## 📁 2. CỤC THỂ CÔNG NGHỆ & THƯ VIỆN HỆ THỐNG
 
-## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-- **Backend Infrastructure Core Stack:**
-  - Java/Quarkus
-  - PostgreSQL
-  - Docker
-  - Kubernetes (GKE)
-  - Firebase Authentication
-  - Google Cloud Messaging (FCM)/Apple APNs
-  - Zalo API
-  - Redis
-  - GitHub Actions
-
-- **Frontend & Cross-Platform UI Mobile Stack:**
-  - Next.js
-  - React Native
-
-### ARCHITECTURAL STACK MATRIX
+- **Backend Infrastructure Core Stack**  
+  - Java 17, Quarkus 3.6.0, Hibernate ORM 6.2, Flyway 9.22, PostgreSQL 15, Redis 7, Kafka 3.6, Firebase Admin SDK 9.1, Google Cloud SDK 420, Docker 24, Helm 3.12, GCP Artifact Registry, GKE 1.28.  
+- **Frontend & Cross‑Platform UI Mobile Stack**  
+  - Next.js 13.4, React 18, TypeScript 5.0, Tailwind CSS 3.3, React Query 4.29, React Native 0.73, Expo SDK 49, TypeScript 5.0, React Navigation 6, Firebase SDK 10.0, Zalo SDK 1.0.  
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -740,10 +719,20 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
-- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
-- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
-- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
-- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
-- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
+## 📁 3. QUY TẮC BẢO VỆ & THUẬT NGHIỆP DOANH NGHIỆP
+
+- **Địa chỉ repository**: Tất cả các file bắt đầu bằng `./sources/`.  
+- **Dynamic Directory Prefixing**:  
+  - Backend: `./sources/backend/<service-name>/` (ví dụ: `./sources/backend/auth/`).  
+  - Frontend: `./sources/frontend/` (ví dụ: `./sources/frontend/web/`).  
+  - DevOps: `./sources/infra/`.  
+  - Docs: `./sources/docs/`.  
+- **Java Package Standard**: `org.nlh4j.saas.membershiphub`.  
+- **Tester Target Path Syntax**: `<source_component>;<test_suite_file>` (cả hai bắt đầu bằng `./sources/`).  
+- **OWASP Top‑10 Mitigations**: Prepared statements, CSRF tokens, CSP headers, rate limiting, input validation.  
+- **GDPR/CCPA Compliance**: Data export JSON, deletion on request, consent flags.  
+- **Backup & DR**: PostgreSQL full backup hàng ngày, point‑in‑time recovery 24h, GKE cluster backup vùng khác.  
+- **Performance & Availability**: 200 ms avg API, 99.9 % uptime, HPA, read replicas, auto‑failover.  
+- **Security**: TLS 1.3, AES‑256 at rest, JWT 15 min, refresh 7 days.  
+- **Multi‑Language**: Externalized strings, locale switching, SEO hreflang.
 

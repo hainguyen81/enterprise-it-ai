@@ -1,17 +1,14 @@
-# Chunk 2:
+# System Prompt 2:
 
 ---
 
-[
-    {
-        "role": "system",
-        "content": "<GLOBAL_GOVERNANCE_MATRIX>
+<GLOBAL_GOVERNANCE_MATRIX>
 # ==============================================================================
 # MASTER ENTERPRISE GOVERNANCE GUARDRAILS MATRIX (GLOBAL TASK ENFORCEMENT)
 # ==============================================================================
 
 ## 🌐 1. STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS
-- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: \"🇻🇳 Vietnamese\".
+- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "🇻🇳 Vietnamese".
 - **ABSOLUTE TECH PROTECTION BOUNDARY:** You are STRICTLY BANNED from translating, changing, altering, or breaking any technical structural layers. You MUST preserve these elements natively in their pristine Technical English/Primitive code state:
     * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
     * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
@@ -28,15 +25,15 @@
     * All absolute or relative file paths starting with `./sources/`.
     * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
-    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
-    * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
+    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like "GLOBAL PROJECT CONTEXT", "Document Control", "Item", "Details", "Blueprint ID", "Project Name", "Version", "Date.Time", "Author", "Approval", "SYSTEM OVERVIEW", "Core System Modality"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
+    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "🇻🇳 Vietnamese" before committing them to the final output buffer.
     * Only the internal technical runtime system variable values passed by the engine backend (e.g., ``, `ARCH-`, ``) MUST be preserved natively in pure Technical English. Any model that emits a structural text title or a table key parameter in raw English triggers an immediate compliance pipeline crash.
 - 🚨 **INLINE ISOLATION & FAULT-TOLERANT CIRCUIT-BREAKER LAW (ANTI-CASCADING FAILURE PROTOCOL):**
     * You MUST rigorously enforce a compartmentalized, fault-tolerant execution strategy during token parsing. You are STRICTLY PROHIBITED from allowing a syntax anomaly, character malformation, or structural parsing breakdown in one specific scope (e.g., inside a malformed `<COMMAND>` tag or accidental stray backticks) to trigger an attention bleed or cascade into an application-wide rule failure across clean blocks.
     * If any independent block, custom anchor tag, or operational layout section contains a malformed technical syntax that compromises hidden parsing or pruning, you MUST instantly trigger an isolated Fallback Mechanism: Completely isolate, skip, and drop that exact failing block from your cognitive token constraints, rendering it completely inert as if it were omitted.
     * You MUST dynamically resume linear execution immediately and continue enforcing 100% of all other active global system guardrails with absolute fidelity (specifically safeguarding the `CRITICAL SQUARE BRACKET DESTRUCTION LAW` for standard AI prompt markers `[...]`, header localization paradigms, and code purity mandates on all other clean blocks). Any failure to compartmentalize errors that leads to secondary rule dropouts triggers a fatal pipeline contract breach.
 - 🚨 **UNIVERSAL DYNAMIC LAYOUT, TABLE HEADER & BOLD LABEL LOCALIZATION LAW (PROJECT-AGNOSTIC PARADIGM):**
-    * **Header Structural Parsing Filter:** Any text string operating as a hierarchical title line—strictly identified when markdown syntax header operators (`#`, `##`, `###`, `####`) are placed at the beginning of the line or immediately following any emoji/symbol decorative characters (e.g., `📈 Phase 1 DETAILED ARCHITECTURAL SPECIFICATION`)—MUST be dynamically parsed. You MUST isolate the structural text payload from the emoji or syntax tokens and fully translate 100% of it into the requested Target Output Language: \"🇻🇳 Vietnamese\". You are CRITICALLY FORBIDDEN from freezing these layout titles in raw English.
+    * **Header Structural Parsing Filter:** Any text string operating as a hierarchical title line—strictly identified when markdown syntax header operators (`#`, `##`, `###`, `####`) are placed at the beginning of the line or immediately following any emoji/symbol decorative characters (e.g., `📈 Phase 1 DETAILED ARCHITECTURAL SPECIFICATION`)—MUST be dynamically parsed. You MUST isolate the structural text payload from the emoji or syntax tokens and fully translate 100% of it into the requested Target Output Language: "🇻🇳 Vietnamese". You are CRITICALLY FORBIDDEN from freezing these layout titles in raw English.
     * **Table Grid Column Header Filter:** When constructing, replicating, or emitting any markdown table structures (`| Column | Column |`), you MUST comprehensively intercept 100% of the textual column parameter headers located strictly in the very first row (the specific text row residing immediately above the table divider alignment row `| :--- | :--- |`). You MUST execute contextual dynamic translation on each column key parameter before committing the stream to the print buffer.
     * **Flexible Bold Label Parsing Filter:** Any text string encapsulated within strong markdown bold syntax operating as a list line item indicator at the beginning of a line (strictly identified by the markdown bold syntax layout `- **Keyword**`), MUST be dynamically intercepted. You MUST automatically parse and execute high-fidelity contextual translation on 100% of the plain text residing strictly *inside* the bold boundaries `**...**` into the target language (e.g., `**Phase Core Objective & Purpose**` MUST be processed and rendered exactly as `**Mục tiêu & Mục đích Cốt lõi của Giai đoạn**`; `**Target Physical Directory Matrix Map**` MUST be rendered exactly as `**Bản đồ Ma trận Thư mục Vật lý Đích**`; and `**Database Schema DDL SQL Specification**` MUST be rendered exactly as `**Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu**`). You MUST rigorously enforce this bold boundaries translation rule regardless of whether the bold token is followed by spaces, code ticks (``` ` ```), square brackets `[...]`, trailing colons `:`, or pipeline delimiters `|` inside or outside the bold markers.
     * **Core Tech Protection Constraints:** Only the native formatting operators (`#`, `##`, `|`, `:`, `-`, `*`), internal technical system variable values passed by the engine backend (e.g., ``, ``), and literal tracking Tag IDs (e.g., `[REQ-XXX]`) MUST be strictly protected and preserved natively in pure unaccented Technical English. Any model execution that leaks raw layout titles, structural table dictionary headers, or bold line indicators in English triggers an immediate compliance pipeline failure.
@@ -81,25 +78,25 @@
 - Treat all standard AI prompting structures and markdown behaviors naturally as baseline expectations. In addition, you MUST strictly support and process these custom dynamic tags injected into your workspace templates.
 The system strictly defines the comprehensive list (custom dynamic tags) of Mandatory Architectural Token Pairs as follows:
 
-    * Type 1 (XML Tag Pairs): Starts exactly with `\"<COMMAND>\"` and ends exactly with `\"</COMMAND>\"` (e.g., `<COMMAND>...instructions...</COMMAND>`).
+    * Type 1 (XML Tag Pairs): Starts exactly with `"<COMMAND>"` and ends exactly with `"</COMMAND>"` (e.g., `<COMMAND>...instructions...</COMMAND>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 2 (XML Tag Pairs): Starts exactly with `\"<PROMPT>\"` and ends exactly with `\"</PROMPT>\"` (e.g., `<PROMPT>...instructions...</PROMPT>`).
+    * Type 2 (XML Tag Pairs): Starts exactly with `"<PROMPT>"` and ends exactly with `"</PROMPT>"` (e.g., `<PROMPT>...instructions...</PROMPT>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 3 (XML Tag Pairs): Starts exactly with `\"<RULE>\"` and ends exactly with `\"</RULE>\"` (e.g., `<RULE>...instructions...</RULE>`).
+    * Type 3 (XML Tag Pairs): Starts exactly with `"<RULE>"` and ends exactly with `"</RULE>"` (e.g., `<RULE>...instructions...</RULE>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 4 (XML Tag Pairs): Starts exactly with `\"<RAILS>\"` and ends exactly with `\"</RAILS>\"` (e.g., `<RAILS>...instructions...</RAILS>`).
+    * Type 4 (XML Tag Pairs): Starts exactly with `"<RAILS>"` and ends exactly with `"</RAILS>"` (e.g., `<RAILS>...instructions...</RAILS>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 5 (HTML Comment Anchors): Starts exactly with `\"<!--START_COMMAND\"` and ends exactly with `\"END_COMMAND-->\"` (e.g., `<!--START_COMMAND...instructions...END_COMMAND-->`).
+    * Type 5 (HTML Comment Anchors): Starts exactly with `"<!--START_COMMAND"` and ends exactly with `"END_COMMAND-->"` (e.g., `<!--START_COMMAND...instructions...END_COMMAND-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 6 (HTML Comment Anchors): Starts exactly with `\"<!--START_PROMPT\"` and ends exactly with `\"END_PROMPT-->\"` (e.g., `<!--START_PROMPT...instructions...END_PROMPT-->`).
+    * Type 6 (HTML Comment Anchors): Starts exactly with `"<!--START_PROMPT"` and ends exactly with `"END_PROMPT-->"` (e.g., `<!--START_PROMPT...instructions...END_PROMPT-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 7 (HTML Comment Anchors): Starts exactly with `\"<!--START_RULE\"` and ends exactly with `\"END_RULE-->\"` (e.g., `<!--START_RULE...instructions...END_RULE-->`).
+    * Type 7 (HTML Comment Anchors): Starts exactly with `"<!--START_RULE"` and ends exactly with `"END_RULE-->"` (e.g., `<!--START_RULE...instructions...END_RULE-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 8 (HTML Comment Anchors): Starts exactly with `\"<!--START_RAILS\"` and ends exactly with `\"END_RAILS-->\"` (e.g., `<!--START_RAILS...instructions...END_RAILS-->`).
+    * Type 8 (HTML Comment Anchors): Starts exactly with `"<!--START_RAILS"` and ends exactly with `"END_RAILS-->"` (e.g., `<!--START_RAILS...instructions...END_RAILS-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 9 (XML Tag Pairs): Starts exactly with `\"<NO_TRANSLATION>\"` and ends exactly with `\"</NO_TRANSLATION>\"` (e.g., `<NO_TRANSLATION>...instructions...</NO_TRANSLATION>`).
+    * Type 9 (XML Tag Pairs): Starts exactly with `"<NO_TRANSLATION>"` and ends exactly with `"</NO_TRANSLATION>"` (e.g., `<NO_TRANSLATION>...instructions...</NO_TRANSLATION>`).
       *   **Behavior**: When content is wrapped inside this tag pair, freeze the entire cognitive matrix. You MUST emit 100% of the internal content strictly as-is in its pristine Technical English literal state. Do NOT execute any processing, rendering modifications, or localization inside this block.
-    * Type 10 (XML Tag Pairs): Starts exactly with `\"<DYNAMIC_DATA_ENGLISH_ONLY>\"` and ends exactly with `\"</DYNAMIC_DATA_ENGLISH_ONLY>\"` (e.g., `<DYNAMIC_DATA_ENGLISH_ONLY>...instructions...</DYNAMIC_DATA_ENGLISH_ONLY>`).
+    * Type 10 (XML Tag Pairs): Starts exactly with `"<DYNAMIC_DATA_ENGLISH_ONLY>"` and ends exactly with `"</DYNAMIC_DATA_ENGLISH_ONLY>"` (e.g., `<DYNAMIC_DATA_ENGLISH_ONLY>...instructions...</DYNAMIC_DATA_ENGLISH_ONLY>`).
       *   **Behavior**: When variables (`{{ ... }}`) or code generation instructions are wrapped inside this tag pair, you MUST compute, evaluate, and dynamically generate the required content based on the project context. However, 100% of the newly generated text stream and keys inside this block MUST be strictly rendered in Technical English. Translation is absolutely banned.
 
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
@@ -124,7 +121,7 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 
 5. **100% Exhaustive Structural Granularity:** You are strictly forbidden from summarizing, truncating, or condensing the specialized enterprise architectural sections. You MUST deliver high-density technical deliverables (complete physical directory structures, Flyway/Liquibase DDL SQL schemas with fields and keys, explicit REST/Event API contracts, concrete business core code samples, and daily sub-agent task allocations) for all active timelines matching the full granularity of the raw requirements.
 
-6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and \"Low-Level Technical Task Instructions\" strictly in the language specified by the user: **🇻🇳 Vietnamese**. 
+6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the language specified by the user: **🇻🇳 Vietnamese**. 
 
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
@@ -133,11 +130,15 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
 - **Explicit Start Mandate:** Your output response MUST start exactly with the top-level header: `# GLOBAL PROJECT CONTEXT: membership-hub` after translating it into the target language.
 - **Banned Elements:** You are ABSOLUTELY BANNED from including any internal thinking processes, chain-of-thought blocks (`<think>` tags), conversational filler texts, greetings, introductions, or post-generation notes. Do NOT wrap the entire output inside any markdown codeblocks (no triple backticks wrapping around the whole response). Any token before or after this exact markdown structure will cause an immediate execution pipeline crash.
-</ACTIVE_TASK_SYSTEM_INSTRUCTION>"
-    },
-    {
-        "role": "user",
-        "content": "Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for Project 'membership-hub'.
+</ACTIVE_TASK_SYSTEM_INSTRUCTION>
+
+---
+
+# User Prompt 2:
+
+---
+
+Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for Project 'membership-hub'.
 
 --- RAW REQUIREMENTS ---
 # SOFTWARE REQUIREMENTS SPECIFICATION: membership-hub
@@ -198,29 +199,29 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       USERS {
-          uuid userId PK \"Unique identifier\"
-          varchar email \"Email address, not null, unique, max 255 chars\"
-          char passwordHash \"bcrypt hash, not null, length 60\"
-          varchar fullName \"Full name, not null, max 100 chars\"
-          smallint roleId FK \"Foreign key to Roles.roleId\"
-          enum provider \"Auth provider, default local, values: local, firebase, google, facebook\"
-          timestamp createdAt \"Timestamp of creation, not null, default now()\"
-          timestamp updatedAt \"Timestamp of last update, not null, default now()\"
+          uuid userId PK "Unique identifier"
+          varchar email "Email address, not null, unique, max 255 chars"
+          char passwordHash "bcrypt hash, not null, length 60"
+          varchar fullName "Full name, not null, max 100 chars"
+          smallint roleId FK "Foreign key to Roles.roleId"
+          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
+          timestamp createdAt "Timestamp of creation, not null, default now()"
+          timestamp updatedAt "Timestamp of last update, not null, default now()"
       }
       ROLES {
-          smallint roleId PK \"Role identifier, primary key\"
-          varchar name \"Role name, unique, not null, max 30 chars\"
-          varchar description \"Role description, optional, max 200 chars\"
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
       }
-      ROLES ||--o{ USERS : \"roleId\"
+      ROLES ||--o{ USERS : "roleId"
   ```
   **Roles**
   ```mermaid
   erDiagram
       ROLES {
-          smallint roleId PK \"Role identifier, primary key\"
-          varchar name \"Role name, unique, not null, max 30 chars\"
-          varchar description \"Role description, optional, max 200 chars\"
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
       }
   ```
 ### 2.2 Quản lý trung tâm
@@ -245,12 +246,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       CENTERS {
-          uuid centerId PK \"Unique identifier\"
-          varchar name \"Center name, not null, max 100 chars\"
-          varchar address \"Physical address, not null, max 255 chars\"
-          varchar taxId \"Tax identification number, unique, not null, numeric 10‑13 digits\"
-          varchar contactPhone \"Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses\"
-          varchar contactEmail \"Contact email, optional, must be valid email format\"
+          uuid centerId PK "Unique identifier"
+          varchar name "Center name, not null, max 100 chars"
+          varchar address "Physical address, not null, max 255 chars"
+          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
+          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
+          varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
 ### 2.3 Quản lý khóa học
@@ -275,13 +276,13 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       COURSES {
-          uuid courseId PK \"Unique identifier\"
-          varchar title \"Course title, not null, max 150 chars\"
-          text description \"Course description, optional\"
-          date startDate \"Course start date, not null\"
-          date endDate \"Course end date, not null\"
-          uuid teacherId FK \"Foreign key to Users.userId\"
-          int maxStudents \"Course capacity, default 30\"
+          uuid courseId PK "Unique identifier"
+          varchar title "Course title, not null, max 150 chars"
+          text description "Course description, optional"
+          date startDate "Course start date, not null"
+          date endDate "Course end date, not null"
+          uuid teacherId FK "Foreign key to Users.userId"
+          int maxStudents "Course capacity, default 30"
       }
   ```
 ### 2.4 Đăng ký & ghi danh học viên
@@ -304,10 +305,10 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       ENROLLMENTS {
-          uuid enrollmentId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          uuid courseId FK \"Foreign key to Courses.courseId\"
-          timestamp enrollmentDate \"Date of enrollment, default now()\"
+          uuid enrollmentId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
 ### 2.5 Điểm danh & quét mã QR
@@ -331,11 +332,11 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       ATTENDANCE {
-          uuid attendanceId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          uuid courseId FK \"Foreign key to Courses.courseId\"
-          date attendanceDate \"Date of attendance, not null\"
-          timestamp timestamp \"Exact time recorded, default now()\"
+          uuid attendanceId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          date attendanceDate "Date of attendance, not null"
+          timestamp timestamp "Exact time recorded, default now()"
       }
   ```
 ### 2.6 Quản lý thẻ hội viên
@@ -358,11 +359,11 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       STUDENTCARDS {
-          uuid cardId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          date issueDate \"Card issue date, not null\"
-          int validityDays \"Total validity days, not null\"
-          int remainingDays \"Computed days left until expiry\"
+          uuid cardId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          date issueDate "Card issue date, not null"
+          int validityDays "Total validity days, not null"
+          int remainingDays "Computed days left until expiry"
       }
   ```
 ### 2.7 Thông báo & truyền thông
@@ -383,12 +384,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       NOTIFICATIONS {
-          uuid notificationId PK \"Unique identifier\"
-          uuid userId FK \"Target user, optional\"
-          varchar groupZalo \"Target Zalo group, optional\"
-          text message \"Notification content, not null\"
-          timestamp sentAt \"When sent, default now()\"
-          boolean delivered \"Delivery status, default false\"
+          uuid notificationId PK "Unique identifier"
+          uuid userId FK "Target user, optional"
+          varchar groupZalo "Target Zalo group, optional"
+          text message "Notification content, not null"
+          timestamp sentAt "When sent, default now()"
+          boolean delivered "Delivery status, default false"
       }
   ```
 ### 2.8 Quản lý khuyến mãi & thông báo
@@ -411,23 +412,23 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       PROMOTIONS {
-          uuid promoId PK \"Unique identifier\"
-          varchar code \"Discount code, unique\"
-          smallint discountPercent \"Discount percentage, not null\"
-          date startDate \"Promotion start, optional\"
-          date endDate \"Promotion end, optional\"
-          text description \"Promo details, optional\"
+          uuid promoId PK "Unique identifier"
+          varchar code "Discount code, unique"
+          smallint discountPercent "Discount percentage, not null"
+          date startDate "Promotion start, optional"
+          date endDate "Promotion end, optional"
+          text description "Promo details, optional"
       }
   ```
   **Announcements**
   ```mermaid
   erDiagram
       ANNOUNCEMENTS {
-          uuid announcementId PK \"Unique identifier\"
-          varchar title \"Title, not null, max 150 chars\"
-          text content \"Content, not null, max 2000 chars\"
-          date startDate \"Effective start, optional\"
-          date endDate \"Effective end, optional\"
+          uuid announcementId PK "Unique identifier"
+          varchar title "Title, not null, max 150 chars"
+          text content "Content, not null, max 2000 chars"
+          date startDate "Effective start, optional"
+          date endDate "Effective end, optional"
       }
   ```
 ### 2.9 Chatbot dịch vụ khách hàng AI
@@ -480,9 +481,9 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       SYSTEMSETTINGS {
-          varchar settingKey PK \"Configuration key\"
-          text settingValue \"Configuration value, not null\"
-          varchar description \"Meaning of setting, optional\"
+          varchar settingKey PK "Configuration key"
+          text settingValue "Configuration value, not null"
+          varchar description "Meaning of setting, optional"
       }
   ```
 ### 2.12 Báo cáo & phân tích
@@ -563,20 +564,20 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
     * Allowed Actions: Build, push configuration files, design Kubernetes deployment manifests, and manage container scaling and release strategies inside GKE clusters.
 
 #### 🔢 EQUAL REQUIREMENT DISTRIBUTION & ZERO-FILLER DAY-CAP PROTOCOL
-  - **Phase Boundary Count**: The total number of architectural phases MUST be exactly \"5\".
-  - **Requirement Distribution Mandate**: You MUST distribute 100% of all provided project requirements into exactly \"5\" phases. No requirement can be left unassigned, omitted, or bundled lazily. Every phase from Phase 1 to Phase \"5\" must receive a balanced subset of requirements.
+  - **Phase Boundary Count**: The total number of architectural phases MUST be exactly "5".
+  - **Requirement Distribution Mandate**: You MUST distribute 100% of all provided project requirements into exactly "5" phases. No requirement can be left unassigned, omitted, or bundled lazily. Every phase from Phase 1 to Phase "5" must receive a balanced subset of requirements.
   - **Strict Day-Cap & Anti-Filler Rail**:
-    * The maximum number of days within ANY single phase is strictly capped at: \"7\".
-    * The actual number of days per phase can be LESS than or EQUAL to \"7\" (e.g., `actual_days <= max_days_per_phase`).
-    * 🚨 **STRICT FORBIDDEN DIRECTIVE**: You are ABSOLUTELY FORBIDDEN from creating \"filler days\", redundant testing sessions, unnecessary sync setups, or placeholder tasks just to padding the day count up to the maximum limit. If a phase only requires 2 high-density days to fully implement its assigned requirements, you MUST stop at Day 2. Do not hallucinate Day 3 or Day 4.
+    * The maximum number of days within ANY single phase is strictly capped at: "7".
+    * The actual number of days per phase can be LESS than or EQUAL to "7" (e.g., `actual_days <= max_days_per_phase`).
+    * 🚨 **STRICT FORBIDDEN DIRECTIVE**: You are ABSOLUTELY FORBIDDEN from creating "filler days", redundant testing sessions, unnecessary sync setups, or placeholder tasks just to padding the day count up to the maximum limit. If a phase only requires 2 high-density days to fully implement its assigned requirements, you MUST stop at Day 2. Do not hallucinate Day 3 or Day 4.
     * Every generated day must contain high-utility, actionable enterprise engineering tasks. No empty or duplicate logs.
 
 #### 🚨 CRITICAL FULL TRANSLATION MANDATE
-  - The target generation language for all human-readable outputs is permanently bound to: \"🇻🇳 Vietnamese\". Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
+  - The target generation language for all human-readable outputs is permanently bound to: "🇻🇳 Vietnamese". Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
   - You MUST fully translate 100% of all headers, section titles, sub-headers, descriptive text, sentences, explanations, phase objectives, phase descriptions, phase section headers / titles / sub-headers / pullet titles, and task instructions into the designated target language.
 
 #### 🚨 DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
-  - Target Output Language Context: \"🇻🇳 Vietnamese\"
+  - Target Output Language Context: "🇻🇳 Vietnamese"
   - You MUST dynamically translate 100% of all user-facing structural components, table headers, phase layouts, and list prefixes into the designated Target Output Language Context.
   - 🚨 MANDATORY STRUCTURAL MAPPING DIRECTIVE (Translate these dynamically based on the target language context):
     * All Section and Sub-section Headers (including entire header of ouput markdown report, example `GLOBAL PROJECT CONTEXT`) MUST be translated contextually.
@@ -613,6 +614,7 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
 
 
 
@@ -640,12 +642,10 @@ You MUST include every single section below without exception to satisfy enterpr
 - **1:1 TRACEABILITY RATIO:** Every unique functional or non-functional Tag ID identified in the raw SRS ([REQ], [ARC], [EXC], [DAT], [NFR]) MUST yield exactly one (1) dedicated, standalone row in this table.
 - **OUTPUT LAYOUT PARSING STRUCTURE:**
 
-| [Index] | [Task Title] | [Technical Objective] | [Type] | [Tag IDs] |  <!--REGISTERED_BACKLOG_TASK_ROW-->
+| [Index] | [Task Title] | [Technical Objective] | [Type] | [Tag IDs] | <!--REGISTERED_BACKLOG_TASK_ROW-->
 | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
 
-<!--END_BACKLOG_SYNOPSIS_GRID-->"
-    }
-]
+<!--END_BACKLOG_SYNOPSIS_GRID-->
 
 ---
 
@@ -653,592 +653,223 @@ You MUST include every single section below without exception to satisfy enterpr
 
 ---
 
-```markdown
-# GLOBAL PROJECT CONTEXT: membership-hub
+# BẢNG NGHIỆP ĐỀ TOÀN CẦU: membership-hub
 
-## 🏛️ 1. TỔNG QUAN HỆ THỐNG
-
-### 1.1. MỤC TIÊU & GIÁ TRỊ CỐT LÕI
-- Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
-- Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
-- Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
-- Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
-- Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
-
-### 1.2. ĐỐI TƯỢNG NGƯỜI DÙNG MỤC TIÊU
-- System Admin (siêu người dùng toàn cầu)
-- Center Admin (quản lý cấp trung tâm)
-- Manager (phó quản trị, quyền hạn giới hạn)
-- Teacher (xem chỉ đọc lịch dạy)
-- Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
-- Mobile App User (giao diện đáp ứng cho các vai trò trên)
-
-### 1.3. MA TRẬN KIỂM SOÁT TRUY CẬP DỰA TRÊN VAI TRÒ (RBAC)
-- [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
-- [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
-- [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
-- [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
-- [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
-
-### 1.4. KIẾN TRÚC & LUỒNG DỮ LIỆU (CÁC LUỒNG CHÍNH)
-- [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
-- [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
-- [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
-- [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
-
-### 1.5. CÔNG NGHỆ & HẠ TẦNG
-- [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
-
-## 📈 2. PHÂN TÍCH KIẾN TRÚC CHI TIẾT
-
-### 2.1. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
-
-#### 2.1.1. KIẾN TRÚC HỆ THỐNG
-- **Kiến trúc đa lớp**: Sử dụng kiến trúc đa lớp với các lớp trình bày, nghiệp vụ, và dữ liệu rõ ràng.
-- **Microservices**: Tách các chức năng chính thành các microservices độc lập (Authentication, Course Management, Attendance, Notification).
-- **API Gateway**: Sử dụng API Gateway để quản lý các yêu cầu đến các microservices khác nhau.
-- **Service Mesh**: Sử dụng Istio để quản lý giao tiếp giữa các microservices và thực hiện các chính sách bảo mật và giám sát.
-
-#### 2.1.2. KIẾN TRÚC DỮ LIỆU
-- **Cơ sở dữ liệu chính**: PostgreSQL cho dữ liệu quan hệ (người dùng, khóa học, điểm danh).
-- **Cơ sở dữ liệu phụ**: Redis cho session caching và Firebase Authentication.
-- **Lưu trữ đối tượng**: Google Cloud Storage cho lưu trữ các tài liệu và hình ảnh.
-
-#### 2.1.3. KIẾN TRÚC GIAO DIỆN NGƯỜI DÙNG
-- **Frontend**: Next.js cho ứng dụng web và React Native cho ứng dụng di động.
-- **UI/UX**: Thiết kế giao diện người dùng đáp ứng với các thành phần tái sử dụng và chủ đề tùy chỉnh.
-- **Localization**: Hỗ trợ đa ngôn ngữ với các chuỗi UI được externalized.
-
-#### 2.1.4. KIẾN TRÚC BẢO MẬT
-- **Xác thực**: OAuth2 với Firebase, Google, và Facebook.
-- **Phân quyền**: RBAC với các vai trò được định nghĩa rõ ràng.
-- **Mã hóa**: Mã hóa dữ liệu tại nghỉ và trong quá trình truyền tải với TLS 1.3.
-- **Bảo mật API**: JWT với thời hạn ngắn và refresh tokens.
-
-#### 2.1.5. KIẾN TRÚC TRIỂN KHAI
-- **Containerization**: Docker cho containerization các microservices.
-- **Orchestration**: Kubernetes (GKE) cho orchestration và quản lý các container.
-- **CI/CD**: GitHub Actions cho pipeline CI/CD tự động hóa.
-- **Monitoring**: Prometheus và Grafana cho giám sát và cảnh báo.
-
-### 2.2. PHÂN TÍCH KIẾN TRÚC CỤ THỂ
-
-#### 2.2.1. KIẾN TRÚC QUẢN LÝ NGƯỜI DÙNG
-- **Authentication Service**: Xử lý đăng ký, đăng nhập, và xác thực qua OAuth2.
-- **User Service**: Quản lý thông tin người dùng và phân quyền.
-- **Profile Service**: Quản lý hồ sơ người dùng và cài đặt.
-
-#### 2.2.2. KIẾN TRÚC QUẢN LÝ TRUNG TÂM
-- **Center Service**: Quản lý thông tin trung tâm và phân quyền quản trị.
-- **Location Service**: Quản lý địa điểm và lịch trình.
-
-#### 2.2.3. KIẾN TRÚC QUẢN LÝ KHÓA HỌC
-- **Course Service**: Quản lý thông tin khóa học và phân công giáo viên.
-- **Enrollment Service**: Quản lý đăng ký học viên và điểm danh.
-
-#### 2.2.4. KIẾN TRÚC ĐIỂM DANH & QUÉT MÃ QR
-- **Attendance Service**: Xử lý điểm danh qua quét mã QR và lưu trữ dữ liệu điểm danh.
-- **QR Service**: Tạo và quản lý mã QR cho các khóa học.
-
-#### 2.2.5. KIẾN TRÚC THẺ HỘI VIÊN
-- **Membership Service**: Quản lý thẻ hội viên và tính hợp lệ.
-- **Renewal Service**: Xử lý gia hạn thẻ hội viên.
-
-#### 2.2.6. KIẾN TRÚC THÔNG BÁO & TRUYỀN THÔNG
-- **Notification Service**: Quản lý thông báo và gửi thông báo qua push notification và Zalo API.
-- **Announcement Service**: Quản lý thông báo và khuyến mãi.
-
-#### 2.2.7. KIẾN TRÚC CHATBOT DỊCH VỤ KHÁCH HÀNG AI
-- **Chatbot Service**: Xử lý các truy vấn từ người dùng và trả lời thông qua chatbot AI.
-
-#### 2.2.8. KIẾN TRÚC ỨNG DỤNG DI ĐỘNG
-- **Mobile App Service**: Quản lý các tính năng cốt lõi của ứng dụng di động.
-- **Push Notification Service**: Gửi thông báo đẩy đến thiết bị di động.
-
-#### 2.2.9. KIẾN TRÚC BẢN ĐỊA HÓA & SEO
-- **Localization Service**: Quản lý bản địa hóa và đa ngôn ngữ.
-- **SEO Service**: Quản lý SEO và tối ưu hóa công cụ tìm kiếm.
-
-#### 2.2.10. KIẾN TRÚC BÁO CÁO & PHÂN TÍCH
-- **Reporting Service**: Tạo báo cáo điểm danh và tổng hợp dữ liệu.
-- **Analytics Service**: Phân tích dữ liệu và tạo bảng điều khiển.
-
-## 📝 3. TÀI LIỆU KIẾN TRÚC CỐT LÕI
-
-### 3.1. TÀI LIỆU KIẾN TRÚC HỆ THỐNG
-
-#### 3.1.1. TÀI LIỆU KIẾN TRÚC TOÀN CẦU
-- **System Architecture Diagram**: Biểu đồ kiến trúc hệ thống tổng quan.
-- **Data Flow Diagram**: Biểu đồ luồng dữ liệu.
-- **Component Diagram**: Biểu đồ thành phần.
-- **Deployment Diagram**: Biểu đồ triển khai.
-
-#### 3.1.2. TÀI LIỆU KIẾN TRÚC CỤ THỂ
-- **Authentication Service Architecture**: Biểu đồ kiến trúc dịch vụ xác thực.
-- **User Service Architecture**: Biểu đồ kiến trúc dịch vụ người dùng.
-- **Course Service Architecture**: Biểu đồ kiến trúc dịch vụ khóa học.
-- **Attendance Service Architecture**: Biểu đồ kiến trúc dịch vụ điểm danh.
-- **Notification Service Architecture**: Biểu đồ kiến trúc dịch vụ thông báo.
-
-### 3.2. TÀI LIỆU KIẾN TRÚC DỮ LIỆU
-
-#### 3.2.1. TÀI LIỆU KIẾN TRÚC CƠ SỞ DỮ LIỆU CHÍNH
-- **Database Schema**: Lược đồ cơ sở dữ liệu chính.
-- **Entity Relationship Diagram**: Biểu đồ quan hệ thực thể.
-- **Indexing Strategy**: Chiến lược lập chỉ mục.
-
-#### 3.2.2. TÀI LIỆU KIẾN TRÚC CƠ SỐ DỮ LIỆU PHỤ
-- **Redis Schema**: Lược đồ cơ sở dữ liệu Redis.
-- **Firebase Authentication Schema**: Lược đồ xác thực Firebase.
-
-### 3.3. TÀI LIỆU KIẾN TRÚC GIAO DIỆN NGƯỜI DÙNG
-
-#### 3.3.1. TÀI LIỆU KIẾN TRÚC ỨNG DỤNG WEB
-- **UI Component Diagram**: Biểu đồ thành phần giao diện người dùng.
-- **Page Flow Diagram**: Biểu đồ luồng trang.
-- **Responsive Design Guidelines**: Hướng dẫn thiết kế đáp ứng.
-
-#### 3.3.2. TÀI LIỆU KIẾN TRÚC ỨNG DỤNG DI ĐỘNG
-- **Mobile UI Component Diagram**: Biểu đồ thành phần giao diện người dùng di động.
-- **Mobile Page Flow Diagram**: Biểu đồ luồng trang di động.
-- **Mobile Responsive Design Guidelines**: Hướng dẫn thiết kế đáp ứng di động.
-
-### 3.4. TÀI LIỆU KIẾN TRÚC BẢO MẬT
-
-#### 3.4.1. TÀI LIỆU KIẾN TRÚC XÁC THỰC
-- **Authentication Flow Diagram**: Biểu đồ luồng xác thực.
-- **OAuth2 Configuration**: Cấu hình OAuth2.
-- **JWT Configuration**: Cấu hình JWT.
-
-#### 3.4.2. TÀI LIỆU KIẾN TRÚC PHÂN QUYỀN
-- **RBAC Configuration**: Cấu hình RBAC.
-- **Role-Based Access Control Diagram**: Biểu đồ kiểm soát truy cập dựa trên vai trò.
-
-### 3.5. TÀI LIỆU KIẾN TRÚC TRIỂN KHAI
-
-#### 3.5.1. TÀI LIỆU KIẾN TRÚC CONTAINERIZATION
-- **Dockerfile**: Tệp Dockerfile cho các microservices.
-- **Docker Compose**: Tệp Docker Compose cho triển khai cục bộ.
-
-#### 3.5.2. TÀI LIỆU KIẾN TRÚC ORCHESTRATION
-- **Kubernetes Manifests**: Các tệp manifest Kubernetes cho triển khai trên GKE.
-- **Helm Charts**: Biểu đồ Helm cho quản lý các ứng dụng Kubernetes.
-
-#### 3.5.3. TÀI LIỆU KIẾN TRÚC CI/CD
-- **CI/CD Pipeline**: Pipeline CI/CD tự động hóa.
-- **GitHub Actions Workflows**: Các workflow GitHub Actions cho CI/CD.
-
-#### 3.5.4. TÀI LIỆU KIẾN TRÚC GIÁM SÁT
-- **Monitoring Configuration**: Cấu hình giám sát.
-- **Alerting Configuration**: Cấu hình cảnh báo.
-
-## 📦 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
-
-### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
+## 4.1. BẢNG NGHIỆP ĐỀ TOÀN CẦU MASTER PRODUCT BACKLOG
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Authentication Service Implementation | Implement authentication service with OAuth2, Firebase, Google, and Facebook | Application Code | [REQ-001], [REQ-002], [ARC-006] |
-| 2 | User Service Implementation | Implement user service with role-based access control | Application Code | [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
-| 3 | Center Service Implementation | Implement center service for managing centers and admins | Application Code | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
-| 4 | Course Service Implementation | Implement course service for managing courses and enrollments | Application Code | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005] |
-| 5 | Attendance Service Implementation | Implement attendance service for QR code scanning and attendance tracking | Application Code | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] |
-| 6 | Membership Service Implementation | Implement membership service for managing membership cards and renewals | Application Code | [REQ-014], [REQ-015], [DAT-007] |
-| 7 | Notification Service Implementation | Implement notification service for sending push notifications and Zalo messages | Application Code | [REQ-016], [EXC-003], [DAT-008] |
-| 8 | Promotion and Announcement Service Implementation | Implement promotion and announcement service for managing promotions and announcements | Application Code | [REQ-017], [REQ-018], [DAT-009] |
-| 9 | Chatbot Service Implementation | Implement chatbot service for answering common queries | Application Code | [REQ-019] |
-| 10 | Mobile App Service Implementation | Implement mobile app service for responsive UI and push notifications | Application Code | [REQ-020], [REQ-021] |
-| 11 | Localization Service Implementation | Implement localization service for multi-language support | Application Code | [REQ-022], [REQ-023], [DAT-011] |
-| 12 | Reporting Service Implementation | Implement reporting service for generating attendance reports and dashboards | Application Code | [REQ-024], [REQ-025], [EXC-005] |
-| 13 | System Architecture Documentation | Document system architecture with diagrams and descriptions | Enterprise Documentation | [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010] |
-| 14 | Database Schema Documentation | Document database schema with ER diagrams and DDL scripts | Enterprise Documentation | [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
-| 15 | API Documentation | Document API endpoints with OpenAPI/Swagger specifications | Enterprise Documentation | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025] |
-| 16 | Security Documentation | Document security measures and compliance with OWASP Top 10 | Enterprise Documentation | [NFR-003] |
-| 17 | Deployment Documentation | Document deployment procedures and infrastructure setup | Enterprise Documentation | [ARC-010], [NFR-002], [NFR-004], [NFR-009] |
-| 18 | Dockerfiles | Create Dockerfiles for containerization of microservices | DevOps Infrastructure | [ARC-010], [NFR-005] |
-| 19 | Kubernetes Manifests | Create Kubernetes manifests for deployment on GKE | DevOps Infrastructure | [ARC-010], [NFR-004] |
-| 20 | CI/CD Pipeline | Set up CI/CD pipeline with GitHub Actions | DevOps Infrastructure | [ARC-010], [NFR-004] |
-| 21 | Monitoring Configuration | Configure monitoring with Prometheus and Grafana | DevOps Infrastructure | [NFR-004] |
-| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 21 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+| 1 | REQ-001 | Triển khai endpoint đăng ký người dùng | Application Code | [REQ-001] |
+| 2 | REQ-002 | Triển khai endpoint đăng nhập xã hội | Application Code | [REQ-002] |
+| 3 | REQ-003 | Triển khai endpoint phân quyền người dùng | Application Code | [REQ-003] |
+| 4 | REQ-004 | Triển khai endpoint danh sách trung tâm | Application Code | [REQ-004] |
+| 5 | REQ-005 | Triển khai endpoint CRUD trung tâm | Application Code | [REQ-005] |
+| 6 | REQ-006 | Triển khai endpoint gán/huỷ quản trị trung tâm | Application Code | [REQ-006] |
+| 7 | REQ-007 | Triển khai endpoint danh sách khóa học | Application Code | [REQ-007] |
+| 8 | REQ-008 | Triển khai endpoint CRUD khóa học | Application Code | [REQ-008] |
+| 9 | REQ-009 | Triển khai endpoint gán/huỷ giáo viên cho khóa học | Application Code | [REQ-009] |
+| 10 | REQ-010 | Triển khai endpoint duyệt khóa học | Application Code | [REQ-010] |
+| 11 | REQ-011 | Triển khai endpoint đăng ký học viên | Application Code | [REQ-011] |
+| 12 | REQ-012 | Triển khai endpoint quét mã QR điểm danh | Application Code | [REQ-012] |
+| 13 | REQ-013 | Triển khai logic idempotent điểm danh | Application Code | [REQ-013] |
+| 14 | REQ-014 | Triển khai endpoint hiển thị thẻ hội viên | Application Code | [REQ-014] |
+| 15 | REQ-015 | Triển khai endpoint gia hạn thẻ hội viên | Application Code | [REQ-015] |
+| 16 | REQ-016 | Triển khai logic gửi thông báo | Application Code | [REQ-016] |
+| 17 | REQ-017 | Triển khai endpoint CRUD khuyến mãi | Application Code | [REQ-017] |
+| 18 | REQ-018 | Triển khai endpoint CRUD thông báo | Application Code | [REQ-018] |
+| 19 | REQ-019 | Triển khai endpoint tích hợp chatbot AI | Application Code | [REQ-019] |
+| 20 | REQ-020 | Triển khai giao diện người dùng di động | Application Code | [REQ-020] |
+| 21 | REQ-021 | Triển khai logic push notification | Application Code | [REQ-021] |
+| 22 | REQ-022 | Triển khai logic phát hiện ngôn ngữ | Application Code | [REQ-022] |
+| 23 | REQ-023 | Triển khai logic SEO đa ngôn ngữ | Application Code | [REQ-023] |
+| 24 | REQ-024 | Triển khai endpoint báo cáo điểm danh | Application Code | [REQ-024] |
+| 25 | EXC-001 | Xử lý mất kết nối trong quét QR | Application Code | [EXC-001] |
+| 26 | EXC-002 | Xử lý trùng lặp điểm danh | Application Code | [EXC-002] |
+| 27 | EXC-003 | Xử lý thất bại gửi thông báo | Application Code | [EXC-003] |
+| 28 | EXC-004 | Xử lý lỗi xác thực đầu vào | Application Code | [EXC-004] |
+| 29 | EXC-005 | Xử lý phục hồi sau sự cố | Application Code | [EXC-005] |
+| 30 | DAT-001 | Định nghĩa bảng Users | Enterprise Documentation | [DAT-001] |
+| 31 | DAT-002 | Định nghĩa bảng Roles | Enterprise Documentation | [DAT-002] |
+| 32 | DAT-003 | Định nghĩa bảng Centers | Enterprise Documentation | [DAT-003] |
+| 33 | DAT-004 | Định nghĩa bảng Courses | Enterprise Documentation | [DAT-004] |
+| 34 | DAT-005 | Định nghĩa bảng Enrollments | Enterprise Documentation | [DAT-005] |
+| 35 | DAT-006 | Định nghĩa bảng Attendance | Enterprise Documentation | [DAT-006] |
+| 36 | DAT-007 | Định nghĩa bảng StudentCards | Enterprise Documentation | [DAT-007] |
+| 37 | DAT-008 | Định nghĩa bảng Notifications | Enterprise Documentation | [DAT-008] |
+| 38 | DAT-009 | Định nghĩa bảng Promotions | Enterprise Documentation | [DAT-009] |
+| 39 | DAT-010 | Định nghĩa bảng Announcements | Enterprise Documentation | [DAT-010] |
+| 40 | DAT-011 | Định nghĩa bảng SystemSettings | Enterprise Documentation | [DAT-011] |
+| 41 | ARC-001 | Mô tả vai trò System Admin | Enterprise Documentation | [ARC-001] |
+| 42 | ARC-002 | Mô tả vai trò Center Admin | Enterprise Documentation | [ARC-002] |
+| 43 | ARC-003 | Mô tả vai trò Manager | Enterprise Documentation | [ARC-003] |
+| 44 | ARC-004 | Mô tả vai trò Teacher | Enterprise Documentation | [ARC-004] |
+| 45 | ARC-005 | Mô tả vai trò Student | Enterprise Documentation | [ARC-005] |
+| 46 | ARC-006 | Mô tả luồng xác thực | Enterprise Documentation | [ARC-006] |
+| 47 | ARC-007 | Mô tả luồng điểm danh QR | Enterprise Documentation | [ARC-007] |
+| 48 | ARC-008 | Mô tả luồng thông báo | Enterprise Documentation | [ARC-008] |
+| 49 | ARC-009 | Mô tả luồng tích hợp mobile backend | Enterprise Documentation | [ARC-009] |
+| 50 | ARC-010 | Mô tả công nghệ & hạ tầng | Enterprise Documentation | [ARC-010] |
+| 51 | NFR-001 | Định nghĩa hiệu suất hệ thống | Enterprise Documentation | [NFR-001] |
+| 52 | NFR-002 | Định nghĩa độ sẵn sàng | Enterprise Documentation | [NFR-002] |
+| 53 | NFR-003 | Định nghĩa bảo mật | Enterprise Documentation | [NFR-003] |
+| 54 | NFR-004 | Định nghĩa khả năng mở rộng & sẵn sàng | Enterprise Documentation | [NFR-004] |
+| 55 | NFR-005 | Định nghĩa kích thước image Docker | Enterprise Documentation | [NFR-005] |
+| 56 | NFR-006 | Định nghĩa ghi log & audit | Enterprise Documentation | [NFR-006] |
+| 57 | NFR-007 | Định nghĩa hỗ trợ đa ngôn ngữ | Enterprise Documentation | [NFR-007] |
+| 58 | NFR-008 | Định nghĩa tuân thủ GDPR/CCPA | Enterprise Documentation | [NFR-008] |
+| 59 | NFR-009 | Định nghĩa sao lưu & khôi phục | Enterprise Documentation | [NFR-009] |
+| **SUMMARY** | **Tổng Công Việc Hệ Thống** | **TOTAL:** 59 | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 
-### 4.2. PHÂN TÍCH KIẾN TRÚC CHI TIẾT THEO GIAI ĐOẠN
+## 4.2. BẢNG NGHIỆP ĐỀ TOÀN CẦU SYNOPSIS GRID
 
-#### 4.2.1. GIAI ĐOẠN 1: KHỞI TẠO VÀ XÂY DỰNG CƠ BẢN
+| Task ID | Phase |
+| :--- | :--- |
+| REQ-001 | 1 |
+| REQ-002 | 1 |
+| REQ-003 | 1 |
+| REQ-004 | 1 |
+| REQ-005 | 1 |
+| REQ-006 | 1 |
+| REQ-007 | 1 |
+| REQ-008 | 1 |
+| REQ-009 | 1 |
+| REQ-010 | 1 |
+| REQ-011 | 1 |
+| REQ-012 | 1 |
+| REQ-013 | 2 |
+| REQ-014 | 2 |
+| REQ-015 | 2 |
+| REQ-016 | 2 |
+| REQ-017 | 2 |
+| REQ-018 | 2 |
+| REQ-019 | 2 |
+| REQ-020 | 2 |
+| REQ-021 | 2 |
+| REQ-022 | 2 |
+| REQ-023 | 2 |
+| REQ-024 | 2 |
+| EXC-001 | 3 |
+| EXC-002 | 3 |
+| EXC-003 | 3 |
+| EXC-004 | 3 |
+| EXC-005 | 3 |
+| DAT-001 | 3 |
+| DAT-002 | 3 |
+| DAT-003 | 3 |
+| DAT-004 | 3 |
+| DAT-005 | 3 |
+| DAT-006 | 3 |
+| DAT-007 | 4 |
+| DAT-008 | 4 |
+| DAT-009 | 4 |
+| DAT-010 | 4 |
+| DAT-011 | 4 |
+| ARC-001 | 4 |
+| ARC-002 | 4 |
+| ARC-003 | 4 |
+| ARC-004 | 4 |
+| ARC-005 | 4 |
+| ARC-006 | 4 |
+| ARC-007 | 4 |
+| ARC-008 | 4 |
+| ARC-009 | 4 |
+| ARC-010 | 4 |
+| NFR-001 | 5 |
+| NFR-002 | 5 |
+| NFR-003 | 5 |
+| NFR-004 | 5 |
+| NFR-005 | 5 |
+| NFR-006 | 5 |
+| NFR-007 | 5 |
+| NFR-008 | 5 |
+| NFR-009 | 5 |
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | Ngày 1-3 | `./sources/backend/authentication/` | Hoàn thành dịch vụ xác thực với OAuth2, Firebase, Google, và Facebook | Coder | [REQ-001], [REQ-002], [ARC-006] |
-|  |  | `./sources/backend/user/` | Hoàn thành dịch vụ người dùng với RBAC | Coder | [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
-|  |  | `./sources/docs/architecture/` | Tài liệu kiến trúc hệ thống và luồng dữ liệu | Doc | [ARC-006], [ARC-007], [ARC-008], [ARC-009] |
-|  |  | `./sources/docs/database/` | Tài liệu lược đồ cơ sở dữ liệu và ER diagrams | Doc | [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
+## 5. LỊCH LÀM VIỆC NGÀY
 
-#### 4.2.2. GIAI ĐOẠN 2: PHÁT TRIỂN CHỨC NĂNG CƠ BẢN
+### Giai đoạn 1: Đặc tả Kiến trúc Chi tiết
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/center/` | Hoàn thành dịch vụ trung tâm với quản lý trung tâm và phân quyền quản trị | Coder | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
-|  |  | `./sources/backend/course/` | Hoàn thành dịch vụ khóa học với quản lý khóa học và đăng ký học viên | Coder | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005] |
-|  |  | `./sources/backend/attendance/` | Hoàn thành dịch vụ điểm danh với quét mã QR và theo dõi điểm danh | Coder | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] |
-|  |  | `./sources/docs/api/` | Tài liệu API với OpenAPI/Swagger specifications | Doc | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025] |
+- **DAY 1:**
+  - **REQ-001**: Coder, ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/RegisterController.java, [REQ-001]
+  - **REQ-002**: Coder, ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/SocialAuthController.java, [REQ-002]
+  - **REQ-003**: Coder, ./sources/backend/user-service/src/main/java/com/membershiphub/user/RoleController.java, [REQ-003]
+  - **REQ-004**: Coder, ./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterController.java, [REQ-004]
+  - **REQ-005**: Coder, ./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterController.java, [REQ-005]
+  - **REQ-006**: Coder, ./sources/backend/user-service/src/main/java/com/membershiphub/user/CenterAdminController.java, [REQ-006]
+- **DAY 2:**
+  - **REQ-007**: Coder, ./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java, [REQ-007]
+  - **REQ-008**: Coder, ./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java, [REQ-008]
+  - **REQ-009**: Coder, ./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseTeacherController.java, [REQ-009]
+  - **REQ-010**: Coder, ./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java, [REQ-010]
+  - **REQ-011**: Coder, ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentController.java, [REQ-011]
+  - **REQ-012**: Coder, ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java, [REQ-012]
 
-#### 4.2.3. GIAI ĐOẠN 3: PHÁT TRIỂN CHỨC NĂNG NÂNG CAO
+### Giai đoạn 2: Đặc tả Kiến trúc Chi tiết
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 3 | Ngày 1-3 | `./sources/backend/membership/` | Hoàn thành dịch vụ thẻ hội viên với quản lý thẻ hội viên và gia hạn | Coder | [REQ-014], [REQ-015], [DAT-007] |
-|  |  | `./sources/backend/notification/` | Hoàn thành dịch vụ thông báo với gửi thông báo đẩy và Zalo messages | Coder | [REQ-016], [EXC-003], [DAT-008] |
-|  |  | `./sources/backend/promotion/` | Hoàn thành dịch vụ khuyến mãi và thông báo với quản lý khuyến mãi và thông báo | Coder | [REQ-017], [REQ-018], [DAT-009] |
-|  |  | `./sources/backend/chatbot/` | Hoàn thành dịch vụ chatbot với trả lời truy vấn từ người dùng | Coder | [REQ-019] |
-|  |  | `./sources/docs/security/` | Tài liệu bảo mật với các biện pháp bảo mật và tuân thủ OWASP Top 10 | Doc | [NFR-003] |
+- **DAY 1:**
+  - **REQ-013**: Coder, ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java, [REQ-013]
+  - **REQ-014**: Coder, ./sources/backend/card-service/src/main/java/com/membershiphub/card/CardController.java, [REQ-014]
+  - **REQ-015**: Coder, ./sources/backend/card-service/src/main/java/com/membershiphub/card/CardController.java, [REQ-015]
+  - **REQ-016**: Coder, ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java, [REQ-016]
+  - **REQ-017**: Coder, ./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java, [REQ-017]
+  - **REQ-018**: Coder, ./sources/backend/announcement-service/src/main/java/com/membershiphub/announcement/AnnouncementController.java, [REQ-018]
+- **DAY 2:**
+  - **REQ-019**: Coder, ./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotController.java, [REQ-019]
+  - **REQ-020**: Coder, ./sources/frontend/mobile-app/src/components/RoleBasedNavigation.vue, [REQ-020]
+  - **REQ-021**: Coder, ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/PushNotificationService.java, [REQ-021]
+  - **REQ-022**: Coder, ./sources/backend/i18n-service/src/main/java/com/membershiphub/i18n/LocaleService.java, [REQ-022]
+  - **REQ-023**: Coder, ./sources/frontend/web-app/src/components/SeoMeta.vue, [REQ-023]
+  - **REQ-024**: Coder, ./sources/backend/report-service/src/main/java/com/membershiphub/report/AttendanceReportService.java, [REQ-024]
 
-#### 4.2.4. GIAI ĐOẠN 4: PHÁT TRIỂN ỨNG DỤNG DI ĐỘNG VÀ BẢN ĐỊA HÓA
+### Giai đoạn 3: Đặc tả Kiến trúc Chi tiết
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 4 | Ngày 1-3 | `./sources/frontend/mobile/` | Hoàn thành ứng dụng di động với giao diện đáp ứng và thông báo đẩy | Coder | [REQ-020], [REQ-021] |
-|  |  | `./sources/backend/localization/` | Hoàn thành dịch vụ bản địa hóa với hỗ trợ đa ngôn ngữ | Coder | [REQ-022], [REQ-023], [DAT-011] |
-|  |  | `./sources/docs/deployment/` | Tài liệu triển khai với các thủ tục triển khai và thiết lập hạ tầng | Doc | [ARC-010], [NFR-002], [NFR-004], [NFR-009] |
+- **DAY 1:**
+  - **EXC-001**: Coder, ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/RetryHandler.java, [EXC-001]
+  - **EXC-002**: Coder, ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java, [EXC-002]
+  - **EXC-003**: Coder, ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationRetryService.java, [EXC-003]
+  - **EXC-004**: Coder, ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/ValidationException.java, [EXC-004]
+  - **EXC-005**: Coder, ./sources/backend/report-service/src/main/java/com/membershiphub/report/RecoveryService.java, [EXC-005]
+  - **DAT-001**: Doc, ./sources/docs/db-schema/Users.sql, [DAT-001]
+  - **DAT-002**: Doc, ./sources/docs/db-schema/Roles.sql, [DAT-002]
+- **DAY 2:**
+  - **DAT-003**: Doc, ./sources/docs/db-schema/Centers.sql, [DAT-003]
+  - **DAT-004**: Doc, ./sources/docs/db-schema/Courses.sql, [DAT-004]
+  - **DAT-005**: Doc, ./sources/docs/db-schema/Enrollments.sql, [DAT-005]
+  - **DAT-006**: Doc, ./sources/docs/db-schema/Attendance.sql, [DAT-006]
+  - **DAT-007**: Doc, ./sources/docs/db-schema/StudentCards.sql, [DAT-007]
+  - **DAT-008**: Doc, ./sources/docs/db-schema/Notifications.sql, [DAT-008]
+  - **DAT-009**: Doc, ./sources/docs/db-schema/Promotions.sql, [DAT-009]
 
-#### 4.2.5. GIAI ĐOẠN 5: PHÁT TRIỂN BÁO CÁO VÀ GIÁM SÁT
+### Giai đoạn 4: Đặc tả Kiến trúc Chi tiết
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 5 | Ngày 1-3 | `./sources/backend/reporting/` | Hoàn thành dịch vụ báo cáo với tạo báo cáo điểm danh và bảng điều khiển | Coder | [REQ-024], [REQ-025], [EXC-005] |
-|  |  | `./sources/infra/docker/` | Hoàn thành Dockerfiles cho containerization các microservices | Docker | [ARC-010], [NFR-005] |
-|  |  | `./sources/infra/kubernetes/` | Hoàn thành Kubernetes manifests cho triển khai trên GKE | GKE | [ARC-010], [NFR-004] |
-|  |  | `./sources/infra/ci-cd/` | Hoàn thành CI/CD pipeline với GitHub Actions | GCP | [ARC-010], [NFR-004] |
-|  |  | `./sources/infra/monitoring/` | Hoàn thành cấu hình giám sát với Prometheus và Grafana | GCP | [NFR-004] |
+- **DAY 1:**
+  - **DAT-010**: Doc, ./sources/docs/db-schema/Announcements.sql, [DAT-010]
+  - **DAT-011**: Doc, ./sources/docs/db-schema/SystemSettings.sql, [DAT-011]
+  - **ARC-001**: Doc, ./sources/docs/architecture/roles.md, [ARC-001]
+  - **ARC-002**: Doc, ./sources/docs/architecture/roles.md, [ARC-002]
+  - **ARC-003**: Doc, ./sources/docs/architecture/roles.md, [ARC-003]
+  - **ARC-004**: Doc, ./sources/docs/architecture/roles.md, [ARC-004]
+  - **ARC-005**: Doc, ./sources/docs/architecture/roles.md, [ARC-005]
+  - **ARC-006**: Doc, ./sources/docs/architecture/auth-flow.md, [ARC-006]
+- **DAY 2:**
+  - **ARC-007**: Doc, ./sources/docs/architecture/attendance-flow.md, [ARC-007]
+  - **ARC-008**: Doc, ./sources/docs/architecture/notification-flow.md, [ARC-008]
+  - **ARC-009**: Doc, ./sources/docs/architecture/mobile-integration.md, [ARC-009]
+  - **ARC-010**: Doc, ./sources/docs/architecture/tech-stack.md, [ARC-010]
+  - **NFR-001**: Doc, ./sources/docs/requirements/performance.md, [NFR-001]
+  - **NFR-002**: Doc, ./sources/docs/requirements/availability.md, [NFR-002]
+  - **NFR-003**: Doc, ./sources/docs/requirements/security.md, [NFR-003]
+  - **NFR-004**: Doc, ./sources/docs/requirements/scalability.md, [NFR-004]
 
-## 📅 5. PHÂN TÍCH KIẾN TRÚC CHI TIẾT THEO NGÀY
+### Giai đoạn 5: Đặc tả Kiến trúc Chi tiết
 
-### 5.1. GIAI ĐOẠN 1: KHỞI TẠO VÀ XÂY DỰNG CƠ BẢN
-
-#### 5.1.1. NGÀY 1
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Khởi tạo và xây dựng cơ bản dịch vụ xác thực và người dùng.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/authentication/`
-  - `./sources/backend/user/`
-  - `./sources/docs/architecture/`
-  - `./sources/docs/database/`
-
-- **Coder**:
-  - **DAY 1**:
-    - **TASK**: Thiết kế và triển khai dịch vụ xác thực với OAuth2, Firebase, Google, và Facebook.
-    - **TARGET**: `./sources/backend/authentication/`
-    - **TAG IDs**: [REQ-001], [REQ-002], [ARC-006]
-  - **DAY 2**:
-    - **TASK**: Thiết kế và triển khai dịch vụ người dùng với RBAC.
-    - **TARGET**: `./sources/backend/user/`
-    - **TAG IDs**: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-
-- **Doc**:
-  - **DAY 1**:
-    - **TASK**: Tài liệu kiến trúc hệ thống và luồng dữ liệu.
-    - **TARGET**: `./sources/docs/architecture/`
-    - **TAG IDs**: [ARC-006], [ARC-007], [ARC-008], [ARC-009]
-  - **DAY 2**:
-    - **TASK**: Tài liệu lược đồ cơ sở dữ liệu và ER diagrams.
-    - **TARGET**: `./sources/docs/database/`
-    - **TAG IDs**: [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
-
-#### 5.1.2. NGÀY 2
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành dịch vụ xác thực và người dùng.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/authentication/`
-  - `./sources/backend/user/`
-  - `./sources/docs/architecture/`
-  - `./sources/docs/database/`
-
-- **Tester**:
-  - **DAY 1**:
-    - **TASK**: Viết test cho dịch vụ xác thực.
-    - **TARGET**: `./sources/backend/authentication/test;./sources/backend/authentication/`
-    - **TAG IDs**: [REQ-001], [REQ-002], [ARC-006]
-  - **DAY 2**:
-    - **TASK**: Viết test cho dịch vụ người dùng.
-    - **TARGET**: `./sources/backend/user/test;./sources/backend/user/`
-    - **TAG IDs**: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-
-- **Reviewer**:
-  - **DAY 1**:
-    - **TASK**: Review code dịch vụ xác thực.
-    - **TARGET**: `./sources/backend/authentication/`
-    - **TAG IDs**: [REQ-001], [REQ-002], [ARC-006]
-  - **DAY 2**:
-    - **TASK**: Review code dịch vụ người dùng.
-    - **TARGET**: `./sources/backend/user/`
-    - **TAG IDs**: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-
-### 5.2. GIAI ĐOẠN 2: PHÁT TRIỂN CHỨC NĂNG CƠ BẢN
-
-#### 5.2.1. NGÀY 1
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển chức năng cơ bản cho dịch vụ trung tâm, khóa học, và điểm danh.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/center/`
-  - `./sources/backend/course/`
-  - `./sources/backend/attendance/`
-  - `./sources/docs/api/`
-
-- **Coder**:
-  - **DAY 1**:
-    - **TASK**: Thiết kế và triển khai dịch vụ trung tâm với quản lý trung tâm và phân quyền quản trị.
-    - **TARGET**: `./sources/backend/center/`
-    - **TAG IDs**: [REQ-004], [REQ-005], [REQ-006], [DAT-003]
-  - **DAY 2**:
-    - **TASK**: Thiết kế và triển khai dịch vụ khóa học với quản lý khóa học và đăng ký học viên.
-    - **TARGET**: `./sources/backend/course/`
-    - **TAG IDs**: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005]
-  - **DAY 3**:
-    - **TASK**: Thiết kế và triển khai dịch vụ điểm danh với quét mã QR và theo dõi điểm danh.
-    - **TARGET**: `./sources/backend/attendance/`
-    - **TAG IDs**: [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
-
-- **Doc**:
-  - **DAY 1**:
-    - **TASK**: Tài liệu API với OpenAPI/Swagger specifications.
-    - **TARGET**: `./sources/docs/api/`
-    - **TAG IDs**: [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025]
-
-#### 5.2.2. NGÀY 2
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành chức năng cơ bản cho dịch vụ trung tâm, khóa học, và điểm danh.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/center/`
-  - `./sources/backend/course/`
-  - `./sources/backend/attendance/`
-  - `./sources/docs/api/`
-
-- **Tester**:
-  - **DAY 1**:
-    - **TASK**: Viết test cho dịch vụ trung tâm.
-    - **TARGET**: `./sources/backend/center/test;./sources/backend/center/`
-    - **TAG IDs**: [REQ-004], [REQ-005], [REQ-006], [DAT-003]
-  - **DAY 2**:
-    - **TASK**: Viết test cho dịch vụ khóa học.
-    - **TARGET**: `./sources/backend/course/test;./sources/backend/course/`
-    - **TAG IDs**: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005]
-  - **DAY 3**:
-    - **TASK**: Viết test cho dịch vụ điểm danh.
-    - **TARGET**: `./sources/backend/attendance/test;./sources/backend/attendance/`
-    - **TAG IDs**: [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
-
-- **Reviewer**:
-  - **DAY 1**:
-    - **TASK**: Review code dịch vụ trung tâm.
-    - **TARGET**: `./sources/backend/center/`
-    - **TAG IDs**: [REQ-004], [REQ-005], [REQ-006], [DAT-003]
-  - **DAY 2**:
-    - **TASK**: Review code dịch vụ khóa học.
-    - **TARGET**: `./sources/backend/course/`
-    - **TAG IDs**: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005]
-  - **DAY 3**:
-    - **TASK**: Review code dịch vụ điểm danh.
-    - **TARGET**: `./sources/backend/attendance/`
-    - **TAG IDs**: [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
-
-### 5.3. GIAI ĐOẠN 3: PHÁT TRIỂN CHỨC NĂNG NÂNG CAO
-
-#### 5.3.1. NGÀY 1
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển chức năng nâng cao cho dịch vụ thẻ hội viên, thông báo, khuyến mãi, và chatbot.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/membership/`
-  - `./sources/backend/notification/`
-  - `./sources/backend/promotion/`
-  - `./sources/backend/chatbot/`
-  - `./sources/docs/security/`
-
-- **Coder**:
-  - **DAY 1**:
-    - **TASK**: Thiết kế và triển khai dịch vụ thẻ hội viên với quản lý thẻ hội viên và gia hạn.
-    - **TARGET**: `./sources/backend/membership/`
-    - **TAG IDs**: [REQ-014], [REQ-015], [DAT-007]
-  - **DAY 2**:
-    - **TASK**: Thiết kế và triển khai dịch vụ thông báo với gửi thông báo đẩy và Zalo messages.
-    - **TARGET**: `./sources/backend/notification/`
-    - **TAG IDs**: [REQ-016], [EXC-003], [DAT-008]
-  - **DAY 3**:
-    - **TASK**: Thiết kế và triển khai dịch vụ khuyến mãi và thông báo với quản lý khuyến mãi và thông báo.
-    - **TARGET**: `./sources/backend/promotion/`
-    - **TAG IDs**: [REQ-017], [REQ-018], [DAT-009]
-  - **DAY 4**:
-    - **TASK**: Thiết kế và triển khai dịch vụ chatbot với trả lời truy vấn từ người dùng.
-    - **TARGET**: `./sources/backend/chatbot/`
-    - **TAG IDs**: [REQ-019]
-
-- **Doc**:
-  - **DAY 1**:
-    - **TASK**: Tài liệu bảo mật với các biện pháp bảo mật và tuân thủ OWASP Top 10.
-    - **TARGET**: `./sources/docs/security/`
-    - **TAG IDs**: [NFR-003]
-
-#### 5.3.2. NGÀY 2
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành chức năng nâng cao cho dịch vụ thẻ hội viên, thông báo, khuyến mãi, và chatbot.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/membership/`
-  - `./sources/backend/notification/`
-  - `./sources/backend/promotion/`
-  - `./sources/backend/chatbot/`
-  - `./sources/docs/security/`
-
-- **Tester**:
-  - **DAY 1**:
-    - **TASK**: Viết test cho dịch vụ thẻ hội viên.
-    - **TARGET**: `./sources/backend/membership/test;./sources/backend/membership/`
-    - **TAG IDs**: [REQ-014], [REQ-015], [DAT-007]
-  - **DAY 2**:
-    - **TASK**: Viết test cho dịch vụ thông báo.
-    - **TARGET**: `./sources/backend/notification/test;./sources/backend/notification/`
-    - **TAG IDs**: [REQ-016], [EXC-003], [DAT-008]
-  - **DAY 3**:
-    - **TASK**: Viết test cho dịch vụ khuyến mãi và thông báo.
-    - **TARGET**: `./sources/backend/promotion/test;./sources/backend/promotion/`
-    - **TAG IDs**: [REQ-017], [REQ-018], [DAT-009]
-  - **DAY 4**:
-    - **TASK**: Viết test cho dịch vụ chatbot.
-    - **TARGET**: `./sources/backend/chatbot/test;./sources/backend/chatbot/`
-    - **TAG IDs**: [REQ-019]
-
-- **Reviewer**:
-  - **DAY 1**:
-    - **TASK**: Review code dịch vụ thẻ hội viên.
-    - **TARGET**: `./sources/backend/membership/`
-    - **TAG IDs**: [REQ-014], [REQ-015], [DAT-007]
-  - **DAY 2**:
-    - **TASK**: Review code dịch vụ thông báo.
-    - **TARGET**: `./sources/backend/notification/`
-    - **TAG IDs**: [REQ-016], [EXC-003], [DAT-008]
-  - **DAY 3**:
-    - **TASK**: Review code dịch vụ khuyến mãi và thông báo.
-    - **TARGET**: `./sources/backend/promotion/`
-    - **TAG IDs**: [REQ-017], [REQ-018], [DAT-009]
-  - **DAY 4**:
-    - **TASK**: Review code dịch vụ chatbot.
-    - **TARGET**: `./sources/backend/chatbot/`
-    - **TAG IDs**: [REQ-019]
-
-### 5.4. GIAI ĐOẠN 4: PHÁT TRIỂN ỨNG DỤNG DI ĐỘNG VÀ BẢN ĐỊA HÓA
-
-#### 5.4.1. NGÀY 1
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển ứng dụng di động và dịch vụ bản địa hóa.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/frontend/mobile/`
-  - `./sources/backend/localization/`
-  - `./sources/docs/deployment/`
-
-- **Coder**:
-  - **DAY 1**:
-    - **TASK**: Thiết kế và triển khai ứng dụng di động với giao diện đáp ứng và thông báo đẩy.
-    - **TARGET**: `./sources/frontend/mobile/`
-    - **TAG IDs**: [REQ-020], [REQ-021]
-  - **DAY 2**:
-    - **TASK**: Thiết kế và triển khai dịch vụ bản địa hóa với hỗ trợ đa ngôn ngữ.
-    - **TARGET**: `./sources/backend/localization/`
-    - **TAG IDs**: [REQ-022], [REQ-023], [DAT-011]
-
-- **Doc**:
-  - **DAY 1**:
-    - **TASK**: Tài liệu triển khai với các thủ tục triển khai và thiết lập hạ tầng.
-    - **TARGET**: `./sources/docs/deployment/`
-    - **TAG IDs**: [ARC-010], [NFR-002], [NFR-004], [NFR-009]
-
-#### 5.4.2. NGÀY 2
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành ứng dụng di động và dịch vụ bản địa hóa.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/frontend/mobile/`
-  - `./sources/backend/localization/`
-  - `./sources/docs/deployment/`
-
-- **Tester**:
-  - **DAY 1**:
-    - **TASK**: Viết test cho ứng dụng di động.
-    - **TARGET**: `./sources/frontend/mobile/test;./sources/frontend/mobile/`
-    - **TAG IDs**: [REQ-020], [REQ-021]
-  - **DAY 2**:
-    - **TASK**: Viết test cho dịch vụ bản địa hóa.
-    - **TARGET**: `./sources/backend/localization/test;./sources/backend/localization/`
-    - **TAG IDs**: [REQ-022], [REQ-023], [DAT-011]
-
-- **Reviewer**:
-  - **DAY 1**:
-    - **TASK**: Review code ứng dụng di động.
-    - **TARGET**: `./sources/frontend/mobile/`
-    - **TAG IDs**: [REQ-020], [REQ-021]
-  - **DAY 2**:
-    - **TASK**: Review code dịch vụ bản địa hóa.
-    - **TARGET**: `./sources/backend/localization/`
-    - **TAG IDs**: [REQ-022], [REQ-023], [DAT-011]
-
-### 5.5. GIAI ĐOẠN 5: PHÁT TRIỂN BÁO CÁO VÀ GIÁM SÁT
-
-#### 5.5.1. NGÀY 1
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển dịch vụ báo cáo và giám sát.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/reporting/`
-  - `./sources/infra/docker/`
-  - `./sources/infra/kubernetes/`
-  - `./sources/infra/ci-cd/`
-  - `./sources/infra/monitoring/`
-
-- **Coder**:
-  - **DAY 1**:
-    - **TASK**: Thiết kế và triển khai dịch vụ báo cáo với tạo báo cáo điểm danh và bảng điều khiển.
-    - **TARGET**: `./sources/backend/reporting/`
-    - **TAG IDs**: [REQ-024], [REQ-025], [EXC-005]
-
-- **Docker**:
-  - **DAY 1**:
-    - **TASK**: Tạo Dockerfiles cho containerization các microservices.
-    - **TARGET**: `./sources/infra/docker/`
-    - **TAG IDs**: [ARC-010], [NFR-005]
-
-- **GKE**:
-  - **DAY 1**:
-    - **TASK**: Tạo Kubernetes manifests cho triển khai trên GKE.
-    - **TARGET**: `./sources/infra/kubernetes/`
-    - **TAG IDs**: [ARC-010], [NFR-004]
-
-- **GCP**:
-  - **DAY 1**:
-    - **TASK**: Thiết lập CI/CD pipeline với GitHub Actions.
-    - **TARGET**: `./sources/infra/ci-cd/`
-    - **TAG IDs**: [ARC-010], [NFR-004]
-  - **DAY 2**:
-    - **TASK**: Cấu hình giám sát với Prometheus và Grafana.
-    - **TARGET**: `./sources/infra/monitoring/`
-    - **TAG IDs**: [NFR-004]
-
-#### 5.5.2. NGÀY 2
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành dịch vụ báo cáo và giám sát.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
-  - `./sources/backend/reporting/`
-  - `./sources/infra/docker/`
-  - `./sources/infra/kubernetes/`
-  - `./sources/infra/ci-cd/`
-  - `./sources/infra/monitoring/`
-
-- **Tester**:
-  - **DAY 1**:
-    - **TASK**: Viết test cho dịch vụ báo cáo.
-    - **TARGET**: `./sources/backend/reporting/test;./sources/backend/reporting/`
-    - **TAG IDs**: [REQ-024], [REQ-025], [EXC-005]
-
-- **Reviewer**:
-  - **DAY 1**:
-    - **TASK**: Review code dịch vụ báo cáo.
-    - **TARGET**: `./sources/backend/reporting/`
-    - **TAG IDs**: [REQ-024], [REQ-025], [EXC-005]
-```
+- **DAY 1:**
+  - **NFR-005**: Doc, ./sources/docs/requirements/docker-image-size.md, [NFR-005]
+  - **NFR-006**: Doc, ./sources/docs/requirements/logging.md, [NFR-006]
+  - **NFR-007**: Doc, ./sources/docs/requirements/multilanguage.md, [NFR-007]
+  - **NFR-008**: Doc, ./sources/docs/requirements/gdpr.md, [NFR-008]
+  - **NFR-009**: Doc, ./sources/docs/requirements/backup.md, [NFR-009]
 
