@@ -612,12 +612,6 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
-MANDATORY SEGMENT INSTRUCTION: 
-- You are strictly commanded to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG) inside the parsing hooks. 
-- You MUST perform an atomic expansion of all raw requirements from the SRS. 
-- Absolutely DO NOT generate any other sections, headers, or matrices. Halt execution immediately after closing the backlog table.
-
-
 
 
 
@@ -662,7 +656,183 @@ MANDATORY SEGMENT INSTRUCTION:
 ```markdown
 # GLOBAL PROJECT CONTEXT: membership-hub
 
-## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
+## 🏛️ 1. TỔNG QUAN HỆ THỐNG
+
+### 1.1. MỤC TIÊU & GIÁ TRỊ CỐT LÕI
+- Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
+- Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
+- Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
+- Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
+- Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
+
+### 1.2. ĐỐI TƯỢNG NGƯỜI DÙNG MỤC TIÊU
+- System Admin (siêu người dùng toàn cầu)
+- Center Admin (quản lý cấp trung tâm)
+- Manager (phó quản trị, quyền hạn giới hạn)
+- Teacher (xem chỉ đọc lịch dạy)
+- Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
+- Mobile App User (giao diện đáp ứng cho các vai trò trên)
+
+### 1.3. MA TRẬN KIỂM SOÁT TRUY CẬP DỰA TRÊN VAI TRÒ (RBAC)
+- [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
+- [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
+- [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
+- [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
+- [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
+
+### 1.4. KIẾN TRÚC & LUỒNG DỮ LIỆU (CÁC LUỒNG CHÍNH)
+- [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
+- [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
+- [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
+- [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
+
+### 1.5. CÔNG NGHỆ & HẠ TẦNG
+- [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
+
+## 📈 2. PHÂN TÍCH KIẾN TRÚC CHI TIẾT
+
+### 2.1. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
+
+#### 2.1.1. KIẾN TRÚC HỆ THỐNG
+- **Kiến trúc đa lớp**: Sử dụng kiến trúc đa lớp với các lớp trình bày, nghiệp vụ, và dữ liệu rõ ràng.
+- **Microservices**: Tách các chức năng chính thành các microservices độc lập (Authentication, Course Management, Attendance, Notification).
+- **API Gateway**: Sử dụng API Gateway để quản lý các yêu cầu đến các microservices khác nhau.
+- **Service Mesh**: Sử dụng Istio để quản lý giao tiếp giữa các microservices và thực hiện các chính sách bảo mật và giám sát.
+
+#### 2.1.2. KIẾN TRÚC DỮ LIỆU
+- **Cơ sở dữ liệu chính**: PostgreSQL cho dữ liệu quan hệ (người dùng, khóa học, điểm danh).
+- **Cơ sở dữ liệu phụ**: Redis cho session caching và Firebase Authentication.
+- **Lưu trữ đối tượng**: Google Cloud Storage cho lưu trữ các tài liệu và hình ảnh.
+
+#### 2.1.3. KIẾN TRÚC GIAO DIỆN NGƯỜI DÙNG
+- **Frontend**: Next.js cho ứng dụng web và React Native cho ứng dụng di động.
+- **UI/UX**: Thiết kế giao diện người dùng đáp ứng với các thành phần tái sử dụng và chủ đề tùy chỉnh.
+- **Localization**: Hỗ trợ đa ngôn ngữ với các chuỗi UI được externalized.
+
+#### 2.1.4. KIẾN TRÚC BẢO MẬT
+- **Xác thực**: OAuth2 với Firebase, Google, và Facebook.
+- **Phân quyền**: RBAC với các vai trò được định nghĩa rõ ràng.
+- **Mã hóa**: Mã hóa dữ liệu tại nghỉ và trong quá trình truyền tải với TLS 1.3.
+- **Bảo mật API**: JWT với thời hạn ngắn và refresh tokens.
+
+#### 2.1.5. KIẾN TRÚC TRIỂN KHAI
+- **Containerization**: Docker cho containerization các microservices.
+- **Orchestration**: Kubernetes (GKE) cho orchestration và quản lý các container.
+- **CI/CD**: GitHub Actions cho pipeline CI/CD tự động hóa.
+- **Monitoring**: Prometheus và Grafana cho giám sát và cảnh báo.
+
+### 2.2. PHÂN TÍCH KIẾN TRÚC CỤ THỂ
+
+#### 2.2.1. KIẾN TRÚC QUẢN LÝ NGƯỜI DÙNG
+- **Authentication Service**: Xử lý đăng ký, đăng nhập, và xác thực qua OAuth2.
+- **User Service**: Quản lý thông tin người dùng và phân quyền.
+- **Profile Service**: Quản lý hồ sơ người dùng và cài đặt.
+
+#### 2.2.2. KIẾN TRÚC QUẢN LÝ TRUNG TÂM
+- **Center Service**: Quản lý thông tin trung tâm và phân quyền quản trị.
+- **Location Service**: Quản lý địa điểm và lịch trình.
+
+#### 2.2.3. KIẾN TRÚC QUẢN LÝ KHÓA HỌC
+- **Course Service**: Quản lý thông tin khóa học và phân công giáo viên.
+- **Enrollment Service**: Quản lý đăng ký học viên và điểm danh.
+
+#### 2.2.4. KIẾN TRÚC ĐIỂM DANH & QUÉT MÃ QR
+- **Attendance Service**: Xử lý điểm danh qua quét mã QR và lưu trữ dữ liệu điểm danh.
+- **QR Service**: Tạo và quản lý mã QR cho các khóa học.
+
+#### 2.2.5. KIẾN TRÚC THẺ HỘI VIÊN
+- **Membership Service**: Quản lý thẻ hội viên và tính hợp lệ.
+- **Renewal Service**: Xử lý gia hạn thẻ hội viên.
+
+#### 2.2.6. KIẾN TRÚC THÔNG BÁO & TRUYỀN THÔNG
+- **Notification Service**: Quản lý thông báo và gửi thông báo qua push notification và Zalo API.
+- **Announcement Service**: Quản lý thông báo và khuyến mãi.
+
+#### 2.2.7. KIẾN TRÚC CHATBOT DỊCH VỤ KHÁCH HÀNG AI
+- **Chatbot Service**: Xử lý các truy vấn từ người dùng và trả lời thông qua chatbot AI.
+
+#### 2.2.8. KIẾN TRÚC ỨNG DỤNG DI ĐỘNG
+- **Mobile App Service**: Quản lý các tính năng cốt lõi của ứng dụng di động.
+- **Push Notification Service**: Gửi thông báo đẩy đến thiết bị di động.
+
+#### 2.2.9. KIẾN TRÚC BẢN ĐỊA HÓA & SEO
+- **Localization Service**: Quản lý bản địa hóa và đa ngôn ngữ.
+- **SEO Service**: Quản lý SEO và tối ưu hóa công cụ tìm kiếm.
+
+#### 2.2.10. KIẾN TRÚC BÁO CÁO & PHÂN TÍCH
+- **Reporting Service**: Tạo báo cáo điểm danh và tổng hợp dữ liệu.
+- **Analytics Service**: Phân tích dữ liệu và tạo bảng điều khiển.
+
+## 📝 3. TÀI LIỆU KIẾN TRÚC CỐT LÕI
+
+### 3.1. TÀI LIỆU KIẾN TRÚC HỆ THỐNG
+
+#### 3.1.1. TÀI LIỆU KIẾN TRÚC TOÀN CẦU
+- **System Architecture Diagram**: Biểu đồ kiến trúc hệ thống tổng quan.
+- **Data Flow Diagram**: Biểu đồ luồng dữ liệu.
+- **Component Diagram**: Biểu đồ thành phần.
+- **Deployment Diagram**: Biểu đồ triển khai.
+
+#### 3.1.2. TÀI LIỆU KIẾN TRÚC CỤ THỂ
+- **Authentication Service Architecture**: Biểu đồ kiến trúc dịch vụ xác thực.
+- **User Service Architecture**: Biểu đồ kiến trúc dịch vụ người dùng.
+- **Course Service Architecture**: Biểu đồ kiến trúc dịch vụ khóa học.
+- **Attendance Service Architecture**: Biểu đồ kiến trúc dịch vụ điểm danh.
+- **Notification Service Architecture**: Biểu đồ kiến trúc dịch vụ thông báo.
+
+### 3.2. TÀI LIỆU KIẾN TRÚC DỮ LIỆU
+
+#### 3.2.1. TÀI LIỆU KIẾN TRÚC CƠ SỞ DỮ LIỆU CHÍNH
+- **Database Schema**: Lược đồ cơ sở dữ liệu chính.
+- **Entity Relationship Diagram**: Biểu đồ quan hệ thực thể.
+- **Indexing Strategy**: Chiến lược lập chỉ mục.
+
+#### 3.2.2. TÀI LIỆU KIẾN TRÚC CƠ SỐ DỮ LIỆU PHỤ
+- **Redis Schema**: Lược đồ cơ sở dữ liệu Redis.
+- **Firebase Authentication Schema**: Lược đồ xác thực Firebase.
+
+### 3.3. TÀI LIỆU KIẾN TRÚC GIAO DIỆN NGƯỜI DÙNG
+
+#### 3.3.1. TÀI LIỆU KIẾN TRÚC ỨNG DỤNG WEB
+- **UI Component Diagram**: Biểu đồ thành phần giao diện người dùng.
+- **Page Flow Diagram**: Biểu đồ luồng trang.
+- **Responsive Design Guidelines**: Hướng dẫn thiết kế đáp ứng.
+
+#### 3.3.2. TÀI LIỆU KIẾN TRÚC ỨNG DỤNG DI ĐỘNG
+- **Mobile UI Component Diagram**: Biểu đồ thành phần giao diện người dùng di động.
+- **Mobile Page Flow Diagram**: Biểu đồ luồng trang di động.
+- **Mobile Responsive Design Guidelines**: Hướng dẫn thiết kế đáp ứng di động.
+
+### 3.4. TÀI LIỆU KIẾN TRÚC BẢO MẬT
+
+#### 3.4.1. TÀI LIỆU KIẾN TRÚC XÁC THỰC
+- **Authentication Flow Diagram**: Biểu đồ luồng xác thực.
+- **OAuth2 Configuration**: Cấu hình OAuth2.
+- **JWT Configuration**: Cấu hình JWT.
+
+#### 3.4.2. TÀI LIỆU KIẾN TRÚC PHÂN QUYỀN
+- **RBAC Configuration**: Cấu hình RBAC.
+- **Role-Based Access Control Diagram**: Biểu đồ kiểm soát truy cập dựa trên vai trò.
+
+### 3.5. TÀI LIỆU KIẾN TRÚC TRIỂN KHAI
+
+#### 3.5.1. TÀI LIỆU KIẾN TRÚC CONTAINERIZATION
+- **Dockerfile**: Tệp Dockerfile cho các microservices.
+- **Docker Compose**: Tệp Docker Compose cho triển khai cục bộ.
+
+#### 3.5.2. TÀI LIỆU KIẾN TRÚC ORCHESTRATION
+- **Kubernetes Manifests**: Các tệp manifest Kubernetes cho triển khai trên GKE.
+- **Helm Charts**: Biểu đồ Helm cho quản lý các ứng dụng Kubernetes.
+
+#### 3.5.3. TÀI LIỆU KIẾN TRÚC CI/CD
+- **CI/CD Pipeline**: Pipeline CI/CD tự động hóa.
+- **GitHub Actions Workflows**: Các workflow GitHub Actions cho CI/CD.
+
+#### 3.5.4. TÀI LIỆU KIẾN TRÚC GIÁM SÁT
+- **Monitoring Configuration**: Cấu hình giám sát.
+- **Alerting Configuration**: Cấu hình cảnh báo.
+
+## 📦 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
 ### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
 
@@ -670,28 +840,405 @@ MANDATORY SEGMENT INSTRUCTION:
 
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Xây dựng hệ thống xác thực người dùng | Cung cấp cơ chế đăng ký và đăng nhập qua email/mật khẩu, Firebase, Google, Facebook | Application Code | [REQ-001], [REQ-002], [ARC-006] |
-| 2 | Thiết kế cơ sở dữ liệu người dùng | Tạo bảng Users và Roles để quản lý thông tin người dùng và phân quyền | Application Code | [DAT-001], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
-| 3 | Xây dựng hệ thống quản lý trung tâm | Cung cấp chức năng xem, tạo, cập nhật và xóa thông tin trung tâm | Application Code | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
-| 4 | Thiết kế hệ thống quản lý khóa học | Xây dựng chức năng xem, tạo, cập nhật và xóa khóa học, phân công giáo viên | Application Code | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
-| 5 | Xây dựng hệ thống đăng ký khóa học | Cung cấp chức năng duyệt khóa học và đăng ký khóa học cho học viên | Application Code | [REQ-010], [REQ-011], [DAT-005] |
-| 6 | Thiết kế hệ thống điểm danh QR | Xây dựng chức năng quét mã QR để điểm danh và đảm bảo tính bất biến của điểm danh | Application Code | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
-| 7 | Xây dựng hệ thống quản lý thẻ hội viên | Cung cấp chức năng hiển thị và gia hạn thẻ hội viên | Application Code | [REQ-014], [REQ-015], [DAT-007] |
-| 8 | Thiết kế hệ thống thông báo | Xây dựng chức năng kích hoạt thông báo và gửi thông báo đến ứng dụng di động và nhóm Zalo | Application Code | [REQ-016], [DAT-008], [EXC-003] |
-| 9 | Xây dựng hệ thống quản lý khuyến mãi và thông báo | Cung cấp chức năng quản lý khuyến mãi và thông báo cho trung tâm | Application Code | [REQ-017], [REQ-018], [DAT-009] |
-| 10 | Thiết kế chatbot dịch vụ khách hàng AI | Xây dựng chatbot AI để trả lời các câu hỏi thường gặp của người dùng | Application Code | [REQ-019] |
-| 11 | Xây dựng giao diện người dùng trên di động | Cung cấp giao diện người dùng tương ứng với vai trò của người dùng trên ứng dụng di động | Application Code | [REQ-020], [REQ-021] |
-| 12 | Thiết kế hệ thống bản địa hóa và SEO | Xây dựng hệ thống phát hiện ngôn ngữ mặc định và hỗ trợ SEO đa ngôn ngữ | Application Code | [REQ-022], [REQ-023], [DAT-011] |
-| 13 | Xây dựng hệ thống báo cáo và phân tích | Cung cấp chức năng tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh | Application Code | [REQ-024], [REQ-025], [EXC-005] |
-| 14 | Thiết kế cơ sở hạ tầng backend | Xây dựng cơ sở hạ tầng backend sử dụng Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE) | DevOps Infrastructure | [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005] |
-| 15 | Thiết kế cơ sở hạ tầng frontend | Xây dựng cơ sở hạ tầng frontend sử dụng Next.js và React Native | DevOps Infrastructure | [ARC-009] |
-| 16 | Thiết kế cơ sở hạ tầng DevOps | Xây dựng cơ sở hạ tầng DevOps bao gồm Docker, Kubernetes (GKE), CI/CD pipeline với GitHub Actions | DevOps Infrastructure | [ARC-010], [NFR-004], [NFR-005] |
-| 17 | Tạo tài liệu kỹ thuật | Tạo tài liệu kỹ thuật bao gồm đặc tả kiến trúc, đặc tả API, hướng dẫn triển khai | Enterprise Documentation | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010] |
-| 18 | Tạo tài liệu hướng dẫn sử dụng | Tạo tài liệu hướng dẫn sử dụng cho người dùng cuối | Enterprise Documentation | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025] |
-| 19 | Tạo tài liệu bảo mật | Tạo tài liệu bảo mật bao gồm các quy trình bảo mật, chính sách bảo mật và hướng dẫn bảo mật | Enterprise Documentation | [NFR-003], [NFR-008], [NFR-009] |
-| 20 | Tạo tài liệu DevOps | Tạo tài liệu DevOps bao gồm hướng dẫn triển khai, quản lý và bảo trì hệ thống | Enterprise Documentation | [ARC-010], [NFR-004], [NFR-005], [NFR-006], [NFR-009] |
-| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 20 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+| 1 | Authentication Service Implementation | Implement authentication service with OAuth2, Firebase, Google, and Facebook | Application Code | [REQ-001], [REQ-002], [ARC-006] |
+| 2 | User Service Implementation | Implement user service with role-based access control | Application Code | [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
+| 3 | Center Service Implementation | Implement center service for managing centers and admins | Application Code | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
+| 4 | Course Service Implementation | Implement course service for managing courses and enrollments | Application Code | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005] |
+| 5 | Attendance Service Implementation | Implement attendance service for QR code scanning and attendance tracking | Application Code | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] |
+| 6 | Membership Service Implementation | Implement membership service for managing membership cards and renewals | Application Code | [REQ-014], [REQ-015], [DAT-007] |
+| 7 | Notification Service Implementation | Implement notification service for sending push notifications and Zalo messages | Application Code | [REQ-016], [EXC-003], [DAT-008] |
+| 8 | Promotion and Announcement Service Implementation | Implement promotion and announcement service for managing promotions and announcements | Application Code | [REQ-017], [REQ-018], [DAT-009] |
+| 9 | Chatbot Service Implementation | Implement chatbot service for answering common queries | Application Code | [REQ-019] |
+| 10 | Mobile App Service Implementation | Implement mobile app service for responsive UI and push notifications | Application Code | [REQ-020], [REQ-021] |
+| 11 | Localization Service Implementation | Implement localization service for multi-language support | Application Code | [REQ-022], [REQ-023], [DAT-011] |
+| 12 | Reporting Service Implementation | Implement reporting service for generating attendance reports and dashboards | Application Code | [REQ-024], [REQ-025], [EXC-005] |
+| 13 | System Architecture Documentation | Document system architecture with diagrams and descriptions | Enterprise Documentation | [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010] |
+| 14 | Database Schema Documentation | Document database schema with ER diagrams and DDL scripts | Enterprise Documentation | [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
+| 15 | API Documentation | Document API endpoints with OpenAPI/Swagger specifications | Enterprise Documentation | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025] |
+| 16 | Security Documentation | Document security measures and compliance with OWASP Top 10 | Enterprise Documentation | [NFR-003] |
+| 17 | Deployment Documentation | Document deployment procedures and infrastructure setup | Enterprise Documentation | [ARC-010], [NFR-002], [NFR-004], [NFR-009] |
+| 18 | Dockerfiles | Create Dockerfiles for containerization of microservices | DevOps Infrastructure | [ARC-010], [NFR-005] |
+| 19 | Kubernetes Manifests | Create Kubernetes manifests for deployment on GKE | DevOps Infrastructure | [ARC-010], [NFR-004] |
+| 20 | CI/CD Pipeline | Set up CI/CD pipeline with GitHub Actions | DevOps Infrastructure | [ARC-010], [NFR-004] |
+| 21 | Monitoring Configuration | Configure monitoring with Prometheus and Grafana | DevOps Infrastructure | [NFR-004] |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 21 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
+
+### 4.2. PHÂN TÍCH KIẾN TRÚC CHI TIẾT THEO GIAI ĐOẠN
+
+#### 4.2.1. GIAI ĐOẠN 1: KHỞI TẠO VÀ XÂY DỰNG CƠ BẢN
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Giai đoạn 1 | Ngày 1-3 | `./sources/backend/authentication/` | Hoàn thành dịch vụ xác thực với OAuth2, Firebase, Google, và Facebook | Coder | [REQ-001], [REQ-002], [ARC-006] |
+|  |  | `./sources/backend/user/` | Hoàn thành dịch vụ người dùng với RBAC | Coder | [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
+|  |  | `./sources/docs/architecture/` | Tài liệu kiến trúc hệ thống và luồng dữ liệu | Doc | [ARC-006], [ARC-007], [ARC-008], [ARC-009] |
+|  |  | `./sources/docs/database/` | Tài liệu lược đồ cơ sở dữ liệu và ER diagrams | Doc | [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
+
+#### 4.2.2. GIAI ĐOẠN 2: PHÁT TRIỂN CHỨC NĂNG CƠ BẢN
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/center/` | Hoàn thành dịch vụ trung tâm với quản lý trung tâm và phân quyền quản trị | Coder | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
+|  |  | `./sources/backend/course/` | Hoàn thành dịch vụ khóa học với quản lý khóa học và đăng ký học viên | Coder | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005] |
+|  |  | `./sources/backend/attendance/` | Hoàn thành dịch vụ điểm danh với quét mã QR và theo dõi điểm danh | Coder | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006] |
+|  |  | `./sources/docs/api/` | Tài liệu API với OpenAPI/Swagger specifications | Doc | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025] |
+
+#### 4.2.3. GIAI ĐOẠN 3: PHÁT TRIỂN CHỨC NĂNG NÂNG CAO
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Giai đoạn 3 | Ngày 1-3 | `./sources/backend/membership/` | Hoàn thành dịch vụ thẻ hội viên với quản lý thẻ hội viên và gia hạn | Coder | [REQ-014], [REQ-015], [DAT-007] |
+|  |  | `./sources/backend/notification/` | Hoàn thành dịch vụ thông báo với gửi thông báo đẩy và Zalo messages | Coder | [REQ-016], [EXC-003], [DAT-008] |
+|  |  | `./sources/backend/promotion/` | Hoàn thành dịch vụ khuyến mãi và thông báo với quản lý khuyến mãi và thông báo | Coder | [REQ-017], [REQ-018], [DAT-009] |
+|  |  | `./sources/backend/chatbot/` | Hoàn thành dịch vụ chatbot với trả lời truy vấn từ người dùng | Coder | [REQ-019] |
+|  |  | `./sources/docs/security/` | Tài liệu bảo mật với các biện pháp bảo mật và tuân thủ OWASP Top 10 | Doc | [NFR-003] |
+
+#### 4.2.4. GIAI ĐOẠN 4: PHÁT TRIỂN ỨNG DỤNG DI ĐỘNG VÀ BẢN ĐỊA HÓA
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Giai đoạn 4 | Ngày 1-3 | `./sources/frontend/mobile/` | Hoàn thành ứng dụng di động với giao diện đáp ứng và thông báo đẩy | Coder | [REQ-020], [REQ-021] |
+|  |  | `./sources/backend/localization/` | Hoàn thành dịch vụ bản địa hóa với hỗ trợ đa ngôn ngữ | Coder | [REQ-022], [REQ-023], [DAT-011] |
+|  |  | `./sources/docs/deployment/` | Tài liệu triển khai với các thủ tục triển khai và thiết lập hạ tầng | Doc | [ARC-010], [NFR-002], [NFR-004], [NFR-009] |
+
+#### 4.2.5. GIAI ĐOẠN 5: PHÁT TRIỂN BÁO CÁO VÀ GIÁM SÁT
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Giai đoạn 5 | Ngày 1-3 | `./sources/backend/reporting/` | Hoàn thành dịch vụ báo cáo với tạo báo cáo điểm danh và bảng điều khiển | Coder | [REQ-024], [REQ-025], [EXC-005] |
+|  |  | `./sources/infra/docker/` | Hoàn thành Dockerfiles cho containerization các microservices | Docker | [ARC-010], [NFR-005] |
+|  |  | `./sources/infra/kubernetes/` | Hoàn thành Kubernetes manifests cho triển khai trên GKE | GKE | [ARC-010], [NFR-004] |
+|  |  | `./sources/infra/ci-cd/` | Hoàn thành CI/CD pipeline với GitHub Actions | GCP | [ARC-010], [NFR-004] |
+|  |  | `./sources/infra/monitoring/` | Hoàn thành cấu hình giám sát với Prometheus và Grafana | GCP | [NFR-004] |
+
+## 📅 5. PHÂN TÍCH KIẾN TRÚC CHI TIẾT THEO NGÀY
+
+### 5.1. GIAI ĐOẠN 1: KHỞI TẠO VÀ XÂY DỰNG CƠ BẢN
+
+#### 5.1.1. NGÀY 1
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Khởi tạo và xây dựng cơ bản dịch vụ xác thực và người dùng.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/authentication/`
+  - `./sources/backend/user/`
+  - `./sources/docs/architecture/`
+  - `./sources/docs/database/`
+
+- **Coder**:
+  - **DAY 1**:
+    - **TASK**: Thiết kế và triển khai dịch vụ xác thực với OAuth2, Firebase, Google, và Facebook.
+    - **TARGET**: `./sources/backend/authentication/`
+    - **TAG IDs**: [REQ-001], [REQ-002], [ARC-006]
+  - **DAY 2**:
+    - **TASK**: Thiết kế và triển khai dịch vụ người dùng với RBAC.
+    - **TARGET**: `./sources/backend/user/`
+    - **TAG IDs**: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+- **Doc**:
+  - **DAY 1**:
+    - **TASK**: Tài liệu kiến trúc hệ thống và luồng dữ liệu.
+    - **TARGET**: `./sources/docs/architecture/`
+    - **TAG IDs**: [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+  - **DAY 2**:
+    - **TASK**: Tài liệu lược đồ cơ sở dữ liệu và ER diagrams.
+    - **TARGET**: `./sources/docs/database/`
+    - **TAG IDs**: [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
+
+#### 5.1.2. NGÀY 2
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành dịch vụ xác thực và người dùng.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/authentication/`
+  - `./sources/backend/user/`
+  - `./sources/docs/architecture/`
+  - `./sources/docs/database/`
+
+- **Tester**:
+  - **DAY 1**:
+    - **TASK**: Viết test cho dịch vụ xác thực.
+    - **TARGET**: `./sources/backend/authentication/test;./sources/backend/authentication/`
+    - **TAG IDs**: [REQ-001], [REQ-002], [ARC-006]
+  - **DAY 2**:
+    - **TASK**: Viết test cho dịch vụ người dùng.
+    - **TARGET**: `./sources/backend/user/test;./sources/backend/user/`
+    - **TAG IDs**: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+- **Reviewer**:
+  - **DAY 1**:
+    - **TASK**: Review code dịch vụ xác thực.
+    - **TARGET**: `./sources/backend/authentication/`
+    - **TAG IDs**: [REQ-001], [REQ-002], [ARC-006]
+  - **DAY 2**:
+    - **TASK**: Review code dịch vụ người dùng.
+    - **TARGET**: `./sources/backend/user/`
+    - **TAG IDs**: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+### 5.2. GIAI ĐOẠN 2: PHÁT TRIỂN CHỨC NĂNG CƠ BẢN
+
+#### 5.2.1. NGÀY 1
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển chức năng cơ bản cho dịch vụ trung tâm, khóa học, và điểm danh.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/center/`
+  - `./sources/backend/course/`
+  - `./sources/backend/attendance/`
+  - `./sources/docs/api/`
+
+- **Coder**:
+  - **DAY 1**:
+    - **TASK**: Thiết kế và triển khai dịch vụ trung tâm với quản lý trung tâm và phân quyền quản trị.
+    - **TARGET**: `./sources/backend/center/`
+    - **TAG IDs**: [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+  - **DAY 2**:
+    - **TASK**: Thiết kế và triển khai dịch vụ khóa học với quản lý khóa học và đăng ký học viên.
+    - **TARGET**: `./sources/backend/course/`
+    - **TAG IDs**: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005]
+  - **DAY 3**:
+    - **TASK**: Thiết kế và triển khai dịch vụ điểm danh với quét mã QR và theo dõi điểm danh.
+    - **TARGET**: `./sources/backend/attendance/`
+    - **TAG IDs**: [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+
+- **Doc**:
+  - **DAY 1**:
+    - **TASK**: Tài liệu API với OpenAPI/Swagger specifications.
+    - **TARGET**: `./sources/docs/api/`
+    - **TAG IDs**: [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025]
+
+#### 5.2.2. NGÀY 2
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành chức năng cơ bản cho dịch vụ trung tâm, khóa học, và điểm danh.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/center/`
+  - `./sources/backend/course/`
+  - `./sources/backend/attendance/`
+  - `./sources/docs/api/`
+
+- **Tester**:
+  - **DAY 1**:
+    - **TASK**: Viết test cho dịch vụ trung tâm.
+    - **TARGET**: `./sources/backend/center/test;./sources/backend/center/`
+    - **TAG IDs**: [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+  - **DAY 2**:
+    - **TASK**: Viết test cho dịch vụ khóa học.
+    - **TARGET**: `./sources/backend/course/test;./sources/backend/course/`
+    - **TAG IDs**: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005]
+  - **DAY 3**:
+    - **TASK**: Viết test cho dịch vụ điểm danh.
+    - **TARGET**: `./sources/backend/attendance/test;./sources/backend/attendance/`
+    - **TAG IDs**: [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+
+- **Reviewer**:
+  - **DAY 1**:
+    - **TASK**: Review code dịch vụ trung tâm.
+    - **TARGET**: `./sources/backend/center/`
+    - **TAG IDs**: [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+  - **DAY 2**:
+    - **TASK**: Review code dịch vụ khóa học.
+    - **TARGET**: `./sources/backend/course/`
+    - **TAG IDs**: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [DAT-005]
+  - **DAY 3**:
+    - **TASK**: Review code dịch vụ điểm danh.
+    - **TARGET**: `./sources/backend/attendance/`
+    - **TAG IDs**: [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+
+### 5.3. GIAI ĐOẠN 3: PHÁT TRIỂN CHỨC NĂNG NÂNG CAO
+
+#### 5.3.1. NGÀY 1
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển chức năng nâng cao cho dịch vụ thẻ hội viên, thông báo, khuyến mãi, và chatbot.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/membership/`
+  - `./sources/backend/notification/`
+  - `./sources/backend/promotion/`
+  - `./sources/backend/chatbot/`
+  - `./sources/docs/security/`
+
+- **Coder**:
+  - **DAY 1**:
+    - **TASK**: Thiết kế và triển khai dịch vụ thẻ hội viên với quản lý thẻ hội viên và gia hạn.
+    - **TARGET**: `./sources/backend/membership/`
+    - **TAG IDs**: [REQ-014], [REQ-015], [DAT-007]
+  - **DAY 2**:
+    - **TASK**: Thiết kế và triển khai dịch vụ thông báo với gửi thông báo đẩy và Zalo messages.
+    - **TARGET**: `./sources/backend/notification/`
+    - **TAG IDs**: [REQ-016], [EXC-003], [DAT-008]
+  - **DAY 3**:
+    - **TASK**: Thiết kế và triển khai dịch vụ khuyến mãi và thông báo với quản lý khuyến mãi và thông báo.
+    - **TARGET**: `./sources/backend/promotion/`
+    - **TAG IDs**: [REQ-017], [REQ-018], [DAT-009]
+  - **DAY 4**:
+    - **TASK**: Thiết kế và triển khai dịch vụ chatbot với trả lời truy vấn từ người dùng.
+    - **TARGET**: `./sources/backend/chatbot/`
+    - **TAG IDs**: [REQ-019]
+
+- **Doc**:
+  - **DAY 1**:
+    - **TASK**: Tài liệu bảo mật với các biện pháp bảo mật và tuân thủ OWASP Top 10.
+    - **TARGET**: `./sources/docs/security/`
+    - **TAG IDs**: [NFR-003]
+
+#### 5.3.2. NGÀY 2
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành chức năng nâng cao cho dịch vụ thẻ hội viên, thông báo, khuyến mãi, và chatbot.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/membership/`
+  - `./sources/backend/notification/`
+  - `./sources/backend/promotion/`
+  - `./sources/backend/chatbot/`
+  - `./sources/docs/security/`
+
+- **Tester**:
+  - **DAY 1**:
+    - **TASK**: Viết test cho dịch vụ thẻ hội viên.
+    - **TARGET**: `./sources/backend/membership/test;./sources/backend/membership/`
+    - **TAG IDs**: [REQ-014], [REQ-015], [DAT-007]
+  - **DAY 2**:
+    - **TASK**: Viết test cho dịch vụ thông báo.
+    - **TARGET**: `./sources/backend/notification/test;./sources/backend/notification/`
+    - **TAG IDs**: [REQ-016], [EXC-003], [DAT-008]
+  - **DAY 3**:
+    - **TASK**: Viết test cho dịch vụ khuyến mãi và thông báo.
+    - **TARGET**: `./sources/backend/promotion/test;./sources/backend/promotion/`
+    - **TAG IDs**: [REQ-017], [REQ-018], [DAT-009]
+  - **DAY 4**:
+    - **TASK**: Viết test cho dịch vụ chatbot.
+    - **TARGET**: `./sources/backend/chatbot/test;./sources/backend/chatbot/`
+    - **TAG IDs**: [REQ-019]
+
+- **Reviewer**:
+  - **DAY 1**:
+    - **TASK**: Review code dịch vụ thẻ hội viên.
+    - **TARGET**: `./sources/backend/membership/`
+    - **TAG IDs**: [REQ-014], [REQ-015], [DAT-007]
+  - **DAY 2**:
+    - **TASK**: Review code dịch vụ thông báo.
+    - **TARGET**: `./sources/backend/notification/`
+    - **TAG IDs**: [REQ-016], [EXC-003], [DAT-008]
+  - **DAY 3**:
+    - **TASK**: Review code dịch vụ khuyến mãi và thông báo.
+    - **TARGET**: `./sources/backend/promotion/`
+    - **TAG IDs**: [REQ-017], [REQ-018], [DAT-009]
+  - **DAY 4**:
+    - **TASK**: Review code dịch vụ chatbot.
+    - **TARGET**: `./sources/backend/chatbot/`
+    - **TAG IDs**: [REQ-019]
+
+### 5.4. GIAI ĐOẠN 4: PHÁT TRIỂN ỨNG DỤNG DI ĐỘNG VÀ BẢN ĐỊA HÓA
+
+#### 5.4.1. NGÀY 1
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển ứng dụng di động và dịch vụ bản địa hóa.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/frontend/mobile/`
+  - `./sources/backend/localization/`
+  - `./sources/docs/deployment/`
+
+- **Coder**:
+  - **DAY 1**:
+    - **TASK**: Thiết kế và triển khai ứng dụng di động với giao diện đáp ứng và thông báo đẩy.
+    - **TARGET**: `./sources/frontend/mobile/`
+    - **TAG IDs**: [REQ-020], [REQ-021]
+  - **DAY 2**:
+    - **TASK**: Thiết kế và triển khai dịch vụ bản địa hóa với hỗ trợ đa ngôn ngữ.
+    - **TARGET**: `./sources/backend/localization/`
+    - **TAG IDs**: [REQ-022], [REQ-023], [DAT-011]
+
+- **Doc**:
+  - **DAY 1**:
+    - **TASK**: Tài liệu triển khai với các thủ tục triển khai và thiết lập hạ tầng.
+    - **TARGET**: `./sources/docs/deployment/`
+    - **TAG IDs**: [ARC-010], [NFR-002], [NFR-004], [NFR-009]
+
+#### 5.4.2. NGÀY 2
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành ứng dụng di động và dịch vụ bản địa hóa.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/frontend/mobile/`
+  - `./sources/backend/localization/`
+  - `./sources/docs/deployment/`
+
+- **Tester**:
+  - **DAY 1**:
+    - **TASK**: Viết test cho ứng dụng di động.
+    - **TARGET**: `./sources/frontend/mobile/test;./sources/frontend/mobile/`
+    - **TAG IDs**: [REQ-020], [REQ-021]
+  - **DAY 2**:
+    - **TASK**: Viết test cho dịch vụ bản địa hóa.
+    - **TARGET**: `./sources/backend/localization/test;./sources/backend/localization/`
+    - **TAG IDs**: [REQ-022], [REQ-023], [DAT-011]
+
+- **Reviewer**:
+  - **DAY 1**:
+    - **TASK**: Review code ứng dụng di động.
+    - **TARGET**: `./sources/frontend/mobile/`
+    - **TAG IDs**: [REQ-020], [REQ-021]
+  - **DAY 2**:
+    - **TASK**: Review code dịch vụ bản địa hóa.
+    - **TARGET**: `./sources/backend/localization/`
+    - **TAG IDs**: [REQ-022], [REQ-023], [DAT-011]
+
+### 5.5. GIAI ĐOẠN 5: PHÁT TRIỂN BÁO CÁO VÀ GIÁM SÁT
+
+#### 5.5.1. NGÀY 1
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Phát triển dịch vụ báo cáo và giám sát.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/reporting/`
+  - `./sources/infra/docker/`
+  - `./sources/infra/kubernetes/`
+  - `./sources/infra/ci-cd/`
+  - `./sources/infra/monitoring/`
+
+- **Coder**:
+  - **DAY 1**:
+    - **TASK**: Thiết kế và triển khai dịch vụ báo cáo với tạo báo cáo điểm danh và bảng điều khiển.
+    - **TARGET**: `./sources/backend/reporting/`
+    - **TAG IDs**: [REQ-024], [REQ-025], [EXC-005]
+
+- **Docker**:
+  - **DAY 1**:
+    - **TASK**: Tạo Dockerfiles cho containerization các microservices.
+    - **TARGET**: `./sources/infra/docker/`
+    - **TAG IDs**: [ARC-010], [NFR-005]
+
+- **GKE**:
+  - **DAY 1**:
+    - **TASK**: Tạo Kubernetes manifests cho triển khai trên GKE.
+    - **TARGET**: `./sources/infra/kubernetes/`
+    - **TAG IDs**: [ARC-010], [NFR-004]
+
+- **GCP**:
+  - **DAY 1**:
+    - **TASK**: Thiết lập CI/CD pipeline với GitHub Actions.
+    - **TARGET**: `./sources/infra/ci-cd/`
+    - **TAG IDs**: [ARC-010], [NFR-004]
+  - **DAY 2**:
+    - **TASK**: Cấu hình giám sát với Prometheus và Grafana.
+    - **TARGET**: `./sources/infra/monitoring/`
+    - **TAG IDs**: [NFR-004]
+
+#### 5.5.2. NGÀY 2
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn**: Hoàn thành dịch vụ báo cáo và giám sát.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu**:
+  - `./sources/backend/reporting/`
+  - `./sources/infra/docker/`
+  - `./sources/infra/kubernetes/`
+  - `./sources/infra/ci-cd/`
+  - `./sources/infra/monitoring/`
+
+- **Tester**:
+  - **DAY 1**:
+    - **TASK**: Viết test cho dịch vụ báo cáo.
+    - **TARGET**: `./sources/backend/reporting/test;./sources/backend/reporting/`
+    - **TAG IDs**: [REQ-024], [REQ-025], [EXC-005]
+
+- **Reviewer**:
+  - **DAY 1**:
+    - **TASK**: Review code dịch vụ báo cáo.
+    - **TARGET**: `./sources/backend/reporting/`
+    - **TAG IDs**: [REQ-024], [REQ-025], [EXC-005]
 ```
 

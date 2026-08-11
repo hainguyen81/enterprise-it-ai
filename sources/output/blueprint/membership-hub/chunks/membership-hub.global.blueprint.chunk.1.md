@@ -627,10 +627,10 @@ MANDATORY SEGMENT INSTRUCTION:
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811090629 |
+| **Blueprint ID** | ARCH-20260811153831 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 09:06:29 |
+| **Date.Time** | 2026/08/11 15:38:31 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -673,7 +673,8 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 - **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
 - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
 - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string \"membership-hub\" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
-- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`."
+- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash."
     }
 ]
 
@@ -689,42 +690,47 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811090629 |
+| **Blueprint ID** | ARCH-20260811153831 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 09:06:29 |
+| **Date.Time** | 2026/08/11 15:38:31 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-## 📊 1. TỔNG QUAN HỆ THỐNG & KIẾN TRÚC CƠ BẢN
+## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
-### 1.1. KIẾN TRÚC HỆ THỐNG CƠ BẢN & MÔ HÌNH KIẾN TRÚC
-- Hệ thống được thiết kế theo mô hình đa trung tâm với kiến trúc microservices
-- Sử dụng mô hình RBAC (Role-Based Access Control) để quản lý quyền truy cập
-- Hệ thống hỗ trợ đa kênh giao tiếp bao gồm web, di động và nhóm Zalo
-- Kiến trúc bao gồm các thành phần chính: quản lý người dùng, quản lý trung tâm, quản lý khóa học, đăng ký học viên, điểm danh, quản lý thẻ hội viên và thông báo
-- Sử dụng mô hình Event-Driven Architecture (EDA) cho các tính năng như điểm danh và thông báo
-- Áp dụng mô hình CQRS (Command Query Responsibility Segregation) để phân tách các thao tác ghi và đọc
-- Sử dụng mô hình Reactive Programming cho các tính năng thời gian thực như điểm danh và thông báo
+### 1.1. Core System Modality & Architecture Modality
+- Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, trung tâm, khóa học, điểm danh và thẻ hội viên.
+- Sử dụng mô hình CQRS (Command Query Responsibility Segregation) để tách biệt các hoạt động ghi và đọc dữ liệu.
+- Áp dụng mô hình Event-Driven Architecture (EDA) cho các tính năng như thông báo và điểm danh.
+- Sử dụng mô hình Reactive Programming cho các tính năng thời gian thực như điểm danh và thông báo.
+- Hệ thống được thiết kế để có thể mở rộng theo chiều ngang và chiều dọc để đáp ứng nhu cầu tăng trưởng của người dùng.
 
-### 1.2. LUỒNG DỮ LIỆU DOANH NGHIỆP & CÁC HỆ THỐNG LIÊN KẾT
-- Luồng xác thực người dùng sử dụng OAuth2 và JWT tokens
-- Luồng điểm danh sử dụng mã QR và cơ chế idempotent để đảm bảo tính toàn vẹn dữ liệu
-- Luồng thông báo sử dụng push notification và tích hợp với Zalo API
-- Hệ thống sử dụng cơ chế caching để tối ưu hóa hiệu suất
-- Kiến trúc bao gồm các thành phần chính: API Gateway, Service Discovery, Config Server, và các microservices riêng biệt cho từng chức năng
-- Sử dụng cơ chế message broker để xử lý các sự kiện bất đồng bộ
-- Áp dụng mô hình event sourcing để lưu trữ lịch sử thay đổi dữ liệu
-- Sử dụng cơ chế sharding để phân phối tải cho các dịch vụ quan trọng
+### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
+- Sử dụng Kafka để quản lý các luồng dữ liệu thời gian thực như điểm danh và thông báo.
+- Sử dụng Redis để lưu trữ các phiên làm việc và dữ liệu tạm thời.
+- Sử dụng PostgreSQL để lưu trữ dữ liệu quan hệ như thông tin người dùng, trung tâm, khóa học và điểm danh.
+- Sử dụng Firebase Authentication để quản lý xác thực người dùng.
+- Sử dụng Google Cloud Messaging (FCM) và Apple APNs để gửi thông báo đẩy đến ứng dụng di động.
+- Sử dụng Zalo API để gửi thông báo đến nhóm Zalo.
 
-## 📁 2. PHẦN MỀM & CÁC THƯ VIỆN CỐT LÕI
-<RULE>
-- **STRICT BOUNDARY LOCKDOWN FOR PROPERTIES BLOCK:** Within the generated properties code fence, you MUST execute the complete physical destruction of the placeholder square brackets. The output values MUST be clean literal boolean raw values without any enclosing markers to prevent downstream parsing panics.
-</RULE>
-- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration, Redis, GitHub Actions
-- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration
+## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
+- **Backend Infrastructure Core Stack:**
+  - Java/Quarkus
+  - PostgreSQL
+  - Docker
+  - Kubernetes (GKE)
+  - Firebase Authentication
+  - Google Cloud Messaging (FCM)/Apple APNs
+  - Zalo API
+  - Redis
+  - GitHub Actions
 
-### MA TRẬN KIẾN TRÚC CƠ BẢN
+- **Frontend & Cross-Platform UI Mobile Stack:**
+  - Next.js
+  - React Native
+
+### ARCHITECTURAL STACK MATRIX
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -734,9 +740,10 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-## 📁 3. CÁC QUY TẮC TOÀN CẦU & TIÊU CHUẨN TUÂN THỦ
-- **Quy tắc Giới hạn Không gian Làm việc:** Gốc thư mục thực sự của kho lưu trữ được cố định vĩnh viễn tại gốc dự án `.`. Tất cả các đường dẫn được tạo ra phải bắt đầu bằng `./sources/`.
-- **Tuân thủ Động Tiền tố Thư mục:** Áp dụng nghiêm ngặt các quy tắc ánh xạ đường dẫn động được định nghĩa trong Giao thức 1 phù hợp với cấu trúc dự án được phát hiện.
-- **[ĐIỀU KIỆN: JAVA_STACK_ONLY] Tiêu chuẩn Gói Java:** Nếu ngăn xếp công nghệ sử dụng các khung Java, tất cả mã nguồn Java phải nằm nghiêm ngặt trong cơ sở gói doanh nghiệp: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. Bạn phải chuyển đổi động chuỗi "membership-hub" thành mã thông báo chữ thường không dấu bằng cách loại bỏ khoảng trắng, dấu gạch ngang và dấu gạch dưới. Các dự án không phải Java bị cấm áp dụng đoạn này.
-- **Cú pháp Đường dẫn Mục tiêu Kiểm thử nghiêm ngặt:** Bất kỳ thành phần nào được nhắm mục tiêu bởi Sub-Agent Kiểm thử phải được cấu trúc theo cặp phân tách chặt chẽ bằng dấu chấm phẩy `<source_component_or_token>;<test_suite_file_to_execute>`. Cả hai đường dẫn bên trong cặp phải bắt đầu bằng `./sources/`.
+## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
+- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
+- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
+- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
+- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
 
