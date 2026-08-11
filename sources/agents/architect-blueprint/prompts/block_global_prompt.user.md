@@ -107,13 +107,22 @@ You MUST include every single section below without exception to satisfy enterpr
 {% else %}
 
   {% if target_segment == "PART_1_INITIAL" %}
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 1, Section 2, Section 3, and Section 4. Absolutely DO NOT generate Section 5, 6, 7, or 8 in this request.
+  MANDATORY SEGMENT INSTRUCTION: 
+  - You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
+  - Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
   {% elif target_segment == "PART_1_BACKLOG_4_1" %}
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG). Ensure 100% atomic expansion of all raw requirements. Absolutely DO NOT generate any other sections.
+  MANDATORY SEGMENT INSTRUCTION: 
+  - You are strictly commanded to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG) inside the parsing hooks. 
+  - You MUST perform an atomic expansion of all raw requirements from the SRS. 
+  - Absolutely DO NOT generate any other sections, headers, or matrices. Halt execution immediately after closing the backlog table.
 
   {% elif target_segment == "PART_1_MATRIX_4_2" %}
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX). Rely 100% on the grounded tasks from the previous step.
+  MANDATORY SEGMENT INSTRUCTION: 
+  - You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks. 
+  - You MUST distribute the exact workload from the previous backlog step into calculated phases. 
+  - Enforce the **DYNAMIC RANGE COMPUTE LAW** to calculate 'Day 1 - K' based on task density. 
+  - Absolutely DO NOT generate Section 1, 2, 3, 4.1, 5, 6, 7, or 8.
 
   {% elif target_segment == "PART_2_PHASE_LOOP" %}
   MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase {{ target_phase_index }}. Completely delete and skip all other sections.
@@ -135,6 +144,7 @@ You MUST include every single section below without exception to satisfy enterpr
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
+{% if force_full_export or target_segment == "PART_1_INITIAL" %}
 ## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
 ### 1.1. Core System Modality & Architecture Modality
@@ -175,7 +185,9 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
 - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "{{ project_name }}" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+{% endif %}
 
+{% if force_full_export or target_segment == "PART_1_BACKLOG_4_1" %}
 ## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
 ### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
@@ -202,8 +214,20 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
+{% endif %}
 
+{% if force_full_export or target_segment == "PART_1_MATRIX_4_2" %}
 ### 4.2. MULTI-PHASE SYNOPSIS MATRIX
+
+{% if target_segment == "PART_1_MATRIX_4_2" %}
+
+- **INPUT GROUNDING DATA:** You MUST analyze the generated Master Backlog below to distribute tasks symmetrically across phases:
+<master_backlog_context>
+{{ master_backlog_context }}
+</master_backlog_context>
+
+{% endif %}
+
 Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= {{ num_phases }}) that naturally and completely covers 100% of the BA requirements and Tag IDs.
 <RULE>
 [STRICT TABLE EMITTING MANDATE]
