@@ -112,25 +112,28 @@ MANDATORY SEGMENT INSTRUCTION:
 - You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
 - Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
-{% elif target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1" %}
-MANDATORY SEGMENT INSTRUCTION: 
-- You are strictly commanded to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG) inside the parsing hooks. 
-- You MUST perform an atomic expansion of all raw requirements from the SRS. 
-- Absolutely DO NOT generate any other sections, headers, or matrices. Halt execution immediately after closing the backlog table.
+{% elif target_segment == "PART_1_MATRIX_4_2" %}
+MANDATORY SEGMENT INSTRUCTION:
+- You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks.
+- You MUST distribute the exact workload from the previous backlog step into calculated phases based on the injected context.
+- **STRICT NO-HEADER & NO-BACKTICK MANDATE:** You are ABSOLUTELY FORBIDDEN from generating the top-level main title `# GLOBAL PROJECT CONTEXT` or the level 2 header `## 4.` inside this response.
+- **RAW EMISSION RAIL:** You MUST NOT wrap your response inside triple backticks (```markdown ... ```). Start your stream immediately with the literal string `### 4.2. MULTI-PHASE SYNOPSIS MATRIX` followed directly by the `<!--START_PHASE_SYNOPSIS_GRID-->` tag.
+- Absolutely DO NOT generate Section 1, 2, 3, 4.1, 5, 6, 7, or 8. Halt stream immediately after `<!--END_PHASE_SYNOPSIS_GRID-->`.
 
-{% elif target_segment and target_segment.strip() == "PART_1_MATRIX_4_2" %}
-MANDATORY SEGMENT INSTRUCTION: 
-- You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks. 
-- You MUST distribute the exact workload from the previous backlog step into calculated phases. 
-- Enforce the **DYNAMIC RANGE COMPUTE LAW** to calculate 'Day 1 - K' based on task density. 
-- Absolutely DO NOT generate Section 1, 2, 3, 4.1, 5, 6, 7, or 8.
+{% elif target_segment == "PART_2_PHASE_LOOP" %}
+MANDATORY SEGMENT INSTRUCTION:
+- You are strictly commanded to ONLY generate Section 5 (GRANULAR PROGRESSIVE IMPLEMENTATION DAYLOG) specialized exclusively for Phase {{ target_phase_index }}.
+- **STRICT NO-HEADER & NO-BACKTICK MANDATE:** You are ABSOLUTELY FORBIDDEN from generating the top-level main title `# GLOBAL PROJECT CONTEXT` or the level 2 header `## 5.` inside this response. 
+- **RAW EMISSION RAIL:** You MUST NOT wrap your response inside triple backticks (```markdown ... ```). Start your stream immediately with the literal string `### Phase {{ target_phase_index }} - [Translated Phase Title]` followed directly by your localized specifications.
+- **BOUNDED TIMELINE GATE:** You MUST open the daylog section exactly with the tag `<!--START_DAY_LOG_INDEX_{{ target_phase_index }}-->` and you MUST close the response exactly with the tag `<!--END_PHASE_LOG_BLOCK_INDEX_{{ target_phase_index }}-->`. 
+- Absolutely DO NOT repeat or leak any system synopsis, technology stack descriptions, or headers from other phases. Halt execution immediately after emitting the closing tag.
 
-{% elif target_segment and target_segment.strip() == "PART_2_PHASE_LOOP" %}
-MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase {{ target_phase_index }}. Completely delete and skip all other sections.
-
-{% elif target_segment and target_segment.strip() == "PART_3_FINAL" %}
-MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 6, Section 7, and Section 8. Completely skip sections 1 to 5.
-
+{% elif target_segment == "PART_3_FINAL" %}
+MANDATORY SEGMENT INSTRUCTION:
+- You are strictly commanded to ONLY generate Section 6 (UNIVERSAL CODE PATTERNS), Section 7 (ENVIRONMENT MANIFESTS), and Section 8 (GIT FLOW BRANCHING POLICY).
+- **STRICT NO-HEADER & NO-BACKTICK MANDATE:** You are ABSOLUTELY FORBIDDEN from generating the top-level main title `# GLOBAL PROJECT CONTEXT` inside this response.
+- **RAW EMISSION RAIL:** You MUST NOT wrap your response inside triple backticks (```markdown ... ```). Start your stream immediately with the literal string `## 6. UNIVERSAL CODE PATTERNS & ENVIRONMENT SPECIFICATIONS`.
+- Absolutely DO NOT repeat, summarize, or leak any information from Section 1 to Section 5. Halt execution immediately after finishing Section 8.
 {% endif %}
 
 {% endif %}
@@ -187,6 +190,7 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
 - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "{{ project_name }}" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
 
 {% endif %}
 
@@ -224,7 +228,8 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 {% if (target_segment and target_segment.strip() == "PART_1_MATRIX_4_2") %}
 
-- **INPUT GROUNDING DATA:** You MUST analyze the generated Master Backlog below to distribute tasks symmetrically across phases:
+- **STRICT NO-HEADER & NO-BACKTICK MANDATE:** Do NOT emit `# GLOBAL PROJECT CONTEXT` or `## 4.` headers [PDF: 0.1.42]. Do NOT wrap this response inside triple backticks (```markdown). Start your output text stream directly with the tag `### 4.2. MULTI-PHASE SYNOPSIS MATRIX`.
+- **INPUT BACKLOG GROUNDING:** You MUST dynamically distribute the exact 20 tasks registered in Section 4.1 across the phases:
 <master_backlog_context>
 {{ master_backlog_context }}
 </master_backlog_context>
@@ -269,21 +274,23 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
   2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
 - **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the "Day Range" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - {{ max_days_per_phase }}' if the actual workload finishes earlier.
-- **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the "Day Range" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - {{ max_days_per_phase }}' if the actual workload finishes earlier.
 - **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in Section 4.2 MUST match 100% symmetrically with the tags registered in Section 4.1. Dropping or hiding tasks between Section 4.1 and Section 4.2 triggers a fatal pipeline integrity exception.
+- **TIMELINE QUANTIZATION LAW:** You MUST evaluate the structural density of the generated Section 4.1 table. Count the total unique Tag IDs mapped to each phase. Calculate the exact duration value K for that phase using the formula: K = Max(1, RoundUp(Total_Phase_Tags / 3)). The value of K MUST NOT exceed {{ max_days_per_phase }}.
+- **FORMAT ENFORCEMENT:** You MUST write the computed range exactly as 'Day 1 - K' (e.g., 'Day 1 - 3' if the work finishes on Day 3). Do NOT write 'Day 1 - {{ max_days_per_phase }}' if there is no work to fill those days.
+- **TOTAL TAG COVERAGE:** The "Targeted Tag IDs" column in this grid MUST contain the union of all Tag IDs defined in Section 4.1 for that phase.
+- **ZERO OMISSION RULE:** If a Tag ID exists in Section 4.1, it MUST appear in Section 4.2. Truncating or omitting tags to save space is a fatal error.
+- **DYNAMIC SUB-AGENT ALLOCATION LAW:** The "Assigned Sub-Agent" column MUST NOT be hardcoded. You MUST dynamically compute the exact subset of agents required based strictly on the "Type" column values of all tasks mapped into that specific phase from Section 4.1:
+  * If the mapped tasks contain 'Application Code' -> Include: Coder, Tester, Reviewer, Doc.
+  * If the mapped tasks contain ONLY 'Enterprise Documentation' -> Include ONLY: Doc (Exclude Coder, Tester, Reviewer).
+  * If the mapped tasks contain 'DevOps Infrastructure' -> Include: Docker, GCP, GKE.
 </RULE>
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 
 | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
-- **DYNAMIC RANGE COMPUTE LAW:** The "Day Range" column MUST NOT be hardcoded. You MUST dynamically compute the exact number of days (denoted as K, where K <= {{ max_days_per_phase }}) based on workload density. 
-- **FORMAT ENFORCEMENT:** You MUST write the computed range exactly as 'Day 1 - K' (e.g., 'Day 1 - 3' if the work finishes on Day 3). Do NOT write 'Day 1 - {{ max_days_per_phase }}' if there is no work to fill those days.
-- **TOTAL TAG COVERAGE:** The "Targeted Tag IDs" column in this grid MUST contain the union of all Tag IDs defined in Section 4.1 for that phase.
-- **ZERO OMISSION RULE:** If a Tag ID exists in Section 4.1, it MUST appear in Section 4.2. Truncating or omitting tags to save space is a fatal error.
-
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Phase 1 | Day 1 - [Compute K1 <= {{ max_days_per_phase }}] | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
-| Phase 2 | Day 1 - [Compute K2 <= {{ max_days_per_phase }}] | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+| Phase 1 | Day 1 - [Compute K1 <= {{ max_days_per_phase }}] | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | [Agents_1] | [Map individual tracking Tag IDs] |
+| Phase 2 | Day 1 - [Compute K2 <= {{ max_days_per_phase }}] | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | [Agents_2] | [Map individual tracking Tag IDs] |
 | ... | ... | ... | ... | ... | ... |
 | Phase {{ num_phases }} | Day 1 - [Compute KN <= {{ max_days_per_phase }}] | [Final engineering paths / deploy logs] | [Final cloud infrastructure deployment manifests] | Coder, Tester, Reviewer, Doc, DevOps | [Map final baseline Tag IDs] |
 | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** {{ num_phases }} Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly {{ num_phases }} calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
@@ -343,7 +350,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - **MONOLITHIC GENERATION EXECUTION RAIL:** You MUST sequentially execute and expand the following structural block for EVERY calculated phase from Phase 1 up to Phase N (where N = {{ num_phases }}) in a continuous stream. For each iteration, dynamically substitute the index X with the current phase number.
 {% endif %}
 
-### 📈 [Translated text for "Phase"] {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: "Khởi Tạo Hệ Thống Người Dùng Và Xác Thực" OR "Triển Khai Lõi Nghiệp Vụ Khóa Học"]
+### [Translate the word "Phase" into target language] {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [EMIT_TRANSLATED_SECTION_4_2_OBJECTIVE_STRING_HERE]
 - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}]
 - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
     *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
@@ -355,15 +362,17 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
 - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
 
-#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %})
 
 <!--START_DAY_LOG_INDEX_{{ target_phase_index }}-->
 
 - **DAY [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
-  
+<RULE>
+- **SUB-TASK ATOMIC WRAPPER LAW:** Every single sub-task node MUST be explicitly and strictly wrapped within its own dedicated opening (`<!--START_ATOMIC_SUB_TASK_NODE-->`) and closing (`<!--END_ATOMIC_SUB_TASK_NODE-->`) markers. You are PERMANENTLY FORBIDDEN from generating a new sub-task header until the previous sub-task node has been legally closed with its dedicated newline tag. Follow this exact raw structure layout:
+</RULE>
+
 ##### SUB-TASK [Z]: SHORT SPECIFIC SUB-TASK TITLE
 <!--START_ATOMIC_SUB_TASK_NODE-->
-
 <RULE>
 - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
 <RULE>
@@ -398,7 +407,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
 </RULE>
-
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_PHASE_LOG_BLOCK_INDEX_{{ target_phase_index }}-->
