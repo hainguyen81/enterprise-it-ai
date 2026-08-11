@@ -609,134 +609,109 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
-  
-  
 
-    <RULE>
-    [STRICT OPERATIONAL MANDATE FOR PHASE 5 OUT OF 5]
-    - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 5 out of 5.
-    - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
-    - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 5'.
-    - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
-    - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
-    - REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
-      * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
-      * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
-      * Mentally add the count of new sub-tasks you are currently generating in this exact response.
-      * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
-    - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 5'.
 
-    <HISTORIC_LEDGER_MAP>
-    Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 4: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-    </HISTORIC_LEDGER_MAP>
-    </RULE>
-  
-  
+
+<RULE>
+[STRICT OPERATIONAL MANDATE FOR PHASE 3 OUT OF 5]
+- OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 3 out of 5.
+- TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration inside Section 4.2 matrix.
+- DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching 'Phase 3'.
+- AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
+- COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
+- REAL-TIME MATHEMATICAL SELF-AUDIT (CRITICAL): 
+  * If this is the FINAL phase (Phase 5), you MUST look inside the `<HISTORIC_LEDGER_MAP>` block below.
+  * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
+  * Mentally add the count of new sub-tasks you are currently generating in this exact response.
+  * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
+- OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 3'.
+
+<HISTORIC_LEDGER_MAP>
+Phase 1: 
+Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+</HISTORIC_LEDGER_MAP>
+</RULE>
+
+
 
 ### GROUNDING CONTEXT FROM PREVIOUS STEPS
 Below is the definitive Master Product Backlog generated in Part 1. You MUST align your daylog task titles, Tag IDs, and components 100% symmetrically with this blueprint:
 
 
 
-  <COMMAND>
-  # STRICT 1:1 SYNOPSIS MIRROR MANDATE:
-  - Section 5 MUST act as a strict structural mirror of the dynamic phases calculated in Section 4. You MUST generate an independent, complete detailed block below for EVERY phase sequence from Phase 1 up to Phase N (where N <= 5). Absolutely no phase that has been calculated in section 4 can be omitted.
-  - Truncating, omitting, or combining phases is an absolute pipeline violation. You are strictly commanded to detail every phase that appeared in your Section 4 table.
+<COMMAND>
+# STRICT 1:1 SYNOPSIS MIRROR MANDATE:
+- Section 5 MUST act as a strict structural mirror of the dynamic phases calculated in Section 4. You MUST generate an independent, complete detailed block below for EVERY phase sequence from Phase 1 up to Phase N (where N <= 5). Absolutely no phase that has been calculated in section 4 can be omitted.
+- Truncating, omitting, or combining phases is an absolute pipeline violation. You are strictly commanded to detail every phase that appeared in your Section 4 table.
 
-  # DYNAMIC CEILING BOUNDARY ENFORCEMENT:
-  - For each active Phase [X], the day-by-day logs MUST strictly map to the exact day range defined for that phase in Section 4.
-      * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
-      * You ARE ABSOLUTELY AND CRITICALLY BANNED from chép lặp lại, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
-  - **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside Section 5 (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for EVERY single phase block (e.g., Phase 1 contains DAY 1, DAY 2; Phase 2 MUST restart and contain exactly DAY 1, DAY 2). You are permanently forbidden from bleeding the global progressive timeline into these sections.
-  - The total days within any single phase MUST NOT exceed the absolute upperbound of 7 days.
-  - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
-  </COMMAND>
+# DYNAMIC CEILING BOUNDARY ENFORCEMENT:
+- For each active Phase [X], the day-by-day logs MUST strictly map to the exact day range defined for that phase in Section 4.
+    * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
+    * You ARE ABSOLUTELY AND CRITICALLY BANNED from chép lặp lại, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
+- **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside Section 5 (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for EVERY single phase block (e.g., Phase 1 contains DAY 1, DAY 2; Phase 2 MUST restart and contain exactly DAY 1, DAY 2). You are permanently forbidden from bleeding the global progressive timeline into these sections.
+- The total days within any single phase MUST NOT exceed the absolute upperbound of 7 days.
+- You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
+</COMMAND>
 
-  ### 📈 [Translated text for \"Phase\"] 5 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
-  - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
-  - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
-      *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
-  - **Database Schema DDL SQL Specification [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
-  <RULE>
-    * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ` ```sql:matrix ` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
-    * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
-  </RULE>
-  - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
-  - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
+### 📈 [Translated text for \"Phase\"] 3 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
+- **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
+- **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
+    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
+- **Database Schema DDL SQL Specification [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+<RULE>
+  * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ` ```sql:matrix ` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
+  * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
+</RULE>
+- **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
 
-  <!--START_DAY_LOG_INDEX_5-->
+<!--START_DAY_LOG_INDEX_3-->
 
-  - **DAY [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
-    
-    ##### SUB-TASK [Z]: SHORT SPECIFIC SUB-TASK TITLE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
+- **DAY [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
+  
+##### SUB-TASK [Z]: SHORT SPECIFIC SUB-TASK TITLE
+<!--START_ATOMIC_SUB_TASK_NODE-->
 
-      <RULE>
-      - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
-      <RULE>
-      * **Sub-Agent Workflow Specialization:**
-        <RULE>
-        You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
-        </RULE>
-      * **Targeted Tag IDs:**
-        <RULE>
-        Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
-        </RULE>
-      * **Target Component file path (target_component):**
-        <RULE>
-        Insert the explicit physical path starting with `./sources/` or Tester semi-colon pair syntax based strictly on the active persona domain. Append its targeted Tag IDs inline here.
-        </RULE>
-      * **Low-Level Technical Task Instruction:**
-        <RULE>
-        Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
-        </RULE>
+<RULE>
+- **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
+<RULE>
+* **Sub-Agent Workflow Specialization:**
+<RULE>
+You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
+</RULE>
+* **Targeted Tag IDs:**
+<RULE>
+Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
+</RULE>
+* **Target Component file path (target_component):**
+<RULE>
+Insert the explicit physical path starting with `./sources/` or Tester semi-colon pair syntax based strictly on the active persona domain. Append its targeted Tag IDs inline here.
+</RULE>
+* **Low-Level Technical Task Instruction:**
+<RULE>
+Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
+</RULE>
 
-      # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-      - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 5' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
-      * **Database Schema DDL SQL Specification [DAT-XXX]:**
-        <RULE>
-        You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
-        </RULE>
-      * **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-        <RULE>
-        You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
-        </RULE>
-      * **Phase Localized Exception Handlers [EXC-XXX]:**
-        <RULE>
-        You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
-        </RULE>
+# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 3' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
+* **Database Schema DDL SQL Specification [DAT-XXX]:**
+<RULE>
+You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
+</RULE>
+* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
+<RULE>
+You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
+</RULE>
+* **Phase Localized Exception Handlers [EXC-XXX]:**
+<RULE>
+You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
+</RULE>
 
-      <!--END_ATOMIC_SUB_TASK_NODE-->
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-  <!--END_PHASE_LOG_BLOCK_INDEX_5-->
-
-
-
-
-  ### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
-  - Immediately beneath the final Phase log (Phase 5) and before closing Section 5, you MUST execute a strict internal mathematical self-audit of the entire assembled architecture. 
-  - You MUST compile and render an isolated, clean Markdown Compliance Report block utilizing the exact Technical English structure below. 
-  - You are critically ordered to dynamically compute the real-world values based strictly on the current generation instance metrics combined with the historic data provided in `<PREVIOUS_PHASES_HISTORY>`—no hardcoding or static placeholder strings allowed:
-
-  ```properties:cross_audit_ledger
-  [AUTOMATED_SELF_AUDIT_REPORT]
-  TOTAL_PHASES_DECLARED_IN_SECTION_4_2=5
-  TOTAL_PHASES_EXPECTED_BY_PARAMETERS=5
-  PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
-  MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
-  ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=7
-  TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-  TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=14
-  TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum here based on the strict mandate rule above]
-  SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
-  ```
-
-  - **MANDATORY CRITICAL FAILURE CRITERIA:** If your calculated total discrete sub-tasks across all phases does not mathematically match the exact count of tasks registered in the master backlog, or if any individual phase duration breaks the ceiling of `7`, you MUST instantly trigger an internal framework exception, re-compile your attention heads, and dynamically re-distribute the allocation matrix to enforce 100% plan symmetry before emitting the final text stream."
+<!--END_PHASE_LOG_BLOCK_INDEX_3-->"
     }
 ]
 
@@ -1120,469 +1095,250 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📝 4. PHÂN TÍCH KIẾN TRÚC & TÌNH TRẠNG THỰC HIỆN
-
-### 4.1 MASTER PRODUCT BACKLOG
-
-| STT | Mô-đun | Yêu cầu Chức năng Cốt lõi | Tag IDs |
-|-----|--------|---------------------------|---------|
-| 1   | Quản lý người dùng | Đăng ký người dùng, Xác thực qua mạng xã hội, Phân quyền người dùng | [REQ-001], [REQ-002], [REQ-003] |
-| 2   | Quản lý trung tâm | Xem danh sách trung tâm, Tạo/cập nhật/xóa trung tâm, Phân quyền quản trị trung tâm | [REQ-004], [REQ-005], [REQ-006] |
-| 3   | Quản lý khóa học | Xem danh sách khóa học, Tạo/cập nhật/xóa khóa học, Phân công giáo viên vào khóa học | [REQ-007], [REQ-008], [REQ-009] |
-| 4   | Đăng ký & ghi danh học viên | Duyệt khóa học, Đăng ký khóa học của học viên | [REQ-010], [REQ-011] |
-| 5   | Điểm danh & quét mã QR | Chụp ảnh điểm danh QR, Tính chất bất biến của điểm danh | [REQ-012], [REQ-013] |
-| 6   | Quản lý thẻ hội viên | Hiển thị tính hợp lệ của thẻ, Gia hạn thẻ | [REQ-014], [REQ-015] |
-| 7   | Thông báo & truyền thông | Kích hoạt thông báo | [REQ-016] |
-| 8   | Quản lý khuyến mãi & thông báo | Quản lý khuyến mãi, Quản lý thông báo | [REQ-017], [REQ-018] |
-| 9   | Chatbot dịch vụ khách hàng AI | Tích hợp chatbot AI | [REQ-019] |
-| 10  | Các tính năng cốt lõi của ứng dụng di động | Giao diện người dùng vai trò cụ thể trên di động, Thông báo đẩy trên di động | [REQ-020], [REQ-021] |
-| 11  | Bản địa hóa & SEO | Phát hiện ngôn ngữ mặc định, SEO đa ngôn ngữ | [REQ-022], [REQ-023] |
-| 12  | Báo cáo & phân tích | Tạo báo cáo điểm danh, Bảng điều khiển tóm tắt ghi danh | [REQ-024], [REQ-025] |
-
-### 4.2 MULTI-PHASE SYNOPSIS MATRIX
-
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-------------------------|---------------------------|------------|-------------------|
-| 1         | 1-3         | ./sources/backend/auth-service/ | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [NFR-001], [NFR-003], [NFR-006] |
-| 2         | 4-5         | ./sources/backend/center-service/ | Triển khai lõi nghiệp vụ trung tâm | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [NFR-001], [NFR-003], [NFR-006] |
-| 3         | 6-7         | ./sources/backend/course-service/ | Triển khai lõi nghiệp vụ khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [NFR-001], [NFR-003], [NFR-006] |
-| 4         | 1-2         | ./sources/backend/enrollment-service/ | Triển khai lõi nghiệp vụ ghi danh học viên | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [DAT-005], [NFR-001], [NFR-003], [NFR-006] |
-| 5         | 3-7         | ./sources/backend/attendance-service/ | Triển khai lõi nghiệp vụ điểm danh và quét mã QR | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002], [NFR-001], [NFR-003], [NFR-006] |
-
-## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
-
-### 📈 Giai đoạn 5 - Triển khai lõi nghiệp vụ điểm danh và quét mã QR
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống điểm danh và quét mã QR cho phép học viên ghi nhận điểm danh thời gian thực thông qua ứng dụng di động.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
-    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
-- **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
-
-  <!--START_DAY_LOG_INDEX_5-->
-
-  - **DAY 1: Khởi tạo hệ thống điểm danh và quét mã QR**
-
-    ##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho hệ thống điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [DAT-006]
-      ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_Attendance_Table.sql
-      Thiết kế và triển khai bảng điểm danh với các trường: attendanceId, studentId, courseId, attendanceDate, timestamp. Thêm các ràng buộc khóa ngoại và chỉ mục cho hiệu suất truy vấn.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho cơ sở dữ liệu điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [DAT-006]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceRepositoryTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceRepository.java
-      Viết các test case để kiểm tra tính toàn vẹn của dữ liệu trong bảng điểm danh, bao gồm các trường hợp chèn, cập nhật và truy vấn dữ liệu.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code cơ sở dữ liệu điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [DAT-006]
-      ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_Attendance_Table.sql
-      Review code cơ sở dữ liệu điểm danh để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu cơ sở dữ liệu điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [DAT-006]
-      ./sources/docs/database/attendance.md
-      Tạo tài liệu chi tiết về cơ sở dữ liệu điểm danh, bao gồm mô tả bảng, trường, ràng buộc và chỉ mục.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai cơ sở dữ liệu điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [DAT-006]
-      ./sources/infra/docker-compose.yml
-      Triển khai cơ sở dữ liệu điểm danh trong môi trường Docker, bao gồm cấu hình PostgreSQL và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình cơ sở dữ liệu điểm danh trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [DAT-006]
-      ./sources/infra/gcp/cloud-sql-config.yml
-      Cấu hình cơ sở dữ liệu điểm danh trên Google Cloud SQL, bao gồm các thiết lập bảo mật, sao lưu và khôi phục dữ liệu.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai cơ sở dữ liệu điểm danh trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [DAT-006]
-      ./sources/infra/gke/deployment.yml
-      Triển khai cơ sở dữ liệu điểm danh trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  - **DAY 2: Triển khai API điểm danh và quét mã QR**
-
-    ##### SUB-TASK 1: Thiết kế API điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [REQ-012], [REQ-013]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java
-      Thiết kế và triển khai API điểm danh, bao gồm các endpoint để ghi nhận điểm danh và kiểm tra tính bất biến của điểm danh.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho API điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [REQ-012], [REQ-013]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceControllerTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java
-      Viết các test case để kiểm tra tính năng điểm danh, bao gồm các trường hợp ghi nhận điểm danh và kiểm tra tính bất biến.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code API điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [REQ-012], [REQ-013]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java
-      Review code API điểm danh để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu API điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [REQ-012], [REQ-013]
-      ./sources/docs/api/attendance.md
-      Tạo tài liệu chi tiết về API điểm danh, bao gồm mô tả endpoint, request/response payload và ví dụ sử dụng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai API điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [REQ-012], [REQ-013]
-      ./sources/infra/docker-compose.yml
-      Triển khai API điểm danh trong môi trường Docker, bao gồm cấu hình Quarkus và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình API điểm danh trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [REQ-012], [REQ-013]
-      ./sources/infra/gcp/cloud-run-config.yml
-      Cấu hình API điểm danh trên Google Cloud Run, bao gồm các thiết lập bảo mật, logging và monitoring.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai API điểm danh trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [REQ-012], [REQ-013]
-      ./sources/infra/gke/deployment.yml
-      Triển khai API điểm danh trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  - **DAY 3: Triển khai tính năng quét mã QR**
-
-    ##### SUB-TASK 1: Thiết kế tính năng quét mã QR
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [REQ-012], [REQ-013]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/QRScannerService.java
-      Thiết kế và triển khai tính năng quét mã QR, bao gồm xử lý dữ liệu từ mã QR và ghi nhận điểm danh.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho tính năng quét mã QR
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [REQ-012], [REQ-013]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/QRScannerServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/QRScannerService.java
-      Viết các test case để kiểm tra tính năng quét mã QR, bao gồm các trường hợp xử lý dữ liệu từ mã QR và ghi nhận điểm danh.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code tính năng quét mã QR
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [REQ-012], [REQ-013]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/QRScannerService.java
-      Review code tính năng quét mã QR để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu tính năng quét mã QR
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [REQ-012], [REQ-013]
-      ./sources/docs/features/qr-scanner.md
-      Tạo tài liệu chi tiết về tính năng quét mã QR, bao gồm mô tả chức năng, luồng xử lý và ví dụ sử dụng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai tính năng quét mã QR
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [REQ-012], [REQ-013]
-      ./sources/infra/docker-compose.yml
-      Triển khai tính năng quét mã QR trong môi trường Docker, bao gồm cấu hình Quarkus và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình tính năng quét mã QR trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [REQ-012], [REQ-013]
-      ./sources/infra/gcp/cloud-run-config.yml
-      Cấu hình tính năng quét mã QR trên Google Cloud Run, bao gồm các thiết lập bảo mật, logging và monitoring.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai tính năng quét mã QR trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [REQ-012], [REQ-013]
-      ./sources/infra/gke/deployment.yml
-      Triển khai tính năng quét mã QR trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  - **DAY 4: Triển khai tính năng thông báo điểm danh**
-
-    ##### SUB-TASK 1: Thiết kế tính năng thông báo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [REQ-016]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/NotificationService.java
-      Thiết kế và triển khai tính năng thông báo điểm danh, bao gồm gửi thông báo đến ứng dụng di động và nhóm Zalo.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho tính năng thông báo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [REQ-016]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/NotificationServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/NotificationService.java
-      Viết các test case để kiểm tra tính năng thông báo điểm danh, bao gồm các trường hợp gửi thông báo đến ứng dụng di động và nhóm Zalo.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code tính năng thông báo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [REQ-016]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/NotificationService.java
-      Review code tính năng thông báo điểm danh để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu tính năng thông báo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [REQ-016]
-      ./sources/docs/features/notification.md
-      Tạo tài liệu chi tiết về tính năng thông báo điểm danh, bao gồm mô tả chức năng, luồng xử lý và ví dụ sử dụng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai tính năng thông báo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [REQ-016]
-      ./sources/infra/docker-compose.yml
-      Triển khai tính năng thông báo điểm danh trong môi trường Docker, bao gồm cấu hình Quarkus và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình tính năng thông báo điểm danh trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [REQ-016]
-      ./sources/infra/gcp/cloud-run-config.yml
-      Cấu hình tính năng thông báo điểm danh trên Google Cloud Run, bao gồm các thiết lập bảo mật, logging và monitoring.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai tính năng thông báo điểm danh trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [REQ-016]
-      ./sources/infra/gke/deployment.yml
-      Triển khai tính năng thông báo điểm danh trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  - **DAY 5: Triển khai tính năng báo cáo điểm danh**
-
-    ##### SUB-TASK 1: Thiết kế tính năng báo cáo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [REQ-024]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ReportService.java
-      Thiết kế và triển khai tính năng báo cáo điểm danh, bao gồm tạo báo cáo điểm danh và hiển thị báo cáo trên bảng điều khiển.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho tính năng báo cáo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [REQ-024]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/ReportServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ReportService.java
-      Viết các test case để kiểm tra tính năng báo cáo điểm danh, bao gồm các trường hợp tạo báo cáo điểm danh và hiển thị báo cáo trên bảng điều khiển.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code tính năng báo cáo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [REQ-024]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ReportService.java
-      Review code tính năng báo cáo điểm danh để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu tính năng báo cáo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [REQ-024]
-      ./sources/docs/features/report.md
-      Tạo tài liệu chi tiết về tính năng báo cáo điểm danh, bao gồm mô tả chức năng, luồng xử lý và ví dụ sử dụng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai tính năng báo cáo điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [REQ-024]
-      ./sources/infra/docker-compose.yml
-      Triển khai tính năng báo cáo điểm danh trong môi trường Docker, bao gồm cấu hình Quarkus và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình tính năng báo cáo điểm danh trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [REQ-024]
-      ./sources/infra/gcp/cloud-run-config.yml
-      Cấu hình tính năng báo cáo điểm danh trên Google Cloud Run, bao gồm các thiết lập bảo mật, logging và monitoring.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai tính năng báo cáo điểm danh trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [REQ-024]
-      ./sources/infra/gke/deployment.yml
-      Triển khai tính năng báo cáo điểm danh trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  - **DAY 6: Triển khai tính năng quản lý điểm danh**
-
-    ##### SUB-TASK 1: Thiết kế tính năng quản lý điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [REQ-025]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ManagementService.java
-      Thiết kế và triển khai tính năng quản lý điểm danh, bao gồm quản lý điểm danh và hiển thị điểm danh trên bảng điều khiển.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho tính năng quản lý điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [REQ-025]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/ManagementServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ManagementService.java
-      Viết các test case để kiểm tra tính năng quản lý điểm danh, bao gồm các trường hợp quản lý điểm danh và hiển thị điểm danh trên bảng điều khiển.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code tính năng quản lý điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [REQ-025]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ManagementService.java
-      Review code tính năng quản lý điểm danh để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu tính năng quản lý điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [REQ-025]
-      ./sources/docs/features/management.md
-      Tạo tài liệu chi tiết về tính năng quản lý điểm danh, bao gồm mô tả chức năng, luồng xử lý và ví dụ sử dụng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai tính năng quản lý điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [REQ-025]
-      ./sources/infra/docker-compose.yml
-      Triển khai tính năng quản lý điểm danh trong môi trường Docker, bao gồm cấu hình Quarkus và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình tính năng quản lý điểm danh trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [REQ-025]
-      ./sources/infra/gcp/cloud-run-config.yml
-      Cấu hình tính năng quản lý điểm danh trên Google Cloud Run, bao gồm các thiết lập bảo mật, logging và monitoring.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai tính năng quản lý điểm danh trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [REQ-025]
-      ./sources/infra/gke/deployment.yml
-      Triển khai tính năng quản lý điểm danh trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  - **DAY 7: Triển khai tính năng bảo mật và kiểm tra điểm danh**
-
-    ##### SUB-TASK 1: Thiết kế tính năng bảo mật và kiểm tra điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Coder]
-      [NFR-003]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/SecurityService.java
-      Thiết kế và triển khai tính năng bảo mật và kiểm tra điểm danh, bao gồm xác thực và ủy quyền cho các endpoint điểm danh.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 2: Viết test cho tính năng bảo mật và kiểm tra điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Tester]
-      [NFR-003]
-      ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/SecurityServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/SecurityService.java
-      Viết các test case để kiểm tra tính năng bảo mật và kiểm tra điểm danh, bao gồm các trường hợp xác thực và ủy quyền cho các endpoint điểm danh.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 3: Review code tính năng bảo mật và kiểm tra điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Reviewer]
-      [NFR-003]
-      ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/SecurityService.java
-      Review code tính năng bảo mật và kiểm tra điểm danh để đảm bảo tính chính xác, hiệu suất và tuân thủ các tiêu chuẩn mã nguồn mở.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 4: Tài liệu tính năng bảo mật và kiểm tra điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Doc]
-      [NFR-003]
-      ./sources/docs/security/attendance.md
-      Tạo tài liệu chi tiết về tính năng bảo mật và kiểm tra điểm danh, bao gồm mô tả chức năng, luồng xử lý và ví dụ sử dụng.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 5: Triển khai tính năng bảo mật và kiểm tra điểm danh
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [Docker]
-      [NFR-003]
-      ./sources/infra/docker-compose.yml
-      Triển khai tính năng bảo mật và kiểm tra điểm danh trong môi trường Docker, bao gồm cấu hình Quarkus và các biến môi trường cần thiết.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 6: Cấu hình tính năng bảo mật và kiểm tra điểm danh trên GCP
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GCP]
-      [NFR-003]
-      ./sources/infra/gcp/cloud-run-config.yml
-      Cấu hình tính năng bảo mật và kiểm tra điểm danh trên Google Cloud Run, bao gồm các thiết lập bảo mật, logging và monitoring.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-    ##### SUB-TASK 7: Triển khai tính năng bảo mật và kiểm tra điểm danh trên GKE
-      <!--START_ATOMIC_SUB_TASK_NODE-->
-      [GKE]
-      [NFR-003]
-      ./sources/infra/gke/deployment.yml
-      Triển khai tính năng bảo mật và kiểm tra điểm danh trên Google Kubernetes Engine, bao gồm cấu hình các pod, service và ingress.
-      <!--END_ATOMIC_SUB_TASK_NODE-->
-
-  <!--END_PHASE_LOG_BLOCK_INDEX_5-->
-
-### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
-
-```properties:cross_audit_ledger
-[AUTOMATED_SELF_AUDIT_REPORT]
-TOTAL_PHASES_DECLARED_IN_SECTION_4_2=5
-TOTAL_PHASES_EXPECTED_BY_PARAMETERS=5
-PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
-MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
-ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=7
-TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=14
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=49
-SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
+## 📝 4. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
+
+### 4.1 TỔNG QUAN KIẾN TRÚC
+
+#### Kiến trúc hệ thống
+- **Kiến trúc hệ thống:** Kiến trúc microservices với các dịch vụ độc lập cho xác thực, quản lý người dùng, quản lý trung tâm, quản lý khóa học, điểm danh, và thông báo.
+- **Kiến trúc dữ liệu:** Cơ sở dữ liệu quan hệ PostgreSQL với các bảng được chuẩn hóa và các mối quan hệ được xác định rõ ràng.
+- **Kiến trúc giao diện người dùng:** Giao diện người dùng web được xây dựng với Next.js và giao diện di động được xây dựng với React Native.
+
+#### Công nghệ & công cụ
+- **Backend:** Java/Quarkus
+- **Cơ sở dữ liệu:** PostgreSQL
+- **Containerization:** Docker
+- **Orchestration:** Kubernetes (GKE)
+- **Authentication:** Firebase Authentication
+- **Push Notifications:** Google Cloud Messaging (FCM)/Apple APNs
+- **Zalo Integration:** Zalo API
+- **Caching:** Redis
+- **CI/CD:** GitHub Actions
+
+### 4.2 MA TRẬN TÓM TẮT PHÂN PHỐI PHÂN PHÁP
+
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Kiến trúc | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|-----------------------------|----------------------------|-----------|------------------|
+| Giai đoạn 1 | Ngày 1-2 | Khởi tạo hệ thống người dùng và xác thực | Thiết lập cơ sở dữ liệu người dùng, triển khai xác thực OAuth2, tích hợp Firebase Authentication | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [ARC-006] |
+| Giai đoạn 2 | Ngày 1-3 | Triển khai lõi nghiệp vụ quản lý trung tâm | Thiết lập cơ sở dữ liệu trung tâm, triển khai API quản lý trung tâm, tích hợp phân quyền RBAC | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [ARC-002] |
+| Giai đoạn 3 | Ngày 1-2 | Triển khai lõi nghiệp vụ quản lý khóa học | Thiết lập cơ sở dữ liệu khóa học, triển khai API quản lý khóa học, tích hợp phân công giáo viên | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-003] |
+| Giai đoạn 4 | Ngày 1-3 | Triển khai lõi nghiệp vụ điểm danh và thẻ hội viên | Thiết lập cơ sở dữ liệu điểm danh và thẻ hội viên, triển khai API điểm danh, tích hợp quét mã QR | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [ARC-007] |
+| Giai đoạn 5 | Ngày 1-2 | Triển khai lõi nghiệp vụ thông báo và giao diện người dùng | Thiết lập cơ sở dữ liệu thông báo, triển khai API thông báo, tích hợp giao diện người dùng web và di động | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [REQ-020], [REQ-021], [DAT-008], [ARC-008], [ARC-009] |
+
+## 📅 5. CHI TIẾT PHÂN PHÁP KIẾN TRÚC THEO NGÀY
+
+### Giai đoạn 3 - Triển khai lõi nghiệp vụ quản lý khóa học
+
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai cơ sở dữ liệu và API cho quản lý khóa học, bao gồm tạo, cập nhật, xóa khóa học và phân công giáo viên.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/course-service/`, `./sources/docs/architecture/course-service.md`
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** ```sql
+CREATE TABLE courses (
+    course_id UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    teacher_id UUID REFERENCES users(user_id),
+    max_students INT DEFAULT 30
+);
+
+CREATE INDEX idx_courses_teacher_id ON courses(teacher_id);
+CREATE INDEX idx_courses_start_date ON courses(start_date);
+CREATE INDEX idx_courses_end_date ON courses(end_date);
 ```
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-007], [REQ-008], [REQ-009], [ARC-003]:**
+```json
+{
+  "endpoints": [
+    {
+      "path": "/api/courses",
+      "method": "GET",
+      "description": "Lấy danh sách khóa học",
+      "response": {
+        "courses": [
+          {
+            "courseId": "uuid",
+            "title": "string",
+            "startDate": "date",
+            "endDate": "date",
+            "teacherName": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/api/courses",
+      "method": "POST",
+      "description": "Tạo khóa học mới",
+      "request": {
+        "title": "string",
+        "startDate": "date",
+        "endDate": "date",
+        "teacherId": "uuid"
+      },
+      "response": {
+        "courseId": "uuid"
+      }
+    },
+    {
+      "path": "/api/courses/{courseId}/teachers",
+      "method": "POST",
+      "description": "Phân công giáo viên cho khóa học",
+      "request": {
+        "teacherId": "uuid"
+      },
+      "response": {
+        "success": "boolean"
+      }
+    }
+  ]
+}
+```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:**
+  - **Xử lý xung đột lịch trình giáo viên:** Khi một giáo viên đã được phân công cho một khóa học khác trong cùng khoảng thời gian, hệ thống sẽ trả về lỗi 409 Conflict với thông báo "Giáo viên đã có lịch trình khác trong khoảng thời gian này."
+  - **Xử lý trùng lặp điểm danh:** Khi một học viên quét mã QR nhiều lần trong cùng một ngày, hệ thống sẽ trả về thông báo "Điểm danh đã được ghi nhận" và không tạo bản ghi trùng lặp.
+
+#### Nhật ký Công việc Theo Ngày (Giai đoạn 3)
+
+<!--START_DAY_LOG_INDEX_3-->
+
+- **DAY 1: Thiết lập cơ sở dữ liệu và API cho quản lý khóa học**
+
+##### SUB-TASK 1: Thiết lập cơ sở dữ liệu khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Coder]
+* Tag IDs: [DAT-004]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/resources/db/migration/V1__CreateCoursesTable.sql`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo tệp migration Flyway để tạo bảng `courses` với các cột: `course_id`, `title`, `description`, `start_date`, `end_date`, `teacher_id`, `max_students`.
+  - Thêm các chỉ mục cho các cột `teacher_id`, `start_date`, và `end_date`.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 2: Thiết lập API để lấy danh sách khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Coder]
+* Tag IDs: [REQ-007]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo endpoint GET `/api/courses` để lấy danh sách khóa học.
+  - Trả về danh sách khóa học với các thông tin: `courseId`, `title`, `startDate`, `endDate`, `teacherName`.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 3: Thiết lập API để tạo khóa học mới
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Coder]
+* Tag IDs: [REQ-008]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo endpoint POST `/api/courses` để tạo khóa học mới.
+  - Kiểm tra xem giáo viên có sẵn trong khoảng thời gian này không.
+  - Nếu có xung đột, trả về lỗi 409 Conflict.
+  - Nếu không có xung đột, lưu khóa học mới và trả về `courseId`.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 4: Thiết lập API để phân công giáo viên cho khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Coder]
+* Tag IDs: [REQ-009]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo endpoint POST `/api/courses/{courseId}/teachers` để phân công giáo viên cho khóa học.
+  - Cập nhật `teacher_id` trong bảng `courses`.
+  - Gửi thông báo đến ứng dụng di động của giáo viên.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 5: Viết test cho API quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Tester]
+* Tag IDs: [REQ-007], [REQ-008], [REQ-009]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/test/java/com/example/courseservice/api/CourseControllerTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java`
+* Hướng dẫn Công việc Chi tiết:
+  - Viết test cho endpoint GET `/api/courses`.
+  - Viết test cho endpoint POST `/api/courses`.
+  - Viết test cho endpoint POST `/api/courses/{courseId}/teachers`.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 6: Review code cho quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Reviewer]
+* Tag IDs: [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java;./sources/backend/course-service/src/main/resources/db/migration/V1__CreateCoursesTable.sql`
+* Hướng dẫn Công việc Chi tiết:
+  - Review code cho API quản lý khóa học.
+  - Review schema cơ sở dữ liệu cho bảng `courses`.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 7: Tài liệu kiến trúc cho quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Doc]
+* Tag IDs: [ARC-003]
+* Đường dẫn Cấu phần / Module: `./sources/docs/architecture/course-service.md`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo tài liệu kiến trúc cho dịch vụ quản lý khóa học.
+  - Mô tả các endpoint API và schema cơ sở dữ liệu.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 8: Xây dựng và triển khai Docker image cho dịch vụ quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Docker]
+* Tag IDs: [ARC-003]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/Dockerfile`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo Dockerfile cho dịch vụ quản lý khóa học.
+  - Xây dựng và đẩy image Docker lên registry.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 9: Triển khai dịch vụ quản lý khóa học trên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [GKE]
+* Tag IDs: [ARC-003]
+* Đường dẫn Cấu phần / Module: `./sources/infra/gke/course-service-deployment.yaml`
+* Hướng dẫn Công việc Chi tiết:
+  - Tạo tệp triển khai Kubernetes cho dịch vụ quản lý khóa học.
+  - Triển khai dịch vụ trên GKE.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 2: Hoàn thiện và kiểm thử API quản lý khóa học**
+
+##### SUB-TASK 1: Hoàn thiện API quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Coder]
+* Tag IDs: [REQ-007], [REQ-008], [REQ-009]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java`
+* Hướng dẫn Công việc Chi tiết:
+  - Hoàn thiện các endpoint API cho quản lý khóa học.
+  - Thêm các xử lý ngoại lệ và kiểm tra đầu vào.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 2: Kiểm thử tích hợp cho API quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Tester]
+* Tag IDs: [REQ-007], [REQ-008], [REQ-009]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/test/java/com/example/courseservice/api/CourseControllerIntegrationTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java`
+* Hướng dẫn Công việc Chi tiết:
+  - Viết test tích hợp cho các endpoint API quản lý khóa học.
+  - Kiểm tra các trường hợp ngoại lệ và kiểm tra đầu vào.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 3: Review code và tài liệu cho quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [Reviewer]
+* Tag IDs: [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-003]
+* Đường dẫn Cấu phần / Module: `./sources/backend/course-service/src/main/java/com/example/courseservice/api/CourseController.java;./sources/docs/architecture/course-service.md`
+* Hướng dẫn Công việc Chi tiết:
+  - Review code và tài liệu cho quản lý khóa học.
+  - Đảm bảo các yêu cầu và kiến trúc được tuân thủ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 4: Triển khai dịch vụ quản lý khóa học trên môi trường staging
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* Sub-Agent: [GKE]
+* Tag IDs: [ARC-003]
+* Đường dẫn Cấu phần / Module: `./sources/infra/gke/course-service-deployment.yaml`
+* Hướng dẫn Công việc Chi tiết:
+  - Triển khai dịch vụ quản lý khóa học trên môi trường staging.
+  - Kiểm tra các endpoint API và xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--END_PHASE_LOG_BLOCK_INDEX_3-->
 
