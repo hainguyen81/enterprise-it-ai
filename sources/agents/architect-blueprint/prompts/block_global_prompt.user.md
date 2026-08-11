@@ -133,8 +133,6 @@ You MUST include every single section below without exception to satisfy enterpr
   {% endif %}
 {% endif %}
 
-{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
-
 ## 📊 Document Control
 
 | Item | Details |
