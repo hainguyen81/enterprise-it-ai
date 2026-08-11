@@ -185,7 +185,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             "target_phase_index": -1,
             # only using for latest phase for audit
             "historic_ledger_map": None,
+            "generated_phases_context": None
         }
+        # history phases from phase loop chunks to use for final chunk
+        immutable_tag_phase_summaries = []
 
         # # ==============================================================================
         # # CHUNK 1: from Section 1 to the end of Section 4
@@ -420,6 +423,14 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             found_tags = re.findall(r'<!--START_ATOMIC_SUB_TASK_NODE-->', phase_chunk)
             clean_tags_line = "".join(found_tags)
             historic_ledger_map_chunks.append(f"Phase {phase_idx}: {clean_tags_line}")
+            
+            # --- use Regex to extract hidden HTML for historical phases generation to use for final trunk ---
+            tag_pattern = rf"<!--START_DAY_LOG_INDEX_{phase_idx}-->(.*?)<!--END_PHASE_LOG_BLOCK_INDEX_{phase_idx}-->"
+            day_logs_match = re.search(tag_pattern, phase_chunk, re.DOTALL)
+            # Stick context include pgase guideline (Technical English - no translation)
+            phase_log = day_logs_match.group(1).strip() if day_logs_match else phase_chunk
+            extracted_block = f"### Phase {phase_idx} Logs:\n" + phase_log.strip()
+            immutable_tag_phase_summaries.append(extracted_block)
 
             # write chunk log
             chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
@@ -444,6 +455,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             **base_prompt_context,
             "target_segment": "PART_3_FINAL",
             "total_tasks_registered": actual_registered_tasks,
+            "generated_phases_context": "\n\n---\n\n".join(immutable_tag_phase_summaries)
         }
         
         # build conversation
