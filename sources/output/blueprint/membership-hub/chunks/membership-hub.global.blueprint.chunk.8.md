@@ -26,6 +26,7 @@
     * All bracketed Sub-Agent literal tokens when operating as allocation signatures (e.g., `[Coder]`, `[Tester]`, `[Reviewer]`, `[Doc]`, `[Docker]`, `[GCP]`, `[GKE]`).
     * Any alphanumeric sequential task index formatting codes (e.g., `D1_ST1`, `D2_ST3`).
     * All absolute or relative file paths starting with `./sources/`.
+    * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
     * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
     * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
@@ -104,8 +105,9 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
     * These hidden blocks function exclusively as private machine-to-machine backend gating logic. 
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
-    * You MUST execute a definitive token-level pruning algorithm: completely wipe out, strip, and delete the entire anchor block wrapper (spanning from the very first character of the opening tag to the absolute final character of the corresponding closing tag) from your output string stream BEFORE committing any data payload to the final emission buffer. 
-    * Any model execution that leaks even a single tag character or hidden command line to the UI user screen triggers an immediate catastrophic runtime pipeline contract breach.
+    * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
+    * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -642,10 +644,10 @@ MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for P
 - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 5'.
 
 <HISTORIC_LEDGER_MAP>
-Phase 1: 
+Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 Phase 2: 
-Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 4: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+Phase 4: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 </HISTORIC_LEDGER_MAP>
 </RULE>
 
@@ -750,7 +752,7 @@ PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
 ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=computed_highest_day_integer_found_in_section_5
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=17
+TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=20
 TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum of all listed atomic sub-task nodes generated across all phases]
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
@@ -765,6 +767,7 @@ SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_S
 
 ---
 
+```markdown
 # GLOBAL PROJECT CONTEXT: membership-hub
 
 ## 🏛️ 1. TỔNG QUAN HỆ THỐNG
@@ -1139,525 +1142,192 @@ SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_S
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📅 4. PHÂN TÍCH KIẾN TRÚC & LỐI THỜI GIAN
+## 📝 4. PHÂN TÍCH KIẾN TRÚC & PHÂN PHỐI PHÂN PHÁP
 
 ### 4.1 MASTER PRODUCT BACKLOG
 
-| STT | Mô-đun / Chức năng | Mô tả | Tag IDs |
-|-----|---------------------|-------|---------|
-| 1   | Quản lý người dùng  | Đăng ký, xác thực, phân quyền người dùng | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004] |
-| 2   | Quản lý trung tâm  | Tạo, cập nhật, xóa trung tâm; phân quyền quản trị | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
-| 3   | Quản lý khóa học   | Tạo, cập nhật, xóa khóa học; phân công giáo viên | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
-| 4   | Đăng ký & ghi danh học viên | Duyệt khóa học, đăng ký khóa học | [REQ-010], [REQ-011], [DAT-005] |
-| 5   | Điểm danh & quét mã QR | Quét mã QR để điểm danh; xử lý trùng lặp | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
-| 6   | Quản lý thẻ hội viên | Hiển thị thẻ hội viên, gia hạn thẻ | [REQ-014], [REQ-015], [DAT-007] |
-| 7   | Thông báo & truyền thông | Kích hoạt thông báo qua ứng dụng di động và Zalo | [REQ-016], [DAT-008], [EXC-003] |
-| 8   | Quản lý khuyến mãi & thông báo | Tạo, cập nhật, xóa khuyến mãi và thông báo | [REQ-017], [REQ-018], [DAT-009] |
-| 9   | Chatbot dịch vụ khách hàng AI | Tích hợp chatbot AI để trả lời các truy vấn phổ biến | [REQ-019] |
-| 10  | Các tính năng cốt lõi của ứng dụng di động | Giao diện người dùng, thông báo đẩy | [REQ-020], [REQ-021] |
-| 11  | Bản địa hóa & SEO | Phát hiện ngôn ngữ, SEO đa ngôn ngữ | [REQ-022], [REQ-023], [DAT-011] |
-| 12  | Báo cáo & phân tích | Tạo báo cáo điểm danh, bảng điều khiển tóm tắt | [REQ-024], [REQ-025], [EXC-005] |
-| 13  | Kiến trúc & luồng dữ liệu | Xác thực, điểm danh QR, gửi thông báo, tích hợp backend | [ARC-006], [ARC-007], [ARC-008], [ARC-009] |
-| 14  | Công nghệ & hạ tầng | Backend, cơ sở dữ liệu, container hóa, triển khai | [ARC-010] |
-| 15  | Performance Metrics | Hiệu suất API, truy vấn cơ sở dữ liệu | [NFR-001] |
-| 16  | Availability | Độ sẵn sàng hệ thống, failover | [NFR-002] |
-| 17  | Security | Bảo mật dữ liệu, xác thực, OWASP Top 10 | [NFR-003] |
+| STT | Yêu cầu | Mô tả | Tag ID |
+|-----|---------|-------|--------|
+| 1 | Đăng ký người dùng | Xây dựng form đăng ký với xác thực email và mật khẩu | [REQ-001] |
+| 2 | Xác thực qua mạng xã hội | Tích hợp Firebase, Google, Facebook OAuth | [REQ-002] |
+| 3 | Phân quyền người dùng | Tạo giao diện quản lý vai trò người dùng | [REQ-003] |
+| 4 | Xem danh sách trung tâm | Xây dựng trang danh sách trung tâm với bộ lọc | [REQ-004] |
+| 5 | Quản lý trung tâm | Tạo form thêm/sửa/xóa trung tâm | [REQ-005] |
+| 6 | Phân quyền quản trị trung tâm | Xây dựng giao diện gán người dùng làm Center Admin | [REQ-006] |
+| 7 | Xem danh sách khóa học | Tạo trang danh sách khóa học với bộ lọc | [REQ-007] |
+| 8 | Quản lý khóa học | Xây dựng form thêm/sửa/xóa khóa học | [REQ-008] |
+| 9 | Phân công giáo viên | Tạo giao diện gán giáo viên vào khóa học | [REQ-009] |
+| 10 | Duyệt khóa học | Xây dựng trang duyệt khóa học cho học viên | [REQ-010] |
+| 11 | Đăng ký khóa học | Xây dựng chức năng đăng ký khóa học | [REQ-011] |
+| 12 | Chụp ảnh điểm danh QR | Tích hợp scanner QR trong ứng dụng di động | [REQ-012] |
+| 13 | Tính chất bất biến của điểm danh | Xây dựng cơ chế xử lý điểm danh trùng lặp | [REQ-013] |
+| 14 | Hiển thị thẻ hội viên | Xây dựng trang hiển thị thông tin thẻ hội viên | [REQ-014] |
+| 15 | Gia hạn thẻ hội viên | Xây dựng chức năng gia hạn thẻ hội viên | [REQ-015] |
+| 16 | Kích hoạt thông báo | Xây dựng cơ chế gửi thông báo đa kênh | [REQ-016] |
+| 17 | Quản lý khuyến mãi | Xây dựng giao diện quản lý khuyến mãi | [REQ-017] |
+| 18 | Quản lý thông báo | Xây dựng giao diện quản lý thông báo | [REQ-018] |
+| 19 | Tích hợp chatbot AI | Tích hợp chatbot AI vào giao diện người dùng | [REQ-019] |
+| 20 | Giao diện di động | Xây dựng giao diện di động đáp ứng cho các vai trò | [REQ-020] |
 
 ### 4.2 MULTI-PHASE SYNOPSIS MATRIX
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|--------------|-------------------------|----------------------------|-----------|------------------|
-| 1         | 1-2          | ./sources/backend/auth-service/ | Khởi tạo hệ thống xác thực người dùng | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006], [NFR-003] |
-| 2         | 3-4          | ./sources/backend/center-service/ | Khởi tạo hệ thống quản lý trung tâm | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
-| 3         | 5-6          | ./sources/backend/course-service/ | Khởi tạo hệ thống quản lý khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
-| 4         | 7-7          | ./sources/backend/enrollment-service/ | Khởi tạo hệ thống đăng ký & ghi danh học viên | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [DAT-005] |
-| 5         | 1-7          | ./sources/backend/attendance-service/, ./sources/backend/notification-service/, ./sources/backend/membership-service/, ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/frontend/, ./sources/infra/ | Triển khai lõi nghiệp vụ điểm danh, thông báo, thẻ hội viên, khuyến mãi, chatbot, ứng dụng di động, hạ tầng | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-005], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
+| Giai đoạn | Khoảng ngày | Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|--------------------|---------------------------|-----------|-------------------|
+| 1 | 1-2 | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với JWT | Coder, Tester, Reviewer, Docker | [REQ-001], [REQ-002], [ARC-006] |
+| 2 | 3-4 | ./sources/backend/center-service/ | Xây dựng dịch vụ quản lý trung tâm | Coder, Tester, Reviewer, Docker | [REQ-004], [REQ-005], [REQ-006] |
+| 3 | 5-6 | ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý khóa học | Coder, Tester, Reviewer, Docker | [REQ-007], [REQ-008], [REQ-009] |
+| 4 | 7-7 | ./sources/frontend/ | Xây dựng giao diện người dùng | Coder, Tester, Reviewer, Docker | [REQ-010], [REQ-011], [REQ-020] |
+| 5 | 1-7 | ./sources/backend/attendance-service/ | Xây dựng dịch vụ điểm danh và quản lý thẻ hội viên | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [ARC-007], [ARC-008], [ARC-009] |
 
-## 📝 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
+## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
 
-### Phase 5 - Triển Khai Lõi Nghiệp Vụ Điểm Danh, Thông Báo, Thẻ Hội Viên, Khuyến Mãi, Chatbot, Ứng Dụng Di Động, Hạ Tầng
-
-- **Phase Core Objective & Purpose:** Triển khai các tính năng lõi của hệ thống bao gồm điểm danh qua mã QR, quản lý thông báo, thẻ hội viên, khuyến mãi, chatbot, ứng dụng di động và hạ tầng.
-- **Target Physical Directory Matrix Map:**
-    * ./sources/backend/attendance-service/
-    * ./sources/backend/notification-service/
-    * ./sources/backend/membership-service/
-    * ./sources/backend/promotion-service/
-    * ./sources/backend/chatbot-service/
-    * ./sources/frontend/
-    * ./sources/infra/
-- **Database Schema DDL SQL Specification [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]:**
-```sql
--- Attendance table
-CREATE TABLE attendance (
-    attendanceId UUID PRIMARY KEY,
-    studentId UUID NOT NULL,
-    courseId UUID NOT NULL,
-    attendanceDate DATE NOT NULL,
-    timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (studentId) REFERENCES users(userId),
-    FOREIGN KEY (courseId) REFERENCES courses(courseId)
-);
-
--- StudentCards table
-CREATE TABLE student_cards (
-    cardId UUID PRIMARY KEY,
-    studentId UUID NOT NULL,
-    issueDate DATE NOT NULL,
-    validityDays INT NOT NULL,
-    remainingDays INT NOT NULL,
-    FOREIGN KEY (studentId) REFERENCES users(userId)
-);
-
--- Notifications table
-CREATE TABLE notifications (
-    notificationId UUID PRIMARY KEY,
-    userId UUID,
-    groupZalo VARCHAR(255),
-    message TEXT NOT NULL,
-    sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
-    delivered BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (userId) REFERENCES users(userId)
-);
-
--- Promotions table
-CREATE TABLE promotions (
-    promoId UUID PRIMARY KEY,
-    code VARCHAR(50) UNIQUE,
-    discountPercent SMALLINT NOT NULL,
-    startDate DATE,
-    endDate DATE,
-    description TEXT
-);
-
--- Announcements table
-CREATE TABLE announcements (
-    announcementId UUID PRIMARY KEY,
-    title VARCHAR(150) NOT NULL,
-    content TEXT NOT NULL,
-    startDate DATE,
-    endDate DATE
-);
-
--- SystemSettings table
-CREATE TABLE system_settings (
-    settingKey VARCHAR(100) PRIMARY KEY,
-    settingValue TEXT NOT NULL,
-    description VARCHAR(255)
-);
-```
-
-- **API and Event Routing Contracts [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [ARC-007], [ARC-008], [ARC-009], [ARC-010]:**
-```json
-{
-  "attendance": {
-    "scanQR": {
-      "method": "POST",
-      "path": "/api/attendance/scan",
-      "request": {
-        "studentId": "uuid",
-        "courseId": "uuid",
-        "timestamp": "string"
-      },
-      "response": {
-        "status": "string",
-        "message": "string"
-      }
-    }
-  },
-  "notifications": {
-    "sendNotification": {
-      "method": "POST",
-      "path": "/api/notifications/send",
-      "request": {
-        "userId": "uuid",
-        "groupZalo": "string",
-        "message": "string"
-      },
-      "response": {
-        "status": "string",
-        "message": "string"
-      }
-    }
-  },
-  "membership": {
-    "getCard": {
-      "method": "GET",
-      "path": "/api/membership/card",
-      "request": {
-        "studentId": "uuid"
-      },
-      "response": {
-        "cardId": "uuid",
-        "issueDate": "string",
-        "validityDays": "integer",
-        "remainingDays": "integer"
-      }
-    }
-  },
-  "promotions": {
-    "getPromotions": {
-      "method": "GET",
-      "path": "/api/promotions",
-      "request": {},
-      "response": {
-        "promotions": [
-          {
-            "promoId": "uuid",
-            "code": "string",
-            "discountPercent": "integer",
-            "startDate": "string",
-            "endDate": "string",
-            "description": "string"
-          }
-        ]
-      }
-    }
-  },
-  "chatbot": {
-    "askQuestion": {
-      "method": "POST",
-      "path": "/api/chatbot/ask",
-      "request": {
-        "question": "string"
-      },
-      "response": {
-        "answer": "string"
-      }
-    }
-  },
-  "mobile": {
-    "getNotifications": {
-      "method": "GET",
-      "path": "/api/mobile/notifications",
-      "request": {
-        "userId": "uuid"
-      },
-      "response": {
-        "notifications": [
-          {
-            "notificationId": "uuid",
-            "message": "string",
-            "sentAt": "string"
-          }
-        ]
-      }
-    }
-  },
-  "localization": {
-    "getLocale": {
-      "method": "GET",
-      "path": "/api/localization/locale",
-      "request": {},
-      "response": {
-        "locale": "string"
-      }
-    }
-  },
-  "reports": {
-    "getAttendanceReport": {
-      "method": "GET",
-      "path": "/api/reports/attendance",
-      "request": {
-        "centerId": "uuid",
-        "startDate": "string",
-        "endDate": "string"
-      },
-      "response": {
-        "report": "string"
-      }
-    }
-  }
-}
-```
-
-- **Phase Localized Exception Handlers [EXC-001], [EXC-002], [EXC-003], [EXC-005]:**
-- **Xử lý ngoại lệ điểm danh:**
-  - Nếu mạng bị gián đoạn trong quá trình quét mã QR, hệ thống sẽ ghi lại lỗi và thử lại sau khi kết nối mạng được khôi phục.
-  - Nếu học viên quét mã QR nhiều lần trong cùng một ngày, hệ thống sẽ chỉ ghi lại một bản ghi điểm danh và trả về thông báo đã ghi nhận.
-
-- **Xử lý ngoại lệ thông báo:**
-  - Nếu thông báo không thể được gửi (ví dụ: token thiết bị không hợp lệ), hệ thống sẽ ghi lại lỗi và thử lại tối đa ba lần trước khi đánh dấu là thất bại.
-
-- **Xử lý ngoại lệ hệ thống:**
-  - Nếu dịch vụ trở nên không khả dụng, khi dịch vụ khôi phục, tất cả các bản ghi điểm danh đang chờ xử lý sẽ được xử lý theo thứ tự FIFO và người dùng sẽ nhận được thông báo về các sự kiện đã khôi phục.
+### Phase 5 - Triển Khai Lõi Nghiệp Vụ Điểm Danh Và Quản Lý Thẻ Hội Viên
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng hệ thống điểm danh thời gian thực và quản lý thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
+    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 5)
 
 <!--START_DAY_LOG_INDEX_5-->
 
-- **DAY 1: Triển khai hệ thống điểm danh và quản lý thông báo**
-  - **SUB-TASK 1: Thiết kế và triển khai API điểm danh**
-    - [Coder]
-    - [REQ-012], [REQ-013], [DAT-006]
-    - ./sources/backend/attendance-service/
-    - Thiết kế và triển khai API để quét mã QR và ghi lại điểm danh. Đảm bảo tính bất biến của điểm danh.
-  - **SUB-TASK 2: Thiết kế và triển khai API quản lý thông báo**
-    - [Coder]
-    - [REQ-016], [DAT-008]
-    - ./sources/backend/notification-service/
-    - Thiết kế và triển khai API để gửi thông báo đến ứng dụng di động và nhóm Zalo.
-  - **SUB-TASK 3: Viết test cho API điểm danh**
-    - [Tester]
-    - [REQ-012], [REQ-013], [DAT-006]
-    - ./sources/backend/attendance-service/test;./sources/backend/attendance-service/
-    - Viết test cho API điểm danh để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 4: Viết test cho API quản lý thông báo**
-    - [Tester]
-    - [REQ-016], [DAT-008]
-    - ./sources/backend/notification-service/test;./sources/backend/notification-service/
-    - Viết test cho API quản lý thông báo để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 5: Review code điểm danh và quản lý thông báo**
-    - [Reviewer]
-    - [REQ-012], [REQ-013], [REQ-016], [DAT-006], [DAT-008]
-    - ./sources/backend/attendance-service/, ./sources/backend/notification-service/
-    - Review code điểm danh và quản lý thông báo để đảm bảo chất lượng và tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 6: Tài liệu API điểm danh và quản lý thông báo**
-    - [Doc]
-    - [REQ-012], [REQ-013], [REQ-016], [DAT-006], [DAT-008]
-    - ./sources/docs/
-    - Tài liệu API điểm danh và quản lý thông báo để hỗ trợ phát triển và sử dụng.
-  - **SUB-TASK 7: Triển khai Docker cho điểm danh và quản lý thông báo**
-    - [Docker]
-    - [ARC-010]
-    - ./sources/backend/attendance-service/Dockerfile, ./sources/backend/notification-service/Dockerfile
-    - Tạo Dockerfile và triển khai container cho điểm danh và quản lý thông báo.
-  - **SUB-TASK 8: Triển khai GCP cho điểm danh và quản lý thông báo**
-    - [GCP]
-    - [ARC-010]
-    - ./sources/infra/gcp/
-    - Cấu hình và triển khai các dịch vụ GCP cho điểm danh và quản lý thông báo.
-  - **SUB-TASK 9: Triển khai GKE cho điểm danh và quản lý thông báo**
-    - [GKE]
-    - [ARC-010]
-    - ./sources/infra/gke/
-    - Cấu hình và triển khai các dịch vụ GKE cho điểm danh và quản lý thông báo.
+- **DAY 1: Khởi tạo Dịch vụ Điểm Danh Cơ bản**
+  
+##### SUB-TASK 1: Thiết kế Schema Cơ sở Dữ liệu Điểm Danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [DAT-006]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_Attendance_Schema.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng Attendance với các trường: attendanceId (UUID), studentId (UUID), courseId (UUID), attendanceDate (DATE), timestamp (TIMESTAMP). Thêm chỉ mục trên studentId và courseId.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 2: Triển khai hệ thống quản lý thẻ hội viên và khuyến mãi**
-  - **SUB-TASK 1: Thiết kế và triển khai API quản lý thẻ hội viên**
-    - [Coder]
-    - [REQ-014], [REQ-015], [DAT-007]
-    - ./sources/backend/membership-service/
-    - Thiết kế và triển khai API để hiển thị và gia hạn thẻ hội viên.
-  - **SUB-TASK 2: Thiết kế và triển khai API quản lý khuyến mãi**
-    - [Coder]
-    - [REQ-017], [DAT-009]
-    - ./sources/backend/promotion-service/
-    - Thiết kế và triển khai API để quản lý khuyến mãi.
-  - **SUB-TASK 3: Viết test cho API quản lý thẻ hội viên**
-    - [Tester]
-    - [REQ-014], [REQ-015], [DAT-007]
-    - ./sources/backend/membership-service/test;./sources/backend/membership-service/
-    - Viết test cho API quản lý thẻ hội viên để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 4: Viết test cho API quản lý khuyến mãi**
-    - [Tester]
-    - [REQ-017], [DAT-009]
-    - ./sources/backend/promotion-service/test;./sources/backend/promotion-service/
-    - Viết test cho API quản lý khuyến mãi để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 5: Review code quản lý thẻ hội viên và khuyến mãi**
-    - [Reviewer]
-    - [REQ-014], [REQ-015], [REQ-017], [DAT-007], [DAT-009]
-    - ./sources/backend/membership-service/, ./sources/backend/promotion-service/
-    - Review code quản lý thẻ hội viên và khuyến mãi để đảm bảo chất lượng và tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 6: Tài liệu API quản lý thẻ hội viên và khuyến mãi**
-    - [Doc]
-    - [REQ-014], [REQ-015], [REQ-017], [DAT-007], [DAT-009]
-    - ./sources/docs/
-    - Tài liệu API quản lý thẻ hội viên và khuyến mãi để hỗ trợ phát triển và sử dụng.
-  - **SUB-TASK 7: Triển khai Docker cho quản lý thẻ hội viên và khuyến mãi**
-    - [Docker]
-    - [ARC-010]
-    - ./sources/backend/membership-service/Dockerfile, ./sources/backend/promotion-service/Dockerfile
-    - Tạo Dockerfile và triển khai container cho quản lý thẻ hội viên và khuyến mãi.
-  - **SUB-TASK 8: Triển khai GCP cho quản lý thẻ hội viên và khuyến mãi**
-    - [GCP]
-    - [ARC-010]
-    - ./sources/infra/gcp/
-    - Cấu hình và triển khai các dịch vụ GCP cho quản lý thẻ hội viên và khuyến mãi.
-  - **SUB-TASK 9: Triển khai GKE cho quản lý thẻ hội viên và khuyến mãi**
-    - [GKE]
-    - [ARC-010]
-    - ./sources/infra/gke/
-    - Cấu hình và triển khai các dịch vụ GKE cho quản lý thẻ hội viên và khuyến mãi.
+##### SUB-TASK 2: Thiết kế API Điểm Danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [REQ-012], [ARC-007]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/api/AttendanceController.java
+* **Low-Level Technical Task Instruction:** Tạo endpoint POST /api/attendance với payload {studentId, courseId, timestamp}. Thêm validation cho studentId và courseId.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 3: Triển khai hệ thống chatbot và ứng dụng di động**
-  - **SUB-TASK 1: Thiết kế và triển khai API chatbot**
-    - [Coder]
-    - [REQ-019]
-    - ./sources/backend/chatbot-service/
-    - Thiết kế và triển khai API cho chatbot để trả lời các truy vấn phổ biến.
-  - **SUB-TASK 2: Thiết kế và triển khai giao diện người dùng di động**
-    - [Coder]
-    - [REQ-020], [REQ-021]
-    - ./sources/frontend/
-    - Thiết kế và triển khai giao diện người dùng di động cho các vai trò khác nhau.
-  - **SUB-TASK 3: Viết test cho API chatbot**
-    - [Tester]
-    - [REQ-019]
-    - ./sources/backend/chatbot-service/test;./sources/backend/chatbot-service/
-    - Viết test cho API chatbot để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 4: Viết test cho giao diện người dùng di động**
-    - [Tester]
-    - [REQ-020], [REQ-021]
-    - ./sources/frontend/test;./sources/frontend/
-    - Viết test cho giao diện người dùng di động để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 5: Review code chatbot và giao diện người dùng di động**
-    - [Reviewer]
-    - [REQ-019], [REQ-020], [REQ-021]
-    - ./sources/backend/chatbot-service/, ./sources/frontend/
-    - Review code chatbot và giao diện người dùng di động để đảm bảo chất lượng và tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 6: Tài liệu API chatbot và giao diện người dùng di động**
-    - [Doc]
-    - [REQ-019], [REQ-020], [REQ-021]
-    - ./sources/docs/
-    - Tài liệu API chatbot và giao diện người dùng di động để hỗ trợ phát triển và sử dụng.
-  - **SUB-TASK 7: Triển khai Docker cho chatbot và giao diện người dùng di động**
-    - [Docker]
-    - [ARC-010]
-    - ./sources/backend/chatbot-service/Dockerfile, ./sources/frontend/Dockerfile
-    - Tạo Dockerfile và triển khai container cho chatbot và giao diện người dùng di động.
-  - **SUB-TASK 8: Triển khai GCP cho chatbot và giao diện người dùng di động**
-    - [GCP]
-    - [ARC-010]
-    - ./sources/infra/gcp/
-    - Cấu hình và triển khai các dịch vụ GCP cho chatbot và giao diện người dùng di động.
-  - **SUB-TASK 9: Triển khai GKE cho chatbot và giao diện người dùng di động**
-    - [GKE]
-    - [ARC-010]
-    - ./sources/infra/gke/
-    - Cấu hình và triển khai các dịch vụ GKE cho chatbot và giao diện người dùng di động.
+##### SUB-TASK 3: Thiết kế Cơ chế Xử lý Trùng Lặp
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [REQ-013], [EXC-002]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Thêm logic kiểm tra điểm danh trùng lặp trong cùng một ngày cho cùng một học viên và khóa học. Nếu trùng lặp, trả về thông báo 'already recorded'.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 4: Triển khai hệ thống bản địa hóa và SEO**
-  - **SUB-TASK 1: Thiết kế và triển khai API bản địa hóa**
-    - [Coder]
-    - [REQ-022], [DAT-011]
-    - ./sources/backend/localization-service/
-    - Thiết kế và triển khai API để phát hiện ngôn ngữ và bản địa hóa giao diện người dùng.
-  - **SUB-TASK 2: Thiết kế và triển khai API SEO**
-    - [Coder]
-    - [REQ-023]
-    - ./sources/backend/seo-service/
-    - Thiết kế và triển khai API để hỗ trợ SEO đa ngôn ngữ.
-  - **SUB-TASK 3: Viết test cho API bản địa hóa**
-    - [Tester]
-    - [REQ-022], [DAT-011]
-    - ./sources/backend/localization-service/test;./sources/backend/localization-service/
-    - Viết test cho API bản địa hóa để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 4: Viết test cho API SEO**
-    - [Tester]
-    - [REQ-023]
-    - ./sources/backend/seo-service/test;./sources/backend/seo-service/
-    - Viết test cho API SEO để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 5: Review code bản địa hóa và SEO**
-    - [Reviewer]
-    - [REQ-022], [REQ-023], [DAT-011]
-    - ./sources/backend/localization-service/, ./sources/backend/seo-service/
-    - Review code bản địa hóa và SEO để đảm bảo chất lượng và tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 6: Tài liệu API bản địa hóa và SEO**
-    - [Doc]
-    - [REQ-022], [REQ-023], [DAT-011]
-    - ./sources/docs/
-    - Tài liệu API bản địa hóa và SEO để hỗ trợ phát triển và sử dụng.
-  - **SUB-TASK 7: Triển khai Docker cho bản địa hóa và SEO**
-    - [Docker]
-    - [ARC-010]
-    - ./sources/backend/localization-service/Dockerfile, ./sources/backend/seo-service/Dockerfile
-    - Tạo Dockerfile và triển khai container cho bản địa hóa và SEO.
-  - **SUB-TASK 8: Triển khai GCP cho bản địa hóa và SEO**
-    - [GCP]
-    - [ARC-010]
-    - ./sources/infra/gcp/
-    - Cấu hình và triển khai các dịch vụ GCP cho bản địa hóa và SEO.
-  - **SUB-TASK 9: Triển khai GKE cho bản địa hóa và SEO**
-    - [GKE]
-    - [ARC-010]
-    - ./sources/infra/gke/
-    - Cấu hình và triển khai các dịch vụ GKE cho bản địa hóa và SEO.
+- **DAY 2: Thiết kế Hệ thống Thẻ Hội Viên**
+  
+##### SUB-TASK 1: Thiết kế Schema Thẻ Hội Viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [DAT-007]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/resources/db/migration/V2__Create_StudentCard_Schema.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng StudentCards với các trường: cardId (UUID), studentId (UUID), issueDate (DATE), validityDays (INT), remainingDays (INT). Thêm chỉ mục trên studentId.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 5: Triển khai hệ thống báo cáo và phân tích**
-  - **SUB-TASK 1: Thiết kế và triển khai API báo cáo điểm danh**
-    - [Coder]
-    - [REQ-024]
-    - ./sources/backend/report-service/
-    - Thiết kế và triển khai API để tạo báo cáo điểm danh.
-  - **SUB-TASK 2: Thiết kế và triển khai API bảng điều khiển tóm tắt**
-    - [Coder]
-    - [REQ-025]
-    - ./sources/backend/dashboard-service/
-    - Thiết kế và triển khai API để hiển thị bảng điều khiển tóm tắt.
-  - **SUB-TASK 3: Viết test cho API báo cáo điểm danh**
-    - [Tester]
-    - [REQ-024]
-    - ./sources/backend/report-service/test;./sources/backend/report-service/
-    - Viết test cho API báo cáo điểm danh để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 4: Viết test cho API bảng điều khiển tóm tắt**
-    - [Tester]
-    - [REQ-025]
-    - ./sources/backend/dashboard-service/test;./sources/backend/dashboard-service/
-    - Viết test cho API bảng điều khiển tóm tắt để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 5: Review code báo cáo và phân tích**
-    - [Reviewer]
-    - [REQ-024], [REQ-025]
-    - ./sources/backend/report-service/, ./sources/backend/dashboard-service/
-    - Review code báo cáo và phân tích để đảm bảo chất lượng và tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 6: Tài liệu API báo cáo và phân tích**
-    - [Doc]
-    - [REQ-024], [REQ-025]
-    - ./sources/docs/
-    - Tài liệu API báo cáo và phân tích để hỗ trợ phát triển và sử dụng.
-  - **SUB-TASK 7: Triển khai Docker cho báo cáo và phân tích**
-    - [Docker]
-    - [ARC-010]
-    - ./sources/backend/report-service/Dockerfile, ./sources/backend/dashboard-service/Dockerfile
-    - Tạo Dockerfile và triển khai container cho báo cáo và phân tích.
-  - **SUB-TASK 8: Triển khai GCP cho báo cáo và phân tích**
-    - [GCP]
-    - [ARC-010]
-    - ./sources/infra/gcp/
-    - Cấu hình và triển khai các dịch vụ GCP cho báo cáo và phân tích.
-  - **SUB-TASK 9: Triển khai GKE cho báo cáo và phân tích**
-    - [GKE]
-    - [ARC-010]
-    - ./sources/infra/gke/
-    - Cấu hình và triển khai các dịch vụ GKE cho báo cáo và phân tích.
+##### SUB-TASK 2: Thiết kế API Thẻ Hội Viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [REQ-014], [REQ-015]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/api/StudentCardController.java
+* **Low-Level Technical Task Instruction:** Tạo endpoint GET /api/student-cards/{studentId} để lấy thông tin thẻ hội viên. Tạo endpoint POST /api/student-cards/renew để gia hạn thẻ hội viên.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 6: Triển khai hệ thống hạ tầng và tối ưu hóa**
-  - **SUB-TASK 1: Cấu hình hạ tầng và tối ưu hóa**
-    - [GCP], [GKE]
-    - [ARC-010], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-    - ./sources/infra/
-    - Cấu hình hạ tầng và tối ưu hóa hệ thống để đảm bảo hiệu suất, độ sẵn sàng và bảo mật.
-  - **SUB-TASK 2: Viết test cho hạ tầng và tối ưu hóa**
-    - [Tester]
-    - [ARC-010], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-    - ./sources/infra/test;./sources/infra/
-    - Viết test cho hạ tầng và tối ưu hóa để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 3: Review code hạ tầng và tối ưu hóa**
-    - [Reviewer]
-    - [ARC-010], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-    - ./sources/infra/
-    - Review code hạ tầng và tối ưu hóa để đảm bảo chất lượng và tuân thủ các tiêu chuẩn lập trình.
-  - **SUB-TASK 4: Tài liệu hạ tầng và tối ưu hóa**
-    - [Doc]
-    - [ARC-010], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-    - ./sources/docs/
-    - Tài liệu hạ tầng và tối ưu hóa để hỗ trợ phát triển và sử dụng.
+- **DAY 3: Thiết kế Hệ thống Thông Báo Điểm Danh**
+  
+##### SUB-TASK 1: Thiết kế Schema Thông Báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [DAT-008]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/resources/db/migration/V3__Create_Notification_Schema.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng Notifications với các trường: notificationId (UUID), userId (UUID), groupZalo (VARCHAR), message (TEXT), sentAt (TIMESTAMP), delivered (BOOLEAN). Thêm chỉ mục trên userId.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 7: Kiểm tra và triển khai hệ thống**
-  - **SUB-TASK 1: Kiểm tra toàn bộ hệ thống**
-    - [Tester]
-    - [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-005], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-    - ./sources/
-    - Kiểm tra toàn bộ hệ thống để đảm bảo tính đúng đắn và hiệu suất.
-  - **SUB-TASK 2: Triển khai hệ thống**
-    - [Docker], [GCP], [GKE]
-    - [ARC-010]
-    - ./sources/
-    - Triển khai hệ thống lên môi trường sản xuất.
+##### SUB-TASK 2: Thiết kế Cơ chế Gửi Thông Báo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [REQ-016], [ARC-008]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/NotificationService.java
+* **Low-Level Technical Task Instruction:** Thiết kế cơ chế gửi thông báo đến ứng dụng di động và nhóm Zalo. Thêm logic xử lý lỗi khi gửi thông báo thất bại.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 4: Thiết kế Hệ thống Quét Mã QR**
+  
+##### SUB-TASK 1: Thiết kế API Quét Mã QR
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [REQ-012], [ARC-007]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/api/QRScanController.java
+* **Low-Level Technical Task Instruction:** Tạo endpoint POST /api/qr-scan với payload {studentId, courseId, timestamp}. Thêm validation cho studentId và courseId.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 2: Thiết kế Giao diện Quét Mã QR
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [REQ-012], [REQ-020]
+* **Target Component file path (target_component):** ./sources/frontend/src/components/QRScanner.js
+* **Low-Level Technical Task Instruction:** Tạo giao diện quét mã QR cho ứng dụng di động. Thêm logic xử lý kết quả quét mã QR.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 5: Thiết kế Hệ thống Xử lý Ngoại Lệ**
+  
+##### SUB-TASK 1: Thiết kế Bộ xử lý Ngoại lệ Điểm Danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [EXC-001], [EXC-002]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/exception/AttendanceExceptionHandler.java
+* **Low-Level Technical Task Instruction:** Thiết kế bộ xử lý ngoại lệ cho các trường hợp điểm danh thất bại, trùng lặp, hoặc mạng không ổn định.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 2: Thiết kế Bộ xử lý Ngoại lệ Thẻ Hội Viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Coder]
+* **Targeted Tag IDs:** [EXC-003]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/exception/StudentCardExceptionHandler.java
+* **Low-Level Technical Task Instruction:** Thiết kế bộ xử lý ngoại lệ cho các trường hợp thẻ hội viên hết hạn, không hợp lệ, hoặc gia hạn thất bại.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 6: Thiết kế Hệ thống Kiểm thử Điểm Danh**
+  
+##### SUB-TASK 1: Thiết kế Kiểm thử Điểm Danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Tester]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho chức năng điểm danh, bao gồm các trường hợp điểm danh thành công, trùng lặp, và mạng không ổn định.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 2: Thiết kế Kiểm thử Thẻ Hội Viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Tester]
+* **Targeted Tag IDs:** [REQ-014], [REQ-015]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/StudentCardServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/StudentCardService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho chức năng thẻ hội viên, bao gồm các trường hợp hiển thị thẻ, gia hạn thẻ, và xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 7: Thiết kế Hệ thống Triển khai và Kiểm thử Hệ thống**
+  
+##### SUB-TASK 1: Thiết kế Dockerfile và Triển khai
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Tạo Dockerfile cho dịch vụ điểm danh và thẻ hội viên. Thiết kế cơ chế triển khai trên Kubernetes (GKE).
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### SUB-TASK 2: Thiết kế Kiểm thử Hệ thống
+<!--START_ATOMIC_SUB_TASK_NODE-->
+[Tester]
+* **Targeted Tag IDs:** [REQ-012], [REQ-013], [REQ-014], [REQ-015]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/integration/AttendanceIntegrationTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Viết các test case kiểm thử hệ thống cho chức năng điểm danh và thẻ hội viên, bao gồm các trường hợp điểm danh thành công, trùng lặp, và mạng không ổn định.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_PHASE_LOG_BLOCK_INDEX_5-->
-
-### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
 
 ```properties:cross_audit_ledger
 [AUTOMATED_SELF_AUDIT_REPORT]
@@ -1667,8 +1337,8 @@ PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
 ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=7
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=17
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=54
+TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=20
+TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=14
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
 

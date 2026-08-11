@@ -26,6 +26,7 @@
     * All bracketed Sub-Agent literal tokens when operating as allocation signatures (e.g., `[Coder]`, `[Tester]`, `[Reviewer]`, `[Doc]`, `[Docker]`, `[GCP]`, `[GKE]`).
     * Any alphanumeric sequential task index formatting codes (e.g., `D1_ST1`, `D2_ST3`).
     * All absolute or relative file paths starting with `./sources/`.
+    * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
     * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
     * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
@@ -104,8 +105,9 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
     * These hidden blocks function exclusively as private machine-to-machine backend gating logic. 
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
-    * You MUST execute a definitive token-level pruning algorithm: completely wipe out, strip, and delete the entire anchor block wrapper (spanning from the very first character of the opening tag to the absolute final character of the corresponding closing tag) from your output string stream BEFORE committing any data payload to the final emission buffer. 
-    * Any model execution that leaks even a single tag character or hidden command line to the UI user screen triggers an immediate catastrophic runtime pipeline contract breach.
+    * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
+    * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -642,7 +644,7 @@ MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for P
 - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 2'.
 
 <HISTORIC_LEDGER_MAP>
-Phase 1: 
+Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 </HISTORIC_LEDGER_MAP>
 </RULE>
 
@@ -773,7 +775,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
 ### 2.1 Quản lý người dùng
 
@@ -1088,138 +1090,250 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📝 4. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
+## 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHASE
 
 ### 4.1 KIẾN TRÚC TOÀN CẦU
 
 #### 4.1.1 Kiến trúc tổng quan
 
-- **Kiến trúc tổng quan:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, khóa học, điểm danh, và thông báo. Frontend sử dụng Next.js để cung cấp giao diện đáp ứng cho web và di động. Backend sử dụng Java/Quarkus với cơ sở dữ liệu PostgreSQL. Hệ thống sử dụng Firebase Authentication cho xác thực và Google Cloud Messaging (FCM)/Apple APNs cho push notification. Zalo API được tích hợp để gửi thông báo đến nhóm Zalo.
+- **Backend**: Microservices architecture sử dụng Java/Quarkus, triển khai trên Kubernetes (GKE).
+- **Frontend**: Ứng dụng web sử dụng Next.js và ứng dụng di động sử dụng React Native.
+- **Database**: PostgreSQL với schema phân tán theo microservices.
+- **Caching**: Redis cho session caching và caching dữ liệu thường xuyên truy cập.
+- **Messaging**: Apache Kafka cho xử lý thông báo và sự kiện bất đồng bộ.
+- **Authentication**: Firebase Authentication và OAuth2 (Google, Facebook).
+- **Push Notifications**: Firebase Cloud Messaging (FCM) và Apple APNs.
+- **Zalo Integration**: Zalo API cho gửi thông báo đến nhóm Zalo.
+- **CI/CD**: GitHub Actions cho pipeline CI/CD tự động.
 
 #### 4.1.2 Kiến trúc chi tiết
 
-- **Kiến trúc chi tiết:** Hệ thống bao gồm các dịch vụ sau:
-  - **User Service:** Quản lý người dùng, xác thực, và phân quyền.
-  - **Course Service:** Quản lý khóa học, đăng ký, và phân công giáo viên.
-  - **Attendance Service:** Xử lý điểm danh qua quét mã QR.
-  - **Notification Service:** Kích hoạt thông báo đẩy và tin nhắn Zalo.
-  - **Reporting Service:** Tạo báo cáo điểm danh và bảng điều khiển tóm tắt.
+- **Microservices**: Tách thành các dịch vụ độc lập như User Service, Course Service, Attendance Service, Notification Service.
+- **API Gateway**: Sử dụng Kong hoặc Spring Cloud Gateway để định tuyến yêu cầu.
+- **Service Mesh**: Sử dụng Istio để quản lý giao tiếp giữa các dịch vụ.
+- **Database per Service**: Mỗi microservice có cơ sở dữ liệu riêng với schema riêng.
+- **Event Sourcing**: Sử dụng Apache Kafka để xử lý các sự kiện quan trọng như điểm danh, đăng ký khóa học.
+- **CQRS**: Áp dụng CQRS pattern cho các dịch vụ có truy vấn phức tạp.
+- **Caching Layer**: Sử dụng Redis để cache dữ liệu thường xuyên truy cập.
+- **Search Service**: Elasticsearch để hỗ trợ tìm kiếm khóa học và thông báo.
 
 ### 4.2 Ma trận tóm tắt đa giai đoạn
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Sản phẩm bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-------------------------|-------------------|------------|------------------|
-| Giai đoạn 1 | Ngày 1-2 | `./sources/backend/user-service/` | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
-| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/course-service/` | Triển khai lõi nghiệp vụ khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [ARC-007] |
-| Giai đoạn 3 | Ngày 1-2 | `./sources/backend/attendance-service/` | Triển khai hệ thống điểm danh QR | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002], [ARC-008] |
-| Giai đoạn 4 | Ngày 1-2 | `./sources/backend/notification-service/` | Triển khai hệ thống thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003], [ARC-009] |
-| Giai đoạn 5 | Ngày 1-2 | `./sources/frontend/` | Triển khai giao diện người dùng và tích hợp di động | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-020], [REQ-021], [REQ-022], [REQ-023], [DAT-011], [ARC-010] |
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Kiến trúc | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|-------------------------------|---------------------------|------------|------------------|
+| 1         | 1-3         | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với Firebase, Google, Facebook OAuth | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-001], [REQ-002], [ARC-006], [DAT-001], [EXC-004] |
+| 2         | 4-7         | ./sources/backend/course-service/ | Xây dựng dịch vụ khóa học với quản lý ghi danh và phân công giáo viên | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004], [EXC-001], [EXC-002] |
+| 3         | 1-2         | ./sources/backend/attendance-service/ | Xây dựng dịch vụ điểm danh với xử lý QR và lưu trữ điểm danh | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
+| 4         | 3-5         | ./sources/backend/notification-service/ | Xây dựng dịch vụ thông báo với push notification và Zalo integration | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003] |
+| 5         | 6-7         | ./sources/frontend/ | Xây dựng giao diện người dùng với Next.js và React Native | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-020], [REQ-021], [REQ-022], [REQ-023], [DAT-011] |
 
-## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
+## 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
 
-### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Khóa Học
+### Phase 2 - Triển Khai Lõi Nghiệp Vụ Khóa Học
 
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai lõi nghiệp vụ quản lý khóa học bao gồm tạo/cập nhật/xóa khóa học, phân công giáo viên, và quản lý ghi danh học viên.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/course-service/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:** Triển khai bảng khóa học và bảng ghi danh.
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Xây dựng dịch vụ khóa học với quản lý ghi danh và phân công giáo viên.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/course-service/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-004]:**
+```sql
+CREATE TABLE courses (
+    courseId UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    teacherId UUID REFERENCES users(userId),
+    maxStudents INT DEFAULT 30
+);
+
+CREATE TABLE enrollments (
+    enrollmentId UUID PRIMARY KEY,
+    studentId UUID REFERENCES users(userId),
+    courseId UUID REFERENCES courses(courseId),
+    enrollmentDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_courses_teacher ON courses(teacherId);
+CREATE INDEX idx_enrollments_student ON enrollments(studentId);
+CREATE INDEX idx_enrollments_course ON enrollments(courseId);
+```
 - **Hợp đồng Định tuyến API và Sự kiện:**
-  - **API Endpoints:**
-    ```json
-    {
-      "POST /api/courses": {
-        "description": "Tạo khóa học mới",
-        "request": {
-          "title": "string",
-          "description": "string",
-          "startDate": "date",
-          "endDate": "date",
-          "teacherId": "uuid",
-          "maxStudents": "integer"
-        },
-        "response": {
-          "courseId": "uuid",
-          "title": "string",
-          "startDate": "date",
-          "endDate": "date"
-        }
-      },
-      "GET /api/courses": {
-        "description": "Lấy danh sách khóa học",
-        "response": {
-          "courses": [
-            {
-              "courseId": "uuid",
-              "title": "string",
-              "startDate": "date",
-              "endDate": "date",
-              "teacherName": "string"
-            }
-          ]
-        }
-      },
-      "POST /api/courses/{courseId}/assign-teacher": {
-        "description": "Phân công giáo viên vào khóa học",
-        "request": {
-          "teacherId": "uuid"
-        },
-        "response": {
-          "status": "string"
-        }
-      },
-      "POST /api/enrollments": {
-        "description": "Đăng ký học viên vào khóa học",
-        "request": {
-          "studentId": "uuid",
-          "courseId": "uuid"
-        },
-        "response": {
-          "enrollmentId": "uuid",
-          "enrollmentDate": "timestamp"
-        }
-      }
+```json
+{
+  "createCourse": {
+    "method": "POST",
+    "path": "/api/courses",
+    "request": {
+      "title": "string",
+      "description": "string",
+      "startDate": "date",
+      "endDate": "date",
+      "teacherId": "uuid",
+      "maxStudents": "int"
+    },
+    "response": {
+      "courseId": "uuid",
+      "status": "string"
     }
-    ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:** Xử lý xung đột lịch trình giáo viên và trùng lặp đăng ký học viên.
+  },
+  "enrollStudent": {
+    "method": "POST",
+    "path": "/api/courses/{courseId}/enroll",
+    "request": {
+      "studentId": "uuid"
+    },
+    "response": {
+      "enrollmentId": "uuid",
+      "status": "string"
+    }
+  }
+}
+```
+- **Xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002]:**
+- **Lỗi Xung đột Lịch Khóa học:** Khi giáo viên đã được phân công vào một khóa học khác trong cùng khoảng thời gian, hệ thống sẽ trả về lỗi 409 Conflict với thông báo: "Giáo viên đã có lịch trong khoảng thời gian này."
+- **Lỗi Đăng ký Trùng Lặp:** Khi học viên đã đăng ký khóa học, hệ thống sẽ trả về lỗi 400 Bad Request với thông báo: "Học viên đã đăng ký khóa học này."
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 2)
 
 <!--START_DAY_LOG_INDEX_2-->
 
-- **DAY 1: Khởi tạo dịch vụ khóa học và bảng cơ sở dữ liệu**
-  - **SUB-TASK 1: Thiết kế lược đồ cơ sở dữ liệu cho dịch vụ khóa học**
+- **DAY 1: Khởi tạo Dịch vụ Khóa học và Cơ sở Dữ liệu**
+  - **SUB-TASK 1: Thiết kế Schema Cơ sở Dữ liệu**
     - [Coder]
     - [DAT-004]
-    - `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_Courses_Table.sql`
-    - Thiết kế bảng khóa học và bảng ghi danh với các trường và ràng buộc cần thiết.
-  - **SUB-TASK 2: Viết mã khởi tạo dịch vụ khóa học**
+    - ./sources/backend/course-service/
+    - Thiết kế schema cho bảng courses và enrollments với các trường và ràng buộc cần thiết.
+  - **SUB-TASK 2: Viết Script Migration Cơ sở Dữ liệu**
     - [Coder]
-    - [REQ-007], [REQ-008], [REQ-009]
-    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/`
-    - Viết mã khởi tạo dịch vụ khóa học bao gồm các endpoint API và logic nghiệp vụ.
+    - [DAT-004]
+    - ./sources/backend/course-service/
+    - Viết script Flyway/Liquibase để tạo bảng courses và enrollments.
+  - **SUB-TASK 3: Thiết kế API Tạo Khóa học**
+    - [Coder]
+    - [REQ-007]
+    - ./sources/backend/course-service/
+    - Thiết kế API để tạo khóa học mới với các trường bắt buộc và tùy chọn.
+  - **SUB-TASK 4: Viết Unit Test cho API Tạo Khóa học**
+    - [Tester]
+    - [REQ-007]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/CourseService.java
+    - Viết unit test cho API tạo khóa học với các trường hợp thành công và thất bại.
 
-- **DAY 2: Triển khai chức năng quản lý khóa học**
-  - **SUB-TASK 1: Triển khai chức năng tạo/cập nhật/xóa khóa học**
+- **DAY 2: Triển khai API Quản lý Khóa học và Đăng ký Học viên**
+  - **SUB-TASK 1: Triển khai API Tạo Khóa học**
+    - [Coder]
+    - [REQ-007]
+    - ./sources/backend/course-service/
+    - Triển khai API để tạo khóa học mới với các trường bắt buộc và tùy chọn.
+  - **SUB-TASK 2: Triển khai API Đăng ký Học viên**
     - [Coder]
     - [REQ-008]
-    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/controller/CourseController.java`
-    - Triển khai các endpoint API cho tạo, cập nhật và xóa khóa học.
-  - **SUB-TASK 2: Triển khai chức năng phân công giáo viên**
+    - ./sources/backend/course-service/
+    - Triển khai API để đăng ký học viên vào khóa học.
+  - **SUB-TASK 3: Viết Unit Test cho API Đăng ký Học viên**
+    - [Tester]
+    - [REQ-008]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/EnrollmentServiceTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/EnrollmentService.java
+    - Viết unit test cho API đăng ký học viên với các trường hợp thành công và thất bại.
+  - **SUB-TASK 4: Thiết kế API Phân công Giáo viên**
     - [Coder]
     - [REQ-009]
-    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/controller/TeacherAssignmentController.java`
-    - Triển khai endpoint API cho phân công giáo viên vào khóa học.
+    - ./sources/backend/course-service/
+    - Thiết kế API để phân công giáo viên vào khóa học.
 
-- **DAY 3: Triển khai chức năng ghi danh học viên**
-  - **SUB-TASK 1: Triển khai chức năng đăng ký khóa học**
+- **DAY 3: Triển khai API Phân công Giáo viên và Xử lý Ngoại lệ**
+  - **SUB-TASK 1: Triển khai API Phân công Giáo viên**
     - [Coder]
-    - [REQ-011]
-    - `./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/controller/EnrollmentController.java`
-    - Triển khai endpoint API cho đăng ký học viên vào khóa học.
-  - **SUB-TASK 2: Viết bộ kiểm thử cho dịch vụ khóa học**
+    - [REQ-009]
+    - ./sources/backend/course-service/
+    - Triển khai API để phân công giáo viên vào khóa học.
+  - **SUB-TASK 2: Viết Unit Test cho API Phân công Giáo viên**
     - [Tester]
-    - [REQ-007], [REQ-008], [REQ-009], [REQ-011]
-    - `./sources/backend/course-service/src/test/java/com/membershiphub/courseservice/;./sources/backend/course-service/src/main/java/com/membershiphub/courseservice/`
-    - Viết các bộ kiểm thử cho các chức năng quản lý khóa học và ghi danh học viên.
+    - [REQ-009]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/TeacherAssignmentServiceTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/TeacherAssignmentService.java
+    - Viết unit test cho API phân công giáo viên với các trường hợp thành công và thất bại.
+  - **SUB-TASK 3: Xử lý Ngoại lệ Xung đột Lịch Khóa học**
+    - [Coder]
+    - [EXC-001]
+    - ./sources/backend/course-service/
+    - Xử lý ngoại lệ khi giáo viên đã có lịch trong khoảng thời gian này.
+  - **SUB-TASK 4: Xử lý Ngoại lệ Đăng ký Trùng Lặp**
+    - [Coder]
+    - [EXC-002]
+    - ./sources/backend/course-service/
+    - Xử lý ngoại lệ khi học viên đã đăng ký khóa học này.
+
+- **DAY 4: Triển khai Docker và GKE**
+  - **SUB-TASK 1: Viết Dockerfile cho Dịch vụ Khóa học**
+    - [Docker]
+    - [ARC-010]
+    - ./sources/backend/course-service/Dockerfile
+    - Viết Dockerfile để container hóa dịch vụ khóa học.
+  - **SUB-TASK 2: Triển khai Dịch vụ Khóa học trên GKE**
+    - [GKE]
+    - [ARC-010]
+    - ./sources/infra/gke/course-service-deployment.yaml
+    - Triển khai dịch vụ khóa học trên GKE với các cấu hình cần thiết.
+  - **SUB-TASK 3: Cấu hình Service Mesh cho Dịch vụ Khóa học**
+    - [GKE]
+    - [ARC-010]
+    - ./sources/infra/istio/course-service-virtualservice.yaml
+    - Cấu hình Service Mesh cho dịch vụ khóa học với các quy tắc định tuyến và bảo mật.
+
+- **DAY 5: Kiểm thử và Tối ưu Hiệu năng**
+  - **SUB-TASK 1: Kiểm thử Hiệu năng API Tạo Khóa học**
+    - [Tester]
+    - [NFR-001]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/CourseServicePerformanceTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/CourseService.java
+    - Kiểm thử hiệu năng API tạo khóa học với các trường hợp tải cao.
+  - **SUB-TASK 2: Kiểm thử Hiệu năng API Đăng ký Học viên**
+    - [Tester]
+    - [NFR-001]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/EnrollmentServicePerformanceTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/EnrollmentService.java
+    - Kiểm thử hiệu năng API đăng ký học viên với các trường hợp tải cao.
+  - **SUB-TASK 3: Kiểm thử Hiệu năng API Phân công Giáo viên**
+    - [Tester]
+    - [NFR-001]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/TeacherAssignmentServicePerformanceTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/TeacherAssignmentService.java
+    - Kiểm thử hiệu năng API phân công giáo viên với các trường hợp tải cao.
+  - **SUB-TASK 4: Tối ưu Hiệu năng Cơ sở Dữ liệu**
+    - [Coder]
+    - [NFR-001]
+    - ./sources/backend/course-service/
+    - Tối ưu hiệu năng cơ sở dữ liệu với các chỉ mục và truy vấn hiệu quả.
+
+- **DAY 6: Kiểm thử và Triển khai CI/CD**
+  - **SUB-TASK 1: Viết Script Kiểm thử CI/CD**
+    - [Tester]
+    - [ARC-010]
+    - ./sources/backend/course-service/.github/workflows/ci-cd.yml
+    - Viết script kiểm thử CI/CD cho dịch vụ khóa học.
+  - **SUB-TASK 2: Triển khai CI/CD Pipeline**
+    - [GCP]
+    - [ARC-010]
+    - ./sources/backend/course-service/.github/workflows/ci-cd.yml
+    - Triển khai CI/CD pipeline cho dịch vụ khóa học với các bước kiểm thử và triển khai tự động.
+  - **SUB-TASK 3: Kiểm thử Hệ thống Toàn diện**
+    - [Tester]
+    - [NFR-002]
+    - ./sources/backend/course-service/src/test/java/com/example/courseservice/SystemTest.java
+    - Kiểm thử hệ thống toàn diện cho dịch vụ khóa học với các trường hợp sử dụng chính.
+
+- **DAY 7: Tài liệu và Bảo trì**
+  - **SUB-TASK 1: Viết Tài liệu API**
+    - [Doc]
+    - [REQ-007], [REQ-008], [REQ-009]
+    - ./sources/docs/api/course-service.md
+    - Viết tài liệu API cho dịch vụ khóa học với các endpoint và payload.
+  - **SUB-TASK 2: Viết Tài liệu Cơ sở Dữ liệu**
+    - [Doc]
+    - [DAT-004]
+    - ./sources/docs/database/course-service.md
+    - Viết tài liệu cơ sở dữ liệu cho dịch vụ khóa học với các schema và ràng buộc.
+  - **SUB-TASK 3: Viết Tài liệu Kiểm thử**
+    - [Doc]
+    - [NFR-001], [NFR-002]
+    - ./sources/docs/testing/course-service.md
+    - Viết tài liệu kiểm thử cho dịch vụ khóa học với các trường hợp kiểm thử và kết quả mong đợi.
 
 <!--END_PHASE_LOG_BLOCK_INDEX_2-->
 ```

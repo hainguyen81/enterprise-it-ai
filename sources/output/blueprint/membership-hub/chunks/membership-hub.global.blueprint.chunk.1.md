@@ -26,6 +26,7 @@
     * All bracketed Sub-Agent literal tokens when operating as allocation signatures (e.g., `[Coder]`, `[Tester]`, `[Reviewer]`, `[Doc]`, `[Docker]`, `[GCP]`, `[GKE]`).
     * Any alphanumeric sequential task index formatting codes (e.g., `D1_ST1`, `D2_ST3`).
     * All absolute or relative file paths starting with `./sources/`.
+    * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
     * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
     * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
@@ -104,8 +105,9 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
     * These hidden blocks function exclusively as private machine-to-machine backend gating logic. 
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
-    * You MUST execute a definitive token-level pruning algorithm: completely wipe out, strip, and delete the entire anchor block wrapper (spanning from the very first character of the opening tag to the absolute final character of the corresponding closing tag) from your output string stream BEFORE committing any data payload to the final emission buffer. 
-    * Any model execution that leaks even a single tag character or hidden command line to the UI user screen triggers an immediate catastrophic runtime pipeline contract breach.
+    * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
+    * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -625,10 +627,10 @@ MANDATORY SEGMENT INSTRUCTION:
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811072603 |
+| **Blueprint ID** | ARCH-20260811090629 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 07:26:03 |
+| **Date.Time** | 2026/08/11 09:06:29 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -687,37 +689,42 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811072603 |
+| **Blueprint ID** | ARCH-20260811090629 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 07:26:03 |
+| **Date.Time** | 2026/08/11 09:06:29 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
+## 📊 1. TỔNG QUAN HỆ THỐNG & KIẾN TRÚC CƠ BẢN
 
-### 1.1. Core System Modality & Architecture Modality
-- Hệ thống được thiết kế theo kiến trúc đa trung tâm với các thành phần chính bao gồm: quản lý người dùng, quản lý trung tâm, quản lý khóa học, đăng ký học viên, điểm danh, quản lý thẻ hội viên, thông báo và truyền thông, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa và SEO, báo cáo và phân tích.
-- Hệ thống sử dụng mô hình RBAC (Role-Based Access Control) để quản lý quyền truy cập của người dùng.
-- Hệ thống hỗ trợ xác thực qua email/mật khẩu, Firebase, Google và Facebook thông qua OAuth2.
-- Hệ thống sử dụng JWT token với thời hạn 15 phút và refresh token để quản lý phiên đăng nhập.
-- Hệ thống sử dụng cơ sở dữ liệu PostgreSQL để lưu trữ dữ liệu.
-- Hệ thống sử dụng Redis để quản lý session caching.
-- Hệ thống sử dụng Firebase Authentication và Google Cloud Messaging (FCM)/Apple APNs để quản lý thông báo đẩy trên di động.
-- Hệ thống sử dụng Zalo API để quản lý thông báo trên nhóm Zalo.
-- Hệ thống sử dụng CI/CD pipeline với GitHub Actions để quản lý quá trình triển khai.
+### 1.1. KIẾN TRÚC HỆ THỐNG CƠ BẢN & MÔ HÌNH KIẾN TRÚC
+- Hệ thống được thiết kế theo mô hình đa trung tâm với kiến trúc microservices
+- Sử dụng mô hình RBAC (Role-Based Access Control) để quản lý quyền truy cập
+- Hệ thống hỗ trợ đa kênh giao tiếp bao gồm web, di động và nhóm Zalo
+- Kiến trúc bao gồm các thành phần chính: quản lý người dùng, quản lý trung tâm, quản lý khóa học, đăng ký học viên, điểm danh, quản lý thẻ hội viên và thông báo
+- Sử dụng mô hình Event-Driven Architecture (EDA) cho các tính năng như điểm danh và thông báo
+- Áp dụng mô hình CQRS (Command Query Responsibility Segregation) để phân tách các thao tác ghi và đọc
+- Sử dụng mô hình Reactive Programming cho các tính năng thời gian thực như điểm danh và thông báo
 
-### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-- Hệ thống sử dụng các kênh truyền thông đa kênh bao gồm: web, di động và nhóm Zalo.
-- Hệ thống sử dụng các dịch vụ cốt lõi bao gồm: quản lý người dùng, quản lý trung tâm, quản lý khóa học, đăng ký học viên, điểm danh, quản lý thẻ hội viên, thông báo và truyền thông, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa và SEO, báo cáo và phân tích.
-- Hệ thống sử dụng các dịch vụ phụ trợ bao gồm: Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, CI/CD pipeline với GitHub Actions.
-- Hệ thống sử dụng các dịch vụ cơ sở hạ tầng bao gồm: PostgreSQL, Docker, Kubernetes (GKE).
+### 1.2. LUỒNG DỮ LIỆU DOANH NGHIỆP & CÁC HỆ THỐNG LIÊN KẾT
+- Luồng xác thực người dùng sử dụng OAuth2 và JWT tokens
+- Luồng điểm danh sử dụng mã QR và cơ chế idempotent để đảm bảo tính toàn vẹn dữ liệu
+- Luồng thông báo sử dụng push notification và tích hợp với Zalo API
+- Hệ thống sử dụng cơ chế caching để tối ưu hóa hiệu suất
+- Kiến trúc bao gồm các thành phần chính: API Gateway, Service Discovery, Config Server, và các microservices riêng biệt cho từng chức năng
+- Sử dụng cơ chế message broker để xử lý các sự kiện bất đồng bộ
+- Áp dụng mô hình event sourcing để lưu trữ lịch sử thay đổi dữ liệu
+- Sử dụng cơ chế sharding để phân phối tải cho các dịch vụ quan trọng
 
-## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, CI/CD pipeline với GitHub Actions.
-- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native.
+## 📁 2. PHẦN MỀM & CÁC THƯ VIỆN CỐT LÕI
+<RULE>
+- **STRICT BOUNDARY LOCKDOWN FOR PROPERTIES BLOCK:** Within the generated properties code fence, you MUST execute the complete physical destruction of the placeholder square brackets. The output values MUST be clean literal boolean raw values without any enclosing markers to prevent downstream parsing panics.
+</RULE>
+- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration, Redis, GitHub Actions
+- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration
 
-### ARCHITECTURAL STACK MATRIX
+### MA TRẬN KIẾN TRÚC CƠ BẢN
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -727,9 +734,9 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
-- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
-- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
-- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
-- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+## 📁 3. CÁC QUY TẮC TOÀN CẦU & TIÊU CHUẨN TUÂN THỦ
+- **Quy tắc Giới hạn Không gian Làm việc:** Gốc thư mục thực sự của kho lưu trữ được cố định vĩnh viễn tại gốc dự án `.`. Tất cả các đường dẫn được tạo ra phải bắt đầu bằng `./sources/`.
+- **Tuân thủ Động Tiền tố Thư mục:** Áp dụng nghiêm ngặt các quy tắc ánh xạ đường dẫn động được định nghĩa trong Giao thức 1 phù hợp với cấu trúc dự án được phát hiện.
+- **[ĐIỀU KIỆN: JAVA_STACK_ONLY] Tiêu chuẩn Gói Java:** Nếu ngăn xếp công nghệ sử dụng các khung Java, tất cả mã nguồn Java phải nằm nghiêm ngặt trong cơ sở gói doanh nghiệp: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. Bạn phải chuyển đổi động chuỗi "membership-hub" thành mã thông báo chữ thường không dấu bằng cách loại bỏ khoảng trắng, dấu gạch ngang và dấu gạch dưới. Các dự án không phải Java bị cấm áp dụng đoạn này.
+- **Cú pháp Đường dẫn Mục tiêu Kiểm thử nghiêm ngặt:** Bất kỳ thành phần nào được nhắm mục tiêu bởi Sub-Agent Kiểm thử phải được cấu trúc theo cặp phân tách chặt chẽ bằng dấu chấm phẩy `<source_component_or_token>;<test_suite_file_to_execute>`. Cả hai đường dẫn bên trong cặp phải bắt đầu bằng `./sources/`.
 

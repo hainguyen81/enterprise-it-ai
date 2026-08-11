@@ -26,6 +26,7 @@
     * All bracketed Sub-Agent literal tokens when operating as allocation signatures (e.g., `[Coder]`, `[Tester]`, `[Reviewer]`, `[Doc]`, `[Docker]`, `[GCP]`, `[GKE]`).
     * Any alphanumeric sequential task index formatting codes (e.g., `D1_ST1`, `D2_ST3`).
     * All absolute or relative file paths starting with `./sources/`.
+    * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
     * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
     * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
@@ -104,8 +105,9 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
     * These hidden blocks function exclusively as private machine-to-machine backend gating logic. 
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
-    * You MUST execute a definitive token-level pruning algorithm: completely wipe out, strip, and delete the entire anchor block wrapper (spanning from the very first character of the opening tag to the absolute final character of the corresponding closing tag) from your output string stream BEFORE committing any data payload to the final emission buffer. 
-    * Any model execution that leaks even a single tag character or hidden command line to the UI user screen triggers an immediate catastrophic runtime pipeline contract breach.
+    * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
+    * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -1116,105 +1118,97 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ## 5. GRANULAR PHASE SPECIALIZATIONS & DAY-BY-DAY DELIVERABLES
 
 ### 📈 Giai đoạn 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Thiết lập cơ sở hạ tầng xác thực người dùng, bao gồm đăng ký qua email/mật khẩu, xác thực OAuth2 với Firebase, Google, và Facebook, và triển khai cơ chế cấp JWT token với thời hạn 15 phút và refresh token.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
-    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-001], [REQ-002], [REQ-003], [ARC-006]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Thiết lập cơ sở hạ tầng xác thực người dùng, triển khai cơ chế đăng ký và đăng nhập đa kênh (email/mật khẩu, Firebase, Google, Facebook), và thiết lập cơ sở dữ liệu người dùng và vai trò.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** Danh sách tất cả các đường dẫn tệp cụ thể nằm dưới `./sources/` được khởi tạo hoặc sửa đổi trong giai đoạn này. Mỗi dòng đường dẫn được tạo ra phải được nối với các Tag ID theo dõi của nó.
+    *   *Documentation Gating Boundary:* Bất kỳ dòng nào đại diện cho một tài liệu đặc tả doanh nghiệp, bản thiết kế tham khảo, danh mục ánh xạ cơ sở dữ liệu quan hệ, hoặc bố cục kiến trúc phải nằm nghiêm ngặt dưới đường dẫn gốc thống nhất: `./sources/docs/`.
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-001]:** Cung cấp các câu lệnh di chuyển DDL SQL hoàn chỉnh, hợp lệ và có thể triển khai bao gồm các cột rõ ràng, kiểu dữ liệu, khóa chính/khóa ngoại, ánh xạ ma trận, chỉ mục và ràng buộc nullability được áp dụng dưới phạm vi giai đoạn này. (Bỏ qua hoàn toàn nếu dự án không có lớp cơ sở dữ liệu hoặc yêu cầu lớp lưu trữ. Khối kỹ thuật này KHÔNG ĐƯỢC dịch).
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Tài liệu hợp đồng kỹ thuật hoàn chỉnh (đường dẫn điểm cuối chính xác, phương thức HTTP, lược đồ JSON yêu cầu/trả về, hoặc cấu hình chủ đề bộ đệm tin nhắn. Khối kỹ thuật KHÔNG ĐƯỢC dịch).
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Chi tiết các quy tắc xác thực kinh doanh rõ ràng, mã lỗi và đường dẫn xử lý ngoại lệ hệ thống ánh xạ nghiêm ngặt với phạm vi giai đoạn hiện tại, được dịch ngữ cảnh sang 🇻🇳 Vietnamese.
 
-#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
+#### Nhật ký Phân phối Công việc Theo Ngày (Giai đoạn [X])
 
 <!--START_DAY_LOG_INDEX_1-->
 
-- **DAY 1: Khởi tạo cơ sở dữ liệu và mô hình người dùng**
-  - **SUB-TASK 1: Thiết lập cơ sở dữ liệu PostgreSQL**
-    - [Docker]
-    - [Targeted Tag IDs]: [ARC-010]
-    - [Target Component file path (target_component)]: ./sources/infra/docker-compose.yml
-    - [Low-Level Technical Task Instruction]: Tạo Docker Compose file để khởi chạy PostgreSQL với cấu hình mặc định và volume cho dữ liệu. [ARC-010]
+- **DAY 1: Thiết lập Cơ sở Dữ liệu Người Dùng và Vai Trò**
+  
+##### SUB-TASK 1: Thiết lập Schema Cơ sở Dữ liệu Người Dùng và Vai Trò
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-001]
+* **Target Component file path (target_component):** `./sources/backend/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql` [DAT-001]
+* **Low-Level Technical Task Instruction:** Tạo các bảng `USERS` và `ROLES` với các trường và ràng buộc như được định nghĩa trong [DAT-001]. [DAT-001]
 
-  - **SUB-TASK 2: Thiết kế lược đồ cơ sở dữ liệu cho người dùng và vai trò**
-    - [Coder]
-    - [Targeted Tag IDs]: [DAT-001]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql
-    - [Low-Level Technical Task Instruction]: Viết script Flyway để tạo bảng Users và Roles với các ràng buộc khóa ngoại và kiểm tra. [DAT-001]
+##### SUB-TASK 2: Thiết lập Chỉ mục Cơ sở Dữ liệu
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-001]
+* **Target Component file path (target_component):** `./sources/backend/src/main/resources/db/migration/V2__Add_Indexes.sql` [DAT-001]
+* **Low-Level Technical Task Instruction:** Thêm các chỉ mục cho các trường `email` trong bảng `USERS` và `roleId` trong bảng `USERS` để tối ưu hóa hiệu suất truy vấn. [DAT-001]
 
-  - **SUB-TASK 3: Viết unit tests cho lược đồ cơ sở dữ liệu**
-    - [Tester]
-    - [Targeted Tag IDs]: [DAT-001]
-    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/db/UserSchemaTest.java;./sources/backend/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql
-    - [Low-Level Technical Task Instruction]: Viết các test để xác minh cấu trúc bảng và ràng buộc. [DAT-001]
+##### SUB-TASK 3: Thiết lập API Đăng Ký Người Dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-001]
+* **Target Component file path (target_component):** `./sources/backend/src/main/java/com/membershiphub/auth/UserRegistrationResource.java` [REQ-001]
+* **Low-Level Technical Task Instruction:** Triển khai API đăng ký người dùng với các điểm cuối `/api/auth/register` và `/api/auth/register/social`. [REQ-001]
 
-- **DAY 2: Triển khai xác thực người dùng**
-  - **SUB-TASK 1: Thiết lập xác thực email/mật khẩu**
-    - [Coder]
-    - [Targeted Tag IDs]: [REQ-001], [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/LocalAuthService.java
-    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ xác thực cục bộ với mã hóa mật khẩu bcrypt. [REQ-001], [ARC-006]
+##### SUB-TASK 4: Thiết lập API Đăng Nhập Người Dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-001]
+* **Target Component file path (target_component):** `./sources/backend/src/main/java/com/membershiphub/auth/UserLoginResource.java` [REQ-001]
+* **Low-Level Technical Task Instruction:** Triển khai API đăng nhập người dùng với các điểm cuối `/api/auth/login` và `/api/auth/login/social`. [REQ-001]
 
-  - **SUB-TASK 2: Thiết lập xác thực OAuth2 với Firebase, Google, Facebook**
-    - [Coder]
-    - [Targeted Tag IDs]: [REQ-002], [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Service.java
-    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ xác thực OAuth2 với các nhà cung cấp khác nhau. [REQ-002], [ARC-006]
+##### SUB-TASK 5: Thiết lập API Phân Quyền Người Dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-003]
+* **Target Component file path (target_component):** `./sources/backend/src/main/java/com/membershiphub/auth/UserRoleResource.java` [REQ-003]
+* **Low-Level Technical Task Instruction:** Triển khai API phân quyền người dùng với điểm cuối `/api/auth/assign-role`. [REQ-003]
 
-  - **SUB-TASK 3: Viết unit tests cho dịch vụ xác thực**
-    - [Tester]
-    - [Targeted Tag IDs]: [REQ-001], [REQ-002], [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/auth/AuthServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/LocalAuthService.java;./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Service.java
-    - [Low-Level Technical Task Instruction]: Viết các test để xác minh tính năng đăng ký và đăng nhập. [REQ-001], [REQ-002], [ARC-006]
+##### SUB-TASK 6: Thiết lập Xác Thực JWT
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [ARC-006]
+* **Target Component file path (target_component):** `./sources/backend/src/main/java/com/membershiphub/auth/JwtTokenProvider.java` [ARC-006]
+* **Low-Level Technical Task Instruction:** Triển khai lớp `JwtTokenProvider` để tạo và xác thực JWT tokens. [ARC-006]
 
-- **DAY 3: Triển khai phân quyền người dùng**
-  - **SUB-TASK 1: Thiết lập phân quyền người dùng**
-    - [Coder]
-    - [Targeted Tag IDs]: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/RoleService.java
-    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ phân quyền với các vai trò System Admin, Center Admin, Manager, Teacher, Student. [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+##### SUB-TASK 7: Thiết lập Xác Thực OAuth2
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-002]
+* **Target Component file path (target_component):** `./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Provider.java` [REQ-002]
+* **Low-Level Technical Task Instruction:** Triển khai lớp `OAuth2Provider` để xử lý xác thực qua Firebase, Google và Facebook. [REQ-002]
 
-  - **SUB-TASK 2: Viết unit tests cho dịch vụ phân quyền**
-    - [Tester]
-    - [Targeted Tag IDs]: [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/auth/RoleServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/RoleService.java
-    - [Low-Level Technical Task Instruction]: Viết các test để xác minh tính năng phân quyền. [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+##### SUB-TASK 8: Thiết lập Xử Lý Ngoại Lệ Đầu Vào
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [EXC-004]
+* **Target Component file path (target_component):** `./sources/backend/src/main/java/com/membershiphub/auth/InputValidationException.java` [EXC-004]
+* **Low-Level Technical Task Instruction:** Triển khai lớp `InputValidationException` để xử lý ngoại lệ xác thực đầu vào không hợp lệ. [EXC-004]
 
-- **DAY 4: Triển khai JWT token và refresh token**
-  - **SUB-TASK 1: Thiết lập JWT token**
-    - [Coder]
-    - [Targeted Tag IDs]: [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/JwtService.java
-    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ JWT với thời hạn 15 phút. [ARC-006]
+##### SUB-TASK 9: Viết Bài Test Đơn Vị
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003]
+* **Target Component file path (target_component):** `./sources/backend/src/test/java/com/membershiphub/auth/UserRegistrationResourceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/UserRegistrationResource.java` [REQ-001], [REQ-002], [REQ-003]
+* **Low-Level Technical Task Instruction:** Viết các bài test đơn vị cho các API đăng ký, đăng nhập và phân quyền người dùng. [REQ-001], [REQ-002], [REQ-003]
 
-  - **SUB-TASK 2: Thiết lập refresh token**
-    - [Coder]
-    - [Targeted Tag IDs]: [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/auth/RefreshTokenService.java
-    - [Low-Level Technical Task Instruction]: Triển khai dịch vụ refresh token với thời hạn 7 ngày. [ARC-006]
+##### SUB-TASK 10: Viết Bài Test Tích Hợp
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003]
+* **Target Component file path (target_component):** `./sources/backend/src/test/java/com/membershiphub/auth/UserRegistrationIntegrationTest.java;./sources/backend/src/main/java/com/membershiphub/auth/UserRegistrationResource.java` [REQ-001], [REQ-002], [REQ-003]
+* **Low-Level Technical Task Instruction:** Viết các bài test tích hợp cho các API đăng ký, đăng nhập và phân quyền người dùng. [REQ-001], [REQ-002], [REQ-003]
 
-  - **SUB-TASK 3: Viết unit tests cho dịch vụ JWT và refresh token**
-    - [Tester]
-    - [Targeted Tag IDs]: [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/auth/JwtServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/JwtService.java;./sources/backend/src/test/java/com/membershiphub/auth/RefreshTokenServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/RefreshTokenService.java
-    - [Low-Level Technical Task Instruction]: Viết các test để xác minh tính năng JWT và refresh token. [ARC-006]
+##### SUB-TASK 11: Tạo Tài Liệu Tham Khảo
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003]
+* **Target Component file path (target_component):** `./sources/docs/authentication.md` [REQ-001], [REQ-002], [REQ-003]
+* **Low-Level Technical Task Instruction:** Tạo tài liệu tham khảo cho các API đăng ký, đăng nhập và phân quyền người dùng. [REQ-001], [REQ-002], [REQ-003]
 
-- **DAY 5: Triển khai xử lý ngoại lệ và kiểm tra tích hợp**
-  - **SUB-TASK 1: Thiết lập xử lý ngoại lệ**
-    - [Coder]
-    - [Targeted Tag IDs]: [EXC-004]
-    - [Target Component file path (target_component)]: ./sources/backend/src/main/java/com/membershiphub/exception/GlobalExceptionHandler.java
-    - [Low-Level Technical Task Instruction]: Triển khai xử lý ngoại lệ toàn cầu với thông báo rõ ràng cho người dùng. [EXC-004]
-
-  - **SUB-TASK 2: Viết unit tests cho xử lý ngoại lệ**
-    - [Tester]
-    - [Targeted Tag IDs]: [EXC-004]
-    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/exception/GlobalExceptionHandlerTest.java;./sources/backend/src/main/java/com/membershiphub/exception/GlobalExceptionHandler.java
-    - [Low-Level Technical Task Instruction]: Viết các test để xác minh xử lý ngoại lệ. [EXC-004]
-
-  - **SUB-TASK 3: Thiết lập kiểm tra tích hợp**
-    - [Tester]
-    - [Targeted Tag IDs]: [REQ-001], [REQ-002], [REQ-003], [ARC-006]
-    - [Target Component file path (target_component)]: ./sources/backend/src/test/java/com/membershiphub/integration/AuthIntegrationTest.java;./sources/backend/src/main/java/com/membershiphub/auth/LocalAuthService.java;./sources/backend/src/main/java/com/membershiphub/auth/OAuth2Service.java;./sources/backend/src/main/java/com/membershiphub/auth/RoleService.java;./sources/backend/src/main/java/com/membershiphub/auth/JwtService.java;./sources/backend/src/main/java/com/membershiphub/auth/RefreshTokenService.java
-    - [Low-Level Technical Task Instruction]: Viết các test tích hợp để xác minh tính năng đăng ký, đăng nhập và phân quyền. [REQ-001], [REQ-002], [REQ-003], [ARC-006]
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_PHASE_LOG_BLOCK_INDEX_1-->
 

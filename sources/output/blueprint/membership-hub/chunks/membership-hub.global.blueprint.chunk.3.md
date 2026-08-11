@@ -26,6 +26,7 @@
     * All bracketed Sub-Agent literal tokens when operating as allocation signatures (e.g., `[Coder]`, `[Tester]`, `[Reviewer]`, `[Doc]`, `[Docker]`, `[GCP]`, `[GKE]`).
     * Any alphanumeric sequential task index formatting codes (e.g., `D1_ST1`, `D2_ST3`).
     * All absolute or relative file paths starting with `./sources/`.
+    * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
     * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
     * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
@@ -104,8 +105,9 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
     * These hidden blocks function exclusively as private machine-to-machine backend gating logic. 
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
-    * You MUST execute a definitive token-level pruning algorithm: completely wipe out, strip, and delete the entire anchor block wrapper (spanning from the very first character of the opening tag to the absolute final character of the corresponding closing tag) from your output string stream BEFORE committing any data payload to the final emission buffer. 
-    * Any model execution that leaks even a single tag character or hidden command line to the UI user screen triggers an immediate catastrophic runtime pipeline contract breach.
+    * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
+    * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -643,23 +645,26 @@ MANDATORY SEGMENT INSTRUCTION:
 | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Xây dựng hệ thống xác thực người dùng | Cung cấp cơ chế đăng ký và đăng nhập qua email/mật khẩu, Firebase, Google, Facebook | Application Code | [REQ-001], [REQ-002], [ARC-006] |
-| 2 | Phát triển hệ thống phân quyền người dùng | Triển khai RBAC để quản lý quyền truy cập cho các vai trò khác nhau | Application Code | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [REQ-003] |
-| 3 | Xây dựng hệ thống quản lý trung tâm | Tạo, cập nhật, xóa và phân quyền quản trị trung tâm | Application Code | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
-| 4 | Phát triển hệ thống quản lý khóa học | Tạo, cập nhật, xóa khóa học và phân công giáo viên | Application Code | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
-| 5 | Xây dựng hệ thống đăng ký và ghi danh học viên | Cho phép học viên duyệt và đăng ký khóa học | Application Code | [REQ-010], [REQ-011], [DAT-005] |
-| 6 | Phát triển hệ thống điểm danh QR | Triển khai chức năng quét mã QR để ghi nhận điểm danh | Application Code | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
-| 7 | Xây dựng hệ thống quản lý thẻ hội viên | Hiển thị và gia hạn thẻ hội viên | Application Code | [REQ-014], [REQ-015], [DAT-007] |
-| 8 | Phát triển hệ thống thông báo và truyền thông | Kích hoạt thông báo qua ứng dụng di động và nhóm Zalo | Application Code | [REQ-016], [DAT-008], [EXC-003] |
-| 9 | Xây dựng hệ thống quản lý khuyến mãi và thông báo | Tạo, chỉnh sửa và xóa khuyến mãi và thông báo | Application Code | [REQ-017], [REQ-018], [DAT-009] |
-| 10 | Tích hợp chatbot AI | Triển khai chatbot AI để trả lời các câu hỏi thường gặp | Application Code | [REQ-019] |
-| 11 | Phát triển giao diện người dùng di động | Tạo giao diện người dùng đáp ứng cho các vai trò khác nhau | Application Code | [REQ-020], [REQ-021] |
-| 12 | Triển khai bản địa hóa và SEO | Phát hiện ngôn ngữ mặc định và hỗ trợ SEO đa ngôn ngữ | Application Code | [REQ-022], [REQ-023], [DAT-011] |
-| 13 | Xây dựng hệ thống báo cáo và phân tích | Tạo báo cáo điểm danh và bảng điều khiển tóm tắt | Application Code | [REQ-024], [REQ-025], [EXC-005] |
-| 14 | Thiết lập cơ sở dữ liệu | Tạo các bảng dữ liệu và quan hệ giữa các bảng | Application Code | [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
-| 15 | Thiết lập môi trường phát triển | Cấu hình môi trường phát triển với Docker và Kubernetes | DevOps Infrastructure | [ARC-010], [NFR-005] |
-| 16 | Triển khai hệ thống trên GCP | Triển khai hệ thống trên Google Cloud Platform | DevOps Infrastructure | [ARC-010], [NFR-002], [NFR-004], [NFR-009] |
-| 17 | Tạo tài liệu kỹ thuật | Tạo tài liệu kỹ thuật cho hệ thống | Enterprise Documentation | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 17 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+| 2 | Thiết kế cơ sở dữ liệu người dùng | Tạo bảng Users và Roles để quản lý thông tin người dùng và phân quyền | Application Code | [DAT-001], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
+| 3 | Xây dựng hệ thống quản lý trung tâm | Cung cấp chức năng xem, tạo, cập nhật và xóa thông tin trung tâm | Application Code | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
+| 4 | Thiết kế hệ thống quản lý khóa học | Xây dựng chức năng xem, tạo, cập nhật và xóa khóa học, phân công giáo viên | Application Code | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| 5 | Xây dựng hệ thống đăng ký khóa học | Cung cấp chức năng duyệt khóa học và đăng ký khóa học cho học viên | Application Code | [REQ-010], [REQ-011], [DAT-005] |
+| 6 | Thiết kế hệ thống điểm danh QR | Xây dựng chức năng quét mã QR để điểm danh và đảm bảo tính bất biến của điểm danh | Application Code | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
+| 7 | Xây dựng hệ thống quản lý thẻ hội viên | Cung cấp chức năng hiển thị và gia hạn thẻ hội viên | Application Code | [REQ-014], [REQ-015], [DAT-007] |
+| 8 | Thiết kế hệ thống thông báo | Xây dựng chức năng kích hoạt thông báo và gửi thông báo đến ứng dụng di động và nhóm Zalo | Application Code | [REQ-016], [DAT-008], [EXC-003] |
+| 9 | Xây dựng hệ thống quản lý khuyến mãi và thông báo | Cung cấp chức năng quản lý khuyến mãi và thông báo cho trung tâm | Application Code | [REQ-017], [REQ-018], [DAT-009] |
+| 10 | Thiết kế chatbot dịch vụ khách hàng AI | Xây dựng chatbot AI để trả lời các câu hỏi thường gặp của người dùng | Application Code | [REQ-019] |
+| 11 | Xây dựng giao diện người dùng trên di động | Cung cấp giao diện người dùng tương ứng với vai trò của người dùng trên ứng dụng di động | Application Code | [REQ-020], [REQ-021] |
+| 12 | Thiết kế hệ thống bản địa hóa và SEO | Xây dựng hệ thống phát hiện ngôn ngữ mặc định và hỗ trợ SEO đa ngôn ngữ | Application Code | [REQ-022], [REQ-023], [DAT-011] |
+| 13 | Xây dựng hệ thống báo cáo và phân tích | Cung cấp chức năng tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh | Application Code | [REQ-024], [REQ-025], [EXC-005] |
+| 14 | Thiết kế cơ sở hạ tầng backend | Xây dựng cơ sở hạ tầng backend sử dụng Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE) | DevOps Infrastructure | [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005] |
+| 15 | Thiết kế cơ sở hạ tầng frontend | Xây dựng cơ sở hạ tầng frontend sử dụng Next.js và React Native | DevOps Infrastructure | [ARC-009] |
+| 16 | Thiết kế cơ sở hạ tầng DevOps | Xây dựng cơ sở hạ tầng DevOps bao gồm Docker, Kubernetes (GKE), CI/CD pipeline với GitHub Actions | DevOps Infrastructure | [ARC-010], [NFR-004], [NFR-005] |
+| 17 | Tạo tài liệu kỹ thuật | Tạo tài liệu kỹ thuật bao gồm đặc tả kiến trúc, đặc tả API, hướng dẫn triển khai | Enterprise Documentation | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010] |
+| 18 | Tạo tài liệu hướng dẫn sử dụng | Tạo tài liệu hướng dẫn sử dụng cho người dùng cuối | Enterprise Documentation | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025] |
+| 19 | Tạo tài liệu bảo mật | Tạo tài liệu bảo mật bao gồm các quy trình bảo mật, chính sách bảo mật và hướng dẫn bảo mật | Enterprise Documentation | [NFR-003], [NFR-008], [NFR-009] |
+| 20 | Tạo tài liệu DevOps | Tạo tài liệu DevOps bao gồm hướng dẫn triển khai, quản lý và bảo trì hệ thống | Enterprise Documentation | [ARC-010], [NFR-004], [NFR-005], [NFR-006], [NFR-009] |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 20 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 ```
@@ -743,13 +748,13 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
 
 <!--START_PHASE_SYNOPSIS_GRID-->
 
-| Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Đường dẫn | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Phase 1 | Day 1 - 3 | ./sources/backend/auth/, ./sources/backend/rbac/, ./sources/docs/ | Xây dựng hệ thống xác thực người dùng và phân quyền người dùng, Tạo tài liệu kỹ thuật cho hệ thống xác thực và phân quyền | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [ARC-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [REQ-003] |
-| Phase 2 | Day 1 - 3 | ./sources/backend/centers/, ./sources/backend/courses/, ./sources/docs/ | Xây dựng hệ thống quản lý trung tâm và khóa học, Tạo tài liệu kỹ thuật cho hệ thống quản lý trung tâm và khóa học | Coder, Tester, Reviewer, Doc | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
-| Phase 3 | Day 1 - 3 | ./sources/backend/enrollments/, ./sources/backend/attendance/, ./sources/docs/ | Xây dựng hệ thống đăng ký và ghi danh học viên, Phát triển hệ thống điểm danh QR, Tạo tài liệu kỹ thuật cho hệ thống đăng ký và điểm danh | Coder, Tester, Reviewer, Doc | [REQ-010], [REQ-011], [DAT-005], [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
-| Phase 4 | Day 1 - 3 | ./sources/backend/membership/, ./sources/backend/notifications/, ./sources/docs/ | Xây dựng hệ thống quản lý thẻ hội viên, Phát triển hệ thống thông báo và truyền thông, Tạo tài liệu kỹ thuật cho hệ thống quản lý thẻ hội viên và thông báo | Coder, Tester, Reviewer, Doc | [REQ-014], [REQ-015], [DAT-007], [REQ-016], [DAT-008], [EXC-003] |
-| Phase 5 | Day 1 - 3 | ./sources/backend/promotions/, ./sources/backend/chatbot/, ./sources/frontend/, ./sources/infra/ | Xây dựng hệ thống quản lý khuyến mãi và thông báo, Tích hợp chatbot AI, Phát triển giao diện người dùng di động, Triển khai hệ thống trên GCP, Tạo tài liệu kỹ thuật cho hệ thống quản lý khuyến mãi, chatbot, và giao diện di động | Coder, Tester, Reviewer, Doc, DevOps | [REQ-017], [REQ-018], [DAT-009], [REQ-019], [REQ-020], [REQ-021], [ARC-010], [NFR-002], [NFR-004], [NFR-009] |
+| Giai đoạn 1 | Day 1 - 2 | ./sources/backend/auth-service/, ./sources/backend/user-service/, ./sources/docs/ | Xây dựng hệ thống xác thực người dùng, Thiết kế cơ sở dữ liệu người dùng, Tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [DAT-001], [ARC-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] |
+| Giai đoạn 2 | Day 1 - 2 | ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/docs/ | Xây dựng hệ thống quản lý trung tâm, Thiết kế hệ thống quản lý khóa học, Tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-004], [REQ-005], [REQ-006], [DAT-003], [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| Giai đoạn 3 | Day 1 - 2 | ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/docs/ | Xây dựng hệ thống đăng ký khóa học, Thiết kế hệ thống điểm danh QR, Tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-010], [REQ-011], [DAT-005], [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
+| Giai đoạn 4 | Day 1 - 2 | ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/docs/ | Xây dựng hệ thống quản lý thẻ hội viên, Thiết kế hệ thống thông báo, Tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-014], [REQ-015], [DAT-007], [REQ-016], [DAT-008], [EXC-003] |
+| Giai đoạn 5 | Day 1 - 2 | ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/docs/ | Xây dựng hệ thống quản lý khuyến mãi và thông báo, Thiết kế chatbot dịch vụ khách hàng AI, Tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-017], [REQ-018], [DAT-009], [REQ-019] |
 | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly 5 calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
 
 <!--END_PHASE_SYNOPSIS_GRID-->

@@ -26,6 +26,7 @@
     * All bracketed Sub-Agent literal tokens when operating as allocation signatures (e.g., `[Coder]`, `[Tester]`, `[Reviewer]`, `[Doc]`, `[Docker]`, `[GCP]`, `[GKE]`).
     * Any alphanumeric sequential task index formatting codes (e.g., `D1_ST1`, `D2_ST3`).
     * All absolute or relative file paths starting with `./sources/`.
+    * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
     * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
     * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
@@ -104,8 +105,9 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
     * These hidden blocks function exclusively as private machine-to-machine backend gating logic. 
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
-    * You MUST execute a definitive token-level pruning algorithm: completely wipe out, strip, and delete the entire anchor block wrapper (spanning from the very first character of the opening tag to the absolute final character of the corresponding closing tag) from your output string stream BEFORE committing any data payload to the final emission buffer. 
-    * Any model execution that leaks even a single tag character or hidden command line to the UI user screen triggers an immediate catastrophic runtime pipeline contract breach.
+    * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
+    * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -642,9 +644,9 @@ MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for P
 - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase 4'.
 
 <HISTORIC_LEDGER_MAP>
-Phase 1: 
+Phase 1: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 Phase 2: 
-Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
+Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 </HISTORIC_LEDGER_MAP>
 </RULE>
 
@@ -775,7 +777,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
 ### 2.1 Quản lý người dùng
 
@@ -824,6 +826,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           varchar description "Role description, optional, max 200 chars"
       }
   ```
+
 ### 2.2 Quản lý trung tâm
 
 #### Yêu cầu chức năng cốt lõi
@@ -835,9 +838,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. `[REQ-004]`
 - Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. `[REQ-005]`
 - Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. `[REQ-006]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-003] Bảng trung tâm
@@ -854,6 +854,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
+
 ### 2.3 Quản lý khóa học
 
 #### Yêu cầu chức năng cốt lõi
@@ -865,9 +866,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. `[REQ-007]`
 - Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. `[REQ-008]`
 - Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. `[REQ-009]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-004] Bảng khóa học
@@ -885,6 +883,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           int maxStudents "Course capacity, default 30"
       }
   ```
+
 ### 2.4 Đăng ký & ghi danh học viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -894,9 +893,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. `[REQ-010]`
 - Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. `[REQ-011]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-005] Bảng ghi danh
@@ -911,6 +907,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
+
 ### 2.5 Điểm danh & quét mã QR
 
 #### Yêu cầu chức năng cốt lõi
@@ -939,6 +936,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           timestamp timestamp "Exact time recorded, default now()"
       }
   ```
+
 ### 2.6 Quản lý thẻ hội viên
 
 #### Yêu cầu chức năng cốt lõi
@@ -948,9 +946,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. `[REQ-014]`
 - Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. `[REQ-015]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-007] Bảng thẻ hội viên
@@ -966,6 +961,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           int remainingDays "Computed days left until expiry"
       }
   ```
+
 ### 2.7 Thông báo & truyền thông
 
 #### Yêu cầu chức năng cốt lõi
@@ -992,6 +988,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           boolean delivered "Delivery status, default false"
       }
   ```
+
 ### 2.8 Quản lý khuyến mãi & thông báo
 
 #### Yêu cầu chức năng cốt lõi
@@ -1001,9 +998,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. `[REQ-017]`
 - Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. `[REQ-018]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-009] Bảng khuyến mãi & thông báo
@@ -1031,6 +1025,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           date endDate "Effective end, optional"
       }
   ```
+
 ### 2.9 Chatbot dịch vụ khách hàng AI
 
 #### Yêu cầu chức năng cốt lõi
@@ -1038,12 +1033,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 #### Tiêu chí chấp nhận & tương tác
 - Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. `[REQ-019]`
-
-#### Luồng ngoại lệ của mô-đun
-- [NOT APPLICABLE] Chatbot AI không có bảng dữ liệu chuyên biệt; tất cả các tương tác được ghi lại trong bảng AuditLog (xem [ARC-006] để biết chi tiết logging).
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
 
 ### 2.10 Các tính năng cốt lõi của ứng dụng di động
 
@@ -1055,12 +1044,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. `[REQ-020]`
 - Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. `[REQ-021]`
 
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
-
 ### 2.11 Bản địa hóa & SEO
 
 #### Yêu cầu chức năng cốt lõi
@@ -1070,9 +1053,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Tiêu chí chấp nhận & tương tác
 - Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
 - Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
 
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [DAT-011] Bảng cài đặt hệ thống
@@ -1086,6 +1066,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
           varchar description "Meaning of setting, optional"
       }
   ```
+
 ### 2.12 Báo cáo & phân tích
 
 #### Yêu cầu chức năng cốt lõi
@@ -1099,9 +1080,6 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 #### Luồng ngoại lệ của mô-đun
 - [EXC-005] System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
 
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
-
 ## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
 
 - [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
@@ -1114,51 +1092,55 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHÂN TÁN
+## 📝 4. PHÂN TÍCH KIẾN TRÚC TOÀN CẦU
 
 ### 4.1 KIẾN TRÚC TOÀN CẦU
 
-#### 4.1.1 KIẾN TRÚC TOÀN CẦU
+#### Kiến trúc hệ thống
+- **Backend**: Microservices architecture sử dụng Java/Quarkus, triển khai trên Kubernetes (GKE).
+- **Frontend**: Next.js cho web và React Native cho mobile.
+- **Database**: PostgreSQL với schema riêng cho mỗi microservice.
+- **Caching**: Redis cho session và caching.
+- **Messaging**: Apache Kafka cho event-driven communication.
+- **Authentication**: Firebase Authentication và JWT.
+- **Notifications**: Firebase Cloud Messaging (FCM) và Apple APNs.
+- **Zalo Integration**: Zalo API cho thông báo và quản lý nhóm.
+- **CI/CD**: GitHub Actions cho pipeline tự động hóa.
 
-- **Kiến trúc tổng quan:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, khóa học, điểm danh, và thông báo. Sử dụng API Gateway để định tuyến các yêu cầu đến các dịch vụ tương ứng.
-- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với các bảng được chuẩn hóa để lưu trữ dữ liệu người dùng, khóa học, điểm danh, và thông báo. Sử dụng Redis để lưu trữ session và caching.
-- **Kiến trúc giao diện người dùng:** Sử dụng Next.js cho frontend web và React Native cho ứng dụng di động. Sử dụng Firebase Authentication cho xác thực người dùng và Firebase Cloud Messaging (FCM) cho push notification.
+#### Kiến trúc dữ liệu
+- **Database Schema**: Mỗi microservice có schema riêng, sử dụng Flyway/Liquibase cho migrations.
+- **Data Flow**: Dữ liệu được lưu trữ trong PostgreSQL, truy cập thông qua REST APIs và Kafka topics.
+- **Caching Strategy**: Redis được sử dụng cho session caching và caching dữ liệu thường truy cập.
 
-#### 4.1.2 KIẾN TRÚC PHÂN TÁN
+#### Kiến trúc giao diện người dùng
+- **Web UI**: Next.js với TypeScript, sử dụng Material-UI cho các thành phần giao diện.
+- **Mobile UI**: React Native với TypeScript, sử dụng các thành phần giao diện tương thích với cả iOS và Android.
+- **Responsive Design**: Đảm bảo giao diện đáp ứng trên các thiết bị khác nhau.
 
-- **Kiến trúc phân tán:** Hệ thống được triển khai trên Google Kubernetes Engine (GKE) với các dịch vụ được container hóa bằng Docker. Sử dụng Kubernetes Horizontal Pod Autoscaler (HPA) để tự động mở rộng các dịch vụ dựa trên tải.
-- **Kiến trúc dữ liệu phân tán:** Sử dụng PostgreSQL read replicas để xử lý các truy vấn báo cáo và phân tích. Sử dụng Redis để lưu trữ session và caching.
-- **Kiến trúc giao diện người dùng phân tán:** Sử dụng Firebase Hosting để triển khai frontend web và ứng dụng di động. Sử dụng Firebase Cloud Functions để xử lý các sự kiện và thông báo.
+### 4.2 MA TRẬN TÓM TẮT PHÂN PHÁI PHÂN PHÁP
 
-### 4.2 MULTI-PHASE SYNOPSIS MATRIX
+| Giai đoạn | Khoảng ngày | Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|--------------------|----------------------------|-----------|------------------|
+| 1         | 1-2         | ./sources/backend/auth-service/ | Xác thực người dùng, JWT, OAuth2 | Coder, Tester, Reviewer, Docker | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001] |
+| 2         | 3-4         | ./sources/backend/course-service/ | Quản lý khóa học, giáo viên, lịch học | Coder, Tester, Reviewer, Docker | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| 3         | 5-6         | ./sources/backend/attendance-service/ | Điểm danh QR, quản lý thẻ hội viên | Coder, Tester, Reviewer, Docker | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007] |
+| 4         | 7-7         | ./sources/backend/notification-service/ | Thông báo, Zalo integration | Coder, Tester, Reviewer, Docker, GCP | [REQ-016], [DAT-008], [EXC-003] |
+| 5         | 1-2         | ./sources/frontend/web/, ./sources/frontend/mobile/ | Giao diện người dùng, bản địa hóa, SEO | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-020], [REQ-021], [REQ-022], [REQ-023], [DAT-011], [NFR-007] |
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-------------------------|---------------------------|------------|------------------|
-| 1         | 1-3         | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực với email/mật khẩu, Firebase, Google, Facebook OAuth2 | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001], [EXC-004] |
-| 2         | 4-6         | ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý khóa học với các chức năng tạo, cập nhật, xóa khóa học | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
-| 3         | 7-9         | ./sources/backend/attendance-service/ | Xây dựng dịch vụ điểm danh với chức năng quét mã QR và ghi lại điểm danh | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-012], [REQ-013], [DAT-006], [EXC-001], [EXC-002] |
-| 4         | 10-12       | ./sources/backend/notification-service/ | Xây dựng dịch vụ thông báo với chức năng gửi thông báo đến ứng dụng di động và nhóm Zalo | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-016], [DAT-008], [EXC-003] |
-| 5         | 13-15       | ./sources/frontend/ | Xây dựng giao diện người dùng với các chức năng duyệt khóa học, đăng ký khóa học, xem thẻ hội viên | Coder, Tester, Reviewer, Docker, GCP, GKE | [REQ-010], [REQ-011], [REQ-014], [REQ-015], [DAT-005], [DAT-007] |
-
-## 5. PHÂN PHỐI NHIỆM VỤ THEO NGÀY
-
-### Phase 4: Triển Khai Lõi Nghiệp Vụ Thông Báo
-
-- **Phase Core Objective & Purpose:** Triển khai dịch vụ thông báo với chức năng gửi thông báo đến ứng dụng di động và nhóm Zalo. Đảm bảo tính tin cậy và hiệu suất cao của dịch vụ thông báo.
+## 📅 5. CHI TIẾT PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP PHÂN PHÁP THÔNG BÁO, ZALO INTEGRATION |
+- **Phase Core Objective & Purpose:** Triển khai hệ thống thông báo và tích hợp Zalo để gửi thông báo đến người dùng và quản lý nhóm Zalo.
 - **Target Physical Directory Matrix Map:** ./sources/backend/notification-service/
-- **Database Schema DDL SQL Specification [DAT-008]:**
-```sql
+- **Database Schema DDL SQL Specification [DAT-008]:** ```sql
 CREATE TABLE notifications (
     notification_id UUID PRIMARY KEY,
     user_id UUID REFERENCES users(user_id),
     group_zalo VARCHAR(255),
     message TEXT NOT NULL,
-    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    sent_at TIMESTAMP DEFAULT NOW(),
     delivered BOOLEAN DEFAULT FALSE
 );
 ```
-- **API and Event Routing Contracts [REQ-016], [ARC-008]:**
-```json
+- **API and Event Routing Contracts [REQ-016], [ARC-008]:** ```json
 {
     "sendNotification": {
         "method": "POST",
@@ -1175,183 +1157,355 @@ CREATE TABLE notifications (
     }
 }
 ```
-- **Phase Localized Exception Handlers [EXC-003]:**
-- Nếu không thể gửi thông báo đến thiết bị di động, hệ thống sẽ ghi lại lỗi và thử lại tối đa 3 lần trước khi đánh dấu là thất bại.
+- **Phase Localized Exception Handlers [EXC-003]:** Nếu thông báo không thể được gửi (ví dụ: token thiết bị không hợp lệ), hệ thống sẽ ghi lại lỗi và lên lịch thử lại tối đa 3 lần trước khi đánh dấu là thất bại.
 
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 4)
 
-- **DAY 1: Khởi tạo dịch vụ thông báo**
-  
-##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho dịch vụ thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Coder]
-* Targeted Tag IDs: [DAT-008]
-* Target Component file path: ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
-* Low-Level Technical Task Instruction: Tạo bảng notifications với các cột notification_id, user_id, group_zalo, message, sent_at, delivered. [DAT-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+<!--START_DAY_LOG_INDEX_4-->
 
-##### SUB-TASK 2: Viết unit tests cho cơ sở dữ liệu
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Tester]
-* Targeted Tag IDs: [DAT-008]
-* Target Component file path: ./sources/backend/notification-service/src/test/java/com/example/notification/db/NotificationsTableTest.java;./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
-* Low-Level Technical Task Instruction: Viết unit tests để kiểm tra việc tạo bảng notifications. [DAT-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+- **DAY 1: Triển khai lõi thông báo**
+  ##### SUB-TASK 1: Thiết lập cơ sở dữ liệu cho thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Coder]
+  * Targeted Tag IDs: [DAT-008]
+  * Target Component: ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
+  * Low-Level Technical Task Instruction: Tạo bảng notifications với các trường notification_id, user_id, group_zalo, message, sent_at, và delivered. [DAT-008]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 3: Review code cơ sở dữ liệu
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Reviewer]
-* Targeted Tag IDs: [DAT-008]
-* Target Component file path: ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
-* Low-Level Technical Task Instruction: Review code cơ sở dữ liệu để đảm bảo tính đúng đắn và hiệu suất. [DAT-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 2: Viết unit test cho bảng thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [DAT-008]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/NotificationRepositoryTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/NotificationRepository.java
+  * Low-Level Technical Task Instruction: Viết unit test để kiểm tra việc tạo và truy vấn bảng notifications. [DAT-008]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 4: Tài liệu cơ sở dữ liệu
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Doc]
-* Targeted Tag IDs: [DAT-008]
-* Target Component file path: ./sources/docs/database/notification-service.md
-* Low-Level Technical Task Instruction: Tài liệu cơ sở dữ liệu cho dịch vụ thông báo. [DAT-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 3: Review code cơ sở dữ liệu thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [DAT-008]
+  * Target Component: ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_notifications_table.sql
+  * Low-Level Technical Task Instruction: Review code để đảm bảo rằng bảng notifications được tạo với các ràng buộc và kiểu dữ liệu chính xác. [DAT-008]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 5: Xây dựng Dockerfile cho dịch vụ thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Docker]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/backend/notification-service/Dockerfile
-* Low-Level Technical Task Instruction: Xây dựng Dockerfile cho dịch vụ thông báo. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Tạo Dockerfile để container hóa dịch vụ thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Triển khai cơ sở hạ tầng trên GCP
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [GCP]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/infra/gcp/notification-service.yaml
-* Low-Level Technical Task Instruction: Triển khai cơ sở hạ tầng trên GCP cho dịch vụ thông báo. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GCP. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [GKE]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/infra/gke/notification-service.yaml
-* Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 2: Triển khai chức năng gửi thông báo**
-  
-##### SUB-TASK 1: Thiết kế API gửi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Coder]
-* Targeted Tag IDs: [REQ-016]
-* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/api/NotificationApi.java
-* Low-Level Technical Task Instruction: Thiết kế API gửi thông báo với endpoint /api/notifications. [REQ-016]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+- **DAY 2: Tích hợp Zalo**
+  ##### SUB-TASK 1: Thiết lập tích hợp Zalo API
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Coder]
+  * Targeted Tag IDs: [ARC-008]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/ZaloIntegrationService.java
+  * Low-Level Technical Task Instruction: Tạo dịch vụ tích hợp Zalo API để gửi thông báo đến nhóm Zalo. [ARC-008]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 2: Viết unit tests cho API gửi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Tester]
-* Targeted Tag IDs: [REQ-016]
-* Target Component file path: ./sources/backend/notification-service/src/test/java/com/example/notification/api/NotificationApiTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/api/NotificationApi.java
-* Low-Level Technical Task Instruction: Viết unit tests cho API gửi thông báo. [REQ-016]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 2: Viết unit test cho tích hợp Zalo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [ARC-008]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/ZaloIntegrationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/ZaloIntegrationService.java
+  * Low-Level Technical Task Instruction: Viết unit test để kiểm tra việc gửi thông báo đến nhóm Zalo. [ARC-008]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 3: Review code API gửi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Reviewer]
-* Targeted Tag IDs: [REQ-016]
-* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/api/NotificationApi.java
-* Low-Level Technical Task Instruction: Review code API gửi thông báo để đảm bảo tính đúng đắn và hiệu suất. [REQ-016]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 3: Review code tích hợp Zalo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [ARC-008]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/ZaloIntegrationService.java
+  * Low-Level Technical Task Instruction: Review code để đảm bảo rằng tích hợp Zalo API hoạt động chính xác. [ARC-008]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 4: Tài liệu API gửi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Doc]
-* Targeted Tag IDs: [REQ-016]
-* Target Component file path: ./sources/docs/api/notification-service.md
-* Low-Level Technical Task Instruction: Tài liệu API gửi thông báo. [REQ-016]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Cập nhật Dockerfile để bao gồm tích hợp Zalo API. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 5: Xây dựng Dockerfile cho dịch vụ thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Docker]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/backend/notification-service/Dockerfile
-* Low-Level Technical Task Instruction: Xây dựng Dockerfile cho dịch vụ thông báo. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GCP để bao gồm tích hợp Zalo API. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Triển khai cơ sở hạ tầng trên GCP
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [GCP]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/infra/gcp/notification-service.yaml
-* Low-Level Technical Task Instruction: Triển khai cơ sở hạ tầng trên GCP cho dịch vụ thông báo. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GKE để bao gồm tích hợp Zalo API. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [GKE]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/infra/gke/notification-service.yaml
-* Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+- **DAY 3: Triển khai API thông báo**
+  ##### SUB-TASK 1: Thiết lập API thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Coder]
+  * Targeted Tag IDs: [REQ-016]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationController.java
+  * Low-Level Technical Task Instruction: Tạo API để gửi thông báo đến người dùng và nhóm Zalo. [REQ-016]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **DAY 3: Triển khai chức năng xử lý lỗi thông báo**
-  
-##### SUB-TASK 1: Thiết kế xử lý lỗi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Coder]
-* Targeted Tag IDs: [EXC-003]
-* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
-* Low-Level Technical Task Instruction: Thiết kế xử lý lỗi thông báo với chức năng ghi lại lỗi và thử lại tối đa 3 lần. [EXC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 2: Viết unit test cho API thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [REQ-016]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/NotificationControllerTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/NotificationController.java
+  * Low-Level Technical Task Instruction: Viết unit test để kiểm tra API gửi thông báo. [REQ-016]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 2: Viết unit tests cho xử lý lỗi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Tester]
-* Targeted Tag IDs: [EXC-003]
-* Target Component file path: ./sources/backend/notification-service/src/test/java/com/example/notification/service/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
-* Low-Level Technical Task Instruction: Viết unit tests cho xử lý lỗi thông báo. [EXC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 3: Review code API thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [REQ-016]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationController.java
+  * Low-Level Technical Task Instruction: Review code để đảm bảo rằng API gửi thông báo hoạt động chính xác. [REQ-016]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 3: Review code xử lý lỗi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Reviewer]
-* Targeted Tag IDs: [EXC-003]
-* Target Component file path: ./sources/backend/notification-service/src/main/java/com/example/notification/service/NotificationService.java
-* Low-Level Technical Task Instruction: Review code xử lý lỗi thông báo để đảm bảo tính đúng đắn và hiệu suất. [EXC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Cập nhật Dockerfile để bao gồm API thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 4: Tài liệu xử lý lỗi thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Doc]
-* Targeted Tag IDs: [EXC-003]
-* Target Component file path: ./sources/docs/exception/notification-service.md
-* Low-Level Technical Task Instruction: Tài liệu xử lý lỗi thông báo. [EXC-003]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GCP để bao gồm API thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 5: Xây dựng Dockerfile cho dịch vụ thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [Docker]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/backend/notification-service/Dockerfile
-* Low-Level Technical Task Instruction: Xây dựng Dockerfile cho dịch vụ thông báo. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GKE để bao gồm API thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 6: Triển khai cơ sở hạ tầng trên GCP
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [GCP]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/infra/gcp/notification-service.yaml
-* Low-Level Technical Task Instruction: Triển khai cơ sở hạ tầng trên GCP cho dịch vụ thông báo. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+- **DAY 4: Xử lý ngoại lệ thông báo**
+  ##### SUB-TASK 1: Thiết lập xử lý ngoại lệ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Coder]
+  * Targeted Tag IDs: [EXC-003]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationExceptionHandler.java
+  * Low-Level Technical Task Instruction: Tạo xử lý ngoại lệ cho việc gửi thông báo. [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
 
-##### SUB-TASK 7: Triển khai dịch vụ thông báo trên GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* Sub-Agent: [GKE]
-* Targeted Tag IDs: [ARC-008]
-* Target Component file path: ./sources/infra/gke/notification-service.yaml
-* Low-Level Technical Task Instruction: Triển khai dịch vụ thông báo trên GKE. [ARC-008]
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  ##### SUB-TASK 2: Viết unit test cho xử lý ngoại lệ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [EXC-003]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/NotificationExceptionHandlerTest.java;./sources/backend/notification-service/src/main/java/com/example/notification/NotificationExceptionHandler.java
+  * Low-Level Technical Task Instruction: Viết unit test để kiểm tra xử lý ngoại lệ thông báo. [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 3: Review code xử lý ngoại lệ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [EXC-003]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationExceptionHandler.java
+  * Low-Level Technical Task Instruction: Review code để đảm bảo rằng xử lý ngoại lệ thông báo hoạt động chính xác. [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Cập nhật Dockerfile để bao gồm xử lý ngoại lệ thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GCP để bao gồm xử lý ngoại lệ thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GKE để bao gồm xử lý ngoại lệ thông báo. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 5: Kiểm thử và tối ưu hóa**
+  ##### SUB-TASK 1: Kiểm thử tích hợp dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [REQ-016], [EXC-003]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/NotificationIntegrationTest.java
+  * Low-Level Technical Task Instruction: Viết kiểm thử tích hợp để kiểm tra dịch vụ thông báo. [REQ-016], [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 2: Tối ưu hóa hiệu suất dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [NFR-001]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java
+  * Low-Level Technical Task Instruction: Tối ưu hóa hiệu suất dịch vụ thông báo để đảm bảo thời gian phản hồi dưới 200ms. [NFR-001]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 3: Tạo tài liệu cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Doc]
+  * Targeted Tag IDs: [REQ-016], [EXC-003]
+  * Target Component: ./sources/docs/notification-service.md
+  * Low-Level Technical Task Instruction: Tạo tài liệu chi tiết cho dịch vụ thông báo. [REQ-016], [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Cập nhật Dockerfile để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GCP để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GKE để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 6: Kiểm thử và tối ưu hóa**
+  ##### SUB-TASK 1: Kiểm thử tích hợp dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [REQ-016], [EXC-003]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/NotificationIntegrationTest.java
+  * Low-Level Technical Task Instruction: Viết kiểm thử tích hợp để kiểm tra dịch vụ thông báo. [REQ-016], [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 2: Tối ưu hóa hiệu suất dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [NFR-001]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java
+  * Low-Level Technical Task Instruction: Tối ưu hóa hiệu suất dịch vụ thông báo để đảm bảo thời gian phản hồi dưới 200ms. [NFR-001]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 3: Tạo tài liệu cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Doc]
+  * Targeted Tag IDs: [REQ-016], [EXC-003]
+  * Target Component: ./sources/docs/notification-service.md
+  * Low-Level Technical Task Instruction: Tạo tài liệu chi tiết cho dịch vụ thông báo. [REQ-016], [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Cập nhật Dockerfile để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GCP để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GKE để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+- **DAY 7: Kiểm thử và tối ưu hóa**
+  ##### SUB-TASK 1: Kiểm thử tích hợp dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Tester]
+  * Targeted Tag IDs: [REQ-016], [EXC-003]
+  * Target Component: ./sources/backend/notification-service/src/test/java/com/example/notification/NotificationIntegrationTest.java
+  * Low-Level Technical Task Instruction: Viết kiểm thử tích hợp để kiểm tra dịch vụ thông báo. [REQ-016], [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 2: Tối ưu hóa hiệu suất dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Reviewer]
+  * Targeted Tag IDs: [NFR-001]
+  * Target Component: ./sources/backend/notification-service/src/main/java/com/example/notification/NotificationService.java
+  * Low-Level Technical Task Instruction: Tối ưu hóa hiệu suất dịch vụ thông báo để đảm bảo thời gian phản hồi dưới 200ms. [NFR-001]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 3: Tạo tài liệu cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Doc]
+  * Targeted Tag IDs: [REQ-016], [EXC-003]
+  * Target Component: ./sources/docs/notification-service.md
+  * Low-Level Technical Task Instruction: Tạo tài liệu chi tiết cho dịch vụ thông báo. [REQ-016], [EXC-003]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 4: Tạo Dockerfile cho dịch vụ thông báo
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [Docker]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/backend/notification-service/Dockerfile
+  * Low-Level Technical Task Instruction: Cập nhật Dockerfile để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 5: Triển khai dịch vụ thông báo trên GCP
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GCP]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gcp/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GCP để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+  ##### SUB-TASK 6: Triển khai dịch vụ thông báo trên GKE
+  <!--START_ATOMIC_SUB_TASK_NODE-->
+  * Sub-Agent: [GKE]
+  * Targeted Tag IDs: [ARC-010]
+  * Target Component: ./sources/infra/gke/notification-service-deployment.yaml
+  * Low-Level Technical Task Instruction: Cập nhật triển khai dịch vụ thông báo trên GKE để bao gồm các thay đổi tối ưu hóa. [ARC-010]
+  <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--END_PHASE_LOG_BLOCK_INDEX_4-->
 ```
 
