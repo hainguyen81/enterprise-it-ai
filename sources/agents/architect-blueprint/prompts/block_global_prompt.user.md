@@ -99,40 +99,43 @@ You MUST include every single section below without exception to satisfy enterpr
 
 {% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
 # GLOBAL PROJECT CONTEXT: {{ project_name }}
+{% endif %}
 
 {% if force_full_export %}
-  <!-- SYSTEM MODE: FULL_MONOLITHIC_GENERATION -->
-  MANDATORY INSTRUCTION: You must generate the complete blueprint report from Section 1 to Section 8 seamlessly in one single response.
+<!-- SYSTEM MODE: FULL_MONOLITHIC_GENERATION -->
+MANDATORY INSTRUCTION: You must generate the complete blueprint report from Section 1 to Section 8 seamlessly in one single response.
 
 {% else %}
 
-  {% if target_segment and target_segment.strip() == "PART_1_INITIAL" %}
-  MANDATORY SEGMENT INSTRUCTION: 
-  - You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
-  - Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
+{% if target_segment and target_segment.strip() == "PART_1_INITIAL" %}
+MANDATORY SEGMENT INSTRUCTION: 
+- You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
+- Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
-  {% elif target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1" %}
-  MANDATORY SEGMENT INSTRUCTION: 
-  - You are strictly commanded to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG) inside the parsing hooks. 
-  - You MUST perform an atomic expansion of all raw requirements from the SRS. 
-  - Absolutely DO NOT generate any other sections, headers, or matrices. Halt execution immediately after closing the backlog table.
+{% elif target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1" %}
+MANDATORY SEGMENT INSTRUCTION: 
+- You are strictly commanded to ONLY generate Section 4.1 (MASTER ARCHITECTURAL PRODUCT BACKLOG) inside the parsing hooks. 
+- You MUST perform an atomic expansion of all raw requirements from the SRS. 
+- Absolutely DO NOT generate any other sections, headers, or matrices. Halt execution immediately after closing the backlog table.
 
-  {% elif target_segment and target_segment.strip() == "PART_1_MATRIX_4_2" %}
-  MANDATORY SEGMENT INSTRUCTION: 
-  - You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks. 
-  - You MUST distribute the exact workload from the previous backlog step into calculated phases. 
-  - Enforce the **DYNAMIC RANGE COMPUTE LAW** to calculate 'Day 1 - K' based on task density. 
-  - Absolutely DO NOT generate Section 1, 2, 3, 4.1, 5, 6, 7, or 8.
+{% elif target_segment and target_segment.strip() == "PART_1_MATRIX_4_2" %}
+MANDATORY SEGMENT INSTRUCTION: 
+- You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks. 
+- You MUST distribute the exact workload from the previous backlog step into calculated phases. 
+- Enforce the **DYNAMIC RANGE COMPUTE LAW** to calculate 'Day 1 - K' based on task density. 
+- Absolutely DO NOT generate Section 1, 2, 3, 4.1, 5, 6, 7, or 8.
 
-  {% elif target_segment and target_segment.strip() == "PART_2_PHASE_LOOP" %}
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase {{ target_phase_index }}. Completely delete and skip all other sections.
+{% elif target_segment and target_segment.strip() == "PART_2_PHASE_LOOP" %}
+MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 5 for Phase {{ target_phase_index }}. Completely delete and skip all other sections.
 
-  {% elif target_segment and target_segment.strip() == "PART_3_FINAL" %}
-  MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 6, Section 7, and Section 8. Completely skip sections 1 to 5.
+{% elif target_segment and target_segment.strip() == "PART_3_FINAL" %}
+MANDATORY INSTRUCTION: You are strictly ordered to ONLY generate Section 6, Section 7, and Section 8. Completely skip sections 1 to 5.
 
-  {% endif %}
 {% endif %}
 
+{% endif %}
+
+{% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
 ## 📊 Document Control
 
 | Item | Details |
