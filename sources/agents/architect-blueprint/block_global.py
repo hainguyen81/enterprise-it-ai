@@ -43,6 +43,8 @@ GLOBAL_CHUNK_LOG                        = "# Chunk {}:\n\n---\n\n{}\n\n---\n\n# 
 
 DEFAULT_BLUEPRINT_LANGUAGE              = "English"
 
+DEFAULT_LIMIT_PHASE_LOG_TOKEN           = 4000
+
 logger = get_logger("🏗️ EnterpriseSystemArchitectureGlobalAgent")
 
 # GEMINI
@@ -428,9 +430,29 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             # --- use Regex to extract hidden HTML for historical phases generation to use for final trunk ---
             tag_pattern = rf"<!--START_DAY_LOG_INDEX_{phase_idx}-->(.*?)<!--END_PHASE_LOG_BLOCK_INDEX_{phase_idx}-->"
             day_logs_match = re.search(tag_pattern, phase_chunk, re.DOTALL)
-            # Stick context include pgase guideline (Technical English - no translation)
-            phase_log = day_logs_match.group(1).strip() if day_logs_match else phase_chunk
-            extracted_block = f"### Phase {phase_idx} Logs:\n" + phase_log.strip()
+            if not day_logs_match:
+                logger.warning("                | ⚠️ Token `<!--START_DAY_LOG_INDEX_X-->` missing, activating Fallback Engine to scan day logs...")
+                
+                # use regex to remove all code blocks as SQL, DDL, JSON
+                clean_text = re.sub(r'```.*?```', '', phase_chunk, flags=re.DOTALL).strip()
+                
+                # if token exceeded
+                if len(clean_text) > DEFAULT_LIMIT_PHASE_LOG_TOKEN:
+                    logger.warning(f"                     | ⚠️ Phase Log Token exceeded {DEFAULT_LIMIT_PHASE_LOG_TOKEN} chracters, activating Fallback Engine to compress Tag Lines...")
+                    # Maximum compression, only collect lines that contains technical Tag IDs
+                    salvaged_lines = [f"### Phase {phase_idx} Logs (Atomic Salvaged Tag Lines):"]
+                    for line in clean_text.split('\n'):
+                        if re.search(r'\[(REQ|ARC|EXC|DAT|NFR)-\d+\]', line):
+                            salvaged_lines.append(line.strip())
+                    extracted_block = "\n".join(salvaged_lines)
+                else:
+                    # if it's in limit token, use it
+                    extracted_block = f"### Phase {phase_idx} Logs (Salvaged Text):\n{clean_text.strip()}"
+            
+            else:
+                # Stick context include pgase guideline (Technical English - no translation)
+                phase_log = day_logs_match.group(1).strip()
+                extracted_block = f"### Phase {phase_idx} Logs:\n{phase_log.strip()}"
             immutable_tag_phase_summaries.append(extracted_block)
 
             # write chunk log
