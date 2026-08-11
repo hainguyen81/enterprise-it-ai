@@ -612,6 +612,10 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+
+
+
+
 <RULE>
 [STRICT OPERATIONAL MANDATE FOR PHASE 2 OUT OF 5]
 - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 2 out of 5.
@@ -651,6 +655,8 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - The total days within any single phase MUST NOT exceed the absolute upperbound of 7 days.
 - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
 </COMMAND>
+
+
 
 ### 📈 [Translated text for \"Phase\"] 2 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
 - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
@@ -694,7 +700,7 @@ Output high-density technical instructions, operational validation steps, or sch
 </RULE>
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 2' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
+- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase 2' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 * **Database Schema DDL SQL Specification [DAT-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -755,7 +761,7 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 ### Công nghệ & hạ tầng
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
 ### 2.1 Quản lý người dùng
 
@@ -1094,464 +1100,162 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📅 4. PHÂN TÍCH KIẾN TRÚC & TÌNH TRẠNG PHÂN PHỐI
+## 4. KIẾN TRÚC TOÀN CẦU & PHÂN PHỐI PHÂN TÍCH
 
-### 4.1 PHÂN TÍCH KIẾN TRÚC
+### 4.1 KIẾN TRÚC TOÀN CẦU
 
-#### 4.1.1 KIẾN TRÚC TOÀN CẦU
+#### 4.1.1 KIẾN TRÚC HỆ THỐNG
 
-- **Kiến trúc hệ thống:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho từng chức năng chính.
-- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu quan hệ PostgreSQL với các bảng được chuẩn hóa và các mối quan hệ được xác định rõ ràng.
-- **Kiến trúc giao diện người dùng:** Giao diện người dùng được xây dựng bằng Next.js cho web và React Native cho di động.
-- **Kiến trúc hạ tầng:** Sử dụng container hóa Docker và triển khai trên Kubernetes (GKE) để đảm bảo tính linh hoạt và khả năng mở rộng.
+- **Kiến trúc tổng quan:** Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho mỗi chức năng chính (quản lý người dùng, khóa học, điểm danh, v.v.). Các dịch vụ này giao tiếp với nhau thông qua REST APIs và sự kiện qua Kafka.
+- **Kiến trúc dữ liệu:** Sử dụng cơ sở dữ liệu PostgreSQL với schema riêng biệt cho mỗi dịch vụ để đảm bảo tính cô lập và bảo mật.
+- **Kiến trúc giao diện người dùng:** Giao diện web được xây dựng bằng Next.js với React, trong khi ứng dụng di động được phát triển bằng React Native.
 
-#### 4.1.2 KIẾN TRÚC MÔ-ĐUN
+#### 4.1.2 KIẾN TRÚC PHÂN TÍCH
 
-- **Quản lý người dùng:** Dịch vụ độc lập với các API cho đăng ký, xác thực và phân quyền.
-- **Quản lý trung tâm:** Dịch vụ độc lập với các API cho quản lý thông tin trung tâm.
-- **Quản lý khóa học:** Dịch vụ độc lập với các API cho quản lý thông tin khóa học.
-- **Đăng ký & ghi danh học viên:** Dịch vụ độc lập với các API cho đăng ký khóa học và quản lý ghi danh.
-- **Điểm danh & quét mã QR:** Dịch vụ độc lập với các API cho điểm danh và quét mã QR.
-- **Quản lý thẻ hội viên:** Dịch vụ độc lập với các API cho quản lý thẻ hội viên.
-- **Thông báo & truyền thông:** Dịch vụ độc lập với các API cho quản lý thông báo và truyền thông.
-- **Quản lý khuyến mãi & thông báo:** Dịch vụ độc lập với các API cho quản lý khuyến mãi và thông báo.
-- **Chatbot dịch vụ khách hàng AI:** Dịch vụ độc lập với các API cho tích hợp chatbot AI.
-- **Các tính năng cốt lõi của ứng dụng di động:** Dịch vụ độc lập với các API cho các tính năng cốt lõi của ứng dụng di động.
-- **Bản địa hóa & SEO:** Dịch vụ độc lập với các API cho bản địa hóa và SEO.
-- **Báo cáo & phân tích:** Dịch vụ độc lập với các API cho báo cáo và phân tích.
+- **Phân tích yêu cầu:** Các yêu cầu chức năng đã được phân tích và chia thành các tính năng độc lập, mỗi tính năng được gán với các Tag IDs tương ứng.
+- **Phân tích dữ liệu:** Các bảng dữ liệu đã được xác định và thiết kế với các quan hệ và ràng buộc phù hợp.
+- **Phân tích ngoại lệ:** Các luồng ngoại lệ đã được xác định và xử lý cho từng tính năng.
 
-### 4.2 MULTI-PHASE SYNOPSIS MATRIX
+### 4.2 MA TRẬN TỔNG QUAN NHIỀU PHASE
 
 | Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-------------------------|---------------------------|------------|------------------|
-| Giai đoạn 1 | Ngày 1-2 | ./sources/backend/auth-service/, ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/backend/mobile-service/, ./sources/backend/localization-service/, ./sources/backend/reporting-service/ | Khởi tạo các dịch vụ backend cơ bản, thiết lập cơ sở dữ liệu, triển khai các API cơ bản cho các chức năng chính. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-| Giai đoạn 2 | Ngày 1-3 | ./sources/backend/auth-service/, ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/backend/mobile-service/, ./sources/backend/localization-service/, ./sources/backend/reporting-service/ | Triển khai các tính năng xác thực, quản lý trung tâm, quản lý khóa học, đăng ký & ghi danh học viên, điểm danh & quét mã QR, quản lý thẻ hội viên, thông báo & truyền thông, quản lý khuyến mãi & thông báo, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa & SEO, báo cáo & phân tích. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-| Giai đoạn 3 | Ngày 1-3 | ./sources/backend/auth-service/, ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/backend/mobile-service/, ./sources/backend/localization-service/, ./sources/backend/reporting-service/ | Tối ưu hóa hiệu suất, bảo mật và khả năng mở rộng của hệ thống. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-| Giai đoạn 4 | Ngày 1-2 | ./sources/backend/auth-service/, ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/backend/mobile-service/, ./sources/backend/localization-service/, ./sources/backend/reporting-service/ | Kiểm thử và sửa lỗi hệ thống. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-| Giai đoạn 5 | Ngày 1-2 | ./sources/backend/auth-service/, ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/backend/promotion-service/, ./sources/backend/chatbot-service/, ./sources/backend/mobile-service/, ./sources/backend/localization-service/, ./sources/backend/reporting-service/ | Triển khai hệ thống vào môi trường sản xuất. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
+|-----------|-------------|-------------------------|---------------------------|-----------|------------------|
+| Giai đoạn 1 | Ngày 1-2 | ./sources/backend/auth-service/, ./sources/backend/user-service/, ./sources/frontend/ | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [EXC-004], [ARC-006] |
+| Giai đoạn 2 | Ngày 1-3 | ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/frontend/ | Triển khai lõi nghiệp vụ trung tâm và khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [DAT-003], [DAT-004], [ARC-002], [ARC-003] |
+| Giai đoạn 3 | Ngày 1-3 | ./sources/backend/enrollment-service/, ./sources/backend/attendance-service/, ./sources/frontend/ | Triển khai hệ thống ghi danh và điểm danh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [REQ-012], [REQ-013], [DAT-005], [DAT-006], [EXC-001], [EXC-002], [ARC-007] |
+| Giai đoạn 4 | Ngày 1-2 | ./sources/backend/membership-service/, ./sources/backend/notification-service/, ./sources/frontend/ | Triển khai hệ thống thẻ hội viên và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-014], [REQ-015], [REQ-016], [DAT-007], [DAT-008], [EXC-003], [ARC-008] |
+| Giai đoạn 5 | Ngày 1-2 | ./sources/backend/promotion-service/, ./sources/backend/announcement-service/, ./sources/frontend/ | Triển khai hệ thống khuyến mãi và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-017], [REQ-018], [DAT-009], [ARC-009] |
 
-## 📝 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
+## 5. CHI TIẾT KIẾN TRÚC THEO PHASE
 
-### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Khóa Học
+### Giai đoạn 2 - Triển Khai Lõi Nghiệp Vụ Trung Tâm Và Khóa Học
 
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai các tính năng xác thực, quản lý trung tâm, quản lý khóa học, đăng ký & ghi danh học viên, điểm danh & quét mã QR, quản lý thẻ hội viên, thông báo & truyền thông, quản lý khuyến mãi & thông báo, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa & SEO, báo cáo & phân tích.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
-    *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
-- **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
-
-#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase [X])
-
-<!--START_DAY_LOG_INDEX_2-->
-
-- **DAY 1: Khởi tạo các dịch vụ backend cơ bản và thiết lập cơ sở dữ liệu**
-  
-##### SUB-TASK 1: Thiết lập cơ sở dữ liệu PostgreSQL
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
-* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/resources/db/migration/V1__Create_Users_Table.sql, ./sources/backend/center-service/src/main/resources/db/migration/V1__Create_Centers_Table.sql, ./sources/backend/course-service/src/main/resources/db/migration/V1__Create_Courses_Table.sql, ./sources/backend/enrollment-service/src/main/resources/db/migration/V1__Create_Enrollments_Table.sql, ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_Attendance_Table.sql, ./sources/backend/membership-service/src/main/resources/db/migration/V1__Create_StudentCards_Table.sql, ./sources/backend/notification-service/src/main/resources/db/migration/V1__Create_Notifications_Table.sql, ./sources/backend/promotion-service/src/main/resources/db/migration/V1__Create_Promotions_Table.sql, ./sources/backend/promotion-service/src/main/resources/db/migration/V2__Create_Announcements_Table.sql, ./sources/backend/localization-service/src/main/resources/db/migration/V1__Create_SystemSettings_Table.sql
-* **Low-Level Technical Task Instruction:** Tạo các bảng cơ sở dữ liệu cho các dịch vụ xác thực, quản lý trung tâm, quản lý khóa học, đăng ký & ghi danh học viên, điểm danh & quét mã QR, quản lý thẻ hội viên, thông báo & truyền thông, quản lý khuyến mãi & thông báo, bản địa hóa & SEO, báo cáo & phân tích. [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **Database Schema DDL SQL Specification [DAT-XXX]:**
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống quản lý trung tâm và khóa học, bao gồm các tính năng xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, phân quyền quản trị trung tâm, xem danh sách khóa học, tạo/cập nhật/xóa khóa học, phân công giáo viên vào khóa học.
+- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** ./sources/backend/center-service/, ./sources/backend/course-service/, ./sources/frontend/
+- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-003], [DAT-004]:**
 ```sql
--- Tạo bảng Users
-CREATE TABLE USERS (
-    userId UUID PRIMARY KEY,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    passwordHash CHAR(60) NOT NULL,
-    fullName VARCHAR(100) NOT NULL,
-    roleId SMALLINT NOT NULL,
-    provider VARCHAR(20) NOT NULL DEFAULT 'local',
-    createdAt TIMESTAMP NOT NULL DEFAULT NOW(),
-    updatedAt TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (roleId) REFERENCES ROLES(roleId)
-);
-
--- Tạo bảng Roles
-CREATE TABLE ROLES (
-    roleId SMALLINT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL UNIQUE,
-    description VARCHAR(200)
-);
-
--- Tạo bảng Centers
-CREATE TABLE CENTERS (
+CREATE TABLE centers (
     centerId UUID PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    taxId VARCHAR(13) NOT NULL UNIQUE,
+    taxId VARCHAR(13) UNIQUE NOT NULL,
     contactPhone VARCHAR(20),
     contactEmail VARCHAR(255)
 );
 
--- Tạo bảng Courses
-CREATE TABLE COURSES (
+CREATE TABLE courses (
     courseId UUID PRIMARY KEY,
     title VARCHAR(150) NOT NULL,
     description TEXT,
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
-    teacherId UUID,
-    maxStudents INT DEFAULT 30,
-    FOREIGN KEY (teacherId) REFERENCES USERS(userId)
-);
-
--- Tạo bảng Enrollments
-CREATE TABLE ENROLLMENTS (
-    enrollmentId UUID PRIMARY KEY,
-    studentId UUID NOT NULL,
-    courseId UUID NOT NULL,
-    enrollmentDate TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (studentId) REFERENCES USERS(userId),
-    FOREIGN KEY (courseId) REFERENCES COURSES(courseId)
-);
-
--- Tạo bảng Attendance
-CREATE TABLE ATTENDANCE (
-    attendanceId UUID PRIMARY KEY,
-    studentId UUID NOT NULL,
-    courseId UUID NOT NULL,
-    attendanceDate DATE NOT NULL,
-    timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (studentId) REFERENCES USERS(userId),
-    FOREIGN KEY (courseId) REFERENCES COURSES(courseId)
-);
-
--- Tạo bảng StudentCards
-CREATE TABLE STUDENTCARDS (
-    cardId UUID PRIMARY KEY,
-    studentId UUID NOT NULL,
-    issueDate DATE NOT NULL,
-    validityDays INT NOT NULL,
-    remainingDays INT,
-    FOREIGN KEY (studentId) REFERENCES USERS(userId)
-);
-
--- Tạo bảng Notifications
-CREATE TABLE NOTIFICATIONS (
-    notificationId UUID PRIMARY KEY,
-    userId UUID,
-    groupZalo VARCHAR(255),
-    message TEXT NOT NULL,
-    sentAt TIMESTAMP NOT NULL DEFAULT NOW(),
-    delivered BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (userId) REFERENCES USERS(userId)
-);
-
--- Tạo bảng Promotions
-CREATE TABLE PROMOTIONS (
-    promoId UUID PRIMARY KEY,
-    code VARCHAR(50) UNIQUE,
-    discountPercent SMALLINT NOT NULL,
-    startDate DATE,
-    endDate DATE,
-    description TEXT
-);
-
--- Tạo bảng Announcements
-CREATE TABLE ANNOUNCEMENTS (
-    announcementId UUID PRIMARY KEY,
-    title VARCHAR(150) NOT NULL,
-    content TEXT NOT NULL,
-    startDate DATE,
-    endDate DATE
-);
-
--- Tạo bảng SystemSettings
-CREATE TABLE SYSTEMSETTINGS (
-    settingKey VARCHAR(50) PRIMARY KEY,
-    settingValue TEXT NOT NULL,
-    description VARCHAR(255)
+    teacherId UUID REFERENCES users(userId),
+    maxStudents INT DEFAULT 30
 );
 ```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Triển khai các API cơ bản cho dịch vụ xác thực
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003], [EXC-004]
-* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/controller/AuthController.java, ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/AuthService.java, ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/repository/UserRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho đăng ký người dùng, xác thực qua mạng xã hội và phân quyền người dùng. [REQ-001], [REQ-002], [REQ-003], [EXC-004]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
+- **Hợp đồng Định tuyến API và Sự kiện [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-002], [ARC-003]:**
 ```json
-// API đăng ký người dùng
-POST /api/auth/register
 {
-    "email": "string",
-    "password": "string",
-    "fullName": "string"
-}
-
-// API xác thực qua mạng xã hội
-POST /api/auth/social
-{
-    "provider": "string",
-    "token": "string"
-}
-
-// API phân quyền người dùng
-PUT /api/auth/role
-{
-    "userId": "string",
-    "roleId": "number"
+    "GET /api/centers": {
+        "description": "Lấy danh sách trung tâm",
+        "response": {
+            "centers": [
+                {
+                    "centerId": "UUID",
+                    "name": "string",
+                    "address": "string",
+                    "taxId": "string",
+                    "contactPhone": "string",
+                    "contactEmail": "string"
+                }
+            ]
+        }
+    },
+    "POST /api/centers": {
+        "description": "Tạo trung tâm mới",
+        "request": {
+            "name": "string",
+            "address": "string",
+            "taxId": "string",
+            "contactPhone": "string",
+            "contactEmail": "string"
+        },
+        "response": {
+            "centerId": "UUID"
+        }
+    }
 }
 ```
+- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-001], [EXC-002], [EXC-003]:**
+  - Xử lý xung đột lịch trình khóa học: Khi giáo viên đã được phân công vào một khóa học khác trong cùng khoảng thời gian, hệ thống sẽ trả về lỗi và yêu cầu người dùng điều chỉnh lịch trình.
+  - Xử lý lỗi xác thực đầu vào: Khi người dùng nhập thông tin không hợp lệ, hệ thống sẽ trả về thông báo lỗi chi tiết và yêu cầu người dùng chỉnh sửa.
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
+#### Nhật ký Ngày theo Ngày Phân phối Nhiệm vụ Sub-Agent (Giai đoạn 2)
 
-##### SUB-TASK 3: Triển khai các API cơ bản cho dịch vụ quản lý trung tâm
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-004], [REQ-005], [REQ-006]
-* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/controller/CenterController.java, ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java, ./sources/backend/center-service/src/main/java/com/membershiphub/center/repository/CenterRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm và phân quyền quản trị trung tâm. [REQ-004], [REQ-005], [REQ-006]
+<!--START_DAY_LOG_INDEX_2-->
 
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API xem danh sách trung tâm
-GET /api/centers
+- **DAY 1: Khởi tạo hệ thống quản lý trung tâm**
+  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu trung tâm**
+    - Sub-Agent: [Coder]
+    - Tag IDs: [DAT-003]
+    - Target Component: ./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql
+    - Hướng dẫn Công việc Kỹ thuật: Tạo bảng trung tâm với các trường: centerId (UUID, khóa chính), name (VARCHAR(100), không được để trống), address (VARCHAR(255), không được để trống), taxId (VARCHAR(13), duy nhất, không được để trống), contactPhone (VARCHAR(20), tùy chọn), contactEmail (VARCHAR(255), tùy chọn).
 
-// API tạo/cập nhật/xóa trung tâm
-POST /api/centers
-PUT /api/centers/{centerId}
-DELETE /api/centers/{centerId}
+  - **SUB-TASK 2: Viết test cho schema trung tâm**
+    - Sub-Agent: [Tester]
+    - Tag IDs: [DAT-003]
+    - Target Component: ./sources/backend/center-service/src/test/java/com/example/centerservice/CenterServiceTest.java;./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql
+    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra việc tạo bảng trung tâm và các ràng buộc dữ liệu.
 
-// API phân quyền quản trị trung tâm
-PUT /api/centers/{centerId}/admin
-{
-    "userId": "string"
-}
-```
+- **DAY 2: Triển khai API quản lý trung tâm**
+  - **SUB-TASK 1: Thiết kế API lấy danh sách trung tâm**
+    - Sub-Agent: [Coder]
+    - Tag IDs: [REQ-004]
+    - Target Component: ./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
+    - Hướng dẫn Công việc Kỹ thuật: Tạo endpoint GET /api/centers để lấy danh sách trung tâm với các trường: centerId, name, address, taxId, contactPhone, contactEmail.
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  - **SUB-TASK 2: Viết test cho API lấy danh sách trung tâm**
+    - Sub-Agent: [Tester]
+    - Tag IDs: [REQ-004]
+    - Target Component: ./sources/backend/center-service/src/test/java/com/example/centerservice/CenterControllerTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
+    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra endpoint GET /api/centers và xác thực dữ liệu trả về.
 
-- **DAY 2: Triển khai các API cơ bản cho dịch vụ quản lý khóa học và đăng ký & ghi danh học viên**
-  
-##### SUB-TASK 1: Triển khai các API cơ bản cho dịch vụ quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-007], [REQ-008], [REQ-009]
-* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/controller/CourseController.java, ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java, ./sources/backend/course-service/src/main/java/com/membershiphub/course/repository/CourseRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho xem danh sách khóa học, tạo/cập nhật/xóa khóa học và phân công giáo viên vào khóa học. [REQ-007], [REQ-008], [REQ-009]
+  - **SUB-TASK 3: Thiết kế API tạo trung tâm mới**
+    - Sub-Agent: [Coder]
+    - Tag IDs: [REQ-005]
+    - Target Component: ./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
+    - Hướng dẫn Công việc Kỹ thuật: Tạo endpoint POST /api/centers để tạo trung tâm mới với các trường: name, address, taxId, contactPhone, contactEmail. Xác thực đầu vào và xử lý xung đột taxId.
 
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API xem danh sách khóa học
-GET /api/courses
+  - **SUB-TASK 4: Viết test cho API tạo trung tâm mới**
+    - Sub-Agent: [Tester]
+    - Tag IDs: [REQ-005]
+    - Target Component: ./sources/backend/center-service/src/test/java/com/example/centerservice/CenterControllerTest.java;./sources/backend/center-service/src/main/java/com/example/centerservice/controller/CenterController.java
+    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra endpoint POST /api/centers và xử lý xung đột taxId.
 
-// API tạo/cập nhật/xóa khóa học
-POST /api/courses
-PUT /api/courses/{courseId}
-DELETE /api/courses/{courseId}
+- **DAY 3: Triển khai hệ thống quản lý khóa học**
+  - **SUB-TASK 1: Thiết kế schema cơ sở dữ liệu khóa học**
+    - Sub-Agent: [Coder]
+    - Tag IDs: [DAT-004]
+    - Target Component: ./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql
+    - Hướng dẫn Công việc Kỹ thuật: Tạo bảng khóa học với các trường: courseId (UUID, khóa chính), title (VARCHAR(150), không được để trống), description (TEXT, tùy chọn), startDate (DATE, không được để trống), endDate (DATE, không được để trống), teacherId (UUID, khóa ngoại tham chiếu đến bảng users), maxStudents (INT, mặc định 30).
 
-// API phân công giáo viên vào khóa học
-PUT /api/courses/{courseId}/teacher
-{
-    "teacherId": "string"
-}
-```
+  - **SUB-TASK 2: Viết test cho schema khóa học**
+    - Sub-Agent: [Tester]
+    - Tag IDs: [DAT-004]
+    - Target Component: ./sources/backend/course-service/src/test/java/com/example/courseservice/CourseServiceTest.java;./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql
+    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra việc tạo bảng khóa học và các ràng buộc dữ liệu.
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  - **SUB-TASK 3: Thiết kế API lấy danh sách khóa học**
+    - Sub-Agent: [Coder]
+    - Tag IDs: [REQ-007]
+    - Target Component: ./sources/backend/course-service/src/main/java/com/example/courseservice/controller/CourseController.java
+    - Hướng dẫn Công việc Kỹ thuật: Tạo endpoint GET /api/courses để lấy danh sách khóa học với các trường: courseId, title, startDate, endDate, teacherId.
 
-##### SUB-TASK 2: Triển khai các API cơ bản cho dịch vụ đăng ký & ghi danh học viên
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-010], [REQ-011]
-* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/controller/EnrollmentController.java, ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/service/EnrollmentService.java, ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/repository/EnrollmentRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho duyệt khóa học và đăng ký khóa học của học viên. [REQ-010], [REQ-011]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API duyệt khóa học
-GET /api/enrollments/courses
-
-// API đăng ký khóa học của học viên
-POST /api/enrollments
-{
-    "studentId": "string",
-    "courseId": "string"
-}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **DAY 3: Triển khai các API cơ bản cho dịch vụ điểm danh & quét mã QR, quản lý thẻ hội viên, thông báo & truyền thông, quản lý khuyến mãi & thông báo, chatbot dịch vụ khách hàng AI, các tính năng cốt lõi của ứng dụng di động, bản địa hóa & SEO, báo cáo & phân tích**
-  
-##### SUB-TASK 1: Triển khai các API cơ bản cho dịch vụ điểm danh & quét mã QR
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-012], [REQ-013], [EXC-001], [EXC-002]
-* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/controller/AttendanceController.java, ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java, ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/repository/AttendanceRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho chụp ảnh điểm danh QR và xử lý tính chất bất biến của điểm danh. [REQ-012], [REQ-013], [EXC-001], [EXC-002]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API chụp ảnh điểm danh QR
-POST /api/attendance
-{
-    "studentId": "string",
-    "courseId": "string"
-}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 2: Triển khai các API cơ bản cho dịch vụ quản lý thẻ hội viên
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-014], [REQ-015]
-* **Target Component file path (target_component):** ./sources/backend/membership-service/src/main/java/com/membershiphub/membership/controller/MembershipController.java, ./sources/backend/membership-service/src/main/java/com/membershiphub/membership/service/MembershipService.java, ./sources/backend/membership-service/src/main/java/com/membershiphub/membership/repository/MembershipRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho hiển thị tính hợp lệ của thẻ và gia hạn thẻ. [REQ-014], [REQ-015]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API hiển thị tính hợp lệ của thẻ
-GET /api/membership/{studentId}
-
-// API gia hạn thẻ
-POST /api/membership/renew
-{
-    "studentId": "string",
-    "days": "number"
-}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 3: Triển khai các API cơ bản cho dịch vụ thông báo & truyền thông
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-016], [EXC-003]
-* **Target Component file path (target_component):** ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/controller/NotificationController.java, ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/service/NotificationService.java, ./sources/backend/notification-service/src/main/java/com/membershiphub/notification/repository/NotificationRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho kích hoạt thông báo. [REQ-016], [EXC-003]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API kích hoạt thông báo
-POST /api/notifications
-{
-    "userId": "string",
-    "groupZalo": "string",
-    "message": "string"
-}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 4: Triển khai các API cơ bản cho dịch vụ quản lý khuyến mãi & thông báo
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-017], [REQ-018]
-* **Target Component file path (target_component):** ./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/controller/PromotionController.java, ./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/service/PromotionService.java, ./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/repository/PromotionRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho quản lý khuyến mãi và quản lý thông báo. [REQ-017], [REQ-018]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API quản lý khuyến mãi
-POST /api/promotions
-PUT /api/promotions/{promoId}
-DELETE /api/promotions/{promoId}
-
-// API quản lý thông báo
-POST /api/announcements
-PUT /api/announcements/{announcementId}
-DELETE /api/announcements/{announcementId}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 5: Triển khai các API cơ bản cho dịch vụ chatbot dịch vụ khách hàng AI
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-019]
-* **Target Component file path (target_component):** ./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/controller/ChatbotController.java, ./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/service/ChatbotService.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho tích hợp chatbot AI. [REQ-019]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API tích hợp chatbot AI
-POST /api/chatbot
-{
-    "question": "string"
-}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 6: Triển khai các API cơ bản cho dịch vụ các tính năng cốt lõi của ứng dụng di động
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-020], [REQ-021]
-* **Target Component file path (target_component):** ./sources/backend/mobile-service/src/main/java/com/membershiphub/mobile/controller/MobileController.java, ./sources/backend/mobile-service/src/main/java/com/membershiphub/mobile/service/MobileService.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho giao diện người dùng vai trò cụ thể trên di động và thông báo đẩy trên di động. [REQ-020], [REQ-021]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API giao diện người dùng vai trò cụ thể trên di động
-GET /api/mobile/role
-
-// API thông báo đẩy trên di động
-POST /api/mobile/notification
-{
-    "userId": "string",
-    "message": "string"
-}
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 7: Triển khai các API cơ bản cho dịch vụ bản địa hóa & SEO
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-022], [REQ-023]
-* **Target Component file path (target_component):** ./sources/backend/localization-service/src/main/java/com/membershiphub/localization/controller/LocalizationController.java, ./sources/backend/localization-service/src/main/java/com/membershiphub/localization/service/LocalizationService.java, ./sources/backend/localization-service/src/main/java/com/membershiphub/localization/repository/LocalizationRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ. [REQ-022], [REQ-023]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API phát hiện ngôn ngữ mặc định
-GET /api/localization/language
-
-// API SEO đa ngôn ngữ
-GET /api/localization/seo
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### SUB-TASK 8: Triển khai các API cơ bản cho dịch vụ báo cáo & phân tích
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-024], [REQ-025], [EXC-005]
-* **Target Component file path (target_component):** ./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/controller/ReportingController.java, ./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/service/ReportingService.java, ./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/repository/ReportingRepository.java
-* **Low-Level Technical Task Instruction:** Triển khai các API cơ bản cho tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh. [REQ-024], [REQ-025], [EXC-005]
-
-# DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
-```json
-// API tạo báo cáo điểm danh
-GET /api/reporting/attendance
-
-// API bảng điều khiển tóm tắt ghi danh
-GET /api/reporting/dashboard
-```
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
+  - **SUB-TASK 4: Viết test cho API lấy danh sách khóa học**
+    - Sub-Agent: [Tester]
+    - Tag IDs: [REQ-007]
+    - Target Component: ./sources/backend/course-service/src/test/java/com/example/courseservice/CourseControllerTest.java;./sources/backend/course-service/src/main/java/com/example/courseservice/controller/CourseController.java
+    - Hướng dẫn Công việc Kỹ thuật: Viết test để kiểm tra endpoint GET /api/courses và xác thực dữ liệu trả về.
 
 <!--END_PHASE_LOG_BLOCK_INDEX_2-->
 

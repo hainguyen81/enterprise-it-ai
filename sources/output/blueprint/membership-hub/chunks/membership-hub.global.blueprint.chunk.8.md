@@ -612,6 +612,10 @@ You MUST include every single section below without exception to satisfy enterpr
 
 
 
+
+
+
+
 <RULE>
 [STRICT OPERATIONAL MANDATE FOR PHASE 5 OUT OF 5]
 - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 5 out of 5.
@@ -628,9 +632,9 @@ You MUST include every single section below without exception to satisfy enterpr
 
 <HISTORIC_LEDGER_MAP>
 Phase 1: 
-Phase 2: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 3: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
-Phase 4: 
+Phase 2: 
+Phase 3: 
+Phase 4: <!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE--><!--START_ATOMIC_SUB_TASK_NODE-->
 </HISTORIC_LEDGER_MAP>
 </RULE>
 
@@ -654,6 +658,8 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - The total days within any single phase MUST NOT exceed the absolute upperbound of 7 days.
 - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
 </COMMAND>
+
+
 
 ### 📈 [Translated text for \"Phase\"] 5 - [YOU MUST COPIER AND REUSE EXACTLY THE SAME TRANSLATED, HIGH-LEVEL TECHNICAL OBJECTIVE SUMMARY STRING THAT YOU JUST GENERATED FOR THIS SPECIFIC PHASE INSIDE THE SECTION 4.2 SYNOPSIS TABLE. IT MUST MATCH THE TABLE ROW 100%. YOU ARE ABSOLUTELY BANNED FROM ALTERING THE MEANING OR USING STATIC ENGLISH LABELS. IT MUST MATCH THE TABLE ROW 100%. EXAMPLES: \"Khởi Tạo Hệ Thống Người Dùng Và Xác Thực\" OR \"Triển Khai Lõi Nghiệp Vụ Khóa Học\"]
 - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into 🇻🇳 Vietnamese]
@@ -697,7 +703,7 @@ Output high-density technical instructions, operational validation steps, or sch
 </RULE>
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
-- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this response UNLESS that specific Tag ID was explicitly assigned to 'Phase 5' inside your previously generated Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this phase.
+- STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase 5' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 * **Database Schema DDL SQL Specification [DAT-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
@@ -720,20 +726,21 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 
 ### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
+- **TIMING LOCATION:** This compliance ledger MUST be rendered exclusively at the absolute bottom of Section 5, immediately following the final day log of the final phase.
 - Immediately beneath the final Phase log (Phase 5) and before closing Section 5, you MUST execute a strict internal mathematical self-audit of the entire assembled architecture. 
 - You MUST compile and render an isolated, clean Markdown Compliance Report block utilizing the exact Technical English structure below. 
-- You are critically ordered to dynamically compute the real-world values based strictly on the current generation instance metrics combined with the historic data provided in `<PREVIOUS_PHASES_HISTORY>`—no hardcoding or static placeholder strings allowed:
+- You are critically ordered to dynamically compute the real-world values based strictly on the current generation instance metrics—no hardcoding or static placeholder strings.
 
 ```properties:cross_audit_ledger
 [AUTOMATED_SELF_AUDIT_REPORT]
-TOTAL_PHASES_DECLARED_IN_SECTION_4_2=5
+TOTAL_PHASES_DECLARED_IN_SECTION_4_2=computed_integer_N
 TOTAL_PHASES_EXPECTED_BY_PARAMETERS=5
 PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
-ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=7
+ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=computed_highest_day_integer_found_in_section_5
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=20
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum here based on the strict mandate rule above]
+TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=45
+TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute the exact final unified integer sum of all listed atomic sub-task nodes generated across all phases]
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
 
@@ -1121,257 +1128,1470 @@ SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_S
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📝 4. PHÂN TÍCH KIẾN TRÚC VÀ TÌM HIỂU CẤU TRÚC
+## 📝 4. PHÂN TÍCH KIẾN TRÚC & TÀI NGUYÊN
 
-### 4.1 PHÂN TÍCH KIẾN TRÚC
+### 4.1 MASTER PRODUCT BACKLOG
 
-#### 4.1.1 Kiến trúc tổng quan
-
-- **Kiến trúc tổng quan:** Hệ thống được xây dựng theo kiến trúc microservices với các dịch vụ độc lập cho mỗi chức năng chính. Frontend sử dụng Next.js, backend sử dụng Java/Quarkus, và cơ sở dữ liệu chính là PostgreSQL. Hệ thống được triển khai trên Kubernetes (GKE) với Docker containerization.
-
-#### 4.1.2 Kiến trúc chi tiết
-
-- **Kiến trúc chi tiết:** Hệ thống bao gồm các dịch vụ sau:
-  - **Authentication Service:** Xử lý xác thực người dùng và cấp JWT tokens.
-  - **User Management Service:** Quản lý thông tin người dùng và vai trò.
-  - **Center Management Service:** Quản lý thông tin trung tâm.
-  - **Course Management Service:** Quản lý thông tin khóa học.
-  - **Enrollment Service:** Xử lý đăng ký và ghi danh học viên.
-  - **Attendance Service:** Xử lý điểm danh qua mã QR.
-  - **Membership Card Service:** Quản lý thẻ hội viên.
-  - **Notification Service:** Gửi thông báo qua ứng dụng di động và nhóm Zalo.
-  - **Promotion Service:** Quản lý khuyến mãi và thông báo.
-  - **Reporting Service:** Tạo báo cáo và phân tích dữ liệu.
-
-#### 4.1.3 Kiến trúc dữ liệu
-
-- **Kiến trúc dữ liệu:** Cơ sở dữ liệu chính là PostgreSQL với các bảng chính sau:
-  - **Users:** Lưu trữ thông tin người dùng và vai trò.
-  - **Centers:** Lưu trữ thông tin trung tâm.
-  - **Courses:** Lưu trữ thông tin khóa học.
-  - **Enrollments:** Lưu trữ thông tin ghi danh học viên.
-  - **Attendance:** Lưu trữ thông tin điểm danh.
-  - **StudentCards:** Lưu trữ thông tin thẻ hội viên.
-  - **Notifications:** Lưu trữ thông tin thông báo.
-  - **Promotions:** Lưu trữ thông tin khuyến mãi.
-  - **Announcements:** Lưu trữ thông tin thông báo.
+| STT | Yêu cầu | Mô tả | Tag ID |
+|-----|---------|-------|--------|
+| 1 | Đăng ký người dùng | Xây dựng form đăng ký với xác thực email và mật khẩu | [REQ-001] |
+| 2 | Xác thực qua mạng xã hội | Tích hợp Firebase, Google, Facebook OAuth | [REQ-002] |
+| 3 | Phân quyền người dùng | Tạo giao diện quản lý vai trò người dùng | [REQ-003] |
+| 4 | Xem danh sách trung tâm | Xây dựng trang danh sách trung tâm với bộ lọc | [REQ-004] |
+| 5 | Tạo/cập nhật/xóa trung tâm | Xây dựng form quản lý trung tâm | [REQ-005] |
+| 6 | Phân quyền quản trị trung tâm | Tạo giao diện gán vai trò Center Admin | [REQ-006] |
+| 7 | Xem danh sách khóa học | Xây dựng trang danh sách khóa học với bộ lọc | [REQ-007] |
+| 8 | Tạo/cập nhật/xóa khóa học | Xây dựng form quản lý khóa học với kiểm tra xung đột lịch | [REQ-008] |
+| 9 | Phân công giáo viên vào khóa học | Tạo giao diện gán giáo viên vào khóa học | [REQ-009] |
+| 10 | Duyệt khóa học | Xây dựng trang duyệt khóa học cho học viên | [REQ-010] |
+| 11 | Đăng ký khóa học của học viên | Xây dựng chức năng đăng ký khóa học | [REQ-011] |
+| 12 | Chụp ảnh điểm danh QR | Xây dựng chức năng quét QR điểm danh | [REQ-012] |
+| 13 | Tính chất bất biến của điểm danh | Xây dựng cơ chế xử lý điểm danh idempotent | [REQ-013] |
+| 14 | Hiển thị tính hợp lệ của thẻ | Xây dựng trang hiển thị thông tin thẻ hội viên | [REQ-014] |
+| 15 | Gia hạn thẻ | Xây dựng chức năng gia hạn thẻ hội viên | [REQ-015] |
+| 16 | Kích hoạt thông báo | Xây dựng cơ chế gửi thông báo đa kênh | [REQ-016] |
+| 17 | Quản lý khuyến mãi | Xây dựng giao diện quản lý khuyến mãi | [REQ-017] |
+| 18 | Quản lý thông báo | Xây dựng giao diện quản lý thông báo | [REQ-018] |
+| 19 | Tích hợp chatbot AI | Xây dựng giao diện chatbot và tích hợp API | [REQ-019] |
+| 20 | Giao diện người dùng vai trò cụ thể trên di động | Xây dựng giao diện di động đa vai trò | [REQ-020] |
+| 21 | Thông báo đẩy trên di động | Xây dựng cơ chế gửi thông báo đẩy | [REQ-021] |
+| 22 | Phát hiện ngôn ngữ mặc định | Xây dựng cơ chế phát hiện ngôn ngữ | [REQ-022] |
+| 23 | SEO đa ngôn ngữ | Xây dựng cơ chế SEO đa ngôn ngữ | [REQ-023] |
+| 24 | Tạo báo cáo điểm danh | Xây dựng chức năng tạo báo cáo điểm danh | [REQ-024] |
+| 25 | Bảng điều khiển tóm tắt ghi danh | Xây dựng bảng điều khiển tóm tắt | [REQ-025] |
+| 26 | Xác thực đầu vào không hợp lệ | Xây dựng cơ chế xử lý lỗi xác thực | [EXC-004] |
+| 27 | Network & Connectivity Drops During QR Scan | Xây dựng cơ chế xử lý lỗi kết nối | [EXC-001] |
+| 28 | Duplicate Attendance Submission | Xây dựng cơ chế xử lý điểm danh trùng lặp | [EXC-002] |
+| 29 | Failed Notification Delivery | Xây dựng cơ chế xử lý lỗi gửi thông báo | [EXC-003] |
+| 30 | System Recovery After Outage | Xây dựng cơ chế phục hồi hệ thống | [EXC-005] |
+| 31 | Bảng người dùng & vai trò | Thiết kế cơ sở dữ liệu cho người dùng và vai trò | [DAT-001] |
+| 32 | Bảng trung tâm | Thiết kế cơ sở dữ liệu cho trung tâm | [DAT-003] |
+| 33 | Bảng khóa học | Thiết kế cơ sở dữ liệu cho khóa học | [DAT-004] |
+| 34 | Bảng ghi danh | Thiết kế cơ sở dữ liệu cho ghi danh | [DAT-005] |
+| 35 | Bảng điểm danh | Thiết kế cơ sở dữ liệu cho điểm danh | [DAT-006] |
+| 36 | Bảng thẻ hội viên | Thiết kế cơ sở dữ liệu cho thẻ hội viên | [DAT-007] |
+| 37 | Bảng thông báo | Thiết kế cơ sở dữ liệu cho thông báo | [DAT-008] |
+| 38 | Bảng khuyến mãi & thông báo | Thiết kế cơ sở dữ liệu cho khuyến mãi và thông báo | [DAT-009] |
+| 39 | Bảng cài đặt hệ thống | Thiết kế cơ sở dữ liệu cho cài đặt hệ thống | [DAT-011] |
+| 40 | Luồng xác thực | Thiết kế luồng xác thực người dùng | [ARC-006] |
+| 41 | Luồng xử lý điểm danh QR | Thiết kế luồng xử lý điểm danh QR | [ARC-007] |
+| 42 | Luồng gửi thông báo | Thiết kế luồng gửi thông báo | [ARC-008] |
+| 43 | Luồng tích hợp backend ứng dụng di động | Thiết kế luồng tích hợp backend di động | [ARC-009] |
+| 44 | Công nghệ & hạ tầng | Thiết kế công nghệ và hạ tầng | [ARC-010] |
+| 45 | Performance Metrics | Thiết kế cơ chế đo lường hiệu suất | [NFR-001] |
 
 ### 4.2 MULTI-PHASE SYNOPSIS MATRIX
 
-| Giai đoạn | Khoảng ngày | Đường dẫn Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|-----------------------------|---------------------------|-----------|------------------|
-| Giai đoạn 1 | Ngày 1-2 | `./sources/backend/authentication-service/`, `./sources/backend/user-management-service/`, `./sources/frontend/` | Khởi tạo hệ thống người dùng và xác thực | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [DAT-001], [ARC-006] |
-| Giai đoạn 2 | Ngày 1-3 | `./sources/backend/center-management-service/`, `./sources/backend/course-management-service/` | Triển khai lõi nghiệp vụ trung tâm và khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [DAT-003], [DAT-004] |
-| Giai đoạn 3 | Ngày 1-3 | `./sources/backend/enrollment-service/`, `./sources/backend/attendance-service/` | Triển khai hệ thống đăng ký và điểm danh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [REQ-012], [REQ-013], [DAT-005], [DAT-006], [EXC-001], [EXC-002] |
-| Giai đoạn 4 | Ngày 1-2 | `./sources/backend/membership-card-service/`, `./sources/backend/notification-service/` | Triển khai hệ thống thẻ hội viên và thông báo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-014], [REQ-015], [REQ-016], [DAT-007], [DAT-008], [EXC-003] |
-| Giai đoạn 5 | Ngày 1-2 | `./sources/backend/promotion-service/`, `./sources/backend/reporting-service/` | Triển khai hệ thống khuyến mãi và báo cáo | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [DAT-009], [DAT-011], [EXC-005] |
+| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+|-----------|-------------|-------------------------|----------------------------|-----------|-------------------|
+| 1 | 1-2 | ./sources/backend/auth-service/ | Xây dựng dịch vụ xác thực người dùng | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001], [EXC-004], [NFR-001], [NFR-003] |
+| 2 | 3-4 | ./sources/backend/center-service/ | Xây dựng dịch vụ quản lý trung tâm | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-004], [REQ-005], [REQ-006], [DAT-003] |
+| 3 | 5-6 | ./sources/backend/course-service/ | Xây dựng dịch vụ quản lý khóa học | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-007], [REQ-008], [REQ-009], [DAT-004] |
+| 4 | 7-7 | ./sources/backend/enrollment-service/ | Xây dựng dịch vụ đăng ký và ghi danh | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-010], [REQ-011], [DAT-005] |
+| 5 | 1-2 | ./sources/backend/attendance-service/ | Xây dựng dịch vụ điểm danh và quản lý thẻ hội viên | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002] |
 
 ## 📅 5. CHI TIẾT KIẾN TRÚC THEO GIAI ĐOẠN
 
-### Giai đoạn 5 - Triển Khai Hệ Thống Khuyến Mãi Và Báo Cáo
-
-- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Triển khai hệ thống khuyến mãi và báo cáo để hỗ trợ quản lý khuyến mãi, thông báo và tạo báo cáo điểm danh.
-- **Ma trận Bản đồ Thư mục Vật lý Mục tiêu:** `./sources/backend/promotion-service/`, `./sources/backend/reporting-service/`
-- **Đặc tả DDL SQL Schema Cơ sở Dữ liệu [DAT-009]:** Triển khai các bảng khuyến mãi và thông báo trong cơ sở dữ liệu.
+### Phase 1 - Khởi Tạo Hệ Thống Người Dùng Và Xác Thực
+- **Phase Core Objective & Purpose:** Xây dựng lõi hệ thống xác thực người dùng bao gồm đăng ký, đăng nhập, và quản lý vai trò.
+- **Target Physical Directory Matrix Map:**
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/ | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001], [EXC-004]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/ | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001], [EXC-004]
+    * ./sources/docs/auth-service.md | [REQ-001], [REQ-002], [REQ-003], [ARC-006], [DAT-001], [EXC-004]
+- **Database Schema DDL SQL Specification [DAT-001]:**
 ```sql
-CREATE TABLE promotions (
-    promoId UUID PRIMARY KEY,
-    code VARCHAR(50) UNIQUE NOT NULL,
-    discountPercent SMALLINT NOT NULL,
-    startDate DATE,
-    endDate DATE,
-    description TEXT
+CREATE TABLE roles (
+    role_id SERIAL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL UNIQUE,
+    description VARCHAR(200),
+    CHECK (name IN ('System Admin', 'Center Admin', 'Manager', 'Teacher', 'Student'))
 );
 
-CREATE TABLE announcements (
-    announcementId UUID PRIMARY KEY,
-    title VARCHAR(150) NOT NULL,
-    content TEXT NOT NULL,
-    startDate DATE,
-    endDate DATE
+CREATE TABLE users (
+    user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash CHAR(60) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    role_id INTEGER NOT NULL,
+    provider VARCHAR(10) NOT NULL DEFAULT 'local',
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles(role_id),
+    CONSTRAINT chk_provider CHECK (provider IN ('local', 'firebase', 'google', 'facebook'))
 );
+
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_role_id ON users(role_id);
 ```
-- **Hợp đồng Định tuyến API và Sự kiện [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [ARC-XXX]:**
+- **API and Event Routing Contracts [REQ-001], [REQ-002], [REQ-003], [ARC-006]:**
 ```json
 {
-    "promotions": {
-        "create": {
-            "method": "POST",
-            "path": "/api/promotions",
-            "request": {
-                "code": "string",
-                "discountPercent": "number",
-                "startDate": "string",
-                "endDate": "string",
-                "description": "string"
-            },
-            "response": {
-                "promoId": "uuid",
-                "code": "string",
-                "discountPercent": "number",
-                "startDate": "string",
-                "endDate": "string",
-                "description": "string"
+  "paths": {
+    "/api/auth/register": {
+      "post": {
+        "summary": "Đăng ký người dùng mới",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {"type": "string", "format": "email"},
+                  "password": {"type": "string", "minLength": 8},
+                  "fullName": {"type": "string"}
+                },
+                "required": ["email", "password", "fullName"]
+              }
             }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Đăng ký thành công",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {"type": "string"},
+                    "refreshToken": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
         }
+      }
     },
-    "announcements": {
-        "create": {
-            "method": "POST",
-            "path": "/api/announcements",
-            "request": {
-                "title": "string",
-                "content": "string",
-                "startDate": "string",
-                "endDate": "string"
-            },
-            "response": {
-                "announcementId": "uuid",
-                "title": "string",
-                "content": "string",
-                "startDate": "string",
-                "endDate": "string"
+    "/api/auth/login": {
+      "post": {
+        "summary": "Đăng nhập người dùng",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {"type": "string", "format": "email"},
+                  "password": {"type": "string"}
+                },
+                "required": ["email", "password"]
+              }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Đăng nhập thành công",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {"type": "string"},
+                    "refreshToken": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
         }
+      }
+    },
+    "/api/auth/oauth/{provider}": {
+      "get": {
+        "summary": "Xác thực qua mạng xã hội",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["firebase", "google", "facebook"]
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Chuyển hướng đến trang xác thực của nhà cung cấp"
+          }
+        }
+      }
+    },
+    "/api/auth/roles": {
+      "put": {
+        "summary": "Phân quyền người dùng",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {"type": "string", "format": "uuid"},
+                  "role": {"type": "string", "enum": ["System Admin", "Center Admin", "Manager", "Teacher", "Student"]}
+                },
+                "required": ["userId", "role"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Phân quyền thành công"
+          }
+        }
+      }
+    }
+  }
+}
+```
+- **Phase Localized Exception Handlers [EXC-004]:**
+- Xử lý lỗi xác thực đầu vào không hợp lệ:
+```java
+public class ValidationException extends RuntimeException {
+    private final Map<String, String> errors;
+
+    public ValidationException(Map<String, String> errors) {
+        super("Validation failed");
+        this.errors = errors;
+    }
+
+    public Map<String, String> getErrors() {
+        return errors;
     }
 }
 ```
-- **Bộ xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-005]:** Xử lý lỗi hệ thống sau khi phục hồi từ sự cố.
 
-#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Giai đoạn 5)
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 1)
+
+<!--START_DAY_LOG_INDEX_1-->
+
+- **DAY 1: Xây dựng lõi xác thực người dùng**
+  
+##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho người dùng và vai trò
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-001]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/resources/db/migration/V1__Create_users_and_roles_tables.sql
+* **Low-Level Technical Task Instruction:** Tạo các bảng roles và users với các ràng buộc và chỉ mục cần thiết. [DAT-001]
+
+##### SUB-TASK 2: Xây dựng dịch vụ đăng ký người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-001]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức đăng ký người dùng mới với xác thực email và mật khẩu. [REQ-001]
+
+##### SUB-TASK 3: Xây dựng dịch vụ đăng nhập người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-001]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/AuthService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức đăng nhập với xác thực JWT. [REQ-001]
+
+##### SUB-TASK 4: Xây dựng dịch vụ xác thực qua mạng xã hội
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-002]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/OAuthService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức xác thực qua Firebase, Google, và Facebook OAuth. [REQ-002]
+
+##### SUB-TASK 5: Xây dựng dịch vụ phân quyền người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-003]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/RoleService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức phân quyền người dùng. [REQ-003]
+
+##### SUB-TASK 6: Viết test cho dịch vụ đăng ký người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-001]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/service/UserServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ đăng ký người dùng. [REQ-001]
+
+##### SUB-TASK 7: Viết test cho dịch vụ đăng nhập người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-001]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/service/AuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/AuthService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ đăng nhập người dùng. [REQ-001]
+
+##### SUB-TASK 8: Viết test cho dịch vụ xác thực qua mạng xã hội
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-002]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/service/OAuthServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/OAuthService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ xác thực qua mạng xã hội. [REQ-002]
+
+##### SUB-TASK 9: Viết test cho dịch vụ phân quyền người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-003]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/service/RoleServiceTest.java;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/RoleService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ phân quyền người dùng. [REQ-003]
+
+##### SUB-TASK 10: Review code cho dịch vụ xác thực người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Reviewer]
+* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/
+* **Low-Level Technical Task Instruction:** Review code cho các dịch vụ xác thực người dùng. [REQ-001], [REQ-002], [REQ-003]
+
+##### SUB-TASK 11: Viết tài liệu cho dịch vụ xác thực người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003]
+* **Target Component file path (target_component):** ./sources/docs/auth-service.md
+* **Low-Level Technical Task Instruction:** Viết tài liệu chi tiết cho dịch vụ xác thực người dùng. [REQ-001], [REQ-002], [REQ-003]
+
+##### SUB-TASK 12: Xây dựng Dockerfile cho dịch vụ xác thực người dùng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/auth-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Xây dựng Dockerfile cho dịch vụ xác thực người dùng. [ARC-010]
+
+##### SUB-TASK 13: Triển khai dịch vụ xác thực người dùng lên GCP
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GCP]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gcp/auth-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ xác thực người dùng lên GCP. [ARC-010]
+
+##### SUB-TASK 14: Triển khai dịch vụ xác thực người dùng lên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/auth-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ xác thực người dùng lên GKE. [ARC-010]
+
+<!--END_PHASE_LOG_BLOCK_INDEX_1-->
+
+### Phase 2 - Triển Khai Lõi Nghiệp Vụ Trung Tâm
+- **Phase Core Objective & Purpose:** Xây dựng lõi hệ thống quản lý trung tâm bao gồm xem danh sách, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
+- **Target Physical Directory Matrix Map:**
+    * ./sources/backend/center-service/src/main/java/com/membershiphub/center/ | [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+    * ./sources/backend/center-service/src/test/java/com/membershiphub/center/ | [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+    * ./sources/docs/center-service.md | [REQ-004], [REQ-005], [REQ-006], [DAT-003]
+- **Database Schema DDL SQL Specification [DAT-003]:**
+```sql
+CREATE TABLE centers (
+    center_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    tax_id VARCHAR(13) NOT NULL UNIQUE,
+    contact_phone VARCHAR(20),
+    contact_email VARCHAR(255),
+    CHECK (tax_id ~ '^[0-9]{10,13}$')
+);
+
+CREATE INDEX idx_centers_tax_id ON centers(tax_id);
+```
+- **API and Event Routing Contracts [REQ-004], [REQ-005], [REQ-006]:**
+```json
+{
+  "paths": {
+    "/api/centers": {
+      "get": {
+        "summary": "Xem danh sách trung tâm",
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Danh sách trung tâm",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "centerId": {"type": "string", "format": "uuid"},
+                      "name": {"type": "string"},
+                      "address": {"type": "string"},
+                      "taxId": {"type": "string"},
+                      "contactPhone": {"type": "string"},
+                      "contactEmail": {"type": "string"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Tạo trung tâm mới",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "address": {"type": "string"},
+                  "taxId": {"type": "string"},
+                  "contactPhone": {"type": "string"},
+                  "contactEmail": {"type": "string"}
+                },
+                "required": ["name", "address", "taxId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Trung tâm đã được tạo"
+          }
+        }
+      }
+    },
+    "/api/centers/{centerId}": {
+      "put": {
+        "summary": "Cập nhật trung tâm",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "centerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "address": {"type": "string"},
+                  "taxId": {"type": "string"},
+                  "contactPhone": {"type": "string"},
+                  "contactEmail": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Trung tâm đã được cập nhật"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Xóa trung tâm",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "centerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trung tâm đã được xóa"
+          }
+        }
+      }
+    },
+    "/api/centers/{centerId}/admins": {
+      "post": {
+        "summary": "Phân quyền quản trị trung tâm",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "centerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {"type": "string", "format": "uuid"}
+                },
+                "required": ["userId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Người dùng đã được phân quyền quản trị trung tâm"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Hủy phân quyền quản trị trung tâm",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "centerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Người dùng đã bị hủy phân quyền quản trị trung tâm"
+          }
+        }
+      }
+    }
+  }
+}
+```
+- **Phase Localized Exception Handlers [EXC-004]:**
+- Xử lý lỗi xác thực đầu vào không hợp lệ:
+```java
+public class ValidationException extends RuntimeException {
+    private final Map<String, String> errors;
+
+    public ValidationException(Map<String, String> errors) {
+        super("Validation failed");
+        this.errors = errors;
+    }
+
+    public Map<String, String> getErrors() {
+        return errors;
+    }
+}
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 2)
+
+<!--START_DAY_LOG_INDEX_2-->
+
+- **DAY 1: Xây dựng lõi quản lý trung tâm**
+  
+##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-003]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/resources/db/migration/V1__Create_centers_table.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng centers với các ràng buộc và chỉ mục cần thiết. [DAT-003]
+
+##### SUB-TASK 2: Xây dựng dịch vụ xem danh sách trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-004]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức xem danh sách trung tâm. [REQ-004]
+
+##### SUB-TASK 3: Xây dựng dịch vụ tạo trung tâm mới
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-005]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức tạo trung tâm mới. [REQ-005]
+
+##### SUB-TASK 4: Xây dựng dịch vụ cập nhật trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-005]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức cập nhật trung tâm. [REQ-005]
+
+##### SUB-TASK 5: Xây dựng dịch vụ xóa trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-005]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức xóa trung tâm. [REQ-005]
+
+##### SUB-TASK 6: Xây dựng dịch vụ phân quyền quản trị trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-006]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterAdminService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức phân quyền quản trị trung tâm. [REQ-006]
+
+##### SUB-TASK 7: Viết test cho dịch vụ xem danh sách trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-004]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/test/java/com/membershiphub/center/service/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ xem danh sách trung tâm. [REQ-004]
+
+##### SUB-TASK 8: Viết test cho dịch vụ tạo trung tâm mới
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-005]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/test/java/com/membershiphub/center/service/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ tạo trung tâm mới. [REQ-005]
+
+##### SUB-TASK 9: Viết test cho dịch vụ cập nhật trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-005]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/test/java/com/membershiphub/center/service/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ cập nhật trung tâm. [REQ-005]
+
+##### SUB-TASK 10: Viết test cho dịch vụ xóa trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-005]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/test/java/com/membershiphub/center/service/CenterServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ xóa trung tâm. [REQ-005]
+
+##### SUB-TASK 11: Viết test cho dịch vụ phân quyền quản trị trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-006]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/test/java/com/membershiphub/center/service/CenterAdminServiceTest.java;./sources/backend/center-service/src/main/java/com/membershiphub/center/service/CenterAdminService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ phân quyền quản trị trung tâm. [REQ-006]
+
+##### SUB-TASK 12: Review code cho dịch vụ quản lý trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Reviewer]
+* **Targeted Tag IDs:** [REQ-004], [REQ-005], [REQ-006]
+* **Target Component file path (target_component):** ./sources/backend/center-service/src/main/java/com/membershiphub/center/service/
+* **Low-Level Technical Task Instruction:** Review code cho các dịch vụ quản lý trung tâm. [REQ-004], [REQ-005], [REQ-006]
+
+##### SUB-TASK 13: Viết tài liệu cho dịch vụ quản lý trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-004], [REQ-005], [REQ-006]
+* **Target Component file path (target_component):** ./sources/docs/center-service.md
+* **Low-Level Technical Task Instruction:** Viết tài liệu chi tiết cho dịch vụ quản lý trung tâm. [REQ-004], [REQ-005], [REQ-006]
+
+##### SUB-TASK 14: Xây dựng Dockerfile cho dịch vụ quản lý trung tâm
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/center-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Xây dựng Dockerfile cho dịch vụ quản lý trung tâm. [ARC-010]
+
+##### SUB-TASK 15: Triển khai dịch vụ quản lý trung tâm lên GCP
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GCP]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gcp/center-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý trung tâm lên GCP. [ARC-010]
+
+##### SUB-TASK 16: Triển khai dịch vụ quản lý trung tâm lên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/center-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý trung tâm lên GKE. [ARC-010]
+
+<!--END_PHASE_LOG_BLOCK_INDEX_2-->
+
+### Phase 3 - Triển Khai Lõi Nghiệp Vụ Khóa Học
+- **Phase Core Objective & Purpose:** Xây dựng lõi hệ thống quản lý khóa học bao gồm xem danh sách, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
+- **Target Physical Directory Matrix Map:**
+    * ./sources/backend/course-service/src/main/java/com/membershiphub/course/ | [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    * ./sources/backend/course-service/src/test/java/com/membershiphub/course/ | [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+    * ./sources/docs/course-service.md | [REQ-007], [REQ-008], [REQ-009], [DAT-004]
+- **Database Schema DDL SQL Specification [DAT-004]:**
+```sql
+CREATE TABLE courses (
+    course_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    teacher_id UUID,
+    max_students INTEGER NOT NULL DEFAULT 30,
+    CONSTRAINT fk_teacher FOREIGN KEY (teacher_id) REFERENCES users(user_id),
+    CONSTRAINT chk_dates CHECK (end_date >= start_date)
+);
+
+CREATE INDEX idx_courses_teacher_id ON courses(teacher_id);
+CREATE INDEX idx_courses_start_date ON courses(start_date);
+CREATE INDEX idx_courses_end_date ON courses(end_date);
+```
+- **API and Event Routing Contracts [REQ-007], [REQ-008], [REQ-009]:**
+```json
+{
+  "paths": {
+    "/api/courses": {
+      "get": {
+        "summary": "Xem danh sách khóa học",
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Danh sách khóa học",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "courseId": {"type": "string", "format": "uuid"},
+                      "title": {"type": "string"},
+                      "startDate": {"type": "string", "format": "date"},
+                      "endDate": {"type": "string", "format": "date"},
+                      "teacherName": {"type": "string"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Tạo khóa học mới",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {"type": "string"},
+                  "description": {"type": "string"},
+                  "startDate": {"type": "string", "format": "date"},
+                  "endDate": {"type": "string", "format": "date"},
+                  "teacherId": {"type": "string", "format": "uuid"},
+                  "maxStudents": {"type": "integer"}
+                },
+                "required": ["title", "startDate", "endDate"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Khóa học đã được tạo"
+          }
+        }
+      }
+    },
+    "/api/courses/{courseId}": {
+      "put": {
+        "summary": "Cập nhật khóa học",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {"type": "string"},
+                  "description": {"type": "string"},
+                  "startDate": {"type": "string", "format": "date"},
+                  "endDate": {"type": "string", "format": "date"},
+                  "teacherId": {"type": "string", "format": "uuid"},
+                  "maxStudents": {"type": "integer"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Khóa học đã được cập nhật"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Xóa khóa học",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Khóa học đã được xóa"
+          }
+        }
+      }
+    },
+    "/api/courses/{courseId}/teachers": {
+      "post": {
+        "summary": "Phân công giáo viên vào khóa học",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "teacherId": {"type": "string", "format": "uuid"}
+                },
+                "required": ["teacherId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Giáo viên đã được phân công vào khóa học"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Hủy phân công giáo viên khỏi khóa học",
+        "security": [{"bearerAuth": []}],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "teacherId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Giáo viên đã bị hủy phân công khỏi khóa học"
+          }
+        }
+      }
+    }
+  }
+}
+```
+- **Phase Localized Exception Handlers [EXC-004]:**
+- Xử lý lỗi xác thực đầu vào không hợp lệ:
+```java
+public class ValidationException extends RuntimeException {
+    private final Map<String, String> errors;
+
+    public ValidationException(Map<String, String> errors) {
+        super("Validation failed");
+        this.errors = errors;
+    }
+
+    public Map<String, String> getErrors() {
+        return errors;
+    }
+}
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 3)
+
+<!--START_DAY_LOG_INDEX_3-->
+
+- **DAY 1: Xây dựng lõi quản lý khóa học**
+  
+##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-004]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng courses với các ràng buộc và chỉ mục cần thiết. [DAT-004]
+
+##### SUB-TASK 2: Xây dựng dịch vụ xem danh sách khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-007]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức xem danh sách khóa học. [REQ-007]
+
+##### SUB-TASK 3: Xây dựng dịch vụ tạo khóa học mới
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-008]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức tạo khóa học mới. [REQ-008]
+
+##### SUB-TASK 4: Xây dựng dịch vụ cập nhật khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-008]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức cập nhật khóa học. [REQ-008]
+
+##### SUB-TASK 5: Xây dựng dịch vụ xóa khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-008]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức xóa khóa học. [REQ-008]
+
+##### SUB-TASK 6: Xây dựng dịch vụ phân công giáo viên vào khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-009]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseTeacherService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức phân công giáo viên vào khóa học. [REQ-009]
+
+##### SUB-TASK 7: Viết test cho dịch vụ xem danh sách khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-007]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/test/java/com/membershiphub/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ xem danh sách khóa học. [REQ-007]
+
+##### SUB-TASK 8: Viết test cho dịch vụ tạo khóa học mới
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-008]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/test/java/com/membershiphub/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ tạo khóa học mới. [REQ-008]
+
+##### SUB-TASK 9: Viết test cho dịch vụ cập nhật khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-008]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/test/java/com/membershiphub/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ cập nhật khóa học. [REQ-008]
+
+##### SUB-TASK 10: Viết test cho dịch vụ xóa khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-008]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/test/java/com/membershiphub/course/service/CourseServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ xóa khóa học. [REQ-008]
+
+##### SUB-TASK 11: Viết test cho dịch vụ phân công giáo viên vào khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-009]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/test/java/com/membershiphub/course/service/CourseTeacherServiceTest.java;./sources/backend/course-service/src/main/java/com/membershiphub/course/service/CourseTeacherService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ phân công giáo viên vào khóa học. [REQ-009]
+
+##### SUB-TASK 12: Review code cho dịch vụ quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Reviewer]
+* **Targeted Tag IDs:** [REQ-007], [REQ-008], [REQ-009]
+* **Target Component file path (target_component):** ./sources/backend/course-service/src/main/java/com/membershiphub/course/service/
+* **Low-Level Technical Task Instruction:** Review code cho các dịch vụ quản lý khóa học. [REQ-007], [REQ-008], [REQ-009]
+
+##### SUB-TASK 13: Viết tài liệu cho dịch vụ quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-007], [REQ-008], [REQ-009]
+* **Target Component file path (target_component):** ./sources/docs/course-service.md
+* **Low-Level Technical Task Instruction:** Viết tài liệu chi tiết cho dịch vụ quản lý khóa học. [REQ-007], [REQ-008], [REQ-009]
+
+##### SUB-TASK 14: Xây dựng Dockerfile cho dịch vụ quản lý khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/course-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Xây dựng Dockerfile cho dịch vụ quản lý khóa học. [ARC-010]
+
+##### SUB-TASK 15: Triển khai dịch vụ quản lý khóa học lên GCP
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GCP]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gcp/course-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý khóa học lên GCP. [ARC-010]
+
+##### SUB-TASK 16: Triển khai dịch vụ quản lý khóa học lên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/course-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý khóa học lên GKE. [ARC-010]
+
+<!--END_PHASE_LOG_BLOCK_INDEX_3-->
+
+### Phase 4 - Triển Khai Lõi Nghiệp Vụ Đăng Ký & Ghi Danh
+- **Phase Core Objective & Purpose:** Xây dựng lõi hệ thống đăng ký và ghi danh học viên bao gồm duyệt khóa học và đăng ký khóa học.
+- **Target Physical Directory Matrix Map:**
+    * ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/ | [REQ-010], [REQ-011], [DAT-005]
+    * ./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/ | [REQ-010], [REQ-011], [DAT-005]
+    * ./sources/docs/enrollment-service.md | [REQ-010], [REQ-011], [DAT-005]
+- **Database Schema DDL SQL Specification [DAT-005]:**
+```sql
+CREATE TABLE enrollments (
+    enrollment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    enrollment_date TIMESTAMP NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES users(user_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES courses(course_id),
+    CONSTRAINT unique_enrollment UNIQUE (student_id, course_id)
+);
+
+CREATE INDEX idx_enrollments_student_id ON enrollments(student_id);
+CREATE INDEX idx_enrollments_course_id ON enrollments(course_id);
+```
+- **API and Event Routing Contracts [REQ-010], [REQ-011]:**
+```json
+{
+  "paths": {
+    "/api/courses/available": {
+      "get": {
+        "summary": "Duyệt khóa học",
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Danh sách khóa học có thể đăng ký",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "courseId": {"type": "string", "format": "uuid"},
+                      "title": {"type": "string"},
+                      "startDate": {"type": "string", "format": "date"},
+                      "endDate": {"type": "string", "format": "date"},
+                      "teacherName": {"type": "string"},
+                      "capacity": {"type": "integer"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enrollments": {
+      "post": {
+        "summary": "Đăng ký khóa học",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "courseId": {"type": "string", "format": "uuid"}
+                },
+                "required": ["courseId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Đăng ký khóa học thành công"
+          }
+        }
+      }
+    }
+  }
+}
+```
+- **Phase Localized Exception Handlers [EXC-004]:**
+- Xử lý lỗi xác thực đầu vào không hợp lệ:
+```java
+public class ValidationException extends RuntimeException {
+    private final Map<String, String> errors;
+
+    public ValidationException(Map<String, String> errors) {
+        super("Validation failed");
+        this.errors = errors;
+    }
+
+    public Map<String, String> getErrors() {
+        return errors;
+    }
+}
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 4)
+
+<!--START_DAY_LOG_INDEX_4-->
+
+- **DAY 1: Xây dựng lõi đăng ký và ghi danh học viên**
+  
+##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho ghi danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [DAT-005]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/main/resources/db/migration/V1__Create_enrollments_table.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng enrollments với các ràng buộc và chỉ mục cần thiết. [DAT-005]
+
+##### SUB-TASK 2: Xây dựng dịch vụ duyệt khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-010]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/service/CourseBrowsingService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức duyệt khóa học. [REQ-010]
+
+##### SUB-TASK 3: Xây dựng dịch vụ đăng ký khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-011]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/service/EnrollmentService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức đăng ký khóa học. [REQ-011]
+
+##### SUB-TASK 4: Viết test cho dịch vụ duyệt khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-010]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/service/CourseBrowsingServiceTest.java;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/service/CourseBrowsingService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ duyệt khóa học. [REQ-010]
+
+##### SUB-TASK 5: Viết test cho dịch vụ đăng ký khóa học
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-011]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/service/EnrollmentServiceTest.java;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/service/EnrollmentService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ đăng ký khóa học. [REQ-011]
+
+##### SUB-TASK 6: Review code cho dịch vụ đăng ký và ghi danh học viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Reviewer]
+* **Targeted Tag IDs:** [REQ-010], [REQ-011]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/service/
+* **Low-Level Technical Task Instruction:** Review code cho các dịch vụ đăng ký và ghi danh học viên. [REQ-010], [REQ-011]
+
+##### SUB-TASK 7: Viết tài liệu cho dịch vụ đăng ký và ghi danh học viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Doc]
+* **Targeted Tag IDs:** [REQ-010], [REQ-011]
+* **Target Component file path (target_component):** ./sources/docs/enrollment-service.md
+* **Low-Level Technical Task Instruction:** Viết tài liệu chi tiết cho dịch vụ đăng ký và ghi danh học viên. [REQ-010], [REQ-011]
+
+##### SUB-TASK 8: Xây dựng Dockerfile cho dịch vụ đăng ký và ghi danh học viên
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Docker]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/enrollment-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Xây dựng Dockerfile cho dịch vụ đăng ký và ghi danh học viên. [ARC-010]
+
+##### SUB-TASK 9: Triển khai dịch vụ đăng ký và ghi danh học viên lên GCP
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GCP]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gcp/enrollment-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ đăng ký và ghi danh học viên lên GCP. [ARC-010]
+
+##### SUB-TASK 10: Triển khai dịch vụ đăng ký và ghi danh học viên lên GKE
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GKE]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/enrollment-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ đăng ký và ghi danh học viên lên GKE. [ARC-010]
+
+<!--END_PHASE_LOG_BLOCK_INDEX_4-->
+
+### Phase 5 - Triển Khai Lõi Nghiệp Vụ Điểm Danh & Quản Lý Thẻ Hội Viên
+- **Phase Core Objective & Purpose:** Xây dựng lõi hệ thống điểm danh và quản lý thẻ hội viên bao gồm chụp ảnh điểm danh QR, tính chất bất biến của điểm danh, hiển thị tính hợp lệ của thẻ, và gia hạn thẻ.
+- **Target Physical Directory Matrix Map:**
+    * ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/ | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002]
+    * ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/ | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002]
+    * ./sources/docs/attendance-service.md | [REQ-012], [REQ-013], [REQ-014], [REQ-015], [DAT-006], [DAT-007], [EXC-001], [EXC-002]
+- **Database Schema DDL SQL Specification [DAT-006], [DAT-007]:**
+```sql
+CREATE TABLE attendance (
+    attendance_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    attendance_date DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES users(user_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES courses(course_id),
+    CONSTRAINT unique_attendance UNIQUE (student_id, course_id, attendance_date)
+);
+
+CREATE INDEX idx_attendance_student_id ON attendance(student_id);
+CREATE INDEX idx_attendance_course_id ON attendance(course_id);
+CREATE INDEX idx_attendance_date ON attendance(attendance_date);
+
+CREATE TABLE student_cards (
+    card_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    student_id UUID NOT NULL,
+    issue_date DATE NOT NULL,
+    validity_days INTEGER NOT NULL,
+    remaining_days INTEGER NOT NULL,
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES users(user_id)
+);
+
+CREATE INDEX idx_student_cards_student_id ON student_cards(student_id);
+```
+- **API and Event Routing Contracts [REQ-012], [REQ-013], [REQ-014], [REQ-015]:**
+```json
+{
+  "paths": {
+    "/api/attendance/qr": {
+      "post": {
+        "summary": "Chụp ảnh điểm danh QR",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "courseId": {"type": "string", "format": "uuid"},
+                  "timestamp": {"type": "string", "format": "date-time"}
+                },
+                "required": ["courseId", "timestamp"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Điểm danh thành công",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {"type": "string"},
+                    "message": {"type": "string"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cards": {
+      "get": {
+        "summary": "Hiển thị tính hợp lệ của thẻ",
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Thông tin thẻ hội viên",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "totalValidityDays": {"type": "integer"},
+                    "daysUsed": {"type": "integer"},
+                    "daysRemaining": {"type": "integer"}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cards/renew": {
+      "post": {
+        "summary": "Gia hạn thẻ",
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "days": {"type": "integer"}
+                },
+                "required": ["days"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Gia hạn thẻ thành công"
+          }
+        }
+      }
+    }
+  }
+}
+```
+- **Phase Localized Exception Handlers [EXC-001], [EXC-002]:**
+- Xử lý lỗi kết nối mạng trong quá trình quét QR:
+```java
+public class NetworkException extends RuntimeException {
+    public NetworkException(String message) {
+        super(message);
+    }
+}
+```
+- Xử lý lỗi điểm danh trùng lặp:
+```java
+public class DuplicateAttendanceException extends RuntimeException {
+    public DuplicateAttendanceException(String message) {
+        super(message);
+    }
+}
+```
+
+#### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase 5)
 
 <!--START_DAY_LOG_INDEX_5-->
 
-- **DAY 1: Triển khai lõi nghiệp vụ khuyến mãi và thông báo**
-
-##### SUB-TASK 1: Triển khai API tạo khuyến mãi
+- **DAY 1: Xây dựng lõi điểm danh và quản lý thẻ hội viên**
+  
+##### SUB-TASK 1: Thiết kế cơ sở dữ liệu cho điểm danh và thẻ hội viên
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-017], [DAT-009]
-* **Target Component file path (target_component):** `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java`
-* **Low-Level Technical Task Instruction:** Triển khai API tạo khuyến mãi với các trường: code, discountPercent, startDate, endDate, description. Xác thực đầu vào và lưu vào cơ sở dữ liệu.
+* **Targeted Tag IDs:** [DAT-006], [DAT-007]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/resources/db/migration/V1__Create_attendance_and_student_cards_tables.sql
+* **Low-Level Technical Task Instruction:** Tạo bảng attendance và student_cards với các ràng buộc và chỉ mục cần thiết. [DAT-006], [DAT-007]
 
-##### SUB-TASK 2: Triển khai API tạo thông báo
+##### SUB-TASK 2: Xây dựng dịch vụ chụp ảnh điểm danh QR
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-018], [DAT-009]
-* **Target Component file path (target_component):** `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/AnnouncementController.java`
-* **Low-Level Technical Task Instruction:** Triển khai API tạo thông báo với các trường: title, content, startDate, endDate. Xác thực đầu vào và lưu vào cơ sở dữ liệu.
+* **Targeted Tag IDs:** [REQ-012]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức chụp ảnh điểm danh QR. [REQ-012]
 
-##### SUB-TASK 3: Viết test cho API tạo khuyến mãi
+##### SUB-TASK 3: Xây dựng dịch vụ tính chất bất biến của điểm danh
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-013]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức xử lý điểm danh idempotent. [REQ-013]
+
+##### SUB-TASK 4: Xây dựng dịch vụ hiển thị tính hợp lệ của thẻ
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-014]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/StudentCardService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức hiển thị thông tin thẻ hội viên. [REQ-014]
+
+##### SUB-TASK 5: Xây dựng dịch vụ gia hạn thẻ
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Coder]
+* **Targeted Tag IDs:** [REQ-015]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/StudentCardService.java
+* **Low-Level Technical Task Instruction:** Xây dựng phương thức gia hạn thẻ hội viên. [REQ-015]
+
+##### SUB-TASK 6: Viết test cho dịch vụ chụp ảnh điểm danh QR
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-017], [DAT-009]
-* **Target Component file path (target_component):** `./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/PromotionControllerTest.java;./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java`
-* **Low-Level Technical Task Instruction:** Viết test cho API tạo khuyến mãi, bao gồm các trường hợp thành công và thất bại.
+* **Targeted Tag IDs:** [REQ-012]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ chụp ảnh điểm danh QR. [REQ-012]
 
-##### SUB-TASK 4: Viết test cho API tạo thông báo
+##### SUB-TASK 7: Viết test cho dịch vụ tính chất bất biến của điểm danh
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-018], [DAT-009]
-* **Target Component file path (target_component):** `./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/AnnouncementControllerTest.java;./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/AnnouncementController.java`
-* **Low-Level Technical Task Instruction:** Viết test cho API tạo thông báo, bao gồm các trường hợp thành công và thất bại.
+* **Targeted Tag IDs:** [REQ-013]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/AttendanceService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ tính chất bất biến của điểm danh. [REQ-013]
 
-##### SUB-TASK 5: Review code cho API tạo khuyến mãi và thông báo
+##### SUB-TASK 8: Viết test cho dịch vụ hiển thị tính hợp lệ của thẻ
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-014]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/StudentCardServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/StudentCardService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ hiển thị tính hợp lệ của thẻ. [REQ-014]
+
+##### SUB-TASK 9: Viết test cho dịch vụ gia hạn thẻ
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [Tester]
+* **Targeted Tag IDs:** [REQ-015]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/service/StudentCardServiceTest.java;./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/StudentCardService.java
+* **Low-Level Technical Task Instruction:** Viết các test case cho dịch vụ gia hạn thẻ. [REQ-015]
+
+##### SUB-TASK 10: Review code cho dịch vụ điểm danh và quản lý thẻ hội viên
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Reviewer]
-* **Targeted Tag IDs:** [REQ-017], [REQ-018], [DAT-009]
-* **Target Component file path (target_component):** `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java`, `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/AnnouncementController.java`
-* **Low-Level Technical Task Instruction:** Review code cho API tạo khuyến mãi và thông báo, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật.
+* **Targeted Tag IDs:** [REQ-012], [REQ-013], [REQ-014], [REQ-015]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/service/
+* **Low-Level Technical Task Instruction:** Review code cho các dịch vụ điểm danh và quản lý thẻ hội viên. [REQ-012], [REQ-013], [REQ-014], [REQ-015]
 
-##### SUB-TASK 6: Tạo tài liệu cho API tạo khuyến mãi và thông báo
+##### SUB-TASK 11: Viết tài liệu cho dịch vụ điểm danh và quản lý thẻ hội viên
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Doc]
-* **Targeted Tag IDs:** [REQ-017], [REQ-018], [DAT-009]
-* **Target Component file path (target_component):** `./sources/docs/api/promotion-service.md`
-* **Low-Level Technical Task Instruction:** Tạo tài liệu chi tiết cho API tạo khuyến mãi và thông báo, bao gồm các endpoint, request/response payload, và ví dụ sử dụng.
+* **Targeted Tag IDs:** [REQ-012], [REQ-013], [REQ-014], [REQ-015]
+* **Target Component file path (target_component):** ./sources/docs/attendance-service.md
+* **Low-Level Technical Task Instruction:** Viết tài liệu chi tiết cho dịch vụ điểm danh và quản lý thẻ hội viên. [REQ-012], [REQ-013], [REQ-014], [REQ-015]
 
-##### SUB-TASK 7: Triển khai Dockerfile cho promotion-service
+##### SUB-TASK 12: Xây dựng Dockerfile cho dịch vụ điểm danh và quản lý thẻ hội viên
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [Docker]
-* **Targeted Tag IDs:** [ARC-XXX]
-* **Target Component file path (target_component):** `./sources/backend/promotion-service/Dockerfile`
-* **Low-Level Technical Task Instruction:** Tạo Dockerfile cho promotion-service, bao gồm các bước build và run.
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/backend/attendance-service/Dockerfile
+* **Low-Level Technical Task Instruction:** Xây dựng Dockerfile cho dịch vụ điểm danh và quản lý thẻ hội viên. [ARC-010]
 
-##### SUB-TASK 8: Triển khai Kubernetes deployment cho promotion-service
+##### SUB-TASK 13: Triển khai dịch vụ điểm danh và quản lý thẻ hội viên lên GCP
+<!--START_ATOMIC_SUB_TASK_NODE-->
+* **Sub-Agent Workflow Specialization:** [GCP]
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gcp/attendance-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ điểm danh và quản lý thẻ hội viên lên GCP. [ARC-010]
+
+##### SUB-TASK 14: Triển khai dịch vụ điểm danh và quản lý thẻ hội viên lên GKE
 <!--START_ATOMIC_SUB_TASK_NODE-->
 * **Sub-Agent Workflow Specialization:** [GKE]
-* **Targeted Tag IDs:** [ARC-XXX]
-* **Target Component file path (target_component):** `./sources/infra/k8s/promotion-service-deployment.yaml`
-* **Low-Level Technical Task Instruction:** Tạo Kubernetes deployment và service cho promotion-service, bao gồm các cấu hình cần thiết cho triển khai trên GKE.
-
-- **DAY 2: Triển khai hệ thống báo cáo và phân tích**
-
-##### SUB-TASK 1: Triển khai API tạo báo cáo điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-024], [DAT-XXX]
-* **Target Component file path (target_component):** `./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/ReportController.java`
-* **Low-Level Technical Task Instruction:** Triển khai API tạo báo cáo điểm danh với các trường: centerId, dateRange. Xác thực đầu vào và tạo báo cáo CSV.
-
-##### SUB-TASK 2: Triển khai API tạo bảng điều khiển tóm tắt ghi danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-025], [DAT-XXX]
-* **Target Component file path (target_component):** `./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/DashboardController.java`
-* **Low-Level Technical Task Instruction:** Triển khai API tạo bảng điều khiển tóm tắt ghi danh với các trường: totalStudents, activeCourses, upcomingSessions. Xác thực đầu vào và trả về dữ liệu.
-
-##### SUB-TASK 3: Viết test cho API tạo báo cáo điểm danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-024], [DAT-XXX]
-* **Target Component file path (target_component):** `./sources/backend/reporting-service/src/test/java/com/membershiphub/reporting/ReportControllerTest.java;./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/ReportController.java`
-* **Low-Level Technical Task Instruction:** Viết test cho API tạo báo cáo điểm danh, bao gồm các trường hợp thành công và thất bại.
-
-##### SUB-TASK 4: Viết test cho API tạo bảng điều khiển tóm tắt ghi danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-025], [DAT-XXX]
-* **Target Component file path (target_component):** `./sources/backend/reporting-service/src/test/java/com/membershiphub/reporting/DashboardControllerTest.java;./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/DashboardController.java`
-* **Low-Level Technical Task Instruction:** Viết test cho API tạo bảng điều khiển tóm tắt ghi danh, bao gồm các trường hợp thành công và thất bại.
-
-##### SUB-TASK 5: Review code cho API tạo báo cáo và bảng điều khiển
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Reviewer]
-* **Targeted Tag IDs:** [REQ-024], [REQ-025], [DAT-XXX]
-* **Target Component file path (target_component):** `./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/ReportController.java`, `./sources/backend/reporting-service/src/main/java/com/membershiphub/reporting/DashboardController.java`
-* **Low-Level Technical Task Instruction:** Review code cho API tạo báo cáo và bảng điều khiển, đảm bảo tuân thủ các tiêu chuẩn lập trình và bảo mật.
-
-##### SUB-TASK 6: Tạo tài liệu cho API tạo báo cáo và bảng điều khiển
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Doc]
-* **Targeted Tag IDs:** [REQ-024], [REQ-025], [DAT-XXX]
-* **Target Component file path (target_component):** `./sources/docs/api/reporting-service.md`
-* **Low-Level Technical Task Instruction:** Tạo tài liệu chi tiết cho API tạo báo cáo và bảng điều khiển, bao gồm các endpoint, request/response payload, và ví dụ sử dụng.
-
-##### SUB-TASK 7: Triển khai Dockerfile cho reporting-service
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Docker]
-* **Targeted Tag IDs:** [ARC-XXX]
-* **Target Component file path (target_component):** `./sources/backend/reporting-service/Dockerfile`
-* **Low-Level Technical Task Instruction:** Tạo Dockerfile cho reporting-service, bao gồm các bước build và run.
-
-##### SUB-TASK 8: Triển khai Kubernetes deployment cho reporting-service
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [GKE]
-* **Targeted Tag IDs:** [ARC-XXX]
-* **Target Component file path (target_component):** `./sources/infra/k8s/reporting-service-deployment.yaml`
-* **Low-Level Technical Task Instruction:** Tạo Kubernetes deployment và service cho reporting-service, bao gồm các cấu hình cần thiết cho triển khai trên GKE.
+* **Targeted Tag IDs:** [ARC-010]
+* **Target Component file path (target_component):** ./sources/infra/gke/attendance-service/
+* **Low-Level Technical Task Instruction:** Triển khai dịch vụ điểm danh và quản lý thẻ hội viên lên GKE. [ARC-010]
 
 <!--END_PHASE_LOG_BLOCK_INDEX_5-->
 
 ### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
-
 ```properties:cross_audit_ledger
 [AUTOMATED_SELF_AUDIT_REPORT]
 TOTAL_PHASES_DECLARED_IN_SECTION_4_2=5
 TOTAL_PHASES_EXPECTED_BY_PARAMETERS=5
 PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
-ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=7
+ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=2
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=20
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=16
+TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=45
+TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=70
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
 

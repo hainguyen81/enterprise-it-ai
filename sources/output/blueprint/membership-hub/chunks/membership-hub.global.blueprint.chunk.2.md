@@ -603,7 +603,37 @@ You MUST include every single section below without exception to satisfy enterpr
 
 <RULE>
 - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
-</RULE>"
+</RULE>
+
+
+
+
+## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
+
+### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
+<RULE>
+- You MUST generate a comprehensive, unified Master Product Backlog table directly under this section before organizing the multi-phase timeline. This table acts as the definitive grounding index for 100% of the project scope.
+- **STRICT BACKLOG COMPLETENESS COMPLIANCE LAW:** This master table MUST completely map and exhaustively list every engineering effort required by the corpus, strictly verified by the Type column:
+  1. *Application Code:* Functional endpoint creations, database models, and service layer code blocks.
+  2. *Enterprise Documentation:* Complete systemic blueprints, database schema topologies, localized operational manual files, and API contracts located under `./sources/docs/`.
+  3. *DevOps Infrastructure:* Containerization scripts (Docker), cloud environment setups (GCP via Terraform), and orchestration cluster manifests (GKE).
+- **100% INVARIANT TRACEABILITY LINKAGE:** Every row in this backlog MUST enforce absolute coverage of all relevant tracking tags (`[REQ-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[EXC-XXX]`, `[NFR-XXX]`). Zero orphan requirements or untagged deliverables are permitted.
+- **MANDATORY CASCADE PLAN COMPLIANCE:** Every task documented in this Master Backlog table MUST cascade symmetrically downwards: it MUST be distributed into exactly one targeted phase in the Synopsis Grid under Section 4.2, and subsequently possess an explicit, standalone daily execution sub-task log inside Section 5 for that specific phase.
+- The Master Product Backlog table layout MUST strictly execute inside the hidden framework parsing hooks exactly as formatted below (inside the hidden HTML tags from `<!--START_BACKLOG_SYNOPSIS_GRID-->` to `<!--END_BACKLOG_SYNOPSIS_GRID-->`)
+</RULE>
+
+<!--START_BACKLOG_SYNOPSIS_GRID-->
+
+| No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
+| :--- | :--- | :--- | :--- | :--- |
+- **TASK ATOMICITY LAW:** You are STRICTLY BANNED from summarizing, grouping, or clustering multiple operational requirement bullets into a single generic task row to save token space.
+- **1:1 TRACEABILITY RATIO:** Every unique functional or non-functional Tag ID identified in the raw SRS ([REQ], [ARC], [EXC], [DAT], [NFR]) MUST yield exactly one (1) dedicated, standalone row in this table.
+- **OUTPUT LAYOUT PARSING STRUCTURE:**
+
+| [Index] | [Task Title] | [Technical Objective] | [Type] | [Tag IDs] |  <!--REGISTERED_BACKLOG_TASK_ROW-->
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
+
+<!--END_BACKLOG_SYNOPSIS_GRID-->"
     }
 ]
 
@@ -617,14 +647,14 @@ You MUST include every single section below without exception to satisfy enterpr
 
 ## 🏛️ 1. TỔNG QUAN HỆ THỐNG
 
-### Mục tiêu & giá trị cốt lõi
+### 1.1. MỤC TIÊU & GIÁ TRỊ CỐT LÕI
 - Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
 - Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
 - Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
 - Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
 - Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
 
-### Đối tượng người dùng mục tiêu
+### 1.2. ĐỐI TƯỢNG NGƯỜI DÙNG MỤC TIÊU
 - System Admin (siêu người dùng toàn cầu)
 - Center Admin (quản lý cấp trung tâm)
 - Manager (phó quản trị, quyền hạn giới hạn)
@@ -632,25 +662,25 @@ You MUST include every single section below without exception to satisfy enterpr
 - Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
 - Mobile App User (giao diện đáp ứng cho các vai trò trên)
 
-### Ma trận kiểm soát truy cập dựa trên vai trò (RBAC)
+### 1.3. MA TRẬN KIỂM SOÁT TRUY CẬP DỰA TRÊN VAI TRÒ (RBAC)
 - [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
 - [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
 - [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
 - [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
 - [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
 
-### Kiến trúc & luồng dữ liệu (các luồng chính)
+### 1.4. KIẾN TRÚC & LUỒNG DỮ LIỆU (CÁC LUỒNG CHÍNH)
 - [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
 - [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
 - [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
 - [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
 
-### Công nghệ & hạ tầng
+### 1.5. CÔNG NGHỆ & HẠ TẦNG
 - [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
 
-## 📦 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
+## 📈 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
 
-### 2.1 Quản lý người dùng
+### 2.1. QUẢN LÝ NGƯỜI DÙNG
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-001] Đăng ký người dùng: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
@@ -697,7 +727,8 @@ You MUST include every single section below without exception to satisfy enterpr
           varchar description "Role description, optional, max 200 chars"
       }
   ```
-### 2.2 Quản lý trung tâm
+
+### 2.2. QUẢN LÝ TRUNG TÂM
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-004] Xem danh sách trung tâm: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
@@ -727,7 +758,8 @@ You MUST include every single section below without exception to satisfy enterpr
           varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
-### 2.3 Quản lý khóa học
+
+### 2.3. QUẢN LÝ KHÓA HỌC
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-007] Xem danh sách khóa học: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
@@ -758,10 +790,11 @@ You MUST include every single section below without exception to satisfy enterpr
           int maxStudents "Course capacity, default 30"
       }
   ```
-### 2.4 Đăng ký & ghi danh học viên
+
+### 2.4. ĐĂNG KÝ & GHI DANH HỌC VIÊN
 
 #### Yêu cầu chức năng cốt lõi
-- [REQ-0010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
+- [REQ-010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
 - [REQ-011] Đăng ký khóa học của học viên: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
 
 #### Tiêu chí chấp nhận & tương tác
@@ -784,7 +817,8 @@ You MUST include every single section below without exception to satisfy enterpr
           timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
-### 2.5 Điểm danh & quét mã QR
+
+### 2.5. ĐIỂM DANH & QUÉT MÃ QR
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-012] Chụp ảnh điểm danh QR: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
@@ -812,7 +846,8 @@ You MUST include every single section below without exception to satisfy enterpr
           timestamp timestamp "Exact time recorded, default now()"
       }
   ```
-### 2.6 Quản lý thẻ hội viên
+
+### 2.6. QUẢN LÝ THẺ HỘI VIÊN
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-014] Hiển thị tính hợp lệ của thẻ: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
@@ -839,7 +874,8 @@ You MUST include every single section below without exception to satisfy enterpr
           int remainingDays "Computed days left until expiry"
       }
   ```
-### 2.7 Thông báo & truyền thông
+
+### 2.7. THÔNG BÁO & TRUYỀN THÔNG
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-016] Kích hoạt thông báo: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
@@ -865,7 +901,8 @@ You MUST include every single section below without exception to satisfy enterpr
           boolean delivered "Delivery status, default false"
       }
   ```
-### 2.8 Quản lý khuyến mãi & thông báo
+
+### 2.8. QUẢN LÝ KHUYẾN MÃI & THÔNG BÁO
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-017] Quản lý khuyến mãi: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
@@ -904,7 +941,8 @@ You MUST include every single section below without exception to satisfy enterpr
           date endDate "Effective end, optional"
       }
   ```
-### 2.9 Chatbot dịch vụ khách hàng AI
+
+### 2.9. CHATBOT DỊCH VỤ KHÁCH HÀNG AI
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-019] Tích hợp chatbot AI: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
@@ -918,7 +956,7 @@ You MUST include every single section below without exception to satisfy enterpr
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
 
-### 2.10 Các tính năng cốt lõi của ứng dụng di động
+### 2.10. CÁC TÍNH NĂNG CỐT LÕI CỦA ỨNG DỤNG DI ĐỘNG
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-020] Giao diện người dùng vai trò cụ thể trên di động: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
@@ -934,7 +972,7 @@ You MUST include every single section below without exception to satisfy enterpr
 #### Từ điển dữ liệu cục bộ của mô-đun
 - [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
 
-### 2.11 Bản địa hóa & SEO
+### 2.11. BẢN ĐỊA HÓA & SEO
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-022] Phát hiện ngôn ngữ mặc định: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
@@ -959,7 +997,8 @@ You MUST include every single section below without exception to satisfy enterpr
           varchar description "Meaning of setting, optional"
       }
   ```
-### 2.12 Báo cáo & phân tích
+
+### 2.12. BÁO CÁO & PHÂN TÍCH
 
 #### Yêu cầu chức năng cốt lõi
 - [REQ-024] Tạo báo cáo điểm danh: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
@@ -987,154 +1026,1242 @@ You MUST include every single section below without exception to satisfy enterpr
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 
-## 📝 4. PHÂN TÍCH KIẾN TRÚC VÀ ĐỀ XUẤT
+## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
-### 4.1 Kiến trúc tổng thể
+### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
 
-#### 4.1.1 Kiến trúc hệ thống
+<!--START_BACKLOG_SYNOPSIS_GRID-->
 
-```mermaid
-graph TD
-    A[Client Applications] -->|REST APIs| B[Backend Services]
-    A -->|Push Notifications| C[FCM/APNs]
-    A -->|Zalo API| D[Zalo Group]
-    B -->|SQL Queries| E[PostgreSQL]
-    B -->|Caching| F[Redis]
-    B -->|Authentication| G[Firebase Auth]
-    B -->|Event Streaming| H[Kafka]
-    I[Docker Containers] -->|Orchestration| J[Kubernetes GKE]
-    J -->|Cloud Services| K[Google Cloud Platform]
+| No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | User Registration | Implement user registration with email/password and social providers (Firebase, Google, Facebook) | Application Code | [REQ-001], [REQ-002] |
+| 2 | Role Management | Develop role assignment and permission enforcement system | Application Code | [REQ-003] |
+| 3 | Center Management | Create center CRUD operations and admin assignment | Application Code | [REQ-004], [REQ-005], [REQ-006] |
+| 4 | Course Management | Implement course CRUD with schedule conflict detection | Application Code | [REQ-007], [REQ-008] |
+| 5 | Teacher Assignment | Develop teacher assignment to courses with notification | Application Code | [REQ-009] |
+| 6 | Student Enrollment | Implement course browsing and enrollment system | Application Code | [REQ-010], [REQ-011] |
+| 7 | QR Attendance | Develop QR scanning and attendance recording system | Application Code | [REQ-012], [REQ-013] |
+| 8 | Membership Card | Implement membership card display and renewal system | Application Code | [REQ-014], [REQ-015] |
+| 9 | Notification System | Develop push notification and Zalo group messaging system | Application Code | [REQ-016] |
+| 10 | Promotion Management | Create promotion CRUD system | Application Code | [REQ-017] |
+| 11 | Announcement Management | Develop announcement CRUD system | Application Code | [REQ-018] |
+| 12 | AI Chatbot | Integrate AI chatbot for common queries | Application Code | [REQ-019] |
+| 13 | Mobile UI | Develop responsive mobile UI for all roles | Application Code | [REQ-020] |
+| 14 | Push Notifications | Implement push notification system for mobile | Application Code | [REQ-021] |
+| 15 | Localization | Implement multi-language support | Application Code | [REQ-022], [REQ-023] |
+| 16 | Attendance Reporting | Develop daily attendance report generation | Application Code | [REQ-024] |
+| 17 | Dashboard | Create real-time dashboard for center admins | Application Code | [REQ-025] |
+| 18 | User Database | Design and implement User and Role database schema | Database Schema | [DAT-001] |
+| 19 | Center Database | Design and implement Center database schema | Database Schema | [DAT-003] |
+| 20 | Course Database | Design and implement Course database schema | Database Schema | [DAT-004] |
+| 21 | Enrollment Database | Design and implement Enrollment database schema | Database Schema | [DAT-005] |
+| 22 | Attendance Database | Design and implement Attendance database schema | Database Schema | [DAT-006] |
+| 23 | Membership Card Database | Design and implement Membership Card database schema | Database Schema | [DAT-007] |
+| 24 | Notification Database | Design and implement Notification database schema | Database Schema | [DAT-008] |
+| 25 | Promotion Database | Design and implement Promotion database schema | Database Schema | [DAT-009] |
+| 26 | System Settings Database | Design and implement System Settings database schema | Database Schema | [DAT-011] |
+| 27 | Authentication Flow | Document authentication flow with JWT and refresh tokens | Enterprise Documentation | [ARC-006] |
+| 28 | QR Attendance Flow | Document QR attendance flow with idempotent recording | Enterprise Documentation | [ARC-007] |
+| 29 | Notification Flow | Document notification flow to mobile and Zalo | Enterprise Documentation | [ARC-008] |
+| 30 | Mobile Integration Flow | Document mobile integration flow with REST APIs | Enterprise Documentation | [ARC-009] |
+| 31 | Technology Stack | Document technology stack and infrastructure | Enterprise Documentation | [ARC-010] |
+| 32 | Input Validation | Handle input validation errors | Exception Handling | [EXC-004] |
+| 33 | QR Scan Failure | Handle QR scan failures and network drops | Exception Handling | [EXC-001] |
+| 34 | Duplicate Attendance | Handle duplicate attendance submissions | Exception Handling | [EXC-002] |
+| 35 | Notification Failure | Handle notification delivery failures | Exception Handling | [EXC-003] |
+| 36 | System Recovery | Handle system recovery after outages | Exception Handling | [EXC-005] |
+| 37 | Performance Metrics | Ensure API performance meets requirements | Non-Functional | [NFR-001] |
+| 38 | Availability | Ensure system availability meets requirements | Non-Functional | [NFR-002] |
+| 39 | Security | Implement security measures | Non-Functional | [NFR-003] |
+| 40 | Scalability | Implement scalability measures | Non-Functional | [NFR-004] |
+| 41 | Docker Image Size | Ensure Docker image size meets requirements | Non-Functional | [NFR-005] |
+| 42 | Logging & Audit | Implement logging and audit measures | Non-Functional | [NFR-006] |
+| 43 | Multi-Language Support | Implement multi-language support | Non-Functional | [NFR-007] |
+| 44 | GDPR/CCPA Compliance | Implement GDPR/CCPA compliance measures | Non-Functional | [NFR-008] |
+| 45 | Backup & Disaster Recovery | Implement backup and disaster recovery measures | Non-Functional | [NFR-009] |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 45 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+
+<!--END_BACKLOG_SYNOPSIS_GRID-->
+
+### 4.2. PHASE 1 DETAILED ARCHITECTURAL SPECIFICATION
+
+#### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 1
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Thiết lập cơ sở hạ tầng backend, triển khai cơ sở dữ liệu, và phát triển các tính năng xác thực cơ bản.
+
+#### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/` | Thiết lập cơ sở hạ tầng backend |
+| 2 | `./sources/backend/auth/` | Triển khai xác thực và phân quyền |
+| 3 | `./sources/backend/database/` | Thiết kế và triển khai cơ sở dữ liệu |
+
+#### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE users (
+    user_id UUID PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash CHAR(60) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    role_id SMALLINT NOT NULL,
+    provider VARCHAR(10) NOT NULL DEFAULT 'local',
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (role_id) REFERENCES roles(role_id)
+);
+
+CREATE TABLE roles (
+    role_id SMALLINT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL UNIQUE,
+    description VARCHAR(200)
+);
+
+CREATE TABLE centers (
+    center_id UUID PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    tax_id VARCHAR(13) NOT NULL UNIQUE,
+    contact_phone VARCHAR(20),
+    contact_email VARCHAR(255)
+);
 ```
 
-#### 4.1.2 Kiến trúc dịch vụ
+#### API AND EVENT ROUTING CONTRACTS
 
-```mermaid
-graph TD
-    A[API Gateway] --> B[Authentication Service]
-    A --> C[User Service]
-    A --> D[Center Service]
-    A --> E[Course Service]
-    A --> F[Attendance Service]
-    A --> G[Notification Service]
-    A --> H[Reporting Service]
-    A --> I[Chatbot Service]
+```json
+{
+  "auth": {
+    "register": {
+      "method": "POST",
+      "path": "/api/auth/register",
+      "request": {
+        "email": "string",
+        "password": "string",
+        "fullName": "string"
+      },
+      "response": {
+        "token": "string",
+        "refreshToken": "string"
+      }
+    },
+    "login": {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "request": {
+        "email": "string",
+        "password": "string"
+      },
+      "response": {
+        "token": "string",
+        "refreshToken": "string"
+      }
+    }
+  }
+}
 ```
 
-### 4.2 Đặc tả kiến trúc chi tiết giai đoạn
+#### PHASE 1 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
 
-#### Giai đoạn 1: Khởi tạo hệ thống và quản lý người dùng
+- **DAY 1:**
+  - **Coder:** Thiết lập cơ sở hạ tầng backend với Quarkus và PostgreSQL. `[ARC-010]`
+    - `./sources/backend/`
+  - **Tester:** Viết test suite cho cơ sở hạ tầng backend. `[ARC-010]`
+    - `./sources/backend/tests/;./sources/backend/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[ARC-010]`
+    - `./sources/backend/`
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|------------------------|----------------------------|-----------|-------------------|
-| Giai đoạn 1 | Ngày 1-2 | ./sources/backend/auth-service/ | Cài đặt cơ sở hạ tầng xác thực, triển khai dịch vụ người dùng cơ bản | Coder | [ARC-006], [REQ-001], [REQ-002], [REQ-003] |
-|           | Ngày 3-4 | ./sources/backend/user-service/ | Triển khai dịch vụ người dùng, tích hợp Firebase Auth | Coder | [REQ-001], [REQ-002], [REQ-003] |
-|           | Ngày 5-6 | ./sources/backend/auth-service/tests/;./sources/backend/auth-service/src/main/java/com/membershiphub/auth/ | Viết test cho dịch vụ xác thực, triển khai mã nguồn xác thực | Tester | [REQ-001], [REQ-002], [REQ-003] |
-|           | Ngày 7 | ./sources/docs/authentication-flow.md | Tài liệu luồng xác thực | Doc | [ARC-006] |
+- **DAY 2:**
+  - **Coder:** Triển khai xác thực và phân quyền cơ bản. `[REQ-001], [REQ-002], [REQ-003]`
+    - `./sources/backend/auth/`
+  - **Tester:** Viết test suite cho xác thực và phân quyền. `[REQ-001], [REQ-002], [REQ-003]`
+    - `./sources/backend/auth/tests/;./sources/backend/auth/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-001], [REQ-002], [REQ-003]`
+    - `./sources/backend/auth/`
 
-#### Giai đoạn 2: Quản lý trung tâm và khóa học
+- **DAY 3:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu. `[DAT-001], [DAT-003]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-001], [DAT-003]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-001], [DAT-003]`
+    - `./sources/backend/database/`
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|------------------------|----------------------------|-----------|-------------------|
-| Giai đoạn 2 | Ngày 1-2 | ./sources/backend/center-service/ | Triển khai dịch vụ trung tâm, tạo API cơ bản | Coder | [REQ-004], [REQ-005], [REQ-006] |
-|           | Ngày 3-4 | ./sources/backend/course-service/ | Triển khai dịch vụ khóa học, tích hợp với dịch vụ trung tâm | Coder | [REQ-007], [REQ-008], [REQ-009] |
-|           | Ngày 5-6 | ./sources/backend/center-service/tests/;./sources/backend/center-service/src/main/java/com/membershiphub/center/ | Viết test cho dịch vụ trung tâm, triển khai mã nguồn dịch vụ trung tâm | Tester | [REQ-004], [REQ-005], [REQ-006] |
-|           | Ngày 7 | ./sources/docs/center-course-management.md | Tài liệu quản lý trung tâm và khóa học | Doc | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009] |
+### 4.3. PHASE 2 DETAILED ARCHITECTURAL SPECIFICATION
 
-#### Giai đoạn 3: Đăng ký học viên và điểm danh
+#### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 2
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng quản lý trung tâm và khóa học.
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|------------------------|----------------------------|-----------|-------------------|
-| Giai đoạn 3 | Ngày 1-2 | ./sources/backend/enrollment-service/ | Triển khai dịch vụ đăng ký học viên, tạo API cơ bản | Coder | [REQ-010], [REQ-011] |
-|           | Ngày 3-4 | ./sources/backend/attendance-service/ | Triển khai dịch vụ điểm danh, tích hợp với dịch vụ đăng ký | Coder | [REQ-012], [REQ-013] |
-|           | Ngày 5-6 | ./sources/backend/enrollment-service/tests/;./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/ | Viết test cho dịch vụ đăng ký, triển khai mã nguồn dịch vụ đăng ký | Tester | [REQ-010], [REQ-011] |
-|           | Ngày 7 | ./sources/docs/enrollment-attendance.md | Tài liệu đăng ký học viên và điểm danh | Doc | [REQ-010], [REQ-011], [REQ-012], [REQ-013] |
+#### TARGET PHYSICAL DIRECTORY MATRIX MAP
 
-#### Giai đoạn 4: Quản lý thẻ hội viên và thông báo
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/centers/` | Triển khai quản lý trung tâm |
+| 2 | `./sources/backend/courses/` | Triển khai quản lý khóa học |
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|------------------------|----------------------------|-----------|-------------------|
-| Giai đoạn 4 | Ngày 1-2 | ./sources/backend/membership-service/ | Triển khai dịch vụ thẻ hội viên, tạo API cơ bản | Coder | [REQ-014], [REQ-015] |
-|           | Ngày 3-4 | ./sources/backend/notification-service/ | Triển khai dịch vụ thông báo, tích hợp với dịch vụ thẻ hội viên | Coder | [REQ-016] |
-|           | Ngày 5-6 | ./sources/backend/membership-service/tests/;./sources/backend/membership-service/src/main/java/com/membershiphub/membership/ | Viết test cho dịch vụ thẻ hội viên, triển khai mã nguồn dịch vụ thẻ hội viên | Tester | [REQ-014], [REQ-015] |
-|           | Ngày 7 | ./sources/docs/membership-notification.md | Tài liệu quản lý thẻ hội viên và thông báo | Doc | [REQ-014], [REQ-015], [REQ-016] |
+#### DATABASE SCHEMA DDL SQL SPECIFICATION
 
-#### Giai đoạn 5: Tích hợp ứng dụng di động và tối ưu hóa
+```sql
+CREATE TABLE courses (
+    course_id UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    teacher_id UUID,
+    max_students INT NOT NULL DEFAULT 30,
+    FOREIGN KEY (teacher_id) REFERENCES users(user_id)
+);
+```
 
-| Giai đoạn | Khoảng ngày | Cấu phần / Module Path | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
-|-----------|-------------|------------------------|----------------------------|-----------|-------------------|
-| Giai đoạn 5 | Ngày 1-2 | ./sources/frontend/mobile-app/ | Triển khai giao diện người dùng di động, tích hợp với API backend | Coder | [REQ-020], [REQ-021] |
-|           | Ngày 3-4 | ./sources/backend/reporting-service/ | Triển khai dịch vụ báo cáo, tích hợp với ứng dụng di động | Coder | [REQ-024], [REQ-025] |
-|           | Ngày 5-6 | ./sources/frontend/mobile-app/tests/;./sources/frontend/mobile-app/src/screens/ | Viết test cho ứng dụng di động, triển khai mã nguồn ứng dụng di động | Tester | [REQ-020], [REQ-021] |
-|           | Ngày 7 | ./sources/docs/mobile-integration.md | Tài liệu tích hợp ứng dụng di động và tối ưu hóa | Doc | [REQ-020], [REQ-021], [REQ-024], [REQ-025] |
+#### API AND EVENT ROUTING CONTRACTS
 
-## 🔒 5. ĐỀ XUẤT BẢO MẬT VÀ TUÂN THỦ
+```json
+{
+  "centers": {
+    "list": {
+      "method": "GET",
+      "path": "/api/centers",
+      "response": {
+        "centers": [
+          {
+            "centerId": "string",
+            "name": "string",
+            "address": "string",
+            "taxId": "string",
+            "contactPhone": "string",
+            "contactEmail": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/centers",
+      "request": {
+        "name": "string",
+        "address": "string",
+        "taxId": "string",
+        "contactPhone": "string",
+        "contactEmail": "string"
+      },
+      "response": {
+        "centerId": "string"
+      }
+    }
+  },
+  "courses": {
+    "list": {
+      "method": "GET",
+      "path": "/api/courses",
+      "response": {
+        "courses": [
+          {
+            "courseId": "string",
+            "title": "string",
+            "startDate": "string",
+            "endDate": "string",
+            "teacherName": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/courses",
+      "request": {
+        "title": "string",
+        "description": "string",
+        "startDate": "string",
+        "endDate": "string",
+        "teacherId": "string",
+        "maxStudents": "number"
+      },
+      "response": {
+        "courseId": "string"
+      }
+    }
+  }
+}
+```
 
-### 5.1 Đề xuất bảo mật
+#### PHASE 2 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
 
-- Triển khai mã hóa TLS 1.3 cho tất cả các kết nối.
-- Sử dụng JWT với thời gian hết hạn 15 phút và refresh token với thời gian hết hạn 7 ngày.
-- Áp dụng các biện pháp phòng chống OWASP Top 10 (SQL injection, XSS, CSRF).
-- Mã hóa dữ liệu tại REST với AES-256.
+- **DAY 1:**
+  - **Coder:** Triển khai quản lý trung tâm. `[REQ-004], [REQ-005], [REQ-006]`
+    - `./sources/backend/centers/`
+  - **Tester:** Viết test suite cho quản lý trung tâm. `[REQ-004], [REQ-005], [REQ-006]`
+    - `./sources/backend/centers/tests/;./sources/backend/centers/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-004], [REQ-005], [REQ-006]`
+    - `./sources/backend/centers/`
 
-### 5.2 Đề xuất tuân thủ
+- **DAY 2:**
+  - **Coder:** Triển khai quản lý khóa học. `[REQ-007], [REQ-008], [REQ-009]`
+    - `./sources/backend/courses/`
+  - **Tester:** Viết test suite cho quản lý khóa học. `[REQ-007], [REQ-008], [REQ-009]`
+    - `./sources/backend/courses/tests/;./sources/backend/courses/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-007], [REQ-008], [REQ-009]`
+    - `./sources/backend/courses/`
 
-- Tuân thủ GDPR/CCPA cho quản lý dữ liệu cá nhân.
-- Triển khai cơ chế logging và audit cho tất cả các hành động người dùng.
-- Bảo mật dữ liệu với mã hóa tại REST và trong cơ sở dữ liệu.
+- **DAY 3:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho quản lý trung tâm và khóa học. `[DAT-004]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-004]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-004]`
+    - `./sources/backend/database/`
 
-## 📦 6. ĐỀ XUẤT CÔNG NGHỆ VÀ HẠ TẦNG
+### 4.4. PHASE 3 DETAILED ARCHITECTURAL SPECIFICATION
 
-### 6.1 Công nghệ backend
+#### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 3
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng đăng ký và ghi danh học viên.
 
-- Ngôn ngữ: Java
-- Framework: Quarkus
-- Cơ sở dữ liệu: PostgreSQL
-- Caching: Redis
-- Xác thực: Firebase Authentication
-- Thông báo đẩy: Firebase Cloud Messaging (FCM) và Apple APNs
+#### TARGET PHYSICAL DIRECTORY MATRIX MAP
 
-### 6.2 Công nghệ frontend
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/enrollments/` | Triển khai đăng ký và ghi danh học viên |
 
-- Framework: Next.js
-- Mobile: React Native
-- Tích hợp Zalo: Zalo API
+#### DATABASE SCHEMA DDL SQL SPECIFICATION
 
-### 6.3 Công nghệ DevOps
+```sql
+CREATE TABLE enrollments (
+    enrollment_id UUID PRIMARY KEY,
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    enrollment_date TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (student_id) REFERENCES users(user_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+```
 
-- Containerization: Docker
-- Orchestration: Kubernetes (GKE)
-- CI/CD: GitHub Actions
+#### API AND EVENT ROUTING CONTRACTS
 
-## 📝 7. TÀI LIỆU KỸ THUẬT
+```json
+{
+  "enrollments": {
+    "browse": {
+      "method": "GET",
+      "path": "/api/enrollments/browse",
+      "response": {
+        "courses": [
+          {
+            "courseId": "string",
+            "title": "string",
+            "startDate": "string",
+            "endDate": "string",
+            "maxStudents": "number",
+            "currentStudents": "number"
+          }
+        ]
+      }
+    },
+    "register": {
+      "method": "POST",
+      "path": "/api/enrollments/register",
+      "request": {
+        "courseId": "string"
+      },
+      "response": {
+        "enrollmentId": "string"
+      }
+    }
+  }
+}
+```
 
-### 7.1 Tài liệu API
+#### PHASE 3 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
 
-- Tài liệu API cho tất cả các dịch vụ backend.
-- Tài liệu tích hợp cho ứng dụng di động.
+- **DAY 1:**
+  - **Coder:** Triển khai đăng ký và ghi danh học viên. `[REQ-010], [REQ-011]`
+    - `./sources/backend/enrollments/`
+  - **Tester:** Viết test suite cho đăng ký và ghi danh học viên. `[REQ-010], [REQ-011]`
+    - `./sources/backend/enrollments/tests/;./sources/backend/enrollments/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-010], [REQ-011]`
+    - `./sources/backend/enrollments/`
 
-### 7.2 Tài liệu cơ sở dữ liệu
+- **DAY 2:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho đăng ký và ghi danh học viên. `[DAT-005]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-005]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-005]`
+    - `./sources/backend/database/`
 
-- Schema DDL cho tất cả các bảng cơ sở dữ liệu.
-- Tài liệu chỉ mục và tối ưu hóa truy vấn.
+- **DAY 3:**
+  - **Coder:** Triển khai thông báo cho đăng ký và ghi danh học viên. `[REQ-016]`
+    - `./sources/backend/notifications/`
+  - **Tester:** Viết test suite cho thông báo. `[REQ-016]`
+    - `./sources/backend/notifications/tests/;./sources/backend/notifications/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-016]`
+    - `./sources/backend/notifications/`
 
-### 7.3 Tài liệu triển khai
+### 4.5. PHASE 4 DETAILED ARCHITECTURAL SPECIFICATION
 
-- Hướng dẫn triển khai trên GKE.
-- Hướng dẫn cấu hình CI/CD pipeline.
+#### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 4
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng điểm danh và quản lý thẻ hội viên.
 
-## 📅 8. LỊCH TRÌNH DỰ ÁN
+#### TARGET PHYSICAL DIRECTORY MATRIX MAP
 
-### 8.1 Lịch trình chi tiết
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/attendance/` | Triển khai điểm danh và quản lý thẻ hội viên |
 
-| Giai đoạn | Khoảng ngày | Mục tiêu chính |
-|-----------|-------------|-----------------|
-| Giai đoạn 1 | Ngày 1-7 | Khởi tạo hệ thống và quản lý người dùng |
-| Giai đoạn 2 | Ngày 8-14 | Quản lý trung tâm và khóa học |
-| Giai đoạn 3 | Ngày 15-21 | Đăng ký học viên và điểm danh |
-| Giai đoạn 4 | Ngày 22-28 | Quản lý thẻ hội viên và thông báo |
-| Giai đoạn 5 | Ngày 29-35 | Tích hợp ứng dụng di động và tối ưu hóa |
+#### DATABASE SCHEMA DDL SQL SPECIFICATION
 
-### 8.2 Dự kiến hoàn thành
+```sql
+CREATE TABLE attendance (
+    attendance_id UUID PRIMARY KEY,
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    attendance_date DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (student_id) REFERENCES users(user_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
 
-- Dự kiến hoàn thành: 35 ngày sau ngày bắt đầu.
+CREATE TABLE student_cards (
+    card_id UUID PRIMARY KEY,
+    student_id UUID NOT NULL,
+    issue_date DATE NOT NULL,
+    validity_days INT NOT NULL,
+    remaining_days INT NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES users(user_id)
+);
+```
+
+#### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "attendance": {
+    "scan": {
+      "method": "POST",
+      "path": "/api/attendance/scan",
+      "request": {
+        "studentId": "string",
+        "courseId": "string"
+      },
+      "response": {
+        "attendanceId": "string",
+        "status": "string"
+      }
+    }
+  },
+  "studentCards": {
+    "view": {
+      "method": "GET",
+      "path": "/api/studentCards/view",
+      "response": {
+        "totalValidityDays": "number",
+        "daysUsed": "number",
+        "daysRemaining": "number"
+      }
+    },
+    "renew": {
+      "method": "POST",
+      "path": "/api/studentCards/renew",
+      "request": {
+        "renewalDays": "number"
+      },
+      "response": {
+        "newEndDate": "string"
+      }
+    }
+  }
+}
+```
+
+#### PHASE 4 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Triển khai điểm danh và quản lý thẻ hội viên. `[REQ-012], [REQ-013], [REQ-014], [REQ-015]`
+    - `./sources/backend/attendance/`
+  - **Tester:** Viết test suite cho điểm danh và quản lý thẻ hội viên. `[REQ-012], [REQ-013], [REQ-014], [REQ-015]`
+    - `./sources/backend/attendance/tests/;./sources/backend/attendance/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-012], [REQ-013], [REQ-014], [REQ-015]`
+    - `./sources/backend/attendance/`
+
+- **DAY 2:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho điểm danh và quản lý thẻ hội viên. `[DAT-006], [DAT-007]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-006], [DAT-007]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-006], [DAT-007]`
+    - `./sources/backend/database/`
+
+- **DAY 3:**
+  - **Coder:** Triển khai thông báo cho điểm danh và quản lý thẻ hội viên. `[REQ-016]`
+    - `./sources/backend/notifications/`
+  - **Tester:** Viết test suite cho thông báo. `[REQ-016]`
+    - `./sources/backend/notifications/tests/;./sources/backend/notifications/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-016]`
+    - `./sources/backend/notifications/`
+
+### 4.6. PHASE 5 DETAILED ARCHITECTURAL SPECIFICATION
+
+#### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 5
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng quản lý khuyến mãi, thông báo, chatbot AI, và ứng dụng di động.
+
+#### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/promotions/` | Triển khai quản lý khuyến mãi |
+| 2 | `./sources/backend/announcements/` | Triển khai quản lý thông báo |
+| 3 | `./sources/backend/chatbot/` | Triển khai chatbot AI |
+| 4 | `./sources/backend/mobile/` | Triển khai ứng dụng di động |
+
+#### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE promotions (
+    promo_id UUID PRIMARY KEY,
+    code VARCHAR(20) NOT NULL UNIQUE,
+    discount_percent SMALLINT NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    description TEXT
+);
+
+CREATE TABLE announcements (
+    announcement_id UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    content TEXT NOT NULL,
+    start_date DATE,
+    end_date DATE
+);
+```
+
+#### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "promotions": {
+    "list": {
+      "method": "GET",
+      "path": "/api/promotions",
+      "response": {
+        "promotions": [
+          {
+            "promoId": "string",
+            "code": "string",
+            "discountPercent": "number",
+            "startDate": "string",
+            "endDate": "string",
+            "description": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/promotions",
+      "request": {
+        "code": "string",
+        "discountPercent": "number",
+        "startDate": "string",
+        "endDate": "string",
+        "description": "string"
+      },
+      "response": {
+        "promoId": "string"
+      }
+    }
+  },
+  "announcements": {
+    "list": {
+      "method": "GET",
+      "path": "/api/announcements",
+      "response": {
+        "announcements": [
+          {
+            "announcementId": "string",
+            "title": "string",
+            "content": "string",
+            "startDate": "string",
+            "endDate": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/announcements",
+      "request": {
+        "title": "string",
+        "content": "string",
+        "startDate": "string",
+        "endDate": "string"
+      },
+      "response": {
+        "announcementId": "string"
+      }
+    }
+  },
+  "chatbot": {
+    "query": {
+      "method": "POST",
+      "path": "/api/chatbot/query",
+      "request": {
+        "question": "string"
+      },
+      "response": {
+        "answer": "string"
+      }
+    }
+  },
+  "mobile": {
+    "pushNotification": {
+      "method": "POST",
+      "path": "/api/mobile/pushNotification",
+      "request": {
+        "userId": "string",
+        "message": "string"
+      },
+      "response": {
+        "status": "string"
+      }
+    }
+  }
+}
+```
+
+#### PHASE 5 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Triển khai quản lý khuyến mãi và thông báo. `[REQ-017], [REQ-018]`
+    - `./sources/backend/promotions/`
+    - `./sources/backend/announcements/`
+  - **Tester:** Viết test suite cho quản lý khuyến mãi và thông báo. `[REQ-017], [REQ-018]`
+    - `./sources/backend/promotions/tests/;./sources/backend/promotions/`
+    - `./sources/backend/announcements/tests/;./sources/backend/announcements/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-017], [REQ-018]`
+    - `./sources/backend/promotions/`
+    - `./sources/backend/announcements/`
+
+- **DAY 2:**
+  - **Coder:** Triển khai chatbot AI và ứng dụng di động. `[REQ-019], [REQ-020], [REQ-021]`
+    - `./sources/backend/chatbot/`
+    - `./sources/backend/mobile/`
+  - **Tester:** Viết test suite cho chatbot AI và ứng dụng di động. `[REQ-019], [REQ-020], [REQ-021]`
+    - `./sources/backend/chatbot/tests/;./sources/backend/chatbot/`
+    - `./sources/backend/mobile/tests/;./sources/backend/mobile/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-019], [REQ-020], [REQ-021]`
+    - `./sources/backend/chatbot/`
+    - `./sources/backend/mobile/`
+
+- **DAY 3:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho quản lý khuyến mãi và thông báo. `[DAT-009]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-009]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-009]`
+    - `./sources/backend/database/`
+
+## 5. PHASE 1 DETAILED ARCHITECTURAL SPECIFICATION
+
+### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 1
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Thiết lập cơ sở hạ tầng backend, triển khai cơ sở dữ liệu, và phát triển các tính năng xác thực cơ bản.
+
+### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/` | Thiết lập cơ sở hạ tầng backend |
+| 2 | `./sources/backend/auth/` | Triển khai xác thực và phân quyền |
+| 3 | `./sources/backend/database/` | Thiết kế và triển khai cơ sở dữ liệu |
+
+### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE users (
+    user_id UUID PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash CHAR(60) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    role_id SMALLINT NOT NULL,
+    provider VARCHAR(10) NOT NULL DEFAULT 'local',
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (role_id) REFERENCES roles(role_id)
+);
+
+CREATE TABLE roles (
+    role_id SMALLINT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL UNIQUE,
+    description VARCHAR(200)
+);
+
+CREATE TABLE centers (
+    center_id UUID PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    tax_id VARCHAR(13) NOT NULL UNIQUE,
+    contact_phone VARCHAR(20),
+    contact_email VARCHAR(255)
+);
+```
+
+### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "auth": {
+    "register": {
+      "method": "POST",
+      "path": "/api/auth/register",
+      "request": {
+        "email": "string",
+        "password": "string",
+        "fullName": "string"
+      },
+      "response": {
+        "token": "string",
+        "refreshToken": "string"
+      }
+    },
+    "login": {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "request": {
+        "email": "string",
+        "password": "string"
+      },
+      "response": {
+        "token": "string",
+        "refreshToken": "string"
+      }
+    }
+  }
+}
+```
+
+### PHASE 1 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Thiết lập cơ sở hạ tầng backend với Quarkus và PostgreSQL. `[ARC-010]`
+    - `./sources/backend/`
+  - **Tester:** Viết test suite cho cơ sở hạ tầng backend. `[ARC-010]`
+    - `./sources/backend/tests/;./sources/backend/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[ARC-010]`
+    - `./sources/backend/`
+
+- **DAY 2:**
+  - **Coder:** Triển khai xác thực và phân quyền cơ bản. `[REQ-001], [REQ-002], [REQ-003]`
+    - `./sources/backend/auth/`
+  - **Tester:** Viết test suite cho xác thực và phân quyền. `[REQ-001], [REQ-002], [REQ-003]`
+    - `./sources/backend/auth/tests/;./sources/backend/auth/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-001], [REQ-002], [REQ-003]`
+    - `./sources/backend/auth/`
+
+- **DAY 3:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu. `[DAT-001], [DAT-003]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-001], [DAT-003]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-001], [DAT-003]`
+    - `./sources/backend/database/`
+
+## 6. PHASE 2 DETAILED ARCHITECTURAL SPECIFICATION
+
+### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 2
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng quản lý trung tâm và khóa học.
+
+### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/centers/` | Triển khai quản lý trung tâm |
+| 2 | `./sources/backend/courses/` | Triển khai quản lý khóa học |
+
+### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE courses (
+    course_id UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    teacher_id UUID,
+    max_students INT NOT NULL DEFAULT 30,
+    FOREIGN KEY (teacher_id) REFERENCES users(user_id)
+);
+```
+
+### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "centers": {
+    "list": {
+      "method": "GET",
+      "path": "/api/centers",
+      "response": {
+        "centers": [
+          {
+            "centerId": "string",
+            "name": "string",
+            "address": "string",
+            "taxId": "string",
+            "contactPhone": "string",
+            "contactEmail": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/centers",
+      "request": {
+        "name": "string",
+        "address": "string",
+        "taxId": "string",
+        "contactPhone": "string",
+        "contactEmail": "string"
+      },
+      "response": {
+        "centerId": "string"
+      }
+    }
+  },
+  "courses": {
+    "list": {
+      "method": "GET",
+      "path": "/api/courses",
+      "response": {
+        "courses": [
+          {
+            "courseId": "string",
+            "title": "string",
+            "startDate": "string",
+            "endDate": "string",
+            "teacherName": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/courses",
+      "request": {
+        "title": "string",
+        "description": "string",
+        "startDate": "string",
+        "endDate": "string",
+        "teacherId": "string",
+        "maxStudents": "number"
+      },
+      "response": {
+        "courseId": "string"
+      }
+    }
+  }
+}
+```
+
+### PHASE 2 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Triển khai quản lý trung tâm. `[REQ-004], [REQ-005], [REQ-006]`
+    - `./sources/backend/centers/`
+  - **Tester:** Viết test suite cho quản lý trung tâm. `[REQ-004], [REQ-005], [REQ-006]`
+    - `./sources/backend/centers/tests/;./sources/backend/centers/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-004], [REQ-005], [REQ-006]`
+    - `./sources/backend/centers/`
+
+- **DAY 2:**
+  - **Coder:** Triển khai quản lý khóa học. `[REQ-007], [REQ-008], [REQ-009]`
+    - `./sources/backend/courses/`
+  - **Tester:** Viết test suite cho quản lý khóa học. `[REQ-007], [REQ-008], [REQ-009]`
+    - `./sources/backend/courses/tests/;./sources/backend/courses/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-007], [REQ-008], [REQ-009]`
+    - `./sources/backend/courses/`
+
+- **DAY 3:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho quản lý trung tâm và khóa học. `[DAT-004]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-004]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-004]`
+    - `./sources/backend/database/`
+
+## 7. PHASE 3 DETAILED ARCHITECTURAL SPECIFICATION
+
+### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 3
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng đăng ký và ghi danh học viên.
+
+### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/enrollments/` | Triển khai đăng ký và ghi danh học viên |
+
+### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE enrollments (
+    enrollment_id UUID PRIMARY KEY,
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    enrollment_date TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (student_id) REFERENCES users(user_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+```
+
+### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "enrollments": {
+    "browse": {
+      "method": "GET",
+      "path": "/api/enrollments/browse",
+      "response": {
+        "courses": [
+          {
+            "courseId": "string",
+            "title": "string",
+            "startDate": "string",
+            "endDate": "string",
+            "maxStudents": "number",
+            "currentStudents": "number"
+          }
+        ]
+      }
+    },
+    "register": {
+      "method": "POST",
+      "path": "/api/enrollments/register",
+      "request": {
+        "courseId": "string"
+      },
+      "response": {
+        "enrollmentId": "string"
+      }
+    }
+  }
+}
+```
+
+### PHASE 3 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Triển khai đăng ký và ghi danh học viên. `[REQ-010], [REQ-011]`
+    - `./sources/backend/enrollments/`
+  - **Tester:** Viết test suite cho đăng ký và ghi danh học viên. `[REQ-010], [REQ-011]`
+    - `./sources/backend/enrollments/tests/;./sources/backend/enrollments/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-010], [REQ-011]`
+    - `./sources/backend/enrollments/`
+
+- **DAY 2:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho đăng ký và ghi danh học viên. `[DAT-005]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-005]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-005]`
+    - `./sources/backend/database/`
+
+- **DAY 3:**
+  - **Coder:** Triển khai thông báo cho đăng ký và ghi danh học viên. `[REQ-016]`
+    - `./sources/backend/notifications/`
+  - **Tester:** Viết test suite cho thông báo. `[REQ-016]`
+    - `./sources/backend/notifications/tests/;./sources/backend/notifications/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-016]`
+    - `./sources/backend/notifications/`
+
+## 8. PHASE 4 DETAILED ARCHITECTURAL SPECIFICATION
+
+### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 4
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng điểm danh và quản lý thẻ hội viên.
+
+### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/attendance/` | Triển khai điểm danh và quản lý thẻ hội viên |
+
+### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE attendance (
+    attendance_id UUID PRIMARY KEY,
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    attendance_date DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (student_id) REFERENCES users(user_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+
+CREATE TABLE student_cards (
+    card_id UUID PRIMARY KEY,
+    student_id UUID NOT NULL,
+    issue_date DATE NOT NULL,
+    validity_days INT NOT NULL,
+    remaining_days INT NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES users(user_id)
+);
+```
+
+### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "attendance": {
+    "scan": {
+      "method": "POST",
+      "path": "/api/attendance/scan",
+      "request": {
+        "studentId": "string",
+        "courseId": "string"
+      },
+      "response": {
+        "attendanceId": "string",
+        "status": "string"
+      }
+    }
+  },
+  "studentCards": {
+    "view": {
+      "method": "GET",
+      "path": "/api/studentCards/view",
+      "response": {
+        "totalValidityDays": "number",
+        "daysUsed": "number",
+        "daysRemaining": "number"
+      }
+    },
+    "renew": {
+      "method": "POST",
+      "path": "/api/studentCards/renew",
+      "request": {
+        "renewalDays": "number"
+      },
+      "response": {
+        "newEndDate": "string"
+      }
+    }
+  }
+}
+```
+
+### PHASE 4 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Triển khai điểm danh và quản lý thẻ hội viên. `[REQ-012], [REQ-013], [REQ-014], [REQ-015]`
+    - `./sources/backend/attendance/`
+  - **Tester:** Viết test suite cho điểm danh và quản lý thẻ hội viên. `[REQ-012], [REQ-013], [REQ-014], [REQ-015]`
+    - `./sources/backend/attendance/tests/;./sources/backend/attendance/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-012], [REQ-013], [REQ-014], [REQ-015]`
+    - `./sources/backend/attendance/`
+
+- **DAY 2:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho điểm danh và quản lý thẻ hội viên. `[DAT-006], [DAT-007]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-006], [DAT-007]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-006], [DAT-007]`
+    - `./sources/backend/database/`
+
+- **DAY 3:**
+  - **Coder:** Triển khai thông báo cho điểm danh và quản lý thẻ hội viên. `[REQ-016]`
+    - `./sources/backend/notifications/`
+  - **Tester:** Viết test suite cho thông báo. `[REQ-016]`
+    - `./sources/backend/notifications/tests/;./sources/backend/notifications/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-016]`
+    - `./sources/backend/notifications/`
+
+## 9. PHASE 5 DETAILED ARCHITECTURAL SPECIFICATION
+
+### PHASE CORE OBJECTIVE & PURPOSE
+- **Phase:** 5
+- **Day Range:** 1-3
+- **Component / Module Path:** `./sources/backend/`
+- **Deliverables Summary:** Phát triển các tính năng quản lý khuyến mãi, thông báo, chatbot AI, và ứng dụng di động.
+
+### TARGET PHYSICAL DIRECTORY MATRIX MAP
+
+| No. | Component / Module Path | Deliverables Summary |
+| :--- | :--- | :--- |
+| 1 | `./sources/backend/promotions/` | Triển khai quản lý khuyến mãi |
+| 2 | `./sources/backend/announcements/` | Triển khai quản lý thông báo |
+| 3 | `./sources/backend/chatbot/` | Triển khai chatbot AI |
+| 4 | `./sources/backend/mobile/` | Triển khai ứng dụng di động |
+
+### DATABASE SCHEMA DDL SQL SPECIFICATION
+
+```sql
+CREATE TABLE promotions (
+    promo_id UUID PRIMARY KEY,
+    code VARCHAR(20) NOT NULL UNIQUE,
+    discount_percent SMALLINT NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    description TEXT
+);
+
+CREATE TABLE announcements (
+    announcement_id UUID PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    content TEXT NOT NULL,
+    start_date DATE,
+    end_date DATE
+);
+```
+
+### API AND EVENT ROUTING CONTRACTS
+
+```json
+{
+  "promotions": {
+    "list": {
+      "method": "GET",
+      "path": "/api/promotions",
+      "response": {
+        "promotions": [
+          {
+            "promoId": "string",
+            "code": "string",
+            "discountPercent": "number",
+            "startDate": "string",
+            "endDate": "string",
+            "description": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/promotions",
+      "request": {
+        "code": "string",
+        "discountPercent": "number",
+        "startDate": "string",
+        "endDate": "string",
+        "description": "string"
+      },
+      "response": {
+        "promoId": "string"
+      }
+    }
+  },
+  "announcements": {
+    "list": {
+      "method": "GET",
+      "path": "/api/announcements",
+      "response": {
+        "announcements": [
+          {
+            "announcementId": "string",
+            "title": "string",
+            "content": "string",
+            "startDate": "string",
+            "endDate": "string"
+          }
+        ]
+      }
+    },
+    "create": {
+      "method": "POST",
+      "path": "/api/announcements",
+      "request": {
+        "title": "string",
+        "content": "string",
+        "startDate": "string",
+        "endDate": "string"
+      },
+      "response": {
+        "announcementId": "string"
+      }
+    }
+  },
+  "chatbot": {
+    "query": {
+      "method": "POST",
+      "path": "/api/chatbot/query",
+      "request": {
+        "question": "string"
+      },
+      "response": {
+        "answer": "string"
+      }
+    }
+  },
+  "mobile": {
+    "pushNotification": {
+      "method": "POST",
+      "path": "/api/mobile/pushNotification",
+      "request": {
+        "userId": "string",
+        "message": "string"
+      },
+      "response": {
+        "status": "string"
+      }
+    }
+  }
+}
+```
+
+### PHASE 5 LOW-LEVEL TECHNICAL TASK INSTRUCTIONS
+
+- **DAY 1:**
+  - **Coder:** Triển khai quản lý khuyến mãi và thông báo. `[REQ-017], [REQ-018]`
+    - `./sources/backend/promotions/`
+    - `./sources/backend/announcements/`
+  - **Tester:** Viết test suite cho quản lý khuyến mãi và thông báo. `[REQ-017], [REQ-018]`
+    - `./sources/backend/promotions/tests/;./sources/backend/promotions/`
+    - `./sources/backend/announcements/tests/;./sources/backend/announcements/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-017], [REQ-018]`
+    - `./sources/backend/promotions/`
+    - `./sources/backend/announcements/`
+
+- **DAY 2:**
+  - **Coder:** Triển khai chatbot AI và ứng dụng di động. `[REQ-019], [REQ-020], [REQ-021]`
+    - `./sources/backend/chatbot/`
+    - `./sources/backend/mobile/`
+  - **Tester:** Viết test suite cho chatbot AI và ứng dụng di động. `[REQ-019], [REQ-020], [REQ-021]`
+    - `./sources/backend/chatbot/tests/;./sources/backend/chatbot/`
+    - `./sources/backend/mobile/tests/;./sources/backend/mobile/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[REQ-019], [REQ-020], [REQ-021]`
+    - `./sources/backend/chatbot/`
+    - `./sources/backend/mobile/`
+
+- **DAY 3:**
+  - **Coder:** Thiết kế và triển khai cơ sở dữ liệu cho quản lý khuyến mãi và thông báo. `[DAT-009]`
+    - `./sources/backend/database/`
+  - **Tester:** Viết test suite cho cơ sở dữ liệu. `[DAT-009]`
+    - `./sources/backend/database/tests/;./sources/backend/database/`
+  - **Reviewer:** Review code và đảm bảo tuân thủ các tiêu chuẩn lập trình. `[DAT-009]`
+    - `./sources/backend/database/`
 
