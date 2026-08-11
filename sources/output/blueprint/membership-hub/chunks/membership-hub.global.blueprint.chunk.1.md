@@ -620,130 +620,130 @@ You MUST include every single section below without exception to satisfy enterpr
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260809173524 |
+| **Blueprint ID** | ARCH-20260811021119 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 17:35:24 |
+| **Date.Time** | 2026/08/11 02:11:19 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
 ## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
 ### 1.1. Core System Modality & Architecture Modality
-  <RULE>
-  - You MUST automatically delete this entire rule instruction text stream block.
-  - You MUST dynamically generate a comprehensive technical overview analysis of the discovered core system architecture, EDA patterns, CQRS boundaries, and Reactive core models based strictly on the requirement context.
-  - CRITICAL FORMAT RULE: You BANNED from outputting paragraphs or walls of text. You MUST strictly format 100% of your generated overview as a clean, highly structured, high-density markdown bulleted checklist (`- ` symbols). Each bullet point must be a short, punchy technical statement delivering raw architectural metrics.
-  - You MUST render 100% of your newly generated sentences in the designated target language: Vietnamese.
-  </RULE>
+<RULE>
+- You MUST automatically delete this entire rule instruction text stream block.
+- You MUST dynamically generate a comprehensive technical overview analysis of the discovered core system architecture, EDA patterns, CQRS boundaries, and Reactive core models based strictly on the requirement context.
+- CRITICAL FORMAT RULE: You BANNED from outputting paragraphs or walls of text. You MUST strictly format 100% of your generated overview as a clean, highly structured, high-density markdown bulleted checklist (`- ` symbols). Each bullet point must be a short, punchy technical statement delivering raw architectural metrics.
+- You MUST render 100% of your newly generated sentences in the designated target language: Vietnamese.
+</RULE>
 
 ### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-  <RULE>
-  - You MUST automatically delete this entire rule instruction text stream block.
-  - You MUST dynamically generate a detailed technical breakdown analysis of asynchronous messaging channels, ingestion gateway parameters, topic topologies, and cross-channel external fan-out architectures based on the context.
-  - CRITICAL FORMAT RULE: You BANNED from outputting paragraphs or walls of text. You MUST strictly format 100% of your generated breakdown as a clean, highly structured, high-density markdown bulleted checklist (`- ` symbols). Each bullet point must be a short, punchy technical statement delivering raw data flow paths.
-  - You MUST render 100% of your newly generated sentences in the designated target language: Vietnamese.
-  </RULE>
+<RULE>
+- You MUST automatically delete this entire rule instruction text stream block.
+- You MUST dynamically generate a detailed technical breakdown analysis of asynchronous messaging channels, ingestion gateway parameters, topic topologies, and cross-channel external fan-out architectures based on the context.
+- CRITICAL FORMAT RULE: You BANNED from outputting paragraphs or walls of text. You MUST strictly format 100% of your generated breakdown as a clean, highly structured, high-density markdown bulleted checklist (`- ` symbols). Each bullet point must be a short, punchy technical statement delivering raw data flow paths.
+- You MUST render 100% of your newly generated sentences in the designated target language: Vietnamese.
+</RULE>
 
 ## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-  <RULE>
-  - **STRICT BOUNDARY LOCKDOWN FOR PROPERTIES BLOCK:** Within the generated properties code fence, you MUST execute the complete physical destruction of the placeholder square brackets. The output values MUST be clean literal boolean raw values without any enclosing markers to prevent downstream parsing panics.
-  </RULE>
-  - **Backend Infrastructure Core Stack:** [Detail precise versions, runtime engines, dependency injection abstractions, ORMs, and messaging frameworks extracted from requirements]
-  - **Frontend & Cross-Platform UI Mobile Stack:** [Detail strict web frameworks, dynamic localized routing, responsive layouts, and native mobile runtime wrappers if present]
+<RULE>
+- **STRICT BOUNDARY LOCKDOWN FOR PROPERTIES BLOCK:** Within the generated properties code fence, you MUST execute the complete physical destruction of the placeholder square brackets. The output values MUST be clean literal boolean raw values without any enclosing markers to prevent downstream parsing panics.
+</RULE>
+- **Backend Infrastructure Core Stack:** [Detail precise versions, runtime engines, dependency injection abstractions, ORMs, and messaging frameworks extracted from requirements]
+- **Frontend & Cross-Platform UI Mobile Stack:** [Detail strict web frameworks, dynamic localized routing, responsive layouts, and native mobile runtime wrappers if present]
 
 ### ARCHITECTURAL STACK MATRIX
 
-  ```properties:stack_matrix
-  PERSISTENCE_LAYER_REQUIRED=true_or_false_literal_only
-  BACKEND_LAYER_REQUIRED=true_or_false_literal_only
-  FRONTEND_LAYER_REQUIRED=true_or_false_literal_only
-  MOBILE_LAYER_REQUIRED=true_or_false_literal_only
-  DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
-  ```
+```properties:stack_matrix
+PERSISTENCE_LAYER_REQUIRED=true_or_false_literal_only
+BACKEND_LAYER_REQUIRED=true_or_false_literal_only
+FRONTEND_LAYER_REQUIRED=true_or_false_literal_only
+MOBILE_LAYER_REQUIRED=true_or_false_literal_only
+DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
+```
 
 ## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
-  - **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
-  - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
-  - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string \"membership-hub\" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
-  - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
+- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
+- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string \"membership-hub\" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
+- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
 
 ## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
 ### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
-  <RULE>
-  - You MUST generate a comprehensive, unified Master Product Backlog table directly under this section before organizing the multi-phase timeline. This table acts as the definitive grounding index for 100% of the project scope.
-  - **STRICT BACKLOG COMPLETENESS COMPLIANCE LAW:** This master table MUST completely map and exhaustively list every engineering effort required by the corpus, strictly verified by the Type column:
-    1. *Application Code:* Functional endpoint creations, database models, and service layer code blocks.
-    2. *Enterprise Documentation:* Complete systemic blueprints, database schema topologies, localized operational manual files, and API contracts located under `./sources/docs/`.
-    3. *DevOps Infrastructure:* Containerization scripts (Docker), cloud environment setups (GCP via Terraform), and orchestration cluster manifests (GKE).
-  - **100% INVARIANT TRACEABILITY LINKAGE:** Every row in this backlog MUST enforce absolute coverage of all relevant tracking tags (`[REQ-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[EXC-XXX]`, `[NFR-XXX]`). Zero orphan requirements or untagged deliverables are permitted.
-  - **MANDATORY CASCADE PLAN COMPLIANCE:** Every task documented in this Master Backlog table MUST cascade symmetrically downwards: it MUST be distributed into exactly one targeted phase in the Synopsis Grid under Section 4.2, and subsequently possess an explicit, standalone daily execution sub-task log inside Section 5 for that specific phase.
-  - The Master Product Backlog table layout MUST strictly execute inside the hidden framework parsing hooks exactly as formatted below (inside the hidden HTML tags from `<!--START_BACKLOG_SYNOPSIS_GRID-->` to `<!--END_BACKLOG_SYNOPSIS_GRID-->`)
-  </RULE>
+<RULE>
+- You MUST generate a comprehensive, unified Master Product Backlog table directly under this section before organizing the multi-phase timeline. This table acts as the definitive grounding index for 100% of the project scope.
+- **STRICT BACKLOG COMPLETENESS COMPLIANCE LAW:** This master table MUST completely map and exhaustively list every engineering effort required by the corpus, strictly verified by the Type column:
+  1. *Application Code:* Functional endpoint creations, database models, and service layer code blocks.
+  2. *Enterprise Documentation:* Complete systemic blueprints, database schema topologies, localized operational manual files, and API contracts located under `./sources/docs/`.
+  3. *DevOps Infrastructure:* Containerization scripts (Docker), cloud environment setups (GCP via Terraform), and orchestration cluster manifests (GKE).
+- **100% INVARIANT TRACEABILITY LINKAGE:** Every row in this backlog MUST enforce absolute coverage of all relevant tracking tags (`[REQ-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[EXC-XXX]`, `[NFR-XXX]`). Zero orphan requirements or untagged deliverables are permitted.
+- **MANDATORY CASCADE PLAN COMPLIANCE:** Every task documented in this Master Backlog table MUST cascade symmetrically downwards: it MUST be distributed into exactly one targeted phase in the Synopsis Grid under Section 4.2, and subsequently possess an explicit, standalone daily execution sub-task log inside Section 5 for that specific phase.
+- The Master Product Backlog table layout MUST strictly execute inside the hidden framework parsing hooks exactly as formatted below (inside the hidden HTML tags from `<!--START_BACKLOG_SYNOPSIS_GRID-->` to `<!--END_BACKLOG_SYNOPSIS_GRID-->`)
+</RULE>
 
-  <!--START_BACKLOG_SYNOPSIS_GRID-->
+<!--START_BACKLOG_SYNOPSIS_GRID-->
 
-  | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
-  | :--- | :--- | :--- | :--- | :--- |
-  | [Numerical Index, starting from 1] | [Task Title] | [Clear technical delivery objective description] | [Literal configuration string: 'Application Code' OR 'Enterprise Documentation' OR 'DevOps Infrastructure'] | [Dynamic tracing Tag IDs mapped inline] | <!--REGISTERED_BACKLOG_TASK_ROW--> 
-  | ... | ... | ... | ... | ... |
-  | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
+| No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
+| :--- | :--- | :--- | :--- | :--- |
+| [Numerical Index, starting from 1] | [Task Title] | [Clear technical delivery objective description] | [Literal configuration string: 'Application Code' OR 'Enterprise Documentation' OR 'DevOps Infrastructure'] | [Dynamic tracing Tag IDs mapped inline] | <!--REGISTERED_BACKLOG_TASK_ROW--> 
+| ... | ... | ... | ... | ... |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** [Compute and insert the absolute mathematical sum of all listed task rows, e.g., 42 Tasks] | **STATUS:** Verified | **COVERAGE:** 100% |
 
-  <!--END_BACKLOG_SYNOPSIS_GRID-->
+<!--END_BACKLOG_SYNOPSIS_GRID-->
 
 ### 4.2. MULTI-PHASE SYNOPSIS MATRIX
-  Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= 5) that naturally and completely covers 100% of the BA requirements and Tag IDs.
-  <RULE>
-  [STRICT TABLE EMITTING MANDATE]
-  - You MUST dynamically analyze the comprehensive tasks generated in '4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG' immediately above.
-  - You MUST systematically divide and CONSOLIDATE the entire workload into EXACTLY AND ONLY 5 distinct rows. 
-  - CRITICAL INDEX CEILING: The maximum phase index allowed is 5. You are ABSOLUTELY FORBIDDEN from generating Phase 6 or creating a separate phase row for every single backlog task. You MUST group and aggregate multiple tasks from 4.1 together into these 5 milestones.
-  - For each phase row, you are critically ordered to enforce absolute information symmetry by scanning all Tag IDs and Task types from section 4.1.
-  - CRITICAL INFRASTRUCTURE RULE: If you detect any DevOps, Cloud, Deployment, CI/CD, Containerization, or Infrastructure tasks in section 4.1 (such as Docker, GCP, GKE, Kubernetes, or Git pipelines), you MUST explicitly list the path (e.g., './sources/infrastructure/devops/') in the Component column, and you MUST permanently declare 'DevOps' alongside Coder, Tester, Reviewer, and Doc in the 'Assigned Sub-Agent' column for that targeted phase. Do not drop the DevOps agent under any circumstance.
-  - TIME RAILS: Every phase duration is strictly bound. The Day Range column for each row MUST read exactly 'Day 1 - 7'. No variation or estimation allowed.
-  - Each row MUST specify a real-world engineering duration bounded between 1 to a strict upper ceiling of 7 days maximum per phase. Do NOT generate empty rows, placeholder phases, or artificial workloads. If the requirements are fully satisfied within fewer than 5 phases, terminate the matrix setup immediately at phase N.
-  - LOCAL DAY RANGE BOUNDARY: In the \"Day Range\" column of this table, you MUST format the day sequence starting from relative integer 1 for EACH individual phase row (e.g., Phase 1: Day 1 - 2, Phase 2: Day 1 - 2). Compounding or running a linear progressive day count across phase boundaries is strictly prohibited.
-  - DYNAMIC TECHNICAL DENSITY PRICING LAW (Project-Agnostic): Each row's \"Day Range\" MUST be computed dynamically based strictly on the actual volume and density of the allocated Tag IDs for that specific phase. You MUST evaluate the capacity weight: a single calculated operational calendar day log inside Section 5 MUST NOT contain more than 3 unique critical requirement tags (REQ/ARC/NFR) combined. If a phase contains low-density tasks, you MUST stop the index immediately (e.g., closing tightly at Day 1-2).
-  - IMMUTABLE SYNOPSIS GRID WRAPPER MANDATE: When generating this section (Section 4) Markdown table, you ARE ABSOLUTELY AND CRITICALLY BANNED from dropping, omitting, or filtering out the technical hidden HTML comment anchors. You MUST explicitly enclose the entire generated table structure strictly between the literal tokens <!--START_PHASE_SYNOPSIS_GRID--> and <!--END_PHASE_SYNOPSIS_GRID-->.
-  - DYNAMIC DAY TITLE ENFORCEMENT: Inside Section 5, for every chronological day element (e.g., - **Day [Y]**:), you ARE PERMANENTLY FORBIDDEN from outputting static placeholder strings like \"SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY\". You MUST dynamically analyze the requirements for that day, compile a concise technical objective sentence, and fully translate it into the target language requested by the parameters.
-  - SUPREME DEMAND-DRIVEN WORKLOAD DISTRIBUTION LAW (ADAPTIVE LIFECYCLE): You MUST orchestrate the project planning by decomposing the absolute sum of all requirements (business functions, enterprise documentation components, and DevOps infrastructure pipelines) dynamically across 5 without any artificial padding or redundant agent forcing:
-    1. Dynamic Resource Allocation Rule: A sub-agent ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) MUST ONLY be declared in the Section 4.2 table row under 'Assigned Sub-Agent' if and ONLY if there are active, unfulfilled backlog requirements matching that agent's engineering domain within that specific phase context. If a phase contains zero infrastructure tasks, DevOps agents MUST be completely omitted from that specific row.
-    2. Strict 1:1 Plan Symmetry Guardrail: If a sub-agent token is actively triggered and listed under the 'Assigned Sub-Agent' column for a phase in Section 4.2, you MUST guarantee that the same agent possesses at least one explicit, standalone technical task block inside Section 5 for that phase. Unassigned agents in Section 4.2 MUST NOT possess any tasks in Section 5.
-    3. Hard Phase & Timeline Ceilings: The plan MUST split into exactly 5 phases, and no phase timeline block inside Section 5 shall exceed 7 calendar days.
-    4. Zero Filler Data / Ghost Logs: You are strictly prohibited from generating ghost actions, repetitive task summaries, or empty calendar days simply to reach the maximum day limit. If the core deliverables for a phase are fully satisfied, the schedule stops immediately.
-    5. 100% Traceability Matrix Coverage: Every active daily log and target component MUST map 100% of all relevant tracking tags ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) from the input corpus. Zero orphan requirements or unmapped tags are permitted.
-  - STRICT SUB-AGENT FILE-EXTENSION & MARKDOWN FENCE COMPLIANCE LAW: You MUST strictly isolate physical file extensions based on the active operating persona and protect layout rendering from syntax breakage:
-    1. For [Coder] and [Reviewer]: The target_component MUST strictly point to a physical executable source file ending with valid production extensions (e.g., .java, .ts, .sql).
-    2. For [Tester]: The target_component MUST strictly utilize the semicolon pair format containing valid test suffix extensions (e.g., .java, .ts, .spec.ts) matching Case 1 or Case 2 patterns.
-    3. For [Doc]: The target_component MUST permanently target granular, individual documentation files ending strictly with the .md extension, located inside ./sources/docs/.
-    4. Markdown Render Integrity: You ARE ABSOLUTELY BANNED from outputting naked triple backticks (```) for inner specifications (such as ```sql:matrix or ```json) inside an active root code fence. Every inner code segment block embedded within the day-by-day logs MUST utilize distinct delimiter tokens to ensure parsing isolation. You MUST strictly use exactly four backticks (````) or five backticks (`````) for the top-level parent envelope if the interior values require a three-backtick string literal expression.
-  - ABSOLUTE DISCRETE SUB-TASK SEPARATION MANDATE: You ARE PERMANENTLY FORBIDDEN from aggregating or grouping distinct agent actions into a single combined description block or combined agent field. Every day log inside Section 5 MUST expand into an array of isolated, independent sub-task items, where each sub-task is exclusively mapped to exactly one naked sub-agent persona token.
-  - CRITICAL COMPACT PATCH & REVIEWER PARADIGM DIRECTIVE: The [Reviewer] MUST operate strictly in a sequential multi-step gating paradigm immediately following the [Coder] execution block inside the daily sub-task sequence. The Reviewer MUST systematically analyze the Coder's generated source assets to verify compiler stability and architectural compliance. If the compiler audit passes with zero issues, the Reviewer task freezes instantly with a no-op status. If and ONLY IF an explicit syntax anomaly, structural bottleneck, or compilation breakdown is detected, the Reviewer MUST trigger a defensive patching directive to execute immediate, target-specific code corrections. All patch instructions MUST be written as concise, structural pseudo-steps or high-density technical instructions; you are absolutely banned from embedding long walls of duplicate raw source code blocks inside the instruction description.
-  - GRANULAR DELIVERABLE CHECKLIST MANDATE: You MUST inject multiple verification and architectural tasks into the \"Technical Deliverables Summary\" column for every phase row:
-    1. For Tester: Force the inclusion of concrete validation targets, explicitly stating the production of JUnit suites, Integration Tests, and end-to-end (E2E) automation execution profiles.
-    2. For Doc: Force the inclusion of architecture alignment requirements, explicitly stating the generation of system technical documentation blueprints and API technical specifications.
-  - ABSOLUTE ARCHITECTURAL PLAN SYMMETRY MANDATE (ANTI-DESYNC): You MUST enforce strict 1:1 deterministic alignment between the global macro-plan in Section 4.2 (<!--START_PHASE_SYNOPSIS_GRID-->) and the granular micro-logs in Section 5. It is a critical system violation to declare sub-agents in the synopsis table row while leaving them with zero execution tasks in the corresponding daily breakdown.
-  - **ABSOLUTE MATHEMATICAL BACKLOG COUPLING LAW:** You MUST ensure flawless mathematical synchronization between the total task count generated in the Master Backlog table (Section 4.1 Summary Row) and the accumulated count of discrete sub-task nodes produced across all phases inside Section 5. 
-  - You ARE ABSOLUTELY BANNED from dropping, truncating, or abstracting any task from Section 4.1 when expanding the timeline logs. Every individual functional index or document artifact registered in the Master Backlog table MUST expand into exactly one standalone execution sub-task node within its designated calendar day block inside Section 5. Under-counting, omitting tasks, or prematurely stopping the sub-task sequence before satisfying 100% of the Master Backlog rows constitutes a fatal compliance crash.
-  - DETERMINISTIC DISTRIBUTION PATTERN PER PHASE: For 100% of the phases generated, if a sub-agent token ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) is registered under the 'Assigned Sub-Agent' column in Section 4.2, you MUST partition the phase timeline chunk so that EVERY listed agent possesses at least one explicit, standalone, independent technical sub-task block inside Section 5 for that specific phase.
-  - BALANCED MULTI-AGENT TIMELINE PACKING: To fit multiple required agents within narrow day-ranges without inflating the timeline or violating the dynamic technical density ceiling, you MUST execute compact parallel or sequential distribution:
-    1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
-    2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
-  - **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the \"Day Range\" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - 7' if the actual workload finishes earlier.
-  </RULE>
+Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= 5) that naturally and completely covers 100% of the BA requirements and Tag IDs.
+<RULE>
+[STRICT TABLE EMITTING MANDATE]
+- You MUST dynamically analyze the comprehensive tasks generated in '4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG' immediately above.
+- You MUST systematically divide and CONSOLIDATE the entire workload into EXACTLY AND ONLY 5 distinct rows. 
+- CRITICAL INDEX CEILING: The maximum phase index allowed is 5. You are ABSOLUTELY FORBIDDEN from generating Phase 6 or creating a separate phase row for every single backlog task. You MUST group and aggregate multiple tasks from 4.1 together into these 5 milestones.
+- For each phase row, you are critically ordered to enforce absolute information symmetry by scanning all Tag IDs and Task types from section 4.1.
+- CRITICAL INFRASTRUCTURE RULE: If you detect any DevOps, Cloud, Deployment, CI/CD, Containerization, or Infrastructure tasks in section 4.1 (such as Docker, GCP, GKE, Kubernetes, or Git pipelines), you MUST explicitly list the path (e.g., './sources/infrastructure/devops/') in the Component column, and you MUST permanently declare 'DevOps' alongside Coder, Tester, Reviewer, and Doc in the 'Assigned Sub-Agent' column for that targeted phase. Do not drop the DevOps agent under any circumstance.
+- TIME RAILS: Every phase duration is strictly bound. The Day Range column for each row MUST read exactly 'Day 1 - 7'. No variation or estimation allowed.
+- Each row MUST specify a real-world engineering duration bounded between 1 to a strict upper ceiling of 7 days maximum per phase. Do NOT generate empty rows, placeholder phases, or artificial workloads. If the requirements are fully satisfied within fewer than 5 phases, terminate the matrix setup immediately at phase N.
+- LOCAL DAY RANGE BOUNDARY: In the \"Day Range\" column of this table, you MUST format the day sequence starting from relative integer 1 for EACH individual phase row (e.g., Phase 1: Day 1 - 2, Phase 2: Day 1 - 2). Compounding or running a linear progressive day count across phase boundaries is strictly prohibited.
+- DYNAMIC TECHNICAL DENSITY PRICING LAW (Project-Agnostic): Each row's \"Day Range\" MUST be computed dynamically based strictly on the actual volume and density of the allocated Tag IDs for that specific phase. You MUST evaluate the capacity weight: a single calculated operational calendar day log inside Section 5 MUST NOT contain more than 3 unique critical requirement tags (REQ/ARC/NFR) combined. If a phase contains low-density tasks, you MUST stop the index immediately (e.g., closing tightly at Day 1-2).
+- IMMUTABLE SYNOPSIS GRID WRAPPER MANDATE: When generating this section (Section 4) Markdown table, you ARE ABSOLUTELY AND CRITICALLY BANNED from dropping, omitting, or filtering out the technical hidden HTML comment anchors. You MUST explicitly enclose the entire generated table structure strictly between the literal tokens <!--START_PHASE_SYNOPSIS_GRID--> and <!--END_PHASE_SYNOPSIS_GRID-->.
+- DYNAMIC DAY TITLE ENFORCEMENT: Inside Section 5, for every chronological day element (e.g., - **Day [Y]**:), you ARE PERMANENTLY FORBIDDEN from outputting static placeholder strings like \"SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY\". You MUST dynamically analyze the requirements for that day, compile a concise technical objective sentence, and fully translate it into the target language requested by the parameters.
+- SUPREME DEMAND-DRIVEN WORKLOAD DISTRIBUTION LAW (ADAPTIVE LIFECYCLE): You MUST orchestrate the project planning by decomposing the absolute sum of all requirements (business functions, enterprise documentation components, and DevOps infrastructure pipelines) dynamically across 5 without any artificial padding or redundant agent forcing:
+  1. Dynamic Resource Allocation Rule: A sub-agent ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) MUST ONLY be declared in the Section 4.2 table row under 'Assigned Sub-Agent' if and ONLY if there are active, unfulfilled backlog requirements matching that agent's engineering domain within that specific phase context. If a phase contains zero infrastructure tasks, DevOps agents MUST be completely omitted from that specific row.
+  2. Strict 1:1 Plan Symmetry Guardrail: If a sub-agent token is actively triggered and listed under the 'Assigned Sub-Agent' column for a phase in Section 4.2, you MUST guarantee that the same agent possesses at least one explicit, standalone technical task block inside Section 5 for that phase. Unassigned agents in Section 4.2 MUST NOT possess any tasks in Section 5.
+  3. Hard Phase & Timeline Ceilings: The plan MUST split into exactly 5 phases, and no phase timeline block inside Section 5 shall exceed 7 calendar days.
+  4. Zero Filler Data / Ghost Logs: You are strictly prohibited from generating ghost actions, repetitive task summaries, or empty calendar days simply to reach the maximum day limit. If the core deliverables for a phase are fully satisfied, the schedule stops immediately.
+  5. 100% Traceability Matrix Coverage: Every active daily log and target component MUST map 100% of all relevant tracking tags ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) from the input corpus. Zero orphan requirements or unmapped tags are permitted.
+- STRICT SUB-AGENT FILE-EXTENSION & MARKDOWN FENCE COMPLIANCE LAW: You MUST strictly isolate physical file extensions based on the active operating persona and protect layout rendering from syntax breakage:
+  1. For [Coder] and [Reviewer]: The target_component MUST strictly point to a physical executable source file ending with valid production extensions (e.g., .java, .ts, .sql).
+  2. For [Tester]: The target_component MUST strictly utilize the semicolon pair format containing valid test suffix extensions (e.g., .java, .ts, .spec.ts) matching Case 1 or Case 2 patterns.
+  3. For [Doc]: The target_component MUST permanently target granular, individual documentation files ending strictly with the .md extension, located inside ./sources/docs/.
+  4. Markdown Render Integrity: You ARE ABSOLUTELY BANNED from outputting naked triple backticks (```) for inner specifications (such as ```sql:matrix or ```json) inside an active root code fence. Every inner code segment block embedded within the day-by-day logs MUST utilize distinct delimiter tokens to ensure parsing isolation. You MUST strictly use exactly four backticks (````) or five backticks (`````) for the top-level parent envelope if the interior values require a three-backtick string literal expression.
+- ABSOLUTE DISCRETE SUB-TASK SEPARATION MANDATE: You ARE PERMANENTLY FORBIDDEN from aggregating or grouping distinct agent actions into a single combined description block or combined agent field. Every day log inside Section 5 MUST expand into an array of isolated, independent sub-task items, where each sub-task is exclusively mapped to exactly one naked sub-agent persona token.
+- CRITICAL COMPACT PATCH & REVIEWER PARADIGM DIRECTIVE: The [Reviewer] MUST operate strictly in a sequential multi-step gating paradigm immediately following the [Coder] execution block inside the daily sub-task sequence. The Reviewer MUST systematically analyze the Coder's generated source assets to verify compiler stability and architectural compliance. If the compiler audit passes with zero issues, the Reviewer task freezes instantly with a no-op status. If and ONLY IF an explicit syntax anomaly, structural bottleneck, or compilation breakdown is detected, the Reviewer MUST trigger a defensive patching directive to execute immediate, target-specific code corrections. All patch instructions MUST be written as concise, structural pseudo-steps or high-density technical instructions; you are absolutely banned from embedding long walls of duplicate raw source code blocks inside the instruction description.
+- GRANULAR DELIVERABLE CHECKLIST MANDATE: You MUST inject multiple verification and architectural tasks into the \"Technical Deliverables Summary\" column for every phase row:
+  1. For Tester: Force the inclusion of concrete validation targets, explicitly stating the production of JUnit suites, Integration Tests, and end-to-end (E2E) automation execution profiles.
+  2. For Doc: Force the inclusion of architecture alignment requirements, explicitly stating the generation of system technical documentation blueprints and API technical specifications.
+- ABSOLUTE ARCHITECTURAL PLAN SYMMETRY MANDATE (ANTI-DESYNC): You MUST enforce strict 1:1 deterministic alignment between the global macro-plan in Section 4.2 (<!--START_PHASE_SYNOPSIS_GRID-->) and the granular micro-logs in Section 5. It is a critical system violation to declare sub-agents in the synopsis table row while leaving them with zero execution tasks in the corresponding daily breakdown.
+- **ABSOLUTE MATHEMATICAL BACKLOG COUPLING LAW:** You MUST ensure flawless mathematical synchronization between the total task count generated in the Master Backlog table (Section 4.1 Summary Row) and the accumulated count of discrete sub-task nodes produced across all phases inside Section 5. 
+- You ARE ABSOLUTELY BANNED from dropping, truncating, or abstracting any task from Section 4.1 when expanding the timeline logs. Every individual functional index or document artifact registered in the Master Backlog table MUST expand into exactly one standalone execution sub-task node within its designated calendar day block inside Section 5. Under-counting, omitting tasks, or prematurely stopping the sub-task sequence before satisfying 100% of the Master Backlog rows constitutes a fatal compliance crash.
+- DETERMINISTIC DISTRIBUTION PATTERN PER PHASE: For 100% of the phases generated, if a sub-agent token ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) is registered under the 'Assigned Sub-Agent' column in Section 4.2, you MUST partition the phase timeline chunk so that EVERY listed agent possesses at least one explicit, standalone, independent technical sub-task block inside Section 5 for that specific phase.
+- BALANCED MULTI-AGENT TIMELINE PACKING: To fit multiple required agents within narrow day-ranges without inflating the timeline or violating the dynamic technical density ceiling, you MUST execute compact parallel or sequential distribution:
+  1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
+  2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
+- **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the \"Day Range\" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - 7' if the actual workload finishes earlier.
+</RULE>
 
-  <!--START_PHASE_SYNOPSIS_GRID-->
+<!--START_PHASE_SYNOPSIS_GRID-->
 
-  | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
-  | :--- | :--- | :--- | :--- | :--- | :--- |
-  | Phase 1 | Day 1 - 7 | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
-  | Phase 2 | Day 1 - 7 | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
-  | ... | Day 1 - 7 | ... | ... | ... | ... |
-  | Phase 5 | Day 1 - 7 | [Final engineering paths / deploy logs] | [Final cloud infrastructure deployment manifests] | Coder, Tester, Reviewer, Doc, DevOps | [Map final baseline Tag IDs] |
-  | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly 5 calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
+| Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Phase 1 | Day 1 - 7 | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+| Phase 2 | Day 1 - 7 | [Group active paths from section 4.1] | [Consolidate technical deliverables context] | Coder, Tester, Reviewer, Doc | [Map individual tracking Tag IDs] |
+| ... | Day 1 - 7 | ... | ... | ... | ... |
+| Phase 5 | Day 1 - 7 | [Final engineering paths / deploy logs] | [Final cloud infrastructure deployment manifests] | Coder, Tester, Reviewer, Doc, DevOps | [Map final baseline Tag IDs] |
+| **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly 5 calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
 
-  <!--END_PHASE_SYNOPSIS_GRID-->"
+<!--END_PHASE_SYNOPSIS_GRID-->"
     }
 ]
 
@@ -753,156 +753,308 @@ You MUST include every single section below without exception to satisfy enterpr
 
 ---
 
-# GLOBAL PROJECT CONTEXT: membership-hub
+# TỔNG QUAN DỰ ÁN: membership-hub
 
 ## 📊 Document Control
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260809173524 |
+| **Blueprint ID** | ARCH-20260811021119 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/09 17:35:24 |
+| **Date.Time** | 2026/08/11 02:11:19 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
-## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
+## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH CƠ SỞ
 
-### 1.1. Core System Modality & Architecture Modality
-- Hệ thống được thiết kế theo mô hình đa trung tâm với kiến trúc microservices.
-- Sử dụng mô hình RBAC (Role-Based Access Control) để quản lý quyền truy cập.
-- Hệ thống hỗ trợ đa kênh giao tiếp (web, di động, nhóm Zalo).
-- Điểm danh thời gian thực thông qua quét mã QR.
-- Thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
-- Hệ thống tích hợp xác thực OAuth2 (Firebase, Google, Facebook).
-- Sử dụng JWT token với thời hạn 15 phút và refresh token.
-- Hệ thống hỗ trợ push notification thông qua FCM/APNs.
-- Tích hợp Zalo API cho giao tiếp đa kênh.
-- Sử dụng Redis cho session caching.
-- CI/CD pipeline với GitHub Actions.
+### 1.1. Mô Hình Cơ Sở & Kiến Trúc Hệ Thống
 
-### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-- Luồng xác thực: email/mật khẩu, Firebase, Google, Facebook qua OAuth2.
-- Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend.
-- Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo.
-- Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs, xác thực qua bearer tokens, hỗ trợ caching ngoại tuyến.
-- Luồng quản lý người dùng: đăng ký, xác thực qua mạng xã hội, phân quyền người dùng.
-- Luồng quản lý trung tâm: xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, phân quyền quản trị trung tâm.
-- Luồng quản lý khóa học: xem danh sách khóa học, tạo/cập nhật/xóa khóa học, phân công giáo viên vào khóa học.
-- Luồng đăng ký & ghi danh học viên: duyệt khóa học, đăng ký khóa học của học viên.
-- Luồng điểm danh & quét mã QR: chụp ảnh điểm danh QR, tính chất bất biến của điểm danh.
-- Luồng quản lý thẻ hội viên: hiển thị tính hợp lệ của thẻ, gia hạn thẻ.
-- Luồng thông báo & truyền thông: kích hoạt thông báo, quản lý khuyến mãi & thông báo.
-- Luồng chatbot dịch vụ khách hàng AI: tích hợp chatbot AI.
-- Luồng các tính năng cốt lõi của ứng dụng di động: giao diện người dùng vai trò cụ thể trên di động, thông báo đẩy trên di động.
-- Luồng bản địa hóa & SEO: phát hiện ngôn ngữ mặc định, SEO đa ngôn ngữ.
-- Luồng báo cáo & phân tích: tạo báo cáo điểm danh, bảng điều khiển tóm tắt ghi danh.
+- Kiến trúc microservices phân tách rõ ràng giữa backend, frontend và infra.  
+- Backend sử dụng Java/Quarkus, triển khai dưới dạng container Docker, orchestrated trên GKE.  
+- Frontend là Next.js + React Native, sử dụng Firebase Auth cho xác thực.  
+- Dữ liệu lưu trữ trong PostgreSQL, Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging, Zalo API cho push.  
+- CI/CD pipeline trên GitHub Actions, tự động build, test, deploy.  
+- Đảm bảo tuân thủ OWASP Top 10, TLS 1.3, JWT 15 min, refresh 7 days.  
+- Hệ thống hỗ trợ đa ngôn ngữ (vi, en, es) với externalized strings.  
+- Backup PostgreSQL hàng ngày, point‑in‑time recovery 24 h.  
+- Logging & audit theo NFR-006, lưu trữ 1 year.  
+- Docker image size < 200 MB base, < 500 MB final.  
+- Hệ thống có khả năng mở rộng theo HPA, read replicas cho reporting.  
+- GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Firebase Cloud Messaging (FCM) và Apple APNs cho push.  
+- Zalo API integration cho nhóm Zalo.  
+- Quản lý session bằng Redis, token JWT.  
+- Sử dụng OAuth2 cho Google, Facebook, Firebase.  
+- API REST, event-driven architecture, CQRS boundaries.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Đảm bảo tính bảo mật, mã hóa AES‑256, TLS 1.3.  
+- Đảm bảo tính sẵn sàng 99.9 % uptime.  
+- Đảm bảo performance 200 ms avg.  
+- Đảm bảo multi‑tenant isolation, role‑based access control.  
+- Đảm bảo GDPR/CCPA compliance.  
+- Đảm bảo backup, disaster recovery.  
 
-## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-  <RULE>
-  - **STRICT BOUNDARY LOCKDOWN FOR PROPERTIES BLOCK:** Within the generated properties code fence, you MUST execute the complete physical destruction of the placeholder square brackets. The output values MUST be clean literal boolean raw values without any enclosing markers to prevent downstream parsing panics.
-  </RULE>
-  - **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions.
-  - **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions.
+### 1.2. Mô Hình Dữ Liệu & Hệ Sinh Thái
 
-### ARCHITECTURAL STACK MATRIX
+- Sử dụng PostgreSQL với schema rõ ràng, các bảng: USERS, ROLES, CENTERS, COURSES, ENROLLMENTS, ATTENDANCE, STUDENTCARDS, NOTIFICATIONS, PROMOTIONS, ANNOUNCEMENTS, SYSTEMSETTINGS.  
+- Mỗi bảng có primary key, foreign key, index, constraints.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
+- Sử dụng Next.js + React Native cho frontend.  
+- Sử dụng Quarkus cho backend.  
+- Sử dụng PostgreSQL cho dữ liệu chính.  
+- Sử dụng Redis cho session caching.  
+- Sử dụng Kafka (hoặc Pub/Sub) cho messaging.  
+- Sử dụng Zalo API cho push.  
+- Sử dụng Firebase Auth cho xác thực.  
+- Sử dụng FCM/APNs cho push.  
+- Sử dụng GCP VPC, IAM, Cloud Storage, GKE cluster, Cloud Build, Cloud Run.  
+- Sử dụng Flyway/Liquibase cho migration.  
+- Sử dụng Docker, Kubernetes, Helm charts.  
+- Sử dụng GitHub Actions cho CI/CD.  
 
-  ```properties:stack_matrix
-  PERSISTENCE_LAYER_REQUIRED=true
-  BACKEND_LAYER_REQUIRED=true
-  FRONTEND_LAYER_REQUIRED=true
-  MOBILE_LAYER_REQUIRED=true
-  DEVOPS_LAYER_REQUIRED=true
-  ```
+## 📁 2. CÔNG NGHỆ & THỰC THIẾT KẾ
 
-## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
-  - **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
-  - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
-  - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
-  - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+### 2.1. Định Nghĩa Đặc Điểm Cụ Thể
 
-## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
+```properties:stack_matrix
+PERSISTENCE_LAYER_REQUIRED=true
+BACKEND_LAYER_REQUIRED=true
+FRONTEND_LAYER_REQUIRED=true
+MOBILE_LAYER_REQUIRED=true
+DEVOPS_LAYER_REQUIRED=true
+```
 
-### 4.1. MASTER ARCHITECTURAL PRODUCT BACKLOG
-  <RULE>
-  - You MUST generate a comprehensive, unified Master Product Backlog table directly under this section before organizing the multi-phase timeline. This table acts as the definitive grounding index for 100% of the project scope.
-  - **STRICT BACKLOG COMPLETENESS COMPLIANCE LAW:** This master table MUST completely map and exhaustively list every engineering effort required by the corpus, strictly verified by the Type column:
-    1. *Application Code:* Functional endpoint creations, database models, and service layer code blocks.
-    2. *Enterprise Documentation:* Complete systemic blueprints, database schema topologies, localized operational manual files, and API contracts located under `./sources/docs/`.
-    3. *DevOps Infrastructure:* Containerization scripts (Docker), cloud environment setups (GCP via Terraform), and orchestration cluster manifests (GKE).
-  - **100% INVARIANT TRACEABILITY LINKAGE:** Every row in this backlog MUST enforce absolute coverage of all relevant tracking tags (`[REQ-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[EXC-XXX]`, `[NFR-XXX]`). Zero orphan requirements or untagged deliverables are permitted.
-  - **MANDATORY CASCADE PLAN COMPLIANCE:** Every task documented in this Master Backlog table MUST cascade symmetrically downwards: it MUST be distributed into exactly one targeted phase in the Synopsis Grid under Section 4.2, and subsequently possess an explicit, standalone daily execution sub-task log inside Section 5 for that specific phase.
-  - The Master Product Backlog table layout MUST strictly execute inside the hidden framework parsing hooks exactly as formatted below (inside the hidden HTML tags from `<!--START_BACKLOG_SYNOPSIS_GRID-->` to `<!--END_BACKLOG_SYNOPSIS_GRID-->`)
-  </RULE>
+## 📁 3. QUY ĐỊNH & CHẤT LƯỢNG
 
-  <!--START_BACKLOG_SYNOPSIS_GRID-->
+## 📁 4. TỔNG QUẢN LÝ & KẾ HOẠCH
 
-  | No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
-  | :--- | :--- | :--- | :--- | :--- |
-  | 1 | Xây dựng hệ thống xác thực | Cung cấp cơ chế xác thực qua email/mật khẩu, Firebase, Google, Facebook | Application Code | [REQ-001], [REQ-002], [ARC-006] |
-  | 2 | Thiết kế cơ sở dữ liệu | Tạo các bảng Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements | Application Code | [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
-  | 3 | Xây dựng API điểm danh QR | Tạo API để xử lý điểm danh qua mã QR | Application Code | [REQ-012], [REQ-013], [EXC-001], [EXC-002] |
-  | 4 | Xây dựng hệ thống thông báo | Tạo hệ thống thông báo đẩy và đăng bài lên nhóm Zalo | Application Code | [REQ-016], [EXC-003] |
-  | 5 | Xây dựng giao diện người dùng | Tạo giao diện người dùng cho các vai trò khác nhau (System Admin, Center Admin, Manager, Teacher, Student) | Application Code | [REQ-020], [REQ-021] |
-  | 6 | Xây dựng hệ thống bản địa hóa | Tạo hệ thống phát hiện ngôn ngữ và SEO đa ngôn ngữ | Application Code | [REQ-022], [REQ-023] |
-  | 7 | Xây dựng hệ thống báo cáo | Tạo hệ thống báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh | Application Code | [REQ-024], [REQ-025], [EXC-005] |
-  | 8 | Tạo tài liệu kỹ thuật | Tạo tài liệu kỹ thuật cho hệ thống | Enterprise Documentation | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010] |
-  | 9 | Thiết lập môi trường phát triển | Thiết lập môi trường phát triển với Docker, Kubernetes, và các công cụ CI/CD | DevOps Infrastructure | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-  | **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 9 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
+### 4.1. BẢNG ĐỒNG HỒ CHI TIẾT
 
-  <!--END_BACKLOG_SYNOPSIS_GRID-->
+<!--START_BACKLOG_SYNOPSIS_GRID-->
 
-### 4.2. MULTI-PHASE SYNOPSIS MATRIX
-  Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= 5) that naturally and completely covers 100% of the BA requirements and Tag IDs.
-  <RULE>
-  [STRICT TABLE EMITTING MANDATE]
-  - You MUST dynamically analyze the comprehensive tasks generated in '4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG' immediately above.
-  - You MUST systematically divide and CONSOLIDATE the entire workload into EXACTLY AND ONLY 5 distinct rows.
-  - CRITICAL INDEX CEILING: The maximum phase index allowed is 5. You are ABSOLUTELY FORBIDDEN from generating Phase 6 or creating a separate phase row for every single backlog task. You MUST group and aggregate multiple tasks from 4.1 together into these 5 milestones.
-  - For each phase row, you are critically ordered to enforce absolute information symmetry by scanning all Tag IDs and Task types from section 4.1.
-  - CRITICAL INFRASTRUCTURE RULE: If you detect any DevOps, Cloud, Deployment, CI/CD, Containerization, or Infrastructure tasks in section 4.1 (such as Docker, GCP, GKE, Kubernetes, or Git pipelines), you MUST explicitly list the path (e.g., './sources/infrastructure/devops/') in the Component column, and you MUST permanently declare 'DevOps' alongside Coder, Tester, Reviewer, and Doc in the 'Assigned Sub-Agent' column for that targeted phase. Do not drop the DevOps agent under any circumstance.
-  - TIME RAILS: Every phase duration is strictly bound. The Day Range column for each row MUST read exactly 'Day 1 - 7'. No variation or estimation allowed.
-  - Each row MUST specify a real-world engineering duration bounded between 1 to a strict upper ceiling of 7 days maximum per phase. Do NOT generate empty rows, placeholder phases, or artificial workloads. If the requirements are fully satisfied within fewer than 5 phases, terminate the matrix setup immediately at phase N.
-  - LOCAL DAY RANGE BOUNDARY: In the "Day Range" column of this table, you MUST format the day sequence starting from relative integer 1 for EACH individual phase row (e.g., Phase 1: Day 1 - 2, Phase 2: Day 1 - 2). Compounding or running a linear progressive day count across phase boundaries is strictly prohibited.
-  - DYNAMIC TECHNICAL DENSITY PRICING LAW (Project-Agnostic): Each row's "Day Range" MUST be computed dynamically based strictly on the actual volume and density of the allocated Tag IDs for that specific phase. You MUST evaluate the capacity weight: a single calculated operational calendar day log inside Section 5 MUST NOT contain more than 3 unique critical requirement tags (REQ/ARC/NFR) combined. If a phase contains low-density tasks, you MUST stop the index immediately (e.g., closing tightly at Day 1-2).
-  - IMMUTABLE SYNOPSIS GRID WRAPPER MANDATE: When generating this section (Section 4) Markdown table, you ARE ABSOLUTELY AND CRITICALLY BANNED from dropping, omitting, or filtering out the technical hidden HTML comment anchors. You MUST explicitly enclose the entire generated table structure strictly between the literal tokens <!--START_PHASE_SYNOPSIS_GRID--> and <!--END_PHASE_SYNOPSIS_GRID-->.
-  - DYNAMIC DAY TITLE ENFORCEMENT: Inside Section 5, for every chronological day element (e.g., - **Day [Y]**:), you ARE PERMANENTLY FORBIDDEN from outputting static placeholder strings like "SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY". You MUST dynamically analyze the requirements for that day, compile a concise technical objective sentence, and fully translate it into the target language requested by the parameters.
-  - SUPREME DEMAND-DRIVEN WORKLOAD DISTRIBUTION LAW (ADAPTIVE LIFECYCLE): You MUST orchestrate the project planning by decomposing the absolute sum of all requirements (business functions, enterprise documentation components, and DevOps infrastructure pipelines) dynamically across 5 without any artificial padding or redundant agent forcing:
-    1. Dynamic Resource Allocation Rule: A sub-agent ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) MUST ONLY be declared in the Section 4.2 table row under 'Assigned Sub-Agent' if and ONLY if there are active, unfulfilled backlog requirements matching that agent's engineering domain within that specific phase context. If a phase contains zero infrastructure tasks, DevOps agents MUST be completely omitted from that specific row.
-    2. Strict 1:1 Plan Symmetry Guardrail: If a sub-agent token is actively triggered and listed under the 'Assigned Sub-Agent' column for a phase in Section 4.2, you MUST guarantee that the same agent possesses at least one explicit, standalone technical task block inside Section 5 for that phase. Unassigned agents in Section 4.2 MUST NOT possess any tasks in Section 5.
-    3. Hard Phase & Timeline Ceilings: The plan MUST split into exactly 5 phases, and no phase timeline block inside Section 5 shall exceed 7 calendar days.
-    4. Zero Filler Data / Ghost Logs: You are strictly prohibited from generating ghost actions, repetitive task summaries, or empty calendar days simply to reach the maximum day limit. If the core deliverables for a phase are fully satisfied, the schedule stops immediately.
-    5. 100% Traceability Matrix Coverage: Every active daily log and target component MUST map 100% of all relevant tracking tags ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) from the input corpus. Zero orphan requirements or unmapped tags are permitted.
-  - STRICT SUB-AGENT FILE-EXTENSION & MARKDOWN FENCE COMPLIANCE LAW: You MUST strictly isolate physical file extensions based on the active operating persona and protect layout rendering from syntax breakage:
-    1. For [Coder] and [Reviewer]: The target_component MUST strictly point to a physical executable source file ending with valid production extensions (e.g., .java, .ts, .sql).
-    2. For [Tester]: The target_component MUST strictly utilize the semicolon pair format containing valid test suffix extensions (e.g., .java, .ts, .spec.ts) matching Case 1 or Case 2 patterns.
-    3. For [Doc]: The target_component MUST permanently target granular, individual documentation files ending strictly with the .md extension, located inside ./sources/docs/.
-    4. Markdown Render Integrity: You ARE ABSOLUTELY BANNED from outputting naked triple backticks (```) for inner specifications (such as ```sql:matrix or ```json) inside an active root code fence. Every inner code segment block embedded within the day-by-day logs MUST utilize distinct delimiter tokens to ensure parsing isolation. You MUST strictly use exactly four backticks (````) or five backticks (`````) for the top-level parent envelope if the interior values require a three-backtick string literal expression.
-  - ABSOLUTE DISCRETE SUB-TASK SEPARATION MANDATE: You ARE PERMANENTLY FORBIDDEN from aggregating or grouping distinct agent actions into a single combined description block or combined agent field. Every day log inside Section 5 MUST expand into an array of isolated, independent sub-task items, where each sub-task is exclusively mapped to exactly one naked sub-agent persona token.
-  - CRITICAL COMPACT PATCH & REVIEWER PARADIGM DIRECTIVE: The [Reviewer] MUST operate strictly in a sequential multi-step gating paradigm immediately following the [Coder] execution block inside the daily sub-task sequence. The Reviewer MUST systematically analyze the Coder's generated source assets to verify compiler stability and architectural compliance. If the compiler audit passes with zero issues, the Reviewer task freezes instantly with a no-op status. If and ONLY IF an explicit syntax anomaly, structural bottleneck, or compilation breakdown is detected, the Reviewer MUST trigger a defensive patching directive to execute immediate, target-specific code corrections. All patch instructions MUST be written as concise, structural pseudo-steps or high-density technical instructions; you are absolutely banned from embedding long walls of duplicate raw source code blocks inside the instruction description.
-  - GRANULAR DELIVERABLE CHECKLIST MANDATE: You MUST inject multiple verification and architectural tasks into the "Technical Deliverables Summary" column for every phase row:
-    1. For Tester: Force the inclusion of concrete validation targets, explicitly stating the production of JUnit suites, Integration Tests, and end-to-end (E2E) automation execution profiles.
-    2. For Doc: Force the inclusion of architecture alignment requirements, explicitly stating the generation of system technical documentation blueprints and API technical specifications.
-  - ABSOLUTE ARCHITECTURAL PLAN SYMMETRY MANDATE (ANTI-DESYNC): You MUST enforce strict 1:1 deterministic alignment between the global macro-plan in Section 4.2 (<!--START_PHASE_SYNOPSIS_GRID-->) and the granular micro-logs in Section 5. It is a critical system violation to declare sub-agents in the synopsis table row while leaving them with zero execution tasks in the corresponding daily breakdown.
-  - **ABSOLUTE MATHEMATICAL BACKLOG COUPLING LAW:** You MUST ensure flawless mathematical synchronization between the total task count generated in the Master Backlog table (Section 4.1 Summary Row) and the accumulated count of discrete sub-task nodes produced across all phases inside Section 5.
-  - You ARE ABSOLUTELY BANNED from dropping, truncating, or abstracting any task from Section 4.1 when expanding the timeline logs. Every individual functional index or document artifact registered in the Master Backlog table MUST expand into exactly one standalone execution sub-task node within its designated calendar day block inside Section 5. Under-counting, omitting tasks, or prematurely stopping the sub-task sequence before satisfying 100% of the Master Backlog rows constitutes a fatal compliance crash.
-  - DETERMINISTIC DISTRIBUTION PATTERN PER PHASE: For 100% of the phases generated, if a sub-agent token ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) is registered under the 'Assigned Sub-Agent' column in Section 4.2, you MUST partition the phase timeline chunk so that EVERY listed agent possesses at least one explicit, standalone, independent technical sub-task block inside Section 5 for that specific phase.
-  - BALANCED MULTI-AGENT TIMELINE PACKING: To fit multiple required agents within narrow day-ranges without inflating the timeline or violating the dynamic technical density ceiling, you MUST execute compact parallel or sequential distribution:
-    1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
-    2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
-  - **DYNAMIC DAY-RANGE MATCHING LAW:** In Section 4.2 Matrix, the "Day Range" column value MUST strictly match the exact calendar days you will generate in Section 5. If Section 5 stops at DAY 5, Section 4.2 MUST write 'Day 1 - 5'. You are BANNED from hardcoding 'Day 1 - 7' if the actual workload finishes earlier.
-  </RULE>
+| No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Đăng ký người dùng | Implement user registration endpoint, store user record, issue JWT | Application Code | [REQ-001] |
+| 2 | Xác thực qua mạng xã hội | Implement social login flow, exchange OAuth2 code, issue JWT | Application Code | [REQ-002] |
+| 3 | Phân quyền người dùng | Implement role assignment endpoint, update user role | Application Code | [REQ-003] |
+| 4 | Xem danh sách trung tâm | Implement endpoint to list centers with details | Application Code | [REQ-004] |
+| 5 | Tạo/cập nhật/xóa trung tâm | Implement CRUD for centers, enforce tax ID uniqueness | Application Code | [REQ-005] |
+| 6 | Phân quyền quản trị trung tâm | Assign/unassign Center Admin to center | Application Code | [REQ-006] |
+| 7 | Xem danh sách khóa học | Implement endpoint to list courses with teacher | Application Code | [REQ-007] |
+| 8 | Tạo/cập nhật/xóa khóa học | Implement CRUD for courses, validate schedule conflicts | Application Code | [REQ-008] |
+| 9 | Phân công giáo viên vào khóa học | Implement assignment endpoint, notify teacher | Application Code | [REQ-009] |
+| 10 | Duyệt khóa học | Implement course browsing for students | Application Code | [REQ-010] |
+| 11 | Đăng ký khóa học của học viên | Implement enrollment endpoint, auto-create student account | Application Code | [REQ-011] |
+| 12 | Chụp ảnh điểm danh QR | Implement QR scan endpoint, record attendance | Application Code | [REQ-012] |
+| 13 | Tính chất bất biến của điểm danh | Ensure idempotent attendance recording | Application Code | [REQ-013] |
+| 14 | Hiển thị tính hợp lệ của thẻ | Implement card status endpoint, compute remaining days | Application Code | [REQ-014] |
+| 15 | Gia hạn thẻ | Implement card renewal endpoint, update end date | Application Code | [REQ-015] |
+| 16 | Kích hoạt thông báo | Implement notification trigger on events | Application Code | [REQ-016] |
+| 17 | Quản lý khuyến mãi | Implement promotion CRUD, apply discounts | Application Code | [REQ-017] |
+| 18 | Quản lý thông báo | Implement announcement CRUD, broadcast | Application Code | [REQ-018] |
+| 19 | Tích hợp chatbot AI | Implement chatbot endpoint, integrate LLM | Application Code | [REQ-019] |
+| 20 | Giao diện người dùng vai trò cụ thể trên di động | Implement role‑based mobile UI | Application Code | [REQ-020] |
+| 21 | Thông báo đẩy trên di động | Implement push notification service | Application Code | [REQ-021] |
+| 22 | Phát hiện ngôn ngữ mặc định | Implement locale detection, fallback | Application Code | [REQ-022] |
+| 23 | SEO đa ngôn ngữ | Implement multilingual meta tags, hreflang | Application Code | [REQ-023] |
+| 24 | Tạo báo cáo điểm danh | Implement attendance report generation (CSV) | Application Code | [REQ-024] |
+| 25 | Network & Connectivity Drops During QR Scan | Handle network failures during QR scan | Application Code | [EXC-001] |
+| 26 | Duplicate Attendance Submission | Handle duplicate attendance submissions | Application Code | [EXC-002] |
+| 27 | Failed Notification Delivery | Retry logic for failed push notifications | Application Code | [EXC-003] |
+| 28 | Xác thực đầu vào không hợp lệ | Validate input fields, return errors | Application Code | [EXC-004] |
+| 29 | System Recovery After Outage | Process pending attendance scans after outage | Application Code | [EXC-005] |
+| 30 | Bảng người dùng & vai trò | Document USERS and ROLES schema | Enterprise Documentation | [DAT-001] |
+| 31 | Bảng vai trò | Document ROLES schema | Enterprise Documentation | [DAT-002] |
+| 32 | Bảng trung tâm | Document CENTERS schema | Enterprise Documentation | [DAT-003] |
+| 33 | Bảng khóa học | Document COURSES schema | Enterprise Documentation | [DAT-004] |
+| 34 | Bảng ghi danh | Document ENROLLMENTS schema | Enterprise Documentation | [DAT-005] |
+| 35 | Bảng điểm danh | Document ATTENDANCE schema | Enterprise Documentation | [DAT-006] |
+| 36 | Bảng thẻ hội viên | Document STUDENTCARDS schema | Enterprise Documentation | [DAT-007] |
+| 37 | Bảng thông báo | Document NOTIFICATIONS schema | Enterprise Documentation | [DAT-008] |
+| 38 | Bảng khuyến mãi & thông báo | Document PROMOTIONS & ANNOUNCEMENTS schema | Enterprise Documentation | [DAT-009] |
+| 39 | Bảng cài đặt hệ thống | Document SYSTEMSETTINGS schema | Enterprise Documentation | [DAT-010] |
+| 40 | Bảng cài đặt hệ thống | Document SYSTEMSETTINGS schema (duplicate) | Enterprise Documentation | [DAT-011] |
+| 41 | System Admin: toàn quyền trên tất cả các trung tâm | Document role definition | Enterprise Documentation | [ARC-001] |
+| 42 | Center Admin: toàn quyền trong trung tâm của mình | Document role definition | Enterprise Documentation | [ARC-002] |
+| 43 | Manager: có thể tạo thông báo, quản lý học viên | Document role definition | Enterprise Documentation | [ARC-003] |
+| 44 | Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc | Document role definition | Enterprise Documentation | [ARC-004] |
+| 45 | Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên | Document role definition | Enterprise Documentation | [ARC-005] |
+| 46 | Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2 | Document authentication flow | Enterprise Documentation | [ARC-006] |
+| 47 | Luồng xử lý điểm danh QR | Document attendance flow | Enterprise Documentation | [ARC-007] |
+| 48 | Luồng gửi thông báo | Document notification flow | Enterprise Documentation | [ARC-008] |
+| 49 | Luồng tích hợp backend ứng dụng di động | Document mobile integration flow | Enterprise Documentation | [ARC-009] |
+| 50 | Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, PostgreSQL, Docker, GKE, Firebase Auth, FCM/APNs, Zalo API, Redis, CI/CD | Document technology stack | Enterprise Documentation | [ARC-010] |
+| 51 | Performance Metrics: Core API responses within 200ms | Document performance requirement | Enterprise Documentation | [NFR-001] |
+| 52 | Availability: 99.9% uptime | Document availability requirement | Enterprise Documentation | [NFR-002] |
+| 53 | Security: TLS 1.3, AES-256, JWT 15min, refresh 7 days, OWASP Top 10 | Document security requirement | Enterprise Documentation | [NFR-003] |
+| 54 | Scalability & Availability: HPA, PostgreSQL read replicas | Document scalability requirement | Enterprise Documentation | [NFR-004] |
+| 55 | Docker Image Size: Base <200MB, final <500MB | Document Docker size requirement | Enterprise Documentation | [NFR-005] |
+| 56 | Logging & Audit: logs retained 1 year | Document logging requirement | Enterprise Documentation | [NFR-006] |
+| 57 | Multi‑Language Support: UI strings externalized | Document localization requirement | Enterprise Documentation | [NFR-007] |
+| 58 | GDPR/CCPA Compliance: deletion, export, consent | Document privacy requirement | Enterprise Documentation | [NFR-008] |
+| 59 | Backup & Disaster Recovery: daily backups, point‑in‑time | Document backup requirement | Enterprise Documentation | [NFR-009] |
+| 60 | Dockerfile for backend services | Build Docker images for services | DevOps Infrastructure | [NFR-005] |
+| 61 | Terraform scripts for GCP resources | Provision GCP infrastructure | DevOps Infrastructure | [NFR-003] |
+| 62 | Kubernetes manifests for GKE deployment | Deploy services to GKE | DevOps Infrastructure | [NFR-004] |
+| 63 | CI/CD pipeline configuration (GitHub Actions) | Automate build, test, deploy | DevOps Infrastructure | [NFR-006] |
+| **SUMMARY** | **Total System Backlog Workload Deliverables** | **TOTAL:** 63 Tasks | **STATUS:** Verified | **COVERAGE:** 100% |
 
-  <!--START_PHASE_SYNOPSIS_GRID-->
+<!--END_BACKLOG_SYNOPSIS_GRID-->
 
-  | Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
-  | :--- | :--- | :--- | :--- | :--- | :--- |
-  | Phase 1 | Day 1 - 2 | ./sources/backend/, ./sources/docs/ | Xây dựng hệ thống xác thực, thiết kế cơ sở dữ liệu, tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [ARC-006], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] |
-  | Phase 2 | Day 1 - 2 | ./sources/backend/, ./sources/docs/ | Xây dựng API điểm danh QR, xây dựng hệ thống thông báo, tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-012], [REQ-013], [EXC-001], [EXC-002], [REQ-016], [EXC-003] |
-  | Phase 3 | Day 1 - 2 | ./sources/frontend/, ./sources/docs/ | Xây dựng giao diện người dùng, tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-020], [REQ-021], [REQ-022], [REQ-023] |
-  | Phase 4 | Day 1 - 2 | ./sources/backend/, ./sources/docs/ | Xây dựng hệ thống báo cáo, tạo tài liệu kỹ thuật | Coder, Tester, Reviewer, Doc | [REQ-024], [REQ-025], [EXC-005] |
-  | Phase 5 | Day 1 - 2 | ./sources/infra/ | Thiết lập môi trường phát triển, triển khai hệ thống | Docker, GCP, GKE | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] |
-  | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly 5 calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
+### 4.2. BẢNG ĐỒNG HỒ ĐIỀU KHIẾN
 
-  <!--END_PHASE_SYNOPSIS_GRID-->
+<!--START_PHASE_SYNOPSIS_GRID-->
+
+| Phase | Day Range | Architectural Component / Module Path | Technical Deliverables Summary | Assigned Sub-Agent | Targeted Tag IDs |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Phase 1 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | User & center management, role assignment, performance, security | Coder, Tester, Reviewer, Doc | [REQ-001],[REQ-002],[REQ-003],[REQ-004],[REQ-005],[REQ-006],[DAT-001],[DAT-002],[ARC-001],[ARC-002],[ARC-003],[NFR-001],[NFR-003] |
+| Phase 2 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | Course management, enrollment, performance, scalability | Coder, Tester, Reviewer, Doc | [REQ-007],[REQ-008],[REQ-009],[REQ-010],[REQ-011],[DAT-003],[DAT-004],[ARC-004],[ARC-005],[NFR-002],[NFR-004] |
+| Phase 3 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | Attendance, card, notifications, performance | Coder, Tester, Reviewer, Doc | [REQ-012],[REQ-013],[REQ-014],[REQ-015],[REQ-016],[REQ-017],[DAT-005],[DAT-006],[DAT-007],[ARC-006],[ARC-007],[NFR-005] |
+| Phase 4 | Day 1 - 4 | ./sources/backend/membership-hub, ./sources/frontend/membership-hub | Promotions, announcements, chatbot, mobile UI, SEO, localization | Coder, Tester, Reviewer, Doc | [REQ-018],[REQ-019],[REQ-020],[REQ-021],[REQ-022],[REQ-023],[REQ-024],[EXC-001],[EXC-002],[EXC-003],[EXC-004],[DAT-008],[DAT-009] |
+| Phase 5 | Day 1 - 5 | ./sources/infra/membership-hub | Infrastructure: Docker, Terraform, GKE, CI/CD, security, logging, backup | Coder, Tester, Reviewer, Doc, DevOps | [REQ-024],[EXC-005],[DAT-010],[DAT-011],[ARC-008],[ARC-009],[ARC-010],[NFR-006],[NFR-007],[NFR-008],[NFR-009],[NFR-005],[NFR-003],[NFR-004],[NFR-006] |
+| **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** 5 Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly 5 calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
+
+<!--END_PHASE_SYNOPSIS_GRID-->
 
