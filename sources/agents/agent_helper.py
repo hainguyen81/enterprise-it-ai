@@ -758,74 +758,74 @@ def enabledLogDebug(logger):
     return enabledLogLevel(logger=logger, level=logging.DEBUG)
 
 
-# ==============================================================================
-# PYTHON PRINT LISTENER to REDIRECT TO LOGGER
-# ==============================================================================
-class PrintListener:
-    def __init__(self, original_stdout, is_error=False):
-        self.terminal = original_stdout
-        self.is_error = is_error
-        self.logger = get_logger("[🖨️]")
+# # ==============================================================================
+# # PYTHON PRINT LISTENER to REDIRECT TO LOGGER
+# # ==============================================================================
+# class PrintListener:
+#     def __init__(self, original_stdout, is_error=False):
+#         self.terminal = original_stdout
+#         self.is_error = is_error
+#         self.logger = get_logger("[🖨️]")
 
-    def write(self, message):
-        # Ignore empty line because `print` auto append `\n`
-        if message and message.strip(): 
-            # print out
-            if self.is_error:
-                self.logger.error(message)
+#     def write(self, message):
+#         # Ignore empty line because `print` auto append `\n`
+#         if message and message.strip(): 
+#             # print out
+#             if self.is_error:
+#                 self.logger.error(message)
             
-            elif (
-                str(message).lower().startswith("critical")
-                or str(message).lower().startswith("[critical]")
-            ):
-                msg = re.sub(r"critical|\[critical\]", "", str(message), flags=re.IGNORECASE)
-                self.logger.critical(msg)
+#             elif (
+#                 str(message).lower().startswith("critical")
+#                 or str(message).lower().startswith("[critical]")
+#             ):
+#                 msg = re.sub(r"critical|\[critical\]", "", str(message), flags=re.IGNORECASE)
+#                 self.logger.critical(msg)
             
-            elif (
-                str(message).lower().startswith("error")
-                or str(message).lower().startswith("[error]")
-            ):
-                msg = re.sub(r"error|\[error\]", "", str(message), flags=re.IGNORECASE)
-                self.logger.error(msg)
+#             elif (
+#                 str(message).lower().startswith("error")
+#                 or str(message).lower().startswith("[error]")
+#             ):
+#                 msg = re.sub(r"error|\[error\]", "", str(message), flags=re.IGNORECASE)
+#                 self.logger.error(msg)
             
-            elif (
-                str(message).lower().startswith("warn")
-                or str(message).lower().startswith("warning")
-                or str(message).lower().startswith("[warn]")
-                or str(message).lower().startswith("[warning]")
-            ):
-                msg = re.sub(r"warning|warn|\[warn\]|\[warning\]", "", str(message), flags=re.IGNORECASE)
-                self.logger.warning(msg)
+#             elif (
+#                 str(message).lower().startswith("warn")
+#                 or str(message).lower().startswith("warning")
+#                 or str(message).lower().startswith("[warn]")
+#                 or str(message).lower().startswith("[warning]")
+#             ):
+#                 msg = re.sub(r"warning|warn|\[warn\]|\[warning\]", "", str(message), flags=re.IGNORECASE)
+#                 self.logger.warning(msg)
             
-            elif (
-                str(message).lower().startswith("info")
-                or str(message).lower().startswith("[info]")
-            ):
-                msg = re.sub(r"info|\[info\]", "", str(message), flags=re.IGNORECASE)
-                self.logger.info(msg)
+#             elif (
+#                 str(message).lower().startswith("info")
+#                 or str(message).lower().startswith("[info]")
+#             ):
+#                 msg = re.sub(r"info|\[info\]", "", str(message), flags=re.IGNORECASE)
+#                 self.logger.info(msg)
             
-            elif (
-                str(message).lower().startswith("debug")
-                or str(message).lower().startswith("[debug]")
-            ):
-                msg = re.sub(r"debug|\[debug\]", "", str(message), flags=re.IGNORECASE)
-                self.logger.debug(msg)
+#             elif (
+#                 str(message).lower().startswith("debug")
+#                 or str(message).lower().startswith("[debug]")
+#             ):
+#                 msg = re.sub(r"debug|\[debug\]", "", str(message), flags=re.IGNORECASE)
+#                 self.logger.debug(msg)
             
-            elif (
-                str(message).lower().startswith("trace")
-                or str(message).lower().startswith("[trace]")
-            ):
-                msg = re.sub(r"trace|\[trace\]", "", str(message), flags=re.IGNORECASE)
-                self.logger.debug(msg)
+#             elif (
+#                 str(message).lower().startswith("trace")
+#                 or str(message).lower().startswith("[trace]")
+#             ):
+#                 msg = re.sub(r"trace|\[trace\]", "", str(message), flags=re.IGNORECASE)
+#                 self.logger.debug(msg)
             
-    def flush(self):
-        #!!!IMPORTANT!!! Flush to sync with system
-        self.terminal.flush()
+#     def flush(self):
+#         #!!!IMPORTANT!!! Flush to sync with system
+#         self.terminal.flush()
 
-# Start to listen system print
-sys.stdout = PrintListener(sys.stdout)
-sys.stderr = PrintListener(sys.stderr)
+# # Start to listen system print
+# sys.stdout = PrintListener(sys.stdout)
+# sys.stderr = PrintListener(sys.stderr)
 
-# # !!!IMPORTANT!!! Revert system print
-# sys.stdout = sys.__stdout__
-# print("Revert system print as normal.")
+# # # !!!IMPORTANT!!! Revert system print
+# # sys.stdout = sys.__stdout__
+# # print("Revert system print as normal.")
