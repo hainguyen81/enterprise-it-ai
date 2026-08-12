@@ -601,38 +601,33 @@ Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for 
     * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
 
-### 📋 MANDATORY OUTPUT STRUCTURE (MARKDOWN REPORT LAYOUT):
-You MUST include every single section below without exception to satisfy enterprise compliance requirements, and fully translating them following the rules in `CRITICAL FULL TRANSLATION MANDATE`:
-
-<RULE>
-- **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
-</RULE>
-
-
-# GLOBAL PROJECT CONTEXT: membership-hub
 
 
 
+#### 🚨 MANDATORY SEGMENT INSTRUCTION:
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
 
-
-MANDATORY SEGMENT INSTRUCTION: 
 - You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
 - Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
 
 
-- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
+
+### 📋 MANDATORY OUTPUT STRUCTURE (MARKDOWN REPORT LAYOUT):
+You MUST include every single section below without exception to satisfy enterprise compliance requirements, and fully translating them following the rules in `CRITICAL FULL TRANSLATION MANDATE`:
 
 
+
+# GLOBAL PROJECT CONTEXT: membership-hub
 
 ## 📊 Document Control
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260811164031 |
+| **Blueprint ID** | ARCH-20260812040838 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/11 16:40:31 |
+| **Date.Time** | 2026/08/12 04:08:38 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -683,33 +678,44 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 ---
 
-## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH KIẾN TRÚC CỐT LÕI
+# GLOBAL PROJECT CONTEXT: membership-hub
 
-### 1.1. MÔ HÌNH KIẾN TRÚC CỐT LÕI & CÁC BOUNDARY
+## 📊 Document Control
 
-- Kiến trúc microservices phân tách rõ ràng: Auth, User, Center, Course, Attendance, Notification, Promotion, Report.
-- Mô hình CQRS: các lệnh (Command) ghi dữ liệu, truy vấn (Query) đọc dữ liệu, sử dụng Event Store để lưu trữ sự kiện.
-- Reactive core: Quarkus với Mutiny, xử lý bất đồng bộ, giảm độ trễ, hỗ trợ streaming.
-- Event‑driven: Kafka chủ đạo cho các sự kiện quan trọng (attendance, enrollment, promotion), Redis cho cache và session.
-- API Gateway: Quarkus RESTEasy, bảo vệ bằng JWT, rate‑limit, CORS.
-- GKE orchestrator: Deploy microservices, auto‑scale, HPA, liveness/readiness probes.
-- CI/CD: GitHub Actions, Docker multi‑stage, Helm charts, GCP Artifact Registry.
+| Item | Details |
+| :--- | :--- |
+| **Blueprint ID** | ARCH-20260812040838 |
+| **Project Name** | membership-hub |
+| **Version** | 1.0 (Baseline) |
+| **Date.Time** | 2026/08/12 04:08:38 |
+| **Author** | Enterprise System Architect (SA Agent) |
+| **Approval** | Pending Technical Governance Review |
 
-### 1.2. CÁC ĐỘI CHUỘT DỮ LIỆU & HỆ THỐNG CƠ BẢN
+## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
 
-- Ingestion gateway: Firebase Auth + OAuth2, chuyển đổi thành JWT, lưu vào PostgreSQL.
-- Topic topology: `attendance.events`, `enrollment.events`, `notification.events`, `promotion.events`.
-- Fan‑out: Kafka → Firebase Cloud Messaging, Zalo API, email service.
-- Cross‑channel: RESTful CRUD, gRPC cho internal microservice, gRPC‑JSON transcoding.
-- Data replication: PostgreSQL read replicas cho báo cáo, read‑only replicas cho frontend.
-- Cache layer: Redis, TTL 5 phút cho dữ liệu read‑heavy (course list, center list).
+### 1.1. Core System Modality & Architecture Modality
+- Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, trung tâm, khóa học, điểm danh và thẻ hội viên.
+- Sử dụng mô hình Event-Driven Architecture (EDA) cho các tính năng như thông báo và điểm danh để đảm bảo tính thời gian thực.
+- Áp dụng mô hình CQRS (Command Query Responsibility Segregation) để tách biệt các thao tác ghi và đọc dữ liệu.
+- Sử dụng mô hình Reactive Programming cho các tính năng tương tác người dùng để đảm bảo phản hồi nhanh và hiệu suất cao.
+- Hệ thống được thiết kế để hỗ trợ mở rộng ngang (horizontal scaling) để xử lý tải cao.
+- Sử dụng cơ chế caching để tối ưu hóa hiệu suất cho các truy vấn thường xuyên.
 
-## 📁 2. CỤC THỂ CÔNG NGHỆ & THƯ VIỆN HỆ THỐNG
+### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
+- Sử dụng Kafka để quản lý các luồng dữ liệu thời gian thực như điểm danh và thông báo.
+- Các dịch vụ giao tiếp với nhau thông qua REST APIs và gRPC cho hiệu suất cao.
+- Sử dụng Redis để caching các truy vấn thường xuyên và quản lý phiên làm việc.
+- Các dịch vụ lưu trữ dữ liệu trong PostgreSQL với các bảng được thiết kế theo chuẩn chuẩn hóa.
+- Sử dụng Firebase Authentication cho quản lý xác thực người dùng.
+- Sử dụng Google Cloud Messaging (FCM) và Apple APNs cho gửi thông báo đẩy đến thiết bị di động.
+- Sử dụng Zalo API để gửi thông báo đến nhóm Zalo.
+- Sử dụng Docker để container hóa các dịch vụ và triển khai trên Kubernetes (GKE).
 
-- **Backend Infrastructure Core Stack**  
-  - Java 17, Quarkus 3.6.0, Hibernate ORM 6.2, Flyway 9.22, PostgreSQL 15, Redis 7, Kafka 3.6, Firebase Admin SDK 9.1, Google Cloud SDK 420, Docker 24, Helm 3.12, GCP Artifact Registry, GKE 1.28.  
-- **Frontend & Cross‑Platform UI Mobile Stack**  
-  - Next.js 13.4, React 18, TypeScript 5.0, Tailwind CSS 3.3, React Query 4.29, React Native 0.73, Expo SDK 49, TypeScript 5.0, React Navigation 6, Firebase SDK 10.0, Zalo SDK 1.0.  
+## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
+- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions
+- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs
+
+### ARCHITECTURAL STACK MATRIX
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -719,20 +725,9 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-## 📁 3. QUY TẮC BẢO VỆ & THUẬT NGHIỆP DOANH NGHIỆP
-
-- **Địa chỉ repository**: Tất cả các file bắt đầu bằng `./sources/`.  
-- **Dynamic Directory Prefixing**:  
-  - Backend: `./sources/backend/<service-name>/` (ví dụ: `./sources/backend/auth/`).  
-  - Frontend: `./sources/frontend/` (ví dụ: `./sources/frontend/web/`).  
-  - DevOps: `./sources/infra/`.  
-  - Docs: `./sources/docs/`.  
-- **Java Package Standard**: `org.nlh4j.saas.membershiphub`.  
-- **Tester Target Path Syntax**: `<source_component>;<test_suite_file>` (cả hai bắt đầu bằng `./sources/`).  
-- **OWASP Top‑10 Mitigations**: Prepared statements, CSRF tokens, CSP headers, rate limiting, input validation.  
-- **GDPR/CCPA Compliance**: Data export JSON, deletion on request, consent flags.  
-- **Backup & DR**: PostgreSQL full backup hàng ngày, point‑in‑time recovery 24h, GKE cluster backup vùng khác.  
-- **Performance & Availability**: 200 ms avg API, 99.9 % uptime, HPA, read replicas, auto‑failover.  
-- **Security**: TLS 1.3, AES‑256 at rest, JWT 15 min, refresh 7 days.  
-- **Multi‑Language**: Externalized strings, locale switching, SEO hreflang.
+## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
+- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
+- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
+- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
+- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
 
