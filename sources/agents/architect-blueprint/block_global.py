@@ -344,39 +344,39 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
         time.sleep(time_in_seconds)
 
-        # # ==============================================================================
-        # # CHUNK 1C: SECTION 4.2 (MULTI-PHASE SYNOPSIS MATRIX)
-        # # ==============================================================================
-        # logger.info(f"          |__ [ PART 1C ] Distributing Workload into Section 4.2 Synopsis Matrix...")
-        # ctx_part1c = {
-        #     **base_prompt_context,
-        #     "target_segment": "PART_1_MATRIX_4_2",
-        #     "total_tasks_registered": actual_registered_tasks,
-        #     "master_backlog_context": chunk_1b  # Nạp bối cảnh bảng 4.1 vừa sinh để AI phân bổ Phase
-        # }
+        # ==============================================================================
+        # CHUNK 1C: SECTION 4.2 (MULTI-PHASE SYNOPSIS MATRIX)
+        # ==============================================================================
+        logger.info(f"          |__ [ PART 1C ] Distributing Workload into Section 4.2 Synopsis Matrix...")
+        ctx_part1c = {
+            **base_prompt_context,
+            "target_segment": "PART_1_MATRIX_4_2",
+            "total_tasks_registered": actual_registered_tasks,
+            "master_backlog_context": chunk_1b  # Nạp bối cảnh bảng 4.1 vừa sinh để AI phân bổ Phase
+        }
         
-        # # build conversation
-        # sys_prompt_p1c = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1c))
-        # usr_prompt_p1c = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1c)
-        # msg_p1c = [{"role": "system", "content": sys_prompt_p1c}, {"role": "user", "content": usr_prompt_p1c}]
-        # chunk_prompts[f"chunk_{chunk_idx}"] = msg_p1c
+        # build conversation
+        sys_prompt_p1c = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part1c))
+        usr_prompt_p1c = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1c)
+        msg_p1c = [{"role": "system", "content": sys_prompt_p1c}, {"role": "user", "content": usr_prompt_p1c}]
+        chunk_prompts[f"chunk_{chunk_idx}"] = msg_p1c
         
-        # # communicate AI
-        # res_p1c = client.chat.completions.create(model=model_name_safe, messages=msg_p1c, temperature=0.1)
-        # chunk_1c = parseAIResponseData(res_p1c)
-        # accumulated_blueprint_chunks.append(chunk_1c)
+        # communicate AI
+        res_p1c = client.chat.completions.create(model=model_name_safe, messages=msg_p1c, temperature=0.1)
+        chunk_1c = parseAIResponseData(res_p1c)
+        accumulated_blueprint_chunks.append(chunk_1c)
         
-        # # write chunk log
-        # chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
-        # write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
-        #            data=GLOBAL_CHUNK_LOG.format(chunk_idx, sys_prompt_p1c, chunk_idx, usr_prompt_p1c, chunk_idx, chunk_1c))
-        # logger.info(f"                | ✅ [ SUCCESS ] Distributing Workload Synopsis Matrix successfully")
-        # logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
-        # chunk_idx += 1
+        # write chunk log
+        chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
+        write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
+                   data=GLOBAL_CHUNK_LOG.format(chunk_idx, sys_prompt_p1c, chunk_idx, usr_prompt_p1c, chunk_idx, chunk_1c))
+        logger.info(f"                | ✅ [ SUCCESS ] Distributing Workload Synopsis Matrix successfully")
+        logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
+        chunk_idx += 1
         
-        # # sleep in few seconds to guard rate limit
-        # logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
-        # time.sleep(time_in_seconds)
+        # sleep in few seconds to guard rate limit
+        logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
+        time.sleep(time_in_seconds)
         
         # # ==============================================================================
         # # CHUNK 2: LOOP PHASE IN SECTION 5
