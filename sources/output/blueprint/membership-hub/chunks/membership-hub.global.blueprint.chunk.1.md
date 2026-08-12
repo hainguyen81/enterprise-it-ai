@@ -600,15 +600,13 @@ Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for 
     * 🚨 **STRICT CODE BLOCK FORMATTING LAW**: You are ABSOLUTELY FORBIDDEN from nesting or combining markdown code block ticks. When outputting a JSON payload, you MUST start exactly with a single line of triple backticks followed immediately by 'json' (i.e., ```json). Do NOT prepend or wrap it with ```text or any other outer text syntax. The block must open clean and close clean.
     * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
+- **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
 
 
 
 
 #### 🚨 MANDATORY SEGMENT INSTRUCTION:
 - **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
-
-- You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
-- Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
 
 
 
@@ -624,10 +622,10 @@ You MUST include every single section below without exception to satisfy enterpr
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260812040838 |
+| **Blueprint ID** | ARCH-20260812045319 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/12 04:08:38 |
+| **Date.Time** | 2026/08/12 04:53:19 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -667,10 +665,12 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 ```
 
 ## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
+<RULE>
 - **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
 - **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
 - **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+</RULE>
 
 ---
 
@@ -678,44 +678,26 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 ---
 
-# GLOBAL PROJECT CONTEXT: membership-hub
+# BẢNG CẢNH BÁO TOÀN CẦU: membership-hub
 
-## 📊 Document Control
+## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH KIẾN TRÚC CỐT LÕI
 
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260812040838 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/12 04:08:38 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
+### 1.1. Phases & Day Logs
 
-## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
+| Giai đoạn | Khoảng ngày | Đường dẫn Cấu phần / Module | Tóm tắt Sản phẩm Bàn giao | Sub-Agent | Tag IDs Mục tiêu |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 1 | ./sources/backend/user-service/src/main/java/org/nlh4j/saas/membershiphub/user/UserService.java | Xây dựng dịch vụ đăng ký, đăng nhập, phân quyền, và cấu trúc cơ sở dữ liệu người dùng. | Coder | [ARC-001],[ARC-002],[ARC-003],[ARC-004],[ARC-005],[ARC-006],[ARC-007],[ARC-008],[ARC-009],[ARC-010],[REQ-001],[REQ-002],[REQ-003],[DAT-001],[DAT-002],[EXC-004],[NFR-001],[NFR-002],[NFR-003],[NFR-004],[NFR-005],[NFR-006],[NFR-007],[NFR-008],[NFR-009] |
+| 1 | 2 | ./sources/backend/user-service/src/test/java/org/nlh4j/saas/membershiphub/user/UserServiceTest.java | Viết kiểm thử đơn vị cho dịch vụ người dùng và xác thực. | Tester | [REQ-001],[REQ-002],[REQ-003],[EXC-004],[NFR-001],[NFR-006] |
+| 2 | 1 | ./sources/backend/center-service/src/main/java/org/nlh4j/saas/membershiphub/center/CenterService.java | Xây dựng CRUD trung tâm, khóa học, và dịch vụ ghi danh. | Coder | [REQ-004],[REQ-005],[REQ-006],[REQ-007],[REQ-008],[REQ-009],[REQ-010],[REQ-011],[DAT-003],[DAT-004],[DAT-005],[NFR-001],[NFR-002],[NFR-003],[NFR-004],[NFR-005],[NFR-006],[NFR-007],[NFR-008],[NFR-009] |
+| 2 | 2 | ./sources/backend/center-service/src/test/java/org/nlh4j/saas/membershiphub/center/CenterServiceTest.java | Viết kiểm thử cho trung tâm, khóa học, và ghi danh. | Tester | [REQ-004],[REQ-005],[REQ-006],[REQ-007],[REQ-008],[REQ-009],[REQ-010],[REQ-011],[NFR-001],[NFR-006] |
+| 3 | 1 | ./sources/backend/attendance-service/src/main/java/org/nlh4j/saas/membershiphub/attendance/AttendanceService.java | Xây dựng dịch vụ điểm danh QR, thông báo, thẻ hội viên, và chatbot. | Coder | [REQ-012],[REQ-013],[REQ-014],[REQ-015],[REQ-016],[REQ-017],[REQ-018],[REQ-019],[REQ-020],[REQ-021],[REQ-022],[REQ-023],[REQ-024],[EXC-001],[EXC-002],[EXC-003],[EXC-005],[DAT-006],[DAT-007],[DAT-008],[DAT-009],[DAT-011],[NFR-001],[NFR-002],[NFR-003],[NFR-004],[NFR-005],[NFR-006],[NFR-007],[NFR-008],[NFR-009] |
+| 3 | 2 | ./sources/backend/attendance-service/src/test/java/org/nlh4j/saas/membershiphub/attendance/AttendanceServiceTest.java | Viết kiểm thử cho điểm danh, thông báo, thẻ hội viên, và chatbot. | Tester | [REQ-012],[REQ-013],[REQ-014],[REQ-015],[REQ-016],[REQ-017],[REQ-018],[REQ-019],[REQ-020],[REQ-021],[REQ-022],[REQ-023],[REQ-024],[EXC-001],[EXC-002],[EXC-003],[EXC-005],[NFR-001],[NFR-006] |
+| 4 | 1 | ./sources/backend/report-service/src/main/java/org/nlh4j/saas/membershiphub/report/ReportService.java | Xây dựng báo cáo điểm danh, bảng điều khiển, và CI/CD pipeline. | Coder | [REQ-024],[REQ-025],[NFR-001],[NFR-002],[NFR-003],[NFR-004],[NFR-005],[NFR-006],[NFR-007],[NFR-008],[NFR-009] |
+| 4 | 2 | ./sources/backend/report-service/src/test/java/org/nlh4j/saas/membershiphub/report/ReportServiceTest.java | Viết kiểm thử cho báo cáo, bảng điều khiển, và CI/CD. | Tester | [REQ-024],[REQ-025],[NFR-001],[NFR-006] |
+| 5 | 1 | ./sources/backend/chatbot-service/src/main/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotService.java | Xây dựng chatbot, đa ngôn ngữ, SEO, và tích hợp cuối. | Coder | [REQ-019],[REQ-022],[REQ-023],[NFR-001],[NFR-002],[NFR-003],[NFR-004],[NFR-005],[NFR-006],[NFR-007],[NFR-008],[NFR-009] |
+| 5 | 2 | ./sources/backend/chatbot-service/src/test/java/org/nlh4j/saas/membershiphub/chatbot/ChatbotServiceTest.java | Viết kiểm thử cho chatbot, đa ngôn ngữ, SEO. | Tester | [REQ-019],[REQ-022],[REQ-023],[NFR-001],[NFR-006] |
 
-### 1.1. Core System Modality & Architecture Modality
-- Hệ thống được thiết kế theo kiến trúc microservices với các dịch vụ độc lập cho quản lý người dùng, trung tâm, khóa học, điểm danh và thẻ hội viên.
-- Sử dụng mô hình Event-Driven Architecture (EDA) cho các tính năng như thông báo và điểm danh để đảm bảo tính thời gian thực.
-- Áp dụng mô hình CQRS (Command Query Responsibility Segregation) để tách biệt các thao tác ghi và đọc dữ liệu.
-- Sử dụng mô hình Reactive Programming cho các tính năng tương tác người dùng để đảm bảo phản hồi nhanh và hiệu suất cao.
-- Hệ thống được thiết kế để hỗ trợ mở rộng ngang (horizontal scaling) để xử lý tải cao.
-- Sử dụng cơ chế caching để tối ưu hóa hiệu suất cho các truy vấn thường xuyên.
-
-### 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-- Sử dụng Kafka để quản lý các luồng dữ liệu thời gian thực như điểm danh và thông báo.
-- Các dịch vụ giao tiếp với nhau thông qua REST APIs và gRPC cho hiệu suất cao.
-- Sử dụng Redis để caching các truy vấn thường xuyên và quản lý phiên làm việc.
-- Các dịch vụ lưu trữ dữ liệu trong PostgreSQL với các bảng được thiết kế theo chuẩn chuẩn hóa.
-- Sử dụng Firebase Authentication cho quản lý xác thực người dùng.
-- Sử dụng Google Cloud Messaging (FCM) và Apple APNs cho gửi thông báo đẩy đến thiết bị di động.
-- Sử dụng Zalo API để gửi thông báo đến nhóm Zalo.
-- Sử dụng Docker để container hóa các dịch vụ và triển khai trên Kubernetes (GKE).
-
-## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-- **Backend Infrastructure Core Stack:** Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, Redis, GitHub Actions
-- **Frontend & Cross-Platform UI Mobile Stack:** Next.js, React Native, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs
-
-### ARCHITECTURAL STACK MATRIX
+## 📁 2. THỦ TỤC CÔNG NGHỆ & THƯ VĂN KHOA
 
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
@@ -725,9 +707,13 @@ MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
 
-## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
-- **Absolute Workspace Boundary Rule:** The true repository workspace root is permanently fixed at the project root `.`. All paths generated MUST begin with `./sources/`.
-- **Dynamic Directory Prefixing Compliance:** Enforce the dynamic path mapping rules defined in Protocol 1 strictly matching the detected project structure.
-- **[CONDITION: JAVA_STACK_ONLY] Java Package Standard:** If the tech stack utilizes Java frameworks, all Java source codes MUST strictly reside within the corporate package foundation: `org.nlh4j.saas.<project_name_alphanumeric_lowercase>`. You MUST dynamically convert the string "membership-hub" into a strict pure alphanumeric lowercase token by stripping out whitespaces, hyphens, and underscores. Non-Java projects are completely banned from applying this package segment.
-- **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
+- Java 17, Quarkus 3.0, PostgreSQL 15, Flyway 9.12, Docker 20.10, GKE 1.27, Firebase 9.0, Redis 7.0, GitHub Actions, Terraform 1.5.
+
+## 📁 3. RÀNH GIỚI & CHẤT LƯỢNG DOANH NGHIỆP
+
+- Đặt ranh giới làm việc: thư mục gốc dự án luôn là `.`. Tất cả đường dẫn phải bắt đầu bằng `./sources/`.
+- Định dạng đường dẫn: backend logic/layer nằm trong `./sources/backend/`, frontend logic/layer trong `./sources/frontend/`, DevOps trong `./sources/infra/`, tài liệu trong `./sources/docs/`.
+- Nếu dự án sử dụng Java, tất cả mã nguồn phải nằm trong gói `org.nlh4j.saas.membershiphub`.
+- Đối với các bộ kiểm thử, đường dẫn phải theo định dạng `<source_component>;<test_suite_file>`. Ví dụ: `./sources/backend/user-service/src/main/java/...;./sources/backend/user-service/src/test/java/...`.
+- Các thẻ đánh dấu ẩn như `<!--START_...-->` và `<!--END_...-->` phải được giữ nguyên. Các thẻ này không được dịch hoặc thay đổi.
 
