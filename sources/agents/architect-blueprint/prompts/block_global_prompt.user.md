@@ -321,13 +321,11 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside Section 5 (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for EVERY single phase block (e.g., Phase 1 contains DAY 1, DAY 2; Phase 2 MUST restart and contain exactly DAY 1, DAY 2). You are permanently forbidden from bleeding the global progressive timeline into these sections.
 - The total days within any single phase MUST NOT exceed the absolute upperbound of {{ max_days_per_phase }} days.
 - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for Phase [X] are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to {{ max_days_per_phase }} is completely banned.
-</COMMAND>
 
 {% if force_full_export %}
-<COMMAND>
 - **MONOLITHIC GENERATION EXECUTION RAIL:** You MUST sequentially execute and expand the following structural block for EVERY calculated phase from Phase 1 up to Phase N (where N = {{ num_phases }}) in a continuous stream. For each iteration, dynamically substitute the index X with the current phase number.
-</COMMAND>
 {% endif %}
+</COMMAND>
 
 {# ─── START:CHUNK:PART_2_PHASE_LOOP:PHASE_X ─── #}
 ### [Translate the word "Phase" into target language] {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [EMIT_TRANSLATED_SECTION_4_2_OBJECTIVE_STRING_HERE]
