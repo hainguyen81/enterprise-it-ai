@@ -90,6 +90,7 @@ Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for 
     * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
 
+{% set task_section = "'4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG'" if force_full_export else "'INPUT BACKLOG GROUNDING'" %}
 {% if not force_full_export %}
 #### 🚨 MANDATORY SEGMENT INSTRUCTION:
 - **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
@@ -216,7 +217,6 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= {{ num_phases }}) that naturally and completely covers 100% of the BA requirements and Tag IDs.
 <RULE>
 [STRICT TABLE EMITTING MANDATE]
-{% set task_section = "'4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG'" if force_full_export else "'INPUT BACKLOG GROUNDING'" %}
 - You MUST dynamically analyze the comprehensive tasks generated in {% task_section %} immediately above.
 - You MUST systematically divide and CONSOLIDATE the entire workload into EXACTLY AND ONLY {{ num_phases }} distinct rows. 
 - CRITICAL INDEX CEILING: The maximum phase index allowed is {{ num_phases }}. You are ABSOLUTELY FORBIDDEN from generating Phase {{ num_phases + 1 }} or creating a separate phase row for every single backlog task. You MUST group and aggregate multiple tasks from {% task_section %} milestones.
