@@ -96,10 +96,7 @@ Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for 
 {% if not force_full_export %}
 #### 🚨 MANDATORY SEGMENT INSTRUCTION:
 - **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
-{% if not target_segment or target_segment.strip() == "PART_1_INITIAL" %}
-- You are strictly commanded to ONLY generate Section 1 (SYSTEM SYNOPSIS), Section 2 (CORE TECHNOLOGY STACK), and Section 3 (GLOBAL DEVELOPMENT GUARDRAILS).
-- Absolutely DO NOT generate Section 4, 5, 6, 7, or 8. Halt execution immediately after finishing Section 3.
-{% elif target_segment and target_segment.strip() == "PART_1_MATRIX_4_2" %}
+{% if target_segment and target_segment.strip() == "PART_1_MATRIX_4_2" %}
 - You are strictly commanded to ONLY generate Section 4.2 (MULTI-PHASE SYNOPSIS MATRIX) inside the phase synopsis grid hooks.
 - You MUST distribute the exact workload from the previous backlog step into calculated phases based on the injected context.
 - **STRICT NO-HEADER & NO-BACKTICK MANDATE:** You are ABSOLUTELY FORBIDDEN from generating the top-level main title `# GLOBAL PROJECT CONTEXT` or the level 2 header `## 4.` inside this response.
