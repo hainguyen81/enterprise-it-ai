@@ -90,7 +90,8 @@ Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for 
     * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
 
-{% set task_section = "'4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG'" if force_full_export else "'INPUT BACKLOG GROUNDING'" %}
+{# ─── START:RULES FOR CHUNK OPERATION ─── #}
+{% set task_section = "`4.1 MASTER ARCHITECTURAL PRODUCT BACKLOG`" if force_full_export else "`INPUT BACKLOG GROUNDING`" %}
 {% if not force_full_export %}
 #### 🚨 MANDATORY SEGMENT INSTRUCTION:
 - **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Start your very first character with the requested Section header or anchor tag immediately. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
@@ -121,10 +122,12 @@ Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for 
 - Absolutely DO NOT repeat, summarize, or leak any information from Section 1 to Section 5. Halt execution immediately after finishing Section 8.
 {% endif %}
 {% endif %}
+{# ─── END:RULES FOR CHUNK OPERATION ─── #}
 
 ### 📋 MANDATORY OUTPUT STRUCTURE (MARKDOWN REPORT LAYOUT):
 You MUST include every single section below without exception to satisfy enterprise compliance requirements, and fully translating them following the rules in `CRITICAL FULL TRANSLATION MANDATE`:
 
+{# ─── START:CHUNK:PART_1_INITIAL ─── #}
 {% if force_full_export or (target_segment and target_segment.strip() == "PART_1_INITIAL") %}
 # GLOBAL PROJECT CONTEXT: {{ project_name }}
 
@@ -181,7 +184,9 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 - **Strict Tester Target Path Syntax:** Any component targeted by a Tester Sub-Agent must be structured as a strict semi-colon separated pair `<source_component_or_token>;<test_suite_file_to_execute>`. Both paths inside the pair MUST begin with `./sources/`.
 
 {% endif %}
+{# ─── END:CHUNK:PART_1_INITIAL ─── #}
 
+{# ─── START:CHUNK:PART_1_BACKLOG_4_1 ─── #}
 {% if force_full_export or (target_segment and target_segment.strip() == "PART_1_BACKLOG_4_1") %}
 ## 4. HIGH-LEVEL MULTI-PHASE ARCHITECTURAL SYNOPSIS GRID
 
@@ -211,7 +216,9 @@ DEVOPS_LAYER_REQUIRED=true_or_false_literal_only
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 {% endif %}
+{# ─── END:CHUNK:PART_1_BACKLOG_4_1 ─── #}
 
+{# ─── START:CHUNK:PART_1_MATRIX_4_2 ─── #}
 {% if force_full_export or (target_segment and target_segment.strip() == "PART_1_MATRIX_4_2") %}
 ### 4.2. MULTI-PHASE SYNOPSIS MATRIX
 Generate a clean, highly structured Markdown Table mapping the exact distribution of components and Tag IDs across the dynamically calculated phases. You MUST compute the most optimal number of phases (denoted as N, where N <= {{ num_phases }}) that naturally and completely covers 100% of the BA requirements and Tag IDs.
@@ -227,7 +234,7 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   * Every phase duration is strictly bound. You MUST evaluate the structural density of the generated matrix in {% task_section %}. Count the total unique Tag IDs mapped to each phase. Calculate the exact duration value K for that phase using the formula: K = Max(1, RoundUp(Total_Phase_Tags / 3)). The value of K MUST NOT exceed {{ max_days_per_phase }}.
   * In the "Day Range" column of this table, you MUST format the day sequence starting from relative integer 1 to K for EACH individual phase row (e.g., Phase 1: Day 1 - 2, Phase 2: Day 1 - 3, Phase N: Day 1 - K). Compounding or running a linear progressive day count across phase boundaries is strictly prohibited.
   * If a phase contains low-density tasks, you MUST stop the index immediately (e.g., closing tightly at Day 1-2). You are BANNED from hardcoding 'Day 1 - {{ max_days_per_phase }}' if the actual workload finishes earlier.
-- IMMUTABLE SYNOPSIS GRID WRAPPER MANDATE: When generating this section ('4.2. MULTI-PHASE SYNOPSIS MATRIX') Markdown table, you ARE ABSOLUTELY AND CRITICALLY BANNED from dropping, omitting, or filtering out the technical hidden HTML comment anchors. You MUST explicitly enclose the entire generated table structure strictly between the literal tokens <!--START_PHASE_SYNOPSIS_GRID--> and <!--END_PHASE_SYNOPSIS_GRID-->.
+- IMMUTABLE SYNOPSIS GRID WRAPPER MANDATE: When generating this section `4.2. MULTI-PHASE SYNOPSIS MATRIX` Markdown table, you ARE ABSOLUTELY AND CRITICALLY BANNED from dropping, omitting, or filtering out the technical hidden HTML comment anchors. You MUST explicitly enclose the entire generated table structure strictly between the literal tokens `<!--START_PHASE_SYNOPSIS_GRID-->` and `<!--END_PHASE_SYNOPSIS_GRID-->`.
 - SUPREME DEMAND-DRIVEN WORKLOAD DISTRIBUTION LAW (ADAPTIVE LIFECYCLE): You MUST orchestrate the project planning by decomposing the absolute sum of all requirements (business functions, enterprise documentation components, and DevOps infrastructure pipelines) dynamically across {{ num_phases }} without any artificial padding or redundant agent forcing:
   1. Dynamic Resource Allocation Rule: A sub-agent ([Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]) MUST ONLY be declared in this section table row under 'Assigned Sub-Agent' if and ONLY if there are active, unfulfilled backlog requirements matching that agent's engineering domain within that specific phase context. If a phase contains zero infrastructure tasks, DevOps agents MUST be completely omitted from that specific row.
   2. Zero Filler Data / Ghost Logs: You are strictly prohibited from generating ghost actions, repetitive task summaries, or empty calendar days simply to reach the maximum day limit. If the core deliverables for a phase are fully satisfied, the schedule stops immediately.
@@ -244,9 +251,9 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
 - BALANCED MULTI-AGENT TIMELINE PACKING: To fit multiple required agents within narrow day-ranges without inflating the timeline or violating the dynamic technical density ceiling, you MUST execute compact parallel or sequential distribution:
   1. Early phase timeline segments MUST be optimized for application-layer loops where [Coder] and [Doc] execute in parallel sub-tasks, immediately followed sequentially by [Reviewer] quality gates and [Tester] automated suites.
   2. Concluding phase timeline segments MUST be strictly cleared of application tasks and dedicated to sequential infrastructure workflows handled exclusively by [Docker], [GCP], and [GKE] sub-agents to deliver automated environment setups and deployment manifests.
-- **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in this section '4.2. MULTI-PHASE SYNOPSIS MATRIX' MUST match 100% symmetrically with the tags registered in {% task_section %}. Dropping or hiding tasks between {% task_section %} and this section '4.2. MULTI-PHASE SYNOPSIS MATRIX' triggers a fatal pipeline integrity exception.
+- **TOTAL WORKLOAD COVERAGE SYMMETRY:** The sum of all unique Tag IDs distributed across all phases in this section `4.2. MULTI-PHASE SYNOPSIS MATRIX` MUST match 100% symmetrically with the tags registered in {% task_section %}. Dropping or hiding tasks between {% task_section %} and this section `4.2. MULTI-PHASE SYNOPSIS MATRIX` triggers a fatal pipeline integrity exception.
 - **TOTAL TAG COVERAGE:** The "Targeted Tag IDs" column in this grid MUST contain the union of all Tag IDs defined in {% task_section %} for that phase.
-- **ZERO OMISSION RULE:** If a Tag ID exists in {% task_section %}, it MUST appear in this section '4.2. MULTI-PHASE SYNOPSIS MATRIX'. Truncating or omitting tags to save space is a fatal error.
+- **ZERO OMISSION RULE:** If a Tag ID exists in {% task_section %}, it MUST appear in this section `4.2. MULTI-PHASE SYNOPSIS MATRIX`. Truncating or omitting tags to save space is a fatal error.
 - **DYNAMIC SUB-AGENT ALLOCATION LAW:** The "Assigned Sub-Agent" column MUST NOT be hardcoded. You MUST dynamically compute the exact subset of agents required based strictly on the "Type" column values of all tasks mapped into that specific phase from {% task_section %}:
   * If the mapped tasks contain 'Application Code' -> Include: Coder, Tester, Reviewer, Doc.
   * If the mapped tasks contain ONLY 'Enterprise Documentation' -> Include ONLY: Doc (Exclude Coder, Tester, Reviewer).
@@ -264,12 +271,13 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
 | **AUDIT** | **Master Backlog Lifecycle Distribution Verification** | **TOTAL PHASES:** {{ num_phases }} Phases | **MAPPED CAPACITY STATUS:** Verified: 100% of master backlog tasks successfully distributed across exactly {{ num_phases }} calculated phases | **STATUS:** Verified | **COMPLIANCE:** Hardbound Matrix |
 
 <!--END_PHASE_SYNOPSIS_GRID-->
-  
 {% endif %}
+{# ─── END:CHUNK:PART_1_MATRIX_4_2 ─── #}
 
+{# ─── START:CHUNK:PART_2_PHASE_LOOP ─── #}
 {% if force_full_export or (target_segment and target_segment.strip() == "PART_2_PHASE_LOOP") %}
 
-{# ─── MANDATORY PROGRESSIVE GATING ENGINE ─── #}
+{# ────── START:CHUNK:PART_2_PHASE_LOOP:MANDATORY PROGRESSIVE GATING ENGINE ────── #}
 {% if (target_segment and target_segment.strip() == "PART_2_PHASE_LOOP") %}
 
 <RULE>
@@ -286,15 +294,16 @@ Generate a clean, highly structured Markdown Table mapping the exact distributio
   * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block. No formulas or string placeholders allowed.
 - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase {{ target_phase_index }}'.
 
+### GROUNDING CONTEXT FROM PREVIOUS STEPS
+Below is the definitive Master Product Backlog generated in Part 1. You MUST align your daylog task titles, Tag IDs, and components 100% symmetrically with this blueprint:
+
 <HISTORIC_LEDGER_MAP>
 {{ historic_ledger_map }}
 </HISTORIC_LEDGER_MAP>
 </RULE>
 
 {% endif %}
-
-### GROUNDING CONTEXT FROM PREVIOUS STEPS
-Below is the definitive Master Product Backlog generated in Part 1. You MUST align your daylog task titles, Tag IDs, and components 100% symmetrically with this blueprint:
+{# ────── END:CHUNK:PART_2_PHASE_LOOP:MANDATORY PROGRESSIVE GATING ENGINE ────── #}
 
 {% if force_full_export or target_phase_index == 1 %}
 ## 5. GRANULAR PHASE SPECIALIZATIONS & DAY-BY-DAY DELIVERABLES
@@ -315,9 +324,12 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 </COMMAND>
 
 {% if force_full_export %}
+<COMMAND>
 - **MONOLITHIC GENERATION EXECUTION RAIL:** You MUST sequentially execute and expand the following structural block for EVERY calculated phase from Phase 1 up to Phase N (where N = {{ num_phases }}) in a continuous stream. For each iteration, dynamically substitute the index X with the current phase number.
+</COMMAND>
 {% endif %}
 
+{# ─── START:CHUNK:PART_2_PHASE_LOOP:PHASE_X ─── #}
 ### [Translate the word "Phase" into target language] {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [EMIT_TRANSLATED_SECTION_4_2_OBJECTIVE_STRING_HERE]
 - **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}]
 - **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
@@ -330,6 +342,7 @@ Below is the definitive Master Product Backlog generated in Part 1. You MUST ali
 - **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
 - **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
 
+{# ─── START:CHUNK:PART_2_PHASE_LOOP:PHASE_X:DAY_Y ─── #}
 #### Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %})
 
 <!--START_DAY_LOG_INDEX_{{ target_phase_index }}-->
@@ -378,9 +391,10 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_PHASE_LOG_BLOCK_INDEX_{{ target_phase_index }}-->
+{# ─── END:CHUNK:PART_2_PHASE_LOOP:PHASE_X:DAY_X ─── #}
+{# ─── END:CHUNK:PART_2_PHASE_LOOP:PHASE_X ─── #}
 
-{% endif %}
-
+{# ─── START:CHUNK:PART_2_PHASE_LOOP:AUDIT ─── #}
 {% if force_full_export or target_phase_index == num_phases %}
 
 ### MANDATORY REAL-TIME ARCHITECTURAL CROSS-AUDIT LEDGER REPORT:
@@ -405,17 +419,21 @@ SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_S
 - **MANDATORY CRITICAL FAILURE CRITERIA:** If your calculated total discrete sub-tasks across all phases does not mathematically match the exact count of tasks registered in the master backlog, or if any individual phase duration breaks the ceiling of `{{ max_days_per_phase }}`, you MUST instantly trigger an internal framework exception, re-compile your attention heads, and dynamically re-distribute the allocation matrix to enforce 100% plan symmetry before emitting the final text stream.
 
 {% endif %}
+{# ─── END:CHUNK:PART_2_PHASE_LOOP:AUDIT ─── #}
+{% endif %}
+{# ─── END:CHUNK:PART_2_PHASE_LOOP ─── #}
 
+{# ─── START:CHUNK:PART_3_FINAL ─── #}
 {% if force_full_export or target_segment == "PART_3_FINAL" %}
 
 ### GROUNDING CONTEXT FROM PREVIOUS STEPS
 {% if not force_full_export %}
-
+<RULE>
 Below are all the detailed phase logs generated in Part 2. You MUST review them to ensure the universal security codes match the tech stack implemented:
 <PREVIOUS_STEP_PHASE_LOGS>
 {{ generated_phases_context }}
 </PREVIOUS_STEP_PHASE_LOGS>
-
+</RULE>
 {% endif %}
 
 ## 📁 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
@@ -437,3 +455,4 @@ Below are all the detailed phase logs generated in Part 2. You MUST review them 
 `[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`
 
 {% endif %}
+{# ─── END:CHUNK:PART_3_FINAL ─── #}
