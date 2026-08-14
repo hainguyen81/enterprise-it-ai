@@ -486,41 +486,43 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
             time.sleep(time_in_seconds)
 
-        # # ==============================================================================
-        # # CHUNK 3: from Section 6 to the end
-        # # ==============================================================================
-        # logger.info(f"    |__ [ PART 3/3 ] Generating Universal Security Codes & Git Branch Flow...")
-        # ctx_part3 = {
-        #     **base_prompt_context,
-        #     "target_segment": "PART_3_FINAL",
-        #     "total_tasks_registered": actual_registered_tasks,
-        #     "generated_phases_context": "\n\n---\n\n".join(immutable_tag_phase_summaries)
-        # }
+        # ==============================================================================
+        # CHUNK 3: from Section 6 to the end
+        # ==============================================================================
+        logger.info("    |__ [ PART 3/3 ] Generating Universal Security Codes & Git Branch Flow...")
+        ctx_part3 = {
+            **base_prompt_context,
+            "target_segment": "PART_3_FINAL",
+            "total_tasks_registered": actual_registered_tasks,
+            "generated_phases_context": "\n\n---\n\n".join(immutable_tag_phase_summaries)
+        }
         
-        # # build conversation
-        # sys_prompt_p3 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part3))
-        # usr_prompt_p3 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part3)
-        # final_messages = [
-        #     {"role": "system", "content": sys_prompt_p3},
-        #     {"role": "user", "content": usr_prompt_p3}
-        # ]
-        # chunk_prompts["chunk_3"] = final_messages
+        # build conversation
+        sys_prompt_p3 = merge_master_prompt(master_rules, render_prompt(GLOBAL_SYSTEM_PROMPT_TEMPLATE_PATH, ctx_part3))
+        usr_prompt_p3 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part3)
+        final_messages = [
+            {"role": "system", "content": sys_prompt_p3},
+            {"role": "user", "content": usr_prompt_p3}
+        ]
+        chunk_prompts["chunk_3"] = final_messages
         
-        # # communicate AI
-        # response = client.chat.completions.create(
-        #     model=model_name_safe,
-        #     messages=final_messages,
-        #     temperature=0.1
-        # )
-        # chunk_3 = parseAIResponseData(response)
-        # accumulated_blueprint_chunks.append(chunk_3)
+        # communicate AI
+        response = client.chat.completions.create(
+            model=model_name_safe,
+            messages=final_messages,
+            temperature=0.1
+        )
+        chunk_3 = parseAIResponseData(response)
+        accumulated_blueprint_chunks.append(chunk_3)
 
-        # # write chunk log
-        # chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
-        # write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
-        #         data=GLOBAL_CHUNK_LOG.format(chunk_idx, sys_prompt_p3, chunk_idx, usr_prompt_p3, chunk_idx, chunk_3))
-        # logger.info(f"          | ✅ [ SUCCESS ] 👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
-        # chunk_idx += 1
+        # write chunk log
+        chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
+        write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
+                data=GLOBAL_CHUNK_LOG.format(chunk_idx, sys_prompt_p3, chunk_idx, usr_prompt_p3, chunk_idx, chunk_3))
+        logger.info(
+            f"          |__  ✅ [ SUCCESS ] 👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}"
+        )
+        chunk_idx += 1
 
         # ==============================================================================
         # COMBINE ALL CHUNKS
@@ -562,7 +564,7 @@ def test_global_generation():
     REQUIREMENTS_PATH = os.path.join(SOURCES_PATH, "requirements", PROJET_NAME, "requirements.md")
     
     AI_BASE_URL = "https://api.mistral.ai/v1"
-    AI_API_KEY = "17yPa7JI942u1cqTmFAIuM3UmT6itKFv"
+    AI_API_KEY = "<!--API_KEY here-->"
     MODEL_NAME = "codestral-latest"
     
     # openAI
