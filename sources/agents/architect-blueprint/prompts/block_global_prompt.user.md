@@ -289,7 +289,7 @@ Generate a clean, highly the structured SynOpSis Matrix Phases table (inside the
     * All high-level analytics, external integrations, user interface presentations, and scalable cloud/infrastructure automation components tagged with `[NFR]` MUST be consolidated strictly within the concluding phase rows (the final milestones of the project matrix).
 - The SynOpSis Matrix Phases table layout MUST strictly execute inside the hidden framework parsing hooks exactly as formatted below (inside the hidden HTML tags from `<!--START_PHASE_SYNOPSIS_GRID-->` to `<!--END_PHASE_SYNOPSIS_GRID-->`).
 - IMMUTABLE SYNOPSIS GRID WRAPPER MANDATE: When generating this section (inside the hidden HTML tags from `<!--START_PHASE_SYNOPSIS_GRID-->` to `<!--END_PHASE_SYNOPSIS_GRID-->`) SynOpSis Matrix Phases table, you ARE ABSOLUTELY AND CRITICALLY BANNED from dropping, omitting, or filtering out the technical hidden HTML comment anchors. You MUST explicitly enclose the entire generated table structure strictly between the literal tokens `<!--START_PHASE_SYNOPSIS_GRID-->` and `<!--END_PHASE_SYNOPSIS_GRID-->`.
-- **MANDATORY ROW ANCHOR INJECTION:** Every single generated phase row inside the SynOpSis Matrix Phases table under this section (inside the hidden HTML tags from `<!--START_PHASE_SYNOPSIS_GRID-->` to `<!--END_PHASE_SYNOPSIS_GRID-->`) MUST contain the literal hidden HTML comment tag `<!--REGISTERED_PHASE_ROW-->`. You MUST explicitly place this tag inside the final cell (the Targeted Tag IDs , the 7th column), positioning it immediately after the tracking tags and right before the closing vertical pipe character `|` of that row (exact syntax pattern format: ` | ... [Tag IDs] <!--REGISTERED_PHASE_ROW--> |`). Any generated row that drops or filters out this structural comment anchor will cause a fatal deployment pipeline failure.
+- **MANDATORY ROW ANCHOR INJECTION:** Every single generated phase row inside the SynOpSis Matrix Phases table under this section (inside the hidden HTML tags from `<!--START_PHASE_SYNOPSIS_GRID-->` to `<!--END_PHASE_SYNOPSIS_GRID-->`) MUST contain the literal hidden HTML comment tag `<!--REGISTERED_PHASE_ROW-->`. You MUST explicitly place this tag inside the final cell (the Targeted Tag IDs, the 7th column), positioning it immediately after the tracking tags and right before the closing vertical pipe character `|` of that row (exact syntax pattern format: ` | ... [Tag IDs] <!--REGISTERED_PHASE_ROW--> |`). Any generated row that drops or filters out this structural comment anchor will cause a fatal deployment pipeline failure.
 - **DYNAMIC DAY-RANGE MATCHING, TIMELINE QUANTIZATION AND FORMAT ENFORCEMENT LAWS:**:
     1. Every phase duration is strictly bound. You MUST evaluate the structural density of the generated matrix in the {{ phases_and_tasks_section }} section. Count the total unique Tag IDs mapped to each phase. Calculate the exact duration value K for that phase using the formula: K = Max(1, RoundUp(`Matrix_Source_Total_Tags` / 3)). The value of K MUST NOT exceed {{ max_days_per_phase }}.
     2. In the "Day Range" column (the 2nd column) of this table, you MUST format the day sequence starting from relative integer 1 to K for EACH individual phase row (e.g., Phase N: Day 1 - K). Compounding or running a linear progressive day count across phase boundaries is strictly prohibited.
@@ -320,9 +320,10 @@ Generate a clean, highly the structured SynOpSis Matrix Phases table (inside the
     2. Let **Matrix_Source_Tasks_Count** = Count the absolute total of discrete tasks successfully distributed from the incoming `--- BACKLOG TASKS ---` section block.
     3. Let **Matrix_Covered_Total_Tags** = Completely ignore your source count and perform a fresh, independent pass over the dynamic phase rows you generated inside this active table matrix above. Parse and manually calculate the absolute sum of all unique tracking tokens distributed inside the "Targeted Tag IDs" column (the 7th column) cells (enforcing true tag weight for consolidated tokens).
     4. Let **Matrix_Covered_Total_Tasks** = Completely ignore your source count and perform a fresh, independent pass over the columns of the table you just generated above (the SynOpSis Matrix Phases table). Manually sum every unique task explicitly written inside the `Task IDs Covered` cells.
-    4. Let **Status_Coverage** = Compute (`Matrix_Covered_Total_Tags` / `Matrix_Source_Total_Tags`) * 100. If `Matrix_Covered_Total_Tags` equals `Matrix_Source_Total_Tags`, output the translated word for `Verified` in the designated target language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}", followed by "(100%)". Otherwise, you MUST output the translated word for `FAILED` in the designated target language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}", followed by the exact calculated percentage fraction deficit.
-    5. **CRITICAL DATA ASSIGNMENT MANDATE:** You MUST preserve these calculated variables in memory and inject their exact final values directly into their designated matching slots inside the table audit row (the lastest row of the SynOpSis Matrix Phases table).
-- You MUST render 100% of your newly generated sentences in the designated target language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}".
+    5. Let **Status_Coverage** = Compute (`Matrix_Covered_Total_Tags` / `Matrix_Source_Total_Tags`) * 100. If `Matrix_Covered_Total_Tags` equals `Matrix_Source_Total_Tags`, output the translated word for `Verified` in the designated target language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}", followed by "(100%)". Otherwise, you MUST output the translated word for `FAILED` in the designated target language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}", followed by the exact calculated percentage fraction deficit.
+    6. **CRITICAL DATA ASSIGNMENT MANDATE:** You MUST preserve these calculated variables in memory and inject their exact final values directly into their designated matching slots inside the table audit row (the lastest row of the SynOpSis Matrix Phases table).
+- **ACTUAL PAYLOAD INTERPOLATION MANDATE:** You ARE STRICTLY BANNED from outputting raw template placeholders or generic bracketed strings like `[Phase N]` or `[List aggregated task numbers]`. You MUST dynamically iterate through the actual dataset rows computed in the baseline backlog section, extract the concrete module paths (e.g., `./sources/backend/...`), and compile real operational values for every cell.
+- **TOTAL CELL TRANSLATION LAW:** Before committing the table to the output stream, you MUST completely translate and localize 100% of the newly generated table headers, cell values, technical summaries, and audit row text strings into the designated Target Output Language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}".
 </RULE>
 
 <!--START_PHASE_SYNOPSIS_GRID-->
@@ -364,15 +365,18 @@ Generate a clean, highly the structured SynOpSis Matrix Phases table (inside the
       * Count the total number of `<!--START_ATOMIC_SUB_TASK_NODE-->` string instances printed inside that map block (which represents the exact count of sub-tasks from all previous phases).
       * Mentally add the count of new sub-tasks you are currently generating in this exact response.
       * You MUST compute the absolute total sum integer and output it directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` field inside the properties block (```properties:cross_audit_ledger block). No formulas or string placeholders allowed.
-  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase {{ target_phase_index }}'.
+  - OUTPUT RESTRICTION: Absolutely DO NOT output or duplicate the main global document titles, table controls, project context overviews, or other phases. Start your generation immediately from the localized sub-header: '### Phase {{ target_phase_index }}'. You MUST wrap your output by the hidden HTML anchors `<!--START_PHASE_INDEX-->` and `<!--END_PHASE_INDEX-->`
 
 # DYNAMIC CEILING BOUNDARY ENFORCEMENT:
   - The day-by-day logs of this phase MUST strictly map to the exact day range defined for this phase from Section `4.2. MULTI-PHASE SYNOPSIS MATRIX` in the {{ phases_and_tasks_section }} section.
       * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
       * You ARE ABSOLUTELY AND CRITICALLY BANNED from copy paste, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
+  - **BLOCK DAY ENCAPSULATION PARADIGM:** For every individual day-by-day log block generated, you MUST strictly execute this exact sequence: first, completely compile and format the daily content; second, fully translate that entire day block (including headers, sub-tasks, and labels) into the designated Target Output Language; and third, tightly encapsulate that finalized translated day block inside the exact matching metadata comment tags (`<!--START_DAY_LOG_INDEX-->` on its own standalone line immediately BEFORE the day block, and `<!--END_DAY_LOG_INDEX-->` on its own standalone line immediately AFTER the day block) before streaming the finished block to the output pipeline.
   - **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside this section (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for this phase block. You are permanently forbidden from bleeding the global progressive timeline into these sections.
   - The total days of this phase MUST NOT exceed the absolute upperbound of {{ max_days_per_phase }} days.
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for this phase are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to {{ max_days_per_phase }} is completely banned.
+  - **STRICT PHASE INDEX COUPLING MANDATE:** You ARE STRICTLY FORBIDDEN from generating any text, sub-headers, logs, or sub-task blocks for other phases. You MUST contextually freeze your execution cursor and apply a hard system stop the exact microsecond you complete the output buffer wrapper for Phase {{ target_phase_index }}.
+  - **TARGETED SINGLE-PHASE ISOLATION RAIL:** Your entire response stream MUST focus exclusively on the requirements, tasks, components, and tag identifiers allocated to Phase {{ target_phase_index }}. 
 {% endif %}
 {# ────── END:CHUNK:PART_2_PHASE_LOOP:MANDATORY PROGRESSIVE GATING ENGINE ────── #}
 
@@ -397,64 +401,65 @@ Generate a clean, highly the structured SynOpSis Matrix Phases table (inside the
 <!--START_PHASE_INDEX-->
 
 {# ─── START:CHUNK:PART_2_PHASE_LOOP:PHASE_X ─── #}
-### 📈 Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [Emit the translated of this phase from Section `4.2. MULTI-PHASE SYNOPSIS MATRIX` in the {{ phases_and_tasks_section }} section]
-- **Phase Core Objective & Purpose:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}]
-- **Target Physical Directory Matrix Map:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
+### 📈 [Translate "Phase" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %} - [Emit the translated of this phase from Section `4.2. MULTI-PHASE SYNOPSIS MATRIX` in the {{ phases_and_tasks_section }} section]
+- **[Translate "Phase Core Objective & Purpose" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"]:** [Detailed technical explanation of what this phase achieves and its functional goals, fully translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}]
+- **[Translate "Target Physical Directory Matrix Map" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"]:** List all specific file paths underneath `./sources/` initialized or modified in this phase. Every single line path generated MUST be appended with its tracking Tag IDs inline.
     *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
-- **Database Schema DDL SQL Specification [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+- **[Translate "Database Schema DDL SQL Specification" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
 <RULE>
     * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ` ```sql:matrix ` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
     * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
 </RULE>
-- **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
-- **Phase Localized Exception Handlers [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
+- **[Translate "API and Event Routing Contracts" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **[Translate "Phase Localized Exception Handlers" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
 
 {# ─── START:CHUNK:PART_2_PHASE_LOOP:PHASE_X:DAY_Y ─── #}
-#### 📅 Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %})
+#### 📅 [Translate "Chronological Day-by-Day Sub-Agent Task Distribution Logs (Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %})" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"]
 
-##### 📅 DAY [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
+<!--START_DAY_LOG_INDEX-->
+
+##### 📅 [Translate "DAY" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
 <RULE>
 - **SUB-TASK ATOMIC WRAPPER LAW:** Every single sub-task node MUST be explicitly and strictly wrapped within its own dedicated opening (`<!--START_ATOMIC_SUB_TASK_NODE-->`) and closing (`<!--END_ATOMIC_SUB_TASK_NODE-->`) markers. You are PERMANENTLY FORBIDDEN from generating a new sub-task header until the previous sub-task node has been legally closed with its dedicated newline tag. Follow this exact raw structure layout:
 </RULE>
 
-<!--START_DAY_LOG_INDEX-->
-
-###### 🌿 SUB-TASKS [Z]: SHORT SPECIFIC SUB-TASK TITLE
+###### 🌿 [Translate "SUB-TASKS" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [Z]: SHORT SPECIFIC SUB-TASK TITLE
 <!--START_ATOMIC_SUB_TASK_NODE-->
 <RULE>
 - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
 <RULE>
-* **Sub-Agent Workflow Specialization:**
+* **[Translate "Sub-Agent Workflow Specialization" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"]:**
 <RULE>
 You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
 </RULE>
-* **Targeted Tag IDs" into target language:**
+* **[Translate "Targeted Tag IDs" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"]:**
 <RULE>
 Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
 </RULE>
-* **Target Component file path (target_component):**
+* **[Translate "Target Component file path" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] (target_component):**
 <RULE>
 Insert the explicit physical path starting with `./sources/` or Tester semi-colon pair syntax based strictly on the active persona domain. Append its targeted Tag IDs inline here.
 </RULE>
-* **Low-Level Technical Task Instruction:**
+* **[Translate "Low-Level Technical Task Instruction" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"]:**
 <RULE>
 Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
 </RULE>
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
 - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase {% if force_full_export %}[X]{% else %}{{ target_phase_index }}{% endif %}' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
-* **Database Schema DDL SQL Specification [DAT-XXX]:**
+* **[Translate "Database Schema DDL SQL Specification" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [DAT-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the specific sub-task execution involves physical database migrations, DDL scripts, index creations, or schema constraints, you MUST dynamically render the complete, production-ready ANSI SQL blocks inside this section. If the targeted sub-task handles FrontendUI, document updates, or cloud pipelines with NO database mutations, you MUST completely delete and purge this entire bullet point from the daily output buffer.
 </RULE>
-* **API and Event Routing Contracts [REQ-XXX], [ARC-XXX]:**
+* **[Translate "API and Event Routing Contracts" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [REQ-XXX], [ARC-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
 </RULE>
-* **Phase Localized Exception Handlers [EXC-XXX]:**
+* **[Translate "Phase Localized Exception Handlers" into the target language "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}"] [EXC-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
 </RULE>
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_DAY_LOG_INDEX-->

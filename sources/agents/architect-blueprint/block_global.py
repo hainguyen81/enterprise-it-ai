@@ -373,7 +373,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         if actual_registered_phases != num_phases:
             logger.warning("                | ⚠️ Token `<!--REGISTERED_PHASE_ROW-->` missing, activating Fallback Engine to scan Phase...")
             phase_row_count = 0
-            for line in chunk_1b.split('\n'):
+            for line in chunk_1c.split("\n"):
                 line_clean = line.strip()
                 # count phase line (REQ/ARC/EXC/DAT/NFR)
                 if (
@@ -383,9 +383,11 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 ):
                     phase_row_count += 1
             actual_registered_phases = phase_row_count
-            logger.info(f"                |__  👉 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}")
             if actual_registered_phases != num_phases:
-                logger.warning(f"                     | ⚠️ Phase matrix maybe WRONG, due to the scanned {actual_registered_phases} phases number doesn't match the expected {num_phases} phases...")
+                logger.warning(f"                     | 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}")
+                logger.warning(f"                     |__  👉 ⚠️ Phase matrix maybe WRONG, due to the scanned {actual_registered_phases} phases number doesn't match the expected {num_phases} phases...")
+            else:
+                logger.info(f"                     |__  👉 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}")
         
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
@@ -445,13 +447,16 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
             found_day_logs = phase_tag_pattern.findall(phase_chunk)
             days_in_phase = len(found_day_logs)
             if days_in_phase <= 0:
-                logger.warning("                | ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs...")
-
                 # use regex to remove all code blocks as SQL, DDL, JSON
                 clean_text = re.sub(r"```.*?```", "", phase_chunk, flags=re.DOTALL).strip()
                 # if token exceeded
                 if len(clean_text) > DEFAULT_LIMIT_PHASE_LOG_TOKEN:
-                    logger.warning(f"                     | ⚠️ Phase Log Token exceeded {DEFAULT_LIMIT_PHASE_LOG_TOKEN} chracters, activating Fallback Engine to compress Day Logs Blocks...")
+                    logger.warning(
+                        "                  | ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
+                    )
+                    logger.warning(
+                        f"                  |__  👉 ⚠️ Phase Log Token exceeded {DEFAULT_LIMIT_PHASE_LOG_TOKEN} chracters, activating Fallback Engine to compress Day Logs Blocks..."
+                    )
                     # Maximum compression, only collect lines that contains technical Tag IDs
                     salvaged_lines = []
                     for line in clean_text.split("\n"):
@@ -459,6 +464,9 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                             salvaged_lines.append(line.strip())
                     extracted_block = "\n".join(salvaged_lines)
                 else:
+                    logger.warning(
+                        "                  |__  👉 ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
+                    )
                     # if it's in limit token, use it
                     extracted_block = f"### Phase {phase_idx} Logs (Salvaged Text):\n{clean_text.strip()}"
             else:
