@@ -380,6 +380,8 @@ Generate a clean, highly the structured SynOpSis Matrix Phases table (inside the
   - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for this phase are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to {{ max_days_per_phase }} is completely banned.
   - **STRICT PHASE INDEX COUPLING MANDATE:** You ARE STRICTLY FORBIDDEN from generating any text, sub-headers, logs, or sub-task blocks for other phases. You MUST contextually freeze your execution cursor and apply a hard system stop the exact microsecond you complete the output buffer wrapper for Phase {{ target_phase_index }}.
   - **TARGETED SINGLE-PHASE ISOLATION RAIL:** Your entire response stream MUST focus exclusively on the requirements, tasks, components, and tag identifiers allocated to Phase {{ target_phase_index }}. 
+- **DYNAMIC PHASE ITERATION GATEKEEPER:** When evaluating this active section block for Phase {{ target_phase_index }}, you ARE CRITICALLY BANNED from dropping context or copying raw bracketed placeholders like `[Translate...]` or `[Emit...]` directly into the output stream. You MUST dynamically parse the exact matched row corresponding strictly to Phase {{ target_phase_index }} inside section `4.2. MULTI-PHASE SYNOPSIS MATRIX` above, extract its localized properties, and compile active operational technical data for every layout field.
+- **STRICT PLACEHOLDER DESTRUCTION LAW:** Every single bracketed structural token (e.g., `[Translate "Phase"...]`, `[Translate "Phase Core Objective"...]`, `[Translate "Target Physical Directory"...]`, etc.) MUST be mathematically destroyed and replaced with its fully translated and finalized text value matching "{{ target_language }}" at runtime.
 {% endif %}
 {# ────── END:CHUNK:PART_2_PHASE_LOOP:MANDATORY PROGRESSIVE GATING ENGINE ────── #}
 
@@ -424,10 +426,17 @@ Generate a clean, highly the structured SynOpSis Matrix Phases table (inside the
 ##### 📅 [Translate "DAY" into the target language {{ target_language }}] [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
 <RULE>
 - **SUB-TASK ATOMIC WRAPPER LAW:** Every single sub-task node MUST be explicitly and strictly wrapped within its own dedicated opening (`<!--START_ATOMIC_SUB_TASK_NODE-->`) and closing (`<!--END_ATOMIC_SUB_TASK_NODE-->`) markers. You are PERMANENTLY FORBIDDEN from generating a new sub-task header until the previous sub-task node has been legally closed with its dedicated newline tag. Follow this exact raw structure layout:
+- **HARD-ANCHORED TEMPLATE RENDERING MATRIX:** When processing this active block, you MUST execute the output stream following the exact vertical layout lines provided below in a strict, unbreakable linear order:
+    * Step 1: Print the opening infrastructure anchor (`<!--START_ATOMIC_SUB_TASK_NODE-->`) on its own independent standalone line.
+    * Step 2: Render the valid sub-task header (e.g. the subsequent level-6 Markdown header row (`###### `) exactly as formatted in the layout on the very next standalone line, fully localizing the text properties into "{{ language }}".
+    * Step 3: Iterate and translate the remaining bulleted metadata properties and task descriptions line by line.
+    * Step 4: Terminate the block by printing the exact close infrastructure anchor (`<!--END_ATOMIC_SUB_TASK_NODE-->`) on its own standalone line.
+- **ANTI-FLATTENING COMPACTION MANDATE:** You ARE CRITICALLY BANNED from dropping, skipping, or collapsing the level-6 Markdown header line (`###### `) into a bullet point list format. The vertical standalone row boundary of each independent element inside the template layout MUST remain 100% intact.
 </RULE>
 
-###### 🌿 [Translate "SUB-TASKS" into the target language {{ target_language }}] [Z]: SHORT SPECIFIC SUB-TASK TITLE
 <!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 [Translate "SUB-TASKS" into the target language {{ target_language }}] [Z]: SHORT SPECIFIC SUB-TASK TITLE
 <RULE>
 - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
 <RULE>
