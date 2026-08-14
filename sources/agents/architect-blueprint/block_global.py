@@ -384,10 +384,16 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                     phase_row_count += 1
             actual_registered_phases = phase_row_count
             if actual_registered_phases != num_phases:
-                logger.warning(f"                     | 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}")
-                logger.warning(f"                     |__  👉 ⚠️ Phase matrix maybe WRONG, due to the scanned {actual_registered_phases} phases number doesn't match the expected {num_phases} phases...")
+                logger.warning(
+                    f"                | 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}"
+                )
+                logger.warning(
+                    f"                |__  👉 ⚠️ Phase matrix maybe WRONG, due to the scanned {actual_registered_phases} phases number doesn't match the expected {num_phases} phases..."
+                )
             else:
-                logger.info(f"                     |__  👉 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}")
+                logger.info(
+                    f"                |__  👉 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}"
+                )
         
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
@@ -554,45 +560,59 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         write_blueprint_log(0, "SYSTEM_ERROR", "PIPELINE_CRASH", exception_stacktrace(e), False, model_name_safe, out_dir)
         return None
 
-def test_global_generation():
+def run_test_global_generation(callback, full_export: bool=False):
+    if not callback or callable(callback):
+        raise RuntimeError("Invalid test method!")
+    
     PROJET_NAME = "membership-hub"
     LANGUAGE = "Vietnamese"
-    SOURCES_PATH = "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
+    SOURCES_PATH = (
+        "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
+    )
     OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJET_NAME)
     AGENTS_PATH = os.path.join(SOURCES_PATH, "agents")
-    MASTER_PROMPT_TEMPLATE_PATH = os.path.join(AGENTS_PATH, "prompts", "prompt.rule.enterprise.governance.guardrails.md")
-    REQUIREMENTS_PATH = os.path.join(SOURCES_PATH, "requirements", PROJET_NAME, "requirements.md")
-    
+    MASTER_PROMPT_TEMPLATE_PATH = os.path.join(
+        AGENTS_PATH, "prompts", "prompt.rule.enterprise.governance.guardrails.md"
+    )
+    REQUIREMENTS_PATH = os.path.join(
+        SOURCES_PATH, "requirements", PROJET_NAME, "requirements.md"
+    )
+
     AI_BASE_URL = "https://api.mistral.ai/v1"
-    AI_API_KEY = "<!--API_KEY here-->"
+    AI_API_KEY = "<!--TEST API_KEY-->"
     MODEL_NAME = "codestral-latest"
-    
+
     # openAI
     client = OpenAI(
         base_url=AI_BASE_URL,
         api_key=AI_API_KEY,
         # 0 to turn off retries
-        max_retries=3, 
+        max_retries=3,
         # timeout in seconds (600 seconds ~ 10 minutes)
-        timeout=600.0
+        timeout=600.0,
     )
-    
-    model_name = MODEL_NAME
-    master_rules = render_prompt(MASTER_PROMPT_TEMPLATE_PATH, { "language": LANGUAGE, })
-    _, project_requirements = read_file_raw(REQUIREMENTS_PATH)
 
-    # context generation
-    generate_global_context_by_chunk(
-            client=client,
-            model_name=model_name,
-            master_rules=master_rules,
-            project_name="membership-hub",
-            requirements=project_requirements,
-            num_phases=5,
-            max_days_per_phase=7,
-            language=LANGUAGE,
-            out_dir=OUTDIR,
-            force_full_export=False
+    model_name = MODEL_NAME
+    master_rules = render_prompt(
+        MASTER_PROMPT_TEMPLATE_PATH,
+        {
+            "language": LANGUAGE,
+        },
+    )
+    _, project_requirements = read_file_raw(REQUIREMENTS_PATH)
+    
+    # run test
+    callback(
+        client=client,
+        model_name=model_name,
+        master_rules=master_rules,
+        project_name="membership-hub",
+        requirements=project_requirements,
+        num_phases=5,
+        max_days_per_phase=7,
+        language=LANGUAGE,
+        out_dir=OUTDIR,
+        force_full_export=full_export,
     )
 
     # close client
@@ -600,9 +620,13 @@ def test_global_generation():
         client.close()
     except Exception as e:
         logger.error(f"⚠️ Exception while closing AI client: {e!s}")
+    
+def test_global_generation(full_export: bool = False):
+    run_test_global_generation(callback=generate_global_context_by_chunk, full_export=full_export)
 
 # ---------------------
 # TEST
 # ---------------------
 if __name__ == "__main__":
-    test_global_generation()
+    full_export = False
+    test_global_generation(full_export=full_export)
