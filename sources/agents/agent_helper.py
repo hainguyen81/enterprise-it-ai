@@ -5,23 +5,20 @@
 # using GitHub Actions infrastructure environment tokens instead of brittle backtracking.
 # ==============================================================================
 
-import os
-import sys
+import argparse
 import json
 import logging
+import os
 import re
+import sys
 import traceback
-import argparse
 from datetime import datetime
 from pathlib import Path
 
+from jinja2 import Environment, FileSystemLoader, meta
+
 # to load prompt template
-from jinja2 import (
-    Template as JinjaTemplate,
-    Environment,
-    FileSystemLoader,
-    meta
-)
+from jinja2 import Template as JinjaTemplate
 
 # ==============================================================================
 # 🏢 ENTERPRISE INTER-PACKAGE ROUTING LAYER
@@ -108,12 +105,12 @@ def parse_args(description=None, parser_callback=None):
         
     # 3. parse known/un-known arguments
     args, unknown_args = parser.parse_known_args()
-    print(f"- Known arguments: {str(unknown_args)}")
-    print(f"- Unknown arguments: {str(unknown_args)}")
+    print(f"- Known arguments: {unknown_args!s}")
+    print(f"- Unknown arguments: {unknown_args!s}")
     
     # 4. convert unknown_args from List to Dict
     unknown_args = parse_unknown_args_to_dict(unknown_args)
-    print(f"- Parsed unknown arguments: {str(unknown_args)}")
+    print(f"- Parsed unknown arguments: {unknown_args!s}")
     
     # 5. result (known_args, unknown_dict)
     return args, unknown_args
@@ -201,8 +198,8 @@ def json_raw_content(raw_content):
     return cleaned_str
 
 def exception_stacktrace(e) -> str:
-    stacktrace = traceback.format_exception(type(e), e, e.__traceback__, limit=10) if isinstance(e, BaseException) or isinstance(e, Exception) else None
-    return None if not e else f"{str(e)}: {stacktrace}" if stacktrace else str(e)
+    stacktrace = traceback.format_exception(type(e), e, e.__traceback__, limit=10) if isinstance(e, (BaseException, Exception)) else None
+    return None if not e else f"{e!s}: {stacktrace}" if stacktrace else str(e)
 
 def makedirs(path):
     """
@@ -327,19 +324,19 @@ def render_prompt(template: str, context: dict) -> str:
     tmpl = JinjaTemplate(template_content)
     
     # substitute will throw error if missing variables, safely for production
-    return tmpl.render(**context).strip()
+    return re.sub(r'\n{2,}', '\n\n', tmpl.render(**context).strip())
 
 def render_kwargs_prompt(template: str, **kwargs) -> str:
     return render_prompt(template=template, context={ **kwargs })
 
 def validateAIResponse(response):
     if not response or not hasattr(response, 'choices') or not response.choices:
-        raise RuntimeError(f"[API Upstream Error 404]: No Response Found")
+        raise RuntimeError("[API Upstream Error 404]: No Response Found")
     
     # 1. Check response choices
     choices_data = response.choices
     if not isinstance(choices_data, list) or len(choices_data) <= 0:
-        raise RuntimeError(f"[API Upstream Error 404]: Response Choices is empty/None")
+        raise RuntimeError("[API Upstream Error 404]: Response Choices is empty/None")
     
     # parse first choice
     first_choice = choices_data[0]
@@ -361,7 +358,7 @@ def validateAIResponse(response):
         
     # 3. check content whether is None (although finish_reason is `stop`)
     if not hasattr(first_choice, 'message') or not first_choice.message or getattr(first_choice.message, 'content', None) is None:
-        raise ValueError(f"[API Upstream Error 404]: AI response content is empty/None.")
+        raise ValueError("[API Upstream Error 404]: AI response content is empty/None.")
     
     # Guard against malformed message blocks or unexpected payload closures
     return first_choice
