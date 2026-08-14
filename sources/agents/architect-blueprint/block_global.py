@@ -561,7 +561,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         return None
 
 def run_test_global_generation(callback, full_export: bool=False):
-    if not callback or callable(callback):
+    if not callback or not callable(callback):
         raise RuntimeError("Invalid test method!")
     
     PROJET_NAME = "membership-hub"
