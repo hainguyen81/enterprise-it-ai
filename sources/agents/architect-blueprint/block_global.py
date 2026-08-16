@@ -316,7 +316,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_1b)
 
         # --- count the task in section 4.1 trong chunk_1b ---
-        backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->')
+        backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->', re.DOTALL,)
         actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1b))
         if actual_registered_tasks <= 0:
             logger.warning("                | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
@@ -368,7 +368,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_1c)
         
         # --- count the phase rows in section 4.2 trong chunk_1b ---
-        phase_anchor_pattern = re.compile(r"<!--\s*REGISTERED_PHASE_ROW\s*-->")
+        phase_anchor_pattern = re.compile(r"<!--\s*REGISTERED_PHASE_ROW\s*-->", re.DOTALL,)
         actual_registered_phases = len(phase_anchor_pattern.findall(chunk_1c))
         if actual_registered_phases != num_phases:
             logger.warning("                | ⚠️ Token `<!--REGISTERED_PHASE_ROW-->` missing, activating Fallback Engine to scan Phase...")
@@ -412,6 +412,8 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # CHUNK 2: LOOP PHASE IN SECTION 5
         # ==============================================================================
         logger.info(f"    |__ [ PART 2/3 ] Extracting Granular Daylog for {num_phases} phases...")
+        total_days_in_phases = 0
+        total_sub_tasks_in_phases = 0
         for phase_idx in range(1, num_phases + 1):
             logger.info(f"          |__ Extracting Granular Daylog for Phase {phase_idx} out of {num_phases}...")
             ctx_part2 = {
@@ -449,9 +451,23 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
 
             # --- use Regex to extract hidden HTML for next phase history generation ---
             # extract `START_ATOMIC_SUB_TASK_NODE`
-            phase_tag_pattern = re.compile( r"<!--\s*START_DAY_LOG_INDEX\s*-->")
+            sub_tasks_pattern = re.compile(
+                r"<!--\s*START_ATOMIC_SUB_TASK_NODE\s*-->(.*?)<!--\s*END_ATOMIC_SUB_TASK_NODE\s*-->",
+                re.DOTALL,
+            )
+            found_sub_tasks = sub_tasks_pattern.findall(phase_chunk)
+            sub_tasks_in_phase = len(found_sub_tasks)
+            total_sub_tasks_in_phases += sub_tasks_in_phase
+            
+            # --- use Regex to extract hidden HTML for next phase history generation ---
+            # extract `START_DAY_LOG_INDEX`
+            phase_tag_pattern = re.compile(
+                r"<!--\s*START_DAY_LOG_INDEX\s*-->(.*?)<!--\s*END_DAY_LOG_INDEX\s*-->",
+                re.DOTALL,
+            )
             found_day_logs = phase_tag_pattern.findall(phase_chunk)
             days_in_phase = len(found_day_logs)
+            total_days_in_phases += days_in_phase
             if days_in_phase <= 0:
                 # use regex to remove all code blocks as SQL, DDL, JSON
                 clean_text = re.sub(r"```.*?```", "", phase_chunk, flags=re.DOTALL).strip()
@@ -474,20 +490,32 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                         "                  |__  👉 ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
                     )
                     # if it's in limit token, use it
-                    extracted_block = f"### Phase {phase_idx} Logs (Salvaged Text):\n{clean_text.strip()}"
+                    extracted_block = clean_text.strip()
             else:
                 extracted_block = "".join(found_day_logs)
             extracted_block = f"### Phase {phase_idx} Logs (Atomic Salvaged Tag Lines):\n\n{extracted_block}"
             immutable_tag_phase_summaries.append(extracted_block)
-
+            
+            # warning if exceeding max days per phase
+            if days_in_phase > max_days_per_phase:
+                logger.error(
+                    f"                | 💀 Phase {phase_idx} exceeded the maximum days per phase ({max_days_per_phase} days): {days_in_phase} "
+                )
+            
             # write chunk log
             chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
             write_file(dir=os.path.join(out_dir, "chunks"), file=chunk_log_file,
                     data=GLOBAL_CHUNK_LOG.format(chunk_idx, sys_prompt_p2, chunk_idx, usr_prompt_p2, chunk_idx, phase_chunk))
-            logger.info(f"                | ✅ [ SUCCESS ] Found {days_in_phase} days (sub-tasks) from Phase {phase_idx}.")
+            logger.info(f"                | ✅ [ SUCCESS ] Found {days_in_phase} days ({sub_tasks_in_phase} sub-tasks) from Phase {phase_idx}.")
             logger.info(f"                |__  👉 Received/Saved chunk {chunk_idx} log: {chunk_log_file}")
             chunk_idx += 1
-        
+
+            # final phase
+            if phase_idx >= num_phases:
+                logger.info(
+                    f"          |__  👉 Found total {total_days_in_phases} days (total {total_sub_tasks_in_phases} sub-tasks) for {num_phases} phases"
+                )
+            
             # sleep in few seconds to guard rate limit
             logger.debug(f"    |__ ⏳ Rate limit guard active... holding pipeline for {time_in_seconds} seconds to clear AI TPM window...")
             time.sleep(time_in_seconds)

@@ -1,34 +1,31 @@
 # BLOCK 3: CONVERTS PHASE MARKDOWN TO STEPS JSON
 
-import os
 import json
-import time
+import os
 import re
-from typing import List
-
-from pydantic import BaseModel, Field
-
-# GEMINI
-#from google import genai
-#from google.genai import types
-
-# OpenAI
-from openai import OpenAI
+import time
 
 # mapping JSON
 from jinja2 import Template
 
+# GEMINI
+#from google import genai
+#from google.genai import types
+# OpenAI
+from openai import OpenAI
+from pydantic import BaseModel, Field
+
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
     exception_stacktrace,
-    write_blueprint_log,
-    write_json_file,
-    render_prompt,
-    parseAIResponseJsonData,
     get_logger,
     json_loads,
+    merge_master_prompt,
+    parseAIResponseJsonData,
+    render_prompt,
     storage_info,
-    merge_master_prompt
+    write_blueprint_log,
+    write_json_file,
 )
 
 # ==============================================================================
@@ -55,14 +52,14 @@ class SubAgentTask(BaseModel):
     desc: str = Field(default="No task description provided", description="Literal, low-level technical step assigned to the agent.")
     
     # 🛑 to store requirement tagId
-    targeted_tags: List[str] = Field(
+    targeted_tags: list[str] = Field(
         default_factory=list,
         description="Flat string array of exact inherited BA Tag IDs that this specific sub-task implements or verifies (e.g. ['[REQ-001]', '[ARC-002]']). MUST match the raw requirements 1:1."
     )
     
     # 🎯 FLAT STRING ARRAY - DEFAULTS TO EMPTY []
     # list of source file paths that sub-agent should do
-    components: List[str] = Field(
+    components: list[str] = Field(
         default_factory=list,  # or default=[]
         description="Flat array of physical localized file paths or scripts modified or targeted by this single task. Return an empty array [] if no files are involved."
     )
@@ -71,7 +68,7 @@ class DailyStep(BaseModel):
     day: int = Field(description="Timeline iteration day inside this isolated phase.")
     context_file: str = Field(description="The phase context Markdown file for closure on this day.")
     context_section: str = Field(default="No day context section provided", description="The day targeted for closure on this day.")
-    sub_tasks: List[SubAgentTask] = Field(description="Array of isolated micro-tasks assigned to sub-agents.")
+    sub_tasks: list[SubAgentTask] = Field(description="Array of isolated micro-tasks assigned to sub-agents.")
 
 class PhaseStepsPlan(BaseModel):
     phase_id: int = Field(description="Target phase tracker index.")
@@ -80,7 +77,7 @@ class PhaseStepsPlan(BaseModel):
     project_name: str = Field(description="Target project tracker name.")
     global_context_file: str = Field(description="Project global context Markdown file for closure.")
     source_target_dir: str = Field(description="Project sources folder path for closure.")
-    days: List[DailyStep] = Field(description="Day-by-day engineering tracking steps.")
+    days: list[DailyStep] = Field(description="Day-by-day engineering tracking steps.")
 
 def project_context_file(project_name: str):
     safe_name = project_name.replace(' ', '-').strip().lower()

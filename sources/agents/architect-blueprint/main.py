@@ -1,37 +1,39 @@
 # ENTERPRISE MAIN ORCHESTRATOR RUNNER
 
+import json
 import os
 import sys
-import json
 import time
+
+# Import decoupled functional components cleanly
+from block_global import generate_global_context_by_chunk
+from block_global import logger as global_logger
+from block_json import convert_phases_to_json
+from block_json import logger as steps_logger
+from block_phase import generate_phase_contexts
+from block_phase import logger as phase_logger
 
 # GEMINI
 #from google import genai
 #from google.genai import types
-
 # OpenAI
 from openai import OpenAI
 
-# Import decoupled functional components cleanly
-from block_global import generate_global_context_by_chunk, logger as global_logger
-from block_phase import generate_phase_contexts, logger as phase_logger
-from block_json import convert_phases_to_json, logger as steps_logger
-
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
-    resolve_absolute_path,
-    delete_log,
-    read_json_file,
-    write_json_file,
     count_files_by_pattern,
-    read_file_raw,
+    delete_log,
+    enabledLogDebug,
+    exception_stacktrace,
     get_logger,
     json_loads,
     parse_args,
-    storage_info,
-    enabledLogDebug,
+    read_file_raw,
+    read_json_file,
     render_prompt,
-    exception_stacktrace
+    resolve_absolute_path,
+    storage_info,
+    write_json_file,
 )
 
 # ==============================================================================
@@ -121,7 +123,7 @@ def find_project_requirements(project_name: str):
     # read projects summaize
     _, projects = read_json_file(file_path=PROJECTS_SUMMARY_FILE)
     if not projects:
-        logger.warning(f"[ ⚠️ WARNING ] Not found %s to search. Skipping tier.", PROJECTS_SUMMARY_FILE)
+        logger.warning("[ ⚠️ WARNING ] Not found %s to search. Skipping tier.", PROJECTS_SUMMARY_FILE)
         return (None, None)
     
     # filter to find project
@@ -218,8 +220,8 @@ def run_architect_agent(
     
     # whether should loop processes based on rotating AI models
     result_global = None
-    result_phase = False if exec_mode in (0, 2) else True       # Phase should be ok if not running it
-    result_steps = False if exec_mode in (0, 3) else True       # Steps should be ok if not running it
+    result_phase = not exec_mode in (0, 2)       # Phase should be ok if not running it
+    result_steps = not exec_mode in (0, 3)       # Steps should be ok if not running it
     everything_ok = False
     client = None
     while not everything_ok and model_idx < models_len:
@@ -317,7 +319,7 @@ def run_architect_agent(
         
         # if failed, check whether should rotate model
         if not is_build_plan_spec and not result_global:
-            logger.warning(f"\n[ 🤖💬 WARN ] Modular Enterprise Architecture Pipeline Executed: Fail to generate project global context!")
+            logger.warning("\n[ 🤖💬 WARN ] Modular Enterprise Architecture Pipeline Executed: Fail to generate project global context!")
             
             # should rotate to find other models
             if rotate_model:
@@ -329,7 +331,7 @@ def run_architect_agent(
         
         # fake global context if building plan spec
         elif is_build_plan_spec:
-            result_global = f"\n[ 🤖💬 WARN ] No need project global context, due to building plan spec!"
+            result_global = "\n[ 🤖💬 WARN ] No need project global context, due to building plan spec!"
         
         # -------------------------------------------------
         # 2. Execute Block 2 Module
@@ -450,7 +452,7 @@ def run_architect_agent(
     
     # log for tracing
     if not everything_ok:
-        logger.error(f"\n❌ [ FAILED ] Modular Enterprise Architecture Pipeline Executed Failed: Global?. { True if result_global else False } - Phase { result_phase } - Steps { result_steps }")
+        logger.error(f"\n❌ [ FAILED ] Modular Enterprise Architecture Pipeline Executed Failed: Global?. { bool(result_global) } - Phase { result_phase } - Steps { result_steps }")
     
     # everything is ok
     else:
