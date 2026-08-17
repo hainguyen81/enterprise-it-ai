@@ -1,7 +1,7 @@
 {
     "phase_id": 1,
-    "phase_name": "Quản lý người dùng & xác thực cốt lõi",
-    "phase_description": "Giai đoạn này tập trung vào việc xây dựng lõi người dùng, xác thực đa nhà cung cấp, phân quyền RBAC và các cơ chế bảo vệ đầu vào.",
+    "phase_name": "Triển khai nền tảng quản lý người dùng, trung tâm và xác thực cốt lõi",
+    "phase_description": "Triển khai các module quản lý người dùng và trung tâm cốt lõi, hệ thống phân quyền RBAC, luồng xác thực OAuth2/JWT, schema cơ sở dữ liệu cho các thực thể cốt lõi, cùng tài liệu kiến trúc hệ thống nền tảng, tạo điều kiện cho việc triển khai các module chức năng khác trong các giai đoạn sau.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,21 +9,46 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Triển khai đăng ký người dùng, xác thực qua mạng xã hội và gán vai trò ban đầu",
+            "context_section": "Thiết lập cấu trúc dự án, schema cơ sở dữ liệu và xác thực cốt lõi",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Viết lớp UserService triển khai registerUser (validation, bcrypt hash, lưu vào bảng USERS với roleId mặc định là Student), implement socialAuthFlow (nhận OAuth2 code, gọi Firebase/Google/Facebook API, tạo hoặc cập nhật bản ghi USERS, sinh JWT token có thời hạn 15 phút), thêm phương thức assignRole (cập nhật cột roleId, ghi log vào bảng AUDIT). Đảm bảo tất cả các thao tác đều được bao quanh bởi transaction và tuân thủ các ràng buộc khóa ngoại.",
+                    "desc": "Thiết lập cấu trúc dự án microservice và schema cơ sở dữ liệu cốt lõi",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[REQ-002]",
-                        "[REQ-003]",
-                        "[ARC-001]",
-                        "[DAT-001]"
+                        "[DAT-001]",
+                        "[DAT-003]",
+                        "[DAT-004]",
+                        "[DAT-005]",
+                        "[DAT-006]",
+                        "[DAT-007]",
+                        "[DAT-008]",
+                        "[DAT-009]",
+                        "[DAT-011]",
+                        "[ARC-010]"
                     ],
                     "components": [
-                        "./sources/backend/auth/UserService.java"
+                        "./sources/backend/user-service/src/main/resources/db/migration/V1__init_core_schema.sql",
+                        "./sources/backend/center-service/src/main/resources/db/migration/V1__init_core_schema.sql",
+                        "./sources/docs/architecture/database-schema.md"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Coder",
+                    "desc": "Cấu hình RBAC và tích hợp xác thực JWT/OAuth2 cơ bản",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/auth/JwtAuthFilter.java",
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/auth/OAuth2Handler.java",
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/auth/RbacEnforcer.java"
                     ]
                 }
             ]
@@ -31,60 +56,31 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Xây dựng kiểm tra đầu vào và xử lý lỗi xác thực",
+            "context_section": "Triển khai chức năng đăng ký, xác thực người dùng và xác thực mạng xã hội",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
-                    "agent": "Tester",
-                    "desc": "Viết unit tests cho registerUser với các trường hợp: email hợp lệ, mật khẩu yếu, email trùng lặp; xác minh response HTTP status và message lỗi bằng tiếng Việt; kiểm tra socialAuthFlow với mã OAuth2 hợp lệ và không hợp lệ; đảm bảo exception InputValidationException được ném và xử lý bởi GlobalExceptionHandler để trả về JSON lỗi chi tiết.",
-                    "targeted_tags": [
-                        "[EXC-004]",
-                        "[REQ-001]",
-                        "[DAT-001]"
-                    ],
-                    "components": [
-                        "./sources/backend/auth/UserServiceTest.java",
-                        "./sources/backend/auth/UserService.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 3,
-            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Tạo tài liệu kỹ thuật và hướng dẫn vận hành",
-            "sub_tasks": [
-                {
-                    "id": "D3_ST1",
-                    "agent": "Doc",
-                    "desc": "Soạn thảo tài liệu hướng dẫn quản lý người dùng bao gồm mô tả API, bảng tham chiếu vai trò, quy trình đăng ký, quy trình xác thực qua mạng xã hội, quy trình gán vai trò; thêm các đoạn mã ví dụ bằng tiếng Việt; đảm bảo tài liệu tham chiếu các Tag IDs [REQ-002], [ARC-002], [ARC-003].",
-                    "targeted_tags": [
-                        "[REQ-002]",
-                        "[ARC-002]",
-                        "[ARC-003]"
-                    ],
-                    "components": [
-                        "./sources/docs/UserManagementGuide.md"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 4,
-            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Triển khai luồng xác thực JWT và refresh token",
-            "sub_tasks": [
-                {
-                    "id": "D4_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai TokenService tạo accessToken (JWT, thời gian sống 15 phút) và refreshToken (thời gian sống 7 ngày) sử dụng java-jwt; thêm endpoint /api/v1/auth/refresh để đổi refreshToken lấy accessToken mới; tích hợp Firebase Authentication làm nhà cung cấp xác thực thay thế; đảm bảo token được lưu trữ an toàn (HTTP-only, Secure flag) và thực thi blacklist cho các token bị thu hồi.",
+                    "desc": "Triển khai logic đăng ký và đăng nhập người dùng",
                     "targeted_tags": [
-                        "[ARC-004]",
-                        "[ARC-005]",
-                        "[ARC-006]"
+                        "[REQ-001]",
+                        "[EXC-004]"
                     ],
                     "components": [
-                        "./sources/backend/auth/TokenService.java"
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java",
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/user/UserDTO.java",
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/user/UserController.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Coder",
+                    "desc": "Triển khai xác thực người dùng qua mạng xã hội",
+                    "targeted_tags": [
+                        "[REQ-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/src/main/java/com/membershiphub/auth/OAuth2Service.java"
                     ]
                 }
             ]

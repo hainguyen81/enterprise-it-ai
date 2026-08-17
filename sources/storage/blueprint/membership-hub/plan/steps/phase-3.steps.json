@@ -1,7 +1,7 @@
 {
     "phase_id": 3,
-    "phase_name": "Quản lý khóa học",
-    "phase_description": "Giai đoạn này tập trung vào việc xây dựng CRUD khóa học, kiểm tra xung đột lịch dạy của giáo viên và phân công giáo viên.",
+    "phase_name": "Triển khai dịch vụ điểm danh QR và quản lý thẻ hội viên",
+    "phase_description": "Triển khai dịch vụ điểm danh QR có tính bất biến (idempotent) để đảm bảo mỗi học viên chỉ có một bản ghi điểm danh mỗi ngày cho mỗi khóa học, xây dựng dịch vụ quản lý thẻ hội viên với chức năng hiển thị ngày còn lại và gia hạn thẻ sau khi thanh toán thành công, xử lý các ngoại lệ liên quan đến kết nối mạng và gửi thông báo, đảm bảo tính toàn vẹn dữ liệu điểm danh và trải nghiệm người dùng liền mạch.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,19 +9,55 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
-            "context_section": "Triển khai danh sách khóa học, tạo khóa học mới và kiểm tra xung đột lịch",
+            "context_section": "Triển khai dịch vụ điểm danh QR và logic bất biến điểm danh",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai CourseService với findAllCourses trả về view bao gồm tên giáo viên; implement createCourse validation đảm bảo startDate <= endDate, kiểm tra xem teacherId đã có khóa học nào trùng lịch (startDate <= existing.endDate AND endDate >= existing.startDate) ném ConflictException; lưu khóa học vào bảng COURSES; trả về response DTO.",
+                    "desc": "Triển khai logic cốt lõi của dịch vụ điểm danh QR",
                     "targeted_tags": [
-                        "[REQ-007]",
-                        "[REQ-008]",
-                        "[DAT-004]"
+                        "[REQ-012]",
+                        "[REQ-013]",
+                        "[EXC-001]",
+                        "[EXC-002]",
+                        "[DAT-006]"
                     ],
                     "components": [
-                        "./sources/backend/course/CourseService.java"
+                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java",
+                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java",
+                        "./sources/backend/attendance-service/src/main/resources/db/migration/V2__add_attendance_unique_constraint.sql"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết unit test cho dịch vụ điểm danh",
+                    "targeted_tags": [
+                        "[REQ-012]",
+                        "[REQ-013]",
+                        "[EXC-001]",
+                        "[EXC-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java",
+                        "./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java",
+                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java",
+                        "./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceControllerTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST3",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ điểm danh",
+                    "targeted_tags": [
+                        "[REQ-012]",
+                        "[REQ-013]",
+                        "[EXC-001]",
+                        "[EXC-002]",
+                        "[NFR-001]"
+                    ],
+                    "components": [
+                        "./sources/backend/attendance-service/"
                     ]
                 }
             ]
@@ -29,18 +65,73 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
-            "context_section": "Triển khai phân công giáo viên và thông báo cho giáo viên qua ứng dụng di động",
+            "context_section": "Triển khai quản lý thẻ hội viên và gia hạn thẻ",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
-                    "agent": "Doc",
-                    "desc": "Soạn thảo tài liệu hướng dẫn quản lý khóa học bao gồm quy trình phân công giáo viên, quy trình thu hồi phân công; tham chiếu các Tag IDs [REQ-009], [DAT-004]; thêm các đoạn mã API ví dụ.",
+                    "agent": "Coder",
+                    "desc": "Triển khai logic cốt lõi của dịch vụ quản lý thẻ hội viên",
                     "targeted_tags": [
-                        "[REQ-009]",
-                        "[DAT-004]"
+                        "[REQ-014]",
+                        "[REQ-015]",
+                        "[DAT-007]"
                     ],
                     "components": [
-                        "./sources/docs/CourseManagementGuide.md"
+                        "./sources/backend/card-service/src/main/java/com/membershiphub/card/CardController.java",
+                        "./sources/backend/card-service/src/main/java/com/membershiphub/card/CardService.java",
+                        "./sources/backend/card-service/src/main/resources/db/migration/V2__add_card_check_constraints.sql"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết unit và integration test cho dịch vụ quản lý thẻ",
+                    "targeted_tags": [
+                        "[REQ-014]",
+                        "[REQ-015]"
+                    ],
+                    "components": [
+                        "./sources/backend/card-service/src/main/java/com/membershiphub/card/CardService.java",
+                        "./sources/backend/card-service/src/test/java/com/membershiphub/card/CardServiceTest.java",
+                        "INTEGRATION_SCOPE;./sources/backend/card-service/src/test/java/com/membershiphub/card/CardIntegrationTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST3",
+                    "agent": "Doc",
+                    "desc": "Viết tài liệu hợp đồng API cho dịch vụ điểm danh và quản lý thẻ",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-012]",
+                        "[REQ-013]",
+                        "[REQ-014]",
+                        "[REQ-015]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/attendance-service-api.md",
+                        "./sources/docs/architecture/card-service-api.md"
+                    ]
+                },
+                {
+                    "id": "D2_ST4",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra cuối cùng và xác nhận hoàn thành giai đoạn 3",
+                    "targeted_tags": [
+                        "[REQ-012]",
+                        "[REQ-013]",
+                        "[REQ-014]",
+                        "[REQ-015]",
+                        "[EXC-001]",
+                        "[EXC-002]",
+                        "[DAT-006]",
+                        "[DAT-007]",
+                        "[ARC-010]"
+                    ],
+                    "components": [
+                        "./sources/backend/attendance-service/",
+                        "./sources/backend/card-service/",
+                        "./sources/docs/architecture/attendance-service-api.md",
+                        "./sources/docs/architecture/card-service-api.md"
                     ]
                 }
             ]

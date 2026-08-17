@@ -1,7 +1,7 @@
 {
     "phase_id": 2,
-    "phase_name": "Quản lý trung tâm",
-    "phase_description": "Giai đoạn này tập trung vào việc xây dựng CRUD trung tâm, kiểm tra tính duy nhất của taxId và phân quyền quản trị trung tâm.",
+    "phase_name": "Triển khai quản lý khóa học và đăng ký học viên",
+    "phase_description": "Triển khai các dịch vụ quản lý khóa học và đăng ký học viên, bao gồm API quản lý khóa học (CRUD), phân công giáo viên, duyệt khóa học và đăng ký khóa học cho học viên với kiểm tra xung đột lịch học, đảm bảo tích hợp liền mạch với các service đã triển khai ở giai đoạn trước và tuân thủ các yêu cầu phi chức năng về hiệu suất, bảo mật.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,19 +9,72 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai danh sách trung tâm, tạo trung tâm và kiểm tra xung đột taxId",
+            "context_section": "Triển khai API quản lý khóa học và phân công giáo viên",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai CenterController với endpoint GET /centers trả về danh sách; POST /centers chấp nhận request body, xác thực tính duy nhất của taxId (throw ConflictException), lưu vào bảng CENTERS; thêm validation cho các trường bắt buộc; trả về response với các trường phù hợp.",
+                    "desc": "Triển khai API CRUD quản lý khóa học",
                     "targeted_tags": [
-                        "[REQ-004]",
-                        "[REQ-005]",
-                        "[DAT-003]"
+                        "[REQ-007]",
+                        "[REQ-008]"
                     ],
                     "components": [
-                        "./sources/backend/center/CenterController.java"
+                        "./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java",
+                        "./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Coder",
+                    "desc": "Triển khai API phân công giáo viên vào khóa học",
+                    "targeted_tags": [
+                        "[REQ-009]"
+                    ],
+                    "components": [
+                        "./sources/backend/course-service/src/main/java/com/membershiphub/course/TeacherAssignmentController.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST3",
+                    "agent": "Tester",
+                    "desc": "Viết unit test cho dịch vụ quản lý khóa học",
+                    "targeted_tags": [
+                        "[REQ-007]",
+                        "[REQ-008]",
+                        "[REQ-009]"
+                    ],
+                    "components": [
+                        "./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java",
+                        "./sources/backend/course-service/src/test/java/com/membershiphub/course/TeacherAssignmentTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST4",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ khóa học",
+                    "targeted_tags": [
+                        "[REQ-007]",
+                        "[REQ-008]",
+                        "[REQ-009]",
+                        "[NFR-003]"
+                    ],
+                    "components": [
+                        "./sources/backend/course-service/"
+                    ]
+                },
+                {
+                    "id": "D1_ST5",
+                    "agent": "Doc",
+                    "desc": "Viết tài liệu hợp đồng API dịch vụ khóa học",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-007]",
+                        "[REQ-008]",
+                        "[REQ-009]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/course-service-api.md"
                     ]
                 }
             ]
@@ -29,18 +82,69 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai phân quyền quản trị trung tâm",
+            "context_section": "Triển khai duyệt khóa học và đăng ký học viên",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
-                    "agent": "Doc",
-                    "desc": "Soạn thảo tài liệu hướng dẫn quản lý trung tâm bao gồm quy trình gán người dùng làm Center Admin, quy trình thu hồi quyền; tham chiếu các Tag IDs [REQ-006], [DAT-003]; thêm các đoạn mã API ví dụ.",
+                    "agent": "Coder",
+                    "desc": "Triển khai API duyệt khóa học cho học viên",
                     "targeted_tags": [
-                        "[REQ-006]",
-                        "[DAT-003]"
+                        "[REQ-010]"
                     ],
                     "components": [
-                        "./sources/docs/CenterManagementGuide.md"
+                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/CourseBrowseController.java",
+                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Coder",
+                    "desc": "Triển khai API đăng ký khóa học học viên",
+                    "targeted_tags": [
+                        "[REQ-011]"
+                    ],
+                    "components": [
+                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentController.java",
+                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST3",
+                    "agent": "Tester",
+                    "desc": "Viết unit và integration test cho dịch vụ đăng ký khóa học",
+                    "targeted_tags": [
+                        "[REQ-010]",
+                        "[REQ-011]"
+                    ],
+                    "components": [
+                        "./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java",
+                        "./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentIntegrationTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST4",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ đăng ký",
+                    "targeted_tags": [
+                        "[REQ-010]",
+                        "[REQ-011]",
+                        "[NFR-003]"
+                    ],
+                    "components": [
+                        "./sources/backend/enrollment-service/"
+                    ]
+                },
+                {
+                    "id": "D2_ST5",
+                    "agent": "Doc",
+                    "desc": "Viết tài liệu hợp đồng API dịch vụ đăng ký",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-010]",
+                        "[REQ-011]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/enrollment-service-api.md"
                     ]
                 }
             ]

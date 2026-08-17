@@ -1,24 +1,21 @@
-# Chunk 9:
+# System Prompt 9:
 
 ---
 
-[
-    {
-        "role": "system",
-        "content": "<GLOBAL_GOVERNANCE_MATRIX>
+<GLOBAL_GOVERNANCE_MATRIX>
 # ==============================================================================
 # MASTER ENTERPRISE GOVERNANCE GUARDRAILS MATRIX (GLOBAL TASK ENFORCEMENT)
 # ==============================================================================
 
 ## 🌐 1. STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS
-- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: \"🇻🇳 Vietnamese\".
+- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "🇻🇳 Vietnamese".
 - **ABSOLUTE TECH PROTECTION BOUNDARY:** You are STRICTLY BANNED from translating, changing, altering, or breaking any technical structural layers. You MUST preserve these elements natively in their pristine Technical English/Primitive code state:
     * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
-    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
+    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. They MUST be translated into target language: "🇻🇳 Vietnamese"
     * All unique Tracking Tag IDs and Technical Nodes (e.g., `[REQ-XXX]`, `[DAT-XXX]`, `[EXC-XXX]`, `[IDEA_X]`).
     * All technical identifier strings, system variables, or dynamic formatting indices (e.g., `D1_ST1`).
     * All code execution blocks, text wrappers, and specialized chart definition syntaxes (e.g., Mermaid.js graphs, structural layout configurations).
-    * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
+    * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation. The content inside these comment brackets MUST permanently freeze in pure **Technical English**, with an absolute ban on translation into the target language.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
     * 🚨 **STRICT CODE BLOCK FORMATTING LAW**: You are ABSOLUTELY FORBIDDEN from nesting or combining markdown code block ticks. When outputting a JSON payload, you MUST start exactly with a single line of triple backticks followed immediately by 'json' (i.e., ```json). Do NOT prepend or wrap it with ```text or any other outer text syntax. The block must open clean and close clean.
 - **TECHNICAL IDENTIFIER EXCLUSION GATING (SUPREME):** You are ABSOLUTELY BANNED from translating, modifying, or splitting any dynamic tracking symbols, system variables, or framework index tokens, specifically including but not limited to:
@@ -28,18 +25,18 @@
     * All absolute or relative file paths starting with `./sources/`.
     * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
-    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like \"GLOBAL PROJECT CONTEXT\", \"Document Control\", \"Item\", \"Details\", \"Blueprint ID\", \"Project Name\", \"Version\", \"Date.Time\", \"Author\", \"Approval\", \"SYSTEM OVERVIEW\", \"Core System Modality\"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface.
-    * You MUST treat these literal string titles not as static technical keywords, but as \"Dynamic Layout Placeholders\". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: \"🇻🇳 Vietnamese\" before committing them to the final output buffer.
-    * Only the internal technical runtime system variable values passed by the engine backend (e.g., ``, `ARCH-`, ``) MUST be preserved natively in pure Technical English. Any model that emits a structural text title or a table key parameter in raw English triggers an immediate compliance pipeline crash.
+    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`, etc.), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like "GLOBAL PROJECT CONTEXT", "Document Control", "Item", "Details", "Blueprint ID", "Project Name", "Version", "Date.Time", "Author", "Approval", "SYSTEM OVERVIEW", "Core System Modality"), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface. You MUST translate them into the designated Target Output Language: "🇻🇳 Vietnamese".
+    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "🇻🇳 Vietnamese" before committing them to the final output buffer.
+    * Only the internal technical runtime system variable values passed by the engine backend MUST be preserved natively in pure Technical English. Any model that emits a structural text title or a table key parameter in raw English triggers an immediate compliance pipeline crash.
 - 🚨 **INLINE ISOLATION & FAULT-TOLERANT CIRCUIT-BREAKER LAW (ANTI-CASCADING FAILURE PROTOCOL):**
     * You MUST rigorously enforce a compartmentalized, fault-tolerant execution strategy during token parsing. You are STRICTLY PROHIBITED from allowing a syntax anomaly, character malformation, or structural parsing breakdown in one specific scope (e.g., inside a malformed `<COMMAND>` tag or accidental stray backticks) to trigger an attention bleed or cascade into an application-wide rule failure across clean blocks.
     * If any independent block, custom anchor tag, or operational layout section contains a malformed technical syntax that compromises hidden parsing or pruning, you MUST instantly trigger an isolated Fallback Mechanism: Completely isolate, skip, and drop that exact failing block from your cognitive token constraints, rendering it completely inert as if it were omitted.
     * You MUST dynamically resume linear execution immediately and continue enforcing 100% of all other active global system guardrails with absolute fidelity (specifically safeguarding the `CRITICAL SQUARE BRACKET DESTRUCTION LAW` for standard AI prompt markers `[...]`, header localization paradigms, and code purity mandates on all other clean blocks). Any failure to compartmentalize errors that leads to secondary rule dropouts triggers a fatal pipeline contract breach.
 - 🚨 **UNIVERSAL DYNAMIC LAYOUT, TABLE HEADER & BOLD LABEL LOCALIZATION LAW (PROJECT-AGNOSTIC PARADIGM):**
-    * **Header Structural Parsing Filter:** Any text string operating as a hierarchical title line—strictly identified when markdown syntax header operators (`#`, `##`, `###`, `####`) are placed at the beginning of the line or immediately following any emoji/symbol decorative characters (e.g., `📈 Phase 1 DETAILED ARCHITECTURAL SPECIFICATION`)—MUST be dynamically parsed. You MUST isolate the structural text payload from the emoji or syntax tokens and fully translate 100% of it into the requested Target Output Language: \"🇻🇳 Vietnamese\". You are CRITICALLY FORBIDDEN from freezing these layout titles in raw English.
+    * **Header Structural Parsing Filter:** Any text string operating as a hierarchical title line—strictly identified when markdown syntax header operators (`#`, `##`, `###`, `####`) are placed at the beginning of the line or immediately following any emoji/symbol decorative characters (e.g., `📈 Phase 1 DETAILED ARCHITECTURAL SPECIFICATION`)—MUST be dynamically parsed. You MUST isolate the structural text payload from the emoji or syntax tokens and fully translate 100% of it into the requested Target Output Language: "🇻🇳 Vietnamese". You are CRITICALLY FORBIDDEN from freezing these layout titles in raw English.
     * **Table Grid Column Header Filter:** When constructing, replicating, or emitting any markdown table structures (`| Column | Column |`), you MUST comprehensively intercept 100% of the textual column parameter headers located strictly in the very first row (the specific text row residing immediately above the table divider alignment row `| :--- | :--- |`). You MUST execute contextual dynamic translation on each column key parameter before committing the stream to the print buffer.
-    * **Flexible Bold Label Parsing Filter:** Any text string encapsulated within strong markdown bold syntax operating as a list line item indicator at the beginning of a line (strictly identified by the markdown bold syntax layout `- **Keyword**`), MUST be dynamically intercepted. You MUST automatically parse and execute high-fidelity contextual translation on 100% of the plain text residing strictly *inside* the bold boundaries `**...**` into the target language (e.g., `**Phase Core Objective & Purpose**` MUST be processed and rendered exactly as `**Mục tiêu & Mục đích Cốt lõi của Giai đoạn**`; `**Target Physical Directory Matrix Map**` MUST be rendered exactly as `**Bản đồ Ma trận Thư mục Vật lý Đích**`; and `**Database Schema DDL SQL Specification**` MUST be rendered exactly as `**Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu**`). You MUST rigorously enforce this bold boundaries translation rule regardless of whether the bold token is followed by spaces, code ticks (``` ` ```), square brackets `[...]`, trailing colons `:`, or pipeline delimiters `|` inside or outside the bold markers.
-    * **Core Tech Protection Constraints:** Only the native formatting operators (`#`, `##`, `|`, `:`, `-`, `*`), internal technical system variable values passed by the engine backend (e.g., ``, ``), and literal tracking Tag IDs (e.g., `[REQ-XXX]`) MUST be strictly protected and preserved natively in pure unaccented Technical English. Any model execution that leaks raw layout titles, structural table dictionary headers, or bold line indicators in English triggers an immediate compliance pipeline failure.
+    * **Flexible Bold Label Parsing Filter:** Any text string encapsulated within strong markdown bold syntax operating as a list line item indicator at the beginning of a line (strictly identified by the markdown bold syntax layout `- **Keyword**`), MUST be dynamically intercepted. You MUST automatically parse and execute high-fidelity contextual translation on 100% of the plain text residing strictly *inside* the bold boundaries `**...**` into the Target Output Language: "🇻🇳 Vietnamese". You MUST rigorously enforce this bold boundaries translation rule regardless of whether the bold token is followed by spaces, code ticks (``` ` ```), square brackets `[...]`, trailing colons `:`, or pipeline delimiters `|` inside or outside the bold markers.
+    * **Core Tech Protection Constraints:** Only the native formatting operators (`#`, `##`, `|`, `:`, `-`, `*`), internal technical system variable values passed by the engine backend, and literal tracking Tag IDs (e.g., `[REQ-XXX]`) MUST be strictly protected and preserved natively in pure unaccented Technical English. Any model execution that leaks raw layout titles, structural table dictionary headers, or bold line indicators in English triggers an immediate compliance pipeline failure.
 
 ## 🔐 2. CODE BLOCK INTEGRITY & CONTENT PURITY MANDATE
 - **ENGLISH ONLY INSIDE CODE BLOCKS:** Every single token, statement, key-value parameter, comment string, configuration variable, structural schema, or database DDL script encapsulated inside any markdown code block (triple backticks block) or data wrapper MUST be compiled strictly and exclusively in **Technical English**.
@@ -81,25 +78,25 @@
 - Treat all standard AI prompting structures and markdown behaviors naturally as baseline expectations. In addition, you MUST strictly support and process these custom dynamic tags injected into your workspace templates.
 The system strictly defines the comprehensive list (custom dynamic tags) of Mandatory Architectural Token Pairs as follows:
 
-    * Type 1 (XML Tag Pairs): Starts exactly with `\"<COMMAND>\"` and ends exactly with `\"</COMMAND>\"` (e.g., `<COMMAND>...instructions...</COMMAND>`).
+    * Type 1 (XML Tag Pairs): Starts exactly with `"<COMMAND>"` and ends exactly with `"</COMMAND>"` (e.g., `<COMMAND>...instructions...</COMMAND>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 2 (XML Tag Pairs): Starts exactly with `\"<PROMPT>\"` and ends exactly with `\"</PROMPT>\"` (e.g., `<PROMPT>...instructions...</PROMPT>`).
+    * Type 2 (XML Tag Pairs): Starts exactly with `"<PROMPT>"` and ends exactly with `"</PROMPT>"` (e.g., `<PROMPT>...instructions...</PROMPT>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 3 (XML Tag Pairs): Starts exactly with `\"<RULE>\"` and ends exactly with `\"</RULE>\"` (e.g., `<RULE>...instructions...</RULE>`).
+    * Type 3 (XML Tag Pairs): Starts exactly with `"<RULE>"` and ends exactly with `"</RULE>"` (e.g., `<RULE>...instructions...</RULE>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 4 (XML Tag Pairs): Starts exactly with `\"<RAILS>\"` and ends exactly with `\"</RAILS>\"` (e.g., `<RAILS>...instructions...</RAILS>`).
+    * Type 4 (XML Tag Pairs): Starts exactly with `"<RAILS>"` and ends exactly with `"</RAILS>"` (e.g., `<RAILS>...instructions...</RAILS>`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 5 (HTML Comment Anchors): Starts exactly with `\"<!--START_COMMAND\"` and ends exactly with `\"END_COMMAND-->\"` (e.g., `<!--START_COMMAND...instructions...END_COMMAND-->`).
+    * Type 5 (HTML Comment Anchors): Starts exactly with `"<!--START_COMMAND"` and ends exactly with `"END_COMMAND-->"` (e.g., `<!--START_COMMAND...instructions...END_COMMAND-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 6 (HTML Comment Anchors): Starts exactly with `\"<!--START_PROMPT\"` and ends exactly with `\"END_PROMPT-->\"` (e.g., `<!--START_PROMPT...instructions...END_PROMPT-->`).
+    * Type 6 (HTML Comment Anchors): Starts exactly with `"<!--START_PROMPT"` and ends exactly with `"END_PROMPT-->"` (e.g., `<!--START_PROMPT...instructions...END_PROMPT-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 7 (HTML Comment Anchors): Starts exactly with `\"<!--START_RULE\"` and ends exactly with `\"END_RULE-->\"` (e.g., `<!--START_RULE...instructions...END_RULE-->`).
+    * Type 7 (HTML Comment Anchors): Starts exactly with `"<!--START_RULE"` and ends exactly with `"END_RULE-->"` (e.g., `<!--START_RULE...instructions...END_RULE-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 8 (HTML Comment Anchors): Starts exactly with `\"<!--START_RAILS\"` and ends exactly with `\"END_RAILS-->\"` (e.g., `<!--START_RAILS...instructions...END_RAILS-->`).
+    * Type 8 (HTML Comment Anchors): Starts exactly with `"<!--START_RAILS"` and ends exactly with `"END_RAILS-->"` (e.g., `<!--START_RAILS...instructions...END_RAILS-->`).
       *   **Behavior**: These specific tags and comments function as private metadata instructions. Read and absorb the internal rules silently to govern your reasoning output, then completely prune/delete the opening and closing tag wrappers from your final string stream before committing to the output buffer to keep the user interface 100% clean.
-    * Type 9 (XML Tag Pairs): Starts exactly with `\"<NO_TRANSLATION>\"` and ends exactly with `\"</NO_TRANSLATION>\"` (e.g., `<NO_TRANSLATION>...instructions...</NO_TRANSLATION>`).
+    * Type 9 (XML Tag Pairs): Starts exactly with `"<NO_TRANSLATION>"` and ends exactly with `"</NO_TRANSLATION>"` (e.g., `<NO_TRANSLATION>...instructions...</NO_TRANSLATION>`).
       *   **Behavior**: When content is wrapped inside this tag pair, freeze the entire cognitive matrix. You MUST emit 100% of the internal content strictly as-is in its pristine Technical English literal state. Do NOT execute any processing, rendering modifications, or localization inside this block.
-    * Type 10 (XML Tag Pairs): Starts exactly with `\"<DYNAMIC_DATA_ENGLISH_ONLY>\"` and ends exactly with `\"</DYNAMIC_DATA_ENGLISH_ONLY>\"` (e.g., `<DYNAMIC_DATA_ENGLISH_ONLY>...instructions...</DYNAMIC_DATA_ENGLISH_ONLY>`).
+    * Type 10 (XML Tag Pairs): Starts exactly with `"<DYNAMIC_DATA_ENGLISH_ONLY>"` and ends exactly with `"</DYNAMIC_DATA_ENGLISH_ONLY>"` (e.g., `<DYNAMIC_DATA_ENGLISH_ONLY>...instructions...</DYNAMIC_DATA_ENGLISH_ONLY>`).
       *   **Behavior**: When variables (`{{ ... }}`) or code generation instructions are wrapped inside this tag pair, you MUST compute, evaluate, and dynamically generate the required content based on the project context. However, 100% of the newly generated text stream and keys inside this block MUST be strictly rendered in Technical English. Translation is absolutely banned.
 
 - **CRITICAL STRING PRUNING & TANG_HINH LAW (ZERO LEAKAGE GATE):**
@@ -108,6 +105,19 @@ The system strictly defines the comprehensive list (custom dynamic tags) of Mand
     * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
     * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
     * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the plain text generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese to satisfy human readability. However, the outer wrapping HTML comment tokens themselves MUST remain untouched, raw, and un-localized in Technical English.
+
+### CORE PROTOCOL: DYNAMIC HIDDEN FRAMEWORK TAG SCANNING LOOP
+- **STRICT LAYOUT SPACING MANDATE:** You ARE ABSOLUTELY AND CRITICALLY BANNED from flattening, compounding, or compressing consecutive markdown elements into a single continuous plaintext line. You MUST strictly preserve and explicitly emit double literal newline carriage returns (`
+
+`) immediately after outputting every single level 2 header `##`, level 3 header `###`, list item `>`, and the closing framework tag `<!--START_...-->`. Every single row of the markdown table matrix MUST start on its own individual fresh newline to guarantee perfect vertical document layout rendering.
+- **OPERATIONAL MANDATE:** You MUST treat this protocol as a top-level hardware syntax rail. When processing any designated segment or chunk activated from the User Message, your execution engine MUST dynamically adapt its output stream anatomy based on real-time token topography parsing.
+- **THE EMISSION & DETECTION LOOP ALGORITHM:**
+  1. **First-Token Anchoring:** Your very first line of output response MUST strictly engrave the exact Markdown header line (starting with `#`, `##`, or `###`) of the active segment rendered visible by the filter.
+  2. **Iterative Scanning Loop Activation:** Immediately after engraving the header line, you MUST activate an internal, line-by-line iterative scanning loop on the input template code block sitting directly beneath that header.
+  3. **Sequential Standalone Token Emission:** If one or multiple hidden HTML framework comment tags (matching the pattern `<!--START_...-->` or any infrastructure parsing hooks) are present sequentially right below that header, you MUST harvest them all. You MUST explicitly output each detected hidden HTML tag on its own individual, standalone newline in the exact sequential order found in the source code.
+  4. **Dynamic Loop Termination:** Continue this detection loop line-by-line until you encounter the very first line that contains zero hidden HTML comment tags (such as encountering a `<RULE>` block, a sub-header, or markdown payload text). The exact microsecond this condition is met, terminate the scanning loop smoothly and immediately transition your execution state to emit the section text, system arithmetic matrix, or data layout as normal.
+- **SUPREME EXEMPTION RAIL:** This scanning loop protocol holds absolute architectural priority and strictly overrides the static freezing constraints of the `UNIVERSAL PREFIX DATA ANCHOR RAILS` explicitly during the initialization phase. You MUST actively process and emit the hidden HTML comment hooks as standalone structural lines before transitioning to the payload.
+- **CRITICAL ANTI-HALT BOUNDARY LAW:** You ARE CRITICALLY AND ABSOLUTELY BANNED from breaking, halting, cutting, or truncating the output token stream while executing or exiting this scanning loop. The token emission flow MUST remain 100% continuous from the infrastructure hooks straight into the compiled business data block.
 </GLOBAL_GOVERNANCE_MATRIX>
 
 <ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -115,30 +125,159 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 
 # YOUR CRITICAL OPERATIONAL MANDATES (COMPLIANCE CODES):
 1. **Dynamic Ceilings as Strict Upper Bounds:** The parameters 5 and 7 represent absolute maximum limits (ceilings) for the architectural timeline, NOT mandatory execution quotas. You are ordered to compute the most optimal, consolidated, and shortest possible timeline (fewer phases or days) that naturally fulfills 100% of the raw requirement tasks.
-
 2. **Absolute Anti-Padding & Uniform Chronological Distribution Rule:** You MUST naturally distribute the core functional requirements and Tag IDs across the calculated architectural phases without artificial compaction. You are ABSOLUTELY BANNED from bundling 100% of the total project workloads into early phases just to lazily terminate the entire document. However, for EACH individual phase, the day count MUST be evaluated independently based on task density: if a phase's requirements are fully covered in 2 or 3 days, you MUST stop generating immediately at that exact local day boundary. You are strictly forbidden from expanding or padding low-density phases with dummy tasks up to the maximum limit of 7 days. The generation process for the entire project must only freeze and terminate when the final calculated phase is completely engineered. Every phase and day generated must contain unique, actionable technical implementation details.
-
 3. **No Chronological Day Bundling & Single Agent Isolation:** Every single active calendar day log must be isolated under its own discrete standalone nested list bullet element (e.g., `- **DAY 1:**`, `- **DAY 2:**`) inside its parent phase. For each specific task or target step within a day, you MUST assign exactly ONE single Sub-Agent persona. Multiple agents sharing or co-executing a single target task is strictly prohibited. The assigned Sub-Agent name MUST strictly use capitalized first-letter formatting (e.g., `Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`) to match the exact phase step and context standard.
-
 4. **Rigid Scope & Tag Boundary Isolation:** You are strictly forbidden from inventing, fabricating, or introducing any new Tag IDs, features, or functional capabilities outside the raw baseline provided by the Initial BA Agent. You MUST achieve 100% exhaustive coverage of the original Tag IDs without adding any synthetic or unassigned tracking codes. Every generated file path (`target_component`) MUST strictly adhere to the designated physical directory masks (including the exact semi-colon separated pairs for the `Tester` sub-agent: `<source_component>;<test_suite_file>`).
-
 5. **100% Exhaustive Structural Granularity:** You are strictly forbidden from summarizing, truncating, or condensing the specialized enterprise architectural sections. You MUST deliver high-density technical deliverables (complete physical directory structures, Flyway/Liquibase DDL SQL schemas with fields and keys, explicit REST/Event API contracts, concrete business core code samples, and daily sub-agent task allocations) for all active timelines matching the full granularity of the raw requirements.
-
-6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and \"Low-Level Technical Task Instructions\" strictly in the language specified by the user: **🇻🇳 Vietnamese**. 
-
+6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the language specified by the user: **🇻🇳 Vietnamese**. 
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
-
 
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
-- **Explicit Start Mandate:** Your output response MUST start exactly with the top-level header: `# GLOBAL PROJECT CONTEXT: membership-hub` after translating it into the target language.
+- **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
 - **Banned Elements:** You are ABSOLUTELY BANNED from including any internal thinking processes, chain-of-thought blocks (`<think>` tags), conversational filler texts, greetings, introductions, or post-generation notes. Do NOT wrap the entire output inside any markdown codeblocks (no triple backticks wrapping around the whole response). Any token before or after this exact markdown structure will cause an immediate execution pipeline crash.
-</ACTIVE_TASK_SYSTEM_INSTRUCTION>"
-    },
-    {
-        "role": "user",
-        "content": "Analyze the attached project requirements. Build the GLOBAL PROJECT CONTEXT for Project 'membership-hub'.
+</ACTIVE_TASK_SYSTEM_INSTRUCTION>
 
+---
+
+# User Prompt 9:
+
+---
+
+# 🚨 MANDATORY ARCHITECTURAL GENERATION CODES
+*You must fully engineer the blueprint report by strictly implementing exactly three engineering protocols:*
+
+#### 🎯 PROTOCOL 1: Dynamic Topology Path Prefixing
+  - You MUST dynamically match the physical directory file path masks to the active system topology extracted from the raw requirements.
+  - Every single generated path parameter string inside the log (`target_component`) MUST utilize the strict Unix forward-slash `/` character as the structural directory delimiter.
+  - You are CRITICALLY AND PERMANENTLY FORBIDDEN from utilizing the package dot notation `.` inside folder names or file boundaries.
+  - Do NOT emit relative paths that assume a sub-module directory is the root:
+    * *IF Backend logic/layer is active:* All backend code, services, database schemas, and database tests must reside strictly under: `./sources/backend/` (If Microservices topology is active, you MUST utilize the alphanumeric lowercase service name as the sub-folder path, e.g., `./sources/backend/<service-name>/`). Skip entirely if project is Frontend-only.
+    * *IF Frontend logic/layer is active:* All client interfaces, responsive views, mobile bundles, and web tests must reside strictly under: `./sources/frontend/` (or `./sources/frontend/<app-name>/` if multiple client applications exist. Skip entirely if project is Backend-only).
+    * *IF DevOps infrastructure logic is active:* All deployment manifests, Dockerfiles, GKE orchestrations, and cloud provisioning scripts must reside strictly under: `./sources/infra/`.
+    * *For Document Asserts:* Prefix paths strictly with: `./sources/docs/`.
+    * For alternative topologies (AI/Data, IoT, Embedded): Paths must strictly map to logical root subdirectories matching the service domain layer under `./sources/`.
+  - Any component path emitted that replaces a forward slash `/` with a directory dot `.` triggers a fatal pipeline integrity exception.
+
+#### 🗄️ PROTOCOL 2: Granular Ceilings-Compliant Task Logs
+  - For each calculated phase necessary to cover the BA inputs (Up to the absolute maximum ceiling of 5 phases), supply a clean chronological daylog breakdown (Up to the absolute ceiling of 7 days per phase). Every single day generated MUST explicitly define the specific assigned sub-agent persona ('Coder' | 'Tester' | 'Reviewer' | 'Doc' | 'Docker' | 'GCP' | 'GKE'), the low-level technical step target, the exact tracking Tag IDs, and the explicit physical relative file path (`target_component`).
+
+#### 🧮 PROTOCOL 3: 100% Vertical Tag Traceability Coverage (ZERO BUNDLING POLICY)
+  - Every single feature, entity, database table column, validation, exception, or infrastructure component outlined across your report MUST be strictly prefixed or appended with the exact corresponding Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[NFR-XXX]`) inherited from the requirements. 
+  - You are STRICTLY BANNED from bundling tags together (e.g., NO `[REQ-001-005]`). Every single tag must be written out individually and separated by commas. Leaving any task or field without its trace tracking identifier inline is a critical framework violation.
+
+#### 🚨 SUB-AGENT BOUNDARY & RESPONSIBILITY ISOLATION MATRIX
+  You MUST strictly isolate the architectural responsibilities of all Sub-Agents listed below. They are separate functional pillars and must NEVER bleed into each other's domain:
+  - 💻 **Coder Agent Role**:
+    * Core Duty: Pure Application Source Code Implementation.
+    * Allowed Actions: Write, refactor, and implement structural logic in application files.
+    * Strict Boundary: Forbidden from writing test suites or enterprise architectural documentation.
+  - 🧪 **Tester Agent Role**:
+    * Core Duty: Test Suite Engineering and Validation.
+    * Allowed Actions: Write unit tests, integration tests, and automation scripts. 
+    * Strict Boundary: Must strictly use the target-test semi-colon pair syntax for `target_component` (`target_test_file;source_code_file`). Forbidden from writing production application code.
+  - 🔍 **Reviewer Agent Role**:
+    * Core Duty: Code Review, Issue/Bug Analysis and Fix Strategy.
+    * Allowed Actions: Inspect code quality, enforce programming standards, detect optimization bottlenecks, analyze structural issues/bugs, and design explicit fix implementations.
+  - 📝 **Doc Agent Role**:
+    * Core Duty: Enterprise Technical Document Writer.
+    * Allowed Actions: Author high-quality Markdown technical specifications, architecture blueprints, API references, and system compliance documents.
+  - 🐳 **Docker Agent Role**:
+    * Core Duty: Containerization and Package Registry Pushing.
+    * Allowed Actions: Build multi-stage Dockerfiles and push container images to target registries.
+  - ☁️ **GCP Agent Role**:
+    * Core Duty: Baseline Google Cloud Platform Infrastructure Provisioning.
+    * Allowed Actions: Build, push configurations, manage core cloud services (VPC, IAM, Storage), and orchestrate general cloud pipeline deployments.
+  - ☸️ **GKE Agent Role**:
+    * Core Duty: Google Kubernetes Engine Workload Orchestration.
+    * Allowed Actions: Build, push configuration files, design Kubernetes deployment manifests, and manage container scaling and release strategies inside GKE clusters.
+
+#### 🔢 EQUAL REQUIREMENT DISTRIBUTION & ZERO-FILLER DAY-CAP PROTOCOL
+  - **Phase Boundary Count**: The total number of architectural phases MUST be exactly "5".
+  - **Requirement Distribution Mandate**: You MUST distribute 100% of all provided project requirements into exactly "5" phases. No requirement can be left unassigned, omitted, or bundled lazily. Every phase from Phase 1 to Phase "5" must receive a balanced subset of requirements.
+  - **Strict Day-Cap & Anti-Filler Rail**:
+    * The maximum number of days within ANY single phase is strictly capped at: "7".
+    * The actual number of days per phase can be LESS than or EQUAL to "7" (e.g., `actual_days <= max_days_per_phase`).
+    * 🚨 **STRICT FORBIDDEN DIRECTIVE**: You are ABSOLUTELY FORBIDDEN from creating "filler days", redundant testing sessions, unnecessary sync setups, or placeholder tasks just to padding the day count up to the maximum limit. If a phase only requires 2 high-density days to fully implement its assigned requirements, you MUST stop at Day 2. Do not hallucinate Day 3 or Day 4.
+    * Every generated day must contain high-utility, actionable enterprise engineering tasks. No empty or duplicate logs.
+
+#### 🚨 CRITICAL FULL TRANSLATION MANDATE
+  - The target generation language for all human-readable outputs is permanently bound to: 🇻🇳 Vietnamese. Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
+  - You MUST fully translate 100% of all headers, section titles, sub-headers, descriptive text, sentences, explanations, phase objectives, phase descriptions, phase section headers / titles / sub-headers / pullet titles, and task instructions into the designated target language.
+
+#### 🚨 DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
+  - Target Output Language Context: 🇻🇳 Vietnamese
+  - You MUST dynamically translate 100% of all user-facing structural components, table headers, phase layouts, and list prefixes into the designated Target Output Language Context.
+  - 🚨 MANDATORY STRUCTURAL MAPPING DIRECTIVE (Translate these dynamically based on the target language context):
+    * All Section and Sub-section Headers MUST be translated contextually into the Target Output Language.
+    * All Table Headers MUST be translated contextually into the Target Output Language.
+    * All list Prefixes and Phase Titles MUST be translated contextually into the Target Output Language.
+  - 🚨 SPECIFIC SECTION CONTENT TRANSLATION RAILS:
+    * For Sections 1 & 2: Translate all comprehensive technical overviews, main headers, sub-headers, section titles, labels, table columns, ecosystem descriptions, stack details, and asynchronous channel analysis.
+    * For Section 3: Translate all , main headers, sub-headers, section titles, labels, table columns, descriptions of workspace rules, compliance standards, and condition explanations.
+    * For Section 4 & 5: Translate all table headers (except technical tokens), main headers, sub-headers, section titles, labels, table columns, deliverables summaries, core objectives, localized exception handling descriptions, and low-level task instruction texts.
+    * For Sections 6, 7 & 8: Translate all detail descriptions of injection countermeasures, main headers, sub-headers, section titles, labels, table columns, security rails, hybrid compliance rules, SEO mechanisms, and pipeline git flow gating rules.
+  - 🚨 RIGID TECHNICAL BOUNDARY & TECHNICAL EXCLUSION ZONE (DO NOT TRANSLATE): You are strictly forbidden from translating or modifying technical structures, including:
+    * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
+    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
+    * All code blocks (SQL DDL, JSON schemas, JSON payloads, Java, etc.) and Mermaid flow diagrams.
+    * All tracking Tag IDs (e.g., `[REQ-XXX]`, `[DAT-XXX]`, `[EXC-XXX]`, `[NFR-XXX]`, `[ARC-XXX]`).
+    * All raw physical file paths starting with `./sources/` and the Tester semi-colon pair syntax.
+    * All strict literal tokens for Sub-Agent names (`Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`).
+    * All hidden HTML comment tags, system data splitters, and data extraction anchors (e.g., `<!--START_DELIMITTER-->`, `<!--END_DELIMITTER-->`, `[PAYLOAD_DELIMITER]`). These must remain in their original raw character format to prevent backend processing errors.
+    * Retain all raw engineering strings: file paths (`./sources/...`), code blocks, Tag IDs (`[REQ-XXX]`, `[DAT-XXX]`, etc.), and strict Sub-Agent literal tokens (`Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`).
+    * 🚨 **STRICT CODE BLOCK FORMATTING LAW**: You are ABSOLUTELY FORBIDDEN from nesting or combining markdown code block ticks. When outputting a JSON payload, you MUST start exactly with a single line of triple backticks followed immediately by 'json' (i.e., ```json). Do NOT prepend or wrap it with ```text or any other outer text syntax. The block must open clean and close clean.
+    * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
+    * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
+  - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
+
+#### MANDATORY SEGMENT INSTRUCTION:  
+
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped lines of standard vertical markdown layout text. You ARE CRITICALLY REQUIRED to retain all structural newline carriage returns, literal newline characters or line break between headers, lists, and table rows to ensure proper document rendering. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
+- **ZERO-THINKING PURE LAYOUT EMISSION LAW:** You ARE ABSOLUTELY AND CRITICALLY BANNED from generating or leaking any intermediate thinking processes, internal reasoning, analytical commentary, introductory prose, or metadata summaries that are not explicitly specified inside the raw template layout skeleton.
+  * STRICT SYNTAX INVARIANT: Your entire output buffer MUST contain 100% pure, un-fenced layout components matching the required visual structure exactly.
+  * ZERO COMPRESSION BANNED FROM BULLETS: For every section that contains table, you ARE PERMANENTLY FORBIDDEN from compressing, transforming, or outputting data of these tables as bullet points (`*` or `-`) below or outside. Every single discovered workload asset of them MUST be injected exclusively and directly into its corresponding row cell inside the physical Markdown table structure (`|`). Any text string, narrative, or bullet list leaked outside the target table cell boundaries will trigger a fatal integration failure.
+
+### 📋 MANDATORY OUTPUT STRUCTURE (MARKDOWN REPORT LAYOUT):
+
+<RULE>
+- **ZERO REPLICATE MANDATE (ANTI-ECHO LAW):** You are STRICTLY BANNED from replicating, copying, or printing any raw lines, paragraphs, or blocks of text from `<SYSTEM_DATA_INJECTION_POOL>`, `<PROJECT_BACKLOG_TASKS_DATA>` or `<PROJECT_SOURCE_GROUNDING_DATA>` into your output response. Those pools are strictly for internal processing, NOT targets for emission.
+- **GLOBAL AUTOMATIC TERMINATION BOUNDARY:** Your very first emitted token MUST be the first visible markdown header line rendered in this active User Message. The exact microsecond you finish printing the last visible data row or string before the active segment's closing HTML framework tag (e.g., `<!--END_...-->`, example: `<!--END_PART_3_FINAL-->`), you MUST trigger an immediate hard stop and terminate the response stream instantly.
+- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
+- **DYNAMIC TARGET ISOLATION LAW (HTML WRAPPER ANCHOR):** Identify the very first active hidden HTML framework comment block (formatted exactly as `<!--START_PART_3_FINAL-->`) rendered visible inside this active User Message. You MUST completely bypass all instruction blocks, metadata matrices, or reference data pools. Your very first emitted token MUST match the exact text of the Markdown header line (starting with `#`, `##`, or `###`) located immediately following that opening HTML tag. Zero preceding words, spaces, or configuration summaries are allowed before it.
+- **STRICT HALT BOUNDARY (ZERO-TAG EXECUTION):** You are strictly commanded to ONLY generate content that exists structurally inside the active HTML framework comment pair currently triggered by the system filter. You ARE ABSOLUTELY AND CRITICALLY BANNED from replicating, echoing, or copying any raw structural chunks from the reference database pool or the `--- RAW REQUIREMENTS ---` section. The exact microsecond you finish printing the final data row or string located immediately before the closing HTML framework comment tag (`<!--END_PART_3_FINAL-->`), you MUST trigger an absolute system hard stop and terminate the response stream instantly.
+- You MUST fully translate them following the rules in `CRITICAL FULL TRANSLATION MANDATE`
+</RULE>
+
+<!--START_PART_3_FINAL-->
+
+### GROUNDING CONTEXT FROM PREVIOUS STEPS
+
+<RULE>
+All the detailed phase logs generated in the `--- GENERATED PHASES CONTEXT ---` section. You MUST review them to ensure the universal security codes match the tech stack implemented.
+</RULE>
+
+## ☣️ 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
+- **SQL Injection (SQLi) Absolute Countermeasures:** <RULE>Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.</RULE>
+- **Cross-Site Scripting (XSS) & Content Security Policy (CSP):** <RULE>Layout standards for automated context sanitization, JSX auto-escaping, and dynamic injection of strict CSP headers (`unsafe-inline` restriction).</RULE>
+- **Multi-Tenant CORS Security Rails:** <RULE>Configurations for origin wildcard prohibitions and dynamic tenant origin database metrics validation.</RULE>
+- **Zero-Leak Log Scrubbing & PII Data Masking Engines:** <RULE>Rules for automated masking interceptors (`@JsonSerialize`) and log scrubbing thresholds.</RULE>
+
+## 📱 7. HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
+- **Capacitor Mobile Hybrid Compliance Rails:** <RULE>[IF Mobile active] Rules for dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions (`@capacitor/preferences`), and hardware back-button interception.</RULE>
+- **Internationalization (i18n) & Dynamic SEO Injection:** <RULE>Edge-layer locale recognition middleware architectures, hreflang dynamic hypermedia control injection, and search crawler robots indexing limits.</RULE>
+
+## 🚀 8. PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
+- **Daily Workspace Forking Isolation:** <RULE>Programmatic forking controls for branch `features/development-phase-X-day-Y` (`X` is the number of phase, from 1 to N, where N <= 5; `Y` is the day number in phase, it will start from 1 for each phase).</RULE>
+- **Validation Guard Pipeline Gates:** <RULE>Execution rules for compilation verification, automated code coverage goals (`>= 85%`), and context summary serialization logs.</RULE>
+
+### 📊 MATRIX COVERAGE CHECK MANDATE
+
+`[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`
+
+<!--END_PART_3_FINAL-->
+
+<PROJECT_SOURCE_GROUNDING_DATA>
 --- RAW REQUIREMENTS ---
 # SOFTWARE REQUIREMENTS SPECIFICATION: membership-hub
 ## 1. TỔNG QUAN DỰ ÁN & KIẾN TRÚC TOÀN CẦU
@@ -198,29 +337,29 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       USERS {
-          uuid userId PK \"Unique identifier\"
-          varchar email \"Email address, not null, unique, max 255 chars\"
-          char passwordHash \"bcrypt hash, not null, length 60\"
-          varchar fullName \"Full name, not null, max 100 chars\"
-          smallint roleId FK \"Foreign key to Roles.roleId\"
-          enum provider \"Auth provider, default local, values: local, firebase, google, facebook\"
-          timestamp createdAt \"Timestamp of creation, not null, default now()\"
-          timestamp updatedAt \"Timestamp of last update, not null, default now()\"
+          uuid userId PK "Unique identifier"
+          varchar email "Email address, not null, unique, max 255 chars"
+          char passwordHash "bcrypt hash, not null, length 60"
+          varchar fullName "Full name, not null, max 100 chars"
+          smallint roleId FK "Foreign key to Roles.roleId"
+          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
+          timestamp createdAt "Timestamp of creation, not null, default now()"
+          timestamp updatedAt "Timestamp of last update, not null, default now()"
       }
       ROLES {
-          smallint roleId PK \"Role identifier, primary key\"
-          varchar name \"Role name, unique, not null, max 30 chars\"
-          varchar description \"Role description, optional, max 200 chars\"
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
       }
-      ROLES ||--o{ USERS : \"roleId\"
+      ROLES ||--o{ USERS : "roleId"
   ```
   **Roles**
   ```mermaid
   erDiagram
       ROLES {
-          smallint roleId PK \"Role identifier, primary key\"
-          varchar name \"Role name, unique, not null, max 30 chars\"
-          varchar description \"Role description, optional, max 200 chars\"
+          smallint roleId PK "Role identifier, primary key"
+          varchar name "Role name, unique, not null, max 30 chars"
+          varchar description "Role description, optional, max 200 chars"
       }
   ```
 ### 2.2 Quản lý trung tâm
@@ -245,12 +384,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       CENTERS {
-          uuid centerId PK \"Unique identifier\"
-          varchar name \"Center name, not null, max 100 chars\"
-          varchar address \"Physical address, not null, max 255 chars\"
-          varchar taxId \"Tax identification number, unique, not null, numeric 10‑13 digits\"
-          varchar contactPhone \"Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses\"
-          varchar contactEmail \"Contact email, optional, must be valid email format\"
+          uuid centerId PK "Unique identifier"
+          varchar name "Center name, not null, max 100 chars"
+          varchar address "Physical address, not null, max 255 chars"
+          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
+          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
+          varchar contactEmail "Contact email, optional, must be valid email format"
       }
   ```
 ### 2.3 Quản lý khóa học
@@ -275,13 +414,13 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       COURSES {
-          uuid courseId PK \"Unique identifier\"
-          varchar title \"Course title, not null, max 150 chars\"
-          text description \"Course description, optional\"
-          date startDate \"Course start date, not null\"
-          date endDate \"Course end date, not null\"
-          uuid teacherId FK \"Foreign key to Users.userId\"
-          int maxStudents \"Course capacity, default 30\"
+          uuid courseId PK "Unique identifier"
+          varchar title "Course title, not null, max 150 chars"
+          text description "Course description, optional"
+          date startDate "Course start date, not null"
+          date endDate "Course end date, not null"
+          uuid teacherId FK "Foreign key to Users.userId"
+          int maxStudents "Course capacity, default 30"
       }
   ```
 ### 2.4 Đăng ký & ghi danh học viên
@@ -304,10 +443,10 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       ENROLLMENTS {
-          uuid enrollmentId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          uuid courseId FK \"Foreign key to Courses.courseId\"
-          timestamp enrollmentDate \"Date of enrollment, default now()\"
+          uuid enrollmentId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          timestamp enrollmentDate "Date of enrollment, default now()"
       }
   ```
 ### 2.5 Điểm danh & quét mã QR
@@ -331,11 +470,11 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       ATTENDANCE {
-          uuid attendanceId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          uuid courseId FK \"Foreign key to Courses.courseId\"
-          date attendanceDate \"Date of attendance, not null\"
-          timestamp timestamp \"Exact time recorded, default now()\"
+          uuid attendanceId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          uuid courseId FK "Foreign key to Courses.courseId"
+          date attendanceDate "Date of attendance, not null"
+          timestamp timestamp "Exact time recorded, default now()"
       }
   ```
 ### 2.6 Quản lý thẻ hội viên
@@ -358,11 +497,11 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       STUDENTCARDS {
-          uuid cardId PK \"Unique identifier\"
-          uuid studentId FK \"Foreign key to Users.userId\"
-          date issueDate \"Card issue date, not null\"
-          int validityDays \"Total validity days, not null\"
-          int remainingDays \"Computed days left until expiry\"
+          uuid cardId PK "Unique identifier"
+          uuid studentId FK "Foreign key to Users.userId"
+          date issueDate "Card issue date, not null"
+          int validityDays "Total validity days, not null"
+          int remainingDays "Computed days left until expiry"
       }
   ```
 ### 2.7 Thông báo & truyền thông
@@ -383,12 +522,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       NOTIFICATIONS {
-          uuid notificationId PK \"Unique identifier\"
-          uuid userId FK \"Target user, optional\"
-          varchar groupZalo \"Target Zalo group, optional\"
-          text message \"Notification content, not null\"
-          timestamp sentAt \"When sent, default now()\"
-          boolean delivered \"Delivery status, default false\"
+          uuid notificationId PK "Unique identifier"
+          uuid userId FK "Target user, optional"
+          varchar groupZalo "Target Zalo group, optional"
+          text message "Notification content, not null"
+          timestamp sentAt "When sent, default now()"
+          boolean delivered "Delivery status, default false"
       }
   ```
 ### 2.8 Quản lý khuyến mãi & thông báo
@@ -411,23 +550,23 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       PROMOTIONS {
-          uuid promoId PK \"Unique identifier\"
-          varchar code \"Discount code, unique\"
-          smallint discountPercent \"Discount percentage, not null\"
-          date startDate \"Promotion start, optional\"
-          date endDate \"Promotion end, optional\"
-          text description \"Promo details, optional\"
+          uuid promoId PK "Unique identifier"
+          varchar code "Discount code, unique"
+          smallint discountPercent "Discount percentage, not null"
+          date startDate "Promotion start, optional"
+          date endDate "Promotion end, optional"
+          text description "Promo details, optional"
       }
   ```
   **Announcements**
   ```mermaid
   erDiagram
       ANNOUNCEMENTS {
-          uuid announcementId PK \"Unique identifier\"
-          varchar title \"Title, not null, max 150 chars\"
-          text content \"Content, not null, max 2000 chars\"
-          date startDate \"Effective start, optional\"
-          date endDate \"Effective end, optional\"
+          uuid announcementId PK "Unique identifier"
+          varchar title "Title, not null, max 150 chars"
+          text content "Content, not null, max 2000 chars"
+          date startDate "Effective start, optional"
+          date endDate "Effective end, optional"
       }
   ```
 ### 2.9 Chatbot dịch vụ khách hàng AI
@@ -480,9 +619,9 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   ```mermaid
   erDiagram
       SYSTEMSETTINGS {
-          varchar settingKey PK \"Configuration key\"
-          text settingValue \"Configuration value, not null\"
-          varchar description \"Meaning of setting, optional\"
+          varchar settingKey PK "Configuration key"
+          text settingValue "Configuration value, not null"
+          varchar description "Meaning of setting, optional"
       }
   ```
 ### 2.12 Báo cáo & phân tích
@@ -513,732 +652,1027 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 - [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
 - [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
 --- END REQUIREMENTS ---
+</PROJECT_SOURCE_GROUNDING_DATA>
 
-# 🚨 MANDATORY ARCHITECTURAL GENERATION CODES
-*You must fully engineer the blueprint report by strictly implementing exactly three engineering protocols:*
+<GENERATED_PHASES_CONTEXT>
+--- GENERATED PHASES CONTEXT ---
+### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-#### 🎯 PROTOCOL 1: Dynamic Topology Path Prefixing
-  - You MUST dynamically match the physical directory file path masks to the active system topology extracted from the raw requirements.
-  - Every single generated path parameter string inside the log (`target_component`) MUST utilize the strict Unix forward-slash `/` character as the structural directory delimiter.
-  - You are CRITICALLY AND PERMANENTLY FORBIDDEN from utilizing the package dot notation `.` inside folder names or file boundaries.
-  - Do NOT emit relative paths that assume a sub-module directory is the root:
-    * *IF Backend logic/layer is active:* All backend code, services, database schemas, and database tests must reside strictly under: `./sources/backend/` (If Microservices topology is active, you MUST utilize the alphanumeric lowercase service name as the sub-folder path, e.g., `./sources/backend/<service-name>/`). Skip entirely if project is Frontend-only.
-    * *IF Frontend logic/layer is active:* All client interfaces, responsive views, mobile bundles, and web tests must reside strictly under: `./sources/frontend/` (or `./sources/frontend/<app-name>/` if multiple client applications exist. Skip entirely if project is Backend-only).
-    * *IF DevOps infrastructure logic is active:* All deployment manifests, Dockerfiles, GKE orchestrations, and cloud provisioning scripts must reside strictly under: `./sources/infra/`.
-    * *For Document Asserts:* Prefix paths strictly with: `./sources/docs/`.
-    * For alternative topologies (AI/Data, IoT, Embedded): Paths must strictly map to logical root subdirectories matching the service domain layer under `./sources/`.
-  - Any component path emitted that replaces a forward slash `/` with a directory dot `.` triggers a fatal pipeline integrity exception.
-
-#### 🗄️ PROTOCOL 2: Granular Ceilings-Compliant Task Logs
-  - For each calculated phase necessary to cover the BA inputs (Up to the absolute maximum ceiling of 5 phases), supply a clean chronological daylog breakdown (Up to the absolute ceiling of 7 days per phase). Every single day generated MUST explicitly define the specific assigned sub-agent persona ('Coder' | 'Tester' | 'Reviewer' | 'Doc' | 'Docker' | 'GCP' | 'GKE'), the low-level technical step target, the exact tracking Tag IDs, and the explicit physical relative file path (`target_component`).
-
-#### 🧮 PROTOCOL 3: 100% Vertical Tag Traceability Coverage (ZERO BUNDLING POLICY)
-  - Every single feature, entity, database table column, validation, exception, or infrastructure component outlined across your report MUST be strictly prefixed or appended with the exact corresponding Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[NFR-XXX]`) inherited from the requirements. 
-  - You are STRICTLY BANNED from bundling tags together (e.g., NO `[REQ-001-005]`). Every single tag must be written out individually and separated by commas. Leaving any task or field without its trace tracking identifier inline is a critical framework violation.
-
-#### 🚨 SUB-AGENT BOUNDARY & RESPONSIBILITY ISOLATION MATRIX
-  You MUST strictly isolate the architectural responsibilities of all Sub-Agents listed below. They are separate functional pillars and must NEVER bleed into each other's domain:
-  - 💻 **Coder Agent Role**:
-    * Core Duty: Pure Application Source Code Implementation.
-    * Allowed Actions: Write, refactor, and implement structural logic in application files.
-    * Strict Boundary: Forbidden from writing test suites or enterprise architectural documentation.
-  - 🧪 **Tester Agent Role**:
-    * Core Duty: Test Suite Engineering and Validation.
-    * Allowed Actions: Write unit tests, integration tests, and automation scripts. 
-    * Strict Boundary: Must strictly use the target-test semi-colon pair syntax for `target_component` (`target_test_file;source_code_file`). Forbidden from writing production application code.
-  - 🔍 **Reviewer Agent Role**:
-    * Core Duty: Code Review, Issue/Bug Analysis and Fix Strategy.
-    * Allowed Actions: Inspect code quality, enforce programming standards, detect optimization bottlenecks, analyze structural issues/bugs, and design explicit fix implementations.
-  - 📝 **Doc Agent Role**:
-    * Core Duty: Enterprise Technical Document Writer.
-    * Allowed Actions: Author high-quality Markdown technical specifications, architecture blueprints, API references, and system compliance documents.
-  - 🐳 **Docker Agent Role**:
-    * Core Duty: Containerization and Package Registry Pushing.
-    * Allowed Actions: Build multi-stage Dockerfiles and push container images to target registries.
-  - ☁️ **GCP Agent Role**:
-    * Core Duty: Baseline Google Cloud Platform Infrastructure Provisioning.
-    * Allowed Actions: Build, push configurations, manage core cloud services (VPC, IAM, Storage), and orchestrate general cloud pipeline deployments.
-  - ☸️ **GKE Agent Role**:
-    * Core Duty: Google Kubernetes Engine Workload Orchestration.
-    * Allowed Actions: Build, push configuration files, design Kubernetes deployment manifests, and manage container scaling and release strategies inside GKE clusters.
-
-#### 🔢 EQUAL REQUIREMENT DISTRIBUTION & ZERO-FILLER DAY-CAP PROTOCOL
-  - **Phase Boundary Count**: The total number of architectural phases MUST be exactly \"5\".
-  - **Requirement Distribution Mandate**: You MUST distribute 100% of all provided project requirements into exactly \"5\" phases. No requirement can be left unassigned, omitted, or bundled lazily. Every phase from Phase 1 to Phase \"5\" must receive a balanced subset of requirements.
-  - **Strict Day-Cap & Anti-Filler Rail**:
-    * The maximum number of days within ANY single phase is strictly capped at: \"7\".
-    * The actual number of days per phase can be LESS than or EQUAL to \"7\" (e.g., `actual_days <= max_days_per_phase`).
-    * 🚨 **STRICT FORBIDDEN DIRECTIVE**: You are ABSOLUTELY FORBIDDEN from creating \"filler days\", redundant testing sessions, unnecessary sync setups, or placeholder tasks just to padding the day count up to the maximum limit. If a phase only requires 2 high-density days to fully implement its assigned requirements, you MUST stop at Day 2. Do not hallucinate Day 3 or Day 4.
-    * Every generated day must contain high-utility, actionable enterprise engineering tasks. No empty or duplicate logs.
-
-#### 🚨 CRITICAL FULL TRANSLATION MANDATE
-  - The target generation language for all human-readable outputs is permanently bound to: \"🇻🇳 Vietnamese\". Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
-  - You MUST fully translate 100% of all headers, section titles, sub-headers, descriptive text, sentences, explanations, phase objectives, phase descriptions, phase section headers / titles / sub-headers / pullet titles, and task instructions into the designated target language.
-
-#### 🚨 DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
-  - Target Output Language Context: \"🇻🇳 Vietnamese\"
-  - You MUST dynamically translate 100% of all user-facing structural components, table headers, phase layouts, and list prefixes into the designated Target Output Language Context.
-  - 🚨 MANDATORY STRUCTURAL MAPPING DIRECTIVE (Translate these dynamically based on the target language context):
-    * All Section and Sub-section Headers (including entire header of ouput markdown report, example `GLOBAL PROJECT CONTEXT`) MUST be translated contextually.
-    * Table Headers MUST be translated (e.g., in Vietnamese: `Phase` -> `Giai đoạn`, `Day Range` -> `Khoảng ngày`, `Component / Module Path` -> `Đường dẫn Cấu phần / Module`, `Deliverables Summary` -> `Tóm tắt Sản phẩm Bàn giao`, `Sub-Agent` -> `Sub-Agent`, `Targeted Tag IDs` -> `Tag IDs Mục tiêu`).
-    * List Prefixes and Phase Titles MUST be translated (e.g., in Vietnamese: `Phase [X] Detailed Architectural Specification` -> `Đặc tả Kiến trúc Chi tiết Giai đoạn [X]`, `Phase Core Objective & Purpose` -> `Mục tiêu Cốt lõi & Mục đích của Giai đoạn`, `Target Physical Directory Matrix Map` -> `Ma trận Bản đồ Thư mục Vật lý Mục tiêu`, `Database Schema DDL SQL Specification` -> `Đặc tả DDL SQL Schema Cơ sở Dữ liệu`, `API and Event Routing Contracts` -> `Hợp đồng Định tuyến API và Sự kiện`).
-  - 🚨 SPECIFIC SECTION CONTENT TRANSLATION RAILS:
-    * For Sections 1 & 2: Translate all comprehensive technical overviews, main headers, sub-headers, section titles, labels, table columns, ecosystem descriptions, stack details, and asynchronous channel analysis.
-    * For Section 3: Translate all , main headers, sub-headers, section titles, labels, table columns, descriptions of workspace rules, compliance standards, and condition explanations.
-    * For Section 4 & 5: Translate all table headers (except technical tokens), main headers, sub-headers, section titles, labels, table columns, deliverables summaries, core objectives, localized exception handling descriptions, and low-level task instruction texts.
-    * For Sections 6, 7 & 8: Translate all detail descriptions of injection countermeasures, main headers, sub-headers, section titles, labels, table columns, security rails, hybrid compliance rules, SEO mechanisms, and pipeline git flow gating rules.
-  - 🚨 RIGID TECHNICAL BOUNDARY & TECHNICAL EXCLUSION ZONE (DO NOT TRANSLATE): You are strictly forbidden from translating or modifying technical structures, including:
-    * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
-    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
-    * All code blocks (SQL DDL, JSON schemas, JSON payloads, Java, etc.) and Mermaid flow diagrams.
-    * All tracking Tag IDs (e.g., `[REQ-XXX]`, `[DAT-XXX]`, `[EXC-XXX]`, `[NFR-XXX]`, `[ARC-XXX]`).
-    * All raw physical file paths starting with `./sources/` and the Tester semi-colon pair syntax.
-    * All strict literal tokens for Sub-Agent names (`Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`).
-    * All hidden HTML comment tags, system data splitters, and data extraction anchors (e.g., `<!--START_DELIMITTER-->`, `<!--END_DELIMITTER-->`, `[PAYLOAD_DELIMITER]`). These must remain in their original raw character format to prevent backend processing errors.
-    * Retain all raw engineering strings: file paths (`./sources/...`), code blocks, Tag IDs (`[REQ-XXX]`, `[DAT-XXX]`, etc.), and strict Sub-Agent literal tokens (`Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`).
-    * 🚨 **STRICT CODE BLOCK FORMATTING LAW**: You are ABSOLUTELY FORBIDDEN from nesting or combining markdown code block ticks. When outputting a JSON payload, you MUST start exactly with a single line of triple backticks followed immediately by 'json' (i.e., ```json). Do NOT prepend or wrap it with ```text or any other outer text syntax. The block must open clean and close clean.
-    * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
-    * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
-
-### 📋 MANDATORY OUTPUT STRUCTURE (MARKDOWN REPORT LAYOUT):
-You MUST include every single section below without exception to satisfy enterprise compliance requirements, and fully translating them following the rules in `CRITICAL FULL TRANSLATION MANDATE`:
-
-<RULE>
-- **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
-</RULE>
-
-
-
-
-
-
-MANDATORY SEGMENT INSTRUCTION:
-- You are strictly commanded to ONLY generate Section 6 (UNIVERSAL CODE PATTERNS), Section 7 (ENVIRONMENT MANIFESTS), and Section 8 (GIT FLOW BRANCHING POLICY).
-- **STRICT NO-HEADER & NO-BACKTICK MANDATE:** You are ABSOLUTELY FORBIDDEN from generating the top-level main title `# GLOBAL PROJECT CONTEXT` inside this response.
-- **RAW EMISSION RAIL:** You MUST NOT wrap your response inside triple backticks (```markdown ... ```). Start your stream immediately with the literal string `## 6. UNIVERSAL CODE PATTERNS & ENVIRONMENT SPECIFICATIONS`.
-- Absolutely DO NOT repeat, summarize, or leak any information from Section 1 to Section 5. Halt execution immediately after finishing Section 8.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### GROUNDING CONTEXT FROM PREVIOUS STEPS
-
-
-Below are all the detailed phase logs generated in Part 2. You MUST review them to ensure the universal security codes match the tech stack implemented:
-<PREVIOUS_STEP_PHASE_LOGS>
-### Phase 1 Logs:
-- **NGÀY 1: Thiết lập môi trường phát triển và triển khai cơ bản**
+##### 📅 Ngày 1: Thiết lập cấu trúc dự án, schema cơ sở dữ liệu và xác thực cốt lõi
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Docker]
-* **Targeted Tag IDs:** [ARC-010]
-* **Target Component file path (target_component):** ./sources/infra/docker-compose.yml
-* **Low-Level Technical Task Instruction:** Tạo tệp docker-compose.yml để định nghĩa các dịch vụ cơ bản: PostgreSQL, Redis, và một dịch vụ Quarkus mẫu. Đảm bảo cấu hình các biến môi trường cần thiết và các mạng lưới kết nối.
+###### 🌿 Phụ công việc 1: Thiết lập cấu trúc dự án microservice và schema cơ sở dữ liệu cốt lõi
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/main/resources/db/migration/V1__init_core_schema.sql`; `./sources/backend/center-service/src/main/resources/db/migration/V1__init_core_schema.sql`; `./sources/docs/architecture/database-schema.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tạo cấu trúc thư mục microservice cho user-service và center-service theo chuẩn Quarkus, triển khai script migration Flyway cho tất cả các bảng cốt lõi (users, roles, centers, courses, enrollments, attendance, student_cards, notifications, promotions, announcements, system_settings) với cấu trúc cột, khóa chính/khóa ngoại, ràng buộc CHECK và index như đã định nghĩa trong đặc tả DDL của giai đoạn. Viết tài liệu mô tả schema cơ sở dữ liệu với sơ đồ ERD và giải thích các ràng buộc toàn vẹn dữ liệu.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [GCP]
-* **Targeted Tag IDs:** [ARC-010]
-* **Target Component file path (target_component):** ./sources/infra/gcp-init.sh
-* **Low-Level Technical Task Instruction:** Viết kịch bản shell để khởi tạo các dịch vụ cơ bản trên GCP: tạo một VPC, một cụm Kubernetes (GKE), và một bucket lưu trữ cho các tài liệu tĩnh.
+###### 🌿 Phụ công việc 2: Cấu hình RBAC và tích hợp xác thực JWT/OAuth2 cơ bản
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/main/java/com/membershiphub/auth/JwtAuthFilter.java`; `./sources/backend/user-service/src/main/java/com/membershiphub/auth/OAuth2Handler.java`; `./sources/backend/user-service/src/main/java/com/membershiphub/auth/RbacEnforcer.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai bộ lọc xác thực JWT để xác thực token trên mọi yêu cầu API, tích hợp OAuth2 với Firebase, Google, Facebook, cấu hình cơ chế refresh token với thời hạn 7 ngày, triển khai logic phân quyền dựa trên vai trò người dùng (RBAC) với các quy tắc: System Admin có toàn quyền trên tất cả trung tâm, Center Admin chỉ quản lý trung tâm của mình, Manager có thể tạo thông báo, quản lý học viên, xem danh sách khóa học, Teacher chỉ xem khóa học và lịch dạy của mình, Student chỉ duyệt khóa học và xem thẻ hội viên cá nhân.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Triển khai endpoint đăng ký `POST /api/v1/auth/register` [REQ-001], endpoint đăng nhập `POST /api/v1/auth/login` [REQ-001], endpoint xác thực OAuth2 `POST /api/v1/auth/oauth/{provider}` [REQ-002], xử lý logic tạo bản ghi người dùng mặc định với vai trò Student, trả về JWT access token (hết hạn 15 phút) và refresh token. Kích hoạt sự kiện `user.registered` khi người dùng đăng ký thành công.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Triển khai trình xử lý ngoại lệ [EXC-004] trả về mã lỗi 400 Bad Request với thông báo chi tiết từng trường lỗi khi đầu vào không hợp lệ (email sai định dạng, mật khẩu yếu, thiếu trường bắt buộc).
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [GKE]
-* **Targeted Tag IDs:** [ARC-010]
-* **Target Component file path (target_component):** ./sources/infra/gke-deployment.yaml
-* **Low-Level Technical Task Instruction:** Tạo tệp cấu hình Kubernetes để triển khai các dịch vụ cơ bản trên GKE. Đảm bảo cấu hình các tài nguyên CPU, bộ nhớ, và các chính sách bảo mật.
+###### 🌿 Phụ công việc 3: Viết tài liệu kiến trúc tổng quan hệ thống
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [ARC-001], [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/system-overview.md`; `./sources/docs/architecture/auth-flow.md`; `./sources/docs/architecture/rbac-matrix.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu kiến trúc tổng quan hệ thống mô tả kiến trúc microservice, luồng dữ liệu chính (xác thực, điểm danh QR, thông báo), ma trận RBAC chi tiết cho 5 vai trò người dùng, tích hợp các dịch vụ bên thứ ba (Firebase Authentication, FCM/APNs, Zalo API, Redis caching). Viết tài liệu mô tả luồng xác thực OAuth2/JWT, luồng xử lý điểm danh QR idempotent, luồng gửi thông báo đa kênh.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 2: Thiết lập cơ sở dữ liệu và dịch vụ xác thực**
+##### 📅 Ngày 2: Triển khai chức năng đăng ký, xác thực người dùng và xác thực mạng xã hội
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
-* **Target Component file path (target_component):** ./sources/backend/src/main/resources/db/migration/V1__Initial_Schema.sql
-* **Low-Level Technical Task Instruction:** Viết các lệnh DDL SQL để tạo các bảng cơ sở dữ liệu: Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, và SystemSettings. Đảm bảo các ràng buộc khóa ngoại, chỉ mục, và các ràng buộc kiểm tra.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [ARC-006]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/auth/AuthService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ xác thực để hỗ trợ đăng nhập qua email/mật khẩu, Firebase, Google, và Facebook. Đảm bảo mã hóa mật khẩu và cấp JWT token.
+###### 🌿 Phụ công việc 1: Triển khai logic đăng ký và đăng nhập người dùng [REQ-001], [EXC-004]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-001], [EXC-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java`; `./sources/backend/user-service/src/main/java/com/membershiphub/user/UserDTO.java`; `./sources/backend/user-service/src/main/java/com/membershiphub/user/UserController.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai logic đăng ký người dùng với email/mật khẩu, xác thực đầu vào (định dạng email hợp lệ, mật khẩu có ít nhất 8 ký tự bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt), mã hóa mật khẩu bằng bcrypt, tạo bản ghi người dùng mặc định với vai trò Student, trả về JWT token sau khi đăng ký thành công. Triển khai logic đăng nhập với email/mật khẩu, xác thực thông tin và cấp token.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Hoàn thiện endpoint `POST /api/v1/auth/register` và `POST /api/v1/auth/login` với schema request/response đầy đủ, tích hợp validation annotation cho các trường đầu vào.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Triển khai trình xử lý ngoại lệ [EXC-004] trả về danh sách lỗi chi tiết từng trường khi đầu vào không hợp lệ, mã lỗi 400 Bad Request.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [ARC-006]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/auth/AuthServiceTest.java;./sources/backend/src/main/java/com/membershiphub/auth/AuthService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ xác thực. Đảm bảo các trường hợp kiểm thử bao gồm đăng nhập thành công, đăng nhập thất bại, và cấp JWT token.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **NGÀY 3: Triển khai dịch vụ điểm danh và quản lý người dùng**
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-012], [REQ-013], [EXC-001], [EXC-002]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/attendance/AttendanceService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ điểm danh để xử lý quét mã QR và ghi lại điểm danh. Đảm bảo tính bất biến của điểm danh và xử lý các trường hợp ngoại lệ.
+###### 🌿 Phụ công việc 2: Triển khai xác thực người dùng qua mạng xã hội [REQ-002]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-002]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/main/java/com/membershiphub/auth/OAuth2Service.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tích hợp OAuth2 với Firebase, Google, Facebook, xử lý mã xác thực từ nhà cung cấp, lấy thông tin người dùng, tạo hoặc cập nhật bản ghi người dùng cục bộ, cấp JWT token sau khi xác thực thành công. Lưu trữ thông tin nhà cung cấp xác thực vào trường provider của bảng users.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Hoàn thiện endpoint `POST /api/v1/auth/oauth/{provider}` với xử lý logic trao đổi mã xác thực lấy thông tin người dùng, trả về JWT token và thông tin người dùng.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Xử lý lỗi khi mã xác thực OAuth2 không hợp lệ hoặc hết hạn, trả về mã lỗi 401 Unauthorized với thông báo "Mã xác thực không hợp lệ hoặc đã hết hạn".
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003], [EXC-004]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/user/UserService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý người dùng để xử lý đăng ký, xác thực qua mạng xã hội, và phân quyền người dùng. Đảm bảo xử lý các trường hợp ngoại lệ đầu vào không hợp lệ.
+###### 🌿 Phụ công việc 3: Viết unit test cho chức năng xác thực người dùng
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-001], [REQ-002], [EXC-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/test/java/com/membershiphub/auth/AuthServiceTest.java`; `./sources/backend/user-service/src/test/java/com/membershiphub/user/UserServiceTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các trường hợp: đăng ký thành công với email/mật khẩu hợp lệ, đăng ký thất bại với email đã tồn tại, đăng nhập thành công với thông tin hợp lệ, đăng nhập thất bại với mật khẩu sai, xác thực OAuth2 thành công với Google/Facebook, xác thực thất bại với mã không hợp lệ. Đảm bảo độ phủ mã ít nhất 90% cho các lớp xử lý xác thực.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 Ngày 3: Triển khai API quản lý vai trò người dùng và quản lý trung tâm cơ bản
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 1: Triển khai API quản lý vai trò người dùng [REQ-003]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-003], [ARC-001], [ARC-003]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/main/java/com/membershiphub/user/RoleController.java`; `./sources/backend/user-service/src/main/java/com/membershiphub/user/RoleService.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API `PUT /api/v1/users/{userId}/role` để cập nhật vai trò người dùng, kiểm tra quyền của người thực hiện thao tác (chỉ System Admin được phép thay đổi vai trò), cập nhật cột role_id trong bảng users, áp dụng quyền truy cập mới ngay lập tức.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Định nghĩa schema request body `{roleId: number}`, response body `{userId, roleId, roleName, permissions}`. Kích hoạt sự kiện `user.role.updated` khi vai trò thay đổi.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Trả về mã lỗi 403 Forbidden nếu người thực hiện không có quyền thay đổi vai trò, mã lỗi 404 Not Found nếu người dùng không tồn tại, mã lỗi 400 Bad Request nếu roleId không hợp lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-012], [REQ-013], [EXC-001], [EXC-002]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java;./sources/backend/src/main/java/com/membershiphub/attendance/AttendanceService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ điểm danh. Đảm bảo các trường hợp kiểm thử bao gồm quét mã QR thành công, quét mã QR trùng lặp, và xử lý ngoại lệ mạng.
+###### 🌿 Phụ công việc 2: Triển khai API quản lý trung tâm (CRUD) [REQ-004], [REQ-005]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-004], [REQ-005], [ARC-002]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterController.java`; `./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterService.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai các API CRUD cho trung tâm: `GET /api/v1/centers` (lấy danh sách trung tâm với địa chỉ, mã số thuế, thông tin liên hệ quản trị), `POST /api/v1/centers` (tạo trung tâm mới), `PUT /api/v1/centers/{centerId}` (cập nhật thông tin trung tâm), `DELETE /api/v1/centers/{centerId}` (xóa trung tâm). Kiểm tra tính duy nhất của mã số thuế khi tạo hoặc cập nhật trung tâm.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Định nghĩa schema request/response cho các endpoint CRUD trung tâm, kích hoạt sự kiện `center.created` khi trung tâm mới được tạo, `center.updated` khi thông tin trung tâm thay đổi.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Trả về mã lỗi 409 Conflict nếu mã số thuế đã tồn tại, mã lỗi 404 Not Found nếu trung tâm không tồn tại khi cập nhật/xóa, mã lỗi 403 Forbidden nếu người dùng không có quyền quản lý trung tâm.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-001], [REQ-002], [REQ-003], [EXC-004]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/user/UserServiceTest.java;./sources/backend/src/main/java/com/membershiphub/user/UserService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ quản lý người dùng. Đảm bảo các trường hợp kiểm thử bao gồm đăng ký thành công, đăng ký thất bại, và phân quyền người dùng.
+###### 🌿 Phụ công việc 3: Viết unit test cho API quản lý vai trò và trung tâm
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-003], [REQ-004], [REQ-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/test/java/com/membershiphub/user/RoleControllerTest.java`; `./sources/backend/center-service/src/test/java/com/membershiphub/center/CenterControllerTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test và integration test cho các endpoint quản lý vai trò và trung tâm, bao gồm các trường hợp thành công, lỗi phân quyền, lỗi trùng lặp mã số thuế, lỗi không tìm thấy tài nguyên. Đảm bảo độ phủ mã ít nhất 90% cho các lớp controller và service tương ứng.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 4: Triển khai dịch vụ quản lý trung tâm và khóa học**
+##### 📅 Ngày 4: Triển khai phân quyền quản trị trung tâm và tích hợp xác thực toàn hệ thống
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-004], [REQ-005], [REQ-006]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/center/CenterService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý trung tâm để xử lý xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-007], [REQ-008], [REQ-009]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/course/CourseService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý khóa học để xử lý xem danh sách khóa học, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
+###### 🌿 Phụ công việc 1: Triển khai API phân quyền quản trị trung tâm [REQ-006]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-006], [ARC-002]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterAdminController.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API `POST /api/v1/centers/{centerId}/admins` để gán quyền quản trị viên cho trung tâm cho người dùng được chọn, cập nhật vai trò người dùng thành 'CENTER_ADMIN' và lưu liên kết trung tâm. Triển khai API `DELETE /api/v1/centers/{centerId}/admins/{userId}` để thu hồi quyền quản trị viên, đặt lại vai trò người dùng về 'Student' và xóa liên kết trung tâm.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Định nghĩa schema request/response cho các endpoint phân quyền quản trị trung tâm, kích hoạt sự kiện `center.admin.assigned` khi quyền được gán hoặc thu hồi.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Trả về mã lỗi 403 Forbidden nếu người thực hiện không phải là System Admin, mã lỗi 404 Not Found nếu trung tâm hoặc người dùng không tồn tại, mã lỗi 400 Bad Request nếu người dùng đã là quản trị viên của trung tâm khác.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-004], [REQ-005], [REQ-006]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/center/CenterServiceTest.java;./sources/backend/src/main/java/com/membershiphub/center/CenterService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ quản lý trung tâm. Đảm bảo các trường hợp kiểm thử bao gồm xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
+###### 🌿 Phụ công việc 2: Tích hợp và kiểm tra luồng xác thực toàn hệ thống
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [ARC-006], [REQ-001], [REQ-002], [REQ-003]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/test/java/com/membershiphub/auth/AuthIntegrationTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện kiểm tra tích hợp toàn bộ luồng xác thực: đăng ký người dùng mới -> đăng nhập với email/mật khẩu -> đăng nhập với OAuth2 Google/Facebook -> sử dụng JWT token truy cập các endpoint được bảo vệ -> kiểm tra refresh token hoạt động đúng khi access token hết hạn. Kiểm tra logic phân quyền RBAC hoạt động đúng với từng vai trò người dùng.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Xử lý lỗi khi JWT token không hợp lệ hoặc hết hạn, trả về mã lỗi 401 Unauthorized với thông báo "Token xác thực không hợp lệ hoặc đã hết hạn".
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-007], [REQ-008], [REQ-009]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/course/CourseServiceTest.java;./sources/backend/src/main/java/com/membershiphub/course/CourseService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ quản lý khóa học. Đảm bảo các trường hợp kiểm thử bao gồm xem danh sách khóa học, tạo/cập nhật/xóa khóa học, và phân công giáo viên vào khóa học.
+###### 🌿 Phụ công việc 3: Xây dựng Dockerfile đa giai đoạn cho service backend
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/Dockerfile`; `./sources/backend/center-service/Dockerfile`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Xây dựng Dockerfile đa giai đoạn cho user-service và center-service, sử dụng base image JDK 21 slim, tối ưu kích thước hình ảnh dưới 200MB, cấu hình biến môi trường cho kết nối cơ sở dữ liệu, cổng ứng dụng và cấu hình xác thực.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 5: Triển khai dịch vụ đăng ký và quản lý thẻ hội viên**
+##### 📅 Ngày 5: Viết integration test và kiểm tra chất lượng mã nguồn
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-010], [REQ-011]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/enrollment/EnrollmentService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ đăng ký và quản lý thẻ hội viên để xử lý duyệt khóa học và đăng ký khóa học của học viên.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-014], [REQ-015]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/card/CardService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý thẻ hội viên để xử lý hiển thị tính hợp lệ của thẻ và gia hạn thẻ.
+###### 🌿 Phụ công việc 1: Viết integration test cho luồng chức năng người dùng và trung tâm
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/src/test/java/com/membershiphub/user/UserIntegrationTest.java`; `./sources/backend/center-service/src/test/java/com/membershiphub/center/CenterIntegrationTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết integration test cho các luồng: đăng ký người dùng -> đăng nhập -> cập nhật vai trò -> gán quyền quản trị trung tâm -> quản lý thông tin trung tâm. Kiểm tra tính toàn vẹn dữ liệu, ràng buộc khóa ngoại, logic phân quyền hoạt động đúng. Đảm bảo độ phủ tích hợp ít nhất 85%.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-010], [REQ-011]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java;./sources/backend/src/main/java/com/membershiphub/enrollment/EnrollmentService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ đăng ký và quản lý thẻ hội viên. Đảm bảo các trường hợp kiểm thử bao gồm duyệt khóa học và đăng ký khóa học của học viên.
+###### 🌿 Phụ công việc 2: Kiểm tra chất lượng mã và sửa lỗi
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [EXC-004], [NFR-003]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/`; `./sources/backend/center-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho tất cả các mã nguồn của user-service và center-service, phát hiện lỗi cú pháp, lỗi logic, điểm nghẽn hiệu suất, vi phạm chuẩn mã hóa, đề xuất và thực hiện sửa lỗi. Đảm bảo mã nguồn tuân thủ chuẩn Quarkus và Java 21, không có lỗi bảo mật cơ bản (SQL injection, XSS, CSRF) [NFR-003].
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 Ngày 6: Viết tài liệu kiến trúc và hợp đồng hệ thống
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 1: Viết tài liệu hợp đồng API REST và sự kiện
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/api-contracts.md`; `./sources/docs/architecture/event-contracts.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu chi tiết hợp đồng API REST cho tất cả các endpoint của user-service và center-service, bao gồm phương thức HTTP, đường dẫn, schema request/response, mã lỗi, ví dụ sử dụng. Viết tài liệu hợp đồng sự kiện cho các topic message broker, bao gồm tên topic, schema payload, mô tả sự kiện.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-014], [REQ-015]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/card/CardServiceTest.java;./sources/backend/src/main/java/com/membershiphub/card/CardService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ quản lý thẻ hội viên. Đảm bảo các trường hợp kiểm thử bao gồm hiển thị tính hợp lệ của thẻ và gia hạn thẻ.
+###### 🌿 Phụ công việc 2: Viết tài liệu hướng dẫn vận hành và tuân thủ
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [NFR-006], [NFR-008]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/operational-guide.md`; `./sources/docs/architecture/compliance.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu hướng dẫn vận hành các service backend, bao gồm cách khởi chạy, cấu hình môi trường, giám sát, xử lý sự cố. Viết tài liệu tuân thủ RBAC, OWASP Top 10, GDPR/CCPA liên quan đến module quản lý người dùng và trung tâm, bao gồm quy trình xóa dữ liệu người dùng khi có yêu cầu, quy trình xuất dữ liệu người dùng dưới dạng JSON.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 6: Triển khai dịch vụ thông báo và quản lý khuyến mãi**
+##### 📅 Ngày 7: Kiểm tra cuối cùng, tối ưu và đóng gói sản phẩm giai đoạn
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-016], [EXC-003]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/notification/NotificationService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ thông báo để xử lý kích hoạt thông báo và xử lý các trường hợp ngoại lệ khi gửi thông báo thất bại.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-017], [REQ-018]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/promotion/PromotionService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ quản lý khuyến mãi và thông báo để xử lý tạo/cập nhật/xóa khuyến mãi và thông báo.
+###### 🌿 Phụ công việc 1: Kiểm tra bảo mật và tối ưu hiệu suất
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [NFR-001], [NFR-003], [NFR-006]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/user-service/`; `./sources/backend/center-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện kiểm tra bảo mật toàn diện cho các service: kiểm tra lỗi SQL injection, XSS, CSRF, kiểm tra cấu hình mã hóa mật khẩu bcrypt, kiểm tra cơ chế hết hạn JWT token, kiểm tra logic phân quyền RBAC không có lỗ hổng. Tối ưu truy vấn cơ sở dữ liệu, đảm bảo độ trễ API trung bình dưới 200ms [NFR-001]. Kiểm tra cấu hình logging ghi lại tất cả hành động người dùng (thay đổi vai trò, quản lý trung tâm) với timestamp, user ID và chi tiết hành động, đảm bảo log được lưu trữ 1 năm [NFR-006].
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-016], [EXC-003]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/notification/NotificationServiceTest.java;./sources/backend/src/main/java/com/membershiphub/notification/NotificationService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ thông báo. Đảm bảo các trường hợp kiểm thử bao gồm kích hoạt thông báo và xử lý ngoại lệ khi gửi thông báo thất bại.
+###### 🌿 Phụ công việc 2: Hoàn thiện tài liệu và đẩy hình ảnh Docker
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc], [Docker]
+* **ID Thẻ mục tiêu:** [ARC-010], [NFR-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/`; `./sources/backend/user-service/Dockerfile`; `./sources/backend/center-service/Dockerfile`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Hoàn thiện tất cả tài liệu kiến trúc, đảm bảo tài liệu đầy đủ, chính xác, phù hợp với triển khai thực tế. Xây dựng và đẩy hình ảnh Docker cho user-service và center-service lên registry mục tiêu, đảm bảo kích thước hình ảnh dưới 500MB [NFR-005].
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-017], [REQ-018]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/promotion/PromotionServiceTest.java;./sources/backend/src/main/java/com/membershiphub/promotion/PromotionService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ quản lý khuyến mãi và thông báo. Đảm bảo các trường hợp kiểm thử bao gồm tạo/cập nhật/xóa khuyến mãi và thông báo.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **NGÀY 7: Triển khai dịch vụ chatbot và các tính năng di động**
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-019]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/chatbot/ChatbotService.java
-* **Low-Level Technical Task Instruction:** Triển khai dịch vụ chatbot để xử lý các truy vấn từ người dùng.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Coder]
-* **Targeted Tag IDs:** [REQ-020], [REQ-021]
-* **Target Component file path (target_component):** ./sources/backend/src/main/java/com/membershiphub/mobile/MobileService.java
-* **Low-Level Technical Task Instruction:** Triển khai các dịch vụ di động để xử lý giao diện người dùng và thông báo đẩy.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-019]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/chatbot/ChatbotServiceTest.java;./sources/backend/src/main/java/com/membershiphub/chatbot/ChatbotService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho dịch vụ chatbot. Đảm bảo các trường hợp kiểm thử bao gồm xử lý các truy vấn từ người dùng.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent Workflow Specialization:** [Tester]
-* **Targeted Tag IDs:** [REQ-020], [REQ-021]
-* **Target Component file path (target_component):** ./sources/backend/src/test/java/com/membershiphub/mobile/MobileServiceTest.java;./sources/backend/src/main/java/com/membershiphub/mobile/MobileService.java
-* **Low-Level Technical Task Instruction:** Viết các bài kiểm thử đơn vị và tích hợp cho các dịch vụ di động. Đảm bảo các trường hợp kiểm thử bao gồm giao diện người dùng và thông báo đẩy.
+###### 🌿 Phụ công việc 3: Kiểm tra cuối cùng và xác nhận hoàn thành giai đoạn
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [EXC-004], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** Toàn bộ mã nguồn và tài liệu của giai đoạn 1
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện kiểm tra cuối cùng toàn bộ sản phẩm của giai đoạn 1, đảm bảo tất cả các yêu cầu và thẻ theo dõi đã được triển khai đầy đủ, không có lỗi còn tồn tại, xác nhận giai đoạn sẵn sàng cho giai đoạn tiếp theo.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 ---
 
-### Phase 2 Logs:
-- **NGÀY 1: Thiết lập cơ sở dữ liệu và triển khai các bảng cơ bản**
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 1: Thiết kế và triển khai bảng Users và Roles
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-001]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V1__Create_Users_And_Roles.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai các bảng Users và Roles với các cột và ràng buộc như được định nghĩa trong [DAT-001]. Đảm bảo rằng các bảng này được thiết kế để hỗ trợ các yêu cầu xác thực và phân quyền người dùng.
+### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
+##### 📅 Ngày 1: Triển khai API quản lý khóa học và phân công giáo viên
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 1: Triển khai API CRUD quản lý khóa học [REQ-007], [REQ-008]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-007], [REQ-008]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java`; `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API CRUD cho khóa học: `GET /api/v1/courses` (lấy danh sách khóa học với lịch học và giáo viên), `POST /api/v1/courses` (tạo khóa học mới với kiểm tra xung đột lịch học giáo viên), `PUT /api/v1/courses/{courseId}` (cập nhật thông tin khóa học), `DELETE /api/v1/courses/{courseId}` (xóa khóa học). Triển khai logic kiểm tra xung đột lịch học: khi tạo hoặc cập nhật khóa học, kiểm tra giáo viên được phân công có bị trùng lịch với khóa học khác không bằng cách truy vấn các khóa học hiện tại của giáo viên trong khoảng thời gian bắt đầu và kết thúc mới.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/v1/courses",
+        "tags": ["REQ-007"],
+        "response": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "courseId": {"type": "uuid"},
+                "title": {"type": "string", "maxLength": 150},
+                "description": {"type": "string"},
+                "startDate": {"type": "date"},
+                "endDate": {"type": "date"},
+                "teacherId": {"type": "uuid"},
+                "teacherName": {"type": "string"},
+                "maxStudents": {"type": "integer"},
+                "currentEnrollments": {"type": "integer"}
+              }
+            }
+          }
+        }
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/courses",
+        "tags": ["REQ-008"],
+        "request": {
+          "schema": {
+            "type": "object",
+            "required": ["title", "startDate", "endDate", "teacherId"],
+            "properties": {
+              "title": {"type": "string", "maxLength": 150},
+              "description": {"type": "string"},
+              "startDate": {"type": "date"},
+              "endDate": {"type": "date"},
+              "teacherId": {"type": "uuid"},
+              "maxStudents": {"type": "integer", "default": 30}
+            }
+          }
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Không có ngoại lệ nghiệp vụ đặc thù được gán cho giai đoạn này.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 2: Thiết kế và triển khai bảng Centers
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-003]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V2__Create_Centers.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai bảng Centers với các cột và ràng buộc như được định nghĩa trong [DAT-003]. Đảm bảo rằng bảng này được thiết kế để hỗ trợ các yêu cầu quản lý trung tâm.
-
+###### 🌿 Phụ công việc 2: Triển khai API phân công giáo viên vào khóa học [REQ-009]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/course-service/src/main/java/com/membershiphub/course/TeacherAssignmentController.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API `POST /api/v1/courses/{courseId}/teachers` để gán giáo viên vào khóa học, kiểm tra quyền của người thực hiện (chỉ System Admin được phép phân công), và `DELETE /api/v1/courses/{courseId}/teachers/{teacherId}` để thu hồi phân công. Kích hoạt sự kiện `teacher.assigned` khi phân công thành công để hệ thống thông báo gửi thông báo cho giáo viên.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/v1/courses/{courseId}/teachers",
+        "tags": ["REQ-009"],
+        "request": {
+          "schema": {
+            "type": "object",
+            "required": ["teacherId"],
+            "properties": {
+              "teacherId": {"type": "uuid"}
+            }
+          }
+        },
+        "response": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "courseId": {"type": "uuid"},
+              "teacherId": {"type": "uuid"},
+              "assignedAt": {"type": "timestamp"}
+            }
+          }
+        }
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/courses/{courseId}/teachers/{teacherId}",
+        "tags": ["REQ-009"],
+        "response": {"statusCode": 204}
+      }
+    ],
+    "events": [
+      {
+        "topic": "teacher.assigned",
+        "tags": ["REQ-009"],
+        "payload": {
+          "courseId": {"type": "uuid"},
+          "teacherId": {"type": "uuid"},
+          "assignedAt": {"type": "timestamp"}
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Không có ngoại lệ nghiệp vụ đặc thù được gán cho giai đoạn này.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 3: Thiết kế và triển khai bảng Courses
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-004]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V3__Create_Courses.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai bảng Courses với các cột và ràng buộc như được định nghĩa trong [DAT-004]. Đảm bảo rằng bảng này được thiết kế để hỗ trợ các yêu cầu quản lý khóa học.
-
+###### 🌿 Phụ công việc 3: Viết unit test cho dịch vụ quản lý khóa học
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java`; `./sources/backend/course-service/src/test/java/com/membershiphub/course/TeacherAssignmentTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các trường hợp: tạo khóa học thành công, tạo khóa học thất bại do trùng lịch giáo viên, cập nhật khóa học thành công, xóa khóa học thành công, phân công giáo viên thành công, thu hồi phân công thành công. Kiểm tra logic kiểm tra xung đột lịch học hoạt động đúng. Đảm bảo độ phủ mã ít nhất 90% cho các lớp service.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 4: Thiết kế và triển khai bảng Enrollments
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-005]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V4__Create_Enrollments.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai bảng Enrollments với các cột và ràng buộc như được định nghĩa trong [DAT-005]. Đảm bảo rằng bảng này được thiết kế để hỗ trợ các yêu cầu đăng ký và ghi danh học viên.
-
+###### 🌿 Phụ công việc 4: Kiểm tra chất lượng mã nguồn dịch vụ khóa học
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/course-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho toàn bộ mã nguồn course-service, kiểm tra logic kiểm tra xung đột lịch học, đảm bảo không có lỗi logic, tuân thủ chuẩn mã hóa Quarkus/Java 21, kiểm tra bảo mật cơ bản (SQL injection, XSS). Đề xuất và thực hiện sửa lỗi nếu có.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 5: Thiết kế và triển khai bảng Attendance
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-006]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V5__Create_Attendance.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai bảng Attendance với các cột và ràng buộc như được định nghĩa trong [DAT-006]. Đảm bảo rằng bảng này được thiết kế để hỗ trợ các yêu cầu điểm danh và quét mã QR.
+###### 🌿 Phụ công việc 5: Viết tài liệu hợp đồng API dịch vụ khóa học
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/course-service-api.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu chi tiết hợp đồng API REST cho tất cả các endpoint của course-service, bao gồm phương thức HTTP, đường dẫn, schema request/response, mã lỗi, ví dụ sử dụng. Mô tả logic kiểm tra xung đột lịch học và cách xử lý.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "service": "course-service",
+    "version": "v1",
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/v1/courses",
+        "summary": "Lấy danh sách khóa học",
+        "tags": ["REQ-007"]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/courses",
+        "summary": "Tạo khóa học mới",
+        "tags": ["REQ-008"]
+      },
+      {
+        "method": "PUT",
+        "path": "/api/v1/courses/{courseId}",
+        "summary": "Cập nhật khóa học",
+        "tags": ["REQ-008"]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/courses/{courseId}",
+        "summary": "Xóa khóa học",
+        "tags": ["REQ-008"]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/courses/{courseId}/teachers",
+        "summary": "Phân công giáo viên",
+        "tags": ["REQ-009"]
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/v1/courses/{courseId}/teachers/{teacherId}",
+        "summary": "Thu hồi phân công giáo viên",
+        "tags": ["REQ-009"]
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
+##### 📅 Ngày 2: Triển khai duyệt khóa học và đăng ký học viên
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 1: Triển khai API duyệt khóa học cho học viên [REQ-010]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/CourseBrowseController.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API `GET /api/v1/courses/available` trả về danh sách khóa học chưa đăng ký của học viên, hiển thị sức chứa và lịch học. Loại bỏ các khóa học mà học viên đã có bản ghi ghi danh. Bao gồm thông tin: courseId, title, startDate, endDate, maxStudents, currentEnrollments.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/v1/courses/available",
+        "tags": ["REQ-010"],
+        "description": "Lấy danh sách khóa học chưa đăng ký của học viên",
+        "response": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "courseId": {"type": "uuid"},
+                "title": {"type": "string", "maxLength": 150},
+                "startDate": {"type": "date"},
+                "endDate": {"type": "date"},
+                "maxStudents": {"type": "integer"},
+                "currentEnrollments": {"type": "integer"}
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Không có ngoại lệ nghiệp vụ đặc thù được gán cho giai đoạn này.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 6: Thiết kế và triển khai bảng StudentCards
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-007]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V6__Create_StudentCards.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai bảng StudentCards với các cột và ràng buộc như được định nghĩa trong [DAT-007]. Đảm bảo rằng bảng này được thiết kế để hỗ trợ các yêu cầu quản lý thẻ hội viên.
-
+###### 🌿 Phụ công việc 2: Triển khai API đăng ký khóa học học viên [REQ-011]
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-011]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentController.java`; `./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API `POST /api/v1/courses/{courseId}/enroll` để đăng ký khóa học cho học viên. Logic: kiểm tra học viên đã đăng ký khóa học này chưa, kiểm tra khóa học còn chỗ trống không, nếu học viên chưa có tài khoản cục bộ thì tự động tạo tài khoản với vai trò 'Student', tạo bản ghi ghi danh, kích hoạt sự kiện `student.enrolled` để hệ thống gửi thông báo cho học viên và nhóm Zalo của trung tâm.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/v1/courses/{courseId}/enroll",
+        "tags": ["REQ-011"],
+        "request": {
+          "schema": {
+            "type": "object",
+            "required": ["studentId"],
+            "properties": {
+              "studentId": {"type": "uuid"}
+            }
+          }
+        },
+        "response": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "enrollmentId": {"type": "uuid"},
+              "studentId": {"type": "uuid"},
+              "courseId": {"type": "uuid"},
+              "enrollmentDate": {"type": "timestamp"}
+            }
+          }
+        }
+      }
+    ],
+    "events": [
+      {
+        "topic": "student.enrolled",
+        "tags": ["REQ-011"],
+        "payload": {
+          "enrollmentId": {"type": "uuid"},
+          "studentId": {"type": "uuid"},
+          "courseId": {"type": "uuid"},
+          "enrollmentDate": {"type": "timestamp"}
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Không có ngoại lệ nghiệp vụ đặc thù được gán cho giai đoạn này.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 7: Thiết kế và triển khai bảng Notifications
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-008]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V7__Create_Notifications.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai bảng Notifications với các cột và ràng buộc như được định nghĩa trong [DAT-008]. Đảm bảo rằng bảng này được thiết kế để hỗ trợ các yêu cầu thông báo và truyền thông.
-
+###### 🌿 Phụ công việc 3: Viết integration test cho luồng đăng ký khóa học
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-010], [REQ-011]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentIntegrationTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết integration test cho luồng đăng ký khóa học: học viên duyệt khóa học chưa đăng ký -> đăng ký khóa học -> kiểm tra bản ghi ghi danh được tạo -> kiểm tra sự kiện `student.enrolled` được kích hoạt -> kiểm tra thông báo được gửi đến học viên và nhóm Zalo. Kiểm tra các trường hợp: đăng ký khóa học đã hết chỗ, đăng ký khóa học đã đăng ký trước đó, tự động tạo tài khoản học viên nếu chưa tồn tại.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 8: Thiết kế và triển khai bảng Promotions và Announcements
-[Coder]
-* **Tag IDs Mục tiêu:** [DAT-009]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/resources/db/migration/V8__Create_Promotions_And_Announcements.sql`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo và triển khai các bảng Promotions và Announcements với các cột và ràng buộc như được định nghĩa trong [DAT-009]. Đảm bảo rằng các bảng này được thiết kế để hỗ trợ các yêu cầu quản lý khuyến mãi và thông báo.
-
+###### 🌿 Phụ công việc 4: Kiểm tra chất lượng mã nguồn dịch vụ đăng ký
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-010], [REQ-011]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/enrollment-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho toàn bộ mã nguồn enrollment-service, kiểm tra logic tự động tạo tài khoản học viên, logic kiểm tra trùng lặp đăng ký, logic kiểm tra sức chứa khóa học. Đảm bảo không có lỗi logic, tuân thủ chuẩn mã hóa, kiểm tra bảo mật cơ bản.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 9: Triển khai các API cơ bản cho xác thực và quản lý người dùng
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/auth/AuthController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng đăng ký người dùng, xác thực qua mạng xã hội và phân quyền người dùng như được định nghĩa trong [REQ-001], [REQ-002] và [REQ-003]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu xác thực và phân quyền người dùng.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 10: Triển khai các API cơ bản cho quản lý trung tâm
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/center/CenterController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm và phân quyền quản trị trung tâm như được định nghĩa trong [REQ-004], [REQ-005] và [REQ-006]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu quản lý trung tâm.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 11: Triển khai các API cơ bản cho quản lý khóa học
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/course/CourseController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng xem danh sách khóa học, tạo/cập nhật/xóa khóa học và phân công giáo viên vào khóa học như được định nghĩa trong [REQ-007], [REQ-008] và [REQ-009]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu quản lý khóa học.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 12: Triển khai các API cơ bản cho đăng ký và ghi danh học viên
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-010], [REQ-011]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/enrollment/EnrollmentController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng duyệt khóa học và đăng ký khóa học của học viên như được định nghĩa trong [REQ-010] và [REQ-011]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu đăng ký và ghi danh học viên.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 13: Triển khai các API cơ bản cho điểm danh và quét mã QR
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-012], [REQ-013]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/attendance/AttendanceController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng chụp ảnh điểm danh QR và tính chất bất biến của điểm danh như được định nghĩa trong [REQ-012] và [REQ-013]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu điểm danh và quét mã QR.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 14: Triển khai các API cơ bản cho quản lý thẻ hội viên
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-014], [REQ-015]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/studentcard/StudentCardController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng hiển thị tính hợp lệ của thẻ và gia hạn thẻ như được định nghĩa trong [REQ-014] và [REQ-015]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu quản lý thẻ hội viên.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 15: Triển khai các API cơ bản cho thông báo và truyền thông
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-016]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/notification/NotificationController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng kích hoạt thông báo như được định nghĩa trong [REQ-016]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu thông báo và truyền thông.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 16: Triển khai các API cơ bản cho quản lý khuyến mãi và thông báo
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-017], [REQ-018]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/promotion/PromotionController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng quản lý khuyến mãi và thông báo như được định nghĩa trong [REQ-017] và [REQ-018]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu quản lý khuyến mãi và thông báo.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 17: Triển khai các API cơ bản cho tích hợp chatbot AI
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-019]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/chatbot/ChatbotController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng tích hợp chatbot AI như được định nghĩa trong [REQ-019]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu tích hợp chatbot AI.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 18: Triển khai các API cơ bản cho các tính năng cốt lõi của ứng dụng di động
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-020], [REQ-021]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/mobile/MobileController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng giao diện người dùng vai trò cụ thể trên di động và thông báo đẩy trên di động như được định nghĩa trong [REQ-020] và [REQ-021]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu các tính năng cốt lõi của ứng dụng di động.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 19: Triển khai các API cơ bản cho bản địa hóa và SEO
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-022], [REQ-023]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/localization/LocalizationController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ như được định nghĩa trong [REQ-022] và [REQ-023]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu bản địa hóa và SEO.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-##### CÔNG VIỆC CON 20: Triển khai các API cơ bản cho báo cáo và phân tích
-[Coder]
-* **Tag IDs Mục tiêu:** [REQ-024], [REQ-025]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/membership-hub/src/main/java/com/membershiphub/report/ReportController.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai các API cơ bản cho các chức năng tạo báo cáo điểm danh và bảng điều khiển tóm tắt ghi danh như được định nghĩa trong [REQ-024] và [REQ-025]. Đảm bảo rằng các API này được thiết kế để hỗ trợ các yêu cầu báo cáo và phân tích.
-
+###### 🌿 Phụ công việc 5: Viết tài liệu hợp đồng API dịch vụ đăng ký
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [REQ-010], [REQ-011]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/enrollment-service-api.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu chi tiết hợp đồng API REST cho enrollment-service, bao gồm endpoint duyệt khóa học và đăng ký khóa học, schema request/response, mã lỗi, ví dụ sử dụng. Mô tả logic tự động tạo tài khoản học viên và luồng thông báo sau đăng ký.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "service": "enrollment-service",
+    "version": "v1",
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/v1/courses/available",
+        "summary": "Lấy danh sách khóa học chưa đăng ký",
+        "tags": ["REQ-010"]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/courses/{courseId}/enroll",
+        "summary": "Đăng ký khóa học cho học viên",
+        "tags": ["REQ-011"]
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 ---
 
-### Phase 3 Logs:
-- **NGÀY 1: Triển khai cơ sở dữ liệu và API cho quản lý người dùng**
+### Phase 3 Logs (Atomic Salvaged Tag Lines):
+
+##### 📅 Ngày 1: Triển khai dịch vụ điểm danh QR và logic bất biến điểm danh
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-001], [REQ-001], [REQ-002], [REQ-003]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Tạo bảng `USERS` và `ROLES` trong cơ sở dữ liệu PostgreSQL.
-  - Triển khai các API đăng ký người dùng, xác thực qua mạng xã hội, và phân quyền người dùng.
-  - Viết các truy vấn SQL để quản lý người dùng và vai trò.
+###### 🌿 Phụ công việc 1: Triển khai logic cốt lõi của dịch vụ điểm danh QR
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-006]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java`; `./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java`; `./sources/backend/attendance-service/src/main/resources/db/migration/V2__add_attendance_unique_constraint.sql`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai endpoint `POST /api/v1/attendance/scan` để xử lý yêu cầu quét mã QR điểm danh: nhận payload chứa mã QR khóa học và ID học viên, xác thực học viên đã đăng ký khóa học tương ứng với mã QR, tạo bản ghi điểm danh với thời gian hiện tại. Triển khai logic kiểm tra trùng lặp điểm danh dựa trên ràng buộc duy nhất (student_id, course_id, attendance_date) để đảm bảo chỉ tạo một bản ghi điểm danh mỗi ngày cho mỗi học viên và khóa học. Triển khai xử lý yêu cầu thử lại khi lỗi kết nối mạng, đảm bảo điểm danh được ghi nhận đúng một lần sau khi kết nối được khôi phục.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Triển khai endpoint `POST /api/v1/attendance/scan` với schema request/response như đã định nghĩa, kích hoạt sự kiện `attendance.recorded` khi điểm danh được ghi nhận thành công, sự kiện `attendance.duplicate` khi phát hiện điểm danh trùng lặp.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Triển khai xử lý ngoại lệ [EXC-001] (lỗi kết nối mạng) bằng cách lưu tạm yêu cầu điểm danh vào hàng đợi Redis khi không thể kết nối cơ sở dữ liệu, tự động xử lý hàng đợi khi kết nối được khôi phục. Triển khai xử lý ngoại lệ [EXC-002] (điểm danh trùng lặp) bằng cách bắt lỗi vi phạm ràng buộc duy nhất, trả về trạng thái `DUPLICATE` và thông báo "Bạn đã điểm danh cho khóa học này trong ngày hôm nay".
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 2: Triển khai cơ sở dữ liệu và API cho quản lý trung tâm**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-003], [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/backend/center-service/src/main/java/com/membershiphub/center/CenterService.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Tạo bảng `CENTERS` trong cơ sở dữ liệu PostgreSQL.
-  - Triển khai các API xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-  - Viết các truy vấn SQL để quản lý trung tâm.
+###### 🌿 Phụ công việc 2: Viết unit test cho dịch vụ điểm danh
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-012], [REQ-013], [EXC-001], [EXC-002]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java`; `./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceControllerTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các trường hợp: quét mã QR thành công và tạo bản ghi điểm danh, quét mã QR trùng lặp trong cùng ngày trả về trạng thái DUPLICATE, quét mã QR khi học viên chưa đăng ký khóa học trả về lỗi 403 Forbidden, quét mã QR không hợp lệ trả về lỗi 400 Bad Request, xử lý yêu cầu khi kết nối mạng bị gián đoạn và thử lại sau khi khôi phục. Đảm bảo độ phủ mã ít nhất 90% cho các lớp xử lý điểm danh.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 3: Viết các bài kiểm tra cho quản lý người dùng và trung tâm**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/backend/user-service/src/test/java/com/membershiphub/user/UserServiceTest.java;./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Viết các bài kiểm tra đơn vị cho các API đăng ký người dùng, xác thực qua mạng xã hội, và phân quyền người dùng.
-  - Viết các bài kiểm tra đơn vị cho các API xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
+###### 🌿 Phụ công việc 3: Kiểm tra chất lượng mã nguồn dịch vụ điểm danh
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-012], [REQ-013], [EXC-001], [EXC-002], [NFR-001]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/attendance-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho toàn bộ mã nguồn attendance-service, kiểm tra logic kiểm tra trùng lặp điểm danh hoạt động đúng, đảm bảo không có lỗi logic trong xử lý mã QR và xác thực quan hệ học viên-khóa học, kiểm tra hiệu suất truy vấn cơ sở dữ liệu đảm bảo độ trễ API trung bình dưới 200ms [NFR-001], kiểm tra không có lỗi bảo mật cơ bản (SQL injection, XSS). Đề xuất và thực hiện sửa lỗi nếu có.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 4: Tạo tài liệu cho quản lý người dùng và trung tâm**
+##### 📅 Ngày 2: Triển khai quản lý thẻ hội viên và gia hạn thẻ
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Doc]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/docs/user-center-management.md`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Tạo tài liệu chi tiết về quản lý người dùng và trung tâm.
-  - Bao gồm các hướng dẫn sử dụng, các trường hợp sử dụng, và các ví dụ về cách sử dụng các API.
+###### 🌿 Phụ công việc 1: Triển khai logic cốt lõi của dịch vụ quản lý thẻ hội viên
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-014], [REQ-015], [DAT-007]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/card-service/src/main/java/com/membershiphub/card/CardController.java`; `./sources/backend/card-service/src/main/java/com/membershiphub/card/CardService.java`; `./sources/backend/card-service/src/main/resources/db/migration/V2__add_card_check_constraints.sql`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai endpoint `GET /api/v1/cards/student/{studentId}` để trả về thông tin thẻ hội viên của học viên: tổng ngày hiệu lực, ngày đã sử dụng, ngày còn lại, ngày hết hạn. Triển khai endpoint `POST /api/v1/cards/{cardId}/renew` để gia hạn thẻ: nhận số ngày gia hạn và ID giao dịch thanh toán thành công, cập nhật ngày hết hạn của thẻ, tính toán lại số ngày còn lại, kích hoạt sự kiện `card.renewed` để gửi thông báo xác nhận cho học viên. Triển khai logic kiểm tra tính hợp lệ của giao dịch thanh toán trước khi cập nhật thẻ.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** Triển khai các endpoint của card-service với schema request/response như đã định nghĩa, kích hoạt sự kiện `card.renewed` khi gia hạn thẻ thành công để hệ thống gửi thông báo cho học viên.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Triển khai xử lý ngoại lệ khi giao dịch thanh toán không hợp lệ, trả về mã lỗi 402 Payment Required với thông báo "Giao dịch thanh toán không hợp lệ hoặc đã hết hạn". Triển khai xử lý ngoại lệ khi thẻ hội viên không tồn tại, trả về mã lỗi 404 Not Found.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 5: Triển khai Docker và GCP cho quản lý người dùng và trung tâm**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [ARC-010]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/infra/docker-compose.yml`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Tạo các tệp Dockerfile và docker-compose.yml để triển khai dịch vụ quản lý người dùng và trung tâm.
-  - Cấu hình các biến môi trường và mạng lưới Docker.
+###### 🌿 Phụ công việc 2: Viết unit và integration test cho dịch vụ quản lý thẻ
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-014], [REQ-015]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/card-service/src/test/java/com/membershiphub/card/CardServiceTest.java`; `./sources/backend/card-service/src/test/java/com/membershiphub/card/CardIntegrationTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các trường hợp: lấy thông tin thẻ hội viên thành công, gia hạn thẻ thành công với số ngày hợp lệ, gia hạn thẻ thất bại với giao dịch thanh toán không hợp lệ, gia hạn thẻ thất bại khi thẻ không tồn tại. Viết integration test cho luồng gia hạn thẻ: gửi yêu cầu gia hạn -> kiểm tra thông tin thẻ được cập nhật -> kiểm tra sự kiện `card.renewed` được kích hoạt -> kiểm tra thông báo được gửi cho học viên. Đảm bảo độ phủ mã ít nhất 90% cho các lớp xử lý thẻ hội viên.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 6: Triển khai GKE cho quản lý người dùng và trung tâm**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GKE]
-* **Tag IDs Mục tiêu:** [ARC-010]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/infra/k8s/deployment.yml`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Tạo các tệp triển khai Kubernetes để triển khai dịch vụ quản lý người dùng và trung tâm trên GKE.
-  - Cấu hình các dịch vụ, bản sao, và các quy tắc định tuyến.
+###### 🌿 Phụ công việc 3: Viết tài liệu hợp đồng API cho dịch vụ điểm danh và quản lý thẻ
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [REQ-012], [REQ-013], [REQ-014], [REQ-015]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/attendance-service-api.md`; `./sources/docs/architecture/card-service-api.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu chi tiết hợp đồng API REST cho attendance-service và card-service, bao gồm phương thức HTTP, đường dẫn, schema request/response, mã lỗi, ví dụ sử dụng. Mô tả logic kiểm tra trùng lặp điểm danh, quy tắc tính ngày còn lại của thẻ hội viên, quy trình gia hạn thẻ và tích hợp thanh toán.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 7: Kiểm tra và sửa lỗi cho quản lý người dùng và trung tâm**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Reviewer]
-* **Tag IDs Mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn Cấu phần Mục tiêu (target_component):** `./sources/backend/user-service/src/main/java/com/membershiphub/user/UserService.java`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:**
-  - Kiểm tra và sửa lỗi cho các API đăng ký người dùng, xác thực qua mạng xã hội, và phân quyền người dùng.
-  - Kiểm tra và sửa lỗi cho các API xem danh sách trung tâm, tạo/cập nhật/xóa trung tâm, và phân quyền quản trị trung tâm.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
----
-
-### Phase 4 Logs:
-- **NGÀY 1: Triển khai cơ sở dữ liệu cho quản lý khóa học và đăng ký học viên**
-##### NHIỆM VỤ CON 1: Thiết kế và triển khai schema cơ sở dữ liệu cho khóa học và ghi danh
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-004], [DAT-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/course/Course.java`, `./sources/backend/course-service/src/main/java/com/membershiphub/enrollment/Enrollment.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Thiết kế và triển khai schema cơ sở dữ liệu cho khóa học và ghi danh, bao gồm các bảng `courses` và `enrollments`.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### NHIỆM VỤ CON 2: Viết các migration scripts cho schema cơ sở dữ liệu
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [DAT-004], [DAT-005]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/resources/db/migration/V1__Create_courses_table.sql`, `./sources/backend/course-service/src/main/resources/db/migration/V2__Create_enrollments_table.sql`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Viết các migration scripts để tạo và cập nhật schema cơ sở dữ liệu cho khóa học và ghi danh.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **NGÀY 2: Triển khai các dịch vụ và API cho quản lý khóa học**
-##### NHIỆM VỤ CON 1: Triển khai các dịch vụ và API cho quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java`, `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`, `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseRepository.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Triển khai các dịch vụ và API cho quản lý khóa học, bao gồm các chức năng tạo, cập nhật và xóa khóa học, phân công giáo viên vào khóa học.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### NHIỆM VỤ CON 2: Viết các test cases cho các dịch vụ và API quản lý khóa học
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-007], [REQ-008], [REQ-009]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseControllerTest.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Viết các test cases để kiểm tra các dịch vụ và API quản lý khóa học, bao gồm các chức năng tạo, cập nhật và xóa khóa học, phân công giáo viên vào khóa học.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **NGÀY 3: Triển khai các dịch vụ và API cho đăng ký học viên**
-##### NHIỆM VỤ CON 1: Triển khai các dịch vụ và API cho đăng ký học viên
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [REQ-010], [REQ-011]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/enrollment/EnrollmentController.java`, `./sources/backend/course-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java`, `./sources/backend/course-service/src/main/java/com/membershiphub/enrollment/EnrollmentRepository.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Triển khai các dịch vụ và API cho đăng ký học viên, bao gồm các chức năng duyệt khóa học và đăng ký khóa học.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### NHIỆM VỤ CON 2: Viết các test cases cho các dịch vụ và API đăng ký học viên
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [REQ-010], [REQ-011]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/enrollment/EnrollmentControllerTest.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Viết các test cases để kiểm tra các dịch vụ và API đăng ký học viên, bao gồm các chức năng duyệt khóa học và đăng ký khóa học.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-- **NGÀY 4: Triển khai các tính năng ngoại lệ và xử lý lỗi**
-##### NHIỆM VỤ CON 1: Triển khai các tính năng ngoại lệ và xử lý lỗi cho quản lý khóa học và đăng ký học viên
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Coder]
-* **Tag IDs Mục tiêu:** [EXC-001], [EXC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java`, `./sources/backend/course-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Triển khai các tính năng ngoại lệ và xử lý lỗi cho quản lý khóa học và đăng ký học viên, bao gồm xử lý trùng lặp điểm danh và xử lý mất kết nối mạng trong quá trình quét QR.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-##### NHIỆM VỤ CON 2: Viết các test cases cho các tính năng ngoại lệ và xử lý lỗi
-<!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [EXC-001], [EXC-002]
-* **Đường dẫn Cấu phần / Module Mục tiêu:** `./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java`, `./sources/backend/course-service/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java`
-* **Hướng dẫn Nhiệm vụ Kỹ thuật Chi tiết:** Viết các test cases để kiểm tra các tính năng ngoại lệ và xử lý lỗi cho quản lý khóa học và đăng ký học viên.
+###### 🌿 Phụ công việc 4: Kiểm tra cuối cùng và xác nhận hoàn thành giai đoạn 3
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-012], [REQ-013], [REQ-014], [REQ-015], [EXC-001], [EXC-002], [DAT-006], [DAT-007], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/attendance-service/`; `./sources/backend/card-service/`; `./sources/docs/architecture/attendance-service-api.md`; `./sources/docs/architecture/card-service-api.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện kiểm tra cuối cùng toàn bộ sản phẩm của giai đoạn 3, đảm bảo tất cả các yêu cầu và thẻ theo dõi đã được triển khai đầy đủ: logic điểm danh bất biến hoạt động đúng, chức năng hiển thị và gia hạn thẻ hoạt động chính xác, các ngoại lệ được xử lý đúng, tài liệu API đầy đủ và chính xác, không có lỗi còn tồn tại, xác nhận giai đoạn sẵn sàng cho giai đoạn tiếp theo.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 ---
 
-### Phase 5 Logs:
-- **NGÀY 1: Triển khai Cơ sở Dữ liệu và Ứng dụng Backend**
+### Phase 4 Logs (Atomic Salvaged Tag Lines):
+
+##### 📅 Ngày 1: Triển khai dịch vụ thông báo và quản lý khuyến mãi cơ bản
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo các Dockerfile cho các dịch vụ backend và triển khai cơ sở dữ liệu PostgreSQL. Đảm bảo các cấu hình môi trường và biến cấu hình được thiết lập đúng.
+###### 🌿 Phụ công việc 1: Triển khai API quản lý thông báo và khuyến mãi
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-016], [REQ-017], [REQ-018], [EXC-003], [DAT-008], [DAT-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationController.java`; `./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java`; `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java`; `./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API CRUD cho quản lý thông báo (announcements): `POST /api/v1/notifications/announcements` (tạo thông báo mới), `GET /api/v1/notifications/announcements` (lấy danh sách thông báo còn hiệu lực), `DELETE /api/v1/notifications/announcements/{announcementId}` (xóa thông báo). Triển khai logic tự động ẩn thông báo sau ngày hết hạn nếu được cấu hình. Triển khai API CRUD cho quản lý khuyến mãi (promotions): `POST /api/v1/promotions` (tạo khuyến mãi mới), `GET /api/v1/promotions/active` (lấy danh sách khuyến mãi còn hiệu lực), `DELETE /api/v1/promotions/{promoId}` (xóa khuyến mãi). Triển khai logic tự động ẩn khuyến mãi sau ngày hết hạn. Triển khai logic gửi thông báo đẩy qua FCM/APNs và tin nhắn đến nhóm Zalo được chỉ định. Triển khai xử lý ngoại lệ [EXC-003] với cơ chế thử lại tối đa 3 lần khi gửi thông báo thất bại, lưu lỗi vào bảng notifications với trạng thái delivered = false.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/v1/notifications/announcements",
+        "tags": ["REQ-018"],
+        "request": {
+          "required": ["title", "content"],
+          "properties": {
+            "title": {"type": "string", "maxLength": 150},
+            "content": {"type": "string", "maxLength": 2000},
+            "expiryDate": {"type": "date", "optional": true},
+            "targetZaloGroup": {"type": "string", "optional": true}
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/notifications/announcements",
+        "tags": ["REQ-018"]
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/promotions",
+        "tags": ["REQ-017"],
+        "request": {
+          "required": ["code", "discountPercent", "startDate"],
+          "properties": {
+            "code": {"type": "string", "unique": true, "maxLength": 50},
+            "discountPercent": {"type": "integer", "minimum": 0, "maximum": 100},
+            "startDate": {"type": "date"},
+            "endDate": {"type": "date", "optional": true},
+            "description": {"type": "string", "maxLength": 500, "optional": true}
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/promotions/active",
+        "tags": ["REQ-017"]
+      }
+    ],
+    "events": [
+      {
+        "topic": "announcement.created",
+        "tags": ["REQ-018"],
+        "payload": {
+          "announcementId": {"type": "uuid"},
+          "title": {"type": "string"},
+          "expiryDate": {"type": "date", "optional": true}
+        }
+      },
+      {
+        "topic": "promotion.created",
+        "tags": ["REQ-017"],
+        "payload": {
+          "promoId": {"type": "uuid"},
+          "code": {"type": "string"},
+          "discountPercent": {"type": "integer"},
+          "startDate": {"type": "date"},
+          "endDate": {"type": "date", "optional": true}
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Triển khai xử lý ngoại lệ [EXC-003] trả về mã lỗi 500 Internal Server Error với thông báo "Gửi thông báo thất bại, hệ thống sẽ thử lại sau" khi lần thử đầu tiên thất bại, lên lịch thử lại tự động. Nếu thất bại sau 3 lần thử, ghi log lỗi chi tiết và gửi cảnh báo cho quản trị viên.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 2: Triển khai Ứng dụng Frontend và Kiểm thử Cơ bản**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Docker]
-* **Tag IDs Mục tiêu:** [REQ-020], [REQ-021]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/frontend/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Tạo các Dockerfile cho ứng dụng frontend và triển khai trên môi trường thử nghiệm. Kiểm thử các tính năng cơ bản của ứng dụng.
+###### 🌿 Phụ công việc 2: Viết unit test cho dịch vụ thông báo và khuyến mãi
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-016], [REQ-017], [REQ-018], [EXC-003]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/notification-service/src/test/java/com/membershiphub/notification/NotificationServiceTest.java`; `./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/PromotionServiceTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các trường hợp: tạo thông báo thành công, lấy danh sách thông báo còn hiệu lực (lọc bỏ thông báo đã hết hạn), xóa thông báo thành công, tạo khuyến mãi thành công, lấy danh sách khuyến mãi còn hiệu lực, xử lý lỗi gửi thông báo thất bại với cơ chế thử lại 3 lần, kiểm tra trạng thái delivered được cập nhật đúng sau khi thử lại thất bại. Đảm bảo độ phủ mã ít nhất 90% cho các lớp service tương ứng.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 3: Kiểm thử Tích hợp và Xử lý Ngoại lệ**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/tests/;./sources/backend/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Viết các bài kiểm thử tích hợp cho các tính năng chính và xử lý các ngoại lệ. Đảm bảo các trường hợp ngoại lệ được ghi lại và xử lý đúng cách.
+###### 🌿 Phụ công việc 3: Kiểm tra chất lượng mã nguồn dịch vụ thông báo và khuyến mãi
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-016], [REQ-017], [REQ-018], [EXC-003], [NFR-003]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/notification-service/`; `./sources/backend/promotion-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho toàn bộ mã nguồn notification-service và promotion-service, kiểm tra logic gửi thông báo đa kênh hoạt động đúng, logic tự động ẩn thông báo/khuyến mãi hết hạn hoạt động chính xác, cơ chế thử lại khi gửi thông báo thất bại hoạt động đúng, đảm bảo không có lỗi bảo mật cơ bản (SQL injection, XSS, CSRF) [NFR-003], tuân thủ chuẩn mã hóa Quarkus/Java 21. Đề xuất và thực hiện sửa lỗi nếu có.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 4: Kiểm thử Hiệu suất và Tối ưu Hóa**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [NFR-001], [NFR-004]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/tests/;./sources/backend/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thực hiện các bài kiểm thử hiệu suất và tối ưu hóa các điểm yếu được phát hiện. Đảm bảo hệ thống đáp ứng các yêu cầu về hiệu suất và khả năng mở rộng.
+###### 🌿 Phụ công việc 4: Viết tài liệu hợp đồng API cho dịch vụ thông báo và khuyến mãi
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [REQ-016], [REQ-017], [REQ-018]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/notification-service-api.md`; `./sources/docs/architecture/promotion-service-api.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu chi tiết hợp đồng API REST cho notification-service và promotion-service, bao gồm tất cả endpoint quản lý thông báo, quản lý khuyến mãi, schema request/response, mã lỗi, ví dụ sử dụng. Mô tả luồng gửi thông báo đa kênh (push, Zalo) và cơ chế thử lại khi gửi thất bại, quy tắc tự động ẩn thông báo/khuyến mãi hết hạn.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 5: Kiểm thử Bảo mật và Triển khai Cuối cùng**
+##### 📅 Ngày 2: Triển khai tích hợp chatbot AI và bản địa hóa/SEO đa ngôn ngữ
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [NFR-003], [NFR-008]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/tests/;./sources/backend/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thực hiện các bài kiểm thử bảo mật và đảm bảo hệ thống tuân thủ các yêu cầu về bảo mật. Triển khai hệ thống lên môi trường sản xuất.
+###### 🌿 Phụ công việc 1: Tích hợp chatbot AI và triển khai bản địa hóa/SEO
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-019], [REQ-022], [REQ-023], [NFR-007]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotController.java`; `./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotService.java`; `./sources/frontend/web/src/components/ChatbotWidget.tsx`; `./sources/frontend/web/src/hooks/useLocale.ts`; `./sources/frontend/web/src/app/[locale]/layout.tsx`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tích hợp dịch vụ chatbot AI bên thứ ba, triển khai endpoint `POST /api/v1/chatbot/query` để xử lý truy vấn người dùng về khóa học, giáo viên, trung tâm, tình trạng tài khoản. Triển khai logic chuyển tiếp truy vấn cho hỗ trợ con người khi độ tin cậy của câu trả lời chatbot dưới 70%. Triển khai logic phát hiện ngôn ngữ ưu tiên: ưu tiên ngôn ngữ đã lưu trong cài đặt người dùng, sau đó là header `Accept-Language` của trình duyệt, mặc định là Tiếng Việt. Triển khai cấu hình SEO đa ngôn ngữ: thẻ `<html lang="...">` chính xác cho mỗi ngôn ngữ, thuộc tính `hreflang` cho các phiên bản ngôn ngữ (en, vi, es), thẻ meta ngôn ngữ cho mỗi trang. Đảm bảo chuyển đổi ngôn ngữ không cần tải lại trang [NFR-007].
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/v1/chatbot/query",
+        "tags": ["REQ-019"],
+        "request": {
+          "schema": {
+            "type": "object",
+            "required": ["query"],
+            "properties": {
+              "query": {"type": "string", "maxLength": 500},
+              "context": {"type": "object", "optional": true}
+            }
+          }
+        },
+        "response": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "answer": {"type": "string"},
+              "confidence": {"type": "float"},
+              "escalateToHuman": {"type": "boolean"}
+            }
+          }
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Không có ngoại lệ nghiệp vụ đặc thù được gán cho tác vụ này.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 6: Kiểm thử Hệ thống và Phát hành**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [Tester]
-* **Tag IDs Mục tiêu:** [NFR-002], [NFR-006]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/backend/tests/;./sources/backend/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Thực hiện các bài kiểm thử hệ thống và đảm bảo hệ thống hoạt động ổn định. Ghi lại các nhật ký hệ thống và chuẩn bị cho việc phát hành.
+###### 🌿 Phụ công việc 2: Viết unit test cho chatbot và bản địa hóa/SEO
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-019], [REQ-022], [REQ-023]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/chatbot-service/src/test/java/com/membershiphub/chatbot/ChatbotServiceTest.java`; `./sources/frontend/web/src/test/components/ChatbotWidget.test.tsx`; `./sources/frontend/web/src/test/hooks/useLocale.test.ts`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho chatbot: xử lý truy vấn thành công trả về câu trả lời liên quan, chuyển tiếp cho hỗ trợ con người khi độ tin cậy dưới 70%, xử lý truy vấn không hợp lệ. Viết unit test cho logic phát hiện ngôn ngữ: ưu tiên ngôn ngữ đã lưu, sau đó là Accept-Language, mặc định là Tiếng Việt, chuyển đổi ngôn ngữ không cần tải lại trang. Viết test cho cấu hình SEO: kiểm tra thẻ `hreflang` và thẻ `<html lang="...">` được tạo đúng cho 3 ngôn ngữ (en, vi, es). Đảm bảo độ phủ mã ít nhất 85% cho các thành phần liên quan.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-- **NGÀY 7: Phát hành và Kiểm tra Sau Triển khai**
 <!--START_ATOMIC_SUB_TASK_NODE-->
-* **Sub-Agent:** [GCP]
-* **Tag IDs Mục tiêu:** [NFR-002], [NFR-006]
-* **Đường dẫn Cấu phần Mục tiêu:** `./sources/infra/`
-* **Hướng dẫn Công việc Kỹ thuật Chi tiết:** Triển khai hệ thống lên môi trường sản xuất và thực hiện các bài kiểm tra sau triển khai. Đảm bảo hệ thống hoạt động ổn định và đáp ứng các yêu cầu phi chức năng.
+###### 🌿 Phụ công việc 3: Kiểm tra chất lượng mã nguồn chatbot và bản địa hóa
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-019], [REQ-022], [REQ-023], [NFR-007]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/chatbot-service/`; `./sources/frontend/web/src/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho chatbot service và các thành phần frontend liên quan đến bản địa hóa/SEO, kiểm tra logic xử lý truy vấn chatbot hoạt động đúng, logic chuyển tiếp cho hỗ trợ con người hoạt động chính xác khi độ tin cậy thấp, logic phát hiện ngôn ngữ hoạt động đúng, cấu hình SEO đầy đủ cho 3 ngôn ngữ, không có lỗi bảo mật (XSS khi hiển thị nội dung chatbot), tuân thủ yêu cầu đa ngôn ngữ [NFR-007]. Đề xuất và thực hiện sửa lỗi nếu có.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
 <!--END_ATOMIC_SUB_TASK_NODE-->
-</PREVIOUS_STEP_PHASE_LOGS>
 
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 4: Viết tài liệu tích hợp chatbot và hướng dẫn bản địa hóa/SEO
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [REQ-019], [REQ-022], [REQ-023]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/chatbot-integration.md`; `./sources/docs/architecture/localization-seo-guide.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu hướng dẫn tích hợp chatbot AI, bao gồm cấu hình API key, xử lý truy vấn, logic chuyển tiếp cho hỗ trợ con người, xử lý lỗi. Viết tài liệu hướng dẫn bản địa hóa và SEO, bao gồm cách thêm ngôn ngữ mới, cấu hình hreflang, quản lý chuỗi văn bản đa ngôn ngữ, kiểm tra cấu hình SEO cho từng ngôn ngữ.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
+##### 📅 Ngày 3: Triển khai giao diện di động vai trò và thông báo đẩy
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 1: Triển khai giao diện di động vai trò và tích hợp thông báo đẩy
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-020], [REQ-021]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/frontend/mobile-app/src/screens/StudentDashboard.tsx`; `./sources/frontend/mobile-app/src/screens/TeacherDashboard.tsx`; `./sources/frontend/mobile-app/src/screens/AdminDashboard.tsx`; `./sources/frontend/mobile-app/src/services/NotificationService.ts`; `./sources/frontend/mobile-app/src/components/AttendanceScanner.tsx`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai giao diện người dùng đáp ứng cho từng vai trò trên ứng dụng di động:
+  * Student: màn hình duyệt khóa học, đăng ký khóa học, xem thẻ hội viên (ngày còn lại), quét mã QR điểm danh, xem lịch sử điểm danh.
+  * Teacher: màn hình xem danh sách khóa học được phân công, danh sách học viên, lịch dạy, điểm danh học viên.
+  * Admin: màn hình quản lý trung tâm, quản lý khóa học, quản lý người dùng, tạo thông báo, xem báo cáo.
+  Tích hợp FCM/APNs: xử lý đăng ký token thiết bị khi người dùng đăng nhập, nhận và hiển thị thông báo đẩy cho xác nhận điểm danh, thông báo mới, nhắc nhở khóa học. Đảm bảo giao diện hoạt động mượt mà trên cả Android và iOS, đồng bộ chức năng với phiên bản web.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Coder không thực hiện viết hợp đồng API cho tác vụ này.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Không có ngoại lệ nghiệp vụ đặc thù được gán cho tác vụ này.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-## 📁 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
-- **SQL Injection (SQLi) Absolute Countermeasures:** Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.
-- **Cross-Site Scripting (XSS) & Content Security Policy (CSP):** Layout standards for automated context sanitization, JSX auto-escaping, and dynamic injection of strict CSP headers (`unsafe-inline` restriction).
-- **Multi-Tenant CORS Security Rails:** Configurations for origin wildcard prohibitions and dynamic tenant origin database metrics validation.
-- **Zero-Leak Log Scrubbing & PII Data Masking Engines:** Rules for automated masking interceptors (`@JsonSerialize`) and log scrubbing thresholds.
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 2: Viết unit và integration test cho ứng dụng di động
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-020], [REQ-021]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/frontend/mobile-app/src/test/screens/StudentDashboard.test.tsx`; `./sources/frontend/mobile-app/src/test/screens/TeacherDashboard.test.tsx`; `./sources/frontend/mobile-app/src/test/services/NotificationService.test.ts`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các thành phần giao diện di động: kiểm tra menu điều hướng hiển thị đúng theo vai trò người dùng, các màn hình chức năng hoạt động đúng (duyệt khóa học, xem thẻ hội viên, quét mã QR điểm danh). Viết integration test cho luồng thông báo đẩy: đăng ký token thiết bị thành công, nhận thông báo đẩy khi có sự kiện mới, hiển thị thông báo đúng trên giao diện. Kiểm tra giao diện hoạt động đúng trên các kích thước màn hình khác nhau. Đảm bảo độ phủ mã ít nhất 80% cho các thành phần di động.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-## 📁 7. HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
-- **Capacitor Mobile Hybrid Compliance Rails:** [IF Mobile active] Rules for dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions (`@capacitor/preferences`), and hardware back-button interception.
-- **Internationalization (i18n) & Dynamic SEO Injection:** Edge-layer locale recognition middleware architectures, hreflang dynamic hypermedia control injection, and search crawler robots indexing limits.
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 3: Kiểm tra chất lượng mã nguồn ứng dụng di động
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-020], [REQ-021], [NFR-007]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/frontend/mobile-app/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho toàn bộ mã nguồn ứng dụng di động, kiểm tra giao diện đáp ứng hoạt động đúng trên Android và iOS, logic hiển thị theo vai trò người dùng chính xác, tích hợp thông báo đẩy hoạt động đúng, tuân thủ yêu cầu đa ngôn ngữ [NFR-007], không có lỗi hiệu suất (tiêu tốn nhiều tài nguyên, phản hồi chậm). Kiểm tra logic quét mã QR điểm danh tích hợp với backend hoạt động đúng. Đề xuất và thực hiện sửa lỗi nếu có.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-## 📁 8. PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
-- **Daily Workspace Forking Isolation:** Programmatic forking controls for branch `features/development-phase-X-day-Y` (`X` is the number of phase, from 1 to N, where N <= 5; `Y` is the day number in phase, it will start from 1 for each phase).
-- **Validation Guard Pipeline Gates:** Execution rules for compilation verification, automated code coverage goals (`>= 85%`), and context summary serialization logs.
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 4: Viết tài liệu hướng dẫn sử dụng ứng dụng di động
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [REQ-020], [REQ-021]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/mobile-app-guide.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu hướng dẫn sử dụng ứng dụng di động cho từng vai trò người dùng (Student, Teacher, Admin), bao gồm hướng dẫn đăng ký, đăng nhập, sử dụng các chức năng chính (duyệt khóa học, điểm danh, xem thẻ hội viên, nhận thông báo). Viết hướng dẫn cài đặt ứng dụng trên Android và iOS, cấu hình thông báo đẩy.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-### 🛑 MATRIX COVERAGE CHECK MANDATE
+##### 📅 Ngày 4: Triển khai dịch vụ báo cáo và hoàn thiện tích hợp giai đoạn
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 1: Triển khai API báo cáo điểm danh và dashboard ghi danh
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [REQ-024], [REQ-025], [EXC-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportController.java`; `./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportService.java`; `./sources/backend/report-service/src/main/java/com/membershiphub/report/AttendanceCsvExporter.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Triển khai API `GET /api/v1/reports/attendance/daily` để tạo báo cáo điểm danh hàng ngày cho trung tâm định dạng CSV, bao gồm các cột: StudentName, CourseName, AttendanceDate, Status (Present/Absent/Late). Triển khai API `GET /api/v1/reports/dashboard/enrollment` để trả về dữ liệu tổng hợp cho dashboard: tổng số học viên đã đăng ký, số khóa học đang hoạt động, số buổi học sắp tới trong 7 ngày tiếp theo. Triển khai logic xử lý hàng đợi điểm danh chờ sau sự cố hệ thống [EXC-005]: xử lý các yêu cầu điểm danh đang lưu trong hàng đợi Redis theo thứ tự FIFO, đồng bộ với cơ sở dữ liệu chính, gửi thông báo cho người dùng về các sự kiện đã được xử lý.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
+  ```json
+  {
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/api/v1/reports/attendance/daily",
+        "tags": ["REQ-024"],
+        "parameters": [
+          {"name": "centerId", "in": "query", "required": true, "type": "uuid"},
+          {"name": "date", "in": "query", "required": true, "type": "date"}
+        ],
+        "response": {
+          "contentType": "text/csv",
+          "schema": {
+            "columns": ["StudentName", "CourseName", "AttendanceDate", "Status"]
+          }
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/reports/dashboard/enrollment",
+        "tags": ["REQ-025"],
+        "parameters": [
+          {"name": "centerId", "in": "query", "required": true, "type": "uuid"}
+        ],
+        "response": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "totalStudents": {"type": "integer"},
+              "activeCourses": {"type": "integer"},
+              "upcomingSessions": {"type": "integer"}
+            }
+          }
+        }
+      }
+    ],
+    "events": [
+      {
+        "topic": "report.generated",
+        "tags": ["REQ-024", "REQ-025"],
+        "payload": {
+          "reportType": {"type": "string", "enum": ["ATTENDANCE_DAILY", "ENROLLMENT_DASHBOARD"]},
+          "generatedAt": {"type": "timestamp"},
+          "requestedBy": {"type": "uuid"}
+        }
+      }
+    ]
+  }
+  ```
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** Triển khai xử lý ngoại lệ [EXC-005] trả về mã lỗi 503 Service Unavailable với thông báo "Hệ thống đang khôi phục sau sự cố, vui lòng thử lại sau" nếu hàng đợi điểm danh chưa được xử lý xong. Sau khi xử lý xong, gửi thông báo cho người dùng về các sự kiện đã được xử lý.
+<!--END_ATOMIC_SUB_TASK_NODE-->
 
-`[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: X, TOTAL ARC TAGS: Y, TOTAL EXC TAGS: Z, TOTAL DAT TAGS: V, TOTAL NFR TAGS: W. ZERO UNASSIGNED CODES FOUND.]`"
-    }
-]
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 2: Viết unit và integration test cho dịch vụ báo cáo
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [REQ-024], [REQ-025], [EXC-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/report-service/src/test/java/com/membershiphub/report/ReportServiceTest.java`; `./sources/backend/report-service/src/test/java/com/membershiphub/report/ReportIntegrationTest.java`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết unit test cho các trường hợp: tạo báo cáo điểm danh CSV thành công với dữ liệu chính xác, lấy dữ liệu dashboard thành công với các giá trị tổng hợp đúng, xử lý hàng đợi điểm danh chờ sau sự cố theo thứ tự FIFO, đồng bộ dữ liệu chính xác. Viết integration test cho luồng tạo báo cáo: gửi yêu cầu với centerId và date hợp lệ -> kiểm tra file CSV được tạo đúng định dạng, dữ liệu chính xác. Kiểm tra các trường hợp lỗi: centerId không tồn tại, date không hợp lệ. Đảm bảo độ phủ mã ít nhất 85% cho các lớp service.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Tester không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 3: Kiểm tra chất lượng mã nguồn dịch vụ báo cáo
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [REQ-024], [REQ-025], [EXC-005], [NFR-001]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/backend/report-service/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện code review cho toàn bộ mã nguồn report-service, kiểm tra logic tạo báo cáo CSV hoạt động đúng, logic tổng hợp dữ liệu dashboard chính xác, logic xử lý hàng đợi sau sự cố hoạt động đúng theo thứ tự FIFO, tối ưu truy vấn cơ sở dữ liệu để đảm bảo độ trễ API trung bình dưới 200ms [NFR-001], không có lỗi bảo mật (SQL injection, XSS). Đề xuất và thực hiện sửa lỗi nếu có.
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết hợp đồng API.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Reviewer không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 Phụ công việc 4: Hoàn thiện tài liệu và xác nhận tích hợp giai đoạn
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/report-service-api.md`; `./sources/docs/architecture/system-overview.md`; `./sources/docs/architecture/integration-guide.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu chi tiết hợp đồng API REST cho report-service, bao gồm endpoint tạo báo cáo điểm danh và dashboard ghi danh, schema request/response, mã lỗi, ví dụ sử dụng, định dạng file CSV. Cập nhật tài liệu kiến trúc tổng quan hệ thống với tất cả các dịch vụ mới được triển khai trong giai đoạn 4. Viết tài liệu hướng dẫn tích hợp giữa các microservice (notification, promotion, chatbot, report) và giao diện người dùng (web, mobile).
+* **Hợp đồng Định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+* **Trình xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-XXX]:** [NOT APPLICABLE] Đại lý phụ Doc không thực hiện viết trình xử lý ngoại lệ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+---
+
+### Phase 5 Logs (Atomic Salvaged Tag Lines):
+
+##### 📅 NGÀY 1: Thiết lập Docker đa giai đoạn và hạ tầng cơ sở GCP
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 1: Xây dựng Dockerfile đa giai đoạn cho tất cả service backend
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker/user-service/Dockerfile`; `./sources/infra/docker/center-service/Dockerfile`; `./sources/infra/docker/course-service/Dockerfile`; `./sources/infra/docker/enrollment-service/Dockerfile`; `./sources/infra/docker/attendance-service/Dockerfile`; `./sources/infra/docker/card-service/Dockerfile`; `./sources/infra/docker/notification-service/Dockerfile`; `./sources/infra/docker/promotion-service/Dockerfile`; `./sources/infra/docker/report-service/Dockerfile`; `./sources/infra/docker/chatbot-service/Dockerfile`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Xây dựng Dockerfile đa giai đoạn cho tất cả 9 service backend sử dụng base image JDK 21 slim, tối ưu kích thước hình ảnh dưới 200MB, cấu hình biến môi trường cho kết nối cơ sở dữ liệu, cổng ứng dụng và cấu hình xác thực. Sử dụng multi-stage build để tách biệt giai đoạn build và runtime, chỉ giữ lại các thư viện cần thiết trong hình ảnh cuối cùng.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 2: Cấu hình Docker Compose cho môi trường phát triển cục bộ
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker-compose.yml`; `./sources/infra/docker/.env.example`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tạo file docker-compose.yml để khởi chạy toàn bộ hệ thống cục bộ bao gồm: 9 backend services, PostgreSQL, Redis, Zalo API mock, Firebase Auth mock. Cấu hình network nội bộ, volume cho dữ liệu persistent, biến môi trường cho kết nối giữa các services. Đảm bảo có thể khởi chạy toàn bộ hệ thống với lệnh `docker-compose up`.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 3: Cấu hình hạ tầng cơ sở GCP (VPC, IAM, Service Accounts)
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-003], [NFR-008]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/gcp/vpc.tf`; `./sources/infra/gcp/iam.tf`; `./sources/infra/gcp/service-accounts.tf`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Cấu hình VPC network với subnet công khai và riêng tư, firewall rules cho phép traffic đến các service backend trên cổng 8080 và 8443, traffic đến PostgreSQL trên cổng 5432, traffic đến Redis trên cổng 6379. Tạo service accounts cho từng service backend với quyền hạn tối thiểu theo nguyên tắc least privilege. Cấu hình IAM roles cho System Admin, Center Admin để quản lý tài nguyên GCP.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 4: Viết tài liệu hướng dẫn triển khai hạ tầng cơ sở
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [NFR-002], [NFR-003]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/infrastructure/gcp-setup.md`; `./sources/docs/infrastructure/docker-setup.md`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Viết tài liệu hướng dẫn cấu hình hạ tầng GCP bao gồm: tạo project, cấu hình VPC, tạo service accounts, cấu hình IAM. Viết hướng dẫn sử dụng Docker và Docker Compose cho môi trường phát triển cục bộ, bao gồm cách khởi chạy, dừng, xem log, debug các service.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 2: Triển khai GKE cluster và CI/CD pipeline
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 1: Tạo và cấu hình GKE cluster với networking
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GKE]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/gke/cluster.tf`; `./sources/infra/gke/node-pools.tf`; `./sources/infra/gke/network-policy.yaml`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tạo GKE cluster với 3 node pools: general-purpose (2 nodes), high-memory (2 nodes) cho reporting, high-cpu (2 nodes) cho chatbot. Cấu hình network policy để kiểm soát traffic giữa các service, cấu hình private cluster với authorized networks, cấu hình Workload Identity để service accounts GCP có thể truy cập các dịch vụ khác mà không cần quản lý credentials.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 2: Cấu hình HPA và Kubernetes deployment manifests
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GKE]
+* **ID Thẻ mục tiêu:** [NFR-001], [NFR-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/gke/deployments/`; `./sources/infra/gke/hpa.yaml`; `./sources/infra/gke/services.yaml`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tạo Kubernetes deployment manifests cho tất cả 9 backend services với resource requests/limits, liveness và readiness probes, cấu hình HPA (Horizontal Pod Autoscaler) cho mỗi service dựa trên CPU > 70% hoặc request latency > 300ms. Tạo Service manifests (ClusterIP) cho internal communication và Ingress cho external access. Cấu hình resource quotas và limit ranges cho namespace.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 3: Cấu hình Cloud Storage, backup và disaster recovery
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/gcp/storage.tf`; `./sources/infra/gcp/backup-scheduler.tf`; `./sources/infra/gcp/disaster-recovery.tf`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Cấu hình Cloud Storage buckets cho lưu trữ backup PostgreSQL, logs, và artifacts. Tạo Cloud Scheduler để thực hiện backup PostgreSQL hàng ngày lúc 2:00 AM, lưu backup trong 30 ngày. Cấu hình Cloud SQL instance với high availability (regional), automatic failover, point-in-time recovery up to 24 hours. Tạo script disaster recovery để restore từ backup sang region phụ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 4: Cấu hình CI/CD pipeline với GitHub Actions
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [NFR-001], [NFR-005], [NFR-006], [NFR-007]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/github-actions/`; `./sources/infra/gcp/cloudbuild.yaml`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Cấu hình GitHub Actions workflow cho CI/CD: trigger trên push đến main branch, chạy unit tests và integration tests, build Docker images đa giai đoạn, push lên Google Container Registry (GCR), deploy lên GKE. Cấu hình caching để tăng tốc độ build, cấu hình secrets cho GCP credentials, Docker registry credentials. Cấu hình approval gate trước khi deploy lên production. Cấu hình pipeline để xử lý bản địa hóa đa ngôn ngữ: build và deploy các bản dịch, kiểm tra tất cả các chuỗi văn bản được externalized đúng cách [NFR-007].
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 3: Bảo mật, logging, audit và tối ưu cuối cùng
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 1: Cấu hình mã hóa dữ liệu và bảo mật hạ tầng
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [NFR-003], [NFR-008]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/gcp/encryption.tf`; `./sources/infra/gke/security-policies.yaml`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Cấu hình mã hóa dữ liệu at rest sử dụng AES-256 cho Cloud Storage, Cloud SQL, và Persistent Disks. Cấu hình mã hóa dữ liệu in transit sử dụng TLS 1.3 cho tất cả các endpoint. Cấu hình Cloud KMS để quản lý encryption keys. Cấu hình GKE security policies: Pod Security Standards (restricted), seccomp profiles, AppArmor, network policies để hạn chế lateral movement. Cấu hình Cloud IAP để bảo vệ access đến GKE dashboard.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 2: Cấu hình logging, monitoring và audit trail
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [GKE]
+* **ID Thẻ mục tiêu:** [NFR-006], [NFR-002]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/gke/logging-config.yaml`; `./sources/infra/gcp/audit-logging.tf`; `./sources/infra/monitoring/`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Cấu hình Cloud Logging cho GKE cluster để thu thập logs từ tất cả các pods, nodes, và system components. Cấu hình log retention 1 năm cho audit logs. Cấu hình Cloud Monitoring với dashboards cho CPU, memory, request latency, error rates. Cấu hình alerting policies cho các ngưỡng: CPU > 70%, memory > 80%, request latency > 300ms, error rate > 1%. Cấu hình audit logging cho tất cả các hành động quản trị GCP và GKE.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 3: Tối ưu kích thước hình ảnh Docker và đẩy lên registry
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker/`; `./sources/infra/gcp/artifact-registry.tf`
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Tối ưu kích thước hình ảnh Docker cho tất cả các services: sử dụng base image nhỏ (JDK 21 slim), loại bỏ các file không cần thiết, sử dụng layer caching hiệu quả. Đẩy tất cả hình ảnh lên Google Artifact Registry, cấu hình vulnerability scanning cho các hình ảnh. Đảm bảo kích thước hình ảnh cuối cùng dưới 500MB [NFR-005].
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 PHỤ CÔNG VIỆC 4: Kiểm tra cuối cùng và xác nhận hoàn thành giai đoạn 5
+* **Chuyên môn Luồng công việc của Đại lý phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** Toàn bộ mã nguồn và cấu hình hạ tầng trong ./sources/infra/
+* **Hướng dẫn Công việc Kỹ thuật Cấp thấp:** Thực hiện kiểm tra cuối cùng toàn bộ hạ tầng DevOps: kiểm tra tất cả Docker images có thể build thành công và kích thước trong giới hạn, kiểm tra GKE cluster khởi chạy đúng, tất cả services deploy thành công, HPA hoạt động đúng, CI/CD pipeline chạy thành công, backup và disaster recovery được cấu hình đúng, mã hóa dữ liệu được bật, logging và monitoring hoạt động, tất cả yêu cầu phi chức năng được đáp ứng. Xác nhận giai đoạn sẵn sàng cho vận hành production.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+--- END GENERATED PHASES CONTEXT ---
+</GENERATED_PHASES_CONTEXT>
 
 ---
 
@@ -1246,137 +1680,23 @@ Below are all the detailed phase logs generated in Part 2. You MUST review them 
 
 ---
 
-## 6. UNIVERSAL CODE PATTERNS & ENVIRONMENT SPECIFICATIONS
+### BỐI CẢNH NỀN TẢNG TỪ CÁC BƯỚC TRƯỚC
 
-### 🔒 UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
-- **SQL Injection (SQLi) Absolute Countermeasures:** Rule parameters for prepared statements, positional query parameters, and dynamic sorting input Whitelists.
-- **Cross-Site Scripting (XSS) & Content Security Policy (CSP):** Layout standards for automated context sanitization, JSX auto-escaping, and dynamic injection of strict CSP headers (`unsafe-inline` restriction).
-- **Multi-Tenant CORS Security Rails:** Configurations for origin wildcard prohibitions and dynamic tenant origin database metrics validation.
-- **Zero-Leak Log Scrubbing & PII Data Masking Engines:** Rules for automated masking interceptors (`@JsonSerialize`) and log scrubbing thresholds.
+## ☣️ 6. MÃ BẢO MẬT DOANH NGHIỆP PHỔ QUÁT & BIỆN PHÁP CHỐNG INJECTION [NFR-XXX]
+- **Biện pháp chống SQL Injection (SQLi) tuyệt đối:** Tham số quy tắc cho câu lệnh chuẩn bị, tham số truy vấn theo vị trí và danh sách cho phép đầu vào sắp xếp động.
+- **Cross-Site Scripting (XSS) & Chính sách bảo mật nội dung (CSP):** Tiêu chuẩn bố cục cho việc làm sạch ngữ cảnh tự động, tự động escape JSX và tiêm động các tiêu đề CSP nghiêm ngặt (hạn chế `unsafe-inline`).
+- **Đường ray bảo mật CORS đa tenant:** Cấu hình cho các lệnh cấm ký tự đại diện nguồn gốc và xác thực động số liệu cơ sở dữ liệu nguồn gốc của tenant.
+- **Công cụ làm sạch log không rò rỉ & che giấu dữ liệu PII:** Quy tắc cho các trình chặn che giấu tự động (`@JsonSerialize`) và ngưỡng làm sạch log.
 
-### 📱 HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
-- **Capacitor Mobile Hybrid Compliance Rails:** [IF Mobile active] Rules for dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions (`@capacitor/preferences`), and hardware back-button interception.
-- **Internationalization (i18n) & Dynamic SEO Injection:** Edge-layer locale recognition middleware architectures, hreflang dynamic hypermedia control injection, and search crawler robots indexing limits.
+## 📱 7. QUY TẮC TUÂN THỦ DI ĐỘNG HYBRID & CƠ CHẾ SEO ĐA NGÔN NGỮ
+- **Đường ray tuân thủ di động hybrid Capacitor:** [Nếu di động hoạt động] Quy tắc cho việc lấy dữ liệu động phía máy khách, địa chỉ URL tuyệt đối, bảo vệ hydration, trừu tượng lưu trữ gốc (`@capacitor/preferences`) và chặn nút quay lại phần cứng.
+- **Bản địa hóa (i18n) & Tiêm động SEO:** Kiến trúc middleware nhận dạng locale ở lớp edge, tiêm động điều khiển siêu phương tiện hreflang và giới hạn lập chỉ mục của crawler tìm kiếm.
 
-## 7. ENVIRONMENT MANIFESTS
+## 🚀 8. LUỒNG NHÁNH GIT PHIÊN LÀM VIỆC HÀNG NGÀY TỰ ĐỘNG TRONG PIPELINE
+- **Cô lập phân nhánh không gian làm việc hàng ngày:** Điều khiển phân nhánh lập trình cho nhánh `features/development-phase-X-day-Y` (`X` là số giai đoạn, từ 1 đến N, với N <= 5; `Y` là số ngày trong giai đoạn, bắt đầu từ 1 cho mỗi giai đoạn).
+- **Cổng bảo vệ xác thực pipeline:** Quy tắc thực thi cho xác minh biên dịch, mục tiêu độ phủ mã tự động (`>= 85%`) và log tuần tự hóa tóm tắt ngữ cảnh.
 
-### 🔧 ENVIRONMENT CONFIGURATIONS
-- **Development Environment:**
-  - **Database:** PostgreSQL 15
-  - **Backend Framework:** Quarkus 3.6.0
-  - **Frontend Framework:** Next.js 14.0.4
-  - **Mobile Framework:** React Native 0.72.6
-  - **Containerization:** Docker 24.0.5
-  - **Orchestration:** Kubernetes 1.28.2
-  - **Cloud Provider:** Google Cloud Platform (GCP)
-  - **CI/CD:** GitHub Actions
+### 📊 MANDATE KIỂM TRA PHỦ COVERAGE MA TRẬN
 
-- **Staging Environment:**
-  - **Database:** PostgreSQL 15
-  - **Backend Framework:** Quarkus 3.6.0
-  - **Frontend Framework:** Next.js 14.0.4
-  - **Mobile Framework:** React Native 0.72.6
-  - **Containerization:** Docker 24.0.5
-  - **Orchestration:** Kubernetes 1.28.2
-  - **Cloud Provider:** Google Cloud Platform (GCP)
-  - **CI/CD:** GitHub Actions
-
-- **Production Environment:**
-  - **Database:** PostgreSQL 15
-  - **Backend Framework:** Quarkus 3.6.0
-  - **Frontend Framework:** Next.js 14.0.4
-  - **Mobile Framework:** React Native 0.72.6
-  - **Containerization:** Docker 24.0.5
-  - **Orchestration:** Kubernetes 1.28.2
-  - **Cloud Provider:** Google Cloud Platform (GCP)
-  - **CI/CD:** GitHub Actions
-
-## 8. GIT FLOW BRANCHING POLICY
-
-### 🌐 PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
-- **Daily Workspace Forking Isolation:** Programmatic forking controls for branch `features/development-phase-X-day-Y` (`X` is the number of phase, from 1 to N, where N <= 5; `Y` is the day number in phase, it will start from 1 for each phase).
-- **Validation Guard Pipeline Gates:** Execution rules for compilation verification, automated code coverage goals (`>= 85%`), and context summary serialization logs.
-
-### 🔄 GIT FLOW BRANCHING STRATEGY
-- **Main Branches:**
-  - `main`: Production-ready code
-  - `develop`: Integration branch for features
-  - `release`: Release candidates
-  - `hotfix`: Critical bug fixes for production
-
-- **Feature Branches:**
-  - `features/development-phase-X-day-Y`: Daily development branches for each phase and day
-
-- **Release Branches:**
-  - `release/vX.Y.Z`: Release branches for versioning
-
-- **Hotfix Branches:**
-  - `hotfix/issue-XXX`: Branches for critical bug fixes
-
-### 🔄 GIT FLOW WORKFLOW
-1. **Feature Development:**
-   - Create a new branch from `develop` for each feature.
-   - Develop the feature in the new branch.
-   - Merge the feature branch into `develop` once it is complete.
-
-2. **Release Preparation:**
-   - Create a release branch from `develop` when all features for a release are complete.
-   - Perform final testing and bug fixes in the release branch.
-   - Merge the release branch into `main` and tag the release.
-
-3. **Hotfixes:**
-   - Create a hotfix branch from `main` for critical bug fixes.
-   - Develop the hotfix in the new branch.
-   - Merge the hotfix branch into `main` and `develop` once it is complete.
-
-### 🔄 GIT FLOW BRANCHING POLICY
-- **Branch Naming Conventions:**
-  - `features/development-phase-X-day-Y`: Daily development branches for each phase and day
-  - `release/vX.Y.Z`: Release branches for versioning
-  - `hotfix/issue-XXX`: Branches for critical bug fixes
-
-- **Branch Protection Rules:**
-  - `main`: Require pull request reviews and status checks
-  - `develop`: Require pull request reviews and status checks
-  - `release/vX.Y.Z`: Require pull request reviews and status checks
-  - `hotfix/issue-XXX`: Require pull request reviews and status checks
-
-- **Pull Request Guidelines:**
-  - All changes must be reviewed by at least one other developer.
-  - All pull requests must pass all status checks before merging.
-  - Pull requests must be merged using the "Squash and Merge" option to maintain a clean commit history.
-
-### 🔄 GIT FLOW BRANCHING POLICY
-- **Branch Naming Conventions:**
-  - `features/development-phase-X-day-Y`: Daily development branches for each phase and day
-  - `release/vX.Y.Z`: Release branches for versioning
-  - `hotfix/issue-XXX`: Branches for critical bug fixes
-
-- **Branch Protection Rules:**
-  - `main`: Require pull request reviews and status checks
-  - `develop`: Require pull request reviews and status checks
-  - `release/vX.Y.Z`: Require pull request reviews and status checks
-  - `hotfix/issue-XXX`: Require pull request reviews and status checks
-
-- **Pull Request Guidelines:**
-  - All changes must be reviewed by at least one other developer.
-  - All pull requests must pass all status checks before merging.
-  - Pull requests must be merged using the "Squash and Merge" option to maintain a clean commit history.
-
-### 🔄 GIT FLOW BRANCHING POLICY
-- **Branch Naming Conventions:**
-  - `features/development-phase-X-day-Y`: Daily development branches for each phase and day
-  - `release/vX.Y.Z`: Release branches for versioning
-  - `hotfix/issue-XXX`: Branches for critical bug fixes
-
-- **Branch Protection Rules:**
-  - `main`: Require pull request reviews and status checks
-  - `develop`: Require pull request reviews and status checks
-  - `release/vX.Y.Z`: Require pull request reviews and status checks
-  - `hotfix/issue-XXX`: Require pull request reviews and status checks
-
-- **Pull Request Guidelines:**
-  - All changes must be reviewed by at least one other developer.
-  - All pull requests must pass all status checks before merging.
-  - Pull requests must be merged using the "Squash and Merge" option to maintain a clean commit history.
+`[THỰC THI MA TRẬN TRUY XUẤT: 100% PHỦ COVERAGE ĐÃ ĐƯỢC XÁC NHẬN. TỔNG SỐ THẺ REQ DUY NHẤT ĐÃ ÁNH XẠ: 25, TỔNG SỐ THẺ ARC: 10, TỔNG SỐ THẺ EXC: 5, TỔNG SỐ THẺ DAT: 9, TỔNG SỐ THẺ NFR: 9. KHÔNG CÓ MÃ NÀO CHƯA ĐƯỢC GÁN.]`
 
