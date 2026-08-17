@@ -370,7 +370,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # --- count the phase rows in section 4.2 trong chunk_1b ---
         phase_anchor_pattern = re.compile(r"<!--\s*REGISTERED_PHASE_ROW\s*-->", re.DOTALL,)
         actual_registered_phases = len(phase_anchor_pattern.findall(chunk_1c))
-        if actual_registered_phases != num_phases:
+        if actual_registered_phases <= 0:
             logger.warning("                | ⚠️ Token `<!--REGISTERED_PHASE_ROW-->` missing, activating Fallback Engine to scan Phase...")
             phase_row_count = 0
             for line in chunk_1c.split("\n"):
@@ -394,6 +394,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 logger.info(
                     f"                |__  👉 📊 Fallback scan phase line(s) (Calculated Phase Rows): {actual_registered_phases}"
                 )
+        
+        # not exactly phases number
+        elif actual_registered_phases != num_phases:
+            logger.warning(f"                | ✅ Data may be missed/exceeded. Only found total {actual_registered_phases} phase rows. Requested {num_phases} phases.")
         
         # write chunk log
         chunk_log_file = GLOBAL_CHUNK_LOG_FILE.format(project_name, chunk_idx)
@@ -474,10 +478,10 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 # if token exceeded
                 if len(clean_text) > DEFAULT_LIMIT_PHASE_LOG_TOKEN:
                     logger.warning(
-                        "                  | ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
+                        "                | ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
                     )
                     logger.warning(
-                        f"                  |__  👉 ⚠️ Phase Log Token exceeded {DEFAULT_LIMIT_PHASE_LOG_TOKEN} chracters, activating Fallback Engine to compress Day Logs Blocks..."
+                        f"                |__  👉 ⚠️ Phase Log Token exceeded {DEFAULT_LIMIT_PHASE_LOG_TOKEN} chracters, activating Fallback Engine to compress Day Logs Blocks..."
                     )
                     # Maximum compression, only collect lines that contains technical Tag IDs
                     salvaged_lines = []
@@ -487,7 +491,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                     extracted_block = "\n".join(salvaged_lines)
                 else:
                     logger.warning(
-                        "                  |__  👉 ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
+                        "                |__  👉 ⚠️ Token `<!--START_DAY_LOG_INDEX-->` missing, activating Fallback Engine to scan day logs..."
                     )
                     # if it's in limit token, use it
                     extracted_block = clean_text.strip()
@@ -607,7 +611,7 @@ def run_test_global_generation(callback, full_export: bool=False):
     )
 
     AI_BASE_URL = "https://api.mistral.ai/v1"
-    AI_API_KEY = "<!--TEST API_KEY-->"
+    AI_API_KEY = "<!--API Key Here-->"
     MODEL_NAME = "codestral-latest"
 
     # openAI
