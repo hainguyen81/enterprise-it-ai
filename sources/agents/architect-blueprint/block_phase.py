@@ -16,6 +16,7 @@ from sources.agents.agent_helper import (
     get_logger,
     merge_master_prompt,
     parseAIResponseData,
+    read_file_raw,
     render_prompt,
     storage_info,
     write_blueprint_log,
@@ -101,7 +102,7 @@ def generate_phase_contexts(client: OpenAI, model_name: str, master_rules: str, 
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
-                temperature=0.2
+                temperature=0.1
             )
             raw_data = parseAIResponseData(response)
             previous_phase_context = raw_data
@@ -134,10 +135,89 @@ def generate_phase_contexts(client: OpenAI, model_name: str, master_rules: str, 
                 logger.debug(f"⏳ Rate limit guard active... holding pipeline for { delay } seconds to clear AI TPM window...")
                 time.sleep(delay)
             
-        result = True if num_phases > 0 else False
+        result = num_phases > 0
         return result # success or empty phases
     except Exception as e:
         logger.error(f"❌ Failed to initiate chat/generate Phase {log_phase_idx} Blueprint: {exception_stacktrace(e)}")
         write_blueprint_log(log_phase_idx, log_system_prompt, log_prompt.replace('#', '##'), exception_stacktrace(e), False, model_name_safe, out_dir)
         return False
+
+
+def run_test_phase_generation(callback):
+    if not callback or not callable(callback):
+        raise RuntimeError("Invalid test method!")
+
+    PROJET_NAME = "membership-hub"
+    LANGUAGE = "Vietnamese"
+    SOURCES_PATH = (
+        "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
+    )
+    OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJET_NAME)
+    AGENTS_PATH = os.path.join(SOURCES_PATH, "agents")
+    MASTER_PROMPT_TEMPLATE_PATH = os.path.join(
+        AGENTS_PATH, "prompts", "prompt.rule.enterprise.governance.guardrails.md"
+    )
+    REQUIREMENTS_PATH = os.path.join(
+        SOURCES_PATH, "requirements", PROJET_NAME, "requirements.md"
+    )
+    GLOBAL_CONTEXT_PATH = os.path.join(
+        SOURCES_PATH, "storage", "blueprint", PROJET_NAME, "context", f"{PROJET_NAME}.global.blueprint.md"
+    )
+
+    AI_BASE_URL = "https://api.mistral.ai/v1"
+    AI_API_KEY = "ra0JshuU715ZOjcqtRsHmB5sfEriaptM"
+    MODEL_NAME = "codestral-latest"
+
+    # openAI
+    client = OpenAI(
+        base_url=AI_BASE_URL,
+        api_key=AI_API_KEY,
+        # 0 to turn off retries
+        max_retries=3,
+        # timeout in seconds (600 seconds ~ 10 minutes)
+        timeout=600.0,
+    )
+
+    model_name = MODEL_NAME
+    master_rules = render_prompt(
+        MASTER_PROMPT_TEMPLATE_PATH,
+        {
+            "language": LANGUAGE,
+        },
+    )
+    _, project_requirements = read_file_raw(REQUIREMENTS_PATH)
+    _, global_context = read_file_raw(GLOBAL_CONTEXT_PATH)
+    
+
+    # run test
+    callback(
+        client=client,
+        model_name=model_name,
+        master_rules=master_rules,
+        project_name="membership-hub",
+        requirements=project_requirements,
+        global_context=global_context,
+        num_phases=5,
+        max_days_per_phase=7,
+        language=LANGUAGE,
+        out_dir=OUTDIR,
+        delay=5,
+    )
+
+    # close client
+    try:
+        client.close()
+    except Exception as e:
+        logger.error(f"⚠️ Exception while closing AI client: {e!s}")
+
+
+def test_phase_generation():
+    run_test_phase_generation(callback=generate_phase_contexts)
+
+
+# ---------------------
+# TEST
+# ---------------------
+if __name__ == "__main__":
+    test_phase_generation()
 
