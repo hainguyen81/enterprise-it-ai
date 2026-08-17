@@ -44,7 +44,20 @@ logger = get_logger("🏗️ EnterpriseSystemArchitecturePhaseAgent")
 # def generate_phase_contexts(client: genai.Client, project_name: str, requirements: str, global_context: str, num_phases: int, out_dir: str):
 
 # OpenAI
-def generate_phase_contexts(client: OpenAI, model_name: str, master_rules: str, project_name: str, requirements: str, global_context: str, num_phases: int, max_days_per_phase: int, language: str, out_dir: str, delay: int):
+def generate_phase_contexts(
+    client: OpenAI,
+    model_name: str,
+    master_rules: str,
+    project_name: str,
+    requirements: str,
+    global_context: str,
+    num_phases: int,
+    max_days_per_phase: int,
+    language: str,
+    out_dir: str,
+    delay: int,
+    phase: int = 0,
+):
     """
     BLOCK 2: Decomposes requirements into segmented, sandbox-ready development boundaries.
     Executes raw isolated stateless calls per loop item to bypass sequence length degradation.
@@ -60,7 +73,7 @@ def generate_phase_contexts(client: OpenAI, model_name: str, master_rules: str, 
     try:
         datetime_prompt, datetime_docid = datetime_for_agent()
         previous_phase_context = ""
-        for phase_idx in range(1, num_phases + 1):
+        for phase_idx in range(1, num_phases + 1) if phase <= 0 else range(phase, phase + 1):
             log_phase_idx = phase_idx
             logger.info(f" │   ├── 📝 Compiling Context Markdown for Phase {phase_idx} of {num_phases}...")
             
@@ -128,7 +141,9 @@ def generate_phase_contexts(client: OpenAI, model_name: str, master_rules: str, 
             # write log
             write_blueprint_log(log_phase_idx, system_prompt, log_prompt.replace('#', '##'), raw_data.replace('#', '##') if raw_data else "-", False, model_name_safe, out_dir)
             
-            logger.info(f" │   ├── ✅ Saved Phase {phase_idx} MD: {out_path}")
+            logger.info(
+                f" │   ├── ✅ [ SUCCESS ] 👉 Received/Saved Phase {phase_idx} MD: {out_path}"
+            )
             
             # sleep to avoid 429 Too Many Requests
             if phase_idx < num_phases + 1:
@@ -143,7 +158,7 @@ def generate_phase_contexts(client: OpenAI, model_name: str, master_rules: str, 
         return False
 
 
-def run_test_phase_generation(callback):
+def run_test_phase_generation(callback, phase: int = 0):
     if not callback or not callable(callback):
         raise RuntimeError("Invalid test method!")
 
@@ -165,7 +180,7 @@ def run_test_phase_generation(callback):
     )
 
     AI_BASE_URL = "https://api.mistral.ai/v1"
-    AI_API_KEY = "ra0JshuU715ZOjcqtRsHmB5sfEriaptM"
+    AI_API_KEY = "<!--API Key Here-->"
     MODEL_NAME = "codestral-latest"
 
     # openAI
@@ -202,6 +217,7 @@ def run_test_phase_generation(callback):
         language=LANGUAGE,
         out_dir=OUTDIR,
         delay=5,
+        phase=phase,
     )
 
     # close client
@@ -211,13 +227,14 @@ def run_test_phase_generation(callback):
         logger.error(f"⚠️ Exception while closing AI client: {e!s}")
 
 
-def test_phase_generation():
-    run_test_phase_generation(callback=generate_phase_contexts)
+def test_phase_generation(phase: int = 0):
+    run_test_phase_generation(callback=generate_phase_contexts, phase=phase)
 
 
 # ---------------------
 # TEST
 # ---------------------
 if __name__ == "__main__":
-    test_phase_generation()
+    PHASE = 0
+    test_phase_generation(phase=PHASE)
 
