@@ -1,7 +1,7 @@
 {
     "phase_id": 4,
-    "phase_name": "Ghi danh, điểm danh, thẻ, thông báo, khuyến mãi, chatbot, di động, i18n, SEO, báo cáo",
-    "phase_description": "Giai đoạn này tập trung vào việc triển khai ghi danh học viên, điểm danh QR, thẻ hội viên, thông báo đa kênh, khuyến mãi, chatbot AI, giao diện người dùng di động, bản địa hóa & SEO, và báo cáo & phân tích.",
+    "phase_name": "Triển khai hệ thống thông báo đa kênh, quản lý khuyến mãi, tích hợp chatbot AI và báo cáo phân tích",
+    "phase_description": "Triển khai hoàn chỉnh các tính năng giao tiếp đa kênh (thông báo đẩy di động, tin nhắn nhóm Zalo), quản lý khuyến mãi và thông báo hệ thống, tích hợp chatbot AI hỗ trợ khách hàng, giao diện di động vai trò tương ứng, bản địa hóa/SEO đa ngôn ngữ và các báo cáo phân tích cốt lõi, hoàn thiện tất cả các yêu cầu chức năng người dùng cuối của hệ thống membership-hub, đảm bảo tích hợp liền mạch giữa các microservice và giao diện người dùng.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,19 +9,73 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai ghi danh học viên, tự động tạo tài khoản học viên nếu thiếu",
+            "context_section": "Triển khai dịch vụ thông báo và quản lý khuyến mãi cơ bản",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai EnrollmentService.createEnrollment(studentId, courseId) kiểm tra xem học viên đã ghi danh chưa, nếu chưa thì tạo bản ghi ENROLLMENTS; nếu học viên chưa có tài khoản USERS, tạo tài khoản mới với roleId = Student; sau khi ghi danh thành công, tạo bản ghi NOTIFICATIONS với message “Bạn đã ghi danh thành công vào khóa học {courseId}”; gọi async push notification qua FCM/APNs; lưu audit log.",
+                    "desc": "Triển khai API quản lý thông báo và khuyến mãi",
                     "targeted_tags": [
-                        "[REQ-010]",
-                        "[REQ-011]",
-                        "[DAT-005]"
+                        "[REQ-016]",
+                        "[REQ-017]",
+                        "[REQ-018]",
+                        "[EXC-003]",
+                        "[DAT-008]",
+                        "[DAT-009]"
                     ],
                     "components": [
-                        "./sources/backend/enrollment/EnrollmentService.java"
+                        "./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationController.java",
+                        "./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java",
+                        "./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java",
+                        "./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết unit test cho dịch vụ thông báo và khuyến mãi",
+                    "targeted_tags": [
+                        "[REQ-016]",
+                        "[REQ-017]",
+                        "[REQ-018]",
+                        "[EXC-003]"
+                    ],
+                    "components": [
+                        "./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java",
+                        "./sources/backend/notification-service/src/test/java/com/membershiphub/notification/NotificationServiceTest.java",
+                        "./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java",
+                        "./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/PromotionServiceTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST3",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ thông báo và khuyến mãi",
+                    "targeted_tags": [
+                        "[REQ-016]",
+                        "[REQ-017]",
+                        "[REQ-018]",
+                        "[EXC-003]",
+                        "[NFR-003]"
+                    ],
+                    "components": [
+                        "./sources/backend/notification-service/",
+                        "./sources/backend/promotion-service/"
+                    ]
+                },
+                {
+                    "id": "D1_ST4",
+                    "agent": "Doc",
+                    "desc": "Viết tài liệu hợp đồng API cho dịch vụ thông báo và khuyến mãi",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-016]",
+                        "[REQ-017]",
+                        "[REQ-018]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/notification-service-api.md",
+                        "./sources/docs/architecture/promotion-service-api.md"
                     ]
                 }
             ]
@@ -29,21 +83,70 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai ghi nhận điểm danh QR với logic bất biến",
+            "context_section": "Triển khai tích hợp chatbot AI và bản địa hóa/SEO đa ngôn ngữ",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai AttendanceService.recordAttendance(studentId, courseId, qrData) xác thực studentId có ghi danh vào courseId, kiểm tra xem đã có ATTENDANCE cho attendanceDate hôm nay chưa; nếu đã có, trả về duplicate flag true; nếu chưa, tạo bản ghi ATTENDANCE mới; xử lý trường hợp ngoại tuyến bằng cách lưu sự kiện tạm thời vào hàng đợi (Redis) và xử lý khi kết nối lại; ném AttendanceServiceException cho các lỗi validation.",
+                    "desc": "Tích hợp chatbot AI và triển khai bản địa hóa/SEO",
                     "targeted_tags": [
-                        "[REQ-012]",
-                        "[REQ-013]",
-                        "[DAT-006]",
-                        "[EXC-001]",
-                        "[EXC-002]"
+                        "[REQ-019]",
+                        "[REQ-022]",
+                        "[REQ-023]",
+                        "[NFR-007]"
                     ],
                     "components": [
-                        "./sources/backend/attendance/AttendanceService.java"
+                        "./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotController.java",
+                        "./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotService.java",
+                        "./sources/frontend/web/src/components/ChatbotWidget.tsx",
+                        "./sources/frontend/web/src/hooks/useLocale.ts",
+                        "./sources/frontend/web/src/app/[locale]/layout.tsx"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết unit test cho chatbot và bản địa hóa/SEO",
+                    "targeted_tags": [
+                        "[REQ-019]",
+                        "[REQ-022]",
+                        "[REQ-023]"
+                    ],
+                    "components": [
+                        "./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotService.java",
+                        "./sources/backend/chatbot-service/src/test/java/com/membershiphub/chatbot/ChatbotServiceTest.java",
+                        "./sources/frontend/web/src/test/components/ChatbotWidget.test.tsx",
+                        "./sources/frontend/web/src/test/hooks/useLocale.test.ts"
+                    ]
+                },
+                {
+                    "id": "D2_ST3",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn chatbot và bản địa hóa",
+                    "targeted_tags": [
+                        "[REQ-019]",
+                        "[REQ-022]",
+                        "[REQ-023]",
+                        "[NFR-007]"
+                    ],
+                    "components": [
+                        "./sources/backend/chatbot-service/",
+                        "./sources/frontend/web/src/"
+                    ]
+                },
+                {
+                    "id": "D2_ST4",
+                    "agent": "Doc",
+                    "desc": "Viết tài liệu tích hợp chatbot và hướng dẫn bản địa hóa/SEO",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-019]",
+                        "[REQ-022]",
+                        "[REQ-023]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/chatbot-integration.md",
+                        "./sources/docs/architecture/localization-seo-guide.md"
                     ]
                 }
             ]
@@ -51,19 +154,62 @@
         {
             "day": 3,
             "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai hiển thị thẻ hội viên và chức năng gia hạn",
+            "context_section": "Triển khai giao diện di động vai trò và thông báo đẩy",
             "sub_tasks": [
                 {
                     "id": "D3_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai MembershipService.getCard(studentId) truy vấn STUDENTCARDS, tính remainingDays = validityDays - ngày đã sử dụng; trả về DTO; implement extendCard(studentId, additionalDays) cập nhật trường remainingDays, ghi log giao dịch; tích hợp payment gateway để xử lý phí gia hạn; gửi notification cho học viên.",
+                    "desc": "Triển khai giao diện di động vai trò và tích hợp thông báo đẩy",
                     "targeted_tags": [
-                        "[REQ-014]",
-                        "[REQ-015]",
-                        "[DAT-007]"
+                        "[REQ-020]",
+                        "[REQ-021]"
                     ],
                     "components": [
-                        "./sources/backend/membership/MembershipService.java"
+                        "./sources/frontend/mobile-app/src/screens/StudentDashboard.tsx",
+                        "./sources/frontend/mobile-app/src/screens/TeacherDashboard.tsx",
+                        "./sources/frontend/mobile-app/src/screens/AdminDashboard.tsx",
+                        "./sources/frontend/mobile-app/src/services/NotificationService.ts",
+                        "./sources/frontend/mobile-app/src/components/AttendanceScanner.tsx"
+                    ]
+                },
+                {
+                    "id": "D3_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết unit và integration test cho ứng dụng di động",
+                    "targeted_tags": [
+                        "[REQ-020]",
+                        "[REQ-021]"
+                    ],
+                    "components": [
+                        "./sources/frontend/mobile-app/src/test/screens/StudentDashboard.test.tsx",
+                        "./sources/frontend/mobile-app/src/test/screens/TeacherDashboard.test.tsx",
+                        "./sources/frontend/mobile-app/src/test/services/NotificationService.test.ts"
+                    ]
+                },
+                {
+                    "id": "D3_ST3",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn ứng dụng di động",
+                    "targeted_tags": [
+                        "[REQ-020]",
+                        "[REQ-021]",
+                        "[NFR-007]"
+                    ],
+                    "components": [
+                        "./sources/frontend/mobile-app/"
+                    ]
+                },
+                {
+                    "id": "D3_ST4",
+                    "agent": "Doc",
+                    "desc": "Viết tài liệu hướng dẫn sử dụng ứng dụng di động",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-020]",
+                        "[REQ-021]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/mobile-app-guide.md"
                     ]
                 }
             ]
@@ -71,68 +217,73 @@
         {
             "day": 4,
             "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai dịch vụ thông báo đa kênh và xử lý lỗi giao hàng",
+            "context_section": "Triển khai dịch vụ báo cáo và hoàn thiện tích hợp giai đoạn",
             "sub_tasks": [
                 {
                     "id": "D4_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai NotificationService.sendNotification(userId, groupZalo, message) lưu vào bảng NOTIFICATIONS, gọi FCM push cho userId, gọi Zalo API để đăng bài vào groupZalo; nếu gửi thất bại, ghi log lỗi, lên lịch retry tối đa 3 lần; sau khi retry thất bại, đánh dấu delivered = false và gửi email cảnh báo quản trị.",
+                    "desc": "Triển khai API báo cáo điểm danh và dashboard ghi danh",
                     "targeted_tags": [
-                        "[REQ-016]",
-                        "[DAT-008]",
-                        "[EXC-003]"
+                        "[REQ-024]",
+                        "[REQ-025]",
+                        "[EXC-005]"
                     ],
                     "components": [
-                        "./sources/backend/notification/NotificationService.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 5,
-            "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai CRUD khuyến mãi và thông báo với logic tự động hết hạn",
-            "sub_tasks": [
-                {
-                    "id": "D5_ST1",
-                    "agent": "Coder",
-                    "desc": "Triển khai PromotionService.createPromotion(payload) lưu vào bảng PROMOTIONS/ANNOUNCEMENTS; thêm validation startDate/endDate; thiết lập scheduler xóa các bản ghi đã hết hạn; implement soft-delete cho khuyến mãi; expose endpoint GET /promotions để hiển thị cho học viên.",
-                    "targeted_tags": [
-                        "[REQ-017]",
-                        "[REQ-018]",
-                        "[DAT-009]"
-                    ],
-                    "components": [
-                        "./sources/backend/promotion/PromotionService.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 6,
-            "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai tích hợp chatbot AI và tài liệu hướng dẫn vận hành",
-            "sub_tasks": [
-                {
-                    "id": "D6_ST1",
-                    "agent": "Coder",
-                    "desc": "Triển khai ChatbotService xử lý các truy vấn từ người dùng, trả lời các câu hỏi phổ biến về khóa học, giáo viên, trung tâm và trạng thái tài khoản.",
-                    "targeted_tags": [
-                        "[REQ-019]"
-                    ],
-                    "components": [
-                        "./sources/backend/chatbot/ChatbotService.java"
+                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportController.java",
+                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportService.java",
+                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/AttendanceCsvExporter.java"
                     ]
                 },
                 {
-                    "id": "D6_ST2",
-                    "agent": "Doc",
-                    "desc": "Soạn thảo tài liệu hướng dẫn tích hợp chatbot AI bao gồm các endpoint, cách thức xử lý hội thoại, quy tắc escalation, tham chiếu các Tag IDs [REQ-019]; thêm các đoạn mã ví dụ bằng tiếng Việt.",
+                    "id": "D4_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết unit và integration test cho dịch vụ báo cáo",
                     "targeted_tags": [
-                        "[REQ-019]"
+                        "[REQ-024]",
+                        "[REQ-025]",
+                        "[EXC-005]"
                     ],
                     "components": [
-                        "./sources/docs/ChatbotIntegrationGuide.md"
+                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportService.java",
+                        "./sources/backend/report-service/src/test/java/com/membershiphub/report/ReportServiceTest.java",
+                        "INTEGRATION_SCOPE;./sources/backend/report-service/src/test/java/com/membershiphub/report/ReportIntegrationTest.java"
+                    ]
+                },
+                {
+                    "id": "D4_ST3",
+                    "agent": "Reviewer",
+                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ báo cáo",
+                    "targeted_tags": [
+                        "[REQ-024]",
+                        "[REQ-025]",
+                        "[EXC-005]",
+                        "[NFR-001]"
+                    ],
+                    "components": [
+                        "./sources/backend/report-service/"
+                    ]
+                },
+                {
+                    "id": "D4_ST4",
+                    "agent": "Doc",
+                    "desc": "Hoàn thiện tài liệu và xác nhận tích hợp giai đoạn",
+                    "targeted_tags": [
+                        "[ARC-010]",
+                        "[REQ-016]",
+                        "[REQ-017]",
+                        "[REQ-018]",
+                        "[REQ-019]",
+                        "[REQ-020]",
+                        "[REQ-021]",
+                        "[REQ-022]",
+                        "[REQ-023]",
+                        "[REQ-024]",
+                        "[REQ-025]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/report-service-api.md",
+                        "./sources/docs/architecture/system-overview.md",
+                        "./sources/docs/architecture/integration-guide.md"
                     ]
                 }
             ]
