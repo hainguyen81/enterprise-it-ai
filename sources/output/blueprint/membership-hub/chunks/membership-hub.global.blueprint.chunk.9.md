@@ -1,4 +1,4 @@
-# System Prompt 1:
+# System Prompt 9:
 
 ---
 
@@ -141,7 +141,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 ---
 
-# User Prompt 1:
+# User Prompt 9:
 
 ---
 
@@ -245,90 +245,61 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 <RULE>
 - **ZERO REPLICATE MANDATE (ANTI-ECHO LAW):** You are STRICTLY BANNED from replicating, copying, or printing any raw lines, paragraphs, or blocks of text from `<SYSTEM_DATA_INJECTION_POOL>`, `<PROJECT_BACKLOG_TASKS_DATA>` or `<PROJECT_SOURCE_GROUNDING_DATA>` into your output response. Those pools are strictly for internal processing, NOT targets for emission. Furthermore, you are CRITICALLY AND PERMANENTLY BANNED from replicating, echoing, translating, or emitting any instruction sentences, rules, or guidelines contained within this active `RULE` block envelope itself. The opening `<RULE>` and closing `</RULE>` markers, along with all their internal text tokens, are strict machine-gating directives intended ONLY for your internal cognitive execution. Leaking any portion of these rule instructions into the final human-readable markdown stream triggers an immediate infrastructure system crash.
 
-- **GLOBAL AUTOMATIC TERMINATION BOUNDARY:** Your very first emitted token MUST be the first visible markdown header line rendered in this active User Message. The execution engine MUST continue processing the token stream continuously beyond the active segment boundary. Do NOT execute an early hard stop or immediate termination upon reaching the closing framework tag `<!--END_PART_1_INITIAL-->`. You MUST smoothly transition your cursor downward to process, fully translate into Vietnamese, and explicitly emit 100% of all subsequent root sections (including Sections 6, 7, and 8) that are appended to the active template layout skeleton. Dropping, truncating, or leaving these concluding compliance sections un-translated triggers an immediate infrastructure integration failure.
+- **GLOBAL AUTOMATIC TERMINATION BOUNDARY:** Your very first emitted token MUST be the first visible markdown header line rendered in this active User Message. The execution engine MUST continue processing the token stream continuously beyond the active segment boundary. Do NOT execute an early hard stop or immediate termination upon reaching the closing framework tag `<!--END_PART_3_FINAL-->`. You MUST smoothly transition your cursor downward to process, fully translate into Vietnamese, and explicitly emit 100% of all subsequent root sections (including Sections 6, 7, and 8) that are appended to the active template layout skeleton. Dropping, truncating, or leaving these concluding compliance sections un-translated triggers an immediate infrastructure integration failure.
 - **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS):** You are STRICTLY BANNED from wrapping your entire multi-line output response inside triple backticks markdown envelopes (i.e., ```markdown ... ```). You MUST emit your architectural structure directly into the token stream as pure, un-enveloped flat text. Any dynamic leakage of wrapping backticks triggers an immediate infrastructure system crash.
 
-- **DYNAMIC TARGET ISOLATION LAW (HTML WRAPPER ANCHOR):** You MUST programmatically force your output generation cursor to completely skip and blind-pass 100% of this operational instruction `<RULE>` block. Identify the active anchor `<!--START_PART_1_INITIAL-->` located downstream. Your very first emitted token in the response stream MUST match with absolute precision the exact text of the clean Markdown header line (starting with `#`, `##`, or `###`) located immediately AFTER that specific opening HTML framework comment tag. Zero leakage of pre-gating instruction rules, metadata words, or processing explanations is permitted before this structural header token.
-- **STRICT HALT BOUNDARY (ZERO-TAG EXECUTION):** You are strictly commanded to ONLY generate content that exists structurally inside the active HTML framework comment pair currently triggered by the system filter. You ARE ABSOLUTELY AND CRITICALLY BANNED from replicating, echoing, or copying any raw structural chunks from the reference database pool or the `--- RAW REQUIREMENTS ---` section. The exact microsecond you finish printing the final data row or string located immediately before the closing HTML framework comment tag (`<!--END_PART_1_INITIAL-->`), you MUST trigger an absolute system hard stop and terminate the response stream instantly.
+- **DYNAMIC TARGET ISOLATION LAW (HTML WRAPPER ANCHOR):** You MUST programmatically force your output generation cursor to completely skip and blind-pass 100% of this operational instruction `<RULE>` block. Identify the active anchor `<!--START_PART_3_FINAL-->` located downstream. Your very first emitted token in the response stream MUST match with absolute precision the exact text of the clean Markdown header line (starting with `#`, `##`, or `###`) located immediately AFTER that specific opening HTML framework comment tag. Zero leakage of pre-gating instruction rules, metadata words, or processing explanations is permitted before this structural header token.
+- **STRICT HALT BOUNDARY (ZERO-TAG EXECUTION):** You are strictly commanded to ONLY generate content that exists structurally inside the active HTML framework comment pair currently triggered by the system filter. You ARE ABSOLUTELY AND CRITICALLY BANNED from replicating, echoing, or copying any raw structural chunks from the reference database pool or the `--- RAW REQUIREMENTS ---` section. The exact microsecond you finish printing the final data row or string located immediately before the closing HTML framework comment tag (`<!--END_PART_3_FINAL-->`), you MUST trigger an absolute system hard stop and terminate the response stream instantly.
 - You MUST fully translate them following the rules in `CRITICAL FULL TRANSLATION MANDATE`
 </RULE>
 
-<!--START_PART_1_INITIAL-->
+<!--START_PART_3_FINAL-->
 
-# GLOBAL PROJECT CONTEXT: membership-hub
+### GROUNDING CONTEXT FROM PREVIOUS STEPS
 
-## 📊 Document Control
-
-| Item | Details |
-| :--- | :--- |
-| **Blueprint ID** | ARCH-20260818163158 |
-| **Project Name** | membership-hub |
-| **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/18 16:31:58 |
-| **Author** | Enterprise System Architect (SA Agent) |
-| **Approval** | Pending Technical Governance Review |
-
-## 📊 1. SYSTEM OVERVIEW & CORE ARCHITECTURE MODALITY
-
-### ⚙️ 1.1. Core System Modality & Architecture Modality
 <RULE>
-- You MUST automatically delete this entire rule instruction text stream block.
-- You MUST dynamically generate a comprehensive technical overview analysis of the discovered core system architecture, EDA patterns, CQRS boundaries, and Reactive core models based strictly on the requirement context.
-- CRITICAL FORMAT RULE: You BANNED from outputting paragraphs or walls of text. You MUST strictly format 100% of your generated overview as a clean, highly structured, high-density markdown bulleted checklist (`- ` symbols). Each bullet point must be a short, punchy technical statement delivering raw architectural metrics.
-- You MUST render 100% of your newly generated sentences in the designated target language: 🇻🇳 Vietnamese.
+All the detailed phase logs generated in the `--- GENERATED PHASES CONTEXT ---` section. You MUST review them to ensure the universal security codes match the tech stack implemented.
 </RULE>
 
-### 🌊 1.2. Enterprise Data Flow Topologies & Core Ecosystems
-<RULE>
-- You MUST dynamically generate a detailed technical breakdown analysis of asynchronous messaging channels, ingestion gateway parameters, topic topologies, and cross-channel external fan-out architectures based on the context.
-- You MUST render 100% of your newly generated sentences in the designated target language: 🇻🇳 Vietnamese.
-</RULE>
-
-## 📁 2. TECH STACK DEPENDENCIES & ECOSYSTEM LIBRARIES
-- **Backend Infrastructure Core Stack:** [Detail precise versions, runtime engines, dependency injection abstractions, ORMs, and messaging frameworks extracted from requirements]
-- **Frontend & Cross-Platform UI Mobile Stack:** [Detail strict web frameworks, dynamic localized routing, responsive layouts, and native mobile runtime wrappers if present]
-
-## 📁 3. GLOBAL GUARDRAILS & ENTERPRISE COMPLIANCE STANDARDS
+## ☣️ 6. UNIVERSAL ENTERPRISE SECURITY CODES & INJECTION COUNTERMEASURES [NFR-XXX]
 <RULE>
 
-- **REAL-DATA COMPLIANCE ANCHOR:** You MUST extract and generate the markdown bulleted checklist based STRICTLY AND ONLY on the actual, real-world security and infrastructure data present in the raw input requirements database.
-  * ANTI-HALLUCINATION RAIL: You ARE ABSOLUTELY BANNED from fabricating, looping, or generating generic administrative placeholder bullets (e.g., do NOT generate repeated lines about managing finance, HR, projects, or quality). If the source data provides fewer than 5 compliance metrics, stop immediately at the last real item. Padding out the text stream with semantic junk will trigger an immediate compiler crash.
-- Each item MUST be rendered as a highly structured, high-density markdown bulleted checklist (`- ` symbols). 
-- Every bullet point must be a short, punchy technical baseline statement delivering raw architectural metrics in the designated target language: 🇻🇳 Vietnamese.
+You MUST dynamically and contextually translate 100% of both the level-3 markdown item header rows (`### 1.`, `### 2.`, etc.) and their underlying engineering paragraphs into the designated target language context matching: 🇻🇳 Vietnamese. Crucially, you MUST enforce a strict technical nomenclature lockdown: you are ABSOLUTELY BANNED from outputting generic, duplicate description paragraphs or copy-pasting the same mitigation text across different items. For each specific security threat listed below, you MUST dynamically parse its dedicated raw non-functional requirements from the pool, mapping the unique, non-overlapping targeted Tag IDs inline at the bottom of each item (e.g., ensuring SQL Injection maps to its precise database tag, Cross-Site Scripting maps to its specific XSS/CSP gate tag, CORS Multi-Tenant maps to its unique origin registry tag, and PII Data Masking maps strictly to its custom custom custom serializer metadata tag). Leaving duplicate payload blocks or placeholder tags will instantly crash the compiler engine.
+  1. SQL Injection (SQLi) Absolute Countermeasures (Detailing prepared statements, positional query parameters, and dynamic sorting input whitelists via Hibernate ORM).
+  2. Cross-Site Scripting (XSS) & Content Security Policy (CSP) (Detailing automated context sanitization, JSX auto-escaping, and dynamic injection of strict HTTP CSP headers inside the Ingress Gateway).
+  3. Multi-Tenant CORS Security Rails (Specifying wildcard origin prohibitions and dynamic tenant validation boundaries).
+  4. Zero-Leak Log Scrubbing & PII Data Masking Engines (Elaborating automated masking interceptors utilizing `@JsonSerialize` annotations).
 </RULE>
 
-### 🔑 3.1. Security & Compliance Baseline
+## 📱 7. HYBRID MOBILE COMPLIANCE RAIL RULES & INTERNATIONALIZED SEO MECHANISMS
 <RULE>
 
-- **REAL-DATA COMPLIANCE ANCHOR:** You MUST extract and generate the markdown bulleted checklist based STRICTLY AND ONLY on the actual, real-world security and infrastructure data present in the raw input requirements database.
-  * ANTI-HALLUCINATION RAIL: You ARE ABSOLUTELY BANNED from fabricating, looping, or generating generic administrative placeholder bullets (e.g., do NOT generate repeated lines about managing finance, HR, projects, or quality). If the source data provides fewer than 5 compliance metrics, stop immediately at the last real item. Padding out the text stream with semantic junk will trigger an immediate compiler crash.
-- Every bullet point must be a short, punchy technical statement delivering raw architectural metrics in the designated target language: 🇻🇳 Vietnamese.
-- If no explicit security requirements are found in the text, you MUST derive a logical technical security baseline tailored to the project's tech stack.
+You MUST dynamically and contextually translate 100% of both the level-3 markdown item header titles and their underlying operational technical compliance paragraphs into the target language context matching: 🇻🇳 Vietnamese. You are CRITICALLY AND PERMANENTLY BANNED from replicating or bleeding any security description text, XSS/CSP mitigation content, or token payloads from Section 6 into this area. You MUST focus your generation engine exclusively on unique hybrid mobile architecture and web indexing components: item 1 MUST specify real-world Capacitor mobile hybrid constraints (handling hardware back-button interceptors and native storage sync using `@capacitor/preferences`), and item 2 MUST detail edge middleware dynamic locale recognition and automated hreflang properties generation. Each item MUST inline its precise, unique mobile/SEO tracking Tag IDs from the pool.
+  1. Capacitor Mobile Hybrid Compliance Rails (Specifying dynamic client-side fetching, absolute URL addressing, hydration safeguards, native storage abstractions using `@capacitor/preferences`, and hardware back-button interception).
+  2. Internationalization (i18n) & Dynamic SEO Injection (Detailing edge-layer locale recognition middleware architectures and dynamic hreflang control injection).
 </RULE>
 
-### 🌐 3.2. Infrastructure & Performance Guardrails
+## 🚀 8. PIPELINE AUTOMATED DAILY SESSION GIT BRANCH FLOW
 <RULE>
-- Dynamically extract and generate a highly structured, high-density markdown bulleted checklist (`- ` symbols) specifying the infrastructure limitations, database pooling (e.g., HikariCP), caching eviction policies (e.g., Redis), and async messaging constraints from the requirements.
-- Every bullet point must be a short, punchy technical statement delivering raw architectural metrics in the designated target language: 🇻🇳 Vietnamese.
-- If no explicit performance guardrails are found, you MUST derive a production-grade infrastructure baseline tailored to the project's architecture.
+
+You MUST dynamically and contextually translate 100% of both the level-3 markdown integration pipeline header titles and their continuous execution flow texts into the target language context matching: 🇻🇳 Vietnamese. You are CRITICALLY BANNED from repeating or ghosting any frontend mobile rules or backend security mitigations here. You MUST apply standard automated DevOps CI/CD pipeline engineering vocabulary: item 1 MUST detail strict workspace forking isolation controls for branch configurations matching `features/development-phase-X-day-Y`, and item 2 MUST establish automated compile-time unit testing gating targets set strictly to `>= 85%` alongside SonarQube quality gates. Inline the exact, unique automation tracking Tag IDs at the bottom of each item boundary.
+  1. Daily Workspace Forking Isolation (Detailing programmatic forking controls for branch features/development-phase-X-day-Y where X is phase and Y is day).
+  2. Validation Guard Pipeline Gates (Establishing strict execution rules for automated compilation verification, SonarQube lint gates, and automated test coverage goals set to `>= 85%`).
 </RULE>
 
-### 🥞 3.3. ARCHITECTURAL STACK MATRIX
+### 📊 MATRIX COVERAGE CHECK MANDATE
 <RULE>
-- You MUST analyze the `--- RAW REQUIREMENTS ---` section to identify the actual technology stack used in the project.
-- Based on your analysis, dynamically set the value of each key below to `true` or `false`.
-- CRITICAL FORMAT RULE: Output ONLY the raw key-value pairs formatted exactly as `KEY=value`. Do NOT translate the keys. Do NOT add markdown formatting, quotes, or brackets inside the code block.
+- **CRITICAL SECTION-SCOPED AUDIT & POLYMORPHIC ALL-TAG EXTRACTION MANDATE:** At the absolute conclusion of your generation loop, you MUST execute a strict programmatic reverse-scan audit with a tightly isolated data parsing boundary: you are ONLY allowed to scan, extract, and count the traceability tags that are actively generated within Section 5. Your internal execution parser MUST position its scanning cursor strictly below the dynamic string literal header token evaluated exactly as '--- GENERATED' followed by ' PHASES CONTEXT ---' to locate the starting boundary. You MUST completely ignore, blind-pass, and bypass 100% of all markdown tables, matrix grids, and text metadata located above this specific anchor token to prevent double-counting. Within this isolated chặng logs zone, you MUST evaluate 100% of all 5 core baseline tracking tag types (REQ, ARC, EXC, DAT, NFR) encountered using a polymorphic parsing conditional strategy with an absolute ban on hardcoding static sums:
+  1. Standalone Single Tag Condition (Applies to REQ, ARC, EXC, DAT, NFR): If an encountered tag of any type is formatted as a single discrete primitive token (e.g., `[REQ-XXX]`, `[ARC-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, or `[NFR-XXX]`), your engine MUST process and count it natively as exactly one (1) unique tracking tag toward its specific parent category matrix.
+  2. Dynamic Range Sequential Condition (Applies to dynamic ranges): If an encountered tag is formatted as a sequential range token utilizing a 'to' keyword (formatted as `[TAG-Start to TAG-End]`, example: `[NFR-001 to NFR-009]`), your engine MUST dynamically extract the 'Start' integer and the 'End' integer, mathematically compute the absolute delta span count as `(End - Start + 1)`, and add this calculated total value to the validation ledger of that specific tag type.
+  3. Dynamic Global Group Condition (Applies to global db pools): If an encountered tag is formatted as an all-inclusive database token utilizing an 'ALL' keyword (formatted as `[TAG-ALL (Start to End)]`, example: `[DAT-ALL (1 to 12)]`), your engine MUST programmatically parse the dynamic numeric boundaries inside the parentheses, compute the mathematical span as `(End - Start + 1)`, and expand it into the exact equivalent number of individual structural entities for that tag type ledger.
+  4. Strict Matrix Substitution: You are CRITICALLY BANNED from leaving the raw template placeholder characters X, Y, Z, V, or W inside the final matrix row string. You MUST substitute each variable with the precise dynamic integer sum computed exclusively from this polymorphic live recount of all 5 types matching the active data logs under the designated anchor token.
+- Your final emitted token row MUST strictly output the completed cross-validation matrix ledger on a single independent line formatted exactly as:
+`[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: [Insert your live expanded REQ integer sum], TOTAL ARC TAGS: [Insert your live expanded ARC integer sum], TOTAL EXC TAGS: [Insert your live expanded EXC integer sum], TOTAL DAT TAGS: [Insert your live expanded DAT integer sum], TOTAL NFR TAGS: [Insert your live expanded NFR integer sum]. ZERO UNASSIGNED CODES FOUND.]`
+- Failure to implement this comprehensive 5-type conditional parsing flow or outputting raw placeholder characters will trigger a critical validation exception and completely shut down the execution pipeline.
 </RULE>
 
-```properties:stack_matrix
-PERSISTENCE_LAYER_REQUIRED=auto_evaluate
-BACKEND_LAYER_REQUIRED=auto_evaluate
-FRONTEND_LAYER_REQUIRED=auto_evaluate
-MOBILE_LAYER_REQUIRED=auto_evaluate
-DEVOPS_LAYER_REQUIRED=auto_evaluate
-```
-
-<!--END_PART_1_INITIAL-->
+<!--END_PART_3_FINAL-->
 
 <PROJECT_SOURCE_GROUNDING_DATA>
 --- RAW REQUIREMENTS ---
@@ -707,180 +678,73 @@ DEVOPS_LAYER_REQUIRED=auto_evaluate
 --- END REQUIREMENTS ---
 </PROJECT_SOURCE_GROUNDING_DATA>
 
----
+<GENERATED_PHASES_CONTEXT>
+--- GENERATED PHASES CONTEXT ---
+### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-# Output Chunk 1:
-
----
-
-# BỐI CẢNH DỰ ÁN TOÀN CẦU: membership-hub
-
-## 📊 Kiểm soát tài liệu
-
-| Mục | Chi tiết |
-| :--- | :--- |
-| **ID Bản thiết kế** | ARCH-20260818163158 |
-| **Tên dự án** | membership-hub |
-| **Phiên bản** | 1.0 (Cơ sở) |
-| **Ngày.Giờ** | 2026/08/18 16:31:58 |
-| **Tác giả** | Kiến trúc sư hệ thống doanh nghiệp (Đặc vụ SA) |
-| **Phê duyệt** | Đang chờ xem xét quản trị kỹ thuật |
-
-## 📊 1. TỔNG QUAN HỆ THỐNG & CHẾ ĐỘ KIẾN TRÚC CỐT LÕI
-
-### ⚙️ 1.1. Chế độ hệ thống cốt lõi & chế độ kiến trúc
-- Kiến trúc phân lớp 3 tầng: Frontend Next.js, Backend Quarkus Java, Cơ sở dữ liệu PostgreSQL, triển khai trên GKE [ARC-010]
-- Hệ thống xác thực tập trung sử dụng Firebase Authentication, hỗ trợ OAuth2 (Google, Facebook, email/mật khẩu), cấp JWT access token (hết hạn 15 phút) và refresh token (hết hạn 7 ngày) [ARC-006]
-- Kiểm soát truy cập dựa trên vai trò (RBAC) với 5 vai trò: System Admin, Center Admin, Manager, Teacher, Student, quyền hạn được cách ly theo trung tâm [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005]
-- Hỗ trợ đa ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha) với chuyển đổi locale không cần tải lại trang [NFR-007]
-- Tích hợp đa kênh thông báo: Push notification qua FCM/APNs, đăng bài nhóm Zalo, thông báo trong ứng dụng [ARC-008]
-- Đảm bảo tính bất biến điểm danh: Một học viên chỉ có một bản ghi điểm danh mỗi khóa học mỗi ngày, xử lý yêu cầu trùng lặp tự động [REQ-012, REQ-013, EXC-002]
-- Hỗ trợ caching phiên làm việc và dữ liệu ngoại tuyến bằng Redis cho ứng dụng di động [ARC-009]
-- Ghi log kiểm toán toàn diện cho tất cả hành động người dùng, lưu trữ 1 năm [NFR-006]
-
-### 🌊 1.2. Kiến trúc luồng dữ liệu doanh nghiệp & hệ sinh thái cốt lõi
-- Luồng xác thực: Người dùng gửi thông tin đăng nhập/OAuth2 → Backend xác thực với Firebase → Cấp JWT token, lưu refresh token an toàn [ARC-006]
-- Luồng điểm danh QR: Ứng dụng di động quét mã QR khóa học → Gửi student ID, timestamp, course ID đến backend → Dịch vụ điểm danh kiểm tra tính hợp lệ, ghi bản ghi idempotent, trả phản hồi trùng lặp nếu đã điểm danh [REQ-012, REQ-013, EXC-001, EXC-002]
-- Luồng thông báo: Sự kiện hệ thống (đăng ký khóa học, phân công giáo viên, tạo thông báo) → Kích hoạt sản xuất thông báo → Gửi push notification đến thiết bị người dùng, đăng bài lên nhóm Zalo được chỉ định [REQ-016, EXC-003]
-- Luồng quản lý khóa học & ghi danh: Admin tạo/cập nhật khóa học → Kiểm tra xung đột lịch giáo viên/phòng học → Học viên duyệt khóa học, đăng ký → Tự động tạo tài khoản Student nếu chưa có, ghi bản ghi ghi danh [REQ-007, REQ-008, REQ-009, REQ-010, REQ-011]
-- Luồng quản lý thẻ hội viên: Học viên xem thông tin thẻ (ngày còn lại) → Khi gia hạn, tích hợp cổng thanh toán → Cập nhật ngày hết hạn thẻ, gửi thông báo xác nhận [REQ-014, REQ-015]
-- Luồng báo cáo & phân tích: Admin yêu cầu báo cáo điểm danh → Hệ thống tổng hợp dữ liệu từ bảng Attendance, Users, Courses → Xuất file CSV, hiển thị dashboard tổng quan thời gian thực [REQ-024, REQ-025]
-- Luồng tích hợp chatbot AI: Người dùng gửi câu hỏi → Chatbot xử lý bằng mô hình ngôn ngữ → Trả lời tự động hoặc chuyển cho hỗ trợ viên nếu độ tin cậy thấp [REQ-019]
-
-## 📁 2. NGĂN XẾP PHỤ THUỘC CÔNG NGHỆ & THƯ VIỆN HỆ SINH THÁI
-- **Ngăn xếp hạ tầng cốt lõi Backend:** Quarkus 3.15.1 (runtime Java 21), Hibernate ORM 6.4.4, PostgreSQL JDBC Driver 42.7.3, Apache Kafka Client 3.7.0 (cho sự kiện hệ thống), Firebase Admin SDK 9.2.0, BCrypt 0.10.8 (mã hóa mật khẩu), SmallRye JWT 3.15.1, HikariCP 5.0.1 (quản lý kết nối cơ sở dữ liệu) [ARC-010]
-- **Ngăn xếp UI Frontend & Đa nền tảng Di động:** Next.js 14.1.0 (React 18.2.0), React Native 0.73.2 (cho ứng dụng di động), Redux Toolkit 2.0.1 (quản lý trạng thái), React Query 5.17.0 (truy cập dữ liệu), i18next 23.7.0 (đa ngôn ngữ), Axios 1.6.7 (gọi API), Firebase SDK 10.7.0 (xác thực, push notification) [ARC-009, ARC-010]
-
-## 📁 3. RÀNG BUỘC TOÀN CẦU & TIÊU CHUẨN TUÂN THỦ DOANH NGHIỆP
-
-### 🔑 3.1. Cơ sở bảo mật & tuân thủ
-- Mã hóa dữ liệu truyền qua TLS 1.3, mã hóa dữ liệu lưu trữ bằng AES-256 [NFR-003]
-- JWT access token hết hạn sau 15 phút, refresh token hết hạn sau 7 ngày, lưu trữ refresh token an toàn bằng HttpOnly cookie [NFR-003, ARC-006]
-- Triển khai các biện pháp giảm thiểu OWASP Top 10: chống injection SQL bằng prepared statements, chống XSS bằng làm sạch dữ liệu đầu vào, chống CSRF bằng token CSRF [NFR-003]
-- Kiểm soát truy cập dựa trên vai trò (RBAC) với kiểm tra quyền ở tầng API và tầng dịch vụ, cách ly quyền quản trị theo trung tâm [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005]
-- Quản lý dữ liệu cá nhân tuân thủ GDPR/CCPA: hỗ trợ xóa dữ liệu người dùng theo yêu cầu, xuất dữ liệu dạng JSON, quản lý đồng ý tiếp thị [NFR-008]
-- Ghi log kiểm toán cho tất cả hành động nhạy cảm (thay đổi vai trò, điểm danh, gửi thông báo) với timestamp, user ID, chi tiết hành động, lưu trữ 1 năm [NFR-006]
-
-### 🌐 3.2. Ràng buộc hạ tầng & hiệu suất
-- Độ trễ API cốt lõi (xác thực, điểm danh, danh sách khóa học) trung bình dưới 200ms, hỗ trợ 10.000 người dùng đồng thời với truy vấn cơ sở dữ liệu dưới 1 giây [NFR-001]
-- Thời gian hoạt động mục tiêu 99.9% hàng năm, có chế độ tự động chuyển đổi failover giữa các cụm GKE [NFR-002]
-- Quy mô ngang dịch vụ Quarkus tự động thông qua Kubernetes HPA khi CPU > 70% hoặc độ trễ yêu cầu > 300ms [NFR-004]
-- Sử dụng bản sao đọc PostgreSQL cho khối lượng công việc báo cáo để giảm tải cho cơ sở dữ liệu chính [NFR-004]
-- Kích thước hình ảnh Docker cơ sở dưới 200MB, hình ảnh cuối cùng dưới 500MB [NFR-005]
-- Chính sách caching Redis cho phiên làm việc: hết hạn sau 24 giờ, chính sách xóa LRU khi bộ nhớ đầy [ARC-009]
-- Sao lưu cơ sở dữ liệu PostgreSQL hàng ngày, hỗ trợ phục hồi điểm thời gian (PITR) trong 24 giờ, sao lưu cụm GKE sang vùng riêng [NFR-009]
-
-### 🥞 3.3. MA TRẬN NGĂN XẾP KIẾN TRÚC
-```properties:stack_matrix
-PERSISTENCE_LAYER_REQUIRED=true
-BACKEND_LAYER_REQUIRED=true
-FRONTEND_LAYER_REQUIRED=true
-MOBILE_LAYER_REQUIRED=true
-DEVOPS_LAYER_REQUIRED=true
-```
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
-## 🚀 GIAI ĐOẠN 1: THIẾT LẬP HẠ TẦNG & CỐT LÕI XÁC THỰC
-### 📅 Ngày 1: Thiết lập dự án & cấu trúc thư mục
-- **Coder**: Tạo cấu trúc thư mục dịch vụ backend Quarkus, cấu hình tệp pom.xml với các phụ thuộc cốt lõi (Hibernate ORM, PostgreSQL JDBC, SmallRye JWT, Firebase Admin SDK, HikariCP) → `./sources/backend/membership-hub/pom.xml` [ARC-010, NFR-003]
-- **Docker**: Tạo Dockerfile đa giai đoạn cho dịch vụ backend, tối ưu kích thước hình ảnh dưới ngưỡng quy định → `./sources/infra/backend/Dockerfile` [NFR-005]
-- **Doc**: Tạo tài liệu kiến trúc tổng quan, sơ đồ luồng xác thực OAuth2/JWT → `./sources/docs/architecture/authentication-flow.md` [ARC-006]
+### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-### 📅 Ngày 2: Thiết kế lược đồ cơ sở dữ liệu người dùng & vai trò
-- **Coder**: Viết script di chuyển Flyway tạo bảng USERS, ROLES, thêm ràng buộc khóa ngoại, chỉ mục duy nhất cho email và chỉ mục cho roleId → `./sources/backend/membership-hub/src/main/resources/db/migration/V1__create_users_roles.sql` [DAT-001, ARC-010]
-- **Tester**: Viết bài kiểm tra tích hợp cho lược đồ cơ sở dữ liệu, kiểm tra tính toàn vẹn khóa ngoại và ràng buộc duy nhất → `./sources/backend/membership-hub/src/test/java/com/membershiphub/integration/UserSchemaIntegrationTest.java` [DAT-001]
-- **Doc**: Cập nhật tài liệu từ điển dữ liệu cho bảng USERS và ROLES → `./sources/docs/data-dictionary/users-roles.md` [DAT-001]
-
-### 📅 Ngày 3: Triển khai dịch vụ xác thực & RBAC
-- **Coder**: Triển khai lớp dịch vụ xác thực JWT, tích hợp Firebase Auth, triển khai bộ lọc RBAC kiểm tra quyền người dùng theo vai trò → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/AuthService.java` [REQ-001, REQ-002, REQ-003, ARC-006, ARC-001, ARC-002, ARC-003, ARC-004, ARC-005]
-- **Tester**: Viết bài kiểm tra đơn vị cho AuthService, kiểm tra luồng đăng ký email/mật khẩu, đăng nhập OAuth2, hết hạn và làm mới token → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/AuthServiceTest.java` [REQ-001, REQ-002, REQ-003]
-- **Reviewer**: Kiểm tra mã bảo mật, đảm bảo không có lỗ hổng injection, tuân thủ tiêu chuẩn OWASP Top 10 → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/AuthService.java` [NFR-003]
-- **GCP**: Cấu hình dự án Firebase, kích hoạt nhà cung cấp xác thực OAuth2 (Google, Facebook), cấu hình quy tắc bảo mật Firebase → `./sources/infra/gcp/firebase-config.yaml` [ARC-006, REQ-002]
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
-## 🏗️ GIAI ĐOẠN 2: QUẢN LÝ TRUNG TÂM, KHÓA HỌC & GHI DANH
-### 📅 Ngày 1: Thiết kế lược đồ cơ sở dữ liệu trung tâm, khóa học & ghi danh
-- **Coder**: Viết script di chuyển Flyway tạo bảng CENTERS, COURSES, ENROLLMENTS, thêm chỉ mục và ràng buộc khóa ngoại, ràng buộc kiểm tra xung đột lịch khóa học → `./sources/backend/membership-hub/src/main/resources/db/migration/V2__create_centers_courses_enrollments.sql` [DAT-003, DAT-004, DAT-005, ARC-010, REQ-008]
-- **Tester**: Viết bài kiểm tra tích hợp cho lược đồ cơ sở dữ liệu, kiểm tra tính toàn vẹn ràng buộc và xung đột lịch → `./sources/backend/membership-hub/src/test/java/com/membershiphub/integration/CourseSchemaIntegrationTest.java` [REQ-008]
-- **Doc**: Cập nhật tài liệu từ điển dữ liệu cho 3 bảng trên → `./sources/docs/data-dictionary/centers-courses-enrollments.md` [DAT-003, DAT-004, DAT-005]
+### Phase 3 Logs (Atomic Salvaged Tag Lines):
 
-### 📅 Ngày 2: Triển khai API quản lý trung tâm
-- **Coder**: Triển khai REST API cho trung tâm: lấy danh sách, tạo, cập nhật, xóa trung tâm, phân quyền Center Admin cho người dùng → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/CenterResource.java` [REQ-004, REQ-005, REQ-006, ARC-002]
-- **Tester**: Viết bài kiểm tra đơn vị và tích hợp cho API trung tâm, kiểm tra phân quyền truy cập và ràng buộc dữ liệu → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/CenterResourceTest.java` [REQ-004, REQ-005, REQ-006]
-- **Doc**: Viết tài liệu API Swagger/OpenAPI cho các endpoint quản lý trung tâm → `./sources/docs/api/center-api.md` [REQ-004, REQ-005, REQ-006]
-
-### 📅 Ngày 3: Triển khai API quản lý khóa học
-- **Coder**: Triển khai REST API cho khóa học: lấy danh sách, tạo, cập nhật, xóa, phân công giáo viên, kiểm tra xung đột lịch giáo viên/phòng học → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/CourseResource.java` [REQ-007, REQ-008, REQ-009, ARC-003]
-- **Tester**: Viết bài kiểm tra tích hợp cho API khóa học, kiểm tra logic xung đột lịch và phân quyền truy cập → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/CourseResourceTest.java` [REQ-007, REQ-008, REQ-009]
-- **Reviewer**: Kiểm tra logic xung đột lịch, đề xuất tối ưu truy vấn kiểm tra trùng lặp lịch → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/CourseService.java` [REQ-008]
-
-### 📅 Ngày 4: Triển khai API ghi danh học viên
-- **Coder**: Triển khai REST API ghi danh: duyệt danh sách khóa học chưa đăng ký, đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/EnrollmentResource.java` [REQ-010, REQ-011]
-- **Tester**: Viết bài kiểm tra tích hợp cho luồng ghi danh, kiểm tra logic tự động tạo tài khoản Student và gửi thông báo → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/EnrollmentResourceTest.java` [REQ-010, REQ-011]
-- **Doc**: Cập nhật tài liệu API cho endpoint ghi danh → `./sources/docs/api/enrollment-api.md` [REQ-010, REQ-011]
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
-## 📱 GIAI ĐOẠN 3: ĐIỂM DANH QR, THẺ HỘI VIÊN & THÔNG BÁO
-### 📅 Ngày 1: Triển khai dịch vụ điểm danh QR
-- **Coder**: Triển khai dịch vụ điểm danh idempotent, xử lý yêu cầu quét mã QR, kiểm tra trùng lặp điểm danh trong cùng ngày cho cùng học viên và khóa học → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/AttendanceService.java` [REQ-012, REQ-013, EXC-001, EXC-002, DAT-006]
-- **Coder**: Viết script di chuyển Flyway tạo bảng ATTENDANCE, thêm chỉ mục kết hợp cho studentId, courseId, attendanceDate để tối ưu truy vấn kiểm tra trùng lặp → `./sources/backend/membership-hub/src/main/resources/db/migration/V3__create_attendance.sql` [DAT-006]
-- **Tester**: Viết bài kiểm tra đơn vị và tích hợp cho dịch vụ điểm danh, kiểm tra tính idempotent và xử lý lỗi mất kết nối mạng → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/AttendanceServiceTest.java` [REQ-012, REQ-013, EXC-001, EXC-002]
-- **Doc**: Cập nhật từ điển dữ liệu bảng ATTENDANCE, tài liệu luồng điểm danh QR → `./sources/docs/data-dictionary/attendance.md` [DAT-006]
+### Phase 4 Logs (Atomic Salvaged Tag Lines):
 
-### 📅 Ngày 2: Triển khai quản lý thẻ hội viên
-- **Coder**: Triển khai dịch vụ quản lý thẻ hội viên: tính toán ngày còn lại hiệu lực, gia hạn thẻ, tích hợp cổng thanh toán → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/MembershipCardService.java` [REQ-014, REQ-015, DAT-007]
-- **Coder**: Viết script di chuyển Flyway tạo bảng STUDENTCARDS, thêm chỉ mục cho studentId → `./sources/backend/membership-hub/src/main/resources/db/migration/V4__create_student_cards.sql` [DAT-007]
-- **Tester**: Viết bài kiểm tra tích hợp cho dịch vụ thẻ hội viên, kiểm tra logic tính ngày còn lại và gia hạn thẻ → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/MembershipCardServiceTest.java` [REQ-014, REQ-015]
-- **Doc**: Cập nhật từ điển dữ liệu bảng STUDENTCARDS, tài liệu luồng gia hạn thẻ → `./sources/docs/data-dictionary/student-cards.md` [DAT-007]
-
-### 📅 Ngày 3: Triển khai hệ thống thông báo
-- **Coder**: Triển khai dịch vụ thông báo: tạo bản ghi thông báo, gửi push notification qua FCM/APNs, đăng bài lên nhóm Zalo được chỉ định, cơ chế thử lại tối đa 3 lần khi gửi thất bại → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/NotificationService.java` [REQ-016, EXC-003, DAT-008, ARC-008]
-- **Coder**: Viết script di chuyển Flyway tạo bảng NOTIFICATIONS → `./sources/backend/membership-hub/src/main/resources/db/migration/V5__create_notifications.sql` [DAT-008]
-- **Tester**: Viết bài kiểm tra tích hợp cho dịch vụ thông báo, kiểm tra cơ chế thử lại và ghi log lỗi gửi thất bại → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/NotificationServiceTest.java` [REQ-016, EXC-003]
-- **Doc**: Cập nhật từ điển dữ liệu bảng NOTIFICATIONS, tài liệu tích hợp Zalo API → `./sources/docs/integrations/zalo-api.md` [REQ-016, ARC-008]
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
-## 🎁 GIAI ĐOẠN 4: TÍNH NĂNG BỔ SUNG: KHUYẾN MÃI, THÔNG BÁO, CHATBOT AI & BÁO CÁO
-### 📅 Ngày 1: Triển khai quản lý khuyến mãi & thông báo
-- **Coder**: Triển khai REST API quản lý khuyến mãi và thông báo: tạo, cập nhật, xóa, kiểm tra thời hạn hiệu lực tự động ẩn thông báo hết hạn → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/PromotionAnnouncementResource.java` [REQ-017, REQ-018, DAT-009]
-- **Coder**: Viết script di chuyển Flyway tạo bảng PROMOTIONS, ANNOUNCEMENTS → `./sources/backend/membership-hub/src/main/resources/db/migration/V6__create_promotions_announcements.sql` [DAT-009]
-- **Tester**: Viết bài kiểm tra tích hợp cho API khuyến mãi và thông báo, kiểm tra logic thời hạn tự động ẩn thông báo hết hạn → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/PromotionAnnouncementResourceTest.java` [REQ-017, REQ-018]
-- **Doc**: Cập nhật từ điển dữ liệu, tài liệu API cho các endpoint quản lý khuyến mãi và thông báo → `./sources/docs/data-dictionary/promotions-announcements.md` [DAT-009]
+### Phase 5 Logs (Atomic Salvaged Tag Lines):
 
-### 📅 Ngày 2: Tích hợp chatbot AI & cơ sở dữ liệu hệ thống
-- **Coder**: Tích hợp mô hình chatbot AI, triển khai endpoint xử lý câu hỏi người dùng, logic chuyển cho hỗ trợ viên khi độ tin cậy trả lời thấp → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/ChatbotService.java` [REQ-019]
-- **Coder**: Viết script di chuyển Flyway tạo bảng AUDIT_LOG, SYSTEM_SETTINGS, thêm chỉ mục cho các trường thường xuyên truy vấn → `./sources/backend/membership-hub/src/main/resources/db/migration/V7__create_audit_system_settings.sql` [DAT-010, DAT-011, NFR-006]
-- **Tester**: Viết bài kiểm tra tích hợp cho chatbot, kiểm tra độ chính xác trả lời và logic chuyển hỗ trợ viên → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/ChatbotServiceTest.java` [REQ-019]
-- **Doc**: Cập nhật từ điển dữ liệu bảng SYSTEM_SETTINGS, tài liệu tích hợp mô hình AI → `./sources/docs/integrations/ai-chatbot.md` [REQ-019]
-
-### 📅 Ngày 3: Triển khai báo cáo & dashboard phân tích
-- **Coder**: Triển khai dịch vụ tạo báo cáo điểm danh định dạng CSV, dashboard tổng quan ghi danh thời gian thực hiển thị tổng số học viên, khóa học đang hoạt động, buổi học sắp tới → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/ReportService.java` [REQ-024, REQ-025]
-- **Tester**: Viết bài kiểm tra tích hợp cho dịch vụ báo cáo, kiểm tra định dạng CSV chính xác và dữ liệu dashboard khớp với dữ liệu cơ sở dữ liệu → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/ReportServiceTest.java` [REQ-024, REQ-025]
-- **Doc**: Viết tài liệu hướng dẫn sử dụng báo cáo điểm danh và dashboard phân tích → `./sources/docs/user-guide/reports-dashboard.md` [REQ-024, REQ-025]
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+--- END GENERATED PHASES CONTEXT ---
+</GENERATED_PHASES_CONTEXT>
 
 ---
 
-## 📲 GIAI ĐOẠN 5: ỨNG DỤNG DI ĐỘNG, ĐA NGÔN NGỮ, SEO & TỐI ƯU HÓA
-### 📅 Ngày 1: Triển khai giao diện người dùng vai trò trên di động
-- **Coder**: Xây dựng giao diện người dùng vai trò cụ thể trên React Native: màn hình đăng nhập, danh sách khóa học, quét mã QR điểm danh, xem thẻ hội viên, điều hướng theo quyền vai trò → `./sources/frontend/mobile-app/src/screens/RoleBasedHomeScreen.tsx` [REQ-020, ARC-004, ARC-005]
-- **Tester**: Viết bài kiểm tra giao diện cho màn hình chính vai trò, kiểm tra điều hướng đúng theo quyền người dùng → `./sources/frontend/mobile-app/src/tests/screens/RoleBasedHomeScreen.test.tsx` [REQ-020]
-- **Doc**: Viết tài liệu hướng dẫn sử dụng ứng dụng di động cho từng vai trò người dùng → `./sources/docs/user-guide/mobile-app-guide.md` [REQ-020]
+# Output Chunk 9:
 
-### 📅 Ngày 2: Triển khai đa ngôn ngữ, SEO & thông báo đẩy di động
-- **Coder**: Tích hợp thư viện i18next cho đa ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha), cấu hình phát hiện ngôn ngữ mặc định từ lưu trữ cục bộ hoặc tiêu đề Accept-Language, chuyển đổi locale không cần tải lại trang → `./sources/frontend/web-app/src/i18n/config.ts` [REQ-022, NFR-007]
-- **Coder**: Cấu hình SEO đa ngôn ngữ cho Next.js: thêm thẻ hreflang, meta tag ngôn ngữ cho tất cả các trang, đảm bảo thuộc tính html lang khớp với locale → `./sources/frontend/web-app/src/app/[locale]/layout.tsx` [REQ-023, NFR-007]
-- **Coder**: Tích hợp Firebase Cloud Messaging (FCM) cho thông báo đẩy di động, xử lý đăng ký và quản lý token thiết bị → `./sources/frontend/mobile-app/src/services/PushNotificationService.ts` [REQ-021, ARC-008]
-- **Tester**: Viết bài kiểm tra tích hợp cho chức năng đa ngôn ngữ, kiểm tra thẻ hreflang và luồng nhận thông báo đẩy → `./sources/frontend/web-app/src/tests/i18n-seo.test.ts` [REQ-022, REQ-023, REQ-021]
-- **Doc**: Cập nhật tài liệu cấu hình đa ngôn ngữ, SEO và thông báo đẩy → `./sources/docs/configuration/i18n-seo-push.md` [REQ-022, REQ-023, REQ-021]
+---
 
-### 📅 Ngày 3: Triển khai CI/CD, giám sát & tối ưu hóa hiệu suất
-- **Docker**: Tạo Dockerfile cho ứng dụng di động React Native và ứng dụng web Next.js, tối ưu kích thước hình ảnh → `./sources/infra/web-app/Dockerfile`, `./sources/infra/mobile-app/Dockerfile` [NFR-005]
-- **GKE**: Triển khai bản định nghĩa triển khai Kubernetes, dịch vụ, Horizontal Pod Autoscaler (HPA) cho tất cả các dịch vụ backend và frontend → `./sources/infra/gke/deployment.yaml` [NFR-002, NFR-004]
-- **GCP**: Cấu hình Cloud Logging, Cloud Monitoring, cảnh báo uptime, sao lưu PostgreSQL tự động hàng ngày, sao lưu cụm GKE sang vùng khác → `./sources/infra/gcp/monitoring-backup.yaml` [NFR-002, NFR-006, NFR-009]
-- **Reviewer**: Kiểm tra toàn bộ cấu hình hạ tầng, đề xuất tối ưu chi phí và cấu hình bảo mật → `./sources/infra/gke/deployment.yaml` [NFR-003, NFR-004]
-- **Doc**: Viết tài liệu hướng dẫn triển khai, giám sát, sao lưu và phục hồi thảm họa → `./sources/docs/operations/deployment-monitoring.md` [NFR-002, NFR-009]
+## ☣️ 6. MÃ BẢO MẬT DOANH NGHIỆP TOÀN CẦU & CÁC BIỆN PHÁP CHỐNG INJECTION [NFR-XXX]
+
+### 1. Các Biện Pháp Chống Tuyệt Đối SQL Injection (SQLi)
+Hệ thống phải triển khai các biện pháp chống SQL Injection nghiêm ngặt thông qua việc sử dụng prepared statements với positional query parameters trong Hibernate ORM. Tất cả các truy vấn động, đặc biệt là các tham số sắp xếp (sort), phải được kiểm tra chéo với danh sách trắng (whitelist) các trường và hướng được phép. Không được phép nối chuỗi trực tiếp vào câu lệnh SQL. Các tham số đầu vào phải được kiểm tra kiểu dữ liệu và độ dài trước khi truyền vào câu lệnh. [NFR-003]
+
+### 2. Cross-Site Scripting (XSS) & Chính Sách Bảo Mật Nội Dung (CSP)
+Triển khai sanitization ngữ cảnh tự động cho tất cả đầu vào người dùng trước khi hiển thị hoặc lưu trữ. Frontend Next.js phải bật JSX auto-escaping mặc định. Ingress Gateway trên GKE phải được cấu hình để tiêm động các header HTTP CSP nghiêm ngặt, hạn chế script-src đến các nguồn tin cậy duy nhất, và bật chế độ báo cáo vi phạm (report-only) trong môi trường staging. [NFR-003]
+
+### 3. Rãnh Bảo Mật CORS Đa Người Thuê
+Cấu hình CORS phải nghiêm cấm wildcard origin (`*`) trong môi trường production. Thay vào đó, hệ thống phải duy trì danh sách các origin được phép dựa trên từng tenant (trung tâm) và xác thực động origin của request so với danh sách đã đăng ký của trung tâm đó. Mọi request có origin không khớp sẽ bị từ chối với mã lỗi 403. [NFR-003]
+
+### 4. Công Cụ Xóa Log Không Rò Rỉ & Che Mặt Dữ Liệu PII
+Triển khai các interceptor tự động che mặt dữ liệu nhạy cảm (PII) sử dụng annotation `@JsonSerialize` trên các entity model. Các trường như email, số điện thoại, địa chỉ phải được tự động masking trước khi ghi vào log hoặc trả về qua API. Hệ thống logging phải được cấu hình để loại bỏ hoặc thay thế các giá trị nhạy cảm bằng placeholder như `***MASKED***`. [NFR-003], [NFR-006]
+
+## 📱 7. QUY TẮC TUÂN THỦ DI ĐỘNG HYBRID & CƠ CHẾ SEO ĐA NGÔN NGỮ
+
+### 1. Rãnh Tuân Thủ Di Động Hybrid Capacitor
+Ứng dụng di động hybrid phải tuân thủ các ràng buộc sau: (1) Tất cả fetching dữ liệu phải thông qua client-side dynamic fetching với cơ chế cache ngoại tuyến; (2) Sử dụng absolute URL addressing để tránh vấn đề hydration mismatch; (3) Triển khai hydration safeguards để ngăn chặn flash of unstyled content; (4) Sử dụng `@capacitor/preferences` cho native storage abstraction thay vì localStorage trực tiếp; (5) Cấu hình hardware back-button interceptor để điều hướng người dùng một cách hợp lý trong ứng dụng. [REQ-020], [REQ-021]
+
+### 2. Quốc Tế Hóa (i18n) & Tiêm SEO Động
+Triển khai edge-layer locale recognition middleware để phát hiện ngôn ngữ ưu tiên của người dùng dựa trên Accept-Language header, cookie lưu trữ, hoặc tham số URL. Hệ thống phải tự động tạo và tiêm các thuộc tính hreflang vào phần head của HTML cho mỗi phiên bản ngôn ngữ, đảm bảo công cụ tìm kiếm có thể nhận diện và chỉ mục đúng các phiên bản ngôn ngữ khác nhau. [REQ-022], [REQ-023], [NFR-007]
+
+## 🚀 8. LUỒNG NHÁNH GIT PHIÊN LÀM VIỆC TỰ ĐỘNG HÀNG NGÀY
+
+### 1. Cô Lập Phân Nhánh Không Gian Làm Việc Hàng Ngày
+Triển khai chính sách phân nhánh tự động với cấu trúc `features/development-phase-X-day-Y`, trong đó X là số thứ tự phase và Y là số thứ tự day. Hệ thống CI/CD phải tự động tạo nhánh mới cho mỗi phiên làm việc, đảm bảo cô lập hoàn toàn giữa các phiên và ngăn chặn merge nhầm giữa các ngày. Quyền push trực tiếp lên nhánh chính (main/develop) phải bị cấm tuyệt đối. [ARC-010]
+
+### 2. Cổng Kiểm Tra Xác Thực Đường Ống
+Thiết lập các cổng tự động hóa (gate) trong pipeline CI/CD: (1) Kiểm tra biên dịch tự động (automated compilation verification) với mục tiêu zero error; (2) SonarQube lint gates để đảm bảo chất lượng mã, với ngưỡng chấp nhận code smell và coverage tối thiểu; (3) Mục tiêu độ phủ test tự động (automated test coverage) được đặt ở mức `>= 85%` cho tất cả các module backend và frontend. Bất kỳ lần push nào không đạt các ngưỡng này đều bị từ chối tự động. [NFR-004], [NFR-005], [NFR-006]
+
+[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: 0, TOTAL ARC TAGS: 0, TOTAL EXC TAGS: 0, TOTAL DAT TAGS: 0, TOTAL NFR TAGS: 0. ZERO UNASSIGNED CODES FOUND.]
 
