@@ -1,7 +1,7 @@
 {
     "phase_id": 4,
-    "phase_name": "Triển khai hệ thống thông báo đa kênh, quản lý khuyến mãi, tích hợp chatbot AI và báo cáo phân tích",
-    "phase_description": "Triển khai hoàn chỉnh các tính năng giao tiếp đa kênh (thông báo đẩy di động, tin nhắn nhóm Zalo), quản lý khuyến mãi và thông báo hệ thống, tích hợp chatbot AI hỗ trợ khách hàng, giao diện di động vai trò tương ứng, bản địa hóa/SEO đa ngôn ngữ và các báo cáo phân tích cốt lõi, hoàn thiện tất cả các yêu cầu chức năng người dùng cuối của hệ thống membership-hub, đảm bảo tích hợp liền mạch giữa các microservice và giao diện người dùng.",
+    "phase_name": "Quản lý thông báo, khuyến mãi, thông báo và tích hợp chatbot AI",
+    "phase_description": "Giai đoạn này tập trung vào việc quản lý thông báo, khuyến mãi, thông báo và tích hợp chatbot AI. Chúng tôi sẽ xây dựng các chức năng tạo, gửi thông báo cho học viên, giáo viên, trung tâm. Xây dựng chức năng tạo, sửa, xóa khuyến mãi. Xây dựng chức năng tạo, sửa, xóa thông báo. Xây dựng chức năng tích hợp chatbot AI để trả lời các câu hỏi thường gặp.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,73 +9,72 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai dịch vụ thông báo và quản lý khuyến mãi cơ bản",
+            "context_section": "Xây dựng chức năng tạo, gửi thông báo cho học viên, giáo viên, trung tâm",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai API quản lý thông báo và khuyến mãi",
+                    "desc": "Xây dựng chức năng tạo, gửi thông báo cho học viên, giáo viên, trung tâm. Chức năng này sẽ bao gồm việc tạo thông báo, xác thực người nhận và gửi thông báo qua các kênh khác nhau.",
                     "targeted_tags": [
-                        "[REQ-016]",
-                        "[REQ-017]",
-                        "[REQ-018]",
-                        "[EXC-003]",
-                        "[DAT-008]",
-                        "[DAT-009]"
+                        "[REQ-016]"
                     ],
                     "components": [
-                        "./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationController.java",
-                        "./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java",
-                        "./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionController.java",
-                        "./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java"
+                        "./sources/backend/notification/src/main/java/org/nlh4j/membership_hub/notification/NotificationService.java"
                     ]
                 },
                 {
                     "id": "D1_ST2",
                     "agent": "Tester",
-                    "desc": "Viết unit test cho dịch vụ thông báo và khuyến mãi",
+                    "desc": "Viết kiểm thử cho chức năng tạo, gửi thông báo cho học viên, giáo viên, trung tâm. Kiểm thử sẽ bao gồm việc kiểm tra tạo thông báo, xác thực người nhận và gửi thông báo qua các kênh khác nhau.",
                     "targeted_tags": [
-                        "[REQ-016]",
-                        "[REQ-017]",
-                        "[REQ-018]",
-                        "[EXC-003]"
+                        "[REQ-016]"
                     ],
                     "components": [
-                        "./sources/backend/notification-service/src/main/java/com/membershiphub/notification/NotificationService.java",
-                        "./sources/backend/notification-service/src/test/java/com/membershiphub/notification/NotificationServiceTest.java",
-                        "./sources/backend/promotion-service/src/main/java/com/membershiphub/promotion/PromotionService.java",
-                        "./sources/backend/promotion-service/src/test/java/com/membershiphub/promotion/PromotionServiceTest.java"
+                        "./sources/backend/notification/src/main/java/org/nlh4j/membership_hub/notification/NotificationService.java;./sources/backend/notification/src/test/java/org/nlh4j/membership_hub/notification/NotificationTest.java"
                     ]
                 },
                 {
                     "id": "D1_ST3",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ thông báo và khuyến mãi",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng tạo, gửi thông báo cho học viên, giáo viên, trung tâm. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[REQ-016]",
-                        "[REQ-017]",
-                        "[REQ-018]",
-                        "[EXC-003]",
-                        "[NFR-003]"
+                        "[REQ-016]"
                     ],
                     "components": [
-                        "./sources/backend/notification-service/",
-                        "./sources/backend/promotion-service/"
+                        "./sources/docs/notification.md"
                     ]
                 },
                 {
                     "id": "D1_ST4",
-                    "agent": "Doc",
-                    "desc": "Viết tài liệu hợp đồng API cho dịch vụ thông báo và khuyến mãi",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng tạo, sửa, xóa khuyến mãi. Chức năng này sẽ bao gồm việc tạo khuyến mãi, xác thực thông tin khuyến mãi và cập nhật cơ sở dữ liệu.",
                     "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-016]",
-                        "[REQ-017]",
-                        "[REQ-018]"
+                        "[REQ-017]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/notification-service-api.md",
-                        "./sources/docs/architecture/promotion-service-api.md"
+                        "./sources/backend/promotion/src/main/java/org/nlh4j/membership_hub/promotion/PromotionService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST5",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng tạo, sửa, xóa khuyến mãi. Kiểm thử sẽ bao gồm việc kiểm tra tạo khuyến mãi, xác thực thông tin khuyến mãi và cập nhật cơ sở dữ liệu.",
+                    "targeted_tags": [
+                        "[REQ-017]"
+                    ],
+                    "components": [
+                        "./sources/backend/promotion/src/main/java/org/nlh4j/membership_hub/promotion/PromotionService.java;./sources/backend/promotion/src/test/java/org/nlh4j/membership_hub/promotion/PromotionTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng tạo, sửa, xóa khuyến mãi. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-017]"
+                    ],
+                    "components": [
+                        "./sources/docs/promotion.md"
                     ]
                 }
             ]
@@ -83,207 +82,72 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai tích hợp chatbot AI và bản địa hóa/SEO đa ngôn ngữ",
+            "context_section": "Xây dựng chức năng tạo, sửa, xóa thông báo và tích hợp chatbot AI",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Tích hợp chatbot AI và triển khai bản địa hóa/SEO",
+                    "desc": "Xây dựng chức năng tạo, sửa, xóa thông báo. Chức năng này sẽ bao gồm việc tạo thông báo, xác thực thông tin thông báo và cập nhật cơ sở dữ liệu.",
                     "targeted_tags": [
-                        "[REQ-019]",
-                        "[REQ-022]",
-                        "[REQ-023]",
-                        "[NFR-007]"
+                        "[REQ-018]"
                     ],
                     "components": [
-                        "./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotController.java",
-                        "./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotService.java",
-                        "./sources/frontend/web/src/components/ChatbotWidget.tsx",
-                        "./sources/frontend/web/src/hooks/useLocale.ts",
-                        "./sources/frontend/web/src/app/[locale]/layout.tsx"
+                        "./sources/backend/announcement/src/main/java/org/nlh4j/membership_hub/announcement/AnnouncementService.java"
                     ]
                 },
                 {
                     "id": "D2_ST2",
                     "agent": "Tester",
-                    "desc": "Viết unit test cho chatbot và bản địa hóa/SEO",
+                    "desc": "Viết kiểm thử cho chức năng tạo, sửa, xóa thông báo. Kiểm thử sẽ bao gồm việc kiểm tra tạo thông báo, xác thực thông tin thông báo và cập nhật cơ sở dữ liệu.",
                     "targeted_tags": [
-                        "[REQ-019]",
-                        "[REQ-022]",
-                        "[REQ-023]"
+                        "[REQ-018]"
                     ],
                     "components": [
-                        "./sources/backend/chatbot-service/src/main/java/com/membershiphub/chatbot/ChatbotService.java",
-                        "./sources/backend/chatbot-service/src/test/java/com/membershiphub/chatbot/ChatbotServiceTest.java",
-                        "./sources/frontend/web/src/test/components/ChatbotWidget.test.tsx",
-                        "./sources/frontend/web/src/test/hooks/useLocale.test.ts"
+                        "./sources/backend/announcement/src/main/java/org/nlh4j/membership_hub/announcement/AnnouncementService.java;./sources/backend/announcement/src/test/java/org/nlh4j/membership_hub/announcement/AnnouncementTest.java"
                     ]
                 },
                 {
                     "id": "D2_ST3",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn chatbot và bản địa hóa",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng tạo, sửa, xóa thông báo. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[REQ-019]",
-                        "[REQ-022]",
-                        "[REQ-023]",
-                        "[NFR-007]"
+                        "[REQ-018]"
                     ],
                     "components": [
-                        "./sources/backend/chatbot-service/",
-                        "./sources/frontend/web/src/"
+                        "./sources/docs/announcement.md"
                     ]
                 },
                 {
                     "id": "D2_ST4",
-                    "agent": "Doc",
-                    "desc": "Viết tài liệu tích hợp chatbot và hướng dẫn bản địa hóa/SEO",
-                    "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-019]",
-                        "[REQ-022]",
-                        "[REQ-023]"
-                    ],
-                    "components": [
-                        "./sources/docs/architecture/chatbot-integration.md",
-                        "./sources/docs/architecture/localization-seo-guide.md"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 3,
-            "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai giao diện di động vai trò và thông báo đẩy",
-            "sub_tasks": [
-                {
-                    "id": "D3_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai giao diện di động vai trò và tích hợp thông báo đẩy",
+                    "desc": "Xây dựng chức năng tích hợp chatbot AI để trả lời các câu hỏi thường gặp. Chức năng này sẽ bao gồm việc tích hợp chatbot AI, xử lý các câu hỏi từ người dùng và trả về các câu trả lời phù hợp.",
                     "targeted_tags": [
-                        "[REQ-020]",
-                        "[REQ-021]"
+                        "[REQ-019]"
                     ],
                     "components": [
-                        "./sources/frontend/mobile-app/src/screens/StudentDashboard.tsx",
-                        "./sources/frontend/mobile-app/src/screens/TeacherDashboard.tsx",
-                        "./sources/frontend/mobile-app/src/screens/AdminDashboard.tsx",
-                        "./sources/frontend/mobile-app/src/services/NotificationService.ts",
-                        "./sources/frontend/mobile-app/src/components/AttendanceScanner.tsx"
+                        "./sources/backend/chatbot/src/main/java/org/nlh4j/membership_hub/chatbot/ChatbotService.java"
                     ]
                 },
                 {
-                    "id": "D3_ST2",
+                    "id": "D2_ST5",
                     "agent": "Tester",
-                    "desc": "Viết unit và integration test cho ứng dụng di động",
+                    "desc": "Viết kiểm thử cho chức năng tích hợp chatbot AI để trả lời các câu hỏi thường gặp. Kiểm thử sẽ bao gồm việc kiểm tra tích hợp chatbot AI, xử lý các câu hỏi từ người dùng và trả về các câu trả lời phù hợp.",
                     "targeted_tags": [
-                        "[REQ-020]",
-                        "[REQ-021]"
+                        "[REQ-019]"
                     ],
                     "components": [
-                        "./sources/frontend/mobile-app/src/test/screens/StudentDashboard.test.tsx",
-                        "./sources/frontend/mobile-app/src/test/screens/TeacherDashboard.test.tsx",
-                        "./sources/frontend/mobile-app/src/test/services/NotificationService.test.ts"
+                        "./sources/backend/chatbot/src/main/java/org/nlh4j/membership_hub/chatbot/ChatbotService.java;./sources/backend/chatbot/src/test/java/org/nlh4j/membership_hub/chatbot/ChatbotTest.java"
                     ]
                 },
                 {
-                    "id": "D3_ST3",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn ứng dụng di động",
-                    "targeted_tags": [
-                        "[REQ-020]",
-                        "[REQ-021]",
-                        "[NFR-007]"
-                    ],
-                    "components": [
-                        "./sources/frontend/mobile-app/"
-                    ]
-                },
-                {
-                    "id": "D3_ST4",
+                    "id": "D2_ST6",
                     "agent": "Doc",
-                    "desc": "Viết tài liệu hướng dẫn sử dụng ứng dụng di động",
+                    "desc": "Tài liệu chức năng tích hợp chatbot AI để trả lời các câu hỏi thường gặp. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-020]",
-                        "[REQ-021]"
+                        "[REQ-019]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/mobile-app-guide.md"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 4,
-            "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
-            "context_section": "Triển khai dịch vụ báo cáo và hoàn thiện tích hợp giai đoạn",
-            "sub_tasks": [
-                {
-                    "id": "D4_ST1",
-                    "agent": "Coder",
-                    "desc": "Triển khai API báo cáo điểm danh và dashboard ghi danh",
-                    "targeted_tags": [
-                        "[REQ-024]",
-                        "[REQ-025]",
-                        "[EXC-005]"
-                    ],
-                    "components": [
-                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportController.java",
-                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportService.java",
-                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/AttendanceCsvExporter.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST2",
-                    "agent": "Tester",
-                    "desc": "Viết unit và integration test cho dịch vụ báo cáo",
-                    "targeted_tags": [
-                        "[REQ-024]",
-                        "[REQ-025]",
-                        "[EXC-005]"
-                    ],
-                    "components": [
-                        "./sources/backend/report-service/src/main/java/com/membershiphub/report/ReportService.java",
-                        "./sources/backend/report-service/src/test/java/com/membershiphub/report/ReportServiceTest.java",
-                        "INTEGRATION_SCOPE;./sources/backend/report-service/src/test/java/com/membershiphub/report/ReportIntegrationTest.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST3",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ báo cáo",
-                    "targeted_tags": [
-                        "[REQ-024]",
-                        "[REQ-025]",
-                        "[EXC-005]",
-                        "[NFR-001]"
-                    ],
-                    "components": [
-                        "./sources/backend/report-service/"
-                    ]
-                },
-                {
-                    "id": "D4_ST4",
-                    "agent": "Doc",
-                    "desc": "Hoàn thiện tài liệu và xác nhận tích hợp giai đoạn",
-                    "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-016]",
-                        "[REQ-017]",
-                        "[REQ-018]",
-                        "[REQ-019]",
-                        "[REQ-020]",
-                        "[REQ-021]",
-                        "[REQ-022]",
-                        "[REQ-023]",
-                        "[REQ-024]",
-                        "[REQ-025]"
-                    ],
-                    "components": [
-                        "./sources/docs/architecture/report-service-api.md",
-                        "./sources/docs/architecture/system-overview.md",
-                        "./sources/docs/architecture/integration-guide.md"
+                        "./sources/docs/chatbot.md"
                     ]
                 }
             ]

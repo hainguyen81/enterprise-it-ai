@@ -26,6 +26,8 @@ from sources.agents.agent_helper import (
     storage_info,
     write_blueprint_log,
     write_json_file,
+    write_file,
+    regex_extract_by_pair_tags,
 )
 
 # ==============================================================================
@@ -189,13 +191,27 @@ def manual_transform(json_data, project_name: str, phase_idx: int):
 # def convert_phases_to_json(client: genai.Client, project_name: str, num_phases: int, out_dir: str):
 
 # OpenAI
-def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, project_name: str, num_phases: int, max_days_per_phase: int, language: str, json_mapping: str, out_dir: str, delay: int, daysPerChunk: int):
+def convert_phases_to_json(
+    client: OpenAI,
+    model_name: str,
+    master_rules: str,
+    project_name: str,
+    num_phases: int,
+    max_days_per_phase: int,
+    language: str,
+    json_mapping: str,
+    out_dir: str,
+    delay: int,
+    daysPerChunk: int,
+    phase: int = 0
+):
     """
     BLOCK 3: Consumes the physical localized markdown outputs and structuralized them into strictly-typed JSON.
     Guarantees no invalid text pollution using Pydantic typing patterns.
     """
-    logger.info(f"⚙️  [BLOCK 3] Translating Phase Markdown files into Structured Daily Steps JSON trackers...")
+    logger.info("⚙️  [ BLOCK 3 ] Translating Phase Markdown files into Structured Daily Steps JSON trackers...")
     
+    steps_days_chunk_dir = os.path.join(out_dir, "chunks", "steps")
     steps_context_dir = os.path.join(out_dir, "plan", "steps")
     os.makedirs(steps_context_dir, exist_ok=True)
     
@@ -211,10 +227,10 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
     # 🎯 SCHEMA INJECTION: Dump expected structure configuration for the prompt injector
     json_schema_dump = json.dumps(PhaseStepsPlan.model_json_schema(), indent=2)
     global_context_file = project_context_file(project_name)
-    result = True if num_phases > 0 else False
+    result = num_phases > 0
     model_name_safe = model_name if model_name else "gpt-4o"
     try:
-        for phase_idx in range(1, num_phases + 1):
+        for phase_idx in range(1, num_phases + 1) if phase <= 0 else range(phase, phase + 1):
             log_phase_idx = phase_idx
             phase_context_dir = os.path.join(out_dir, "plan", "context")
             md_path = os.path.join(phase_context_dir, f"phase-{phase_idx}.context.blueprint.md")
@@ -225,8 +241,14 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 
             with open(md_path, "r", encoding="utf-8") as f:
                 phase_markdown_content = f.read()
-                
-            logger.info(f" │   ├── 🔀 Parsing Phase {phase_idx} MD -> Compiling phase-{phase_idx}.steps.json...")
+            
+            # count days from phase context for tracing
+            phase_days, _ = regex_extract_by_pair_tags(
+                tag_start="DAY_HEADER_START", tag_end="DAY_HEADER_END", data=phase_markdown_content
+            )
+            logger.info(
+                f" │   ├── 🔀 Parsing Phase {phase_idx} MD -> [ Total Days: {phase_days} ] Compiling phase-{phase_idx}.steps.json..."
+            )
             
             # 🎯 CHUNKING MEMORY STORAGE: Initialize temporary dictionary repository to hold aggregated elements
             project_phase_context_file = phase_context_file(phase_idx)
@@ -253,12 +275,16 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
             while has_more_days:
                 current_end_day = current_start_day + DAYS_PER_CHUNK - 1
                 if DAYS_PER_CHUNK > 0:
-                    logger.info(f" │       ├── 📦 Chunk {chunk_counter}: Extracting Days {current_start_day} to {current_end_day}...")
+                    logger.info(
+                        f" │                 ├── 📦 Chunk {chunk_counter}: Extracting Days {current_start_day} to {current_end_day}..."
+                    )
                 else:
-                    logger.info(f" │       ├── 📦 Chunk {chunk_counter}: Extracting All Days...")
+                    logger.info(
+                        f" │                 ├── 📦 Chunk {chunk_counter}: Extracting All Days..."
+                    )
                 
                 # parse system prompt from template
-                is_chunked_mode = True if DAYS_PER_CHUNK > 0 else False
+                is_chunked_mode = DAYS_PER_CHUNK > 0
                 prompt_context = {
                     "phase_idx": phase_idx,
                     "is_chunked": is_chunked_mode,
@@ -266,6 +292,7 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                     "current_end_day": current_end_day,
                     "project_phase_context_file": project_phase_context_file,
                     "project_name": project_name,
+                    "language": language or DEFAULT_BLUEPRINT_LANGUAGE,
                     "global_context_file": global_context_file,
                     "source_target_dir": "sources/",
                     "phase_steps_json_schema": json_schema_dump,
@@ -318,6 +345,15 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 # logger.info(f" │   └── 🎉 Response Phase {phase_idx} Standardized JSON:")
                 # logger.info(f" │         { dump_json_data }")
                 
+                # if chunked, write log for tracing
+                if is_chunked_mode:
+                    chunk_log_path = f"phase-{phase_idx}.steps.chunk.phase-{phase_idx}.{current_start_day}-{current_end_day}.md"
+                    write_file(
+                        dir=steps_days_chunk_dir,
+                        file=chunk_log_path,
+                        data=f"# System Prompt ({current_start_day}-{current_end_day}):\n\n{system_prompt}\n\n---\n\n# User Prompt ({current_start_day}-{current_end_day}):\n\n{user_prompt}\n\n---\n\n# Response ({current_start_day}-{current_end_day}):\n\n{raw_data}",
+                    )
+                
                 # write log
                 write_blueprint_log(log_phase_idx, system_prompt, log_prompt.replace('#', '##'), raw_data, True, model_name_safe, out_dir)
                 
@@ -331,7 +367,9 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 
                 # Guard against corrupted extractions
                 if not json_data or not isinstance(json_data, dict):
-                    logger.warning(f" │       └── ⚠️ Chunk {chunk_counter} failed to yield clean data object. Halting scroll vector.")
+                    logger.warning(
+                        f" │                 └── ⚠️ Chunk {chunk_counter} failed to yield clean data object. Halting scroll vector."
+                    )
                     has_more_days = False
                     break
                 
@@ -342,7 +380,9 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 
                 # Termination trigger: If array is missing or empty, the entire markdown blueprint context has been fully scanned
                 if not chunk_steps_array:
-                    logger.warning(f" │       └── 🏁 Reached timeline boundary. No data mapped for Day {current_start_day}+.")
+                    logger.warning(
+                        f" │                 └── 🏁 Reached timeline boundary. No data mapped for Day {current_start_day}+."
+                    )
                     has_more_days = False
                     break
                 
@@ -350,7 +390,14 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 new_days_added_in_this_chunk = 0
                 for day_node in chunk_steps_array:
                     day_num = day_node.get("day", 0)
-                    if DAYS_PER_CHUNK == 0 or current_start_day <= day_num <= current_end_day:
+                    if (not day_node or len(day_node.get("sub_tasks", [])) <= 0):
+                        logger.warning(
+                            f" │                 └── ⚠️ Day {day_num} has no any tasks. Ignore this day from generation."
+                        )
+                        continue
+                    
+                    # if valid day num
+                    if (DAYS_PER_CHUNK == 0 or current_start_day <= day_num <= current_end_day):
                         # Auto-inject string metadata if AI fills them with blank placeholders during chunking
                         if not day_node.get("context_file"):
                             day_node["context_file"] = f"{project_phase_context_file}"
@@ -360,13 +407,19 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 
                 # Incremental shift parameters mapping to the next chronological segment index
                 if DAYS_PER_CHUNK == 0:
-                    logger.info(f" │       └── 🎉 Monolithic processing complete. Total days extracted: {new_days_added_in_this_chunk}. Halting.")
+                    logger.info(
+                        f" │                 └── 🎉 Monolithic processing complete. Total days extracted: {new_days_added_in_this_chunk}. Halting."
+                    )
                     has_more_days = False
                     break
+                
+                # chunk day
                 else:
                     # not found any days
                     if new_days_added_in_this_chunk == 0:
-                        logger.warning(f" │       └── 🏁 No new valid days matched the current span [{current_start_day}-{current_end_day}]. Ending scroll vector.")
+                        logger.warning(
+                            f" │                 └── 🏁 No new valid days matched the current span [{current_start_day}-{current_end_day}]. Ending scroll vector."
+                        )
                         break
                     
                     # loop chunk
@@ -387,16 +440,20 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                 # transform mapping
                 transform_json_data = dynamic_transform(master_phase_plan, project_name, phase_idx, json_mapping)
                 # dump_json_data = json.dumps(transform_json_data, indent=4, ensure_ascii=False) if transform_json_data else "Invalid JSON Data"
-                # logger.info(f" │   └── 🎉 Transform Phase {phase_idx} Standardized JSON:")
-                # logger.info(f" │         { dump_json_data }")
+                # logger.info(f" │          └── 🎉 Transform Phase {phase_idx} Standardized JSON:")
+                # logger.info(f" │                 { dump_json_data }")
                 
                 # 2. Parse and validate the string payload locally with Pydantic core engine
-                logger.info(f" │   └── 🎉 Validate Phase {phase_idx} Standardized JSON...")
+                logger.info(
+                    f" │          ├── 🎉 Validate Phase {phase_idx} Standardized JSON..."
+                )
                 validated_pydantic_object = PhaseStepsPlan.model_validate(transform_json_data)
                 
                 # validate if empty days
                 if not validated_pydantic_object.days:
-                    logger.error(f" │   └── 🎉 Phase {phase_idx} has no any day or task to do...")
+                    logger.error(
+                        f" │          └── 🎉 Phase {phase_idx} has no any day or task to do..."
+                    )
                     raise ValueError(f"Phase {phase_idx} has no any day or task to do")
                 
                 # dump model data
@@ -422,10 +479,14 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                     json_data=model_dump
                 )
                     
-                logger.info(f" │   └── 🎉 Saved Phase {phase_idx} Standardized JSON Tracker: {out_path}")
+                logger.info(
+                    f" │          └── 🎉 Saved Phase {phase_idx} Standardized JSON Tracker: {out_path}"
+                )
                 
             except Exception as pydantic_error:
-                logger.error(f" │   └── ❌ Local Validation Failed for Phase {phase_idx}: {pydantic_error}")
+                logger.error(
+                    f" │          ├── ❌ Local Validation Failed for Phase {phase_idx}: {pydantic_error}"
+                )
                 
                 # Save the raw unparsed text payload directly to file for manual logging evaluation
                 with open(fallback_path, "w", encoding="utf-8") as f:
@@ -433,7 +494,9 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
                     f.write("\n-------------------------------------------------\n")
                     f.write(f"```text{json.dumps(master_phase_plan, indent=4, ensure_ascii=False)}```")
                     f.write("\n-------------------------------------------------\n")
-                logger.error(f" │   └── ⚠️ Raw dump saved to diagnostic log file: {fallback_path}")
+                logger.error(
+                    f" │          └── ⚠️ Raw dump saved to diagnostic log file: {fallback_path}"
+                )
                 result = False
                 break
             
@@ -447,3 +510,81 @@ def convert_phases_to_json(client: OpenAI, model_name: str, master_rules: str, p
         logger.error(f"❌ Failed to initiate chat/generate Phase {log_phase_idx} Steps JSON: {exception_stacktrace(e)}")
         write_blueprint_log(log_phase_idx, log_system_prompt, log_prompt.replace('#', '##'), exception_stacktrace(e), True, model_name_safe, out_dir)
         return False
+
+
+def run_test_phase_steps_generation(callback, phase: int = 0, daysPerChunk: int = 0):
+    if not callback or not callable(callback):
+        raise RuntimeError("Invalid test method!")
+
+    PROJECT_NAME = "membership-hub"
+    LANGUAGE = "Vietnamese"
+    SOURCES_PATH = (
+        "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
+    )
+    OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJECT_NAME)
+    AGENTS_PATH = os.path.join(SOURCES_PATH, "agents")
+    MASTER_PROMPT_TEMPLATE_PATH = os.path.join(
+        AGENTS_PATH, "prompts", "prompt.rule.enterprise.governance.guardrails.md"
+    )
+    JSON_MAPPING_PATH = os.path.join(
+        AGENTS_PATH, "architect-blueprint", "blueprint.config.map.json"
+    )
+
+    AI_BASE_URL = "https://api.mistral.ai/v1"
+    AI_API_KEY = "<!--API Key Here-->"
+    MODEL_NAME = "codestral-latest"
+
+    # openAI
+    client = OpenAI(
+        base_url=AI_BASE_URL,
+        api_key=AI_API_KEY,
+        # 0 to turn off retries
+        max_retries=3,
+        # timeout in seconds (600 seconds ~ 10 minutes)
+        timeout=600.0,
+    )
+
+    model_name = MODEL_NAME
+    master_rules = render_prompt(
+        MASTER_PROMPT_TEMPLATE_PATH,
+        {
+            "language": LANGUAGE,
+        },
+    )
+
+    # run test
+    callback(
+        client=client,
+        model_name=model_name,
+        master_rules=master_rules,
+        project_name=PROJECT_NAME,
+        num_phases=5,
+        max_days_per_phase=7,
+        language=LANGUAGE,
+        json_mapping=JSON_MAPPING_PATH,
+        out_dir=OUTDIR,
+        delay=5,
+        daysPerChunk=daysPerChunk,
+        phase=phase,
+    )
+
+    # close client
+    try:
+        client.close()
+    except Exception as e:
+        logger.error(f"⚠️ Exception while closing AI client: {e!s}")
+
+
+def test_phase_steps_generation(phase: int = 0, daysPerChunk: int = 0):
+    run_test_phase_steps_generation(
+        callback=convert_phases_to_json, phase=phase, daysPerChunk=daysPerChunk
+    )
+
+
+# ---------------------
+# TEST
+# ---------------------
+if __name__ == "__main__":
+    PHASE = 0
+    DAYS_PER_CHUNK = 1
+    test_phase_steps_generation(phase=PHASE, daysPerChunk=DAYS_PER_CHUNK)

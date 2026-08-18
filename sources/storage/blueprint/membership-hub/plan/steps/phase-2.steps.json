@@ -1,7 +1,7 @@
 {
     "phase_id": 2,
-    "phase_name": "Triển khai quản lý khóa học và đăng ký học viên",
-    "phase_description": "Triển khai các dịch vụ quản lý khóa học và đăng ký học viên, bao gồm API quản lý khóa học (CRUD), phân công giáo viên, duyệt khóa học và đăng ký khóa học cho học viên với kiểm tra xung đột lịch học, đảm bảo tích hợp liền mạch với các service đã triển khai ở giai đoạn trước và tuân thủ các yêu cầu phi chức năng về hiệu suất, bảo mật.",
+    "phase_name": "Quản lý trung tâm và khóa học",
+    "phase_description": "Giai đoạn này tập trung vào việc quản lý trung tâm và khóa học. Chúng tôi sẽ xây dựng các chức năng xem danh sách trung tâm, thêm, sửa, xóa trung tâm, xem danh sách khóa học, thêm, sửa, xóa khóa học, gán giáo viên cho khóa học và đăng ký khóa học cho học viên.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,72 +9,105 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai API quản lý khóa học và phân công giáo viên",
+            "context_section": "Xây dựng chức năng xem danh sách trung tâm, thêm, sửa, xóa trung tâm",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai API CRUD quản lý khóa học",
+                    "desc": "Xây dựng chức năng xem danh sách trung tâm. Chức năng này sẽ bao gồm việc truy vấn cơ sở dữ liệu để lấy danh sách trung tâm và trả về kết quả dưới dạng danh sách các đối tượng trung tâm.",
                     "targeted_tags": [
-                        "[REQ-007]",
-                        "[REQ-008]"
+                        "[REQ-004]"
                     ],
                     "components": [
-                        "./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseController.java",
-                        "./sources/backend/course-service/src/main/java/com/membershiphub/course/CourseService.java"
+                        "./sources/backend/center/src/main/java/org/nlh4j/membership_hub/center/CenterService.java"
                     ]
                 },
                 {
                     "id": "D1_ST2",
-                    "agent": "Coder",
-                    "desc": "Triển khai API phân công giáo viên vào khóa học",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng xem danh sách trung tâm. Kiểm thử sẽ bao gồm việc kiểm tra truy vấn cơ sở dữ liệu và trả về kết quả dưới dạng danh sách các đối tượng trung tâm.",
                     "targeted_tags": [
-                        "[REQ-009]"
+                        "[REQ-004]"
                     ],
                     "components": [
-                        "./sources/backend/course-service/src/main/java/com/membershiphub/course/TeacherAssignmentController.java"
+                        "./sources/backend/center/src/main/java/org/nlh4j/membership_hub/center/CenterService.java;./sources/backend/center/src/test/java/org/nlh4j/membership_hub/center/CenterTest.java"
                     ]
                 },
                 {
                     "id": "D1_ST3",
-                    "agent": "Tester",
-                    "desc": "Viết unit test cho dịch vụ quản lý khóa học",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng xem danh sách trung tâm. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[REQ-007]",
-                        "[REQ-008]",
-                        "[REQ-009]"
+                        "[REQ-004]"
                     ],
                     "components": [
-                        "./sources/backend/course-service/src/test/java/com/membershiphub/course/CourseServiceTest.java",
-                        "./sources/backend/course-service/src/test/java/com/membershiphub/course/TeacherAssignmentTest.java"
+                        "./sources/docs/center.md"
                     ]
                 },
                 {
                     "id": "D1_ST4",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ khóa học",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng thêm, sửa, xóa trung tâm. Chức năng này sẽ bao gồm việc xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
                     "targeted_tags": [
-                        "[REQ-007]",
-                        "[REQ-008]",
-                        "[REQ-009]",
-                        "[NFR-003]"
+                        "[REQ-005]"
                     ],
                     "components": [
-                        "./sources/backend/course-service/"
+                        "./sources/backend/center/src/main/java/org/nlh4j/membership_hub/center/CenterService.java"
                     ]
                 },
                 {
                     "id": "D1_ST5",
-                    "agent": "Doc",
-                    "desc": "Viết tài liệu hợp đồng API dịch vụ khóa học",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng thêm, sửa, xóa trung tâm. Kiểm thử sẽ bao gồm việc kiểm tra xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
                     "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-007]",
-                        "[REQ-008]",
-                        "[REQ-009]"
+                        "[REQ-005]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/course-service-api.md"
+                        "./sources/backend/center/src/main/java/org/nlh4j/membership_hub/center/CenterService.java;./sources/backend/center/src/test/java/org/nlh4j/membership_hub/center/CenterTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng thêm, sửa, xóa trung tâm. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-005]"
+                    ],
+                    "components": [
+                        "./sources/docs/center.md"
+                    ]
+                },
+                {
+                    "id": "D1_ST7",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng gán hoặc hủy gán người dùng làm quản trị viên trung tâm cho một trung tâm cụ thể. Chức năng này sẽ bao gồm việc xác thực quyền hạn, cập nhật vai trò người dùng và lưu trữ thông tin vào cơ sở dữ liệu.",
+                    "targeted_tags": [
+                        "[REQ-006]"
+                    ],
+                    "components": [
+                        "./sources/backend/center/src/main/java/org/nlh4j/membership_hub/center/CenterAdminService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST8",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng gán hoặc hủy gán người dùng làm quản trị viên trung tâm cho một trung tâm cụ thể. Kiểm thử sẽ bao gồm việc kiểm tra xác thực quyền hạn, cập nhật vai trò người dùng và lưu trữ thông tin vào cơ sở dữ liệu.",
+                    "targeted_tags": [
+                        "[REQ-006]"
+                    ],
+                    "components": [
+                        "./sources/backend/center/src/main/java/org/nlh4j/membership_hub/center/CenterAdminService.java;./sources/backend/center/src/test/java/org/nlh4j/membership_hub/center/CenterAdminTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST9",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng gán hoặc hủy gán người dùng làm quản trị viên trung tâm cho một trung tâm cụ thể. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-006]"
+                    ],
+                    "components": [
+                        "./sources/docs/center.md"
                     ]
                 }
             ]
@@ -82,69 +115,178 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai duyệt khóa học và đăng ký học viên",
+            "context_section": "Xây dựng chức năng xem danh sách khóa học, thêm, sửa, xóa khóa học, gán giáo viên cho khóa học",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai API duyệt khóa học cho học viên",
+                    "desc": "Xây dựng chức năng xem danh sách khóa học. Chức năng này sẽ bao gồm việc truy vấn cơ sở dữ liệu để lấy danh sách khóa học và trả về kết quả dưới dạng danh sách các đối tượng khóa học.",
                     "targeted_tags": [
-                        "[REQ-010]"
+                        "[REQ-007]"
                     ],
                     "components": [
-                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/CourseBrowseController.java",
-                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java"
+                        "./sources/backend/course/src/main/java/org/nlh4j/membership_hub/course/CourseService.java"
                     ]
                 },
                 {
                     "id": "D2_ST2",
-                    "agent": "Coder",
-                    "desc": "Triển khai API đăng ký khóa học học viên",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng xem danh sách khóa học. Kiểm thử sẽ bao gồm việc kiểm tra truy vấn cơ sở dữ liệu và trả về kết quả dưới dạng danh sách các đối tượng khóa học.",
                     "targeted_tags": [
-                        "[REQ-011]"
+                        "[REQ-007]"
                     ],
                     "components": [
-                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentController.java",
-                        "./sources/backend/enrollment-service/src/main/java/com/membershiphub/enrollment/EnrollmentService.java"
+                        "./sources/backend/course/src/main/java/org/nlh4j/membership_hub/course/CourseService.java;./sources/backend/course/src/test/java/org/nlh4j/membership_hub/course/CourseTest.java"
                     ]
                 },
                 {
                     "id": "D2_ST3",
-                    "agent": "Tester",
-                    "desc": "Viết unit và integration test cho dịch vụ đăng ký khóa học",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng xem danh sách khóa học. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[REQ-010]",
-                        "[REQ-011]"
+                        "[REQ-007]"
                     ],
                     "components": [
-                        "./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentServiceTest.java",
-                        "./sources/backend/enrollment-service/src/test/java/com/membershiphub/enrollment/EnrollmentIntegrationTest.java"
+                        "./sources/docs/course.md"
                     ]
                 },
                 {
                     "id": "D2_ST4",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ đăng ký",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng thêm, sửa, xóa khóa học. Chức năng này sẽ bao gồm việc xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
                     "targeted_tags": [
-                        "[REQ-010]",
-                        "[REQ-011]",
-                        "[NFR-003]"
+                        "[REQ-008]"
                     ],
                     "components": [
-                        "./sources/backend/enrollment-service/"
+                        "./sources/backend/course/src/main/java/org/nlh4j/membership_hub/course/CourseService.java"
                     ]
                 },
                 {
                     "id": "D2_ST5",
-                    "agent": "Doc",
-                    "desc": "Viết tài liệu hợp đồng API dịch vụ đăng ký",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng thêm, sửa, xóa khóa học. Kiểm thử sẽ bao gồm việc kiểm tra xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
                     "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-010]",
+                        "[REQ-008]"
+                    ],
+                    "components": [
+                        "./sources/backend/course/src/main/java/org/nlh4j/membership_hub/course/CourseService.java;./sources/backend/course/src/test/java/org/nlh4j/membership_hub/course/CourseTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng thêm, sửa, xóa khóa học. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-008]"
+                    ],
+                    "components": [
+                        "./sources/docs/course.md"
+                    ]
+                },
+                {
+                    "id": "D2_ST7",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng gán giáo viên cho khóa học. Chức năng này sẽ bao gồm việc xác thực quyền hạn, cập nhật vai trò người dùng và lưu trữ thông tin vào cơ sở dữ liệu.",
+                    "targeted_tags": [
+                        "[REQ-009]"
+                    ],
+                    "components": [
+                        "./sources/backend/course/src/main/java/org/nlh4j/membership_hub/course/CourseTeacherService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST8",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng gán giáo viên cho khóa học. Kiểm thử sẽ bao gồm việc kiểm tra xác thực quyền hạn, cập nhật vai trò người dùng và lưu trữ thông tin vào cơ sở dữ liệu.",
+                    "targeted_tags": [
+                        "[REQ-009]"
+                    ],
+                    "components": [
+                        "./sources/backend/course/src/main/java/org/nlh4j/membership_hub/course/CourseTeacherService.java;./sources/backend/course/src/test/java/org/nlh4j/membership_hub/course/CourseTeacherTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST9",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng gán giáo viên cho khóa học. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-009]"
+                    ],
+                    "components": [
+                        "./sources/docs/course.md"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 3,
+            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
+            "context_section": "Xây dựng chức năng xem danh sách khóa học, đăng ký khóa học cho học viên",
+            "sub_tasks": [
+                {
+                    "id": "D3_ST1",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng xem danh sách khóa học. Chức năng này sẽ bao gồm việc truy vấn cơ sở dữ liệu để lấy danh sách khóa học và trả về kết quả dưới dạng danh sách các đối tượng khóa học.",
+                    "targeted_tags": [
+                        "[REQ-010]"
+                    ],
+                    "components": [
+                        "./sources/backend/enrollment/src/main/java/org/nlh4j/membership_hub/enrollment/EnrollmentService.java"
+                    ]
+                },
+                {
+                    "id": "D3_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng xem danh sách khóa học. Kiểm thử sẽ bao gồm việc kiểm tra truy vấn cơ sở dữ liệu và trả về kết quả dưới dạng danh sách các đối tượng khóa học.",
+                    "targeted_tags": [
+                        "[REQ-010]"
+                    ],
+                    "components": [
+                        "./sources/backend/enrollment/src/main/java/org/nlh4j/membership_hub/enrollment/EnrollmentService.java;./sources/backend/enrollment/src/test/java/org/nlh4j/membership_hub/enrollment/EnrollmentTest.java"
+                    ]
+                },
+                {
+                    "id": "D3_ST3",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng xem danh sách khóa học. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-010]"
+                    ],
+                    "components": [
+                        "./sources/docs/enrollment.md"
+                    ]
+                },
+                {
+                    "id": "D3_ST4",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng đăng ký khóa học cho học viên. Chức năng này sẽ bao gồm việc xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
+                    "targeted_tags": [
                         "[REQ-011]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/enrollment-service-api.md"
+                        "./sources/backend/enrollment/src/main/java/org/nlh4j/membership_hub/enrollment/EnrollmentService.java"
+                    ]
+                },
+                {
+                    "id": "D3_ST5",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng đăng ký khóa học cho học viên. Kiểm thử sẽ bao gồm việc kiểm tra xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
+                    "targeted_tags": [
+                        "[REQ-011]"
+                    ],
+                    "components": [
+                        "./sources/backend/enrollment/src/main/java/org/nlh4j/membership_hub/enrollment/EnrollmentService.java;./sources/backend/enrollment/src/test/java/org/nlh4j/membership_hub/enrollment/EnrollmentTest.java"
+                    ]
+                },
+                {
+                    "id": "D3_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng đăng ký khóa học cho học viên. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-011]"
+                    ],
+                    "components": [
+                        "./sources/docs/enrollment.md"
                     ]
                 }
             ]

@@ -1,7 +1,7 @@
 {
     "phase_id": 3,
-    "phase_name": "Triển khai dịch vụ điểm danh QR và quản lý thẻ hội viên",
-    "phase_description": "Triển khai dịch vụ điểm danh QR có tính bất biến (idempotent) để đảm bảo mỗi học viên chỉ có một bản ghi điểm danh mỗi ngày cho mỗi khóa học, xây dựng dịch vụ quản lý thẻ hội viên với chức năng hiển thị ngày còn lại và gia hạn thẻ sau khi thanh toán thành công, xử lý các ngoại lệ liên quan đến kết nối mạng và gửi thông báo, đảm bảo tính toàn vẹn dữ liệu điểm danh và trải nghiệm người dùng liền mạch.",
+    "phase_name": "Quản lý điểm danh và thẻ thành viên",
+    "phase_description": "Giai đoạn này tập trung vào việc quản lý điểm danh và thẻ thành viên. Chúng tôi sẽ xây dựng các chức năng quét mã QR để điểm danh, đảm bảo tính idempotency cho điểm danh, xem thông tin thẻ thành viên và gia hạn thẻ thành viên.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,55 +9,72 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
-            "context_section": "Triển khai dịch vụ điểm danh QR và logic bất biến điểm danh",
+            "context_section": "Xây dựng chức năng quét mã QR để điểm danh",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai logic cốt lõi của dịch vụ điểm danh QR",
+                    "desc": "Xây dựng chức năng quét mã QR để điểm danh. Chức năng này sẽ bao gồm việc giải mã mã QR, xác thực thông tin học viên và khóa học, và ghi nhận điểm danh vào cơ sở dữ liệu.",
                     "targeted_tags": [
-                        "[REQ-012]",
-                        "[REQ-013]",
-                        "[EXC-001]",
-                        "[EXC-002]",
-                        "[DAT-006]"
+                        "[REQ-012]"
                     ],
                     "components": [
-                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java",
-                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java",
-                        "./sources/backend/attendance-service/src/main/resources/db/migration/V2__add_attendance_unique_constraint.sql"
+                        "./sources/backend/attendance/src/main/java/org/nlh4j/membership_hub/attendance/AttendanceService.java"
                     ]
                 },
                 {
                     "id": "D1_ST2",
                     "agent": "Tester",
-                    "desc": "Viết unit test cho dịch vụ điểm danh",
+                    "desc": "Viết kiểm thử cho chức năng quét mã QR để điểm danh. Kiểm thử sẽ bao gồm việc kiểm tra giải mã mã QR, xác thực thông tin học viên và khóa học, và ghi nhận điểm danh vào cơ sở dữ liệu.",
                     "targeted_tags": [
-                        "[REQ-012]",
-                        "[REQ-013]",
-                        "[EXC-001]",
-                        "[EXC-002]"
+                        "[REQ-012]"
                     ],
                     "components": [
-                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceService.java",
-                        "./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceServiceTest.java",
-                        "./sources/backend/attendance-service/src/main/java/com/membershiphub/attendance/AttendanceController.java",
-                        "./sources/backend/attendance-service/src/test/java/com/membershiphub/attendance/AttendanceControllerTest.java"
+                        "./sources/backend/attendance/src/main/java/org/nlh4j/membership_hub/attendance/AttendanceService.java;./sources/backend/attendance/src/test/java/org/nlh4j/membership_hub/attendance/AttendanceTest.java"
                     ]
                 },
                 {
                     "id": "D1_ST3",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra chất lượng mã nguồn dịch vụ điểm danh",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng quét mã QR để điểm danh. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[REQ-012]",
-                        "[REQ-013]",
-                        "[EXC-001]",
-                        "[EXC-002]",
-                        "[NFR-001]"
+                        "[REQ-012]"
                     ],
                     "components": [
-                        "./sources/backend/attendance-service/"
+                        "./sources/docs/attendance.md"
+                    ]
+                },
+                {
+                    "id": "D1_ST4",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng đảm bảo tính idempotency cho điểm danh. Chức năng này sẽ bao gồm việc kiểm tra xem điểm danh đã tồn tại cho học viên và khóa học trong ngày hiện tại chưa, và chỉ ghi nhận điểm danh mới nếu chưa tồn tại.",
+                    "targeted_tags": [
+                        "[REQ-013]"
+                    ],
+                    "components": [
+                        "./sources/backend/attendance/src/main/java/org/nlh4j/membership_hub/attendance/AttendanceService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST5",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng đảm bảo tính idempotency cho điểm danh. Kiểm thử sẽ bao gồm việc kiểm tra xem điểm danh đã tồn tại cho học viên và khóa học trong ngày hiện tại chưa, và chỉ ghi nhận điểm danh mới nếu chưa tồn tại.",
+                    "targeted_tags": [
+                        "[REQ-013]"
+                    ],
+                    "components": [
+                        "./sources/backend/attendance/src/main/java/org/nlh4j/membership_hub/attendance/AttendanceService.java;./sources/backend/attendance/src/test/java/org/nlh4j/membership_hub/attendance/AttendanceTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng đảm bảo tính idempotency cho điểm danh. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-013]"
+                    ],
+                    "components": [
+                        "./sources/docs/attendance.md"
                     ]
                 }
             ]
@@ -65,73 +82,72 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
-            "context_section": "Triển khai quản lý thẻ hội viên và gia hạn thẻ",
+            "context_section": "Xây dựng chức năng xem thông tin thẻ thành viên và gia hạn thẻ thành viên",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai logic cốt lõi của dịch vụ quản lý thẻ hội viên",
+                    "desc": "Xây dựng chức năng xem thông tin thẻ thành viên. Chức năng này sẽ bao gồm việc truy vấn cơ sở dữ liệu để lấy thông tin thẻ thành viên và trả về kết quả dưới dạng đối tượng thẻ thành viên.",
                     "targeted_tags": [
-                        "[REQ-014]",
-                        "[REQ-015]",
-                        "[DAT-007]"
+                        "[REQ-014]"
                     ],
                     "components": [
-                        "./sources/backend/card-service/src/main/java/com/membershiphub/card/CardController.java",
-                        "./sources/backend/card-service/src/main/java/com/membershiphub/card/CardService.java",
-                        "./sources/backend/card-service/src/main/resources/db/migration/V2__add_card_check_constraints.sql"
+                        "./sources/backend/studentcard/src/main/java/org/nlh4j/membership_hub/studentcard/StudentCardService.java"
                     ]
                 },
                 {
                     "id": "D2_ST2",
                     "agent": "Tester",
-                    "desc": "Viết unit và integration test cho dịch vụ quản lý thẻ",
+                    "desc": "Viết kiểm thử cho chức năng xem thông tin thẻ thành viên. Kiểm thử sẽ bao gồm việc kiểm tra truy vấn cơ sở dữ liệu và trả về kết quả dưới dạng đối tượng thẻ thành viên.",
                     "targeted_tags": [
-                        "[REQ-014]",
-                        "[REQ-015]"
+                        "[REQ-014]"
                     ],
                     "components": [
-                        "./sources/backend/card-service/src/main/java/com/membershiphub/card/CardService.java",
-                        "./sources/backend/card-service/src/test/java/com/membershiphub/card/CardServiceTest.java",
-                        "INTEGRATION_SCOPE;./sources/backend/card-service/src/test/java/com/membershiphub/card/CardIntegrationTest.java"
+                        "./sources/backend/studentcard/src/main/java/org/nlh4j/membership_hub/studentcard/StudentCardService.java;./sources/backend/studentcard/src/test/java/org/nlh4j/membership_hub/studentcard/StudentCardTest.java"
                     ]
                 },
                 {
                     "id": "D2_ST3",
                     "agent": "Doc",
-                    "desc": "Viết tài liệu hợp đồng API cho dịch vụ điểm danh và quản lý thẻ",
+                    "desc": "Tài liệu chức năng xem thông tin thẻ thành viên. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[ARC-010]",
-                        "[REQ-012]",
-                        "[REQ-013]",
-                        "[REQ-014]",
-                        "[REQ-015]"
+                        "[REQ-014]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/attendance-service-api.md",
-                        "./sources/docs/architecture/card-service-api.md"
+                        "./sources/docs/studentcard.md"
                     ]
                 },
                 {
                     "id": "D2_ST4",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra cuối cùng và xác nhận hoàn thành giai đoạn 3",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng gia hạn thẻ thành viên. Chức năng này sẽ bao gồm việc xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
                     "targeted_tags": [
-                        "[REQ-012]",
-                        "[REQ-013]",
-                        "[REQ-014]",
-                        "[REQ-015]",
-                        "[EXC-001]",
-                        "[EXC-002]",
-                        "[DAT-006]",
-                        "[DAT-007]",
-                        "[ARC-010]"
+                        "[REQ-015]"
                     ],
                     "components": [
-                        "./sources/backend/attendance-service/",
-                        "./sources/backend/card-service/",
-                        "./sources/docs/architecture/attendance-service-api.md",
-                        "./sources/docs/architecture/card-service-api.md"
+                        "./sources/backend/studentcard/src/main/java/org/nlh4j/membership_hub/studentcard/StudentCardService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST5",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng gia hạn thẻ thành viên. Kiểm thử sẽ bao gồm việc kiểm tra xác thực đầu vào, cập nhật cơ sở dữ liệu và trả về kết quả thành công hoặc thất bại.",
+                    "targeted_tags": [
+                        "[REQ-015]"
+                    ],
+                    "components": [
+                        "./sources/backend/studentcard/src/main/java/org/nlh4j/membership_hub/studentcard/StudentCardService.java;./sources/backend/studentcard/src/test/java/org/nlh4j/membership_hub/studentcard/StudentCardTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng gia hạn thẻ thành viên. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-015]"
+                    ],
+                    "components": [
+                        "./sources/docs/studentcard.md"
                     ]
                 }
             ]

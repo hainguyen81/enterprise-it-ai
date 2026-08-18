@@ -1,7 +1,7 @@
 {
     "phase_id": 5,
-    "phase_name": "Triển khai hạ tầng DevOps và đáp ứng yêu cầu phi chức năng",
-    "phase_description": "Triển khai toàn bộ hạ tầng DevOps bao gồm Docker đa giai đoạn, pipeline CI/CD với GitHub Actions, cấu hình GCP (VPC, IAM, Storage), triển khai GKE với HPA, cấu hình backup, disaster recovery, mã hóa dữ liệu, logging và audit để đáp ứng các yêu cầu phi chức năng về hiệu suất, khả năng mở rộng, bảo mật và tuân thủ.",
+    "phase_name": "Tích hợp các tính năng ứng dụng di động và cơ sở hạ tầng DevOps",
+    "phase_description": "Giai đoạn này tập trung vào việc tích hợp các tính năng ứng dụng di động bao gồm giao diện người dùng phù hợp với vai trò của người dùng (Học viên, Giáo viên, Quản trị viên, v.v.), gửi thông báo đẩy cho người dùng trên thiết bị di động, phát hiện ngôn ngữ mặc định và hỗ trợ SEO cho nhiều ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha). Ngoài ra, xây dựng cơ sở hạ tầng DevOps bao gồm các tập lệnh Docker, thiết lập môi trường đám mây thông qua Terraform và các biểu mẫu điều phối cụm Kubernetes.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,183 +9,117 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
-            "context_section": "Thiết lập Docker đa giai đoạn và hạ tầng cơ sở GCP",
+            "context_section": "Tích hợp các tính năng ứng dụng di động và cơ sở hạ tầng DevOps",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
-                    "agent": "Docker",
-                    "desc": "Xây dựng Dockerfile đa giai đoạn cho tất cả service backend",
+                    "agent": "Coder",
+                    "desc": "Xây dựng giao diện người dùng phù hợp với vai trò của người dùng (Học viên, Giáo viên, Quản trị viên, v.v.). Chức năng này sẽ bao gồm việc tạo các thành phần giao diện người dùng tương ứng với từng vai trò và đảm bảo rằng giao diện được cập nhật dựa trên vai trò của người dùng.",
                     "targeted_tags": [
-                        "[NFR-005]"
+                        "[REQ-020]"
                     ],
                     "components": [
-                        "./sources/infra/docker/user-service/Dockerfile",
-                        "./sources/infra/docker/center-service/Dockerfile",
-                        "./sources/infra/docker/course-service/Dockerfile",
-                        "./sources/infra/docker/enrollment-service/Dockerfile",
-                        "./sources/infra/docker/attendance-service/Dockerfile",
-                        "./sources/infra/docker/card-service/Dockerfile",
-                        "./sources/infra/docker/notification-service/Dockerfile",
-                        "./sources/infra/docker/promotion-service/Dockerfile",
-                        "./sources/infra/docker/report-service/Dockerfile",
-                        "./sources/infra/docker/chatbot-service/Dockerfile"
+                        "./sources/frontend/src/components/UserDashboard.js"
                     ]
                 },
                 {
                     "id": "D1_ST2",
-                    "agent": "Docker",
-                    "desc": "Cấu hình Docker Compose cho môi trường phát triển cục bộ",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho giao diện người dùng phù hợp với vai trò của người dùng (Học viên, Giáo viên, Quản trị viên, v.v.). Kiểm thử sẽ bao gồm việc kiểm tra việc tạo các thành phần giao diện người dùng tương ứng với từng vai trò và đảm bảo rằng giao diện được cập nhật dựa trên vai trò của người dùng.",
                     "targeted_tags": [
-                        "[NFR-005]"
+                        "[REQ-020]"
                     ],
                     "components": [
-                        "./sources/infra/docker-compose.yml",
-                        "./sources/infra/docker/.env.example"
+                        "./sources/frontend/src/components/UserDashboard.js",
+                        "./sources/frontend/src/tests/UserDashboard.test.js"
                     ]
                 },
                 {
                     "id": "D1_ST3",
-                    "agent": "GCP",
-                    "desc": "Cấu hình hạ tầng cơ sở GCP (VPC, IAM, Service Accounts)",
+                    "agent": "Doc",
+                    "desc": "Tài liệu giao diện người dùng phù hợp với vai trò của người dùng (Học viên, Giáo viên, Quản trị viên, v.v.). Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các thành phần giao diện người dùng và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[NFR-002]",
-                        "[NFR-003]",
-                        "[NFR-008]"
+                        "[REQ-020]"
                     ],
                     "components": [
-                        "./sources/infra/gcp/vpc.tf",
-                        "./sources/infra/gcp/iam.tf",
-                        "./sources/infra/gcp/service-accounts.tf"
+                        "./sources/docs/frontend.md"
                     ]
                 },
                 {
                     "id": "D1_ST4",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng gửi thông báo đẩy cho người dùng trên thiết bị di động. Chức năng này sẽ bao gồm việc tạo thông báo đẩy, xác thực thiết bị người dùng và gửi thông báo đẩy qua các dịch vụ như Firebase Cloud Messaging (FCM) hoặc APNs.",
+                    "targeted_tags": [
+                        "[REQ-021]"
+                    ],
+                    "components": [
+                        "./sources/backend/notification/src/main/java/org/nlh4j/membership_hub/notification/PushNotificationService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST5",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng gửi thông báo đẩy cho người dùng trên thiết bị di động. Kiểm thử sẽ bao gồm việc kiểm tra việc tạo thông báo đẩy, xác thực thiết bị người dùng và gửi thông báo đẩy qua các dịch vụ như Firebase Cloud Messaging (FCM) hoặc APNs.",
+                    "targeted_tags": [
+                        "[REQ-021]"
+                    ],
+                    "components": [
+                        "./sources/backend/notification/src/main/java/org/nlh4j/membership_hub/notification/PushNotificationService.java",
+                        "./sources/backend/notification/src/test/java/org/nlh4j/membership_hub/notification/PushNotificationTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST6",
                     "agent": "Doc",
-                    "desc": "Viết tài liệu hướng dẫn triển khai hạ tầng cơ sở",
+                    "desc": "Tài liệu chức năng gửi thông báo đẩy cho người dùng trên thiết bị di động. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[ARC-010]",
-                        "[NFR-002]",
-                        "[NFR-003]"
+                        "[REQ-021]"
                     ],
                     "components": [
-                        "./sources/docs/infrastructure/gcp-setup.md",
-                        "./sources/docs/infrastructure/docker-setup.md"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 2,
-            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
-            "context_section": "Triển khai GKE cluster và CI/CD pipeline",
-            "sub_tasks": [
-                {
-                    "id": "D2_ST1",
-                    "agent": "GKE",
-                    "desc": "Tạo và cấu hình GKE cluster với networking",
-                    "targeted_tags": [
-                        "[NFR-002]",
-                        "[NFR-004]"
-                    ],
-                    "components": [
-                        "./sources/infra/gke/cluster.tf",
-                        "./sources/infra/gke/node-pools.tf",
-                        "./sources/infra/gke/network-policy.yaml"
+                        "./sources/docs/notification.md"
                     ]
                 },
                 {
-                    "id": "D2_ST2",
-                    "agent": "GKE",
-                    "desc": "Cấu hình HPA và Kubernetes deployment manifests",
+                    "id": "D1_ST7",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng phát hiện ngôn ngữ mặc định và hỗ trợ SEO cho nhiều ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha). Chức năng này sẽ bao gồm việc phát hiện ngôn ngữ mặc định của người dùng, cập nhật giao diện người dùng dựa trên ngôn ngữ được chọn và đảm bảo rằng các trang web có các thuộc tính hreflang phù hợp cho SEO.",
                     "targeted_tags": [
-                        "[NFR-001]",
-                        "[NFR-004]"
+                        "[REQ-022]",
+                        "[REQ-023]"
                     ],
                     "components": [
-                        "./sources/infra/gke/deployments/",
-                        "./sources/infra/gke/hpa.yaml",
-                        "./sources/infra/gke/services.yaml"
+                        "./sources/frontend/src/utils/LocaleDetector.js"
                     ]
                 },
                 {
-                    "id": "D2_ST3",
-                    "agent": "GCP",
-                    "desc": "Cấu hình Cloud Storage, backup và disaster recovery",
+                    "id": "D1_ST8",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng phát hiện ngôn ngữ mặc định và hỗ trợ SEO cho nhiều ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha). Kiểm thử sẽ bao gồm việc kiểm tra việc phát hiện ngôn ngữ mặc định của người dùng, cập nhật giao diện người dùng dựa trên ngôn ngữ được chọn và đảm bảo rằng các trang web có các thuộc tính hreflang phù hợp cho SEO.",
                     "targeted_tags": [
-                        "[NFR-002]",
-                        "[NFR-009]"
+                        "[REQ-022]",
+                        "[REQ-023]"
                     ],
                     "components": [
-                        "./sources/infra/gcp/storage.tf",
-                        "./sources/infra/gcp/backup-scheduler.tf",
-                        "./sources/infra/gcp/disaster-recovery.tf"
+                        "./sources/frontend/src/utils/LocaleDetector.js",
+                        "./sources/frontend/src/tests/LocaleDetector.test.js"
                     ]
                 },
                 {
-                    "id": "D2_ST4",
-                    "agent": "GCP",
-                    "desc": "Cấu hình CI/CD pipeline với GitHub Actions",
+                    "id": "D1_ST9",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng phát hiện ngôn ngữ mặc định và hỗ trợ SEO cho nhiều ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha). Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
                     "targeted_tags": [
-                        "[NFR-001]",
-                        "[NFR-005]",
-                        "[NFR-006]",
-                        "[NFR-007]"
+                        "[REQ-022]",
+                        "[REQ-023]"
                     ],
                     "components": [
-                        "./sources/infra/github-actions/",
-                        "./sources/infra/gcp/cloudbuild.yaml"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 3,
-            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
-            "context_section": "Bảo mật, logging, audit và tối ưu cuối cùng",
-            "sub_tasks": [
-                {
-                    "id": "D3_ST1",
-                    "agent": "GCP",
-                    "desc": "Cấu hình mã hóa dữ liệu và bảo mật hạ tầng",
-                    "targeted_tags": [
-                        "[NFR-003]",
-                        "[NFR-008]"
-                    ],
-                    "components": [
-                        "./sources/infra/gcp/encryption.tf",
-                        "./sources/infra/gke/security-policies.yaml"
+                        "./sources/docs/frontend.md"
                     ]
                 },
                 {
-                    "id": "D3_ST2",
-                    "agent": "GKE",
-                    "desc": "Cấu hình logging, monitoring và audit trail",
-                    "targeted_tags": [
-                        "[NFR-006]",
-                        "[NFR-002]"
-                    ],
-                    "components": [
-                        "./sources/infra/gke/logging-config.yaml",
-                        "./sources/infra/gcp/audit-logging.tf",
-                        "./sources/infra/monitoring/"
-                    ]
-                },
-                {
-                    "id": "D3_ST3",
+                    "id": "D1_ST10",
                     "agent": "Docker",
-                    "desc": "Tối ưu kích thước hình ảnh Docker và đẩy lên registry",
-                    "targeted_tags": [
-                        "[NFR-005]"
-                    ],
-                    "components": [
-                        "./sources/infra/docker/",
-                        "./sources/infra/gcp/artifact-registry.tf"
-                    ]
-                },
-                {
-                    "id": "D3_ST4",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra cuối cùng và xác nhận hoàn thành giai đoạn",
+                    "desc": "Xây dựng cơ sở hạ tầng DevOps bao gồm các tập lệnh Docker, thiết lập môi trường đám mây thông qua Terraform và các biểu mẫu điều phối cụm Kubernetes. Chức năng này sẽ bao gồm việc tạo các tập lệnh Docker, cấu hình môi trường đám mây thông qua Terraform và triển khai các biểu mẫu điều phối cụm Kubernetes.",
                     "targeted_tags": [
                         "[NFR-001]",
                         "[NFR-002]",
@@ -198,7 +132,259 @@
                         "[NFR-009]"
                     ],
                     "components": [
-                        "./sources/infra/"
+                        "./sources/infra/docker/Dockerfile"
+                    ]
+                },
+                {
+                    "id": "D1_ST11",
+                    "agent": "GCP",
+                    "desc": "Xây dựng cơ sở hạ tầng DevOps bao gồm các tập lệnh Docker, thiết lập môi trường đám mây thông qua Terraform và các biểu mẫu điều phối cụm Kubernetes. Chức năng này sẽ bao gồm việc tạo các tập lệnh Docker, cấu hình môi trường đám mây thông qua Terraform và triển khai các biểu mẫu điều phối cụm Kubernetes.",
+                    "targeted_tags": [
+                        "[NFR-001]",
+                        "[NFR-002]",
+                        "[NFR-003]",
+                        "[NFR-004]",
+                        "[NFR-005]",
+                        "[NFR-006]",
+                        "[NFR-007]",
+                        "[NFR-008]",
+                        "[NFR-009]"
+                    ],
+                    "components": [
+                        "./sources/infra/terraform/main.tf"
+                    ]
+                },
+                {
+                    "id": "D1_ST12",
+                    "agent": "GKE",
+                    "desc": "Xây dựng cơ sở hạ tầng DevOps bao gồm các tập lệnh Docker, thiết lập môi trường đám mây thông qua Terraform và các biểu mẫu điều phối cụm Kubernetes. Chức năng này sẽ bao gồm việc tạo các tập lệnh Docker, cấu hình môi trường đám mây thông qua Terraform và triển khai các biểu mẫu điều phối cụm Kubernetes.",
+                    "targeted_tags": [
+                        "[NFR-001]",
+                        "[NFR-002]",
+                        "[NFR-003]",
+                        "[NFR-004]",
+                        "[NFR-005]",
+                        "[NFR-006]",
+                        "[NFR-007]",
+                        "[NFR-008]",
+                        "[NFR-009]"
+                    ],
+                    "components": [
+                        "./sources/infra/k8s/deployment.yaml"
+                    ]
+                },
+                {
+                    "id": "D1_ST13",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho cơ sở hạ tầng DevOps bao gồm các tập lệnh Docker, thiết lập môi trường đám mây thông qua Terraform và các biểu mẫu điều phối cụm Kubernetes. Kiểm thử sẽ bao gồm việc kiểm tra việc tạo các tập lệnh Docker, cấu hình môi trường đám mây thông qua Terraform và triển khai các biểu mẫu điều phối cụm Kubernetes.",
+                    "targeted_tags": [
+                        "[NFR-001]",
+                        "[NFR-002]",
+                        "[NFR-003]",
+                        "[NFR-004]",
+                        "[NFR-005]",
+                        "[NFR-006]",
+                        "[NFR-007]",
+                        "[NFR-008]",
+                        "[NFR-009]"
+                    ],
+                    "components": [
+                        "INTEGRATION_SCOPE",
+                        "./sources/infra/tests/integration_test.go"
+                    ]
+                },
+                {
+                    "id": "D1_ST14",
+                    "agent": "Doc",
+                    "desc": "Tài liệu cơ sở hạ tầng DevOps bao gồm các tập lệnh Docker, thiết lập môi trường đám mây thông qua Terraform và các biểu mẫu điều phối cụm Kubernetes. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[NFR-001]",
+                        "[NFR-002]",
+                        "[NFR-003]",
+                        "[NFR-004]",
+                        "[NFR-005]",
+                        "[NFR-006]",
+                        "[NFR-007]",
+                        "[NFR-008]",
+                        "[NFR-009]"
+                    ],
+                    "components": [
+                        "./sources/docs/infra.md"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Xây dựng chức năng tạo báo cáo điểm danh hàng ngày và bảng điều khiển tổng quan cho quản trị viên trung tâm",
+            "sub_tasks": [
+                {
+                    "id": "D2_ST1",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng tạo báo cáo điểm danh hàng ngày. Chức năng này sẽ bao gồm việc tạo báo cáo điểm danh hàng ngày, xác thực dữ liệu điểm danh và xuất báo cáo dưới dạng CSV.",
+                    "targeted_tags": [
+                        "[REQ-024]"
+                    ],
+                    "components": [
+                        "./sources/backend/report/src/main/java/org/nlh4j/membership_hub/report/AttendanceReportService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng tạo báo cáo điểm danh hàng ngày. Kiểm thử sẽ bao gồm việc kiểm tra việc tạo báo cáo điểm danh hàng ngày, xác thực dữ liệu điểm danh và xuất báo cáo dưới dạng CSV.",
+                    "targeted_tags": [
+                        "[REQ-024]"
+                    ],
+                    "components": [
+                        "./sources/backend/report/src/main/java/org/nlh4j/membership_hub/report/AttendanceReportService.java;./sources/backend/report/src/test/java/org/nlh4j/membership_hub/report/AttendanceReportTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST3",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng tạo báo cáo điểm danh hàng ngày. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-024]"
+                    ],
+                    "components": [
+                        "./sources/docs/report.md"
+                    ]
+                },
+                {
+                    "id": "D2_ST4",
+                    "agent": "Coder",
+                    "desc": "Xây dựng bảng điều khiển tổng quan cho quản trị viên trung tâm. Chức năng này sẽ bao gồm việc tạo bảng điều khiển tổng quan, xác thực dữ liệu và cập nhật giao diện người dùng.",
+                    "targeted_tags": [
+                        "[REQ-025]"
+                    ],
+                    "components": [
+                        "./sources/backend/report/src/main/java/org/nlh4j/membership_hub/report/DashboardService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST5",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho bảng điều khiển tổng quan cho quản trị viên trung tâm. Kiểm thử sẽ bao gồm việc kiểm tra việc tạo bảng điều khiển tổng quan, xác thực dữ liệu và cập nhật giao diện người dùng.",
+                    "targeted_tags": [
+                        "[REQ-025]"
+                    ],
+                    "components": [
+                        "./sources/backend/report/src/main/java/org/nlh4j/membership_hub/report/DashboardService.java;./sources/backend/report/src/test/java/org/nlh4j/membership_hub/report/DashboardTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST6",
+                    "agent": "Doc",
+                    "desc": "Tài liệu bảng điều khiển tổng quan cho quản trị viên trung tâm. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[REQ-025]"
+                    ],
+                    "components": [
+                        "./sources/docs/report.md"
+                    ]
+                },
+                {
+                    "id": "D2_ST7",
+                    "agent": "Coder",
+                    "desc": "Xây dựng chức năng xử lý ngoại lệ khi mạng bị gián đoạn, điểm danh trùng lặp, thông báo không được gửi, đầu vào không hợp lệ, phục hồi hệ thống sau sự cố. Chức năng này sẽ bao gồm việc xử lý các ngoại lệ, xác thực dữ liệu và phục hồi hệ thống sau sự cố.",
+                    "targeted_tags": [
+                        "[EXC-001]",
+                        "[EXC-002]",
+                        "[EXC-003]",
+                        "[EXC-004]",
+                        "[EXC-005]"
+                    ],
+                    "components": [
+                        "./sources/backend/exception/src/main/java/org/nlh4j/membership_hub/exception/ExceptionHandler.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST8",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho chức năng xử lý ngoại lệ khi mạng bị gián đoạn, điểm danh trùng lặp, thông báo không được gửi, đầu vào không hợp lệ, phục hồi hệ thống sau sự cố. Kiểm thử sẽ bao gồm việc kiểm tra việc xử lý các ngoại lệ, xác thực dữ liệu và phục hồi hệ thống sau sự cố.",
+                    "targeted_tags": [
+                        "[EXC-001]",
+                        "[EXC-002]",
+                        "[EXC-003]",
+                        "[EXC-004]",
+                        "[EXC-005]"
+                    ],
+                    "components": [
+                        "./sources/backend/exception/src/main/java/org/nlh4j/membership_hub/exception/ExceptionHandler.java;./sources/backend/exception/src/test/java/org/nlh4j/membership_hub/exception/ExceptionHandlerTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST9",
+                    "agent": "Doc",
+                    "desc": "Tài liệu chức năng xử lý ngoại lệ khi mạng bị gián đoạn, điểm danh trùng lặp, thông báo không được gửi, đầu vào không hợp lệ, phục hồi hệ thống sau sự cố. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[EXC-001]",
+                        "[EXC-002]",
+                        "[EXC-003]",
+                        "[EXC-004]",
+                        "[EXC-005]"
+                    ],
+                    "components": [
+                        "./sources/docs/exception.md"
+                    ]
+                },
+                {
+                    "id": "D2_ST10",
+                    "agent": "Coder",
+                    "desc": "Xây dựng cơ sở dữ liệu và xác thực mã thông báo cho hệ thống. Chức năng này sẽ bao gồm việc tạo cơ sở dữ liệu, xác thực mã thông báo và đảm bảo tính nhất quán dữ liệu.",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
+                    ],
+                    "components": [
+                        "./sources/backend/architecture/src/main/java/org/nlh4j/membership_hub/architecture/DatabaseService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST11",
+                    "agent": "Tester",
+                    "desc": "Viết kiểm thử cho cơ sở dữ liệu và xác thực mã thông báo cho hệ thống. Kiểm thử sẽ bao gồm việc kiểm tra việc tạo cơ sở dữ liệu, xác thực mã thông báo và đảm bảo tính nhất quán dữ liệu.",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
+                    ],
+                    "components": [
+                        "./sources/backend/architecture/src/main/java/org/nlh4j/membership_hub/architecture/DatabaseService.java;./sources/backend/architecture/src/test/java/org/nlh4j/membership_hub/architecture/DatabaseTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST12",
+                    "agent": "Doc",
+                    "desc": "Tài liệu cơ sở dữ liệu và xác thực mã thông báo cho hệ thống. Tài liệu sẽ bao gồm mô tả chi tiết về chức năng, các trường đầu vào và các trường hợp kiểm tra.",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture.md"
                     ]
                 }
             ]
