@@ -19,6 +19,8 @@ from sources.agents.agent_helper import (
     merge_master_prompt,
     parseAIResponseData,
     read_file_raw,
+    regex_extract_by_pair_tags,
+    regex_extract_by_tag,
     render_prompt,
     storage_info,
     write_blueprint_log,
@@ -316,8 +318,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_1b)
 
         # --- count the task in section 4.1 trong chunk_1b ---
-        backlog_anchor_pattern = re.compile(r'<!--\s*REGISTERED_BACKLOG_TASK_ROW\s*-->', re.DOTALL,)
-        actual_registered_tasks = len(backlog_anchor_pattern.findall(chunk_1b))
+        actual_registered_tasks, _ = regex_extract_by_tag(tag="REGISTERED_BACKLOG_TASK_ROW", data=chunk_1b)
         if actual_registered_tasks <= 0:
             logger.warning("                | ⚠️ Token `<!--REGISTERED_BACKLOG_TASK_ROW-->` missing, activating Fallback Engine to scan Tag...")
             task_row_count = 0
@@ -368,8 +369,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         accumulated_blueprint_chunks.append(chunk_1c)
         
         # --- count the phase rows in section 4.2 trong chunk_1b ---
-        phase_anchor_pattern = re.compile(r"<!--\s*REGISTERED_PHASE_ROW\s*-->", re.DOTALL,)
-        actual_registered_phases = len(phase_anchor_pattern.findall(chunk_1c))
+        actual_registered_phases, _ = regex_extract_by_tag(tag="REGISTERED_PHASE_ROW", data=chunk_1c)
         if actual_registered_phases <= 0:
             logger.warning("                | ⚠️ Token `<!--REGISTERED_PHASE_ROW-->` missing, activating Fallback Engine to scan Phase...")
             phase_row_count = 0
@@ -455,22 +455,20 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
 
             # --- use Regex to extract hidden HTML for next phase history generation ---
             # extract `START_ATOMIC_SUB_TASK_NODE`
-            sub_tasks_pattern = re.compile(
-                r"<!--\s*START_ATOMIC_SUB_TASK_NODE\s*-->(.*?)<!--\s*END_ATOMIC_SUB_TASK_NODE\s*-->",
-                re.DOTALL,
+            sub_tasks_in_phase, _ = regex_extract_by_pair_tags(
+                tag_start="START_ATOMIC_SUB_TASK_NODE",
+                tag_end="END_ATOMIC_SUB_TASK_NODE",
+                data=phase_chunk,
             )
-            found_sub_tasks = sub_tasks_pattern.findall(phase_chunk)
-            sub_tasks_in_phase = len(found_sub_tasks)
             total_sub_tasks_in_phases += sub_tasks_in_phase
             
             # --- use Regex to extract hidden HTML for next phase history generation ---
             # extract `START_DAY_LOG_INDEX`
-            phase_tag_pattern = re.compile(
-                r"<!--\s*START_DAY_LOG_INDEX\s*-->(.*?)<!--\s*END_DAY_LOG_INDEX\s*-->",
-                re.DOTALL,
+            days_in_phase, found_day_logs = regex_extract_by_pair_tags(
+                tag_start="START_DAY_LOG_INDEX",
+                tag_end="END_DAY_LOG_INDEX",
+                data=phase_chunk,
             )
-            found_day_logs = phase_tag_pattern.findall(phase_chunk)
-            days_in_phase = len(found_day_logs)
             total_days_in_phases += days_in_phase
             if days_in_phase <= 0:
                 # use regex to remove all code blocks as SQL, DDL, JSON
@@ -596,18 +594,18 @@ def run_test_global_generation(callback, full_export: bool=False):
     if not callback or not callable(callback):
         raise RuntimeError("Invalid test method!")
     
-    PROJET_NAME = "membership-hub"
+    PROJECT_NAME = "membership-hub"
     LANGUAGE = "Vietnamese"
     SOURCES_PATH = (
         "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
     )
-    OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJET_NAME)
+    OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJECT_NAME)
     AGENTS_PATH = os.path.join(SOURCES_PATH, "agents")
     MASTER_PROMPT_TEMPLATE_PATH = os.path.join(
         AGENTS_PATH, "prompts", "prompt.rule.enterprise.governance.guardrails.md"
     )
     REQUIREMENTS_PATH = os.path.join(
-        SOURCES_PATH, "requirements", PROJET_NAME, "requirements.md"
+        SOURCES_PATH, "requirements", PROJECT_NAME, "requirements.md"
     )
 
     AI_BASE_URL = "https://api.mistral.ai/v1"
@@ -638,7 +636,7 @@ def run_test_global_generation(callback, full_export: bool=False):
         client=client,
         model_name=model_name,
         master_rules=master_rules,
-        project_name="membership-hub",
+        project_name=PROJECT_NAME,
         requirements=project_requirements,
         num_phases=5,
         max_days_per_phase=7,

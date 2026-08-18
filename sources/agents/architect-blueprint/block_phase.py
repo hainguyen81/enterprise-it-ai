@@ -17,6 +17,7 @@ from sources.agents.agent_helper import (
     merge_master_prompt,
     parseAIResponseData,
     read_file_raw,
+    regex_extract_by_pair_tags,
     render_prompt,
     storage_info,
     write_blueprint_log,
@@ -119,6 +120,12 @@ def generate_phase_contexts(
             )
             raw_data = parseAIResponseData(response)
             previous_phase_context = raw_data
+            
+            # --- use Regex to extract hidden HTML for next phase history generation ---
+            # extract `START_DAY_LOG_INDEX`
+            days_number, _ = regex_extract_by_pair_tags(
+                tag_start="DAY_HEADER_START", tag_end="DAY_HEADER_END", data=raw_data
+            )
 
             # convert project name
             safe_name = project_name.replace(' ', '-').lower()
@@ -142,7 +149,8 @@ def generate_phase_contexts(
             write_blueprint_log(log_phase_idx, system_prompt, log_prompt.replace('#', '##'), raw_data.replace('#', '##') if raw_data else "-", False, model_name_safe, out_dir)
             
             logger.info(
-                f" │   ├── ✅ [ SUCCESS ] 👉 Received/Saved Phase {phase_idx} MD: {out_path}"
+                f" │   | ✅ Found {days_number} days by `<!--DAY_HEADER_START-->` for Phase {phase_idx}"
+                f" │   ├──  👉 [ SUCCESS ] Received/Saved Phase {phase_idx} MD: {out_path}"
             )
             
             # sleep to avoid 429 Too Many Requests
@@ -162,21 +170,21 @@ def run_test_phase_generation(callback, phase: int = 0):
     if not callback or not callable(callback):
         raise RuntimeError("Invalid test method!")
 
-    PROJET_NAME = "membership-hub"
+    PROJECT_NAME = "membership-hub"
     LANGUAGE = "Vietnamese"
     SOURCES_PATH = (
         "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
     )
-    OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJET_NAME)
+    OUTDIR = os.path.join(SOURCES_PATH, "output", "blueprint", PROJECT_NAME)
     AGENTS_PATH = os.path.join(SOURCES_PATH, "agents")
     MASTER_PROMPT_TEMPLATE_PATH = os.path.join(
         AGENTS_PATH, "prompts", "prompt.rule.enterprise.governance.guardrails.md"
     )
     REQUIREMENTS_PATH = os.path.join(
-        SOURCES_PATH, "requirements", PROJET_NAME, "requirements.md"
+        SOURCES_PATH, "requirements", PROJECT_NAME, "requirements.md"
     )
     GLOBAL_CONTEXT_PATH = os.path.join(
-        SOURCES_PATH, "storage", "blueprint", PROJET_NAME, "context", f"{PROJET_NAME}.global.blueprint.md"
+        SOURCES_PATH, "storage", "blueprint", PROJECT_NAME, "context", f"{PROJECT_NAME}.global.blueprint.md"
     )
 
     AI_BASE_URL = "https://api.mistral.ai/v1"
@@ -209,7 +217,7 @@ def run_test_phase_generation(callback, phase: int = 0):
         client=client,
         model_name=model_name,
         master_rules=master_rules,
-        project_name="membership-hub",
+        project_name=PROJECT_NAME,
         requirements=project_requirements,
         global_context=global_context,
         num_phases=5,

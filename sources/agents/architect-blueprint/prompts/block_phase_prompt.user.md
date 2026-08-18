@@ -84,7 +84,7 @@ Printing this internal routing engine `RULE` wrapper (example: `<RULE> ...</RULE
 
 # REMINDER: Enforce the 'Longitructural Day Partitioning Guardrail' and 'Anti-Padding Mandate'. Output each active day as an isolated standalone single integer subsection header from DAY 1 up to the dynamic freeze day. Do NOT generate empty padded days.
 
-### 🌤️ [TRANSLATED DAY] [X]: <!--DAY_HEADER_START-->[CAPITALIZED SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY]<!--DAY_HEADER_END-->
+### 🌤️ [TRANSLATED DAY] [X]: <!--DAY_HEADER_START-->[Generate a capitalized, high-density engineering objective title statement for this active calendar day loop, fully and contextually translated into the target language context matching {{ target_language }}. You are CRITICALLY AND ABSOLUTELY BANNED from compounding or merging these system delimiters `<!--DAY_HEADER_START-->` and `<!--DAY_HEADER_END-->` onto the exact same text line as the markdown triple-hash `###` symbol viewport. They MUST reside on their own dedicated, standalone line directly underneath the H3 header token to prevent syntax stripping failure.]<!--DAY_HEADER_END-->
 
 #### 📝 [TRANSLATED SUB-TASK] [X.Y]: [Clear, low-level engineering description of the specific sub-task goal, explicitly embedding OWASP compliance rules and comprehensive technical implementation details]
 ##### [Translate "Assigned Sub-Agent"]: [Insert exactly ONE unique literal Agent token: Coder | Tester | Reviewer | Doc | Docker | GCP | GKE]
