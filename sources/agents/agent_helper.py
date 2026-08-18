@@ -347,7 +347,7 @@ def regex_extract_by_pair_tags(tag_start: str, tag_end: str, data):
     return (0, [])
 
 def regex_extract_by_tag(tag: str, data):
-    return regex_extract_by_pair_tags(tag_start=tag, data=data)
+    return regex_extract_by_pair_tags(tag_start=tag, tag_end=None, data=data)
 
 def validateAIResponse(response):
     if not response or not hasattr(response, 'choices') or not response.choices:
