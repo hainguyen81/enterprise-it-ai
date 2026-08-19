@@ -1,12 +1,8 @@
-import re
 import hashlib
+import re
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
-from sources.agents.agent_helper import (
-    write_json_file,
-    write_file,
-    parse_args
-)
+from sources.agents.agent_helper import parse_args, write_file, write_json_file
 
 # super agent
 from sources.agents.subagent_super import AbstractSubAgent

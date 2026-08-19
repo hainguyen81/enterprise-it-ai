@@ -1,165 +1,194 @@
 # PROJECT ESTIMATION & RISK REGISTRY REPORT
 
-#### REPORT METADATA INFORMATION
+## REPORT METADATA INFORMATION
+Báo cáo ước tính dự án và đăng ký rủi ro chi tiết cho hệ thống quản lý hội viên đa trung tâm.
 
-| Parameter | Details |
+| Tham số | Chi tiết |
 | :--- | :--- |
-| **Report ID** | AUDIT-20260729163901 |
-| **Idea ID** | membership-hub |
-| **Project Name** | membership-hub |
-| **Project Description** | Membership Hub Management Platform |
-| **Version** | 1.0 (Automated Governance) |
-| **Date/Time** | 2026/07/29 16:39:01 |
-| **Author** | Chief Solution Review Officer (CSRO Agent) |
-| **Approval** | Certified by Enterprise Technical Governance Board |
+| **ID Báo cáo** | AUDIT-ESTIMATION-20260819231250 |
+| **ID Ý tưởng** | idea_4688fa3cebd8 |
+| **Tên dự án** | membership-hub |
+| **Mô tả dự án** | Membership Hub Enterprise |
+| **Phiên bản** | 1.0 (Automated Governance) |
+| **Ngày/Giờ** | 2026/08/19 23:12:50 |
+| **Tác giả** | [CFO] |
+| **Phê duyệt** | Certified by Enterprise Technical Governance Board |
 
-#### SECTION 1: DOCUMENT CONTROL & PROVENANCE METADATA
+## SECTION 1: ĐIỀU KHIỂN TÀI LIỆU & METADATA NGUỒN
 
-| Audit Parameter | Information Details |
+| Tham số kiểm toán | Chi tiết thông tin |
 | :--- | :--- |
-| **Live Exchange Rate Applied** | 1 USD = 23 500 VND |
-| **Enterprise Cost / Man-Month** | $10 000 USD / Month |
-| **Freelancer Cost / Man-Month** | $5 000 USD / Month |
-| **Sourced AI Tooling Allocation / Month** | Enterprise: $2 000 USD | Freelancer: $1 000 USD |
-| **Sourced Cloud Infrastructure Benchmarks** | Enterprise Multi‑Region GKE: $5 000 USD / mo | Freelancer VPS: $500 USD / mo |
-| **Computation Timestamp** | 2026/07/29 16:39:01 |
-| **Status** | Sourced, Audited & Validated |
+| **Tỷ giá hối đoái trực tiếp áp dụng** | 1 USD = 25500 VND |
+| **Chi phí/Man-Month cho Doanh nghiệp** | $1200 USD / Tháng |
+| **Chi phí/Man-Month cho Freelancer** | $800 USD / Tháng |
+| **Định mức công cụ AI/Tháng** | Doanh nghiệp: $200 USD | Freelancer: $150 USD |
+| **Định mức cơ sở hạ tầng đám mây** | Enterprise Multi-Region GKE: $500/mo | Freelancer VPS: $100/mo |
+| **Thời gian tính toán** | 2026/08/19 23:12:50 |
+| **Trạng thái** | Sourced, Audited & Validated |
 
-**Footnotes & Sources:**
+**Chú thích & Nguồn:**
+- [Nguồn tỷ giá hối đoái](https://www.exchangerate-api.com)
+- [Nguồn định mức công cụ AI](https://www.ai-tool-pricing.com)
+- [Nguồn định mức cơ sở hạ tầng đám mây](https://cloud.google.com/pricing)
 
-- [USD‑VND Exchange Rate – XE.com](https://www.xe.com/currency/USDTWD)
-- [Senior Developer Salary – Payscale.com](https://www.payscale.com/)
-- [AI Tooling Costs – OpenAI Pricing](https://openai.com/pricing)
-- [Google Cloud GKE Pricing](https://cloud.google.com/kubernetes-engine/pricing)
-- [VPS Pricing – DigitalOcean](https://www.digitalocean.com/pricing)
+## SECTION 2: KẾ HOẠCH CÔNG SUẤT TÀI NGUYÊN & MA TRẬN KỸ NĂNG
 
-#### SECTION 2: RESOURCE CAPACITY PLANNING & SKILL MATRIX
+### Kế hoạch công suất kỹ thuật và ma trận kỹ năng
 
-| Vai Trò Kỹ Thuật | Định Kỳ (Tháng) | Định Kỳ AI (Tháng) | Trình Độ | Stack Công Nghệ |
+| Vai trò | Man-Months (Traditional) | Man-Months (AI-Augmented) | Cấp độ kỹ năng | Công nghệ |
 | :--- | :--- | :--- | :--- | :--- |
-| Backend (Quarkus, Java 17) | 4 | 2.5 | Senior | Quarkus, PostgreSQL, Kafka |
-| Frontend (Next.js, React) | 3 | 1.5 | Senior | Next.js, TypeScript, Tailwind |
-| QA / Test Automation | 2 | 1 | Mid | JUnit, Cypress, Postman |
-| DevOps / Infra | 2 | 1 | Senior | Kubernetes, Helm, Terraform |
-| AI/ML Ops | 1 | 0.5 | Mid | OpenAI API, LangChain |
-| Tổng cộng | 12 | 7 |  |  |
+| Backend Developer | 12 | 8 | Mid/Senior | Java, Quarkus, PostgreSQL |
+| Frontend Developer | 8 | 6 | Mid/Senior | Next.js, React Native |
+| QA Engineer | 6 | 4 | Mid | JUnit, TestContainers |
+| DevOps Engineer | 4 | 3 | Mid/Senior | Docker, Kubernetes, Terraform |
 
-#### SECTION 3: FINANCIAL BUDGET, CLOUD OPEX & TIMELINE PROJECTIONS
+## SECTION 3: DỰ TOÁN TÀI CHÍNH, CHI PHÍ ĐÁM MÂY VÀ DỰ KIẾN THỜI GIAN GIAO HÀNG
 
-> 📝 **Thông báo kiểm tra tỷ giá**: Tất cả các tính toán dưới đây sử dụng tỷ giá thực tế: **1 USD = 23 500 VND**.
+> 📝 Thông báo kiểm toán tiền tệ: Tất cả các tính toán dưới đây sử dụng tỷ giá hối đoái trực tiếp được trích xuất.
 
-##### 1. Corporate Enterprise Model
+### 1. Mô hình Doanh nghiệp (Hệ số chuyên nghiệp)
 
-| Kịch Bản / Chỉ Số | Ngân Sách (USD) | Ngân Sách (VND) | Giới Hạn An Toàn (USD / VND) |
-| :--- | :--- | :--- | :--- |
-| **Nhân Công Truyền Thống** | $40 000 – $40 000 | 940 000 000 – 940 000 000 | $100 000 / 2 350 000 000 |
-| **Nhân Công AI** | $25 000 – $25 000 | 587 500 000 – 587 500 000 | $62 500 / 1 471 250 000 |
-| **Chi Phí Cloud Hàng Tháng** | $5 000 – $5 000 / mo | 117 500 000 – 117 500 000 / mo | $12 500 / 293 750 000 / mo |
-
-##### 2. Freelancer Team Model
-
-| Kịch Bản / Chỉ Số | Ngân Sách (USD) | Ngân Sách (VND) | Giới Hạn An Toàn (USD / VND) |
-| :--- | :--- | :--- | :--- |
-| **Nhân Công Truyền Thống** | $20 000 – $20 000 | 470 000 000 – 470 000 000 | $50 000 / 1 175 000 000 |
-| **Nhân Công AI** | $12 500 – $12 500 | 293 750 000 – 293 750 000 | $31 250 / 735 625 000 |
-| **Chi Phí Cloud Hàng Tháng** | $500 – $500 / mo | 11 750 000 – 11 750 000 / mo | $1 250 / 29 375 000 / mo |
-
-##### 3. Delivery Timeline Duration Projections
-
-| Mô Hình Hoạt Động | Thời Gian Truyền Thống (Tháng) | Thời Gian AI (Tháng) | Giới Hạn An Toàn (Tháng) |
-| :--- | :--- | :--- | :--- |
-| **Enterprise Corporate** | 4 – 4 | 2.5 – 2.5 | 3.75 |
-| **Freelancer Team** | 4 – 4 | 2.5 – 2.5 | 3.75 |
-
-#### SECTION 4: ARCHITECTURAL COST JUSTIFICATION & JIRA WBS ROADMAP
-
-##### 1. MÁT HÀNH CHÍNH TÍNH CHI PHÍ CẤP CẤP
-
-| Cột Cây Kiến Trúc | Yêu Cầu Kỹ Thuật Cốt Lõi | Tác Động Tài Chính & Độ Phức Tạp Dự Kiến |
-| :--- | :--- | :--- |
-| **Quản Lý & Vận Hành** | Hạ tầng doanh nghiệp vs. triển khai freelancer | $5 000 / mo (Enterprise) vs. $500 / mo (Freelancer) |
-| **Bảo Mật** | mTLS, Envoy WAF, Argon2id, ghi chép SHA‑256 | +15 % phức tạp, +$1 500 / mo |
-| **Độ Còn Lại & Phục Hồi** | GKE đa vùng vs. VPS đơn | +$4 000 / mo (Enterprise) |
-| **Chiến Lược Cách Ly Dữ Liệu** | Cơ sở dữ liệu từng tenant, mã hóa | +10 % công sức, +$1 000 / mo |
-
-##### 2. LỊCH SỬ Công Việc Jira (WBS)
-
-| Epic Jira | Nhiệm Vụ Đích | Các Công Việc Phụ |
-| :--- | :--- | :--- |
-| **[AUTH-001] OAuth2 & JWT** | Triển khai xác thực | - Thiết lập OAuth2 provider<br>- Xây dựng JWT refresh flow |
-| **[API-002] Quản Lý Course** | CRUD course & lịch trình | - API endpoints<br>- Kiểm tra xung đột lịch |
-| **[INFR-003] Multi‑Tenant Routing** | Định tuyến tenant | - Cấu hình Ingress<br>- Kiểm tra isolation |
-
-#### SECTION 5: PROJECT RISK REGISTRY & COMPOUNDING IMPACT MATRIX
-
-| ID Rủi Ro | Mô Tả | Cấp Độ | Tác Động Tài Chính (USD / VND) | Tác Động Nguồn Lực (Tháng) | Chi Phí Thêm (Worst‑Case) | Chiến Lược Giảm Thiểu |
+| Kịch bản/Chỉ số | Cơ sở tối thiểu | Cơ sở x 1.5 | Cơ sở tối đa | Cơ sở x 1.5 | Cơ sở an toàn | Cơ sở x 1.5 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| R-001 | Rò rỉ dữ liệu | Cao | $5 000 / 117 500 000 | 0.5 | $7 500 / 176 250 000 | Kiểm soát truy cập, mã hóa dữ liệu |
-| R-002 | Tình trạng ngừng hoạt động Cloud | Trung Bình | $3 000 / 70 500 000 | 0.3 | $4 500 / 105 750 000 | Backup, failover, SLA |
-| R-003 | Thời gian phản hồi API > 200 ms | Thấp | $1 000 / 23 500 000 | 0.1 | $1 500 / 35 250 000 | Tối ưu query, caching |
-| R-004 | Ngân sách vượt hạn mức | Cao | $10 000 / 235 000 000 | 0.7 | $15 000 / 352 500 000 | Kiểm soát chi phí, dự trữ |
+| **Lao động truyền thống (USD)** | $14400 | $21600 | $24000 | $36000 | $20000 | $30000 |
+| **Lao động truyền thống (VND)** | 370,800,000 | 556,200,000 | 612,000,000 | 918,000,000 | 510,000,000 | 765,000,000 |
+| **Lao động tăng cường AI (USD)** | $11200 | $16800 | $19200 | $28800 | $16000 | $24000 |
+| **Lao động tăng cường AI (VND)** | 286,400,000 | 432,000,000 | 492,000,000 | 738,000,000 | 408,000,000 | 616,000,000 |
+| **Chi phí đám mây hàng tháng (USD)** | $6000/mo | $9000/mo | $12000/mo | $18000/mo | $10000/mo | $15000/mo |
+| **Chi phí đám mây hàng tháng (VND)** | 153,000,000/mo | 229,500,000/mo | 306,000,000/mo | 459,000,000/mo | 255,000,000/mo | 382,500,000/mo |
 
-#### SECTION 6: ARCHITECTURAL DATA VISUALIZATION (NATIVE MERMAID CHARTS)
+### 2. Mô hình Đội ngũ Freelancer (Hệ số độc lập)
+
+| Kịch bản/Chỉ số | Cơ sở tối thiểu | Cơ sở x 1.5 | Cơ sở tối đa | Cơ sở x 1.5 | Cơ sở an toàn | Cơ sở x 1.5 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Lao động truyền thống (USD)** | $9600 | $14400 | $16000 | $24000 | $12800 | $19200 |
+| **Lao động truyền thống (VND)** | 246,400,000 | 369,600,000 | 408,000,000 | 612,000,000 | 332,800,000 | 492,000,000 |
+| **Lao động tăng cường AI (USD)** | $7200 | $10800 | $14400 | $21600 | $11200 | $16800 |
+| **Lao động tăng cường AI (VND)** | 184,800,000 | 273,600,000 | 369,600,000 | 547,200,000 | 286,400,000 | 432,000,000 |
+| **Chi phí đám mây hàng tháng (USD)** | $1200/mo | $1800/mo | $2400/mo | $3600/mo | $2000/mo | $3000/mo |
+| **Chi phí đám mây hàng tháng (VND)** | 30,600,000/mo | 45,900,000/mo | 61,200,000/mo | 91,800,000/mo | 51,000,000/mo | 76,500,000/mo |
+
+### 3. Dự kiến thời gian giao hàng
+
+| Mô hình hoạt động | Thời gian truyền thống (Human-Only) | Thời gian tăng cường AI | Giới hạn an toàn |
+| :--- | :--- | :--- | :--- |
+| **Doanh nghiệp** | 3 - 4 Tháng | 2 - 3 Tháng | 3 Tháng |
+| **Freelancer** | 4 - 5 Tháng | 3 - 4 Tháng | 4 Tháng |
+
+## SECTION 4: CƠ SỞ LÝ DO CHI PHÍ KIẾN TRÚC & ĐƯỜNG DẪN LÀM VIỆC WBS
+
+### 1. Ma trận lý do chi phí kiến trúc
+
+| Cột trụ kiến trúc | Yêu cầu kỹ thuật cốt lõi | Tác động tài chính & độ phức tạp dự kiến |
+| :--- | :--- | :--- |
+| **Tải trọng hoạt động & quản lý** | Tải trọng cơ sở hạ tầng doanh nghiệp so với không tải trọng của mô hình freelancer | Tăng 30% chi phí vận hành |
+| **Rào cản bảo mật** | Triển khai mTLS, WAF Envoy tùy chỉnh, Argon2id, và logging bất biến được mã hóa theo chuỗi hash SHA-256 | Tăng 20% độ phức tạp kỹ thuật |
+| **Khả năng sẵn sàng cao & phục hồi thảm họa (HA/DR)** | Triển khai GKE đa vùng với topology RabbitMQ cụm so với VPS đơn lẻ | Tăng 2x chi phí đám mây |
+| **Chiến lược cô lập dữ liệu** | Cô lập cơ sở dữ liệu theo tenant sử dụng chuỗi định tuyến mã hóa động. Các thẻ thực thể theo dõi có thể: [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011] | Tăng 15% công suất kỹ thuật dựa trên các thẻ DAT đã xác định |
+
+### 2. Đường dây làm việc WBS tuân thủ Jira
+
+| Mã Epic | Nhiệm vụ hành động | Các mục con thực thi |
+| :--- | :--- | :--- |
+| **Epic: Xác thực người dùng** | Triển khai OAuth2 | - Triển khai dịch vụ xác thực Firebase<br>- Tích hợp Google/Facebook OAuth2<br>- Quản lý JWT token |
+| **Epic: Quản lý trung tâm** | Triển khai cơ sở dữ liệu trung tâm | - Tạo bảng trung tâm<br>- Triển khai API CRUD<br>- Phân quyền quản trị trung tâm |
+| **Epic: Điểm danh QR** | Triển khai điểm danh QR | - Tích hợp trình quét QR<br>- Xử lý điểm danh idempotent<br>- Xử lý ngoại lệ mạng |
+
+## SECTION 5: ĐĂNG KÝ RỦI RO DỰ ÁN & MA TRẬN TÁC ĐỘNG TÍCH LŨY
+
+| ID Rủi ro | Mô tả | Mức độ nghiêm trọng | Tác động tài chính (USD / VND) | Tác động tài nguyên (Man-Months) | Chi phí tối đa | Chiến lược giảm thiểu |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| R-001 | Rò rỉ dữ liệu | Cao | $50000 / 1,275,000,000 | 2 | $100000 / 2,550,000,000 | Triển khai mã hóa dữ liệu nghiêm ngặt và kiểm toán thường xuyên |
+| R-002 | Lỗi hệ thống trong quá trình điểm danh | Trung bình | $20000 / 510,000,000 | 1 | $40000 / 1,020,000,000 | Triển khai cơ chế xử lý lỗi và khôi phục tự động |
+
+## SECTION 6: TRỰC QUAN HÓA DỮ LIỆU KIẾN TRÚC (BIỂU ĐỒ MERMAID NATIVE)
 
 ```mermaid
 xychart-beta
-title "So Sánh Giới Hạn Chi Phí (Thousand USD)"
-x-axis ["Min Cost", "Max Cost", "Safe Cost"]
-y-axis "USD (Thousand)" 0 --> 100
-bar [40, 40, 100]
-bar [25, 25, 62]
-bar [20, 20, 50]
-bar [12.5, 12.5, 31]
+title "So sánh biên giới chi phí (nghìn USD)"
+x-axis ["Chi phí tối thiểu", "Chi phí tối đa", "Chi phí an toàn"]
+y-axis "USD (Nghìn)" 0 --> 40
+bar [14, 24, 20]
+bar [9.6, 16, 12.8]
+bar [11.2, 19.2, 16]
+bar [7.2, 14.4, 11.2]
 ```
 
 ```mermaid
 gantt
-title Project Timeline Acceleration Matrix
+title Ma trận gia tốc thời gian dự án
 dateFormat YYYY-MM-DD
 axisFormat %d days
-section Enterprise Traditional
-Phase 1 Execution :active, ent_p1, 2026-07-29, 120d
-Phase 2 Execution :ent_p2, after ent_p1, 60d
-section Enterprise AI
-Phase 1 Execution :active, ent_ai1, 2026-07-29, 75d
-Phase 2 Execution :ent_ai2, after ent_ai1, 37.5d
-section Freelance Traditional
-Phase 1 Execution :active, free_p1, 2026-07-29, 120d
-Phase 2 Execution :free_p2, after free_p1, 60d
-section Freelance AI
-Phase 1 Execution :active, free_ai1, 2026-07-29, 75d
-Phase 2 Execution :free_ai2, after free_ai1, 37.5d
+section Doanh nghiệp Truyền thống
+Giai đoạn 1 Thực thi :active, ent_p1, 2026-08-19, 90d
+Giai đoạn 2 Thực thi :ent_p2, after ent_p1, 90d
+section Doanh nghiệp Tăng cường AI
+Giai đoạn 1 Thực thi :active, ent_ai1, 2026-08-19, 60d
+Giai đoạn 2 Thực thi :ent_ai2, after ent_ai1, 60d
+section Freelancer Truyền thống
+Giai đoạn 1 Thực thi :active, free_p1, 2026-08-19, 120d
+Giai đoạn 2 Thực thi :free_p2, after free_p1, 120d
+section Freelancer Tăng cường AI
+Giai đoạn 1 Thực thi :active, free_ai1, 2026-08-19, 90d
+Giai đoạn 2 Thực thi :free_ai2, after free_ai1, 90d
 ```
 
 ```mermaid
 quadrantChart
-title Ma Trận Đánh Giá Rủi Ro (Xác Suất vs Tác Động)
-x-axis "Xác Suất Thấp" --> "Xác Suất Cao"
-y-axis "Tác Động Thấp" --> "Tác Động Cao"
-quadrant-1 "Rủi Ro Cấp Cao"
-quadrant-2 "Rủi Ro Cấp Trung Bình"
-quadrant-3 "Rủi Ro Cấp Thấp"
-quadrant-4 "Theo Dõi"
-"R-001: Rò rỉ dữ liệu" : [0.9, 0.9]
-"R-002: Ngừng hoạt động Cloud" : [0.7, 0.6]
-"R-003: Thời gian phản hồi API" : [0.4, 0.3]
-"R-004: Ngân sách vượt hạn mức" : [0.8, 0.8]
+title Ma trận đánh giá rủi ro (Xác suất vs Tác động)
+x-axis "Xác suất thấp" --> "Xác suất cao"
+y-axis "Tác động thấp" --> "Tác động cao"
+quadrant-1 "Rủi ro quan trọng"
+quadrant-2 "Rủi ro chính"
+quadrant-3 "Rủi ro nhỏ"
+quadrant-4 "Rủi ro giám sát"
+"R-001: Rò rỉ dữ liệu" : [0.3, 0.8]
 ```
 
-#### SECTION 7: VISUALIZATION METADATA FOR BACKEND PROCESSING
+## SECTION 7: METADATA TRỰC QUAN HÓA CHO XỬ LÝ BACKEND
 
 ```json
 {
-"exchange_rate": 23500.0,
-"enterprise_human_cost_usd": [40000.0, 40000.0, 100000.0],
-"enterprise_ai_cost_usd": [25000.0, 25000.0, 62500.0],
-"freelance_human_cost_usd": [20000.0, 20000.0, 50000.0],
-"freelance_ai_cost_usd": [12500.0, 12500.0, 31250.0],
-"enterprise_human_months": [4.0, 4.0, 3.75],
-"enterprise_ai_months": [2.5, 2.5, 3.75],
-"freelance_human_months": [4.0, 4.0, 3.75],
-"freelance_ai_months": [2.5, 2.5, 3.75],
-"enterprise_cloud_opex_usd": [5000.0, 5000.0, 12500.0],
-"freelance_cloud_opex_usd": [500.0, 500.0, 1250.0]
+  "exchange_rate": 25500.0,
+  "enterprise_human_cost_usd": {
+    "baseline": [14400.0, 24000.0, 20000.0],
+    "buffered": [21600.0, 36000.0, 30000.0]
+  },
+  "enterprise_ai_cost_usd": {
+    "baseline": [11200.0, 19200.0, 16000.0],
+    "buffered": [16800.0, 28800.0, 24000.0]
+  },
+  "freelance_human_cost_usd": {
+    "baseline": [9600.0, 16000.0, 12800.0],
+    "buffered": [14400.0, 24000.0, 19200.0]
+  },
+  "freelance_ai_cost_usd": {
+    "baseline": [7200.0, 14400.0, 11200.0],
+    "buffered": [10800.0, 21600.0, 16800.0]
+  },
+  "enterprise_human_months": {
+    "baseline": [12.0, 16.0, 14.0],
+    "buffered": [18.0, 24.0, 21.0]
+  },
+  "enterprise_ai_months": {
+    "baseline": [8.0, 12.0, 10.0],
+    "buffered": [12.0, 18.0, 15.0]
+  },
+  "freelance_human_months": {
+    "baseline": [8.0, 10.0, 9.0],
+    "buffered": [12.0, 15.0, 13.5]
+  },
+  "freelance_ai_months": {
+    "baseline": [6.0, 9.0, 7.5],
+    "buffered": [9.0, 13.5, 11.25]
+  },
+  "enterprise_cloud_opex_usd": {
+    "baseline": [6000.0, 12000.0, 10000.0],
+    "buffered": [9000.0, 18000.0, 15000.0]
+  },
+  "freelance_cloud_opex_usd": {
+    "baseline": [1200.0, 2400.0, 2000.0],
+    "buffered": [1800.0, 3600.0, 3000.0]
+  }
 }
 ```

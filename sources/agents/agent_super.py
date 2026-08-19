@@ -1,8 +1,8 @@
 # sources/agents/agent_super.py
 
+import json
 import os
 import sys
-import json
 
 # for abstract class
 from abc import ABC, abstractmethod
@@ -12,20 +12,20 @@ from openai import OpenAI
 
 # agent helper
 from sources.agents.agent_helper import (
-    write_file,
+    AGENT_MASTER_PROMPTS_PATH,
+    AGENT_MODELS_PATH,
+    enabledLogDebug,
+    exception_stacktrace,
+    get_logger,
+    json_loads,
+    json_tostring,
+    kwargs_by_key,
+    merge_master_prompt,
+    parseAIResponseData,
     read_json_file,
     render_prompt,
-    parseAIResponseData,
-    exception_stacktrace,
-    kwargs_by_key,
     storage_info,
-    get_logger,
-    json_tostring,
-    json_loads,
-    enabledLogDebug,
-    AGENT_MODELS_PATH,
-    AGENT_MASTER_PROMPTS_PATH,
-    merge_master_prompt
+    write_file,
 )
 
 # ==============================================================================
@@ -73,7 +73,7 @@ class AbstractAgent(ABC):
         self.client = None
         self.current_model_config = None
         if not self.rotate_model():
-            self.logger.critical(f"💀 Not found any available AI models to execute!")
+            self.logger.critical("💀 Not found any available AI models to execute!")
             sys.exit(1)
     
     def enabled_log_debug(self):
@@ -97,7 +97,7 @@ class AbstractAgent(ABC):
     
     def load_secrets(self, secrets_key):
         if not secrets_key or len(secrets_key) <= 0:
-            self.logger.warning(f"⚠️ Invalid secrets key to load secrets!")
+            self.logger.warning("⚠️ Invalid secrets key to load secrets!")
             return None
         
         # load secrets from environment
@@ -126,7 +126,7 @@ class AbstractAgent(ABC):
     
     def rotate_model(self):
         if not self.models_secrets or len(self.models_secrets) <= 0:
-            self.logger.warning(f"⚠️ Not found any models secrets to rotate!")
+            self.logger.warning("⚠️ Not found any models secrets to rotate!")
             return False
         
         models_pool_len = len(self.models_pool) if isinstance(self.models_pool, list) else 0
@@ -286,7 +286,7 @@ class AbstractAgent(ABC):
                 raw_response = self.__parse_ai_response__(response=response) if response else None
                 success = True   # success
             except Exception as e:
-                self.logger.error(f"💀 Exception caught on model {self.config_model_name()}: {str(e)}")
+                self.logger.error(f"💀 Exception caught on model {self.config_model_name()}: {e!s}")
                 # rotate next model
                 if not self.__rotate_next_model__():
                     raise # re-throw exception to super

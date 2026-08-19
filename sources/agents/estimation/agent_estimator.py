@@ -1,16 +1,16 @@
-import sys
 import re
+import sys
 
 import matplotlib.pyplot as plt
-import numpy as np
 import mermaidx
+import numpy as np
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
-    write_file,
-    makedirs,
     json_loads,
+    makedirs,
     parse_args,
+    write_file,
 )
 
 # super agent
@@ -69,7 +69,7 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
         
         # no idea also no requirements
         if not raw_idea_content:
-            self.logger.critical(f"💀 Not found IDEA / Requirements file to process")
+            self.logger.critical("💀 Not found IDEA / Requirements file to process")
             sys.exit(1)
         
         # read ba/SRS
@@ -81,7 +81,7 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
         # return merged new values
         return {
             **kwargs,
-            "target_language": self.language,
+            "language": self.language,
             "idea_id": self.idea_id,
             "buffer_ratio": self.buffer_ratio,
             "raw_idea_content": raw_idea_content,
@@ -139,22 +139,38 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
             # Extract dynamic properties securely with hard fallback safeguards
             exchange_rate = float(metrics_dict.get("exchange_rate", DEFAULT_EXCHANGE_RATE))
             
-            # Process flat arrays safely through the robust parser function
+            # Helper closures to safely drill down into the nested dictionary structure
+            def extract_nested_tier(metric_key, tier_name):
+                target_node = metrics_dict.get(metric_key)
+                if isinstance(target_node, dict):
+                    return self.__safe_parse_float_numbers_list__(target_node.get(tier_name))
+                return self.__safe_parse_float_numbers_list__(target_node)
+
             return {
                 "exchange_rate": exchange_rate,
-                "enterprise_human_cost_usd": self.__safe_parse_float_numbers_list__(metrics_dict.get("enterprise_human_cost_usd")),
-                "enterprise_ai_cost_usd": self.__safe_parse_float_numbers_list__(metrics_dict.get("enterprise_ai_cost_usd")),
-                "freelance_human_cost_usd": self.__safe_parse_float_numbers_list__(metrics_dict.get("freelance_human_cost_usd")),
-                "freelance_ai_cost_usd": self.__safe_parse_float_numbers_list__(metrics_dict.get("freelance_ai_cost_usd")),
-                "enterprise_human_months": self.__safe_parse_float_numbers_list__(metrics_dict.get("enterprise_human_months")),
-                "enterprise_ai_months": self.__safe_parse_float_numbers_list__(metrics_dict.get("enterprise_ai_months")),
-                "freelance_human_months": self.__safe_parse_float_numbers_list__(metrics_dict.get("freelance_human_months")),
-                "freelance_ai_months": self.__safe_parse_float_numbers_list__(metrics_dict.get("freelance_ai_months")),
-                "enterprise_cloud_opex_usd": self.__safe_parse_float_numbers_list__(metrics_dict.get("enterprise_cloud_opex_usd")),
-                "freelance_cloud_opex_usd": self.__safe_parse_float_numbers_list__(metrics_dict.get("freelance_cloud_opex_usd"))
+                "enterprise_human_cost_usd_base": extract_nested_tier("enterprise_human_cost_usd", "baseline"),
+                "enterprise_human_cost_usd_buf":  extract_nested_tier("enterprise_human_cost_usd", "buffered"),
+                "enterprise_ai_cost_usd_base":    extract_nested_tier("enterprise_ai_cost_usd", "baseline"),
+                "enterprise_ai_cost_usd_buf":     extract_nested_tier("enterprise_ai_cost_usd", "buffered"),
+                "freelance_human_cost_usd_base":   extract_nested_tier("freelance_human_cost_usd", "baseline"),
+                "freelance_human_cost_usd_buf":    extract_nested_tier("freelance_human_cost_usd", "buffered"),
+                "freelance_ai_cost_usd_base":      extract_nested_tier("freelance_ai_cost_usd", "baseline"),
+                "freelance_ai_cost_usd_buf":       extract_nested_tier("freelance_ai_cost_usd", "buffered"),
+                "enterprise_human_months_base":    extract_nested_tier("enterprise_human_months", "baseline"),
+                "enterprise_human_months_buf":     extract_nested_tier("enterprise_human_months", "buffered"),
+                "enterprise_ai_months_base":       extract_nested_tier("enterprise_ai_months", "baseline"),
+                "enterprise_ai_months_buf":        extract_nested_tier("enterprise_ai_months", "buffered"),
+                "freelance_human_months_base":     extract_nested_tier("freelance_human_months", "baseline"),
+                "freelance_human_months_buf":      extract_nested_tier("freelance_human_months", "buffered"),
+                "freelance_ai_months_base":        extract_nested_tier("freelance_ai_months", "baseline"),
+                "freelance_ai_months_buf":         extract_nested_tier("freelance_ai_months", "buffered"),
+                "enterprise_cloud_opex_usd_base":  extract_nested_tier("enterprise_cloud_opex_usd", "baseline"),
+                "enterprise_cloud_opex_usd_buf":   extract_nested_tier("enterprise_cloud_opex_usd", "buffered"),
+                "freelance_cloud_opex_usd_base":   extract_nested_tier("freelance_cloud_opex_usd", "baseline"),
+                "freelance_cloud_opex_usd_buf":    extract_nested_tier("freelance_cloud_opex_usd", "buffered")
             }
         except Exception as json_err:
-            self.logger.warning(f"⚠️ Failed to parse JSON RAM metrics object: {str(json_err)}")
+            self.logger.warning(f"⚠️ Failed to parse JSON RAM metrics object: {json_err!s}")
             return {}
 
     def __extract_mermaid_visualizations__(self, raw_response):
@@ -199,7 +215,7 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
                     self.logger.warning(f"⚠️ Source code causing compilation error: \n{clean_code}")
                     
             except Exception as net_err:
-                self.logger.warning(f"⚠️ Exception while rendering mermaid vector graphic: {str(net_err)}")
+                self.logger.warning(f"⚠️ Exception while rendering mermaid vector graphic: {net_err!s}")
                 
         return visualizations_data
 
@@ -219,51 +235,46 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
             # 1. Safely extract live financial exchange rate
             exchange_rate = float(metrics.get("exchange_rate", 25500.0))
             
-            # 2. Extract core financial labor cost flat arrays
-            ent_human_cost = list(metrics.get("enterprise_human_cost_usd", []))
-            ent_ai_cost = list(metrics.get("enterprise_ai_cost_usd", []))
-            free_human_cost = list(metrics.get("freelance_human_cost_usd", []))
-            free_ai_cost = list(metrics.get("freelance_ai_cost_usd", []))
-            
-            # 3. Extract core timeline duration flat arrays
-            ent_human_time = list(metrics.get("enterprise_human_months", []))
-            ent_ai_time = list(metrics.get("enterprise_ai_months", []))
-            free_human_time = list(metrics.get("freelance_human_months", []))
-            free_ai_time = list(metrics.get("freelance_ai_months", []))
+            # Extract the BUFFERED arrays specifically to plot the final real financial risk limits
+            ent_human_cost = list(metrics.get("enterprise_human_cost_usd_buf", []))
+            ent_ai_cost    = list(metrics.get("enterprise_ai_cost_usd_buf", []))
+            free_human_cost = list(metrics.get("freelance_human_cost_usd_buf", []))
+            free_ai_cost    = list(metrics.get("freelance_ai_cost_usd_buf", []))
 
-            # 4. Extract newly added automated Cloud OpEx infrastructure flat arrays
-            ent_cloud_opex = list(metrics.get("enterprise_cloud_opex_usd", []))
-            free_cloud_opex = list(metrics.get("freelance_cloud_opex_usd", []))
+            ent_human_time = list(metrics.get("enterprise_human_months_buf", []))
+            ent_ai_time    = list(metrics.get("enterprise_ai_months_buf", []))
+            free_human_time = list(metrics.get("freelance_human_months_buf", []))
+            free_ai_time    = list(metrics.get("freelance_ai_months_buf", []))
 
-            # Fallback safeguard: Guarantee exactly 3 array data points [Min, Max, Safe] for all lists
+            ent_cloud_opex = list(metrics.get("enterprise_cloud_opex_usd_buf", []))
+            free_cloud_opex = list(metrics.get("freelance_cloud_opex_usd_buf", []))
+
+            # Fallback safeguard: Guarantee exactly 3 array data points [Min, Max, Safe]
             all_metric_lists = [
                 ent_human_cost, ent_ai_cost, free_human_cost, free_ai_cost,
                 ent_human_time, ent_ai_time, free_human_time, free_ai_time,
                 ent_cloud_opex, free_cloud_opex
             ]
             for data_list in all_metric_lists:
-                while len(data_list) < 3: 
+                while len(data_list) < 3:
                     data_list.append(0.0)
 
-            # 5. Initialize high-resolution rendering canvas with a 3-panel matrix framework (1 row, 3 subplots)
+            # Execution logic for high-res matplotlib generation (Subplots 1, 2, 3)
             plt.rcParams['figure.dpi'] = 300
             plt.rcParams['text.color'] = '#2c3e50'
             fig, (ax1, ax3, ax5) = plt.subplots(1, 3, figsize=(22, 6))
-            
-            fig.suptitle(f'Project Estimation & Cloud Governance Summary Matrix (1 USD = {exchange_rate:,} VND)', fontsize=14, fontweight='bold', y=0.98)
-            
+
+            fig.suptitle(f'Project Estimation & Cloud Governance Summary Matrix - Buffered 1.5x (1 USD = {exchange_rate:,} VND)', fontsize=14, fontweight='bold', y=0.98)
+
             categories = ['Min Bound', 'Max Bound', 'Safe Bound']
             x = np.arange(len(categories))
-            width = 0.16  # Optimized bar width to prevent spatial overlapping across 4 scenario series
+            width = 0.16
 
-            # -----------------------------------------------------------------
-            # SUBPLOT 1: 4-SCENARIO FINANCIAL LABOR BUDGET MATRIX ($ vs ₫)
-            # -----------------------------------------------------------------
+            # SUBPLOT 1: Labor Budgets
             ax1.bar(x - width * 1.5, ent_human_cost, width, label='Enterprise Human', color='#c0392b', alpha=0.85)
             ax1.bar(x - width / 2, ent_ai_cost, width, label='Enterprise AI', color='#e74c3c', alpha=0.85)
             ax1.bar(x + width / 2, free_human_cost, width, label='Freelance Human', color='#27ae60', alpha=0.85)
             ax1.bar(x + width * 1.5, free_ai_cost, width, label='Freelance AI', color='#2ecc71', alpha=0.85)
-            
             ax1.set_ylabel('Total Cost in USD ($)', fontsize=11, fontweight='bold')
             ax1.set_title('Labor Financial Budget Bounds', fontsize=11, pad=10, fontweight='bold')
             ax1.set_xticks(x)
@@ -271,20 +282,15 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
             ax1.grid(axis='y', linestyle='--', alpha=0.3)
             ax1.legend(loc='upper left', frameon=True, facecolor='#f8f9fa')
 
-            # CRITICAL FIX: Decouple get_ylim tuple to prevent the mathematical string sequence crash
             ax1_ymin, ax1_ymax = ax1.get_ylim()
             ax2 = ax1.twinx()
             ax2.set_ylabel('Equivalent Cost in VND (₫)', fontsize=11, fontweight='bold')
             ax2.set_ylim(ax1_ymin * exchange_rate, ax1_ymax * exchange_rate)
             ax2.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda val, loc: f"{int(val):,}"))
 
-            # -----------------------------------------------------------------
-            # SUBPLOT 2: NEWLY ADDED CLOUD INFRASTRUCTURE OPEX PROJECTIONS ($ vs ₫)
-            # -----------------------------------------------------------------
-            # CRITICAL FIX: Aligned width constraints to width/2 offsets to prevent bar overlapping anomalies
+            # SUBPLOT 2: Cloud OpEx
             ax3.bar(x - width / 2, ent_cloud_opex, width, label='Enterprise Cloud (GKE HA)', color='#8e44ad', alpha=0.85)
             ax3.bar(x + width / 2, free_cloud_opex, width, label='Freelance Cloud (VPS)', color='#2980b9', alpha=0.85)
-            
             ax3.set_ylabel('Monthly Cloud OpEx in USD ($)', fontsize=11, fontweight='bold')
             ax3.set_title('Monthly Cloud Infrastructure OpEx', fontsize=11, pad=10, fontweight='bold')
             ax3.set_xticks(x)
@@ -292,21 +298,17 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
             ax3.grid(axis='y', linestyle='--', alpha=0.3)
             ax3.legend(loc='upper left', frameon=True, facecolor='#f8f9fa')
 
-            # Decouple ax3 ylim to apply currency conversion on the cloud infrastructure dashboard subplot
             ax3_ymin, ax3_ymax = ax3.get_ylim()
             ax4 = ax3.twinx()
             ax4.set_ylabel('Equivalent OpEx in VND (₫)', fontsize=11, fontweight='bold')
             ax4.set_ylim(ax3_ymin * exchange_rate, ax3_ymax * exchange_rate)
             ax4.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda val, loc: f"{int(val):,}"))
 
-            # -----------------------------------------------------------------
-            # SUBPLOT 3: 4-SCENARIO DELIVERY TIMELINE TRACKING (MONTHS)
-            # -----------------------------------------------------------------
+            # SUBPLOT 3: Timelines
             ax5.bar(x - width * 1.5, ent_human_time, width, label='Enterprise Human', color='#2c3e50', alpha=0.9)
             ax5.bar(x - width / 2, ent_ai_time, width, label='Enterprise AI', color='#5d6d7e', alpha=0.8)
             ax5.bar(x + width / 2, free_human_time, width, label='Freelance Human', color='#16a085', alpha=0.9)
             ax5.bar(x + width * 1.5, free_ai_time, width, label='Freelance AI', color='#1abc9c', alpha=0.8)
-            
             ax5.set_ylabel('Duration (Calendar Months)', fontsize=11, fontweight='bold')
             ax5.set_title('Delivery Timeline Projections', fontsize=11, pad=10, fontweight='bold')
             ax5.set_xticks(x)
@@ -323,7 +325,7 @@ class EnterpriseAutonomousProjectEstimatorAgent(AbstractSubAgent):
             self.logger.info(f"[ 💾 SHARP CHART GENERATED ] 3-Panel Consolidated Governance chart exported to: {output_image_path}")
             
         except Exception as e:
-            self.logger.warning(f"⚠️ Exception while generating pilot chart to file {output_image_path}: {str(e)}")
+            self.logger.warning(f"⚠️ Exception while generating pilot chart to file {output_image_path}: {e!s}")
 
     # @override
     def clean_response(self, raw_response, **kwargs):
