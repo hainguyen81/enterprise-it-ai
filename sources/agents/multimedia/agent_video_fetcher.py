@@ -5,6 +5,7 @@
 # ==========================================
 import sys
 import time
+from types import SimpleNamespace
 
 import requests
 
@@ -41,6 +42,10 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
     def initialize_models(self):
         pass
     
+    # @override
+    def __close_ai_client__(self):
+        pass
+    
     def agent_secrets_key(self) -> str:
         return VIDEO_FETCHER_API_SECRETS_KEY
     
@@ -73,29 +78,41 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             "scenes": json_scenes.get("storyboard_flow", [])
         }
     
-    def __trigger_video_generation_task__(self, api_key: str, base_url: str, scene_virtual_prompt: str) -> str:
+    def __trigger_video_generation_task__(self, api_key: str, base_url: str, api_path: str, scene_virtual_prompt: str, api_payload: dict, api_prompt_key: str, **api_headers) -> str:
         headers = {
+            **(api_headers or {}),
             "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
+        self.logger.debug(f"Headers: {headers}")
         payload = {
-            "taskType": "text_to_video",
+            **(api_payload or {}),
+            api_prompt_key: scene_virtual_prompt,
+        } if api_prompt_key else {
+            **(api_payload or {}),
             "prompt": scene_virtual_prompt,
-            "aspectRatio": "16:9",
-            "duration": 5 # 5 seconds per structural scene block
         }
+        self.logger.debug(f"Payload: {payload}")
         
         # Executes native programmatic request dispatch loop
-        response = requests.post(base_url, json=payload, headers=headers, timeout=120)
-        return response.json()["taskId"]
+        url = f"{base_url}/{api_path}" if api_path else base_url
+        response = requests.post(url=url, json=payload, headers=headers, timeout=120)
+        response_json = response.json()
+        self.logger.info(response_json)
+        response.raise_for_status() # check response
+        return response_json.get("taskId") if response_json and "taskId" in response_json else None
     
-    def __video_render_status_polling__(self, api_key: str, base_url: str, task_id: str) -> str:
+    def __video_render_status_polling__(self, api_key: str, base_url: str, task_id: str, **api_headers) -> str:
         endpoint = f"{base_url}/{task_id}"
-        headers = {"Authorization": f"Bearer {api_key}"}
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            **api_headers
+        }
         
         # Execute active polling loops until status switches to complete
         while True:
             response = requests.get(endpoint, headers=headers, timeout=120)
+            response.raise_for_status() # check response
             status_data = response.json()
             if status_data.get("status") == "SUCCEEDED":
                 return status_data.get("assetUrl")
@@ -103,33 +120,52 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                 raise RuntimeError(f"[ERROR] Remote cloud render pipeline crashed for task: {task_id}")
             time.sleep(5) # Wait 5 seconds between status verification check beats
     
-    def __render_video_scene__(self, api_key: str, base_url: str, scene: dict) -> bytes:
+    def __render_video_scene__(
+        self,
+        api_key: str,
+        base_url: str,
+        api_path: str,
+        scene: dict,
+        api_payload: dict,
+        api_prompt_key: str,
+        **api_headers,
+    ) -> bytes:
         scene = scene or {}
         scene_id = scene.get("scene_id")
         scene_visual_prompt = scene.get("visual_description")
-        self.logger.info(f"[PROCESS] Spawning render task for Scene {scene_id}")
+        self.logger.info(f"[ PROCESS ] Spawning render task for Scene {scene_id}")
         
         # Step 1: Dispatch text-to-video prompt to cloud AI engine
         task_id = self.__trigger_video_generation_task__(
             api_key=api_key,
             base_url=base_url,
-            scene_virtual_prompt=scene_visual_prompt
+            api_path=api_path,
+            scene_virtual_prompt=scene_visual_prompt,
+            api_payload=api_payload,
+            api_prompt_key=api_prompt_key,
+            **api_headers,
         )
+        if not task_id:
+            self.logger.error("[ 💀 CRITICAL ] Could not request video task identity")
+            raise ConnectionError("[ 💀 CRITICAL ] Could not request video task identity")
         
         # Step 2: Poll and grab the raw CDN download URL link string
         video_download_url = self.__video_render_status_polling__(
             api_key=api_key,
             base_url=base_url,
-            task_id=task_id
+            task_id=task_id,
+            **api_headers
         )
         
         # Step 3: Stream and capture the pure raw video binary bytes from the network server
-        self.logger.info(f"[DOWNLOAD] Pulling video bytes data from endpoint: {video_download_url}")
+        self.logger.info(f"[ DOWNLOAD ] Pulling video bytes data from endpoint: {video_download_url}")
         raw_video_response = requests.get(video_download_url, stream=True, timeout=120)
         if raw_video_response.status_code == 200:
             return (scene_id, raw_video_response.content)
         else:
-            raise ConnectionError(f"[CRITICAL] Network buffer failed fetching bytes. Status: {raw_video_response.status_code}")
+            raise ConnectionError(
+                f"[ 💀 CRITICAL ] Network buffer failed fetching bytes. Status: {raw_video_response.status_code}"
+            )
     
     # @override
     def __execute__(self, **kwargs):
@@ -143,6 +179,10 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             # parse API configuration from secrets
             api_key = api.get("api_key")
             base_url = api.get("base_url")
+            api_path = api.get("path") if "path" in api else None
+            api_headers = api.get("headers") if "headers" in api else {}
+            api_payload = api.get("payload") if "payload" in api else {}
+            api_prompt_key = api.get("promptKey") if "promptKey" in api else None
             if not api_key or not base_url:
                 self.logger.warning("⚠️ Invalid API configuration: Missing api_key or base_url")
                 continue
@@ -154,7 +194,11 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                     scene_id, raw_video_bytes = self.__render_video_scene__(
                         api_key=api_key,
                         base_url=base_url,
-                        scene=scene
+                        api_path=api_path,
+                        scene=scene,
+                        api_payload=api_payload,
+                        api_prompt_key=api_prompt_key,
+                        **api_headers,
                     )
                     
                     # write raw video bytes to local storage
@@ -179,6 +223,24 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
     def process_communication(self, **kwargs):
         pass
 
+    def __handle_execute_exception__(self, e, **kwargs):
+        self.logger.error(f"💀 Exception while fetching video: {exception_stacktrace(e)}")
+        # write log
+        self.write_log(
+            data=f"# Exception:\n\n{exception_stacktrace(e)}\n\n---\n\n",
+            append=True
+        )
+
+def execute_video_fetcher(args: dict, **unknown_args):
+    # to simple object namespace
+    if isinstance(args, dict):
+        args = SimpleNamespace(**args)
+
+    # execute
+    EnterpriseRawVideoFetcher(
+        idea=args.idea, project=args.idea, **unknown_args
+    ).execute()
+
 
 if __name__ == "__main__":
     def add_known_arguments(parser):
@@ -188,8 +250,4 @@ if __name__ == "__main__":
         description="🎞️ EnterpriseRawVideoFetcher",
         parser_callback=add_known_arguments
     )
-    EnterpriseRawVideoFetcher(
-        idea=args.idea,
-        project=args.idea,
-        **unknown_args
-    ).execute()
+    execute_video_fetcher(args=args, unknown_args=unknown_args)

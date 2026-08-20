@@ -16,7 +16,9 @@ from sources.agents.agent_helper import (
 
 # super agent
 from sources.agents.marketing.agent_marketing import AbstractMarketingAgent
-from sources.agents.marketing.agent_planner_editor import execute_marketing_planner_editor
+from sources.agents.marketing.agent_planner_editor import (
+    execute_marketing_planner_editor,
+)
 
 # ==============================================================================
 # GLOBAL CONFIGURATION PATHS - CONFIG HERE TO CUSTOMIZE DIRECTORY STRUCTURE
