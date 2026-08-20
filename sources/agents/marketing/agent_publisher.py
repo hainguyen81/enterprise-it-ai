@@ -4,6 +4,7 @@
 # COMMENTS: Written in English as mandated
 # ==========================================
 import sys
+from types import SimpleNamespace
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
@@ -189,6 +190,17 @@ class EnterpriseSocialPublisherAgent(AbstractMarketingAgent):
             )
 
 
+def execute_marketing_publisher(args: dict, **unknown_args):
+    # to simple object namespace
+    if isinstance(args, dict):
+        args = SimpleNamespace(**args)
+
+    # execute
+    EnterpriseSocialPublisherAgent(
+        idea=args.idea, project=args.idea, **unknown_args
+    ).execute()
+
+
 if __name__ == "__main__":
     def add_known_arguments(parser):
         parser.add_argument("--idea", type=str, help="Idea Identity / Project Name for searching")
@@ -197,8 +209,4 @@ if __name__ == "__main__":
         description="🎨 EnterpriseSocialPublisherAgent",
         parser_callback=add_known_arguments
     )
-    EnterpriseSocialPublisherAgent(
-        idea=args.idea,
-        project=args.idea,
-        **unknown_args
-    ).execute()
+    execute_marketing_publisher(args=args, unknown_args=unknown_args)
