@@ -10,7 +10,7 @@ def test_marketing_reviewer():
     PROJECT_NAME = "membership-hub"
     execute_marketing_reviewer(args={
         "idea": PROJECT_NAME,
-    }, language="Vietnamese")
+    }, language="Vietnamese", trigger_editor="true")
 
 
 if __name__ == "__main__":

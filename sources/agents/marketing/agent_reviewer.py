@@ -16,6 +16,7 @@ from sources.agents.agent_helper import (
 
 # super agent
 from sources.agents.marketing.agent_marketing import AbstractMarketingAgent
+from sources.agents.marketing.agent_planner_editor import execute_marketing_planner_editor
 
 # ==============================================================================
 # GLOBAL CONFIGURATION PATHS - CONFIG HERE TO CUSTOMIZE DIRECTORY STRUCTURE
@@ -38,6 +39,12 @@ class EnterpriseComplianceReviewerAgent(AbstractMarketingAgent):
             agent_id='EnterpriseComplianceReviewerAgent',
             agent_name='💡🛡️ EnterpriseComplianceReviewerAgent',
             **kwargs
+        )
+        self.trigger_editor = (
+            self.get_kwargs(key="trigger_editor")
+            or self.get_kwargs(key="trigger-editor")
+            or self.get_kwargs(key="editor")
+            or False
         )
 
     # @override
@@ -73,6 +80,8 @@ class EnterpriseComplianceReviewerAgent(AbstractMarketingAgent):
         # return merged new values
         return {
             **kwargs,
+            "platform_target": self.get_kwargs_by_key(key="platform_target", **kwargs)
+                            or self.get_kwargs_by_key(key="platform", **kwargs) or "Generic",
             "raw_compliance_content": raw_compliance_content,
             "raw_planner_content": raw_planner_content,
         }
@@ -114,6 +123,29 @@ class EnterpriseComplianceReviewerAgent(AbstractMarketingAgent):
                     file=self.__storage_path__(storage_name="storage_marketing", file=f"{self.project_name}/{REVIEWER_JSON_FILE}"),
                     json_data=json_responder_payload
                 )
+                
+                # trigger planner editor if neccessary
+                has_error = (
+                    ("fix_directives" in json_responder_payload and len(json_responder_payload.get("fix_directives")) > 0)
+                    or ("status" in json_responder_payload and json_responder_payload.get("status") == "REJECTED_NEED_FIX")
+                )
+                self.logger.info(
+                    f"⚙️ Found the COMPLIANCE Planner Status: {json_responder_payload.get('status')}"
+                )
+                if self.trigger_editor and has_error:
+                    self.logger.info("⚙️ Found the COMPLIANCE `REJECTED` Planner. So trigger the Marketing Planner Editor Agent...")
+                    execute_marketing_planner_editor(
+                        args={
+                            "idea": self.idea_id,
+                        },
+                        language=self.language,
+                    )
+                
+                elif has_error:
+                    self.logger.warning("⚠️ Found the COMPLIANCE `REJECTED` Planner. Not allow to trigger Planner Editor Agent. So please edit it manually!")
+                
+                else:
+                    self.logger.info("⚙️ The Marketing Planner has been `PASSED`.")
             
             # write as raw file
             else:
@@ -142,9 +174,19 @@ def execute_marketing_reviewer(args: dict, **unknown_args):
     ).execute()
 
 
+def str2bool(v):
+    return str(v).lower() in ("yes", "true", "t", "1")
+
+
 if __name__ == "__main__":
     def add_known_arguments(parser):
         parser.add_argument("--idea", type=str, help="Idea Identity / Project Name for searching")
+        parser.add_argument(
+            "--trigger-editor",
+            type=str2bool,
+            default=False,
+            help="Idea Identity / Project Name for searching",
+        )
     
     args, unknown_args = parse_args(
         description="🛡️ EnterpriseComplianceReviewerAgent",

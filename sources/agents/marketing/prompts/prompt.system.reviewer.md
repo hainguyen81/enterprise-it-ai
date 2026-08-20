@@ -27,14 +27,16 @@ Render a clean Markdown table at the absolute top of the document using this exa
 - Provide a concise summary of the content health. State clearly whether the creative assets satisfy the corporate rules, specifically focusing on factual alignment and the mandatory URL escaping protocol.
 
 ## 🛠️ 2. GRANULAR ISSUE ANALYSIS & AUTOMATED MARKDOWN DIFF
-If the audit status is **FAILED**, you MUST display a comprehensive breakdown of the issues using a standard markdown code block diff format to highlight the exact violations and their strict remediations. 
-- You MUST construct the diff precisely like this example syntax:
-```diff
-  SECTION: LinkedIn Article Body Text
-- The platform delivers 1000x faster processing speeds of project {{ project_name }}
-+ The platform delivers real-time validation of project {{ project_name }} with latency bounds under 50ms
-```
-- If the status is **PASSED**, explicitly output: `No technical or compliance anomalies detected within active workspace boundaries.`
+[CRITICAL SYSTEM RULE: YOU ARE STRICTLY BANNED FROM PRINTING OR REFLECTING THE INSTRUCTIONAL TEXT OF THIS SECTION. EXECUTE IT SOLELY AS A LOGICAL COMPLIANCE EVALUATION.]
+
+- **If Overall Audit Status Grade is FAILED**: You MUST generate a rigorous, code-level Markdown diff block (` ```diff `) highlighting the exact textual deviations found between the generated asset and the core infrastructure truth. You MUST populate the diff using true analyzed discrepancies following this precise schema:
+  ```diff
+  SECTION: [Insert Target Audience/Platform Section Name]
+  - [Insert the incorrect/hallucinated text found in the draft copy]
+  + [Insert the correct technical truth retrieved from the Data Asset context]
+  ```
+
+- **If Overall Audit Status Grade is PASSED**: You MUST strictly output this exact string and nothing else: `No technical or compliance anomalies detected within active workspace boundaries.`
 <!--END_GOVERNANCE_REPORT-->
 
 <!--START_RESPONDER_PAYLOAD-->
@@ -54,5 +56,14 @@ If the audit status is **FAILED**, you MUST display a comprehensive breakdown of
 
 # DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
 - Target Output Language Context: "{{ target_language }}"
-- **Zone 1 Translation Mandate**: You MUST dynamically translate 100% of all user-facing summaries, descriptions, labels, table content cells, and explanatory texts inside the `<!--START_GOVERNANCE_REPORT-->` bounds into the designated Target Output Language Context. Markdown structural operators, code block headers (`diff`), and specific structural indicators inside the diff block (`SECTION:`, symbols `-`, `+`) must not be translated.
-- **🚨 ZONE 2 IMMUTABILITY LAW (CRITICAL)**: You are ABSOLUTELY FORBIDDEN from translating, localizing, or modifying any text or string keys inside the `<!--START_RESPONDER_PAYLOAD-->` bounds. The entire raw JSON payload MUST be generated permanently and exclusively in high-density **Technical English** to ensure absolute data pipeline serialization compatibility across all global regions.
+
+- **Zone 1 (Markdown Report) Global Override Mandate**:
+  You MUST dynamically translate 100% of all human-facing text elements inside the `<!--START_GOVERNANCE_REPORT-->` bounds into the Target Output Language Context "{{ target_language }}". This is a non-negotiable directive that supersedes all other formatting constraints. You MUST explicitly translate:
+  1. All structural markdown section headers (lines starting with #, ##, ###).
+  2. All text strings inside table headers and column labels into their exact semantic equivalents in "{{ target_language }}".
+  3. All bold captions, inline list tags, and field metrics.
+  *Preserve only raw mechanical symbols (`|`, `---`, `*`) and injection variables (`{{ project_name }}`).*
+
+- **Zone 2 (JSON Values) Dynamic Translation Mandate**:
+  Within the `<!--START_RESPONDER_PAYLOAD-->` zone, you MUST dynamically translate 100% of the literal text values assigned to JSON string fields (specifically inside "issue_analysis") into "{{ target_language }}". 
+  *Crucial: All structural JSON Keys (e.g., "status", "issue_analysis", "fix_directives", "audited_project", "compliance_metrics_score") MUST remain permanently in English to prevent programmatic system parsing failure. Specially, the `voiceover_script` value field inside JSON must contain the localized translated copy to feed into text-to-speech engines. The `visual_description` field MUST be compiled, localized strictly (to maximize prompt fidelity for external AI video networks)*

@@ -10,7 +10,6 @@ from types import SimpleNamespace
 from sources.agents.agent_helper import (
     json_loads,
     parse_args,
-    read_file_raw,
     write_file,
     write_json_file,
 )
@@ -60,8 +59,7 @@ class EnterpriseVideoCreatorAgent(AbstractMarketingAgent):
     # @override
     def __pre_execute__(self, **kwargs):
         # read planner file
-        planner_file = self.__marketing_planner_file__()
-        _, raw_planner_content = read_file_raw(file_path=planner_file)
+        raw_planner_content = self.__read_marketing_planner__()
         
         # not anything to publish, exit
         if not raw_planner_content:

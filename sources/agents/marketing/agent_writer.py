@@ -10,7 +10,6 @@ from types import SimpleNamespace
 from sources.agents.agent_helper import (
     json_loads,
     parse_args,
-    read_file_raw,
     write_file,
     write_json_file,
 )
@@ -61,8 +60,7 @@ class EnterpriseContentWriterAgent(AbstractMarketingAgent):
     # @override
     def __pre_execute__(self, **kwargs):
         # read planner file
-        planner_file = self.__marketing_planner_file__()
-        _, raw_planner_content = read_file_raw(file_path=planner_file)
+        raw_planner_content = self.__read_marketing_planner__()
         
         # not anything to publish, exit
         if not raw_planner_content:
@@ -73,7 +71,7 @@ class EnterpriseContentWriterAgent(AbstractMarketingAgent):
         return {
             **kwargs,
             "platform_target": self.get_kwargs_by_key(key="platform_target", **kwargs)
-                or self.get_kwargs_by_key(key="platform", **kwargs) or "generic",
+                or self.get_kwargs_by_key(key="platform", **kwargs) or "Generic",
             "target_interval": self.get_kwargs_by_key(key="target_interval", **kwargs)
                 or self.get_kwargs_by_key(key="interval", **kwargs) or "Week 1",
             "raw_planner_content": raw_planner_content
