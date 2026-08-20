@@ -136,7 +136,14 @@ class AbstractSubAgent(AbstractAgent):
     
     def __sa_file__(self) -> str:
         project_name = self.__current_project_name__()
-        return self.__storage_path__(storage_name="storage_sa", file=f"{project_name}/context/{project_name}.global.blueprint.md") if project_name else None
+        return (
+            self.__storage_path__(
+                storage_name="storage_blueprint",
+                file=f"{project_name}/context/{project_name}.global.blueprint.md",
+            )
+            if project_name
+            else None
+        )
     
     def __projects_summary_path__(self) -> str:
         return self.__storage_path__(storage_name="storage_ba", file="projects-summary.json")

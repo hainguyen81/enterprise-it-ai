@@ -1,3 +1,12 @@
+{% set target_language = language if language and language.strip() != "" else "English" %}
+========================================================================
+🚨 CRITICAL RUNTIME ARCHITECTURE EXECUTION POLICY (ANTI-ECHO & BOUNDARY RAILS):
+1. ZERO RESPOND WRAPPING: You are STRICTLY BANNED from opening your response with triple backticks (```) or any "```markdown" codeblock wrappers.
+2. RAW CHARACTER START: Your output stream MUST start directly and immediately with the raw character string: "# GOVERNANCE VERDICT REPORT".
+3. THE GATEWAY ENFORCEMENT: You MUST explicitly print the string token "[EXECUTION_REMEDIATION_PAYLOAD_START]" right after rendering your FINAL AUDIT TERMINATION GATEWAY VERDICT.
+4. CONDITIONAL PAYLOAD EMISSION: If the status is PASSED, you MUST print exactly one single literal word "PRISTINE" immediately after the [EXECUTION_REMEDIATION_PAYLOAD_START] token. If the status is FAILED, you MUST print the complete raw text layout of the final repaired artifact immediately after the token.
+5. INSTANT TERMINATION: Instantly stop your token generation right after emitting the conditional payload. Do not add any trailing backticks or system instructions at the absolute end.
+========================================================================
 Execute the master governance arbitration and cross-validation verification loop for Project '{{ project_name }}'.
 
 You MUST thoroughly read, analyze, and cross-examine the following independent incoming asset payloads injected into your workspace context:
@@ -29,7 +38,7 @@ If and only if any tag fails, you MUST dynamically inject a detailed evaluation 
 - **Systemic Risk Assessment & Compounding Impact:** [Deliver a sharp, high-density impact analysis under OWASP, security data isolation, and business revenue standards, explaining the system damage if left unpatched]
 
 ### 🌐 STRICT SEMANTIC INVARIANT SYNTAX PRESERVATION RAILS (MANDATORY LOCALIZATION):
-You MUST automatically translate and naturally render every single header title, section divider, markdown table structural text descriptor, and analytical phrase into the targeted execution language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}". However, you are STRICTLY BANNED from translating, changing, or breaking any core technical syntax layers, including markdown operators (`#`, `##`, `| :--- |`), literal Technical English status tokens (**`PASSED`**, **`FAILED`**), and requirement tag code string primitives (e.g. `[REQ-001]`).
+You MUST automatically translate and naturally render every single header title, section divider, markdown table structural text descriptor, and analytical phrase into the targeted execution language: "{{ target_language }}". However, you are STRICTLY BANNED from translating, changing, or breaking any core technical syntax layers, including markdown operators (`#`, `##`, `| :--- |`), literal Technical English status tokens (**`PASSED`**, **`FAILED`**), and requirement tag code string primitives (e.g. `[REQ-001]`).
 
 You MUST format your master response report strictly using the mandatory Markdown configuration layout below:
 
@@ -45,17 +54,17 @@ You MUST format your master response report strictly using the mandatory Markdow
 | **Project Description** | {{ project_description }} |
 | **Version** | 1.0 (Automated Governance) |
 | **Date/Time** | {{ current_timestamp }} |
-| **Author** | [Insert your exact assigned sub-agent CRO/CFO persona token dynamically] |
+| **Author** | Dynamically render the assigned sub-agent CRO and CFO role titles translated into the target language |
 | **Approval** | Certified by Enterprise Technical Governance Board |
 
 ## 1. Compliance Matrix Synthesis Analysis
-[Provide your high-density technical analysis here, completely translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %} based on the referencing rules]
+Provide your high-density technical analysis here, completely translated into the language specified by the "{{ target_language }}" parameter based on the system referencing rules. Do not leave raw instruction text block placeholders.
 
 ## 2. Requirements Traceability Visualization Matrix
-# Render the mandatory 3-row Mini-Grid Markdown table here. Translate all structural descriptions and column headers 1 and 2 into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
+Evaluate and render the mandatory 3-row Mini-Grid Markdown table here. Fully translate all structural descriptions and column headers into the language specified by "{{ target_language }}".
 
 ### 📌 Failed Bullet Registry
-# Output your clean bulleted failure registry list here, followed immediately by the dynamic 'Failure Root-Cause Matrix & Architecture Risk Assessment' block if failures exist. Fully translate all headers and analytical descriptions into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
+Output your clean bulleted failure registry list here, followed immediately by the dynamic 'Failure Root-Cause Matrix & Architecture Risk Assessment' block if failures exist. Fully translate all subheading blocks and internal analytical descriptions into the language specified by "{{ target_language }}".
 
 ## 3. Final Regulatory Gate Status
 - **Requirements Traceability Mappings:** [PASSED / FAILED]
@@ -63,4 +72,7 @@ You MUST format your master response report strictly using the mandatory Markdow
 - **Operational Timeline & Calendar Boundaries:** [PASSED / FAILED]
 
 ### 🛑 FINAL AUDIT TERMINATION GATEWAY VERDICT
-[Insert Code Token here: PASSED or FAILED]
+Evaluate your independent arbitration loop logic and dynamically output exactly either PASSED or FAILED at this position.
+
+[EXECUTION_REMEDIATION_PAYLOAD_START]
+Render your dynamic conditional remediation output payload here according to the gate logic rules.

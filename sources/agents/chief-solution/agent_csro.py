@@ -4,6 +4,7 @@ import sys
 
 # for abstract class
 from abc import abstractmethod
+from types import SimpleNamespace
 
 # LLM
 import litellm
@@ -27,6 +28,7 @@ from sources.agents.agent_helper import (
     get_logger,
     parse_args,
     render_kwargs_prompt,
+    splitAIResponseData,
     write_file,
 )
 
@@ -61,8 +63,8 @@ CSRO_DA_FILE                                    = "chief-solution-diff-analysis.
 CSRO_LOG_DA_FILE                                = "chief-solution-diff-analysis_log.md"
 
 DEFAULT_CSRO_LANGUAGE                           = "English"
-CSRO_BA_SA_OUTPUT_DELIMITER                     = "[EXECUTION_REMEDIATION_PAYLOAD_START]"
-CSRO_BA_SA_QUALITY_PASSED_OUTPUT                = "PRISTINE"
+CSRO_EXECUTION_PAYLOAD_DELIMITER                = "[EXECUTION_REMEDIATION_PAYLOAD_START]"
+CSRO_EXECUTION_PAYLOAD_PASSED_OUTPUT            = "PRISTINE"
 
 
 # support for executing workflow
@@ -158,48 +160,68 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
         prefix = prefix if prefix else "_"
         return self.__storage_path__(
             storage_name="storage_ba",
-            file=f"{project_name}/{prefix}-csro.ba-report.md"
+            file=f"{project_name}/csro_patched/{prefix}-csro.ba-report.md"
         ) if project_name else None
     
     def file_ba_patched(self, prefix):
         project_name = self.__current_project_name__()
         prefix = prefix if prefix else "_"
-        return self.__storage_path__(
-            storage_name="storage_ba",
-            file=f"{project_name}/{prefix}-csro.ba-patched.requirements.md"
-        ) if project_name else None
+        return (
+            self.__storage_path__(
+                storage_name="storage_ba",
+                file=f"{project_name}/csro_patched/{prefix}-csro.ba-patched.requirements.md",
+            )
+            if project_name
+            else None
+        )
     
     def file_sa_report(self, prefix):
         project_name = self.__current_project_name__()
         prefix = prefix if prefix else "_"
-        return self.__storage_path__(
-            storage_name="storage_sa",
-            file=f"{project_name}/context/{prefix}-csro.sa-report.md"
-        ) if project_name else None
+        return (
+            self.__storage_path__(
+                storage_name="storage_blueprint",
+                file=f"{project_name}/context/csro_patched/{prefix}-csro.sa-report.md",
+            )
+            if project_name
+            else None
+        )
     
     def file_sa_patched(self, prefix):
         project_name = self.__current_project_name__()
         prefix = prefix if prefix else "_"
-        return self.__storage_path__(
-            storage_name="storage_sa",
-            file=f"{project_name}/context/{prefix}-csro.sa-patched.{project_name}.global.blueprint.md"
-        ) if project_name else None
+        return (
+            self.__storage_path__(
+                storage_name="storage_blueprint",
+                file=f"{project_name}/context/csro_patched/{prefix}-csro.sa-patched.{project_name}.global.blueprint.md",
+            )
+            if project_name
+            else None
+        )
     
     def file_sa_diff_analysis_report(self, prefix):
         project_name = self.__current_project_name__()
         prefix = prefix if prefix else "_"
-        return self.__storage_path__(
-            storage_name="storage_sa",
-            file=f"{project_name}/context/{prefix}-csro.diff-analysis-report.md"
-        ) if project_name else None
+        return (
+            self.__storage_path__(
+                storage_name="storage_blueprint",
+                file=f"{project_name}/context/csro_patched/{prefix}-csro.diff-analysis-report.md",
+            )
+            if project_name
+            else None
+        )
     
     def file_sa_diff_analysis_patched(self, prefix):
         project_name = self.__current_project_name__()
         prefix = prefix if prefix else "_"
-        return self.__storage_path__(
-            storage_name="storage_sa",
-            file=f"{project_name}/context/{prefix}-csro.diff-analysis-patched.{project_name}.global.blueprint.md"
-        ) if project_name else None
+        return (
+            self.__storage_path__(
+                storage_name="storage_blueprint",
+                file=f"{project_name}/context/csro_patched/{prefix}-csro.diff-analysis-patched.{project_name}.global.blueprint.md",
+            )
+            if project_name
+            else None
+        )
     
     def template_prompt_backstory_sentinel(self):
         return self.__agents_path__(storage_name="storage_csro_prompts", file=PROMPT_TEMPLATE_BACKSTORY_SOLUTION_SENTINEL)
@@ -325,6 +347,14 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
     def __pre_execute__(self, **kwargs):
         # CSRO pre-execute
         return self.__pre_csro_execute__(kwargs=kwargs)
+
+    # @override
+    def __close_ai_client__(self):
+        pass
+
+    # @override
+    def __parse_ai_response__(self, response):
+        return super().__parse_ai_response__(response=splitAIResponseData(response))
 
 
 # =====================================================================
@@ -517,10 +547,10 @@ class AbstractCrewEnterpriseWorkflowAgent(AbstractCrewEnterpriseSuperAgent):
                 crewai_event_bus._event_scopes = []
             if hasattr(crewai_event_bus, '_events'):
                 crewai_event_bus._events = {}
-            print(f"[ ✅ {self.agent_id} Agent | CLEAN ] Reset present Event Stack to rotate new model.")
+            self.logger.info(f"[ ✅ {self.agent_id} Agent | CLEAN ] Reset present Event Stack to rotate new model.")
             return True
         except Exception as e:
-            print(f"[ ❌ {self.agent_id} Agent | ERROR ] Could not reset Event Bus: {str(e)}")
+            self.logger.error(f"[ ❌ {self.agent_id} Agent | ERROR ] Could not reset Event Bus: {e!s}")
             return False
     
     # @override
@@ -694,28 +724,31 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
     
     # @override
     def __parse_ai_response__(self, response):
+        # as super
+        response = super().__parse_ai_response__(response=response)
+        
         # 🔥 Extract output of tasks
         raw_sentinel_response = None
         raw_ba_response = None
         raw_sa_response = None
         try:
             # Task 1 (Sentinel) response - Audit Report
-            raw_sentinel_response = self.task_solution_sentinel.output.raw
+            raw_sentinel_response = splitAIResponseData(self.task_solution_sentinel.output.raw)
             
             # Task 2 (Business Analyst) response
-            raw_ba_response = self.task_business_analyst.output.raw
+            raw_ba_response = splitAIResponseData(self.task_business_analyst.output.raw)
             
             # Task 3 (System Architect) response - fixed blueprint
-            raw_sa_response = self.task_system_architect.output.raw
+            raw_sa_response = splitAIResponseData(self.task_system_architect.output.raw)
         except Exception as e:
-            self.logger.error(f"❌ Could extract task output: {str(e)}")
+            self.logger.error(f"❌ Could extract task output: {e!s}")
 
         # parsed responses
         return {
             "kickoff": response,
             "report_sentinel": raw_sentinel_response,
             "report_ba": raw_ba_response,
-            "report_sa": raw_sa_response
+            "report_sa": raw_sa_response,
         }
 
     # @override
@@ -725,7 +758,7 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
             raise RuntimeError("💀 (7) Invalid AI raw response.")
         
         # project info
-        doc_id = self.get_kwargs_by_key(key="dock_id", **kwargs)
+        doc_id = self.get_kwargs_by_key(key="doc_id", **kwargs)
         
         # 1. Output the master kickoff report (Preserve default architecture workflow)
         if "kickoff" in response_data and response_data.get("kickoff"):
@@ -749,14 +782,16 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
             patched_ba = None
             
             # check whether original SRS BA quality PASSED/FAILED
-            is_passed_ba = CSRO_BA_SA_OUTPUT_DELIMITER not in report_ba
+            is_passed_ba = (
+                report_ba and CSRO_EXECUTION_PAYLOAD_DELIMITER not in report_ba
+            )
             if not is_passed_ba:
                 # FAILED case: Split the raw string payload at the strict structural technical anchor
-                part_report_ba, part_patched_ba = report_ba.split(CSRO_BA_SA_OUTPUT_DELIMITER, 1)
+                part_report_ba, part_patched_ba = report_ba.split(CSRO_EXECUTION_PAYLOAD_DELIMITER, 1)
                 report_ba = part_report_ba.strip()
                 patched_ba = part_patched_ba.strip()
                 # Token optimization gate: If AI outputs PRISTINE, clone the original source text
-                is_passed_ba = not patched_ba or patched_ba == CSRO_BA_SA_QUALITY_PASSED_OUTPUT
+                is_passed_ba = not patched_ba or patched_ba == CSRO_EXECUTION_PAYLOAD_PASSED_OUTPUT
             
             # store report/patched SRS BA if necessary
             write_file(file=self.file_csro_report_ba(prefix=doc_id), data=report_ba)
@@ -768,6 +803,8 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
             
             else:
                 self.logger.info("✅ Business Analysis SRS Document is PASSED!")
+                # orginal SRS document content
+                patched_ba = self.get_kwargs_by_key(key="raw_srs_content", **kwargs)
             
             # re-update kwargs
             kwargs = {
@@ -785,14 +822,14 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
             patched_sa = None
             
             # check whether original SRS BA quality PASSED/FAILED
-            is_passed_sa = CSRO_BA_SA_OUTPUT_DELIMITER not in report_sa
+            is_passed_sa = report_sa and CSRO_EXECUTION_PAYLOAD_DELIMITER not in report_sa
             if not is_passed_sa:
                 # FAILED case: Split the raw string payload at the strict structural technical anchor
-                part_report_sa, part_patched_sa = report_sa.split(CSRO_BA_SA_OUTPUT_DELIMITER, 1)
+                part_report_sa, part_patched_sa = report_sa.split(CSRO_EXECUTION_PAYLOAD_DELIMITER, 1)
                 report_sa = part_report_sa.strip()
                 patched_sa = part_patched_sa.strip()
                 # Token optimization gate: If AI outputs PRISTINE, clone the original source text
-                is_passed_sa = not patched_sa or patched_sa == CSRO_BA_SA_QUALITY_PASSED_OUTPUT
+                is_passed_sa = not patched_sa or patched_sa == CSRO_EXECUTION_PAYLOAD_PASSED_OUTPUT
             
             # store report/patched SRS BA if necessary
             write_file(file=self.file_csro_report_sa(prefix=doc_id), data=report_sa)
@@ -804,6 +841,10 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
             
             else:
                 self.logger.info("✅ Solution Architecture BluePrint Document is PASSED!")
+                # orginal blueprint document content
+                patched_sa = self.get_kwargs_by_key(
+                    key="raw_blueprint_content", **kwargs
+                )
             
             # re-update kwargs
             kwargs = {
@@ -919,14 +960,14 @@ class CrewEnterpriseBluePrintDiffAnalyzerAgent(AbstractCrewEnterpriseWorkflowAge
         patched_da = None
         
         # check whether original SRS BA quality PASSED/FAILED
-        is_passed_da = CSRO_BA_SA_OUTPUT_DELIMITER not in report_da
+        is_passed_da = report_da and CSRO_EXECUTION_PAYLOAD_DELIMITER not in report_da
         if not is_passed_da:
             # FAILED case: Split the raw string payload at the strict structural technical anchor
-            part_report_da, part_patched_da = report_da.split(CSRO_BA_SA_OUTPUT_DELIMITER, 1)
+            part_report_da, part_patched_da = report_da.split(CSRO_EXECUTION_PAYLOAD_DELIMITER, 1)
             report_da = part_report_da.strip()
             patched_da = part_patched_da.strip()
             # Token optimization gate: If AI outputs PRISTINE, clone the original source text
-            is_passed_da = not patched_da or patched_da == CSRO_BA_SA_QUALITY_PASSED_OUTPUT
+            is_passed_da = not patched_da or patched_da == CSRO_EXECUTION_PAYLOAD_PASSED_OUTPUT
         
         # store report/patched BluePrint if necessary
         write_file(file=self.file_csro_report_da(prefix=doc_id), data=report_da)
@@ -937,7 +978,7 @@ class CrewEnterpriseBluePrintDiffAnalyzerAgent(AbstractCrewEnterpriseWorkflowAge
             self.logger.warning(f"⚠️ The fixed version of Solution Architecture BluePrint Document (CSRO) is FAILED! New re-fixed vresion at: {fixed_version_path}")
         
         else:
-            self.logger.info("✅ Business Analysis SRS Document is PASSED!")
+            self.logger.info("✅ Solution Architecture BluePrint Document is PASSED!")
         
         # re-update kwargs
         kwargs = {
@@ -991,11 +1032,39 @@ class CrewEnterpriseGovernanceFlow(Flow):
         Ingests the fixed blueprint payload into your explicit custom template keyword.
         """
         self.logger.info("[ 🔎 BLUEPRINT CHANGES ANALYSIS ] Analyze new changes of Solution Architecture Report...")
+        raw_csro_blueprint_content = solution_architect_review_result.get(
+            "patched_sa", None
+        ) if solution_architect_review_result else None
+        if not raw_csro_blueprint_content:
+            self.logger.info(
+                "     |__ ✅ BluePrint Quality Check is PASSED! No need to analyze!..."
+            )
+            return { **(solution_architect_review_result or {}) }
+        
+        # blueprint need to analyze diff
         kwargs = {
             **solution_architect_review_result,
             "raw_csro_blueprint_content": solution_architect_review_result.get("patched_sa", None)
         }
         return __execute_function_until_complete__(func_pointer=self.agent_diff_analyzer.execute, **kwargs) or {}
+
+def execute_governance_flow(args: dict, **unknown_args):
+    # force litellm stop collecting old exceptions to metadata
+    litellm.suppress_helper_warnings = True
+    litellm.drop_params = True
+    
+    # to simple object namespace
+    if isinstance(args, dict):
+        args = SimpleNamespace(**args)
+    
+    # initializ workflow agent
+    enterprise_workflow_agent = CrewEnterpriseGovernanceFlow(
+        idea=args.idea,
+        **(unknown_args or {})
+    )
+    
+    # execute workflow
+    __execute_function_until_complete__(enterprise_workflow_agent.kickoff)
 
 
 if __name__ == "__main__":
@@ -1007,17 +1076,6 @@ if __name__ == "__main__":
         parser_callback=add_known_arguments
     )
     
-    # force litellm stop collecting old exceptions to metadata
-    litellm.suppress_helper_warnings = True
-    litellm.drop_params = True
-    
-    # initializ workflow agent
-    enterprise_workflow_agent = CrewEnterpriseGovernanceFlow(
-        idea=args.idea,
-        **unknown_args
-    )
-    
-    # execute workflow
-    __execute_function_until_complete__(enterprise_workflow_agent.kickoff)
-
+    # execute CSRO workflow
+    execute_governance_flow(args=args, unknown_args=unknown_args)
 

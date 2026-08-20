@@ -12,5 +12,5 @@ beautifulsoup4
 litellm
 cryptography
 matplotlib
-numpy
+numpy<2.0.0
 mermaidx[v8]

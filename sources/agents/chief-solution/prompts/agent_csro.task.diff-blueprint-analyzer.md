@@ -1,3 +1,11 @@
+{% set target_language = language if language and language.strip() != "" else "English" %}
+========================================================================
+🚨 CRITICAL RESPOND WRAPPING BAN & PAYLOAD BOUNDARY RAILS:
+1. ZERO RESPOND WRAPPING: You are STRICTLY BANNED from opening your response with triple backticks (```) or any "```markdown" codeblock wrappers.
+2. RAW CHARACTER START: Your output stream MUST start directly with the raw markdown character string: "# TECHNICAL AUDIT REPORT".
+3. THE GATEWAY ENFORCEMENT: You MUST explicitly print the string token "[EXECUTION_REMEDIATION_PAYLOAD_START]" right after rendering your FINAL AUDIT ARCH STATUS.
+4. CONDITIONAL PAYLOAD EMISSION: If the status is PASSED, you MUST print exactly one single literal word "PRISTINE" immediately after the [EXECUTION_REMEDIATION_PAYLOAD_START] token and STOP token generation instantly. Do not add any filler text or trailing backticks.
+========================================================================
 Perform a meticulous architectural diff audit and dynamic requirement integrity repair session for Project '{{ project_name }}'.
 
 Your sole objective is to execute a rigorous cross-examination by cross-referencing and triple-checking the two decoupled incoming technical blueprints provided inside your workspace context:
@@ -26,20 +34,18 @@ Immediately underneath the Mini-Grid Table, you MUST provide a dedicated subsect
 
 If and only if your triple-check evaluation detects fatal integration bottlenecks, invalid service definitions, or broken architectural constraints that trigger a **`FAILED`** gate status, you MUST dynamically inject a detailed evaluation block named `### ⚠️ 2.1. Failure Root-Cause Matrix & Architecture Risk Assessment` containing the following parameters:
 - **Failed Infrastructure Parameter:** [Explicitly list the failed components or log days]
-- **Phân tích nguyên nhân & Điểm mù chức năng:** [Provide an exhaustive technical breakdown explaining exactly why the baseline failed or which formatting/engineering rule was breached]
-- **Đánh giá rủi ro hệ thống & Tác động cộng dồn:** [Deliver a sharp, high-density impact analysis under pipeline parsers, automated branch deployment filters, and cloud infrastructure standards, explaining the system damage if left unpatched]
+- **Failure Root-Cause & Functional Blind Spots:** Provide an exhaustive technical breakdown explaining exactly why the baseline failed or which formatting/engineering rule was breached, fully translated into "{{ target_language }}".
+- **Systemic Risk Assessment & Compounding Impact:** Deliver a sharp, high-density impact analysis under pipeline parsers, automated branch deployment filters, and cloud infrastructure standards, explaining the system damage if left unpatched, fully translated into "{{ target_language }}".
 
 ### 🛠️ SELF-HEALING BLUEPRINT PATCH MATRIX DIFF RULE:
 Immediately following your risk analysis section, you MUST inject a dedicated section named `## 3. Blueprint Diff Matrix`. Provide a valid markdown 'diff' codeblock wrapper mapping out the exact line-by-line mechanical modifications made between the two documents. Do not translate internal diff operators, minus (`-`), or plus (`+`) technical syntax markers.
 
 ### 🌐 STRICT SEMANTIC INVARIANT SYNTAX PRESERVATION RAILS (MANDATORY LOCALIZATION):
-You MUST automatically translate and naturally render every single header title, section divider, markdown table structural text descriptor, and analytical phrase into the targeted execution language: "{% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}". 
-- **CRITICAL COMPLIANCE BOUNDARY:** You are STRICTLY BANNED from translating, changing, formatting, or breaking any structural technical syntax boundaries, including markdown operators (`#`, `##`, `| :--- |`), literal Technical English status tokens (**`PASSED`**, **`FAILED`**), requirement tag codes, and the entire content wrapped within the markdown `diff` or block code wrapper segment.
+You MUST automatically translate and naturally render every single header title, section divider, markdown table structural text descriptor, and analytical phrase into the targeted execution language: "{{ target_language }}". 
+- **CRITICAL COMPLIANCE BOUNDARY:** You are STRICTLY BANNED from translating, changing, formatting, or breaking any structural technical syntax boundaries, including markdown operators (`| :--- |`), literal Technical English status tokens (**`PASSED`**, **`FAILED`**), requirement tag codes, and the entire content wrapped within the markdown `diff` or block code wrapper segment.
 
 ### 🛑 THE DUAL-OUTPUT REMEDIATION GATEWAY MANDATE (ABSOLUTE):
-Immediately after the terminal gate status token, you MUST output the exact delimiter token string `[EXECUTION_REMEDIATION_PAYLOAD_START]`. Immediately following this delimiter token, you MUST apply this strict conditional logic to control output token expenditure:
-- **IF Status is FAILED:** You MUST generate and output the total, complete text layout of the final repaired Global Context Blueprint document file, resolving 100% of the identified defects inside the body text. This segment must be a pure, raw technical file with zero code block backticks surrounding the whole payload.
-- **IF Status is PASSED:** You are STRICTLY BANNED from replicating or copy-pasting the full blueprint file content. You MUST output nothing but exactly ONE unique literal keyword token: `PRISTINE` and instantly terminate response emission. Any other filler text inside this remediation segment is a fatal pipeline failure.
+Immediately after the terminal gate status token, you MUST output the exact delimiter token string `[EXECUTION_REMEDIATION_PAYLOAD_START]` followed by the evaluated conditional token slot.
 
 You MUST format your master response report strictly using the mandatory Markdown configuration layout below:
 
@@ -60,16 +66,16 @@ You MUST format your master response report strictly using the mandatory Markdow
 | **Status** | Formatted & Executed |
 
 ## 1. Compliance Matrix Synthesis Analysis
-[Provide your high-density technical overview analyzing the logical reconciliation of component changes and tag mapping integrity, completely translated into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %} based on the rules. Explicitly declare if the system triggers a PASSED or FAILED state]
+[Provide your high-density technical overview analyzing the logical reconciliation of component changes and tag mapping integrity, completely translated into {{ target_language }} based on the rules. Explicitly declare if the system triggers a PASSED or FAILED state]
 
 ## 2. Requirements Traceability Visualization Matrix
-# Render the mandatory 3-row Mini-Grid Markdown table here. Translate all structural descriptions and column headers into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
+Evaluate and render the mandatory 3-row Mini-Grid Markdown table here. Fully translate all structural descriptions and column headers into the language specified by "{{ target_language }}".
 
-### 📌 Danh sách các phân đoạn thay đổi (Modifications Bullet Registry)
-# Output your clean bulleted modifications list here, followed immediately by the dynamic 'Failure Root-Cause Matrix & Architecture Risk Assessment' block if failures exist. Fully translate all headers and analytical descriptions into {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}.
+### Modifications Bullet Registry
+Output your clean bulleted modifications list here, followed immediately by the dynamic 'Failure Root-Cause Matrix & Architecture Risk Assessment' block if failures exist. Fully translate the subheading block and all internal analytical descriptions into the language specified by the "{{ target_language }}" parameter.
 
 ## 3. Blueprint Diff Matrix
-# Provide a valid markdown 'diff' codeblock wrapper here mapping out the exact line-by-line mechanical modifications made between the two documents. Do not translate internal diff tokens.
+Provide a valid markdown 'diff' codeblock wrapper here mapping out the exact line-by-line mechanical modifications made between the two documents. Do not translate internal diff tokens.
 
 ## 4. Final Regulatory Gate Status
 - **Requirements Traceability Mappings:** [PASSED / FAILED]
@@ -77,7 +83,7 @@ You MUST format your master response report strictly using the mandatory Markdow
 - **Operational Timeline & Calendar Boundaries:** [PASSED / FAILED]
 
 ### 🛑 FINAL AUDIT ARCH STATUS
-[Insert Code Token here: PASSED or FAILED]
+Evaluate your independent arbitration loop logic and dynamically output exactly either PASSED or FAILED at this position.
 
 [EXECUTION_REMEDIATION_PAYLOAD_START]
-[Generate and output the clean repaired full Blueprint document text layout OR the single word token PRISTINE here based strictly on the conditional state rules. Do not wrap in triple backticks.]
+Render your dynamic conditional remediation output payload here. If the status is PASSED, print nothing but the word "PRISTINE" and terminate execution. If the status is FAILED, print the complete raw text layout of the final repaired artifact.
