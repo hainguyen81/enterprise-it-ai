@@ -253,12 +253,37 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
     @abstractmethod
     def __create_agent_task__(self, **kwargs) -> Task:
         pass
+    
+    # @override
+    def agent_log_file(self) -> str:
+        pass
+    
+    # @override
+    def system_prompt_template(self) -> str:
+        pass
+    
+    # @override
+    def build_system_prompt(self, **kwargs) -> str:
+        pass
+    
+    # @override
+    def user_prompt_template(self) -> str:
+        pass
+    
+    # @override
+    def build_user_prompt(self, **kwargs) -> str:
+        pass
+    
+    # @override
+    def agent_temperature(self):
+        return 0.1 # require strickly, exact requirements
+    
+    # @override
+    def process_communication(self, **kwargs):
+        pass
 
     # @override
-    def initialize_projects(self):
-        # initialize projects
-        super().initialize_projects()
-        
+    def validate_project_files(self):
         # require idea identity to analyze
         if not self.project_info:
             self.logger.critical(
@@ -291,36 +316,12 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
             sys.exit(1)
     
     # @override
-    def agent_log_file(self) -> str:
-        pass
-    
-    # @override
-    def system_prompt_template(self) -> str:
-        pass
-    
-    # @override
-    def build_system_prompt(self, **kwargs) -> str:
-        pass
-    
-    # @override
-    def user_prompt_template(self) -> str:
-        pass
-    
-    # @override
-    def build_user_prompt(self, **kwargs) -> str:
-        pass
-    
-    # @override
-    def agent_temperature(self):
-        return 0.1 # require strickly, exact requirements
-    
-    # @override
-    def process_communication(self, **kwargs):
-        pass
-    
-    # @override
     def __pre_execute__(self, **kwargs):
-        pass
+        # validate required project files
+        self.validate_project_files()
+        
+        # as super
+        return super().__pre_execute__(kwargs=kwargs)
 
 
 # =====================================================================
