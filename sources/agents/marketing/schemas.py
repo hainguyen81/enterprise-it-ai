@@ -4,27 +4,32 @@
 # COMMENTS: Written in English as mandated
 # ==========================================
 from pydantic import BaseModel, Field
-from typing import List, Dict
+
 
 class CustomerSegment(BaseModel):
     segment_name: str = Field(..., description="Target demographic name")
-    essential_needs: List[str] = Field(..., description="Core pain points and essential needs of this segment based on BA data")
-    approach_strategy: List[str] = Field(..., description="Actionable technical or business approach strategy using SA blueprint capabilities")
+    essential_needs: list[str] = Field(..., description="Core pain points and essential needs of this segment based on BA data")
+    approach_strategy: list[str] = Field(
+        ...,
+        description="Actionable technical or business approach strategy using SA blueprint capabilities",
+    )
 
 class MarketingPlanPayload(BaseModel):
     project_name: str = Field(..., description="The name of the target project")
-    target_segments: List[CustomerSegment] = Field(..., description="Detailed list of customer segments, needs, and approaches")
-    key_messages: Dict[str, str] = Field(..., description="Platform-specific core marketing messages mapped to business value")
-    weekly_schedule: List[Dict[str, str]] = Field(..., description="Step-by-step editorial calendar layout")
-    seo_keywords: List[str] = Field(..., description="Target high-intent SEO keywords based on market demand")
+    target_segments: list[CustomerSegment] = Field(
+        ..., description="Detailed list of customer segments, needs, and approaches"
+    )
+    key_messages: dict[str, str] = Field(..., description="Platform-specific core marketing messages mapped to business value")
+    weekly_schedule: list[dict[str, str]] = Field(..., description="Step-by-step editorial calendar layout")
+    seo_keywords: list[str] = Field(..., description="Target high-intent SEO keywords based on market demand")
 
 class ContentDraft(BaseModel):
     platform: str = Field(..., description="Target social network platform like X, Facebook, LinkedIn")
     content_body: str = Field(..., description="The fully generated human-readable content with strictly escaped URLs")
-    tags: List[str] = Field(..., description="List of highly relevant contextual hashtags")
+    tags: list[str] = Field(..., description="List of highly relevant contextual hashtags")
 
 class ContentDraftList(BaseModel):
-    drafts: List[ContentDraft]
+    drafts: list[ContentDraft]
 
 class VideoStoryboardRow(BaseModel):
     scene_id: int = Field(..., description="Sequential index number of the scene")
@@ -34,16 +39,16 @@ class VideoStoryboardRow(BaseModel):
 
 class VideoStoryboard(BaseModel):
     format_type: str = Field(..., description="Shorts, Reels, or Long-form configuration")
-    storyboard_flow: List[VideoStoryboardRow] = Field(..., description="Chronological sequence of video production rows")
+    storyboard_flow: list[VideoStoryboardRow] = Field(..., description="Chronological sequence of video production rows")
 
 class ComplianceReport(BaseModel):
     status: str = Field(..., description="Must be exactly 'APPROVED_VAULT' or 'REJECTED_NEED_FIX'")
     issue_analysis: str = Field(..., description="Deep analysis of any detected out-of-bounds fluff, unescaped links, or hallucination")
-    fix_directives: List[str] = Field(..., description="Exact code-level change directives with clear anchor points if rejected")
+    fix_directives: list[str] = Field(..., description="Exact code-level change directives with clear anchor points if rejected")
 
 class ExecutionPublishLog(BaseModel):
     status: str = Field(..., description="API execution status like SUCCESS or FAILED")
-    platform_post_ids: Dict[str, str] = Field(..., description="Mapping of platform names to their respective live API deployment IDs")
+    platform_post_ids: dict[str, str] = Field(..., description="Mapping of platform names to their respective live API deployment IDs")
     timestamp: str = Field(..., description="System timestamp of the dispatch execution")
 
 class EngagementResponsePayload(BaseModel):

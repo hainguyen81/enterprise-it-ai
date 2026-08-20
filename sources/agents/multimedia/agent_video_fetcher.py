@@ -5,14 +5,15 @@
 # ==========================================
 import sys
 import time
+
 import requests
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
     exception_stacktrace,
+    parse_args,
     read_json_file,
     write_file,
-    parse_args,
 )
 
 # super agent
@@ -63,7 +64,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         
         # not anything to publish, exit
         if not json_scenes or "storyboard_flow" not in json_scenes or len(json_scenes.get("storyboard_flow", [])) <= 0:
-            self.logger.warning(f"⚠️ Not found MARKETING SCENES VIDEO file to process")
+            self.logger.warning("⚠️ Not found MARKETING SCENES VIDEO file to process")
             sys.exit(0)
         
         # return merged new values
@@ -143,7 +144,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             api_key = api.get("api_key")
             base_url = api.get("base_url")
             if not api_key or not base_url:
-                self.logger.warning(f"⚠️ Invalid API configuration: Missing api_key or base_url")
+                self.logger.warning("⚠️ Invalid API configuration: Missing api_key or base_url")
                 continue
             
             # call API to rendering video scenes

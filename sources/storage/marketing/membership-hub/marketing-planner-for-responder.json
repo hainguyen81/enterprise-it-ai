@@ -1,29 +1,20 @@
-## ⚙️ CORE ARCHITECTURAL FACTS FOR ENGAGEMENT BOT (DOWNSTREAM AGENT RAW KNOWLEDGE BASE)
-- **Project Identity Handle**: membership-hub.
-- **Core Architecture & Infrastructure Topology**:
-  - Java/Quarkus microservices containerized with Docker (<500MB NFR-005).
-  - Deployed on GKE with Istio service mesh for traffic routing.
-  - Auth service (ARC-006) implements OAuth2 (Firebase/Google/Facebook), JWT access tokens (15m), refresh tokens (7d).
-  - Attendance QR service (ARC-007) uses Redis pub/sub for idempotent scan processing (EXC-002).
-  - Notification service (ARC-008) pushes to FCM/APNs and Zalo groups via event-driven queue.
-  - Frontend Next.js (ARC-009) consumes REST APIs, bearer token auth, offline caching via IndexedDB.
-  - Multi-language support via i18next, hreflang SEO (REQ-023).
-  - CI/CD via GitHub Actions, automated security scans.
-- **Database & Distributed Caching Capabilities**:
-  - PostgreSQL 15 sharded per center, read replicas for reporting (NFR-004).
-  - Redis cluster for session cache, attendance deduplication keys (EXC-002), TTL 5m.
-  - Core API latency <200ms (NFR-001), DB reads <100ms via indexes.
-- **Enterprise Security & Compliance Controls**:
-  - TLS 1.3, AES-256 at rest, JWT signed RS256.
-  - OWASP Top 10 mitigations: prepared statements, CSP, CSRF tokens.
-  - RBAC matrix (ARC-001–ARC-005) enforced at API gateway.
-  - Audit logging (NFR-006) to `auditlog` table, retention 1 year.
-  - GDPR/CCPA pipelines (NFR-008) for data deletion and export.
-  - Network policies, firewall rules, rate limiting 100 req/min per IP.
-- **Target Audience Pain Points Coverage**:
-  - System Admin: centralized visibility, role delegation → solved by RBAC + audit logs.
-  - Center Admin: per-center control, no cross-center interference → solved by center-scoped JWT + DB sharding.
-  - Manager: announcement creation, student assignment → solved by Manager role APIs (REQ-003) + notification queue.
-  - Teacher: read-only schedule → solved by Teacher microservice (ARC-004) with cached course lists.
-  - Student: course browsing, enrollment, QR attendance, card validity → solved by Student-facing mobile/web (REQ-010, REQ-011, REQ-012, REQ-014, REQ-015) with offline caching and idempotent attendance.
-  - Mobile App User: responsive UI, push notifications, QR scanning → solved by Capacitor hybrid app, FCM/APNs integration, native QR plugin.
+{
+    "project_identity_handle": "membership-hub",
+    "core_architecture_topology": [
+        "Kiến trúc microservices với các dịch vụ độc lập: xác thực, quản lý người dùng, quản lý trung tâm, quản lý khóa học, điểm danh, quản lý hội viên, thông báo, quản lý khuyến mãi, chatbot AI, báo cáo và phân tích",
+        "Sử dụng PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo, Redis cho caching phiên làm việc, Firebase Authentication cho xác thực người dùng, Google Cloud Messaging (FCM)/Apple APNs cho thông báo đẩy, Zalo API integration cho thông báo nhóm Zalo"
+    ],
+    "database_and_caching_capabilities": [
+        "PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo, Redis cho caching phiên làm việc, Firebase Authentication cho xác thực người dùng, Google Cloud Messaging (FCM)/Apple APNs cho thông báo đẩy, Zalo API integration cho thông báo nhóm Zalo"
+    ],
+    "enterprise_security_and_compliance_controls": [
+        "Mã hóa dữ liệu truyền qua TLS 1.3, mã hóa dữ liệu lưu trữ bằng AES-256, JWT access tokens hết hạn sau 15 phút, refresh tokens hết hạn sau 7 ngày, triển khai các biện pháp giảm thiểu OWASP Top 10 (SQL injection, XSS, CSRF), ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA"
+    ],
+    "target_audience_pain_points_coverage": {
+        "Quản trị viên hệ thống": "Kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa cho phép quản trị viên hệ thống quản lý toàn bộ trung tâm, người dùng và khóa học",
+        "Quản trị viên trung tâm": "Kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa cho phép quản trị viên trung tâm quản lý trung tâm của mình, phân công giáo viên và quản lý học viên",
+        "Giáo viên": "Kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa cho phép giáo viên xem lịch dạy, danh sách học viên và điểm danh",
+        "Học viên": "Kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa cho phép học viên duyệt khóa học, đăng ký, xem thẻ hội viên và gia hạn",
+        "Người dùng di động": "Kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa cho phép người dùng di động sử dụng giao diện đáp ứng và thông báo đẩy"
+    }
+}

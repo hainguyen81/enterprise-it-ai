@@ -7,11 +7,11 @@ import sys
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
+    json_loads,
+    parse_args,
     read_file_raw,
     write_file,
-    parse_args,
-    json_loads,
-    write_json_file
+    write_json_file,
 )
 
 # super agent
@@ -61,7 +61,7 @@ class EnterpriseContentWriterAgent(AbstractMarketingAgent):
         
         # not anything to publish, exit
         if not raw_planner_content:
-            self.logger.critical(f"💀 Not found MARKETING PLANNER file to process")
+            self.logger.critical("💀 Not found MARKETING PLANNER file to process")
             sys.exit(1)
         
         # return merged new values

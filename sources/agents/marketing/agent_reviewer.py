@@ -7,10 +7,10 @@ import sys
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
-    write_file,
-    parse_args,
     json_loads,
-    write_json_file
+    parse_args,
+    write_file,
+    write_json_file,
 )
 
 # super agent
@@ -56,19 +56,19 @@ class EnterpriseComplianceReviewerAgent(AbstractMarketingAgent):
         # read compliance policy file
         raw_compliance_content = self.__read_corporate_compliance__()
         if not raw_compliance_content:
-            self.logger.critical(f"💀 Not found CORPORATE COMPLIANCE file to process")
+            self.logger.critical("💀 Not found CORPORATE COMPLIANCE file to process")
             sys.exit(1)
         
         # read planner file
         raw_planner_content = self.__read_marketing_planner__()
         if not raw_planner_content:
-            self.logger.critical(f"💀 Not found MARKETING PLANNER file to process")
+            self.logger.critical("💀 Not found MARKETING PLANNER file to process")
             sys.exit(1)
         
         # read assets file
         raw_assets_content = self.__read_marketing_assets__()
         if not raw_assets_content:
-            self.logger.critical(f"💀 Not found MARKETING ASSETS file to process")
+            self.logger.critical("💀 Not found MARKETING ASSETS file to process")
             sys.exit(1)
         
         # return merged new values

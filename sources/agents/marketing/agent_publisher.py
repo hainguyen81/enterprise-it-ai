@@ -7,9 +7,9 @@ import sys
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
-    write_file,
     parse_args,
     read_json_file,
+    write_file,
 )
 
 # super agent
@@ -70,7 +70,7 @@ class EnterpriseSocialPublisherAgent(AbstractMarketingAgent):
         
         # not anything to publish, exit
         if not social_approval_json_vault:
-            self.logger.critical(f"💀 Not found SOCIAL APPROVAL file to process")
+            self.logger.critical("💀 Not found SOCIAL APPROVAL file to process")
             sys.exit(1)
         
         # read social networks file
@@ -79,7 +79,7 @@ class EnterpriseSocialPublisherAgent(AbstractMarketingAgent):
         
         # not anything to publish, exit
         if not social_networks_json_vault:
-            self.logger.critical(f"💀 Not found SOCIAL NETWORKS file to process")
+            self.logger.critical("💀 Not found SOCIAL NETWORKS file to process")
             sys.exit(1)
         
         # build social credentials

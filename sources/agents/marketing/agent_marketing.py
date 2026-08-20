@@ -1,11 +1,7 @@
 import sys
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
-from sources.agents.agent_helper import (
-    extract_data_part,
-    read_file_raw,
-    render_prompt
-)
+from sources.agents.agent_helper import extract_data_part, read_file_raw, render_prompt
 
 # super agent
 from sources.agents.subagent_super import AbstractSubAgent
@@ -17,7 +13,7 @@ PLANNER_RAW_FILE                = "marketing-planner.md"
 ASSETS_RAW_FILE                 = "marketing-assets.md"
 CORP_COMPLIANCE_RULES_FILE      = "corporate.compliance.rules.md"
 
-MASTER_RULE_PROMPT_TEMPLATE = "marketing.rule.enterprise.governance.guardrails.md"
+MASTER_RULE_PROMPT_TEMPLATE     = "marketing.rule.enterprise.governance.guardrails.md"
 
 
 class AbstractMarketingAgent(AbstractSubAgent):
@@ -68,7 +64,7 @@ class AbstractMarketingAgent(AbstractSubAgent):
         
         # no idea also no requirements
         if not raw_idea_content:
-            self.logger.critical(f"💀 Not found IDEA / Requirements file to process")
+            self.logger.critical("💀 Not found IDEA / Requirements file to process")
             sys.exit(1)
         
         # read ba/SRS
