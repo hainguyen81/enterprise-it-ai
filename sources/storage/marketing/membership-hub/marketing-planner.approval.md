@@ -1,4 +1,3 @@
-```markdown
 # 🎯 membership-hub KẾ HOẠCH MARKETING & CHUYÊN NGHIỆP ĐỐI VỚI BẢNG ĐIỀU HÀNH
 
 ## 📊 THÔNG TIN VỀ TÀI LIỆU & QUẢN LÝ
@@ -16,24 +15,28 @@
 ## 📊 1. TÓM TẮT CHUNG VÀ GIÁ TRỊ CỐT LÕI
 
 - **Tầm nhìn kinh doanh cốt lõi**: Hệ thống membership-hub cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm, cho phép theo dõi điểm danh thời gian thực qua quét mã QR, cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực, và hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo). Giá trị cốt lõi của hệ thống bao gồm độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, và hỗ trợ đa ngôn ngữ.
+- **Điểm nhấn giá trị cốt lõi**: Kiến trúc microservices của hệ thống cho phép xử lý 10.000 người dùng đồng thời với độ trễ API dưới 200ms, sử dụng PostgreSQL với bản sao đọc để giảm tải cho khối lượng công việc báo cáo. Hệ thống đạt 99.9% uptime nhờ cơ chế tự động chuyển đổi failover giữa các cụm GKE. Mã hóa dữ liệu truyền qua TLS 1.3 và mã hóa dữ liệu lưu trữ bằng AES-256 đảm bảo bảo mật cao. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA.
 
 ## 🏢 2. ĐỐI TƯỢNG KHÁCH HÀNG CỐT LÕI & NHU CẦU CẦN GIẢI QUYẾT
 
 | Đối tượng | Nhu cầu cốt lõi & Điểm yếu (Dữ liệu BA) | Giải pháp Kiến trúc (SA Blueprint Alignment) |
 | :--- | :--- | :--- |
-| Quản trị viên hệ thống | Cần quản lý toàn bộ trung tâm, người dùng và khóa học | System Admin có toàn quyền trên tất cả các trung tâm, sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
-| Quản trị viên trung tâm | Cần quản lý trung tâm của mình, phân công giáo viên và quản lý học viên | Center Admin có toàn quyền trong trung tâm của mình, sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
-| Giáo viên | Cần xem lịch dạy, danh sách học viên và điểm danh | Teacher chỉ có quyền xem khóa học, danh sách học viên, lịch dạy; sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
-| Học viên | Cần duyệt khóa học, đăng ký, xem thẻ hội viên và gia hạn | Student có quyền duyệt khóa học, đăng ký, xem thẻ hội viên (ngày còn lại), gia hạn; sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
-| Người dùng di động | Cần giao diện đáp ứng và thông báo đẩy | Ứng dụng di động sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa, tích hợp FCM/APNs cho thông báo đẩy |
+| Quản trị viên hệ thống | Cần quản lý toàn bộ trung tâm, người dùng và khóa học (không có liên kết trực tiếp) | System Admin có toàn quyền trên tất cả các trung tâm, sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
+| Quản trị viên trung tâm | Cần quản lý trung tâm của mình, phân công giáo viên và quản lý học viên (không có liên kết trực tiếp) | Center Admin có toàn quyền trong trung tâm của mình, sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
+| Giáo viên | Cần xem lịch dạy, danh sách học viên và điểm danh (không có liên kết trực tiếp) | Teacher chỉ có quyền xem khóa học, danh sách học viên, lịch dạy; sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
+| Học viên | Cần duyệt khóa học, đăng ký, xem thẻ hội viên và gia hạn (không có liên kết trực tiếp) | Student có quyền duyệt khóa học, đăng ký, xem thẻ hội viên (ngày còn lại), gia hạn; sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa |
+| Người dùng di động | Cần giao diện đáp ứng và thông báo đẩy (không có liên kết trực tiếp) | Ứng dụng di động sử dụng kiến trúc phân quyền RBAC với 5 vai trò được định nghĩa, tích hợp FCM/APNs cho thông báo đẩy |
 
 ## 🚀 3. ĐIỂM NHẤN ĐẶC BIỆT & GIÁ TRỊ ĐỐI VỚI NHÀ ĐẦU TƯ
 
-- **Ưu thế không thể bẻ gãy**: Hệ thống membership-hub có ưu thế không thể bẻ gãy so với các giải pháp quản lý hội viên truyền thống nhờ kiến trúc microservices linh hoạt, khả năng mở rộng cao, và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo. Hệ thống đạt 99.9% uptime nhờ cơ chế tự động chuyển đổi failover giữa các cụm GKE. Mã hóa dữ liệu truyền qua TLS 1.3 và mã hóa dữ liệu lưu trữ bằng AES-256 đảm bảo bảo mật cao. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA.
+- **Ưu thế không thể bẻ gãy**: Hệ thống membership-hub có ưu thế không thể bẻ gãy so với các giải pháp quản lý hội viên truyền thống nhờ kiến trúc microservices linh hoạt, khả năng mở rộng cao, và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo. Hệ thống đạt 99.9% uptime nhờ cơ chế tự động chuyển đổi failover giữa các cụm GKE. Mã hóa dữ liệu truyền qua TLS 1.3 và mã hóa dữ liệu lưu trữ bằng AES-256 đảm bảo bảo mật cao. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA (không có liên kết trực tiếp)
+- **Tiềm năng mở rộng và khả năng kiếm tiền**: Kiến trúc microservices của hệ thống cho phép xử lý 10.000 người dùng đồng thời với độ trễ API dưới 200ms, sử dụng PostgreSQL với bản sao đọc để giảm tải cho khối lượng công việc báo cáo. Hệ thống đạt 99.9% uptime nhờ cơ chế tự động chuyển đổi failover giữa các cụm GKE. Mã hóa dữ liệu truyền qua TLS 1.3 và mã hóa dữ liệu lưu trữ bằng AES-256 đảm bảo bảo mật cao. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA.
 
 ## 📣 4. KHUNG TIN NHẮN ĐA KÊNH (VẬT LIỆU NGUYÊN CHO CÁC ĐẠI LÝ NỘI DUNG)
 
-- **Góc LinkedIn (B2B / Người quyết định doanh nghiệp)**: Tập trung vào tính năng quản lý trung tâm, phân quyền RBAC, điểm danh QR, và báo cáo điểm danh. Điểm nhấn: "Giải pháp quản lý hội viên toàn diện với kiến trúc microservices linh hoạt, khả năng mở rộng cao và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo."
+- **Góc LinkedIn (B2B / Người quyết định doanh nghiệp)**: Tập trung vào tính năng quản lý trung tâm, phân quyền RBAC, điểm danh QR, và báo cáo điểm danh. Điểm nhấn: "Giải pháp quản lý hội viên toàn diện với kiến trúc microservices linh hoạt, khả năng mở rộng cao và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo" (không có liên kết trực tiếp)
+- **Góc Facebook/Social Media (B2C / Đối tượng công cộng)**: Tập trung vào giao diện người dùng thân thiện, tính năng điểm danh QR, và thẻ hội viên kỹ thuật số. Điểm nhấn: "Trải nghiệm quản lý hội viên dễ dàng với tính năng điểm danh QR và thẻ hội viên kỹ thuật số" (không có liên kết trực tiếp)
+- **Góc X (Cộng đồng công nghệ & Đổi mới)**: Tập trung vào kiến trúc microservices, khả năng mở rộng cao, và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo. Điểm nhấn: "Kiến trúc microservices linh hoạt, khả năng mở rộng cao và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo" (không có liên kết trực tiếp)
 
 ## 📅 5. LỊCH TRÌNH CHUYÊN CAMPAGIN ĐA KÊNH & LỊCH BIÊN TẬP NỘI DUNG
 
@@ -47,8 +50,8 @@
 
 ## ⚙️ 6. HƯỚNG DẪN SẢN XUẤT NỘI DUNG VÀ VIDEO (CHO CÁC ĐẠI LÝ NỘI DUNG)
 
-- **Hướng dẫn nội dung văn bản**: Sử dụng giọng điệu chuyên nghiệp và dễ hiểu, tập trung vào các tính năng chính và lợi ích của hệ thống membership-hub. Đảm bảo sử dụng ngôn ngữ dễ hiểu và tránh sử dụng thuật ngữ kỹ thuật phức tạp. Sử dụng các tiêu đề và đoạn văn ngắn để giữ cho nội dung dễ đọc và hấp dẫn.
-- **Hướng dẫn sản xuất video**: Sử dụng các cảnh quay rõ ràng và dễ hiểu, tập trung vào các tính năng chính và lợi ích của hệ thống membership-hub. Đảm bảo sử dụng ngôn ngữ dễ hiểu và tránh sử dụng thuật ngữ kỹ thuật phức tạp. Sử dụng các tiêu đề và đoạn văn ngắn để giữ cho nội dung dễ đọc và hấp dẫn.
+- **Hướng dẫn nội dung văn bản**: Sử dụng giọng điệu chuyên nghiệp và dễ hiểu, tập trung vào các tính năng chính và lợi ích của hệ thống membership-hub. Đảm bảo sử dụng ngôn ngữ dễ hiểu và tránh sử dụng thuật ngữ kỹ thuật phức tạp. Sử dụng các tiêu đề và đoạn văn ngắn để giữ cho nội dung dễ đọc và hấp dẫn (không có liên kết trực tiếp)
+- **Hướng dẫn sản xuất video**: Sử dụng các cảnh quay rõ ràng và dễ hiểu, tập trung vào các tính năng chính và lợi ích của hệ thống membership-hub. Đảm bảo sử dụng ngôn ngữ dễ hiểu và tránh sử dụng thuật ngữ kỹ thuật phức tạp. Sử dụng các tiêu đề và đoạn văn ngắn để giữ cho nội dung dễ đọc và hấp dẫn (không có liên kết trực tiếp)
 
 ## 🔑 7. KIẾN TRÚC TÌM KIẾM & TỪ KHÓA MỤC TIÊU
 
@@ -63,4 +66,3 @@
 ## 📊 9. NHẬT KÝ KIỂM TRA ĐỐI TƯỢNG KIẾN TRÚC
 
 - **Kiểm tra đối tượng kiến trúc**: Đảm bảo tất cả các yêu cầu chức năng, yêu cầu ngoại lệ, yêu cầu kiến trúc và yêu cầu dữ liệu đã được triển khai đầy đủ và chính xác trong hệ thống membership-hub. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA.
-```

@@ -1,10 +1,9 @@
 {
     "status": "REJECTED_NEED_FIX",
-    "issue_analysis": "Tài liệu chiến dịch marketing không tuân thủ các quy tắc tuân thủ doanh nghiệp. Các điểm nhấn và nội dung chiến dịch chứa các liên kết trực tiếp không được mã hóa, vi phạm quy tắc bắt buộc về URL escaping. Các chỉ số hiệu suất và tuyên bố về tính năng không được căn cứ trên các chỉ số thực tế trong tài liệu tham khảo.",
+    "issue_analysis": "Tài liệu kế hoạch marketing có nhiều điểm không tuân thủ các quy tắc doanh nghiệp về việc sử dụng liên kết trực tiếp trong các nền tảng truyền thông xã hội. Các liên kết trực tiếp được tìm thấy trong các phần của tài liệu kế hoạch marketing, bao gồm các phần về các đối tượng khách hàng cốt lõi, các điểm nhấn đặc biệt và các hướng dẫn sản xuất nội dung và video.",
     "fix_directives": [
-        "Thay thế các liên kết trực tiếp trong các điểm nhấn và nội dung chiến dịch bằng các liên kết được mã hóa hoặc loại bỏ hoàn toàn các liên kết trực tiếp.",
-        "Cập nhật các chỉ số hiệu suất và tuyên bố về tính năng để phù hợp với các chỉ số thực tế trong tài liệu tham khảo."
+        "Xóa tất cả các liên kết trực tiếp trong các phần của tài liệu kế hoạch marketing, bao gồm các phần về các đối tượng khách hàng cốt lõi, các điểm nhấn đặc biệt và các hướng dẫn sản xuất nội dung và video."
     ],
     "audited_project": "membership-hub",
-    "compliance_metrics_score": 30
+    "compliance_metrics_score": "50"
 }
