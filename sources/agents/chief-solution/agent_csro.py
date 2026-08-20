@@ -315,13 +315,16 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
             )
             sys.exit(1)
     
-    # @override
-    def __pre_execute__(self, **kwargs):
+    def __pre_csro_execute__(self, **kwargs):
         # validate required project files
         self.validate_project_files()
         
-        # as super
-        return super().__pre_execute__(kwargs=kwargs)
+        return {**kwargs}
+        
+    # @override
+    def __pre_execute__(self, **kwargs):
+        # CSRO pre-execute
+        return self.__pre_csro_execute__(kwargs=kwargs)
 
 
 # =====================================================================
@@ -632,7 +635,10 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
         return None
     
     # @override
-    def __pre_execute__(self, **kwargs):
+    def __pre_csro_execute__(self, **kwargs):
+        # as super
+        kwargs = super().__pre_csro_execute__(kwargs=kwargs) or {**kwargs}
+        
         # read idea file
         _, raw_idea_content = self.__read_idea_or_requirements__(ignore_not_found=True)
         
@@ -870,7 +876,10 @@ class CrewEnterpriseBluePrintDiffAnalyzerAgent(AbstractCrewEnterpriseWorkflowAge
         return self.__output_storage_path__(storage_name="output_csro", file=CSRO_LOG_DA_FILE)
     
     # @override
-    def __pre_execute__(self, **kwargs):
+    def __pre_csro_execute__(self, **kwargs):
+        # as super
+        kwargs = super().__pre_csro_execute__(kwargs=kwargs) or {**kwargs}
+        
         # read BluePrint file
         raw_blueprint_content = self.__read_blueprint__()
         
