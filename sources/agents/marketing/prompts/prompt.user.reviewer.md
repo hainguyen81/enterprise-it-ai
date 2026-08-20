@@ -2,18 +2,26 @@
 - **Target Project Identity Name**: "{{ project_name }}"
 - **Document Control Tracking ID**: "MKT-{{ doc_id }}"
 - **System Generation Timestamp**: "{{ current_timestamp }}"
-- **Raw Marketing Planner Source Reference**:
-```text
-{{ raw_planner_content }}
-```
-- **Draft Creative Assets Generated for Audit**:
-```json
-{{ raw_assets_content }}
-```
-- **Corporate Compliance Rules & Guidelines**:
-```text
+
+# CORPORATE COMPLIANCE RULES & GUIDELINES
+```markdown
 {{ raw_compliance_content }}
 ```
+
+# RAW MARKETING PLANNER SOURCE REFERENCE
+```markdown
+{{ raw_planner_content }}
+```
+
+# APPROVED MARKETING DATA ASSET REFERENCE
+[CONTEXT STORAGE ONLY - DO NOT ADOPT THIS LAYOUT]
+```markdown
+{{ raw_asset_content }}
+```
+
+# HIGH-PRIORITY COMPILATION DIRECTIVE
+1. Read the facts inside the ASSET REFERENCE above to write accurate technical copies.
+2. You MUST convert the insights from the Section 1 Markdown table into a continuous, single-line social media text block (Headline, Hook, Body, CTA) inside the Zone 2 JSON "content_body" field using escaped literal `\n` tokens. Never hang or timeout.
 
 # ⚡ EXECUTION INSTRUCTION
 Ingest the draft creative assets payload and execute a multi-layer deep self-auditing pipeline against the original Corporate Compliance Guidelines and the Raw Marketing Planner Source Reference.

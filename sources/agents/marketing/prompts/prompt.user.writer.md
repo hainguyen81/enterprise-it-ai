@@ -3,12 +3,27 @@
 - **Target Project Description**: "{{ project_description }}"
 - **Document Control Tracking ID**: "COPY-{{ doc_id }}"
 - **System Generation Timestamp**: "{{ current_timestamp }}"
-- **Approved Marketing Planner Source Reference**:
-```text
-{{ raw_planner_content }}
-```
 - **Target Platform Boundary**: "{{ platform_target }}"
 - **Specific Campaign Target Interval**: "{{ target_interval }}"
+
+# APPROVED MARKETING PLANNED REFERENCE
+```markdown
+{{ raw_planner_content }}
+```
+
+# APPROVED MARKETING DATA ASSET REFERENCE
+[CONTEXT STORAGE ONLY - DO NOT ADOPT THIS LAYOUT]
+```markdown
+{{ raw_asset_content }}
+```
+
+# HIGH-PRIORITY COMPILATION DIRECTIVE
+1. Read the facts inside the ASSET REFERENCE above to write accurate technical copies.
+2. You MUST convert the insights from the Section 1 Markdown table into a continuous, single-line social media text block (Headline, Hook, Body, CTA) inside the Zone 2 JSON "content_body" field using escaped literal `\n` tokens. Never hang or timeout.
+
+# EXECUTIVE TERMINATION CONSTRAINT (ANTI-DUPLICATION)
+- **Strict Stop Rule**: You MUST generate the content for "## 1. VISUAL PRODUCTION COPY PREVIEW" exactly ONCE. Do NOT re-write, duplicate, or output multiple versions of the article copy under any circumstances. 
+- Once the Call-to-Action (CTA) of the article copy is written, you MUST immediately close Section 1, move directly to "## 2. CONTEXTUAL HASHTAGS MATRIX", and then transition straight into the JSON payload inside Zone 2.
 
 # ⚡ EXECUTION INSTRUCTION
 Locate the specific target interval row inside the Editorial Calendar of the Approved Marketing Planner Source Reference. Extract the designated campaign focus and topic specifications.

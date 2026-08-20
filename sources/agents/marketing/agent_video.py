@@ -1,9 +1,10 @@
 # ==========================================
-# FILE: ./marketing_pipeline/writer.py
+# FILE: ./marketing_pipeline/video.py
 # DESCRIPTION: Native OpenAI Implementation of ContentWriterAgent
 # COMMENTS: Written in English as mandated
 # ==========================================
 import sys
+from types import SimpleNamespace
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
@@ -51,6 +52,10 @@ class EnterpriseVideoCreatorAgent(AbstractMarketingAgent):
     # @override
     def user_prompt_template(self) -> str:
         return self.__agents_path__(storage_name="storage_marketing_prompts", file=USER_PROMPT_TEMPLATE)
+
+    # @override
+    def __use_marketing_assets_as_user_prompt__(self) -> bool:
+        return True
     
     # @override
     def __pre_execute__(self, **kwargs):
@@ -66,11 +71,19 @@ class EnterpriseVideoCreatorAgent(AbstractMarketingAgent):
         # return merged new values
         return {
             **kwargs,
+            "video_format_type": self.get_kwargs_by_key(
+                key="video_format_type", **kwargs
+            )
+            or self.get_kwargs_by_key(key="video", **kwargs)
+            or self.get_kwargs_by_key(key="video_type", **kwargs)
+            or "Shorts",
             "platform_target": self.get_kwargs_by_key(key="platform_target", **kwargs)
-                or self.get_kwargs_by_key(key="platform", **kwargs) or "generic",
+            or self.get_kwargs_by_key(key="platform", **kwargs)
+            or "Generic",
             "target_interval": self.get_kwargs_by_key(key="target_interval", **kwargs)
-                or self.get_kwargs_by_key(key="interval", **kwargs) or "Week 1",
-            "raw_planner_content": raw_planner_content
+            or self.get_kwargs_by_key(key="interval", **kwargs)
+            or "Week 1",
+            "raw_planner_content": raw_planner_content,
         }
     
     # @override
@@ -127,6 +140,17 @@ class EnterpriseVideoCreatorAgent(AbstractMarketingAgent):
             )
 
 
+def execute_marketing_video_creator(args: dict, **unknown_args):
+    # to simple object namespace
+    if isinstance(args, dict):
+        args = SimpleNamespace(**args)
+
+    # execute
+    EnterpriseVideoCreatorAgent(
+        idea=args.idea, project=args.idea, **unknown_args
+    ).execute()
+
+
 if __name__ == "__main__":
     def add_known_arguments(parser):
         parser.add_argument("--idea", type=str, help="Idea Identity / Project Name for searching")
@@ -135,8 +159,4 @@ if __name__ == "__main__":
         description="🎬 EnterpriseVideoCreatorAgent",
         parser_callback=add_known_arguments
     )
-    EnterpriseVideoCreatorAgent(
-        idea=args.idea,
-        project=args.idea,
-        **unknown_args
-    ).execute()
+    execute_marketing_video_creator(args=args, unknown_args=unknown_args)

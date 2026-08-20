@@ -51,6 +51,10 @@ class EnterpriseComplianceReviewerAgent(AbstractMarketingAgent):
     # @override
     def user_prompt_template(self) -> str:
         return self.__agents_path__(storage_name="storage_marketing_prompts", file=USER_PROMPT_TEMPLATE)
+
+    # @override
+    def __use_marketing_assets_as_user_prompt__(self) -> bool:
+        return True
     
     # @override
     def __pre_execute__(self, **kwargs):
@@ -66,18 +70,11 @@ class EnterpriseComplianceReviewerAgent(AbstractMarketingAgent):
             self.logger.critical("💀 Not found MARKETING PLANNER file to process")
             sys.exit(1)
         
-        # read assets file
-        raw_assets_content = self.__read_marketing_assets__()
-        if not raw_assets_content:
-            self.logger.critical("💀 Not found MARKETING ASSETS file to process")
-            sys.exit(1)
-        
         # return merged new values
         return {
             **kwargs,
             "raw_compliance_content": raw_compliance_content,
             "raw_planner_content": raw_planner_content,
-            "raw_assets_content": raw_assets_content
         }
     
     # @override

@@ -1,0 +1,23 @@
+{
+    "format_type": "Shorts",
+    "storyboard_flow": [
+        {
+            "scene_id": 1,
+            "visual_description": "Một màn hình máy tính hiển thị giao diện quản lý trung tâm của hệ thống membership-hub. Camera phóng to vào các biểu tượng quản lý người dùng và phân quyền RBAC. Hiển thị các biểu tượng điểm danh QR và báo cáo điểm danh. Hiển thị các biểu tượng thẻ hội viên kỹ thuật số và thông báo.",
+            "voiceover_script": "Hệ thống membership-hub cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm, cho phép theo dõi điểm danh thời gian thực qua quét mã QR, cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực, và hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).",
+            "technical_overlay": "Quản lý trung tâm, phân quyền RBAC, điểm danh QR, báo cáo điểm danh, thẻ hội viên kỹ thuật số, thông báo"
+        },
+        {
+            "scene_id": 2,
+            "visual_description": "Một màn hình máy tính hiển thị giao diện quản lý trung tâm của hệ thống membership-hub. Camera phóng to vào các biểu tượng quản lý người dùng và phân quyền RBAC. Hiển thị các biểu tượng điểm danh QR và báo cáo điểm danh. Hiển thị các biểu tượng thẻ hội viên kỹ thuật số và thông báo.",
+            "voiceover_script": "Kiến trúc microservices của hệ thống cho phép xử lý 10.000 người dùng đồng thời với độ trễ API dưới 200ms, sử dụng PostgreSQL với bản sao đọc để giảm tải cho khối lượng công việc báo cáo. Hệ thống đạt 99.9% uptime nhờ cơ chế tự động chuyển đổi failover giữa các cụm GKE. Mã hóa dữ liệu truyền qua TLS 1.3 và mã hóa dữ liệu lưu trữ bằng AES-256 đảm bảo bảo mật cao. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA.",
+            "technical_overlay": "Kiến trúc microservices, PostgreSQL với bản sao đọc, độ trễ API dưới 200ms, uptime 99.9%, mã hóa TLS 1.3, mã hóa AES-256, ghi log kiểm toán, tuân thủ GDPR/CCPA"
+        },
+        {
+            "scene_id": 3,
+            "visual_description": "Một màn hình máy tính hiển thị giao diện quản lý trung tâm của hệ thống membership-hub. Camera phóng to vào các biểu tượng quản lý người dùng và phân quyền RBAC. Hiển thị các biểu tượng điểm danh QR và báo cáo điểm danh. Hiển thị các biểu tượng thẻ hội viên kỹ thuật số và thông báo.",
+            "voiceover_script": "Hệ thống membership-hub có ưu thế không thể bẻ gãy so với các giải pháp quản lý hội viên truyền thống nhờ kiến trúc microservices linh hoạt, khả năng mở rộng cao, và cơ sở dữ liệu PostgreSQL với bản sao đọc để giảm tải khối lượng công việc báo cáo. Hệ thống đạt 99.9% uptime nhờ cơ chế tự động chuyển đổi failover giữa các cụm GKE. Mã hóa dữ liệu truyền qua TLS 1.3 và mã hóa dữ liệu lưu trữ bằng AES-256 đảm bảo bảo mật cao. Hệ thống ghi log kiểm toán cho tất cả hành động nhạy cảm với dữ liệu được lưu trữ trong 1 năm, tuân thủ GDPR/CCPA.",
+            "technical_overlay": "Ưu thế không thể bẻ gãy, kiến trúc microservices linh hoạt, khả năng mở rộng cao, cơ sở dữ liệu PostgreSQL với bản sao đọc, uptime 99.9%, mã hóa TLS 1.3, mã hóa AES-256, ghi log kiểm toán, tuân thủ GDPR/CCPA"
+        }
+    ]
+}

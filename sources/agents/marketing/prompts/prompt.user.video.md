@@ -1,13 +1,25 @@
+{% set video_type = video_format_type if video_format_type and video_format_type.strip() != "" else "Shorts" %}
 # 📥 SYSTEM DATA INPUT CHANNEL
 - **Target Project Identity Name**: "{{ project_name }}"
 - **Document Control Tracking ID**: "VIDEO-{{ doc_id }}"
 - **System Generation Timestamp**: "{{ current_timestamp }}"
-- **Approved Marketing Planner Source Reference**:
-```text
+- **Target Video Format Layout Type**: "{{ video_type }}" (Shorts / Reels / Long-form)
+- **Specific Campaign Target Interval**: "{{ target_interval }}"
+
+# APPROVED MARKETING PLANNED REFERENCE
+```markdown
 {{ raw_planner_content }}
 ```
-- **Target Video Format Layout Type**: "{{ video_format_type }}" (Shorts / Reels / Long-form)
-- **Specific Campaign Target Interval**: "{{ target_interval }}"
+
+# APPROVED MARKETING DATA ASSET REFERENCE
+[CONTEXT STORAGE ONLY - DO NOT ADOPT THIS LAYOUT]
+```markdown
+{{ raw_asset_content }}
+```
+
+# EXECUTIVE TERMINATION CONSTRAINT (ANTI-DUPLICATION)
+- **Strict Stop Rule**: You MUST generate the content for "## 🎥 1. VISUAL STORYBOARD & VOICEOVER PLAYBOOK" exactly ONCE. Do NOT re-write, duplicate, or output multiple versions of the article copy under any circumstances. 
+- Once the Call-to-Action (CTA) of the article copy is written, you MUST immediately close Section 1, move directly to "## 2. CONTEXTUAL HASHTAGS MATRIX", and then transition straight into the JSON payload inside Zone 2.
 
 # ⚡ EXECUTION INSTRUCTION
 Locate the specific target interval row inside the Editorial Calendar of the Approved Marketing Planner Source Reference. Extract the campaign focus and topic specifications.

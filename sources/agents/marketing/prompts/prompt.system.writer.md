@@ -64,7 +64,7 @@ Render the fully fleshed-out, finalized article text here. Use clean markdown fo
 - **Zone 1 (Markdown Report) Global Override Mandate**:
   You MUST dynamically translate 100% of all human-facing text elements inside the `<!--START_GOVERNANCE_REPORT-->` bounds into the Target Output Language Context "{{ target_language }}". This is a non-negotiable directive that supersedes all other formatting constraints. You MUST explicitly translate:
   1. All structural markdown section headers (lines starting with #, ##, ###).
-  2. All text strings inside table headers and column labels (e.g., you MUST translate "Item Parameter / Metric", "Enterprise Governance Details", "Đối tượng", "Nhu cầu cốt lõi & Điểm yếu (Dữ liệu BA)", and "Giải pháp Kiến trúc (SA Blueprint Alignment)" into their exact semantic equivalents in "{{ target_language }}").
+  2. All text strings inside table headers and column labels (example, you MUST translate "Item Parameter / Metric", "Enterprise Governance Details", etc. into their exact semantic equivalents in "{{ target_language }}").
   3. All bold captions, inline list tags, and field metrics.
   *Preserve only raw mechanical symbols (`|`, `---`, `*`) and injection variables (`{{ project_name }}`).*
 

@@ -55,6 +55,10 @@ class EnterpriseContentWriterAgent(AbstractMarketingAgent):
         return self.__agents_path__(storage_name="storage_marketing_prompts", file=USER_PROMPT_TEMPLATE)
     
     # @override
+    def __use_marketing_assets_as_user_prompt__(self) -> bool:
+        return True
+    
+    # @override
     def __pre_execute__(self, **kwargs):
         # read planner file
         planner_file = self.__marketing_planner_file__()
