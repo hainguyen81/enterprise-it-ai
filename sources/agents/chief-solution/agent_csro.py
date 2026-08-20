@@ -1,7 +1,6 @@
+import asyncio
 import os
 import sys
-import asyncio
-from datetime import datetime
 
 # for abstract class
 from abc import abstractmethod
@@ -10,20 +9,25 @@ from abc import abstractmethod
 import litellm
 
 # internal agent CrewAI
-from crewai import Agent, Crew, Process, Task, LLM
-from crewai.events.event_bus import crewai_event_bus
+from crewai import LLM, Agent, Crew, Process, Task
 from crewai.events.base_events import reset_emission_counter
-from crewai.events.event_context import _event_id_stack, EventContextConfig, _event_context_config
+from crewai.events.event_bus import crewai_event_bus
+from crewai.events.event_context import (
+    EventContextConfig,
+    _event_context_config,
+    _event_id_stack,
+)
+
 # use flow for blueprint diff analysis
 from crewai.flow import Flow, listen, start
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
-    write_file,
     delete_file,
-    render_kwargs_prompt,
     get_logger,
     parse_args,
+    render_kwargs_prompt,
+    write_file,
 )
 
 # super agent
@@ -233,32 +237,6 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
     def template_prompt_task_diff_analysis(self):
         return self.__agents_path__(storage_name="storage_csro_prompts", file=PROMPT_TEMPLATE_TASK_DIFF_ANALYZER)
     
-    def __pre_initialize__(self):
-        # require idea identity to analyze
-        if not self.project_info:
-            self.logger.critical(f"💀 (1) Invalid idea identity / project name to analyze!")
-            sys.exit(1)
-        
-        # check idea file
-        abs_idea_file, phys_idea_file = self.__idea_files__()
-        if not os.path.exists(phys_idea_file):
-            self.logger.critical(f"💀 (4) Not found IDEA file {abs_idea_file}")
-            sys.exit(1)
-        else:
-            self.idea_file = abs_idea_file
-        
-        # check requirments file
-        self.ba_file = self.__ba_file__()
-        if not os.path.exists(self.ba_file):
-            self.logger.critical(f"💀 (5) Not found BA file by idea identity / project name '{self.idea_id}'")
-            sys.exit(1)
-        
-        # check blueprint file
-        self.blueprint_file = self.__sa_file__()
-        if not os.path.exists(self.blueprint_file):
-            self.logger.critical(f"💀 (6) Not found BLUEPRINT file by idea identity / project name '{self.idea_id}")
-            sys.exit(1)
-    
     def __create_ai_client__(self):
         return LLM(
             model=self.config_model_name(),
@@ -275,14 +253,42 @@ class AbstractCrewEnterpriseSuperAgent(AbstractSubAgent):
     @abstractmethod
     def __create_agent_task__(self, **kwargs) -> Task:
         pass
-    
+
     # @override
-    def initialize(self):
-        # pre-initialize
-        self.__pre_initialize__()
+    def initialize_projects(self):
+        # initialize projects
+        super().initialize_projects()
         
-        # initialize super
-        super().initialize()
+        # require idea identity to analyze
+        if not self.project_info:
+            self.logger.critical(
+                "💀 (1) Invalid idea identity / project name to analyze!"
+            )
+            sys.exit(1)
+
+        # check idea file
+        abs_idea_file, phys_idea_file = self.__idea_files__()
+        if not os.path.exists(phys_idea_file):
+            self.logger.critical(f"💀 (4) Not found IDEA file {abs_idea_file}")
+            sys.exit(1)
+        else:
+            self.idea_file = abs_idea_file
+
+        # check requirments file
+        self.ba_file = self.__ba_file__()
+        if not os.path.exists(self.ba_file):
+            self.logger.critical(
+                f"💀 (5) Not found BA file by idea identity / project name '{self.idea_id}'"
+            )
+            sys.exit(1)
+
+        # check blueprint file
+        self.blueprint_file = self.__sa_file__()
+        if not os.path.exists(self.blueprint_file):
+            self.logger.critical(
+                f"💀 (6) Not found BLUEPRINT file by idea identity / project name '{self.idea_id}"
+            )
+            sys.exit(1)
     
     # @override
     def agent_log_file(self) -> str:
@@ -631,7 +637,7 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
         
         # no idea also no requirements
         if not raw_idea_content:
-            self.logger.critical(f"💀 Not found IDEA / Requirements file to process")
+            self.logger.critical("💀 Not found IDEA / Requirements file to process")
             sys.exit(1)
         
         # read BA file
@@ -709,7 +715,7 @@ class CrewEnterpriseSolutionWorkflowAgent(AbstractCrewEnterpriseWorkflowAgent):
     def process_communication(self, **kwargs):
         response_data = self.get_kwargs_by_key(key="clean_response", **kwargs)
         if not response_data or not isinstance(response_data, dict):
-            raise RuntimeError(f"💀 (7) Invalid AI raw response.")
+            raise RuntimeError("💀 (7) Invalid AI raw response.")
         
         # project info
         doc_id = self.get_kwargs_by_key(key="dock_id", **kwargs)
