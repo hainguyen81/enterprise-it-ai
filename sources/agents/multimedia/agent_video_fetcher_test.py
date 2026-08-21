@@ -7,13 +7,16 @@ def test_marketing_video_fetcher():
     os.environ["AI_MODELS_KEYS_JSON"] = (
         '{ "https://api.mistral.ai/v1": "<!--API Key HERE-->" }'
     )
+    # os.environ["VIDEO_FETCHER_API_SECRETS_KEY"] = (
+    #     '[{"api_key":"<!--API Key HERE-->","base_url":"https://api.dev.runwayml.com/v1","path":"text_to_video","provider":"Runway (Gen-3 Alpha)","headers":{"X-Runway-Version":"2024-11-06"},"payload":{"contentModeration":{"publicFigureThreshold":"auto"},"outputFormat":"prores","proresProfile":"422","model":"gen4.5","watermark":false,"ratio":"1280:720","duration":5},"promptKey":"promptText","sceneKey":"visual_description","taskIdPath":"taskId"}]'
+    # )
     os.environ["VIDEO_FETCHER_API_SECRETS_KEY"] = (
-        '[{"api_key":"<!--API Key HERE-->","base_url":"https://api.dev.runwayml.com/v1","path":"text_to_video","provider":"Runway (Gen-3 Alpha)","headers":{"X-Runway-Version":"2024-11-06"},"payload":{"contentModeration":{"publicFigureThreshold":"auto"},"outputFormat":"prores","proresProfile":"422","model":"gen4.5","watermark":false,"ratio":"1280:720","duration":5},"promptKey":"promptText"}]'
+        '[{"api_key":"<!--API Key HERE-->","base_url":"https://api.minimax.io/v1","path":"video_generation","payload":{"model":"MiniMax-Hailuo-2.3","duration":6,"resolution":"1080P"},"promptKey":"prompt","sceneKey":"visual_description","taskIdPath":"task_id"}]'
     )
     PROJECT_NAME = "membership-hub"
     execute_video_fetcher(args={
         "idea": PROJECT_NAME,
-    }, language="Vietnamese", trigger_editor="true")
+    }, language="Vietnamese")
 
 
 if __name__ == "__main__":

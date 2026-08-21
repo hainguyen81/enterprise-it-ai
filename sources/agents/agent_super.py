@@ -118,14 +118,14 @@ class AbstractAgent(ABC):
         return models_json
     
     def __close_ai_client__(self):
-        if self.client:
+        if hasattr(self, "client") and self.client:
             try:
                 self.client.close()
             except Exception as e:
                 self.logger.error(f"⚠️ Exception while closing AI client: {exception_stacktrace(e)}")
     
     def rotate_model(self):
-        if not self.models_secrets or len(self.models_secrets) <= 0:
+        if not hasattr(self, "models_secrets") or not self.models_secrets or len(self.models_secrets) <= 0:
             self.logger.warning("⚠️ Not found any models secrets to rotate!")
             return False
         
@@ -175,7 +175,7 @@ class AbstractAgent(ABC):
         return OpenAI(api_key=self.__config_api_key__(), base_url=self.config_api_endpoint())
     
     def config_model(self):
-        return self.current_model_config
+        return self.current_model_config if hasattr(self, "current_model_config") else None
     
     def __config_api_key__(self):
         config = self.config_model()
