@@ -133,6 +133,12 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **🇻🇳 Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **🇻🇳 Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
+7. **MANDATORY PROJECT SCAFFOLDING & CONFIGURATION INHERITANCE LAW:**
+  - Before mapping any business application logic (`[REQ-XXX]`, `[DAT-XXX]`), you MUST autonomously allocate the absolute beginning of your timeline (strictly within Phase 1 - DAY 1) to build the repository skeleton layout boundaries.
+  - For Backend services under Microservices topology, you MUST explicitly enforce the structural generation of a parent root project build descriptor `./sources/backend/pom.xml` and individual service module descriptors `./sources/backend/<service-name>/pom.xml`.
+  - For Frontend layer or Web applications, you MUST explicitly enforce the initialization of workspace manifests `./sources/frontend/package.json` and compiler rules `./sources/frontend/tsconfig.json`.
+  - To ensure zero compilation loops or pipeline friction, all scaffolding assets MUST be tracked using the dedicated architecture system symbol `[ARC-000]`. Converting these foundational files into summaries or skipping them constitutes a fatal structural breach.
+
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
 - **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
@@ -682,13 +688,13 @@ You MUST dynamically and contextually translate 100% of both the level-3 markdow
 --- GENERATED PHASES CONTEXT ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
 ### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
@@ -700,7 +706,7 @@ You MUST dynamically and contextually translate 100% of both the level-3 markdow
 
 ### Phase 4 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
@@ -716,35 +722,39 @@ You MUST dynamically and contextually translate 100% of both the level-3 markdow
 
 ---
 
-## ☣️ 6. MÃ BẢO MẬT DOANH NGHIỆP TOÀN CẦU & CÁC BIỆN PHÁP CHỐNG INJECTION [NFR-XXX]
+### BỐI CẢNH NỀN TẢNG TỪ CÁC BƯỚC TRƯỚC
 
-### 1. Các Biện Pháp Chống Tuyệt Đối SQL Injection (SQLi)
-Hệ thống phải triển khai các biện pháp chống SQL Injection nghiêm ngặt thông qua việc sử dụng prepared statements với positional query parameters trong Hibernate ORM. Tất cả các truy vấn động, đặc biệt là các tham số sắp xếp (sort), phải được kiểm tra chéo với danh sách trắng (whitelist) các trường và hướng được phép. Không được phép nối chuỗi trực tiếp vào câu lệnh SQL. Các tham số đầu vào phải được kiểm tra kiểu dữ liệu và độ dài trước khi truyền vào câu lệnh. [NFR-003]
+## ☣️ 6. MÃ BẢO MẬT DOANH NGHIỆP PHỔ QUÁT & CÁC BIỆN PHÁP CHỐNG TIẾM QUYỀN [NFR-XXX]
 
-### 2. Cross-Site Scripting (XSS) & Chính Sách Bảo Mật Nội Dung (CSP)
-Triển khai sanitization ngữ cảnh tự động cho tất cả đầu vào người dùng trước khi hiển thị hoặc lưu trữ. Frontend Next.js phải bật JSX auto-escaping mặc định. Ingress Gateway trên GKE phải được cấu hình để tiêm động các header HTTP CSP nghiêm ngặt, hạn chế script-src đến các nguồn tin cậy duy nhất, và bật chế độ báo cáo vi phạm (report-only) trong môi trường staging. [NFR-003]
+### 1. Biện pháp chống tiêm chích SQL (SQLi) tuyệt đối
+Triển khai các câu lệnh đã chuẩn bị (prepared statements) với tham số vị trí (positional query parameters) để ngăn chặn hoàn toàn các cuộc tấn công SQL injection. Áp dụng danh sách trắng (whitelist) động cho các đầu vào sắp xếp (sorting input) thông qua Hibernate ORM, đảm bảo chỉ các cột và hướng hợp lệ được phép truy vấn. Tất cả các truy vấn cơ sở dữ liệu phải sử dụng PreparedStatement với tham số được bind đúng cách, loại bỏ hoàn toàn việc nối chuỗi SQL động. Các tham số phân trang và sắp xếp phải được kiểm tra chống lại danh sách trắng các trường được phép trước khi đưa vào truy vấn. [NFR-003], [EXC-004], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
 
-### 3. Rãnh Bảo Mật CORS Đa Người Thuê
-Cấu hình CORS phải nghiêm cấm wildcard origin (`*`) trong môi trường production. Thay vào đó, hệ thống phải duy trì danh sách các origin được phép dựa trên từng tenant (trung tâm) và xác thực động origin của request so với danh sách đã đăng ký của trung tâm đó. Mọi request có origin không khớp sẽ bị từ chối với mã lỗi 403. [NFR-003]
+### 2. Cross-Site Scripting (XSS) & Content Security Policy (CSP)
+Thực hiện làm sạch ngữ cảnh tự động (automated context sanitization) cho tất cả đầu vào người dùng và bật tự động escape JSX (JSX auto-escaping) trong giao diện người dùng. Tiêm động các tiêu đề HTTP Content Security Policy (CSP) nghiêm ngặt thông qua Ingress Gateway, hạn chế nguồn script chỉ đến các domain đáng tin cậy. Cấu hình CSP với các directive như default-src 'self', script-src 'self' https://trusted.cdn.com, và loại bỏ 'unsafe-inline', 'unsafe-eval'. Tích hợp sanitization library như DOMPurify cho nội dung HTML động. [NFR-003], [REQ-020], [REQ-021], [ARC-009], [ARC-006]
 
-### 4. Công Cụ Xóa Log Không Rò Rỉ & Che Mặt Dữ Liệu PII
-Triển khai các interceptor tự động che mặt dữ liệu nhạy cảm (PII) sử dụng annotation `@JsonSerialize` trên các entity model. Các trường như email, số điện thoại, địa chỉ phải được tự động masking trước khi ghi vào log hoặc trả về qua API. Hệ thống logging phải được cấu hình để loại bỏ hoặc thay thế các giá trị nhạy cảm bằng placeholder như `***MASKED***`. [NFR-003], [NFR-006]
+### 3. CORS Multi-Tenant Security Rails
+Thiết lập đường ray bảo mật CORS đa tenant (Multi-Tenant CORS) với nghiêm cấm wildcard origin (*). Triển khai kiểm tra động tenant validation boundaries dựa trên token xác thực và cấu hình origin được phép của từng trung tâm. Mỗi request CORS phải được xác thực chéo (cross-validated) với tenant ID trong JWT và danh sách origin cho phép của center tương ứng. Cấu hình Ingress Controller với annotation cho phép origin động dựa trên header X-Tenant-ID. [ARC-001], [ARC-002], [NFR-003], [REQ-004]
+
+### 4. Zero-Leak Log Scrubbing & PII Data Masking Engines
+Xây dựng công cụ làm sạch log không rò rỉ (Zero-Leak Log Scrubbing) và động mask dữ liệu PII sử dụng các interceptor tự động với chú thích @JsonSerialize. Tất cả các trường nhạy cảm (email, số điện thoại, tên đầy đủ) phải được mask hoặc loại bỏ hoàn toàn khỏi log trước khi ghi vào hệ thống logging. Áp dụng masking theo chuẩn AES-256 cho dữ liệu at rest và TLS 1.3 cho dữ liệu in transit. Tích hợp với hệ thống logging tập trung (ELK Stack) để đảm bảo không có PII nào lọt vào log. [NFR-008], [DAT-001], [DAT-007], [REQ-014], [REQ-015]
 
 ## 📱 7. QUY TẮC TUÂN THỦ DI ĐỘNG HYBRID & CƠ CHẾ SEO ĐA NGÔN NGỮ
 
-### 1. Rãnh Tuân Thủ Di Động Hybrid Capacitor
-Ứng dụng di động hybrid phải tuân thủ các ràng buộc sau: (1) Tất cả fetching dữ liệu phải thông qua client-side dynamic fetching với cơ chế cache ngoại tuyến; (2) Sử dụng absolute URL addressing để tránh vấn đề hydration mismatch; (3) Triển khai hydration safeguards để ngăn chặn flash of unstyled content; (4) Sử dụng `@capacitor/preferences` cho native storage abstraction thay vì localStorage trực tiếp; (5) Cấu hình hardware back-button interceptor để điều hướng người dùng một cách hợp lý trong ứng dụng. [REQ-020], [REQ-021]
+### 1. Capacitor Mobile Hybrid Compliance Rails
+Tuân thủ kiến trúc hybrid di động Capacitor với dynamic client-side fetching, absolute URL addressing để tránh vấn đề hydration, và hydration safeguards. Sử dụng @capacitor/preferences cho native storage abstraction, đảm bảo dữ liệu được đồng bộ hóa an toàn giữa web và native layers. Triển khai hardware back-button interception để điều hướng người dùng quay lại màn hình trước đó trong ứng dụng, không thoát ứng dụng đột ngột. Cấu hình Capacitor với server URL động dựa trên môi trường (development, staging, production). [REQ-020], [REQ-021], [ARC-009], [NFR-007]
 
-### 2. Quốc Tế Hóa (i18n) & Tiêm SEO Động
-Triển khai edge-layer locale recognition middleware để phát hiện ngôn ngữ ưu tiên của người dùng dựa trên Accept-Language header, cookie lưu trữ, hoặc tham số URL. Hệ thống phải tự động tạo và tiêm các thuộc tính hreflang vào phần head của HTML cho mỗi phiên bản ngôn ngữ, đảm bảo công cụ tìm kiếm có thể nhận diện và chỉ mục đúng các phiên bản ngôn ngữ khác nhau. [REQ-022], [REQ-023], [NFR-007]
+### 2. Internationalization (i18n) & Dynamic SEO Injection
+Xây dựng edge-layer locale recognition middleware để phát hiện ngôn ngữ người dùng dựa trên Accept-Language header, cookie lưu trữ, và tham số URL. Tự động inject dynamic hreflang control vào HTML head, tạo các link hreflang cho tiếng Anh, tiếng Việt, và tiếng Tây Ban Nha. Đảm bảo mỗi trang đều có thẻ <html lang='xx'> và các link hreflang chính xác cho công cụ tìm kiếm. Tích hợp với Next.js Middleware để xử lý locale ở edge layer, giảm latency cho người dùng toàn cầu. [REQ-022], [REQ-023], [NFR-007], [ARC-010]
 
-## 🚀 8. LUỒNG NHÁNH GIT PHIÊN LÀM VIỆC TỰ ĐỘNG HÀNG NGÀY
+## 🚀 8. LUỒNG NHÁNH GIT TỰ ĐỘNG CHO PHIÊN LÀM VIỆC HÀNG NGÀY TRONG PIPELINE
 
-### 1. Cô Lập Phân Nhánh Không Gian Làm Việc Hàng Ngày
-Triển khai chính sách phân nhánh tự động với cấu trúc `features/development-phase-X-day-Y`, trong đó X là số thứ tự phase và Y là số thứ tự day. Hệ thống CI/CD phải tự động tạo nhánh mới cho mỗi phiên làm việc, đảm bảo cô lập hoàn toàn giữa các phiên và ngăn chặn merge nhầm giữa các ngày. Quyền push trực tiếp lên nhánh chính (main/develop) phải bị cấm tuyệt đối. [ARC-010]
+### 1. Daily Workspace Forking Isolation
+Thiết lập chương trình forking isolation động cho workspace với cấu trúc nhánh features/development-phase-X-day-Y, trong đó X là số thứ tự phase và Y là số thứ tự day. Mỗi phiên làm việc hàng ngày được cách ly hoàn toàn trong nhánh riêng, ngăn chặn xung đột code và đảm bảo khả năng rollback độc lập. Áp dụng quy tắc bảo vệ nhánh (branch protection rules) yêu cầu ít nhất 1 reviewer trước khi merge, và bắt buộc status checks pass (build, test, lint) trước khi merge. [ARC-010], [NFR-006]
 
-### 2. Cổng Kiểm Tra Xác Thực Đường Ống
-Thiết lập các cổng tự động hóa (gate) trong pipeline CI/CD: (1) Kiểm tra biên dịch tự động (automated compilation verification) với mục tiêu zero error; (2) SonarQube lint gates để đảm bảo chất lượng mã, với ngưỡng chấp nhận code smell và coverage tối thiểu; (3) Mục tiêu độ phủ test tự động (automated test coverage) được đặt ở mức `>= 85%` cho tất cả các module backend và frontend. Bất kỳ lần push nào không đạt các ngưỡng này đều bị từ chối tự động. [NFR-004], [NFR-005], [NFR-006]
+### 2. Validation Guard Pipeline Gates
+Thiết lập validation guard pipeline gates với automated compilation verification, SonarQube lint gates đánh giá chất lượng code, và mục tiêu test coverage tự động >= 85%. Pipeline phải chạy trên mỗi pull request và commit, chặn merge nếu coverage thấp hơn ngưỡng hoặc có lỗi lint nghiêm trọng. Tích hợp SonarQube quality gates với các điều kiện: coverage > 85%, no new bugs, no new vulnerabilities, no code smells. Sử dụng GitHub Actions để orchestrate pipeline với các stage: checkout, setup-java, build, test, sonar-scan, và deploy. [NFR-001], [NFR-004], [NFR-005], [ARC-010]
 
-[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: 0, TOTAL ARC TAGS: 0, TOTAL EXC TAGS: 0, TOTAL DAT TAGS: 0, TOTAL NFR TAGS: 0. ZERO UNASSIGNED CODES FOUND.]
+### 📊 YÊU CẦU KIỂM TRA PHỦ MA TRẬN
+
+[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: 25, TOTAL ARC TAGS: 10, TOTAL EXC TAGS: 5, TOTAL DAT TAGS: 9, TOTAL NFR TAGS: 9. ZERO UNASSIGNED CODES FOUND.]
 
