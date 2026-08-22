@@ -79,14 +79,17 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             "scenes": json_scenes.get("storyboard_flow", [])
         }
     
-    def __api_headers__(self, api_key: str, json_content: bool, **api_headers):
+    def __api_headers__(self, api_key: str, json_content: bool, credentials: bool, **api_headers):
         headers = { "Content-Type": "application/json" } if json_content else {}
         return {
             **(api_headers or {}),
             **headers,
             "Authorization": f"Bearer {api_key}",
-        } if "Authorization" not in api_headers else {
+        } if "Authorization" not in api_headers and credentials else {
             "Authorization": f"Bearer {api_key}",
+            **(api_headers or {}),
+            **headers,
+        } if credentials else {
             **(api_headers or {}),
             **headers,
         }
@@ -97,6 +100,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         base_url: str,
         api_path: str,
         api_method: str,
+        credentials: bool,
         prompt: str,
         api_params: dict,
         api_payload: dict,
@@ -107,14 +111,14 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         api_method = api_method.upper() if api_method else "POST"
         
         # Step 1: Build headers
-        headers = self.__api_headers__(api_key, True, **api_headers)
-        self.logger.debug(f"     |__  Headers: {headers}")
+        headers = self.__api_headers__(api_key, True, credentials, **api_headers)
+        self.logger.info(f"     |__  Headers: {headers}")
 
         # Step 2: Build params
         params = {
             **(api_params or {}),
         }
-        self.logger.debug(f"     |__  Params: {params}")
+        self.logger.info(f"     |__  Params: {params}")
 
         # Step 3: Build payload
         payload = (
@@ -131,7 +135,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                 **(api_payload or {}),
             }
         )
-        self.logger.debug(f"     |__  Payload: {payload}")
+        self.logger.info(f"     |__  Payload: {payload}")
 
         # Step 4: Build endpoint
         url = f"{base_url}/{api_path}" if api_path else base_url
@@ -168,6 +172,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         base_url: str,
         api_path: str,
         api_method: str,
+        credentials: bool,
         scene_visual_prompt: str,
         api_params: dict,
         api_payload: dict,
@@ -182,6 +187,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                 base_url=base_url,
                 api_path=api_path,
                 api_method=api_method,
+                credentials=credentials,
                 prompt=scene_visual_prompt,
                 api_params=api_params,
                 api_payload=api_payload,
@@ -195,7 +201,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             url=url, headers=headers, params=params, json=payload, timeout=120
         )
         response_json = response.json()
-        self.logger.info(f"     |__  Response: {response_json}")
+        self.logger.info(f"     |__  Response: {response.status_code} | {response_json}")
         response.raise_for_status() # check response
         
         # parse task identity
@@ -205,7 +211,14 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             else response_json.get(api_task_path) if api_task_path and api_task_path in response_json \
                 else response_json.get("taskId") or None
     
-    def __video_render_status_polling__(self, api_key: str, base_url: str, task_id: str, **api_headers) -> str:
+    def __video_render_status_polling__(
+        self,
+        api_key: str,
+        base_url: str,
+        credentials: bool,
+        task_id: str,
+        **api_headers,
+    ) -> str:
         # Build request meterials
         request_method, url, headers, params, payload = (
             self.__build_video_generation_requests__(
@@ -213,6 +226,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                 base_url=base_url,
                 api_path=task_id,
                 api_method="GET",
+                credentials=credentials,
                 prompt=None,
                 api_params=None,
                 api_payload=None,
@@ -227,7 +241,9 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                 url=url, headers=headers, params=params, json=payload, timeout=120
             )
             status_data = response.json()
-            self.logger.info(f"     |__  [ POLLING ] Response: {status_data}")
+            self.logger.info(
+                f"     |__  [ POLLING ] Response: {response.status_code} | {response.reason} | {status_data}"
+            )
             response.raise_for_status() # check response
             if status_data.get("status") == "SUCCEEDED":
                 return status_data.get("assetUrl")
@@ -240,8 +256,11 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         api_key: str,
         base_url: str,
         api_path: str,
+        api_method: str,
+        credentials: bool,
         scene: dict,
         api_scene_key: str,
+        api_params: dict,
         api_payload: dict,
         api_prompt_key: str,
         api_task_path: str,
@@ -258,7 +277,10 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             api_key=api_key,
             base_url=base_url,
             api_path=api_path,
-            scene_virtual_prompt=scene_visual_prompt,
+            api_method=api_method,
+            credentials=credentials,
+            scene_visual_prompt=scene_visual_prompt,
+            api_params=api_params,
             api_payload=api_payload,
             api_prompt_key=api_prompt_key,
             api_task_path=api_task_path,
@@ -274,6 +296,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         video_download_url = self.__video_render_status_polling__(
             api_key=api_key,
             base_url=base_url,
+            credentials=credentials,
             task_id=task_id,
             **api_headers
         )
@@ -283,12 +306,13 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             f"     |__  [ DOWNLOAD ] Pulling video bytes data from endpoint: {video_download_url}"
         )
         raw_video_response = requests.get(video_download_url, stream=True, timeout=120)
+        self.logger.info(f"                |__  Response: {raw_video_response.status_code} | {raw_video_response.reason}")
         raw_video_response.raise_for_status() # check response
         if raw_video_response.status_code == 200:
             return (scene_id, raw_video_response.content)
         else:
             raise ConnectionError(
-                f"[ 💀 CRITICAL ] Network buffer failed fetching bytes. Status: {raw_video_response.status_code}"
+                f"[ 💀 CRITICAL ] Network buffer failed fetching bytes. Status: {raw_video_response.status_code} | {raw_video_response.reason}"
             )
     
     def __sync_render_video_scene__(
@@ -297,6 +321,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
         base_url: str,
         api_path: str,
         api_method: str,
+        credentials: bool,
         scene: dict,
         api_scene_key: str,
         api_params: dict,
@@ -318,6 +343,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                 base_url=base_url,
                 api_path=api_path,
                 api_method=api_method,
+                credentials=credentials,
                 prompt=scene_visual_prompt,
                 api_params=api_params,
                 api_payload=api_payload,
@@ -338,14 +364,13 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             stream=True,
             timeout=120,
         )
-        raw_video_response_json = raw_video_response.json()
-        self.logger.info(f"                |__  Response: {raw_video_response_json}")
+        self.logger.info(f"                |__  Response: {raw_video_response.status_code} | {raw_video_response.reason}")
         raw_video_response.raise_for_status() # check response
         if raw_video_response.status_code == 200:
             return (scene_id, raw_video_response.content)
         else:
             raise ConnectionError(
-                f"[ 💀 CRITICAL ] Network buffer failed fetching bytes. Status: {raw_video_response.status_code}"
+                f"[ 💀 CRITICAL ] Network buffer failed fetching bytes. Status: {raw_video_response.status_code} | {raw_video_response.reason}"
             )
     
     # @override
@@ -363,6 +388,11 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
             api_path = api.get("path") if "path" in api else None
             api_method = api.get("method") if "method" in api else "POST"
             api_headers = api.get("headers") if "headers" in api else {}
+            api_credentials = (
+                str(api.get("credentials")).lower() in ("yes", "true", "t", "1")
+                if "credentials" in api
+                else True
+            )
             api_params = api.get("params") if "params" in api else {}
             api_payload = api.get("payload") if "payload" in api else {}
             api_prompt_key = api.get("promptKey") if "promptKey" in api else None
@@ -385,6 +415,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                             base_url=base_url,
                             api_path=api_path,
                             api_method=api_method,
+                            credentials=api_credentials,
                             scene=scene,
                             api_scene_key=api_scene_key,
                             api_params=api_params,
@@ -400,6 +431,7 @@ class EnterpriseRawVideoFetcher(AbstractSubAgent):
                             base_url=base_url,
                             api_path=api_path,
                             api_method=api_method,
+                            credentials=api_credentials,
                             scene=scene,
                             api_scene_key=api_scene_key,
                             api_params=api_params,

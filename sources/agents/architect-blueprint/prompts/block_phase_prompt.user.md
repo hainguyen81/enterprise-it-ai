@@ -59,6 +59,12 @@ Your output MUST follow this exact Markdown layout structure (translate all labe
 
 ## 2. Allowed Technical Scope & Directory Boundaries (Files, paths, and endpoints)
 [List the absolute directory matrices and REST/GraphQL/Event endpoint routing patterns allowed for this phase, matching the detected language and active project stack topology. Every directory matrix path must be bounded under `./sources/`]
+{# START: fixes on 22/08/2026 #}
+* **MANDATORY PLATFORM SKELETON MANIFEST INVARIANTS**:
+  - When initializing the operational lifecycle blueprint (specifically bounded inside Phase 1 - DAY 1), you MUST explicitly inject and declare the primary repository infrastructure build descriptors before emitting any application source components.
+  - For Microservices backend topologies, you MUST enforce the mandatory path definition of a parent project descriptor `./sources/backend/pom.xml` and isolated sub-module manifests `./sources/backend/<service-name>/pom.xml`.
+  - For Frontend interface layer active applications, you MUST enforce the explicit configuration path registration of `./sources/frontend/package.json` and `./sources/frontend/tsconfig.json`. All generated scaffolding assets must map strictly to the architectural system tracking token `[ARC-000]`.
+{# END: fixes on 22/08/2026 #}
 
 ## 3. Dedicated Sub-Agent Functional Directives
 [Delineate the explicit operational constraints and duties for each assigned agent persona in this phase, enforcing strict segregation of technical boundaries as defined below. Human-readable directives, descriptions, and task requirements MUST be contextually translated entirely into {{ target_language }} following the transmission rails]:
