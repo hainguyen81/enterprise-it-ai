@@ -76,7 +76,7 @@ def generate_phase_contexts(
         previous_phase_context = ""
         for phase_idx in range(1, num_phases + 1) if phase <= 0 else range(phase, phase + 1):
             log_phase_idx = phase_idx
-            logger.info(f" │   ├── 📝 Compiling Context Markdown for Phase {phase_idx} of {num_phases}...")
+            logger.info(f"     |__ 📝 Compiling Context Markdown for Phase {phase_idx} of {num_phases}...")
             
             # parse system prompt from template
             prompt_context = {
@@ -148,10 +148,8 @@ def generate_phase_contexts(
             # write log
             write_blueprint_log(log_phase_idx, system_prompt, log_prompt.replace('#', '##'), raw_data.replace('#', '##') if raw_data else "-", False, model_name_safe, out_dir)
             
-            logger.info(
-                f" │   | ✅ Found {days_number} days by `<!--DAY_HEADER_START-->` for Phase {phase_idx}"
-                f" │   ├──  👉 [ SUCCESS ] Received/Saved Phase {phase_idx} MD: {out_path}"
-            )
+            logger.info(f"           | ✅ Found {days_number} days by `<!--DAY_HEADER_START-->` for Phase {phase_idx}")
+            logger.info(f"           |__  👉 [ SUCCESS ] Received/Saved Phase {phase_idx} MD: {out_path}")
             
             # sleep to avoid 429 Too Many Requests
             if phase_idx < num_phases + 1:
