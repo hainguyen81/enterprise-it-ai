@@ -133,6 +133,12 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **🇻🇳 Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **🇻🇳 Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
+7. **MANDATORY PROJECT SCAFFOLDING & CONFIGURATION INHERITANCE LAW:**
+  - Before mapping any business application logic (`[REQ-XXX]`, `[DAT-XXX]`), you MUST autonomously allocate the absolute beginning of your timeline (strictly within Phase 1 - DAY 1) to build the repository skeleton layout boundaries.
+  - For Backend services under Microservices topology, you MUST explicitly enforce the structural generation of a parent root project build descriptor `./sources/backend/pom.xml` and individual service module descriptors `./sources/backend/<service-name>/pom.xml`.
+  - For Frontend layer or Web applications, you MUST explicitly enforce the initialization of workspace manifests `./sources/frontend/package.json` and compiler rules `./sources/frontend/tsconfig.json`.
+  - To ensure zero compilation loops or pipeline friction, all scaffolding assets MUST be tracked using the dedicated architecture system symbol `[ARC-000]`. Converting these foundational files into summaries or skipping them constitutes a fatal structural breach.
+
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
 - **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
@@ -261,10 +267,10 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260818163158 |
+| **Blueprint ID** | ARCH-20260822094056 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/18 16:31:58 |
+| **Date.Time** | 2026/08/22 09:40:56 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -719,56 +725,51 @@ DEVOPS_LAYER_REQUIRED=auto_evaluate
 
 | Mục | Chi tiết |
 | :--- | :--- |
-| **ID Bản thiết kế** | ARCH-20260818163158 |
+| **Mã bản thiết kế** | ARCH-20260822094056 |
 | **Tên dự án** | membership-hub |
 | **Phiên bản** | 1.0 (Cơ sở) |
-| **Ngày.Giờ** | 2026/08/18 16:31:58 |
+| **Ngày.Giờ** | 2026/08/22 09:40:56 |
 | **Tác giả** | Kiến trúc sư hệ thống doanh nghiệp (Đặc vụ SA) |
 | **Phê duyệt** | Đang chờ xem xét quản trị kỹ thuật |
 
 ## 📊 1. TỔNG QUAN HỆ THỐNG & CHẾ ĐỘ KIẾN TRÚC CỐT LÕI
 
-### ⚙️ 1.1. Chế độ hệ thống cốt lõi & chế độ kiến trúc
-- Kiến trúc phân lớp 3 tầng: Frontend Next.js, Backend Quarkus Java, Cơ sở dữ liệu PostgreSQL, triển khai trên GKE [ARC-010]
-- Hệ thống xác thực tập trung sử dụng Firebase Authentication, hỗ trợ OAuth2 (Google, Facebook, email/mật khẩu), cấp JWT access token (hết hạn 15 phút) và refresh token (hết hạn 7 ngày) [ARC-006]
-- Kiểm soát truy cập dựa trên vai trò (RBAC) với 5 vai trò: System Admin, Center Admin, Manager, Teacher, Student, quyền hạn được cách ly theo trung tâm [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005]
-- Hỗ trợ đa ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha) với chuyển đổi locale không cần tải lại trang [NFR-007]
-- Tích hợp đa kênh thông báo: Push notification qua FCM/APNs, đăng bài nhóm Zalo, thông báo trong ứng dụng [ARC-008]
-- Đảm bảo tính bất biến điểm danh: Một học viên chỉ có một bản ghi điểm danh mỗi khóa học mỗi ngày, xử lý yêu cầu trùng lặp tự động [REQ-012, REQ-013, EXC-002]
-- Hỗ trợ caching phiên làm việc và dữ liệu ngoại tuyến bằng Redis cho ứng dụng di động [ARC-009]
-- Ghi log kiểm toán toàn diện cho tất cả hành động người dùng, lưu trữ 1 năm [NFR-006]
+### ⚙️ 1.1. Chế độ hoạt động hệ thống cốt lõi & chế độ kiến trúc cốt lõi
+- Hệ thống áp dụng kiến trúc microservices với backend được xây dựng bằng Java/Quarkus, triển khai trên môi trường Kubernetes (GKE) để đảm bảo khả năng mở rộng ngang và tính sẵn sàng cao.
+- Hệ thống tuân thủ mô hình RBAC (Kiểm soát truy cập dựa trên vai trò) với 5 vai trò phân quyền rõ ràng: System Admin, Center Admin, Manager, Teacher, Student, đảm bảo quyền hạn được cách ly theo từng trung tâm.
+- Luồng xác thực hỗ trợ đăng nhập email/mật khẩu, OAuth2 (Firebase, Google, Facebook), cấp JWT token có thời hạn 15 phút và refresh token có thời hạn 7 ngày.
+- Luồng xử lý điểm danh QR đảm bảo tính idempotent, chỉ tạo một bản ghi điểm danh duy nhất cho mỗi học viên, khóa học và ngày, ngay cả khi người dùng quét mã nhiều lần.
+- Hệ thống tích hợp đa kênh thông báo: gửi push notification qua FCM/APNs, đăng bài lên nhóm Zalo được chỉ định, đảm bảo thông báo đến người dùng cuối kịp thời cho các sự kiện quan trọng.
+- Cơ sở dữ liệu chính sử dụng PostgreSQL 16 với hỗ trợ bản sao đọc cho khối lượng công việc báo cáo, Redis 7.2 được sử dụng để lưu cache phiên người dùng và dữ liệu ngoại tuyến cho ứng dụng di động.
+- Hệ thống hỗ trợ đa ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha) với khả năng chuyển đổi ngôn ngữ không cần tải lại trang, đáp ứng yêu cầu bản địa hóa toàn cầu.
 
-### 🌊 1.2. Kiến trúc luồng dữ liệu doanh nghiệp & hệ sinh thái cốt lõi
-- Luồng xác thực: Người dùng gửi thông tin đăng nhập/OAuth2 → Backend xác thực với Firebase → Cấp JWT token, lưu refresh token an toàn [ARC-006]
-- Luồng điểm danh QR: Ứng dụng di động quét mã QR khóa học → Gửi student ID, timestamp, course ID đến backend → Dịch vụ điểm danh kiểm tra tính hợp lệ, ghi bản ghi idempotent, trả phản hồi trùng lặp nếu đã điểm danh [REQ-012, REQ-013, EXC-001, EXC-002]
-- Luồng thông báo: Sự kiện hệ thống (đăng ký khóa học, phân công giáo viên, tạo thông báo) → Kích hoạt sản xuất thông báo → Gửi push notification đến thiết bị người dùng, đăng bài lên nhóm Zalo được chỉ định [REQ-016, EXC-003]
-- Luồng quản lý khóa học & ghi danh: Admin tạo/cập nhật khóa học → Kiểm tra xung đột lịch giáo viên/phòng học → Học viên duyệt khóa học, đăng ký → Tự động tạo tài khoản Student nếu chưa có, ghi bản ghi ghi danh [REQ-007, REQ-008, REQ-009, REQ-010, REQ-011]
-- Luồng quản lý thẻ hội viên: Học viên xem thông tin thẻ (ngày còn lại) → Khi gia hạn, tích hợp cổng thanh toán → Cập nhật ngày hết hạn thẻ, gửi thông báo xác nhận [REQ-014, REQ-015]
-- Luồng báo cáo & phân tích: Admin yêu cầu báo cáo điểm danh → Hệ thống tổng hợp dữ liệu từ bảng Attendance, Users, Courses → Xuất file CSV, hiển thị dashboard tổng quan thời gian thực [REQ-024, REQ-025]
-- Luồng tích hợp chatbot AI: Người dùng gửi câu hỏi → Chatbot xử lý bằng mô hình ngôn ngữ → Trả lời tự động hoặc chuyển cho hỗ trợ viên nếu độ tin cậy thấp [REQ-019]
+### 🌊 1.2. Các kiến trúc luồng dữ liệu doanh nghiệp & hệ sinh thái lõi
+- Luồng xác thực: Người dùng gửi yêu cầu đăng nhập/đăng ký đến API Gateway, dịch vụ xác thực Quarkus xác thực thông tin, cấp JWT token và lưu thông tin phiên vào Redis để xác thực các yêu cầu tiếp theo.
+- Luồng xử lý điểm danh QR: Ứng dụng di động quét mã QR của khóa học, gửi student ID và timestamp đến backend qua REST API; dịch vụ điểm danh xác thực tính idempotent, ghi bản ghi vào bảng Attendance, đồng bộ trạng thái thẻ hội viên nếu cần.
+- Luồng gửi thông báo: Các sự kiện hệ thống (đăng ký khóa học, phân công giáo viên, tạo thông báo, điểm danh thành công) được xuất bản lên chủ đề Apache Kafka, dịch vụ thông báo tiêu thụ sự kiện, gửi push notification qua FCM/APNs và đăng bài lên nhóm Zalo qua Zalo API.
+- Luồng tích hợp ứng dụng di động: Frontend Next.js tiêu thụ REST API với bearer token, hỗ trợ caching dữ liệu ngoại tuyến trên thiết bị để xử lý trường hợp mất kết nối mạng, đồng bộ dữ liệu tự động khi kết nối trở lại.
+- Luồng báo cáo & phân tích: Dữ liệu điểm danh, ghi danh được đồng bộ đến kho dữ liệu phân tích, dịch vụ báo cáo tổng hợp dữ liệu theo yêu cầu, xuất báo cáo CSV hoặc hiển thị số liệu trên dashboard thời gian thực cho quản trị viên.
 
-## 📁 2. NGĂN XẾP PHỤ THUỘC CÔNG NGHỆ & THƯ VIỆN HỆ SINH THÁI
-- **Ngăn xếp hạ tầng cốt lõi Backend:** Quarkus 3.15.1 (runtime Java 21), Hibernate ORM 6.4.4, PostgreSQL JDBC Driver 42.7.3, Apache Kafka Client 3.7.0 (cho sự kiện hệ thống), Firebase Admin SDK 9.2.0, BCrypt 0.10.8 (mã hóa mật khẩu), SmallRye JWT 3.15.1, HikariCP 5.0.1 (quản lý kết nối cơ sở dữ liệu) [ARC-010]
-- **Ngăn xếp UI Frontend & Đa nền tảng Di động:** Next.js 14.1.0 (React 18.2.0), React Native 0.73.2 (cho ứng dụng di động), Redux Toolkit 2.0.1 (quản lý trạng thái), React Query 5.17.0 (truy cập dữ liệu), i18next 23.7.0 (đa ngôn ngữ), Axios 1.6.7 (gọi API), Firebase SDK 10.7.0 (xác thực, push notification) [ARC-009, ARC-010]
+## 📁 2. CÁC PHỤ THUỘC NGĂN XẾP CÔNG NGHỆ & THƯ VIỆN HỆ SINH THÁI
+- **Hạ tầng lõi Backend:** Java 21, Quarkus 3.15, PostgreSQL 16, Redis 7.2, Apache Kafka 3.6, Hibernate ORM 6.4, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, JWT 0.12, thư viện mã hóa bcrypt.
+- **Ngăn xếp Frontend & Giao diện di động đa nền tảng:** Next.js 14, React 18, React Native 0.73, Tailwind CSS 3.4, i18next 23.7, Axios 1.6, Firebase SDK 10.7.
 
 ## 📁 3. RÀNG BUỘC TOÀN CẦU & TIÊU CHUẨN TUÂN THỦ DOANH NGHIỆP
 
 ### 🔑 3.1. Cơ sở bảo mật & tuân thủ
-- Mã hóa dữ liệu truyền qua TLS 1.3, mã hóa dữ liệu lưu trữ bằng AES-256 [NFR-003]
-- JWT access token hết hạn sau 15 phút, refresh token hết hạn sau 7 ngày, lưu trữ refresh token an toàn bằng HttpOnly cookie [NFR-003, ARC-006]
-- Triển khai các biện pháp giảm thiểu OWASP Top 10: chống injection SQL bằng prepared statements, chống XSS bằng làm sạch dữ liệu đầu vào, chống CSRF bằng token CSRF [NFR-003]
-- Kiểm soát truy cập dựa trên vai trò (RBAC) với kiểm tra quyền ở tầng API và tầng dịch vụ, cách ly quyền quản trị theo trung tâm [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005]
-- Quản lý dữ liệu cá nhân tuân thủ GDPR/CCPA: hỗ trợ xóa dữ liệu người dùng theo yêu cầu, xuất dữ liệu dạng JSON, quản lý đồng ý tiếp thị [NFR-008]
-- Ghi log kiểm toán cho tất cả hành động nhạy cảm (thay đổi vai trò, điểm danh, gửi thông báo) với timestamp, user ID, chi tiết hành động, lưu trữ 1 năm [NFR-006]
+- Mã hóa dữ liệu khi truyền sử dụng TLS 1.3, mã hóa dữ liệu lưu trữ sử dụng AES-256 để đảm bảo bảo mật dữ liệu nhạy cảm.
+- Token JWT có thời hạn 15 phút, refresh token có thời hạn 7 ngày, lưu trữ token an toàn trong Redis với thời gian sống phù hợp, hỗ trợ thu hồi token khi có sự cố bảo mật.
+- Triển khai các biện pháp giảm thiểu OWASP Top 10: chống injection SQL bằng prepared statements, chống XSS bằng cách lọc đầu vào và mã hóa đầu ra, chống CSRF bằng token CSRF cho các yêu cầu nhạy cảm, kiểm tra quyền hạn trên mọi điểm cuối API.
+- Tuân thủ GDPR/CCPA: hỗ trợ xóa dữ liệu cá nhân theo yêu cầu người dùng, xuất dữ liệu ở định dạng JSON, quản lý sự đồng ý cho các thông tin marketing, lưu trữ dữ liệu chỉ trong thời gian cần thiết.
+- Ghi log tất cả hành động người dùng (thay đổi vai trò, bản ghi điểm danh, gửi thông báo, thay đổi khóa học) với timestamp, ID người dùng và chi tiết hành động, lưu log trong 1 năm để đáp ứng yêu cầu kiểm toán.
 
 ### 🌐 3.2. Ràng buộc hạ tầng & hiệu suất
-- Độ trễ API cốt lõi (xác thực, điểm danh, danh sách khóa học) trung bình dưới 200ms, hỗ trợ 10.000 người dùng đồng thời với truy vấn cơ sở dữ liệu dưới 1 giây [NFR-001]
-- Thời gian hoạt động mục tiêu 99.9% hàng năm, có chế độ tự động chuyển đổi failover giữa các cụm GKE [NFR-002]
-- Quy mô ngang dịch vụ Quarkus tự động thông qua Kubernetes HPA khi CPU > 70% hoặc độ trễ yêu cầu > 300ms [NFR-004]
-- Sử dụng bản sao đọc PostgreSQL cho khối lượng công việc báo cáo để giảm tải cho cơ sở dữ liệu chính [NFR-004]
-- Kích thước hình ảnh Docker cơ sở dưới 200MB, hình ảnh cuối cùng dưới 500MB [NFR-005]
-- Chính sách caching Redis cho phiên làm việc: hết hạn sau 24 giờ, chính sách xóa LRU khi bộ nhớ đầy [ARC-009]
-- Sao lưu cơ sở dữ liệu PostgreSQL hàng ngày, hỗ trợ phục hồi điểm thời gian (PITR) trong 24 giờ, sao lưu cụm GKE sang vùng riêng [NFR-009]
+- Độ trễ trung bình của API cốt lõi (xác thực, ghi điểm danh, danh sách khóa học) dưới 200ms, hỗ trợ đọc sub-second cho 10.000 người dùng đồng thời với các chỉ mục cơ sở dữ liệu được tối ưu.
+- Mục tiêu thời gian hoạt động 99.9% hàng năm, hỗ trợ chuyển đổi tự động giữa các cụm GKE để đảm bảo tính sẵn sàng cao, không có thời gian chết kế hoạch.
+- Quy mô ngang dịch vụ Quarkus thông qua Kubernetes HPA khi CPU > 70% hoặc độ trễ yêu cầu > 300ms, sử dụng bản sao đọc PostgreSQL cho khối lượng công việc báo cáo để giảm tải cho cơ sở dữ liệu chính.
+- Kích thước hình ảnh Docker cơ sở dưới 200MB, hình ảnh cuối cùng dưới 500MB, sử dụng đa giai đoạn build để tối ưu kích thước và bảo mật hình ảnh.
+- Hạn mức kết nối cơ sở dữ liệu được cấu hình thông qua HikariCP với giá trị tối ưu cho tải công việc, chính sách xóa cache Redis được cấu hình để đảm bảo dữ liệu phiên luôn tươi, không lưu trữ dữ liệu nhạy cảm trong cache.
+- Sao lưu cơ sở dữ liệu PostgreSQL hàng ngày, hỗ trợ phục hồi điểm thời gian trong 24 giờ, sao lưu cụm GKE đến vùng riêng để phục hồi thảm họa, kiểm tra sao lưu định kỳ để đảm bảo tính toàn vẹn của dữ liệu.
 
 ### 🥞 3.3. MA TRẬN NGĂN XẾP KIẾN TRÚC
 ```properties:stack_matrix
@@ -778,109 +779,4 @@ FRONTEND_LAYER_REQUIRED=true
 MOBILE_LAYER_REQUIRED=true
 DEVOPS_LAYER_REQUIRED=true
 ```
-
----
-
-## 🚀 GIAI ĐOẠN 1: THIẾT LẬP HẠ TẦNG & CỐT LÕI XÁC THỰC
-### 📅 Ngày 1: Thiết lập dự án & cấu trúc thư mục
-- **Coder**: Tạo cấu trúc thư mục dịch vụ backend Quarkus, cấu hình tệp pom.xml với các phụ thuộc cốt lõi (Hibernate ORM, PostgreSQL JDBC, SmallRye JWT, Firebase Admin SDK, HikariCP) → `./sources/backend/membership-hub/pom.xml` [ARC-010, NFR-003]
-- **Docker**: Tạo Dockerfile đa giai đoạn cho dịch vụ backend, tối ưu kích thước hình ảnh dưới ngưỡng quy định → `./sources/infra/backend/Dockerfile` [NFR-005]
-- **Doc**: Tạo tài liệu kiến trúc tổng quan, sơ đồ luồng xác thực OAuth2/JWT → `./sources/docs/architecture/authentication-flow.md` [ARC-006]
-
-### 📅 Ngày 2: Thiết kế lược đồ cơ sở dữ liệu người dùng & vai trò
-- **Coder**: Viết script di chuyển Flyway tạo bảng USERS, ROLES, thêm ràng buộc khóa ngoại, chỉ mục duy nhất cho email và chỉ mục cho roleId → `./sources/backend/membership-hub/src/main/resources/db/migration/V1__create_users_roles.sql` [DAT-001, ARC-010]
-- **Tester**: Viết bài kiểm tra tích hợp cho lược đồ cơ sở dữ liệu, kiểm tra tính toàn vẹn khóa ngoại và ràng buộc duy nhất → `./sources/backend/membership-hub/src/test/java/com/membershiphub/integration/UserSchemaIntegrationTest.java` [DAT-001]
-- **Doc**: Cập nhật tài liệu từ điển dữ liệu cho bảng USERS và ROLES → `./sources/docs/data-dictionary/users-roles.md` [DAT-001]
-
-### 📅 Ngày 3: Triển khai dịch vụ xác thực & RBAC
-- **Coder**: Triển khai lớp dịch vụ xác thực JWT, tích hợp Firebase Auth, triển khai bộ lọc RBAC kiểm tra quyền người dùng theo vai trò → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/AuthService.java` [REQ-001, REQ-002, REQ-003, ARC-006, ARC-001, ARC-002, ARC-003, ARC-004, ARC-005]
-- **Tester**: Viết bài kiểm tra đơn vị cho AuthService, kiểm tra luồng đăng ký email/mật khẩu, đăng nhập OAuth2, hết hạn và làm mới token → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/AuthServiceTest.java` [REQ-001, REQ-002, REQ-003]
-- **Reviewer**: Kiểm tra mã bảo mật, đảm bảo không có lỗ hổng injection, tuân thủ tiêu chuẩn OWASP Top 10 → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/AuthService.java` [NFR-003]
-- **GCP**: Cấu hình dự án Firebase, kích hoạt nhà cung cấp xác thực OAuth2 (Google, Facebook), cấu hình quy tắc bảo mật Firebase → `./sources/infra/gcp/firebase-config.yaml` [ARC-006, REQ-002]
-
----
-
-## 🏗️ GIAI ĐOẠN 2: QUẢN LÝ TRUNG TÂM, KHÓA HỌC & GHI DANH
-### 📅 Ngày 1: Thiết kế lược đồ cơ sở dữ liệu trung tâm, khóa học & ghi danh
-- **Coder**: Viết script di chuyển Flyway tạo bảng CENTERS, COURSES, ENROLLMENTS, thêm chỉ mục và ràng buộc khóa ngoại, ràng buộc kiểm tra xung đột lịch khóa học → `./sources/backend/membership-hub/src/main/resources/db/migration/V2__create_centers_courses_enrollments.sql` [DAT-003, DAT-004, DAT-005, ARC-010, REQ-008]
-- **Tester**: Viết bài kiểm tra tích hợp cho lược đồ cơ sở dữ liệu, kiểm tra tính toàn vẹn ràng buộc và xung đột lịch → `./sources/backend/membership-hub/src/test/java/com/membershiphub/integration/CourseSchemaIntegrationTest.java` [REQ-008]
-- **Doc**: Cập nhật tài liệu từ điển dữ liệu cho 3 bảng trên → `./sources/docs/data-dictionary/centers-courses-enrollments.md` [DAT-003, DAT-004, DAT-005]
-
-### 📅 Ngày 2: Triển khai API quản lý trung tâm
-- **Coder**: Triển khai REST API cho trung tâm: lấy danh sách, tạo, cập nhật, xóa trung tâm, phân quyền Center Admin cho người dùng → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/CenterResource.java` [REQ-004, REQ-005, REQ-006, ARC-002]
-- **Tester**: Viết bài kiểm tra đơn vị và tích hợp cho API trung tâm, kiểm tra phân quyền truy cập và ràng buộc dữ liệu → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/CenterResourceTest.java` [REQ-004, REQ-005, REQ-006]
-- **Doc**: Viết tài liệu API Swagger/OpenAPI cho các endpoint quản lý trung tâm → `./sources/docs/api/center-api.md` [REQ-004, REQ-005, REQ-006]
-
-### 📅 Ngày 3: Triển khai API quản lý khóa học
-- **Coder**: Triển khai REST API cho khóa học: lấy danh sách, tạo, cập nhật, xóa, phân công giáo viên, kiểm tra xung đột lịch giáo viên/phòng học → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/CourseResource.java` [REQ-007, REQ-008, REQ-009, ARC-003]
-- **Tester**: Viết bài kiểm tra tích hợp cho API khóa học, kiểm tra logic xung đột lịch và phân quyền truy cập → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/CourseResourceTest.java` [REQ-007, REQ-008, REQ-009]
-- **Reviewer**: Kiểm tra logic xung đột lịch, đề xuất tối ưu truy vấn kiểm tra trùng lặp lịch → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/CourseService.java` [REQ-008]
-
-### 📅 Ngày 4: Triển khai API ghi danh học viên
-- **Coder**: Triển khai REST API ghi danh: duyệt danh sách khóa học chưa đăng ký, đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/EnrollmentResource.java` [REQ-010, REQ-011]
-- **Tester**: Viết bài kiểm tra tích hợp cho luồng ghi danh, kiểm tra logic tự động tạo tài khoản Student và gửi thông báo → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/EnrollmentResourceTest.java` [REQ-010, REQ-011]
-- **Doc**: Cập nhật tài liệu API cho endpoint ghi danh → `./sources/docs/api/enrollment-api.md` [REQ-010, REQ-011]
-
----
-
-## 📱 GIAI ĐOẠN 3: ĐIỂM DANH QR, THẺ HỘI VIÊN & THÔNG BÁO
-### 📅 Ngày 1: Triển khai dịch vụ điểm danh QR
-- **Coder**: Triển khai dịch vụ điểm danh idempotent, xử lý yêu cầu quét mã QR, kiểm tra trùng lặp điểm danh trong cùng ngày cho cùng học viên và khóa học → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/AttendanceService.java` [REQ-012, REQ-013, EXC-001, EXC-002, DAT-006]
-- **Coder**: Viết script di chuyển Flyway tạo bảng ATTENDANCE, thêm chỉ mục kết hợp cho studentId, courseId, attendanceDate để tối ưu truy vấn kiểm tra trùng lặp → `./sources/backend/membership-hub/src/main/resources/db/migration/V3__create_attendance.sql` [DAT-006]
-- **Tester**: Viết bài kiểm tra đơn vị và tích hợp cho dịch vụ điểm danh, kiểm tra tính idempotent và xử lý lỗi mất kết nối mạng → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/AttendanceServiceTest.java` [REQ-012, REQ-013, EXC-001, EXC-002]
-- **Doc**: Cập nhật từ điển dữ liệu bảng ATTENDANCE, tài liệu luồng điểm danh QR → `./sources/docs/data-dictionary/attendance.md` [DAT-006]
-
-### 📅 Ngày 2: Triển khai quản lý thẻ hội viên
-- **Coder**: Triển khai dịch vụ quản lý thẻ hội viên: tính toán ngày còn lại hiệu lực, gia hạn thẻ, tích hợp cổng thanh toán → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/MembershipCardService.java` [REQ-014, REQ-015, DAT-007]
-- **Coder**: Viết script di chuyển Flyway tạo bảng STUDENTCARDS, thêm chỉ mục cho studentId → `./sources/backend/membership-hub/src/main/resources/db/migration/V4__create_student_cards.sql` [DAT-007]
-- **Tester**: Viết bài kiểm tra tích hợp cho dịch vụ thẻ hội viên, kiểm tra logic tính ngày còn lại và gia hạn thẻ → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/MembershipCardServiceTest.java` [REQ-014, REQ-015]
-- **Doc**: Cập nhật từ điển dữ liệu bảng STUDENTCARDS, tài liệu luồng gia hạn thẻ → `./sources/docs/data-dictionary/student-cards.md` [DAT-007]
-
-### 📅 Ngày 3: Triển khai hệ thống thông báo
-- **Coder**: Triển khai dịch vụ thông báo: tạo bản ghi thông báo, gửi push notification qua FCM/APNs, đăng bài lên nhóm Zalo được chỉ định, cơ chế thử lại tối đa 3 lần khi gửi thất bại → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/NotificationService.java` [REQ-016, EXC-003, DAT-008, ARC-008]
-- **Coder**: Viết script di chuyển Flyway tạo bảng NOTIFICATIONS → `./sources/backend/membership-hub/src/main/resources/db/migration/V5__create_notifications.sql` [DAT-008]
-- **Tester**: Viết bài kiểm tra tích hợp cho dịch vụ thông báo, kiểm tra cơ chế thử lại và ghi log lỗi gửi thất bại → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/NotificationServiceTest.java` [REQ-016, EXC-003]
-- **Doc**: Cập nhật từ điển dữ liệu bảng NOTIFICATIONS, tài liệu tích hợp Zalo API → `./sources/docs/integrations/zalo-api.md` [REQ-016, ARC-008]
-
----
-
-## 🎁 GIAI ĐOẠN 4: TÍNH NĂNG BỔ SUNG: KHUYẾN MÃI, THÔNG BÁO, CHATBOT AI & BÁO CÁO
-### 📅 Ngày 1: Triển khai quản lý khuyến mãi & thông báo
-- **Coder**: Triển khai REST API quản lý khuyến mãi và thông báo: tạo, cập nhật, xóa, kiểm tra thời hạn hiệu lực tự động ẩn thông báo hết hạn → `./sources/backend/membership-hub/src/main/java/com/membershiphub/rest/PromotionAnnouncementResource.java` [REQ-017, REQ-018, DAT-009]
-- **Coder**: Viết script di chuyển Flyway tạo bảng PROMOTIONS, ANNOUNCEMENTS → `./sources/backend/membership-hub/src/main/resources/db/migration/V6__create_promotions_announcements.sql` [DAT-009]
-- **Tester**: Viết bài kiểm tra tích hợp cho API khuyến mãi và thông báo, kiểm tra logic thời hạn tự động ẩn thông báo hết hạn → `./sources/backend/membership-hub/src/test/java/com/membershiphub/rest/PromotionAnnouncementResourceTest.java` [REQ-017, REQ-018]
-- **Doc**: Cập nhật từ điển dữ liệu, tài liệu API cho các endpoint quản lý khuyến mãi và thông báo → `./sources/docs/data-dictionary/promotions-announcements.md` [DAT-009]
-
-### 📅 Ngày 2: Tích hợp chatbot AI & cơ sở dữ liệu hệ thống
-- **Coder**: Tích hợp mô hình chatbot AI, triển khai endpoint xử lý câu hỏi người dùng, logic chuyển cho hỗ trợ viên khi độ tin cậy trả lời thấp → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/ChatbotService.java` [REQ-019]
-- **Coder**: Viết script di chuyển Flyway tạo bảng AUDIT_LOG, SYSTEM_SETTINGS, thêm chỉ mục cho các trường thường xuyên truy vấn → `./sources/backend/membership-hub/src/main/resources/db/migration/V7__create_audit_system_settings.sql` [DAT-010, DAT-011, NFR-006]
-- **Tester**: Viết bài kiểm tra tích hợp cho chatbot, kiểm tra độ chính xác trả lời và logic chuyển hỗ trợ viên → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/ChatbotServiceTest.java` [REQ-019]
-- **Doc**: Cập nhật từ điển dữ liệu bảng SYSTEM_SETTINGS, tài liệu tích hợp mô hình AI → `./sources/docs/integrations/ai-chatbot.md` [REQ-019]
-
-### 📅 Ngày 3: Triển khai báo cáo & dashboard phân tích
-- **Coder**: Triển khai dịch vụ tạo báo cáo điểm danh định dạng CSV, dashboard tổng quan ghi danh thời gian thực hiển thị tổng số học viên, khóa học đang hoạt động, buổi học sắp tới → `./sources/backend/membership-hub/src/main/java/com/membershiphub/service/ReportService.java` [REQ-024, REQ-025]
-- **Tester**: Viết bài kiểm tra tích hợp cho dịch vụ báo cáo, kiểm tra định dạng CSV chính xác và dữ liệu dashboard khớp với dữ liệu cơ sở dữ liệu → `./sources/backend/membership-hub/src/test/java/com/membershiphub/service/ReportServiceTest.java` [REQ-024, REQ-025]
-- **Doc**: Viết tài liệu hướng dẫn sử dụng báo cáo điểm danh và dashboard phân tích → `./sources/docs/user-guide/reports-dashboard.md` [REQ-024, REQ-025]
-
----
-
-## 📲 GIAI ĐOẠN 5: ỨNG DỤNG DI ĐỘNG, ĐA NGÔN NGỮ, SEO & TỐI ƯU HÓA
-### 📅 Ngày 1: Triển khai giao diện người dùng vai trò trên di động
-- **Coder**: Xây dựng giao diện người dùng vai trò cụ thể trên React Native: màn hình đăng nhập, danh sách khóa học, quét mã QR điểm danh, xem thẻ hội viên, điều hướng theo quyền vai trò → `./sources/frontend/mobile-app/src/screens/RoleBasedHomeScreen.tsx` [REQ-020, ARC-004, ARC-005]
-- **Tester**: Viết bài kiểm tra giao diện cho màn hình chính vai trò, kiểm tra điều hướng đúng theo quyền người dùng → `./sources/frontend/mobile-app/src/tests/screens/RoleBasedHomeScreen.test.tsx` [REQ-020]
-- **Doc**: Viết tài liệu hướng dẫn sử dụng ứng dụng di động cho từng vai trò người dùng → `./sources/docs/user-guide/mobile-app-guide.md` [REQ-020]
-
-### 📅 Ngày 2: Triển khai đa ngôn ngữ, SEO & thông báo đẩy di động
-- **Coder**: Tích hợp thư viện i18next cho đa ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha), cấu hình phát hiện ngôn ngữ mặc định từ lưu trữ cục bộ hoặc tiêu đề Accept-Language, chuyển đổi locale không cần tải lại trang → `./sources/frontend/web-app/src/i18n/config.ts` [REQ-022, NFR-007]
-- **Coder**: Cấu hình SEO đa ngôn ngữ cho Next.js: thêm thẻ hreflang, meta tag ngôn ngữ cho tất cả các trang, đảm bảo thuộc tính html lang khớp với locale → `./sources/frontend/web-app/src/app/[locale]/layout.tsx` [REQ-023, NFR-007]
-- **Coder**: Tích hợp Firebase Cloud Messaging (FCM) cho thông báo đẩy di động, xử lý đăng ký và quản lý token thiết bị → `./sources/frontend/mobile-app/src/services/PushNotificationService.ts` [REQ-021, ARC-008]
-- **Tester**: Viết bài kiểm tra tích hợp cho chức năng đa ngôn ngữ, kiểm tra thẻ hreflang và luồng nhận thông báo đẩy → `./sources/frontend/web-app/src/tests/i18n-seo.test.ts` [REQ-022, REQ-023, REQ-021]
-- **Doc**: Cập nhật tài liệu cấu hình đa ngôn ngữ, SEO và thông báo đẩy → `./sources/docs/configuration/i18n-seo-push.md` [REQ-022, REQ-023, REQ-021]
-
-### 📅 Ngày 3: Triển khai CI/CD, giám sát & tối ưu hóa hiệu suất
-- **Docker**: Tạo Dockerfile cho ứng dụng di động React Native và ứng dụng web Next.js, tối ưu kích thước hình ảnh → `./sources/infra/web-app/Dockerfile`, `./sources/infra/mobile-app/Dockerfile` [NFR-005]
-- **GKE**: Triển khai bản định nghĩa triển khai Kubernetes, dịch vụ, Horizontal Pod Autoscaler (HPA) cho tất cả các dịch vụ backend và frontend → `./sources/infra/gke/deployment.yaml` [NFR-002, NFR-004]
-- **GCP**: Cấu hình Cloud Logging, Cloud Monitoring, cảnh báo uptime, sao lưu PostgreSQL tự động hàng ngày, sao lưu cụm GKE sang vùng khác → `./sources/infra/gcp/monitoring-backup.yaml` [NFR-002, NFR-006, NFR-009]
-- **Reviewer**: Kiểm tra toàn bộ cấu hình hạ tầng, đề xuất tối ưu chi phí và cấu hình bảo mật → `./sources/infra/gke/deployment.yaml` [NFR-003, NFR-004]
-- **Doc**: Viết tài liệu hướng dẫn triển khai, giám sát, sao lưu và phục hồi thảm họa → `./sources/docs/operations/deployment-monitoring.md` [NFR-002, NFR-009]
 

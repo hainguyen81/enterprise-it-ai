@@ -133,6 +133,12 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **🇻🇳 Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **🇻🇳 Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
+7. **MANDATORY PROJECT SCAFFOLDING & CONFIGURATION INHERITANCE LAW:**
+  - Before mapping any business application logic (`[REQ-XXX]`, `[DAT-XXX]`), you MUST autonomously allocate the absolute beginning of your timeline (strictly within Phase 1 - DAY 1) to build the repository skeleton layout boundaries.
+  - For Backend services under Microservices topology, you MUST explicitly enforce the structural generation of a parent root project build descriptor `./sources/backend/pom.xml` and individual service module descriptors `./sources/backend/<service-name>/pom.xml`.
+  - For Frontend layer or Web applications, you MUST explicitly enforce the initialization of workspace manifests `./sources/frontend/package.json` and compiler rules `./sources/frontend/tsconfig.json`.
+  - To ensure zero compilation loops or pipeline friction, all scaffolding assets MUST be tracked using the dedicated architecture system symbol `[ARC-000]`. Converting these foundational files into summaries or skipping them constitutes a fatal structural breach.
+
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
 - **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
@@ -338,6 +344,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 * **[Translate "Low-Level Technical Task Instruction" into the target language 🇻🇳 Vietnamese]:** Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+- **UNIVERSAL INITIAL DAY ENVIRONMENT SCAFFOLDING ENFORCEMENT RAIL:** You MUST actively verify that Phase 1 - DAY 1 contains explicit sub-task nodes dedicated to environment scaffolding. The `target_component` parameters for these initial execution logs MUST map strictly to physical project descriptor entities (e.g., `./sources/backend/pom.xml` for root maven architectures, `./sources/backend/<service-name>/pom.xml` for microservice boundaries, or `./sources/frontend/package.json` for web interface nodes) under Tag ID `[ARC-000]` before any operational functional logic source code files (`.java`, `.ts`) are emitted.
 - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase 4' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 
 * **[Translate "Database Schema DDL SQL Specification" into the target language 🇻🇳 Vietnamese] [DAT-XXX]:**
@@ -742,54 +749,63 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 <PROJECT_BACKLOG_TASKS_DATA>
 --- BACKLOG TASKS ---
-## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA PHASE Ở MỨC CAO
+## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN MỨC CAO
 
-### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC CHÍNH
-
-Kiến trúc hệ thống membership-hub được thiết kế theo mô hình microservices với các thành phần phụ thuộc chặt chẽ: lớp backend Quarkus phụ thuộc vào cơ sở dữ liệu PostgreSQL để lưu trữ dữ liệu thực thể, Redis để caching phiên làm việc và Firebase Authentication để xác thực người dùng; lớp frontend Next.js tiêu thụ REST API từ backend, tích hợp FCM/APNs cho thông báo đẩy và hỗ trợ caching ngoại tuyến; hạ tầng DevOps trên GKE phụ thuộc vào Docker để đóng gói hình ảnh, Terraform để provisioning tài nguyên GCP và GitHub Actions để pipeline CI/CD; tất cả các lớp đều tuân thủ các yêu cầu phi chức năng về bảo mật, hiệu suất và khả năng mở rộng được định nghĩa trong tài liệu yêu cầu, đảm bảo tính tin cậy và khả năng mở rộng cho nền tảng quản lý hội viên đa trung tâm.
+### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
-### [MA TRẬN SỐ HỌC HỆ THỐNG]
-> - **Tổng số thẻ [REQ]:** 25 Thẻ
-> - **Tổng số thẻ [EXC]:** 5 Thẻ
-> - **Tổng số thẻ [ARC]:** 10 Thẻ
-> - **Tổng số thẻ [DAT]:** 11 Thẻ
-> - **Tổng số thẻ [NFR]:** 9 Thẻ
-> - ➡️ **Tổng số thẻ SRS:** 58 Thẻ
+### MA TRẬN SỐ HỌC HỆ THỐNG
+> - Tổng số thẻ [REQ]: 25 Thẻ
 
-| No. | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm đầu ra | Loại | TagID |
+> - Tổng số thẻ [EXC]: 5 Thẻ
+
+> - Tổng số thẻ [ARC]: 10 Thẻ
+
+> - Tổng số thẻ [DAT]: 9 Thẻ
+
+> - Tổng số thẻ [NFR]: 9 Thẻ
+
+> - ➡️ Tổng số thẻ SRS: 58 Thẻ
+
+Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh xạ toàn bộ các yêu cầu nghiệp vụ, kiến trúc, dữ liệu và phi chức năng từ đặc tả yêu cầu phần mềm vào các nhiệm vụ kỹ thuật cụ thể, đảm bảo tính truy xuất nguồn gốc 100% và tuân thủ các tiêu chuẩn doanh nghiệp. Các thành phần kiến trúc có mối phụ thuộc chặt chẽ: hạ tầng cơ sở dữ liệu PostgreSQL là nền tảng cho tất cả các service vi mô, lớp bảo mật RBAC và xác thực OAuth2 kiểm soát truy cập vào toàn bộ hệ thống, hạ tầng DevOps trên GKE đảm bảo tính sẵn sàng và khả năng mở rộng, còn hệ thống tài liệu hỗ trợ vận hành và bảo trì lâu dài.
+
+| STT | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm bàn giao | Loại | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Triển khai chức năng đăng ký người dùng với email/mật khẩu và cấp JWT token | Tạo endpoint đăng ký, xác thực đầu vào, tạo bản ghi người dùng với vai trò mặc định Student, cấp JWT token và refresh token | Mã Ứng dụng | [REQ-001], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Tích hợp xác thực mạng xã hội (Firebase, Google, Facebook) qua OAuth2 | Xây dựng flow xác thực OAuth2, trao đổi mã xác thực lấy thông tin người dùng, tạo/cập nhật bản ghi người dùng cục bộ, cấp JWT token | Mã Ứng dụng | [REQ-002], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Triển khai phân quyền người dùng dựa trên vai trò (RBAC) với 5 vai trò được định nghĩa | Xây dựng cơ chế gán/thay đổi vai trò người dùng, áp dụng quyền truy cập tương ứng ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Xây dựng API xem danh sách trung tâm với thông tin địa chỉ, mã số thuế và liên hệ quản trị | Tạo endpoint lấy danh sách trung tâm, trả về các trường Name, Address, TaxID, AdminContact | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Triển khai chức năng quản lý trung tâm (tạo, cập nhật, xóa) cho System Admin | Xây dựng endpoint CRUD cho trung tâm, kiểm tra trùng lặp mã số thuế, trả về lỗi conflict nếu trùng | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Xây dựng chức năng phân quyền quản trị trung tâm cho từng người dùng | Tạo endpoint gán/huỷ gán vai trò Center Admin cho người dùng tại trung tâm cụ thể, cập nhật quyền truy cập tương ứng | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Xây dựng API xem danh sách khóa học với lịch trình và giáo viên phụ trách | Tạo endpoint lấy danh sách khóa học, trả về các trường CourseID, Title, StartDate, EndDate, TeacherName | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Triển khai quản lý khóa học (tạo, cập nhật, xóa) với kiểm tra xung đột lịch trình giáo viên/địa điểm | Xây dựng endpoint CRUD cho khóa học, kiểm tra xung đột lịch trình giáo viên trước khi lưu, trả về lỗi nếu có xung đột | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 9 | Xây dựng chức năng phân công giáo viên vào khóa học và gửi thông báo | Tạo endpoint gán/huỷ gán giáo viên cho khóa học, xếp hàng thông báo cho ứng dụng di động của giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 10 | Xây dựng chức năng duyệt khóa học cho học viên, loại trừ các khóa đã đăng ký | Tạo endpoint lấy danh sách khóa học có sẵn, lọc ra các khóa học học viên đã đăng ký, hiển thị sức chứa và lịch trình | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 11 | Triển khai quy trình đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại | Xây dựng endpoint đăng ký khóa học, tự động tạo tài khoản Student với vai trò tương ứng nếu chưa tồn tại, xếp hàng thông báo cho học viên và nhóm Zalo của trung tâm | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 12 | Xây dựng chức năng quét mã QR điểm danh trên ứng dụng di động và ghi nhận kết quả | Tích hợp trình quét QR vào ứng dụng di động, xây dựng endpoint nhận payload điểm danh, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012], [EXC-001], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 13 | Đảm bảo tính chất bất biến của điểm danh (chỉ 1 bản ghi mỗi học viên/khóa học/ngày) | Triển khai kiểm tra idempotent cho endpoint điểm danh, đảm bảo chỉ tạo 1 bản ghi điểm danh cho mỗi học viên/khóa học/ngày, trả về cờ 'đã ghi nhận' nếu trùng lặp | Mã Ứng dụng | [REQ-013], [EXC-001], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 14 | Xây dựng chức năng hiển thị thẻ hội viên kỹ thuật số với số ngày còn lại hiệu lực | Tạo endpoint lấy thông tin thẻ hội viên, tính toán số ngày còn lại hiệu lực, hiển thị tổng ngày hiệu lực, ngày đã sử dụng và ngày còn lại trên giao diện người dùng | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 15 | Triển khai chức năng gia hạn thẻ hội viên với tích hợp thanh toán | Xây dựng endpoint gia hạn thẻ, tích hợp với cổng thanh toán, cập nhật ngày kết thúc thẻ khi thanh toán thành công, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 16 | Xây dựng hệ thống thông báo đa kênh (push di động, nhóm Zalo) cho các sự kiện hệ thống | Tạo dịch vụ xử lý thông báo, xếp hàng payload push notification cho FCM/APNs, gửi tin nhắn đến nhóm Zalo được chỉ định cho các sự kiện như thông báo, phân công khóa học, cảnh báo điểm danh | Mã Ứng dụng | [REQ-016], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 17 | Triển khai chức năng quản lý khuyến mãi (tạo, sửa, xóa) cho Center Admin và Manager | Xây dựng endpoint CRUD cho khuyến mãi, hỗ trợ ngày bắt đầu/ngày kết thúc tùy chọn, hiển thị khuyến mãi áp dụng cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 18 | Xây dựng chức năng quản lý thông báo (tạo, sửa, xóa) với thời hạn hiển thị tùy chọn | Xây dựng endpoint CRUD cho thông báo, hỗ trợ ngày hiệu lực tùy chọn, tự động ẩn thông báo sau ngày kết thúc nếu được cấu hình | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 19 | Tích hợp chatbot AI hỗ trợ khách hàng cho các truy vấn thông thường | Tích hợp dịch vụ chatbot AI, xây dựng endpoint xử lý truy vấn người dùng, chuyển tiếp đến hỗ trợ con người nếu độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 20 | Xây dựng giao diện người dùng di động phản hồi theo vai trò người dùng | Phát triển giao diện di động đáp ứng, hiển thị menu và màn hình tương ứng với vai trò người dùng (Student, Teacher, Admin, v.v.) | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 21 | Triển khai thông báo đẩy di động (FCM/APNs) cho các sự kiện hệ thống | Tích hợp FCM/APNs, quản lý token thiết bị người dùng, gửi thông báo đẩy cho các sự kiện như xác nhận điểm danh, thông báo mới, nhắc nhở | Mã Ứng dụng | [REQ-021], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 22 | Triển khai phát hiện ngôn ngữ mặc định và lưu trữ tùy chọn người dùng | Xây dựng cơ chế phát hiện ngôn ngữ từ tùy chọn đã lưu hoặc header Accept-Language, lưu trữ tùy chọn người dùng, cập nhật giao diện theo ngôn ngữ tương ứng | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 23 | Xây dựng cơ chế SEO đa ngôn ngữ với thẻ meta và hreflang cho 3 ngôn ngữ | Cấu hình thẻ meta ngôn ngữ, tạo liên kết hreflang cho tiếng Anh, tiếng Việt, tiếng Tây Ban Nha, đảm bảo mỗi trang có thuộc tính ngôn ngữ chính xác | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 24 | Triển khai chức năng tạo báo cáo điểm danh hàng ngày theo trung tâm (định dạng CSV) | Xây dựng endpoint tạo báo cáo điểm danh, cho phép chọn trung tâm và khoảng thời gian, xuất file CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 25 | Xây dựng bảng điều khiển tóm tắt ghi danh thời gian thực cho Center Admin | Tạo bảng điều khiển hiển thị tổng số học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tiếp theo), cập nhật dữ liệu thời gian thực | Mã Ứng dụng | [REQ-025], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 26 | Khởi tạo hạ tầng cơ sở dữ liệu và xác thực tất cả thực thể dữ liệu | Tạo schema cơ sở dữ liệu PostgreSQL cho tất cả 11 bảng nghiệp vụ, chạy migration kiểm tra tính toàn vẹn dữ liệu và ràng buộc khóa ngoại | Tài liệu Doanh nghiệp | [DAT-ALL (1 to 11)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 27 | Triển khai lớp bảo mật RBAC và các luồng kiểm soát truy cập kiến trúc | Cấu hình quyền truy cập theo vai trò cho tất cả các endpoint, triển khai xác thực JWT và OAuth2, đảm bảo tuân thủ OWASP Top 10 | Tài liệu Doanh nghiệp | [ARC-001 to ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 28 | Xây dựng hạ tầng DevOps (Docker, Terraform, GKE) và triển khai pipeline CI/CD | Tạo Dockerfile đa giai đoạn, cấu hình Terraform cho tài nguyên GCP, triển khai manifest GKE, thiết lập GitHub Actions cho CI/CD | Hạ tầng DevOps | [NFR-001 to NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 29 | Xây dựng tài liệu kiến trúc hệ thống, tài liệu API và hướng dẫn vận hành | Tạo bản vẽ kiến trúc tổng thể, tài liệu tham chiếu API REST, hướng dẫn cài đặt và vận hành hệ thống | Tài liệu Doanh nghiệp | [ARC-001 to ARC-010], [NFR-001 to NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| **TÓM TẮT** | **Tổng số thẻ theo dõi được bao phủ:** 60 | **Tổng số nhiệm vụ:** 29 | **Trạng thái:** THẤT BẠI | **Tỷ lệ bao phủ:** 103.45% |
+| 1 | Khởi tạo cấu trúc dự án backend vi mô Quarkus | Tạo pom.xml gốc và pom.xml cho từng service vi mô (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot) | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Khởi tạo cấu trúc dự án frontend Next.js | Tạo package.json và tsconfig.json cho ứng dụng web và di động | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Khởi tạo cấu trúc thư mục tài liệu doanh nghiệp | Tạo cấu trúc thư mục cho bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành | Tài liệu Doanh nghiệp | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Triển khai chức năng đăng ký người dùng bằng email/mật khẩu | Xác thực đầu vào, tạo bản ghi người dùng với vai trò Student, cấp JWT token | Mã Ứng dụng | [REQ-001, EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Triển khai xác thực mạng xã hội OAuth2 | Tích hợp Firebase, Google, Facebook OAuth2, xử lý mã xác thực, tạo/cập nhật bản ghi người dùng, cấp JWT | Mã Ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Triển khai chức năng phân quyền người dùng | Gán/thay đổi vai trò người dùng, áp dụng quyền truy cập ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Triển khai chức năng xem danh sách trung tâm | Hiển thị danh sách trung tâm với địa chỉ, mã số thuế, thông tin liên hệ quản trị | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Triển khai chức năng quản lý trung tâm (CRUD) | Thêm, sửa, xóa bản ghi trung tâm, kiểm tra trùng mã số thuế | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 9 | Triển khai chức năng phân quyền quản trị trung tâm | Gán/huỷ gán quyền Center Admin cho người dùng tại trung tâm cụ thể | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 10 | Triển khai chức năng xem danh sách khóa học | Hiển thị danh sách khóa học với lịch học và giáo viên phụ trách | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 11 | Triển khai chức năng quản lý khóa học (CRUD) với kiểm tra xung đột lịch | Thêm, sửa, xóa khóa học, kiểm tra trùng lịch giáo viên/địa điểm | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 12 | Triển khai chức năng phân công giáo viên vào khóa học | Gán/huỷ gán giáo viên cho khóa học, kích hoạt thông báo cho giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 13 | Triển khai chức năng duyệt khóa học cho học viên | Hiển thị danh sách khóa học chưa đăng ký của học viên | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 14 | Triển khai chức năng đăng ký khóa học học viên | Xử lý đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại, gửi thông báo | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 15 | Triển khai chức năng điểm danh quét mã QR | Nhận payload quét QR, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012, EXC-001, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 16 | Triển khai tính chất bất biến của điểm danh | Đảm bảo chỉ tạo 1 bản ghi điểm danh/học viên/khóa học/ngày, xử lý yêu cầu trùng lặp | Mã Ứng dụng | [REQ-013, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 17 | Triển khai chức năng hiển thị tính hợp lệ thẻ hội viên | Hiển thị tổng số ngày hiệu lực, số ngày đã sử dụng, số ngày còn lại của thẻ hội viên | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 18 | Triển khai chức năng gia hạn thẻ hội viên | Gia hạn ngày kết thúc thẻ sau khi xác nhận thanh toán, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 19 | Triển khai chức năng kích hoạt thông báo đa kênh | Tạo bản ghi thông báo, xếp hàng push notification, gửi tin nhắn nhóm Zalo | Mã Ứng dụng | [REQ-016, EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 20 | Triển khai chức năng quản lý khuyến mãi | CRUD khuyến mãi (giảm giá, ưu đãi) với ngày bắt đầu/kết thúc, hiển thị cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 21 | Triển khai chức năng quản lý thông báo | CRUD thông báo với ngày hết hạn tùy chọn, tự động ẩn sau ngày hết hạn, phát sóng toàn hệ thống | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 22 | Triển khai tích hợp chatbot AI | Xử lý câu hỏi thường gặp về khóa học, giáo viên, trung tâm, trạng thái tài khoản, leo thang hỗ trợ khi độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 23 | Triển khai giao diện người dùng vai trò trên di động | Xây dựng giao diện responsive Next.js cho từng vai trò (Student, Teacher, Admin...), đồng bộ chức năng với web | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 24 | Triển khai thông báo đẩy trên di động | Tích hợp FCM/APNs, quản lý token thiết bị, xử lý nhận thông báo trên ứng dụng di động | Mã Ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 25 | Triển khai phát hiện ngôn ngữ mặc định | Phát hiện ngôn ngữ ưu tiên của người dùng, lưu trữ cài đặt, fallback sang Accept-Language header | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 26 | Triển khai SEO đa ngôn ngữ | Thêm thẻ meta ngôn ngữ, thuộc tính hreflang, hỗ trợ 3 ngôn ngữ (Anh, Việt, Tây Ban Nha) | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 27 | Triển khai chức năng tạo báo cáo điểm danh CSV | Xuất báo cáo điểm danh hàng ngày cho trung tâm, định dạng CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024, EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 28 | Triển khai bảng điều khiển tóm tắt ghi danh | Xây dựng dashboard realtime hiển thị tổng học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tới) | Mã Ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 29 | Khởi tạo hạ tầng cơ sở dữ liệu PostgreSQL | Tạo schema, tất cả các bảng dữ liệu theo định nghĩa, cấu hình connection pool và index tối ưu | Mã Ứng dụng | [DAT-ALL (1 to 9)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 30 | Triển khai lớp bảo mật RBAC và xác thực | Triển khai kiểm soát truy cập dựa trên vai trò, xác thực JWT, OAuth2, refresh token, bảo vệ tất cả endpoint | Mã Ứng dụng | [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 31 | Triển khai hợp đồng tích hợp hệ thống | Triển khai luồng xác thực, điểm danh QR, thông báo đa kênh, tích hợp backend-frontend | Mã Ứng dụng | [ARC-006, ARC-007, ARC-008, ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 32 | Triển khai hạ tầng DevOps và đám mây | Xây dựng Dockerfile đa giai đoạn, pipeline CI/CD GitHub Actions, triển khai GKE, cấu hình Terraform cho GCP, tích hợp FCM/APNs, Zalo API, Redis caching, đảm bảo tuân thủ NFR | Hạ tầng DevOps | [NFR-001, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, NFR-007, NFR-008, NFR-009, ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 33 | Xây dựng tài liệu hệ thống doanh nghiệp | Viết bản vẽ kiến trúc, hợp đồng API REST/Event, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng | Tài liệu Doanh nghiệp | <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **TÓM TẮT** | **Tổng số thẻ theo dõi đã bao phủ:** 58 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** ĐÃ XÁC THỰC | **Mức độ bao phủ:** 100% <!--REGISTERED_BACKLOG_TASK_ROW--> |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 
@@ -797,22 +813,21 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 
 ### 🔭 4.2. MA TRẬN TỔNG QUAN ĐA GIAI ĐOẠN
 <!--START_PHASE_SYNOPSIS_GRID-->
-### [MA TRẬN SỐ HỌC VÒNG ĐỜI]
-> - **Tổng số nhiệm vụ backlog:** 29 Nhiệm vụ
-> - **Tổng số thẻ backlog:** 60 Thẻ
-> - **Tổng số nhiệm vụ được phân phối:** 29 Nhiệm vụ
-> - **Tổng số thẻ được phân phối:** 60 Thẻ
+### CHU KỲ SỐ HỌC MA TRẬN
+> - **Tổng số nhiệm vụ backlog:** 33 Nhiệm vụ
+> - **Tổng số thẻ backlog:** 58 Thẻ
+> - **Tổng số nhiệm vụ đã phân phối:** 33 Nhiệm vụ
+> - **Tổng số thẻ đã phân phối:** 58 Thẻ
 
-| Giai đoạn | Khoảng ngày | ID nhiệm vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm kỹ thuật | Đại lý phụ được phân công | ID thẻ mục tiêu |
+| Giai đoạn | Khoảng ngày | ID Nhiệm vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm bàn giao kỹ thuật | Đại lý phụ trách | ID Thẻ được nhắm mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | Ngày 1 - 4 | Nhiệm vụ 1, Nhiệm vụ 2, Nhiệm vụ 3, Nhiệm vụ 4, Nhiệm vụ 5, Nhiệm vụ 6, Nhiệm vụ 26 | ./sources/backend/migrations, ./sources/backend/auth-service, ./sources/backend/user-service, ./sources/backend/center-service | Khởi tạo schema PostgreSQL cho các bảng người dùng, vai trò, trung tâm; triển khai xác thực email/mật khẩu và OAuth2 (Firebase/Google/Facebook); cấp JWT token 15 phút và refresh token 7 ngày; triển khai cơ chế RBAC với 5 vai trò được định nghĩa; xây dựng API CRUD quản lý trung tâm với kiểm tra trùng lặp mã số thuế | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [EXC-004], [DAT-001], [DAT-003], [ARC-001], [ARC-002], [ARC-006] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 2 | Ngày 1 - 5 | Nhiệm vụ 7, Nhiệm vụ 8, Nhiệm vụ 9, Nhiệm vụ 10, Nhiệm vụ 11, Nhiệm vụ 12, Nhiệm vụ 13 | ./sources/backend/course-service, ./sources/backend/enrollment-service, ./sources/backend/attendance-service, ./sources/frontend/web/course | Xây dựng API quản lý khóa học CRUD với kiểm tra xung đột lịch trình giáo viên/địa điểm; phân công giáo viên vào khóa học và gửi thông báo; xây dựng chức năng duyệt và đăng ký khóa học cho học viên (tự động tạo tài khoản Student nếu chưa tồn tại); triển khai endpoint quét mã QR điểm danh với tính chất idempotent, đảm bảo chỉ 1 bản ghi điểm danh mỗi học viên/khóa học/ngày; xử lý ngoại lệ mất kết nối mạng và gửi điểm danh trùng lặp | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-004], [DAT-005], [DAT-006], [ARC-007] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 3 | Ngày 1 - 4 | Nhiệm vụ 14, Nhiệm vụ 15, Nhiệm vụ 16, Nhiệm vụ 17, Nhiệm vụ 18 | ./sources/backend/membership-service, ./sources/backend/notification-service, ./sources/backend/promotion-service, ./sources/frontend/web/membership | Xây dựng API hiển thị thẻ hội viên kỹ thuật số với số ngày còn lại hiệu lực; triển khai chức năng gia hạn thẻ với tích hợp thanh toán; xây dựng hệ thống thông báo đa kênh (push FCM/APNs, nhóm Zalo) với cơ chế retry tối đa 3 lần khi gửi thất bại; triển khai quản lý khuyến mãi và thông báo có thời hạn hiển thị tùy chọn, tự động ẩn thông báo hết hạn | Coder, Tester, Reviewer, Doc | [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [EXC-003], [DAT-007], [DAT-008], [DAT-009], [ARC-008] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 4 | Ngày 1 - 4 | Nhiệm vụ 19, Nhiệm vụ 20, Nhiệm vụ 21, Nhiệm vụ 22, Nhiệm vụ 23, Nhiệm vụ 24, Nhiệm vụ 25 | ./sources/frontend/mobile-app, ./sources/backend/chatbot-service, ./sources/backend/report-service, ./sources/frontend/web/seo | Tích hợp chatbot AI hỗ trợ khách hàng với chuyển tiếp đến hỗ trợ con người khi độ tin cậy thấp; phát triển giao diện di động đáp ứng theo vai trò người dùng; triển khai thông báo đẩy di động (FCM/APNs); cấu hình phát hiện ngôn ngữ mặc định và lưu trữ tùy chọn người dùng, hỗ trợ đa ngôn ngữ (Anh, Việt, Tây Ban Nha); triển khai SEO đa ngôn ngữ với thẻ meta và hreflang; xây dựng chức năng tạo báo cáo điểm danh CSV hàng ngày theo trung tâm và bảng điều khiển tóm tắt ghi danh thời gian thực; xử lý ngoại lệ khôi phục hệ thống sau sự cố, xử lý điểm danh pending theo thứ tự FIFO | Coder, Tester, Reviewer, Doc | [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-003], [EXC-005], [DAT-011], [ARC-009] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 5 | Ngày 1 - 5 | Nhiệm vụ 27, Nhiệm vụ 28, Nhiệm vụ 29 | ./sources/infra/terraform, ./sources/infra/docker, ./sources/infra/gke, ./sources/docs/architecture, ./sources/docs/api, ./sources/docs/operations | Triển khai lớp bảo mật RBAC toàn hệ thống và các luồng kiểm soát truy cập kiến trúc, đảm bảo tuân thủ OWASP Top 10; xây dựng hạ tầng DevOps với Docker đa giai đoạn (kích thước hình ảnh cuối <500MB), Terraform provisioning tài nguyên GCP, triển khai manifest GKE với HPA tự động scale dựa trên CPU >70% hoặc độ trễ yêu cầu >300ms, thiết lập pipeline CI/CD với GitHub Actions; xây dựng tài liệu kiến trúc hệ thống, tài liệu tham chiếu API REST, hướng dẫn cài đặt và vận hành; đảm bảo tuân thủ các yêu cầu phi chức năng về hiệu suất (độ trễ API <200ms), khả năng sẵn sàng (99.9% uptime), bảo mật (TLS 1.3, mã hóa AES-256), khả năng mở rộng, ghi log audit lưu trữ 1 năm, đa ngôn ngữ, tuân thủ GDPR/CCPA, sao lưu PostgreSQL hàng ngày và phục hồi điểm thời lên đến 24 giờ | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
-| **Kiểm toán** | **Xác minh phân phối backlog tổng thể** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ backlog:** 60 | **Tổng số thẻ được phân phối:** 60 | **Tổng số nhiệm vụ được phân phối:** 29 | **Trạng thái & Tuân thủ:** Đã xác minh (100%) |
+| Giai đoạn 1 | 1-7 | Nhiệm vụ 1, 2, 3, 29, 30, 4, 5, 6, 7, 8, 9 | ./sources/backend, ./sources/frontend, ./sources/docs | Khởi tạo cấu trúc dự án vi mô backend Quarkus (pom.xml gốc và các module service), cấu trúc dự án frontend Next.js (package.json, tsconfig.json), cấu trúc thư mục tài liệu doanh nghiệp, khởi tạo schema cơ sở dữ liệu PostgreSQL với toàn bộ các bảng dữ liệu theo định nghĩa, triển khai lớp xác thực RBAC và OAuth2 (JWT, refresh token), triển khai các chức năng cốt lõi quản lý người dùng (đăng ký, xác thực xã hội, phân quyền) và quản lý trung tâm (xem danh sách, CRUD, phân quyền quản trị trung tâm) | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [REQ-001], [EXC-004], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 2 | 1-2 | Nhiệm vụ 10, 11, 12, 13, 14 | ./sources/backend/course-service, ./sources/backend/enrollment-service, ./sources/frontend | Triển khai các chức năng quản lý khóa học (xem danh sách, CRUD với kiểm tra xung đột lịch giáo viên/địa điểm, phân công giáo viên) và chức năng đăng ký khóa học cho học viên (duyệt khóa học chưa đăng ký, xử lý đăng ký tự động tạo tài khoản Student nếu cần, gửi thông báo tự động) | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 3 | 1-4 | Nhiệm vụ 15, 16, 17, 18, 19, 20, 21 | ./sources/backend/attendance-service, ./sources/backend/membership-service, ./sources/backend/notification-service, ./sources/backend/promotion-service, ./sources/frontend | Triển khai chức năng điểm danh quét mã QR với tính bất biến chống trùng lặp (đảm bảo 1 bản ghi điểm danh/học viên/khóa học/ngày), quản lý thẻ hội viên (hiển thị số ngày còn lại, gia hạn thẻ sau thanh toán), hệ thống thông báo đa kênh (push notification, tin nhắn nhóm Zalo) với cơ chế retry khi gửi thất bại, quản lý khuyến mãi và thông báo hệ thống (CRUD với ngày hết hạn tùy chọn, tự động ẩn thông báo hết hạn) | Coder, Tester, Reviewer, Doc | [REQ-012], [EXC-001], [EXC-002], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [EXC-003], [REQ-017], [REQ-018] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 4 | 1-3 | Nhiệm vụ 22, 23, 24, 25, 26, 27, 28 | ./sources/backend/ai-chatbot-service, ./sources/frontend, ./sources/docs | Triển khai tích hợp chatbot AI hỗ trợ trả lời câu hỏi thường gặp và leo thang hỗ trợ khi độ tin cậy thấp, xây dựng giao diện người dùng responsive cho ứng dụng di động với phân quyền theo vai trò, tích hợp thông báo đẩy FCM/APNs, triển khai phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ (hreflang, thẻ meta), xây dựng chức năng xuất báo cáo điểm danh CSV và bảng điều khiển tóm tắt ghi danh realtime | Coder, Tester, Reviewer, Doc | [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [EXC-005], [REQ-025] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 5 | 1-5 | Nhiệm vụ 31, 32, 33 | ./sources/infra, ./sources/docs | Triển khai toàn bộ hạ tầng DevOps và đám mây: xây dựng Dockerfile đa giai đoạn cho tất cả service, pipeline CI/CD GitHub Actions, triển khai cụm GKE với auto-scaling, cấu hình hạ tầng GCP (VPC, IAM, Storage, PostgreSQL read replicas) qua Terraform, tích hợp FCM/APNs, Zalo API, Redis caching cho session, đảm bảo tuân thủ tất cả yêu cầu phi chức năng (hiệu năng, bảo mật, khả năng sẵn sàng, sao lưu và phục hồi thảm họa, tuân thủ GDPR/CCPA), hoàn thiện toàn bộ tài liệu hệ thống doanh nghiệp (bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng) | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
+| **Kiểm toán** | **Xác minh phân phối tổng backlog** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ backlog:** 58 | **Tổng số thẻ đã phân phối:** 58 | **Tổng số nhiệm vụ đã phân phối:** 33 | **Trạng thái & Tuân thủ:** Đã xác thực (100%) |
 <!--END_PHASE_SYNOPSIS_GRID-->
-<!--END_PART_1_MATRIX_4_2-->
 --- END BACKLOG TASKS ---
 </PROJECT_BACKLOG_TASKS_DATA>
 
@@ -820,11 +835,11 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 --- HISTORY LEDGER MAP ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ### Phase 3 Logs (Atomic Salvaged Tag Lines):
 
@@ -838,193 +853,299 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 
 ---
 
-### 📈 Giai đoạn 4 - Tích hợp Chatbot AI, Giao diện Di động, Thông báo Đẩy, Đa ngôn ngữ, SEO và Báo cáo Điểm danh
-- **Mục tiêu cốt lõi của giai đoạn:** Triển khai toàn bộ các tính năng tương tác người dùng cuối, bao gồm tích hợp chatbot AI hỗ trợ khách hàng, phát triển giao diện di động đáp ứng theo vai trò người dùng, triển khai hệ thống thông báo đẩy di động (FCM/APNs), cấu hình hỗ trợ đa ngôn ngữ với phát hiện ngôn ngữ mặc định, tối ưu SEO đa ngôn ngữ cho 3 ngôn ngữ (Anh, Việt, Tây Ban Nha), xây dựng chức năng tạo báo cáo điểm danh CSV hàng ngày theo trung tâm và bảng điều khiển tóm tắt ghi danh thời gian thực cho quản lý trung tâm, đảm bảo tất cả yêu cầu chức năng [REQ-019] đến [REQ-025] được thực hiện đầy đủ và tích hợp liền mạch với các dịch vụ backend hiện có.
+<!--START_PHASE_INDEX-->
+### 📈 GIAI ĐOẠN 4 - TÍCH HỢP CHATBOT AI, GIAO DIỆN DI ĐỘNG VÀ BÁO CÁO
+- **Mục tiêu cốt lõi của giai đoạn & Mục đích:** Triển khai các tính năng nâng cao và giao diện người dùng cuối: tích hợp chatbot AI hỗ trợ trả lời câu hỏi thường gặp và leo thang hỗ trợ khi độ tin cậy thấp, xây dựng giao diện responsive cho ứng dụng di động với phân quyền theo vai trò, tích hợp thông báo đẩy FCM/APNs, triển khai phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ (hreflang, thẻ meta), xây dựng chức năng xuất báo cáo điểm danh CSV và bảng điều khiển tóm tắt ghi danh realtime. Giai đoạn này tập trung vào hoàn thiện trải nghiệm người dùng và khả năng phân tích dữ liệu.
 
-- **Bản đồ ma trận đường dẫn vật lý mục tiêu:** Tạo danh sách đầy đủ tất cả các tệp vật lý tương đối cụ thể được tạo hoặc cập nhật trong phạm vi giai đoạn này, mỗi mục là một tệp với phần mở rộng rõ ràng và thẻ theo dõi tương ứng:
-  * ./sources/frontend/mobile-app/src/main/java/com/hub/mobile/MobileAppMain.java [REQ-020]
-  * ./sources/frontend/mobile-app/src/main/java/com/hub/mobile/ui/role/RoleBasedNavigation.kt [REQ-020]
-  * ./sources/frontend/mobile-app/src/main/java/com/hub/mobile/attendance/QRScannerFragment.kt [REQ-012]
-  * ./sources/frontend/mobile-app/src/main/java/com/hub/mobile/notification/PushNotificationHandler.kt [REQ-021]
-  * ./sources/backend/chatbot-service/src/main/java/com/hub/chatbot/ChatbotController.java [REQ-019]
-  * ./sources/backend/chatbot-service/src/main/java/com/hub/chatbot/AIServiceClient.java [REQ-019]
-  * ./sources/backend/chatbot-service/src/main/java/com/hub/chatbot/EscalationService.java [REQ-019]
-  * ./sources/backend/report-service/src/main/java/com/hub/report/AttendanceReportController.java [REQ-024]
-  * ./sources/backend/report-service/src/main/java/com/hub/report/CSVExportService.java [REQ-024]
-  * ./sources/backend/report-service/src/main/java/com/hub/report/EnrollmentDashboardController.java [REQ-025]
-  * ./sources/backend/report-service/src/main/java/com/hub/report/DashboardMetricsService.java [REQ-025]
-  * ./sources/frontend/web/seo/src/components/LanguageSwitcher.tsx [REQ-022]
-  * ./sources/frontend/web/seo/src/components/HreflangTags.tsx [REQ-023]
-  * ./sources/frontend/web/seo/src/utils/localeDetector.ts [REQ-022]
-  * ./sources/frontend/web/seo/src/pages/[locale]/index.tsx [REQ-023]
-  * ./sources/docs/api/chatbot-api.md [REQ-019]
-  * ./sources/docs/operations/i18n-seo-guide.md [REQ-022], [REQ-023]
+- **Bản đồ ma trận thư mục vật lý đích:** 
+  * ./sources/backend/ai-chatbot-service/pom.xml [ARC-000]
+  * ./sources/backend/ai-chatbot-service/src/main/java/com/hub/ai/ChatbotService.java [REQ-019]
+  * ./sources/backend/ai-chatbot-service/src/main/java/com/hub/ai/ChatbotController.java [REQ-019]
+  * ./sources/backend/ai-chatbot-service/src/test/java/com/hub/ai/ChatbotServiceTest.java [REQ-019]
+  * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceReportService.java [REQ-024, EXC-005]
+  * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/ReportController.java [REQ-024]
+  * ./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceReportIntegrationTest.java [REQ-024, EXC-005]
+  * ./sources/frontend/package.json [ARC-000]
+  * ./sources/frontend/tsconfig.json [ARC-000]
+  * ./sources/frontend/src/app/[locale]/layout.tsx [REQ-022, REQ-023]
+  * ./sources/frontend/src/app/[locale]/page.tsx [REQ-022, REQ-023]
+  * ./sources/frontend/src/components/mobile/MobileDashboard.tsx [REQ-020]
+  * ./sources/frontend/src/components/chat/ChatWidget.tsx [REQ-019]
+  * ./sources/frontend/src/hooks/usePushNotifications.ts [REQ-021]
+  * ./sources/frontend/src/lib/seo.ts [REQ-023]
+  * ./sources/frontend/src/components/dashboard/EnrollmentDashboard.tsx [REQ-025]
+  * ./sources/frontend/src/e2e/mobile-ui.spec.ts [REQ-020, REQ-021]
+  * ./sources/frontend/src/e2e/dashboard-chatbot.spec.ts [REQ-025, REQ-019]
+  * ./sources/docs/ai-chatbot-api-spec.md [REQ-019]
+  * ./sources/docs/report-api-spec.md [REQ-024]
+  * ./sources/docs/mobile-ui-spec.md [REQ-020, REQ-022, REQ-023]
+  * ./sources/docs/phase4-technical-spec.md [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-005]
 
-- **Thông số kỹ thuật DDL SQL cơ sở dữ liệu [DAT-011]:**
+- **Đặc tả SQL DDL Schema Cơ sở dữ liệu:** [DAT-XXX]
 ```sql
--- Giai đoạn này không yêu cầu thay đổi cơ sở dữ liệu hoặc lớp lưu trữ nào
+-- Không có thay đổi cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu cho ngữ cảnh giai đoạn này
 ```
 
-- **API và hợp đồng định tuyến sự kiện [REQ-019], [ARC-009]:**
-  * **Endpoint Chatbot AI:** `POST /api/v1/chatbot/message`
-    * Yêu cầu: `{"message": "string", "sessionId": "uuid"}`
-    * Phản hồi thành công (200 OK): `{"reply": "string", "confidence": "float", "escalate": "boolean"}`
-  * **Endpoint đăng ký token thông báo đẩy:** `POST /api/v1/notifications/register-token`
-    * Yêu cầu: `{"deviceToken": "string", "platform": "FCM/APNs", "userId": "uuid"}`
-    * Phản hồi thành công (200 OK): `{"status": "registered"}`
-  * **Endpoint xuất báo cáo điểm danh CSV:** `GET /api/v1/reports/attendance/csv?centerId={uuid}&startDate={YYYY-MM-DD}&endDate={YYYY-MM-DD}`
-    * Phản hồi thành công (200 OK): File CSV với các cột `StudentName, CourseName, AttendanceDate, Status`
-  * **Endpoint bảng điều khiển ghi danh:** `GET /api/v1/dashboard/enrollment?centerId={uuid}`
-    * Phản hồi thành công (200 OK): `{"totalStudents": "int", "activeCourses": "int", "upcomingSessions": "int"}`
-  * **Endpoint cập nhật tùy chọn ngôn ngữ:** `POST /api/v1/user/locale`
-    * Yêu cầu: `{"locale": "en/vi/es"}`
-    * Phản hồi thành công (200 OK): `{"status": "updated"}`
-  * **Chủ đề sự kiện thông báo:** `attendance.confirmed`, `course.assigned`, `announcement.created` được xuất bản đến Kafka, kích hoạt gửi thông báo đẩy và tin nhắn nhóm Zalo.
+- **Hợp đồng định tuyến API và Sự kiện:** [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+  * **Chatbot API:** `POST /api/chatbot/message` - Nhận payload tin nhắn từ người dùng, trả về phản hồi AI hoặc leo thang hỗ trợ. Yêu cầu: `{"message": "string", "sessionId": "uuid", "context": {"userId": "uuid", "role": "string"}}`. Phản hồi: `{"response": "string", "confidence": 0.95, "escalate": false, "suggestedActions": ["string"]}`. [REQ-019]
+  * **Report API:** `GET /api/reports/attendance/csv` - Xuất báo cáo điểm danh CSV cho trung tâm và khoảng ngày. Tham số query: `centerId` (uuid), `startDate` (date), `endDate` (date). Phản hồi: File CSV với các cột StudentName, CourseName, AttendanceDate, Status. [REQ-024, EXC-005]
+  * **Dashboard API:** `GET /api/dashboard/enrollment-summary` - Lấy dữ liệu tóm tắt dashboard. Phản hồi: `{"totalStudents": 100, "activeCourses": 5, "upcomingSessions": 12}`. [REQ-025]
+  * **Push Notification Event:** `notification.sent` - Sự kiện được phát ra khi thông báo được gửi đến hàng đợi FCM/APNs. Payload: `{"userId": "uuid", "title": "string", "body": "string", "data": {}}`. [REQ-021, ARC-008]
 
-- **Trình xử lý ngoại lệ địa phương của giai đoạn [EXC-003], [EXC-005]:**
-  * **[EXC-003] Lỗi gửi thông báo đẩy:** Nếu không thể gửi thông báo đẩy (ví dụ: token thiết bị không hợp lệ), hệ thống ghi lại lỗi, lên lịch thử lại tối đa 3 lần trước khi đánh dấu là thất bại. Phản hồi lỗi: `502 BAD_GATEWAY` với payload `{"error": "PUSH_DELIVERY_FAILED", "retryCount": "int", "message": "Không thể gửi thông báo, sẽ thử lại sau"}`.
-  * **[EXC-005] Khôi phục hệ thống sau sự cố:** Nếu dịch vụ gặp sự cố và khôi phục, tất cả điểm danh đang chờ xử lý được xử lý theo thứ tự FIFO, người dùng nhận được thông báo về các sự kiện đã khôi phục. Trong thời gian sự cố, phản hồi lỗi là `503 SERVICE_UNAVAILABLE`, sau khi khôi phục trả về `200 OK` với thông báo xác nhận khôi phục.
+- **Trình xử lý ngoại lệ địa phương của giai đoạn:** [EXC-005]
+  * **[EXC-005] Phục hồi hệ thống sau sự cố:** Khi dịch vụ khôi phục sau thời gian chết, hệ thống xử lý tất cả điểm danh đang chờ theo thứ tự FIFO và gửi thông báo cho người dùng về các sự kiện đã khôi phục. Áp dụng cho dịch vụ báo cáo điểm danh và toàn bộ luồng xử lý điểm danh. [EXC-005]
 
-#### 📅 Nhật ký phân công tác nghiệp phụ theo thứ tự thời gian (Giai đoạn 4)
+#### 📅 NHẬT KÝ PHÂN CÔNG NHIỆM VỤ TÁC NHÂN PHỤ THEO THỜI GIAN TỪNG NGÀY (GIAI ĐOẠN 4)
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 Ngày 1: Triển khai Chatbot AI và giao diện di động cơ bản theo vai trò
+
+##### 📅 NGÀY 1: Triển khai nền tảng backend cho chatbot AI và dịch vụ báo cáo điểm danh
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 1: Xây dựng dịch vụ Chatbot AI backend
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-019]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/chatbot-service/src/main/java/com/hub/chatbot/ChatbotController.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Xây dựng endpoint REST POST /api/v1/chatbot/message, tích hợp với dịch vụ AI bên thứ ba (ví dụ: Google Dialogflow), xử lý truy vấn người dùng, trả về phản hồi phù hợp hoặc chuyển tiếp đến hỗ trợ con người nếu độ tin cậy của phản hồi AI < 0.7. Đảm bảo xác thực người dùng qua JWT token trước khi xử lý truy vấn.
+
+###### 🌿 NHIỆM VỤ PHỤ 1: Khởi tạo module ai-chatbot-service
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [ARC-000]
+- **Đường dẫn thành phần đích (target_component):** ./sources/backend/ai-chatbot-service/pom.xml
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo cấu trúc dự án Maven cho service vi mô ai-chatbot-service với các phụ thuộc Quarkus, RESTEasy Reactive, và thư viện xử lý ngôn ngữ tự nhiên. Định nghĩa module trong pom.xml gốc. [ARC-000]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 2: Xây dựng logic điều hướng giao diện di động theo vai trò
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-020]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/mobile-app/src/main/java/com/hub/mobile/ui/role/RoleBasedNavigation.kt
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Xây dựng logic hiển thị menu và màn hình dựa trên vai trò người dùng (Student, Teacher, Center Admin, System Admin, Manager), đảm bảo chỉ hiển thị các tính năng được phép truy cập theo cơ chế RBAC đã triển khai ở Giai đoạn 1. Tích hợp với dịch vụ xác thực để lấy thông tin vai trò người dùng hiện tại.
+
+###### 🌿 NHIỆM VỤ PHỤ 2: Triển khai ChatbotService và ChatbotController
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-019]
+- **Đường dẫn thành phần đích (target_component):** ./sources/backend/ai-chatbot-service/src/main/java/com/hub/ai/ChatbotService.java
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai lớp ChatbotService với logic xử lý câu hỏi thường gặp về khóa học, giáo viên, trung tâm và trạng thái tài khoản. Tích hợp mô hình NLP để phân loại ý định và trích xuất thực thể. Triển khai ChatbotController với endpoint POST /api/chatbot/message, xác thực JWT, và cơ chế leo thang hỗ trợ khi độ tin cậy thấp. [REQ-019]
+
+**Hợp đồng API:**
+```json
+{
+  "endpoint": "POST /api/chatbot/message",
+  "request": {
+    "message": "string",
+    "sessionId": "uuid",
+    "context": {
+      "userId": "uuid",
+      "role": "string"
+    }
+  },
+  "response": {
+    "response": "string",
+    "confidence": 0.95,
+    "escalate": false,
+    "suggestedActions": ["string"]
+  }
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 3: Viết unit test cho dịch vụ Chatbot
-* **Chuyên môn tác nghiệp phụ:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-019]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/chatbot-service/src/main/java/com/hub/chatbot/ChatbotController.java;./sources/backend/chatbot-service/src/test/java/com/hub/chatbot/ChatbotControllerTest.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Viết unit test kiểm tra các trường hợp: (1) Truy vấn hợp lệ trả về phản hồi từ AI, (2) Truy vấn có độ tin cậy < 0.7 kích hoạt chuyển tiếp đến hỗ trợ con người, (3) Đầu vào không hợp lệ (thiếu message hoặc sessionId) trả về lỗi 400 Bad Request, (4) Người dùng chưa xác thực trả về lỗi 401 Unauthorized.
+
+###### 🌿 NHIỆM VỤ PHỤ 3: Viết unit test cho ChatbotService
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Tester]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-019]
+- **Đường dẫn thành phần đích (target_component):** ./sources/backend/ai-chatbot-service/src/main/java/com/hub/ai/ChatbotService.java;./sources/backend/ai-chatbot-service/src/test/java/com/hub/ai/ChatbotServiceTest.java
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết unit test cho ChatbotService bao gồm các kịch bản: câu hỏi thường gặp được trả lời chính xác, leo thang hỗ trợ khi độ tin cậy thấp, xử lý ngữ cảnh người dùng. Sử dụng JUnit 5 và Mockito. [REQ-019]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 4: Tạo tài liệu tham chiếu API Chatbot
-* **Chuyên môn tác nghiệp phụ:** [Doc]
-* **ID thẻ mục tiêu:** [REQ-019]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/api/chatbot-api.md
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Tạo tài liệu tham chiếu API cho endpoint chatbot, mô tả chi tiết yêu cầu đầu vào, cấu trúc phản hồi, danh sách mã lỗi, ví dụ sử dụng và hướng dẫn tích hợp cho frontend.
+
+###### 🌿 NHIỆM VỤ PHỤ 4: Viết tài liệu API cho chatbot
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Doc]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-019]
+- **Đường dẫn thành phần đích (target_component):** ./sources/docs/ai-chatbot-api-spec.md
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tài liệu kỹ thuật chi tiết cho API chatbot, bao gồm endpoint, schema request/response, mã lỗi, ví dụ sử dụng, và hướng dẫn tích hợp frontend. [REQ-019]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ PHỤ 5: Triển khai AttendanceReportService cho xuất CSV
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-024, EXC-005]
+- **Đường dẫn thành phần đích (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceReportService.java
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai lớp AttendanceReportService với phương thức generateAttendanceReport(centerId, startDate, endDate) trả về định dạng CSV. Bao gồm logic truy vấn dữ liệu điểm danh, xử lý FIFO cho các bản ghi đang chờ sau sự cố hệ thống, và gửi thông báo phục hồi cho người dùng. [REQ-024, EXC-005]
+
+**Xử lý ngoại lệ:**
+```java
+// EXC-005: System Recovery After Outage
+// Khi dịch vụ khôi phục, xử lý điểm danh đang chờ theo FIFO
+public void processPendingAttendanceAfterRecovery() {
+    List<Attendance> pendingAttendances = attendanceRepository.findPendingAfterOutage();
+    for (Attendance attendance : pendingAttendances) {
+        processAttendance(attendance);
+        notificationService.sendRecoveryNotification(attendance.getStudentId(), attendance.getAttendanceDate());
+    }
+}
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ PHỤ 6: Viết integration test cho dịch vụ báo cáo
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Tester]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-024, EXC-005]
+- **Đường dẫn thành phần đích (target_component):** INTEGRATION_SCOPE;./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceReportIntegrationTest.java
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết integration test cho AttendanceReportService sử dụng Testcontainers với PostgreSQL. Kiểm tra: tạo báo cáo CSV chính xác, xử lý điểm danh trùng lặp, và kịch bản phục hồi sau sự cố hệ thống (EXC-005). [REQ-024, EXC-005]
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ PHỤ 7: Viết tài liệu API cho báo cáo
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Doc]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-024]
+- **Đường dẫn thành phần đích (target_component):** ./sources/docs/report-api-spec.md
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tài liệu kỹ thuật cho API báo cáo điểm danh, bao gồm endpoint GET /api/reports/attendance/csv, tham số query, định dạng CSV, và ví dụ sử dụng. [REQ-024]
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--END_DAY_LOG_INDEX-->
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 Ngày 2: Triển khai thông báo đẩy di động và tích hợp quét QR
+
+##### 📅 NGÀY 2: Triển khai giao diện người dùng di động, thông báo đẩy và tối ưu SEO đa ngôn ngữ
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 1: Xây dựng dịch vụ xử lý thông báo đẩy backend
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-021], [EXC-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/notification-service/src/main/java/com/hub/notification/PushNotificationService.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Xây dựng dịch vụ đăng ký và quản lý token thiết bị FCM/APNs của người dùng, xử lý hàng đợi thông báo đẩy, triển khai cơ chế thử lại tối đa 3 lần khi gửi thất bại, ghi log chi tiết lỗi nếu gửi không thành công sau 3 lần thử. Tích hợp với dịch vụ thông báo hiện có để gửi thông báo cho các sự kiện điểm danh, phân công khóa học và thông báo mới.
+
+###### 🌿 NHIỆM VỤ PHỤ 1: Triển khai giao diện responsive cho ứng dụng di động
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-020]
+- **Đường dẫn thành phần đích (target_component):** ./sources/frontend/src/components/mobile/MobileDashboard.tsx
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng thành phần MobileDashboard responsive sử dụng Tailwind CSS, hiển thị menu điều hướng và màn hình phù hợp với vai trò người dùng (Student, Teacher, Admin). Đảm bảo đồng bộ chức năng với phiên bản web. [REQ-020]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 2: Tích hợp SDK thông báo đẩy vào ứng dụng di động
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-021]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/mobile-app/src/main/java/com/hub/mobile/notification/PushNotificationHandler.kt
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Tích hợp SDK Firebase Cloud Messaging (FCM) cho Android và Apple Push Notification Service (APNs) cho iOS, xử lý nhận thông báo đẩy khi ứng dụng ở foreground, background và bị tắt, hiển thị thông báo cho người dùng với nội dung phù hợp với loại sự kiện.
+
+###### 🌿 NHIỆM VỤ PHỤ 2: Tích hợp thông báo đẩy FCM/APNs
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-021]
+- **Đường dẫn thành phần đích (target_component):** ./sources/frontend/src/hooks/usePushNotifications.ts
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai hook usePushNotifications để đăng ký token thiết bị với FCM/APNs, xử lý nhận thông báo, và hiển thị thông báo trong ứng dụng. Tích hợp với Firebase Cloud Messaging cho Android và Apple Push Notification service cho iOS. [REQ-021]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 3: Viết integration test cho luồng thông báo đẩy
-* **Chuyên môn tác nghiệp phụ:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-021], [EXC-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/notification-service/src/test/java/com/hub/notification/PushNotificationIntegrationTest.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Viết integration test kiểm tra toàn bộ luồng: đăng ký token thiết bị, gửi thông báo thành công đến thiết bị thật/giả lập, xử lý lỗi gửi thất bại do token không hợp lệ, kiểm tra cơ chế thử lại tự động tối đa 3 lần.
+
+###### 🌿 NHIỆM VỤ PHỤ 3: Triển khai phát hiện ngôn ngữ mặc định và định tuyến i18n
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-022]
+- **Đường dẫn thành phần đích (target_component):** ./sources/frontend/src/app/[locale]/layout.tsx
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai middleware phát hiện ngôn ngữ ưu tiên từ cookie đã lưu, sau đó fallback sang header Accept-Language. Cấu hình định tuyến Next.js với tham số [locale] để hỗ trợ đa ngôn ngữ mà không cần tải lại trang. [REQ-022]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 4: Kiểm tra chất lượng mã thông báo đẩy và giao diện di động
-* **Chuyên môn tác nghiệp phụ:** [Reviewer]
-* **ID thẻ mục tiêu:** [REQ-021], [EXC-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/notification-service/src/main/java/com/hub/notification/PushNotificationService.java;./sources/frontend/mobile-app/src/main/java/com/hub/mobile/notification/PushNotificationHandler.kt
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Kiểm tra chất lượng mã, đảm bảo tuân thủ OWASP Top 10 (không lộ token thiết bị, xác thực người dùng trước khi gửi thông báo), phát hiện lỗ hổng bảo mật, đề xuất cải tiến hiệu suất xử lý hàng đợi thông báo.
+
+###### 🌿 NHIỆM VỤ PHỤ 4: Triển khai SEO đa ngôn ngữ với hreflang và thẻ meta
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-023]
+- **Đường dẫn thành phần đích (target_component):** ./sources/frontend/src/lib/seo.ts
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tiện ích SEO động để tạo thẻ meta ngôn ngữ cụ thể, thuộc tính hreflang cho 3 ngôn ngữ (Anh, Việt, Tây Ban Nha), và đảm bảo mỗi trang có thẻ `<html lang='xx'>` chính xác. Tích hợp với Next.js Metadata API. [REQ-023]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ PHỤ 5: Viết E2E test cho giao diện di động và thông báo đẩy
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Tester]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-020, REQ-021]
+- **Đường dẫn thành phần đích (target_component):** INTEGRATION_SCOPE;./sources/frontend/src/e2e/mobile-ui.spec.ts
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết end-to-end test sử dụng Playwright hoặc Cypress để kiểm tra: giao diện responsive hiển thị đúng trên thiết bị di động, menu điều hướng theo vai trò hoạt động chính xác, và thông báo đẩy được nhận và hiển thị đúng. [REQ-020, REQ-021]
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ PHỤ 6: Viết tài liệu kỹ thuật cho giao diện di động và SEO
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Doc]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-020, REQ-022, REQ-023]
+- **Đường dẫn thành phần đích (target_component):** ./sources/docs/mobile-ui-spec.md
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tài liệu kỹ thuật chi tiết cho giao diện người dùng di động responsive, tích hợp thông báo đẩy, phát hiện ngôn ngữ và cấu hình SEO đa ngôn ngữ. Bao gồm hướng dẫn cấu hình, ví dụ code, và bảng tra cứu. [REQ-020, REQ-022, REQ-023]
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--END_DAY_LOG_INDEX-->
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 Ngày 3: Triển khai hỗ trợ đa ngôn ngữ và SEO đa ngôn ngữ
+
+##### 📅 NGÀY 3: Triển khai dashboard tóm tắt ghi danh, tích hợp chatbot vào frontend và kiểm tra cuối cùng
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 1: Xây dựng logic phát hiện và lưu trữ tùy chọn ngôn ngữ
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-022], [DAT-011]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/web/seo/src/utils/localeDetector.ts
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Xây dựng logic phát hiện ngôn ngữ mặc định: ưu tiên tùy chọn ngôn ngữ đã lưu của người dùng trong bảng SystemSettings, sau đó sử dụng header Accept-Language của trình duyệt, mặc định là tiếng Việt (vi). Lưu trữ tùy chọn ngôn ngữ của người dùng khi họ thay đổi, cập nhật giao diện theo ngôn ngữ tương ứng mà không cần tải lại trang.
+
+###### 🌿 NHIỆM VỤ PHỤ 1: Triển khai EnrollmentDashboard component
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-025]
+- **Đường dẫn thành phần đích (target_component):** ./sources/frontend/src/components/dashboard/EnrollmentDashboard.tsx
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng thành phần EnrollmentDashboard hiển thị real-time các thẻ: tổng số học viên, số khóa học đang hoạt động, và các buổi học sắp tới (7 ngày tới). Tích hợp với API GET /api/dashboard/enrollment-summary và cập nhật tự động mỗi 5 phút. [REQ-025]
+
+**Hợp đồng API:**
+```json
+{
+  "endpoint": "GET /api/dashboard/enrollment-summary",
+  "response": {
+    "totalStudents": 100,
+    "activeCourses": 5,
+    "upcomingSessions": 12
+  }
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 2: Triển khai thẻ meta SEO và hreflang đa ngôn ngữ
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-023]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/web/seo/src/components/HreflangTags.tsx
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Tạo component động tự động tạo thẻ `<html lang={locale}>` và các liên kết hreflang cho 3 ngôn ngữ được hỗ trợ (tiếng Anh /en, tiếng Việt /vi, tiếng Tây Ban Nha /es), đảm bảo mỗi trang web có đầy đủ thẻ meta ngôn ngữ cho công cụ tìm kiếm.
+
+###### 🌿 NHIỆM VỤ PHỤ 2: Tích hợp ChatbotWidget vào frontend
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Coder]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-019]
+- **Đường dẫn thành phần đích (target_component):** ./sources/frontend/src/components/chat/ChatWidget.tsx
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng thành phần ChatWidget có thể đóng/mở, tích hợp với endpoint POST /api/chatbot/message, quản lý trạng thái sessionId, và hiển thị gợi ý hành động khi chatbot leo thang hỗ trợ. Đảm bảo widget hoạt động trên tất cả các trang. [REQ-019]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 3: Viết unit test cho chức năng đa ngôn ngữ và SEO
-* **Chuyên môn tác nghiệp phụ:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-022], [REQ-023]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/web/seo/src/utils/localeDetector.ts;./sources/frontend/web/seo/src/test/utils/localeDetector.test.ts
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Viết unit test kiểm tra logic phát hiện ngôn ngữ với các trường hợp: người dùng đã lưu tùy chọn tiếng Việt, người dùng mới với header Accept-Language là tiếng Anh, trường hợp không có tùy chọn nào sử dụng mặc định tiếng Việt. Kiểm tra component HreflangTags tạo đúng 3 liên kết hreflang và thẻ lang chính xác cho mỗi ngôn ngữ.
+
+###### 🌿 NHIỆM VỤ PHỤ 3: Viết integration test cho dashboard và chatbot
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Tester]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-025, REQ-019]
+- **Đường dẫn thành phần đích (target_component):** INTEGRATION_SCOPE;./sources/frontend/src/e2e/dashboard-chatbot.spec.ts
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết integration test kiểm tra: dashboard hiển thị đúng số liệu từ API, chatbot phản hồi chính xác các câu hỏi thường gặp, và leo thang hỗ trợ hoạt động khi độ tin cậy thấp. Sử dụng Playwright với mock API responses. [REQ-025, REQ-019]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 4: Tạo tài liệu hướng dẫn cấu hình đa ngôn ngữ và SEO
-* **Chuyên môn tác nghiệp phụ:** [Doc]
-* **ID thẻ mục tiêu:** [REQ-022], [REQ-023]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/operations/i18n-seo-guide.md
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Tạo tài liệu hướng dẫn chi tiết cách cấu hình đa ngôn ngữ cho frontend, cách thêm ngôn ngữ mới, cách cấu hình thẻ meta SEO và hreflang, cách kiểm tra cấu hình SEO với các công cụ của Google.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
 
-<!--START_DAY_LOG_INDEX-->
-##### 📅 Ngày 4: Triển khai báo cáo điểm danh, bảng điều khiển ghi danh và xử lý ngoại lệ khôi phục hệ thống
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 1: Xây dựng endpoint xuất báo cáo điểm danh CSV
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-024], [EXC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/report-service/src/main/java/com/hub/report/AttendanceReportController.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Xây dựng endpoint GET /api/v1/reports/attendance/csv, cho phép lọc theo centerId, startDate và endDate, xuất file CSV với các cột StudentName, CourseName, AttendanceDate, Status. Tích hợp logic xử lý điểm danh pending sau sự cố hệ thống theo thứ tự FIFO trước khi tạo báo cáo.
+###### 🌿 NHIỆM VỤ PHỤ 4: Rà soát mã và tối ưu hóa các thành phần giai đoạn 4
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Reviewer]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-005]
+- **Đường dẫn thành phần đích (target_component):** ./sources/backend/ai-chatbot-service/src/main/java/com/hub/ai/ChatbotService.java;./sources/frontend/src/components/mobile/MobileDashboard.tsx
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện rà soát mã toàn bộ các thành phần backend và frontend của giai đoạn 4. Kiểm tra chất lượng mã, phát hiện bottleneck hiệu năng, đảm bảo tuân thủ OWASP Top 10, và đề xuất chiến lược sửa chữa cụ thể cho các lỗi phát hiện. Tối ưu hóa truy vấn cơ sở dữ liệu cho dịch vụ báo cáo và cơ chế phục hồi sau sự cố (EXC-005). [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-005]
+
+**Xử lý ngoại lệ:**
+```java
+// EXC-005: Chiến lược phục hồi sau sự cố
+// Đảm bảo dịch vụ báo cáo xử lý hàng đợi điểm danh pending theo FIFO
+// và gửi thông báo phục hồi cho người dùng sau khi hệ thống khôi phục
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 2: Xây dựng bảng điều khiển tóm tắt ghi danh thời gian thực
-* **Chuyên môn tác nghiệp phụ:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-025]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/report-service/src/main/java/com/hub/report/EnrollmentDashboardController.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Xây dựng endpoint GET /api/v1/dashboard/enrollment, trả về dữ liệu tổng hợp: totalStudents (tổng số học viên đã đăng ký), activeCourses (số khóa học đang hoạt động), upcomingSessions (số buổi học sắp tới trong 7 ngày tiếp theo). Tích hợp WebSocket để cập nhật dữ liệu thời gian thực khi có thay đổi (đăng ký mới, hủy đăng ký, khóa học mới).
+
+###### 🌿 NHIỆM VỤ PHỤ 5: Hoàn thiện tài liệu kỹ thuật giai đoạn 4
+- **Phân công đặc trưng quy trình làm việc của tác nhân phụ:** [Doc]
+- **ID Thẻ được nhắm mục tiêu:** [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-005]
+- **Đường dẫn thành phần đích (target_component):** ./sources/docs/phase4-technical-spec.md
+- **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tổng hợp và hoàn thiện tài liệu kỹ thuật toàn diện cho giai đoạn 4, bao gồm: đặc tả API chatbot, báo cáo và dashboard; hướng dẫn tích hợp thông báo đẩy; cấu hình SEO đa ngôn ngữ; và quy trình xử lý phục hồi sau sự cố (EXC-005). Đảm bảo tài liệu phù hợp với tiêu chuẩn doanh nghiệp. [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-005]
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 3: Viết integration test cho báo cáo và bảng điều khiển
-* **Chuyên môn tác nghiệp phụ:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-024], [REQ-025], [EXC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/report-service/src/test/java/com/hub/report/ReportIntegrationTest.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Viết integration test kiểm tra: (1) Báo cáo điểm danh CSV được tạo đúng định dạng với dữ liệu chính xác, (2) Dữ liệu bảng điều khiển phản ánh đúng số liệu thực tế, (3) Luồng xử lý điểm danh pending sau sự cố được thực hiện đúng thứ tự FIFO, không bị mất dữ liệu.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Phụ công việc 4: Kiểm tra và tối ưu hóa hiệu suất báo cáo
-* **Chuyên môn tác nghiệp phụ:** [Reviewer]
-* **ID thẻ mục tiêu:** [REQ-024], [REQ-025], [EXC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/report-service/src/main/java/com/hub/report/AttendanceReportController.java;./sources/backend/report-service/src/main/java/com/hub/report/EnrollmentDashboardController.java
-* **Hướng dẫn tác nghiệp kỹ thuật cấp thấp:** Kiểm tra logic xử lý ngoại lệ khôi phục hệ thống, đảm bảo điểm danh pending được xử lý đúng thứ tự FIFO không bị mất. Phân tích và tối ưu hiệu suất truy vấn báo cáo với khối lượng dữ liệu lớn (hơn 10.000 bản ghi điểm danh), đảm bảo thời gian phản hồi dưới 200ms theo yêu cầu NFR-001.
-<!--END_ATOMIC_SUB_TASK_NODE-->
 <!--END_DAY_LOG_INDEX-->
 
 <!--END_PHASE_INDEX-->

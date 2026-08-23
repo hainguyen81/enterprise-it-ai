@@ -133,6 +133,12 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **🇻🇳 Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **🇻🇳 Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
+7. **MANDATORY PROJECT SCAFFOLDING & CONFIGURATION INHERITANCE LAW:**
+  - Before mapping any business application logic (`[REQ-XXX]`, `[DAT-XXX]`), you MUST autonomously allocate the absolute beginning of your timeline (strictly within Phase 1 - DAY 1) to build the repository skeleton layout boundaries.
+  - For Backend services under Microservices topology, you MUST explicitly enforce the structural generation of a parent root project build descriptor `./sources/backend/pom.xml` and individual service module descriptors `./sources/backend/<service-name>/pom.xml`.
+  - For Frontend layer or Web applications, you MUST explicitly enforce the initialization of workspace manifests `./sources/frontend/package.json` and compiler rules `./sources/frontend/tsconfig.json`.
+  - To ensure zero compilation loops or pipeline friction, all scaffolding assets MUST be tracked using the dedicated architecture system symbol `[ARC-000]`. Converting these foundational files into summaries or skipping them constitutes a fatal structural breach.
+
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
 - **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
 - **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
@@ -338,6 +344,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 * **[Translate "Low-Level Technical Task Instruction" into the target language 🇻🇳 Vietnamese]:** Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
+- **UNIVERSAL INITIAL DAY ENVIRONMENT SCAFFOLDING ENFORCEMENT RAIL:** You MUST actively verify that Phase 1 - DAY 1 contains explicit sub-task nodes dedicated to environment scaffolding. The `target_component` parameters for these initial execution logs MUST map strictly to physical project descriptor entities (e.g., `./sources/backend/pom.xml` for root maven architectures, `./sources/backend/<service-name>/pom.xml` for microservice boundaries, or `./sources/frontend/package.json` for web interface nodes) under Tag ID `[ARC-000]` before any operational functional logic source code files (`.java`, `.ts`) are emitted.
 - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX]) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase 5' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 
 * **[Translate "Database Schema DDL SQL Specification" into the target language 🇻🇳 Vietnamese] [DAT-XXX]:**
@@ -376,7 +383,7 @@ PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
 ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=computed_highest_day_integer_found_in_section_5
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=29
+TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=34
 TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute and output the absolute unified integer sum of all listed atomic sub-task nodes accumulated across all previous and current phases inside your memory layer]
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
@@ -764,54 +771,63 @@ SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_S
 
 <PROJECT_BACKLOG_TASKS_DATA>
 --- BACKLOG TASKS ---
-## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA PHASE Ở MỨC CAO
+## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN MỨC CAO
 
-### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC CHÍNH
-
-Kiến trúc hệ thống membership-hub được thiết kế theo mô hình microservices với các thành phần phụ thuộc chặt chẽ: lớp backend Quarkus phụ thuộc vào cơ sở dữ liệu PostgreSQL để lưu trữ dữ liệu thực thể, Redis để caching phiên làm việc và Firebase Authentication để xác thực người dùng; lớp frontend Next.js tiêu thụ REST API từ backend, tích hợp FCM/APNs cho thông báo đẩy và hỗ trợ caching ngoại tuyến; hạ tầng DevOps trên GKE phụ thuộc vào Docker để đóng gói hình ảnh, Terraform để provisioning tài nguyên GCP và GitHub Actions để pipeline CI/CD; tất cả các lớp đều tuân thủ các yêu cầu phi chức năng về bảo mật, hiệu suất và khả năng mở rộng được định nghĩa trong tài liệu yêu cầu, đảm bảo tính tin cậy và khả năng mở rộng cho nền tảng quản lý hội viên đa trung tâm.
+### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
-### [MA TRẬN SỐ HỌC HỆ THỐNG]
-> - **Tổng số thẻ [REQ]:** 25 Thẻ
-> - **Tổng số thẻ [EXC]:** 5 Thẻ
-> - **Tổng số thẻ [ARC]:** 10 Thẻ
-> - **Tổng số thẻ [DAT]:** 11 Thẻ
-> - **Tổng số thẻ [NFR]:** 9 Thẻ
-> - ➡️ **Tổng số thẻ SRS:** 58 Thẻ
+### MA TRẬN SỐ HỌC HỆ THỐNG
+> - Tổng số thẻ [REQ]: 25 Thẻ
 
-| No. | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm đầu ra | Loại | TagID |
+> - Tổng số thẻ [EXC]: 5 Thẻ
+
+> - Tổng số thẻ [ARC]: 10 Thẻ
+
+> - Tổng số thẻ [DAT]: 9 Thẻ
+
+> - Tổng số thẻ [NFR]: 9 Thẻ
+
+> - ➡️ Tổng số thẻ SRS: 58 Thẻ
+
+Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh xạ toàn bộ các yêu cầu nghiệp vụ, kiến trúc, dữ liệu và phi chức năng từ đặc tả yêu cầu phần mềm vào các nhiệm vụ kỹ thuật cụ thể, đảm bảo tính truy xuất nguồn gốc 100% và tuân thủ các tiêu chuẩn doanh nghiệp. Các thành phần kiến trúc có mối phụ thuộc chặt chẽ: hạ tầng cơ sở dữ liệu PostgreSQL là nền tảng cho tất cả các service vi mô, lớp bảo mật RBAC và xác thực OAuth2 kiểm soát truy cập vào toàn bộ hệ thống, hạ tầng DevOps trên GKE đảm bảo tính sẵn sàng và khả năng mở rộng, còn hệ thống tài liệu hỗ trợ vận hành và bảo trì lâu dài.
+
+| STT | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm bàn giao | Loại | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Triển khai chức năng đăng ký người dùng với email/mật khẩu và cấp JWT token | Tạo endpoint đăng ký, xác thực đầu vào, tạo bản ghi người dùng với vai trò mặc định Student, cấp JWT token và refresh token | Mã Ứng dụng | [REQ-001], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Tích hợp xác thực mạng xã hội (Firebase, Google, Facebook) qua OAuth2 | Xây dựng flow xác thực OAuth2, trao đổi mã xác thực lấy thông tin người dùng, tạo/cập nhật bản ghi người dùng cục bộ, cấp JWT token | Mã Ứng dụng | [REQ-002], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Triển khai phân quyền người dùng dựa trên vai trò (RBAC) với 5 vai trò được định nghĩa | Xây dựng cơ chế gán/thay đổi vai trò người dùng, áp dụng quyền truy cập tương ứng ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Xây dựng API xem danh sách trung tâm với thông tin địa chỉ, mã số thuế và liên hệ quản trị | Tạo endpoint lấy danh sách trung tâm, trả về các trường Name, Address, TaxID, AdminContact | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Triển khai chức năng quản lý trung tâm (tạo, cập nhật, xóa) cho System Admin | Xây dựng endpoint CRUD cho trung tâm, kiểm tra trùng lặp mã số thuế, trả về lỗi conflict nếu trùng | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Xây dựng chức năng phân quyền quản trị trung tâm cho từng người dùng | Tạo endpoint gán/huỷ gán vai trò Center Admin cho người dùng tại trung tâm cụ thể, cập nhật quyền truy cập tương ứng | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Xây dựng API xem danh sách khóa học với lịch trình và giáo viên phụ trách | Tạo endpoint lấy danh sách khóa học, trả về các trường CourseID, Title, StartDate, EndDate, TeacherName | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Triển khai quản lý khóa học (tạo, cập nhật, xóa) với kiểm tra xung đột lịch trình giáo viên/địa điểm | Xây dựng endpoint CRUD cho khóa học, kiểm tra xung đột lịch trình giáo viên trước khi lưu, trả về lỗi nếu có xung đột | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 9 | Xây dựng chức năng phân công giáo viên vào khóa học và gửi thông báo | Tạo endpoint gán/huỷ gán giáo viên cho khóa học, xếp hàng thông báo cho ứng dụng di động của giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 10 | Xây dựng chức năng duyệt khóa học cho học viên, loại trừ các khóa đã đăng ký | Tạo endpoint lấy danh sách khóa học có sẵn, lọc ra các khóa học học viên đã đăng ký, hiển thị sức chứa và lịch trình | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 11 | Triển khai quy trình đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại | Xây dựng endpoint đăng ký khóa học, tự động tạo tài khoản Student với vai trò tương ứng nếu chưa tồn tại, xếp hàng thông báo cho học viên và nhóm Zalo của trung tâm | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 12 | Xây dựng chức năng quét mã QR điểm danh trên ứng dụng di động và ghi nhận kết quả | Tích hợp trình quét QR vào ứng dụng di động, xây dựng endpoint nhận payload điểm danh, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012], [EXC-001], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 13 | Đảm bảo tính chất bất biến của điểm danh (chỉ 1 bản ghi mỗi học viên/khóa học/ngày) | Triển khai kiểm tra idempotent cho endpoint điểm danh, đảm bảo chỉ tạo 1 bản ghi điểm danh cho mỗi học viên/khóa học/ngày, trả về cờ 'đã ghi nhận' nếu trùng lặp | Mã Ứng dụng | [REQ-013], [EXC-001], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 14 | Xây dựng chức năng hiển thị thẻ hội viên kỹ thuật số với số ngày còn lại hiệu lực | Tạo endpoint lấy thông tin thẻ hội viên, tính toán số ngày còn lại hiệu lực, hiển thị tổng ngày hiệu lực, ngày đã sử dụng và ngày còn lại trên giao diện người dùng | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 15 | Triển khai chức năng gia hạn thẻ hội viên với tích hợp thanh toán | Xây dựng endpoint gia hạn thẻ, tích hợp với cổng thanh toán, cập nhật ngày kết thúc thẻ khi thanh toán thành công, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 16 | Xây dựng hệ thống thông báo đa kênh (push di động, nhóm Zalo) cho các sự kiện hệ thống | Tạo dịch vụ xử lý thông báo, xếp hàng payload push notification cho FCM/APNs, gửi tin nhắn đến nhóm Zalo được chỉ định cho các sự kiện như thông báo, phân công khóa học, cảnh báo điểm danh | Mã Ứng dụng | [REQ-016], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 17 | Triển khai chức năng quản lý khuyến mãi (tạo, sửa, xóa) cho Center Admin và Manager | Xây dựng endpoint CRUD cho khuyến mãi, hỗ trợ ngày bắt đầu/ngày kết thúc tùy chọn, hiển thị khuyến mãi áp dụng cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 18 | Xây dựng chức năng quản lý thông báo (tạo, sửa, xóa) với thời hạn hiển thị tùy chọn | Xây dựng endpoint CRUD cho thông báo, hỗ trợ ngày hiệu lực tùy chọn, tự động ẩn thông báo sau ngày kết thúc nếu được cấu hình | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 19 | Tích hợp chatbot AI hỗ trợ khách hàng cho các truy vấn thông thường | Tích hợp dịch vụ chatbot AI, xây dựng endpoint xử lý truy vấn người dùng, chuyển tiếp đến hỗ trợ con người nếu độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 20 | Xây dựng giao diện người dùng di động phản hồi theo vai trò người dùng | Phát triển giao diện di động đáp ứng, hiển thị menu và màn hình tương ứng với vai trò người dùng (Student, Teacher, Admin, v.v.) | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 21 | Triển khai thông báo đẩy di động (FCM/APNs) cho các sự kiện hệ thống | Tích hợp FCM/APNs, quản lý token thiết bị người dùng, gửi thông báo đẩy cho các sự kiện như xác nhận điểm danh, thông báo mới, nhắc nhở | Mã Ứng dụng | [REQ-021], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 22 | Triển khai phát hiện ngôn ngữ mặc định và lưu trữ tùy chọn người dùng | Xây dựng cơ chế phát hiện ngôn ngữ từ tùy chọn đã lưu hoặc header Accept-Language, lưu trữ tùy chọn người dùng, cập nhật giao diện theo ngôn ngữ tương ứng | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 23 | Xây dựng cơ chế SEO đa ngôn ngữ với thẻ meta và hreflang cho 3 ngôn ngữ | Cấu hình thẻ meta ngôn ngữ, tạo liên kết hreflang cho tiếng Anh, tiếng Việt, tiếng Tây Ban Nha, đảm bảo mỗi trang có thuộc tính ngôn ngữ chính xác | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 24 | Triển khai chức năng tạo báo cáo điểm danh hàng ngày theo trung tâm (định dạng CSV) | Xây dựng endpoint tạo báo cáo điểm danh, cho phép chọn trung tâm và khoảng thời gian, xuất file CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 25 | Xây dựng bảng điều khiển tóm tắt ghi danh thời gian thực cho Center Admin | Tạo bảng điều khiển hiển thị tổng số học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tiếp theo), cập nhật dữ liệu thời gian thực | Mã Ứng dụng | [REQ-025], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 26 | Khởi tạo hạ tầng cơ sở dữ liệu và xác thực tất cả thực thể dữ liệu | Tạo schema cơ sở dữ liệu PostgreSQL cho tất cả 11 bảng nghiệp vụ, chạy migration kiểm tra tính toàn vẹn dữ liệu và ràng buộc khóa ngoại | Tài liệu Doanh nghiệp | [DAT-ALL (1 to 11)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 27 | Triển khai lớp bảo mật RBAC và các luồng kiểm soát truy cập kiến trúc | Cấu hình quyền truy cập theo vai trò cho tất cả các endpoint, triển khai xác thực JWT và OAuth2, đảm bảo tuân thủ OWASP Top 10 | Tài liệu Doanh nghiệp | [ARC-001 to ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 28 | Xây dựng hạ tầng DevOps (Docker, Terraform, GKE) và triển khai pipeline CI/CD | Tạo Dockerfile đa giai đoạn, cấu hình Terraform cho tài nguyên GCP, triển khai manifest GKE, thiết lập GitHub Actions cho CI/CD | Hạ tầng DevOps | [NFR-001 to NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 29 | Xây dựng tài liệu kiến trúc hệ thống, tài liệu API và hướng dẫn vận hành | Tạo bản vẽ kiến trúc tổng thể, tài liệu tham chiếu API REST, hướng dẫn cài đặt và vận hành hệ thống | Tài liệu Doanh nghiệp | [ARC-001 to ARC-010], [NFR-001 to NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| **TÓM TẮT** | **Tổng số thẻ theo dõi được bao phủ:** 60 | **Tổng số nhiệm vụ:** 29 | **Trạng thái:** THẤT BẠI | **Tỷ lệ bao phủ:** 103.45% |
+| 1 | Khởi tạo cấu trúc dự án backend vi mô Quarkus | Tạo pom.xml gốc và pom.xml cho từng service vi mô (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot) | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Khởi tạo cấu trúc dự án frontend Next.js | Tạo package.json và tsconfig.json cho ứng dụng web và di động | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Khởi tạo cấu trúc thư mục tài liệu doanh nghiệp | Tạo cấu trúc thư mục cho bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành | Tài liệu Doanh nghiệp | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Triển khai chức năng đăng ký người dùng bằng email/mật khẩu | Xác thực đầu vào, tạo bản ghi người dùng với vai trò Student, cấp JWT token | Mã Ứng dụng | [REQ-001, EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Triển khai xác thực mạng xã hội OAuth2 | Tích hợp Firebase, Google, Facebook OAuth2, xử lý mã xác thực, tạo/cập nhật bản ghi người dùng, cấp JWT | Mã Ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Triển khai chức năng phân quyền người dùng | Gán/thay đổi vai trò người dùng, áp dụng quyền truy cập ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Triển khai chức năng xem danh sách trung tâm | Hiển thị danh sách trung tâm với địa chỉ, mã số thuế, thông tin liên hệ quản trị | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Triển khai chức năng quản lý trung tâm (CRUD) | Thêm, sửa, xóa bản ghi trung tâm, kiểm tra trùng mã số thuế | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 9 | Triển khai chức năng phân quyền quản trị trung tâm | Gán/huỷ gán quyền Center Admin cho người dùng tại trung tâm cụ thể | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 10 | Triển khai chức năng xem danh sách khóa học | Hiển thị danh sách khóa học với lịch học và giáo viên phụ trách | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 11 | Triển khai chức năng quản lý khóa học (CRUD) với kiểm tra xung đột lịch | Thêm, sửa, xóa khóa học, kiểm tra trùng lịch giáo viên/địa điểm | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 12 | Triển khai chức năng phân công giáo viên vào khóa học | Gán/huỷ gán giáo viên cho khóa học, kích hoạt thông báo cho giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 13 | Triển khai chức năng duyệt khóa học cho học viên | Hiển thị danh sách khóa học chưa đăng ký của học viên | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 14 | Triển khai chức năng đăng ký khóa học học viên | Xử lý đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại, gửi thông báo | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 15 | Triển khai chức năng điểm danh quét mã QR | Nhận payload quét QR, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012, EXC-001, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 16 | Triển khai tính chất bất biến của điểm danh | Đảm bảo chỉ tạo 1 bản ghi điểm danh/học viên/khóa học/ngày, xử lý yêu cầu trùng lặp | Mã Ứng dụng | [REQ-013, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 17 | Triển khai chức năng hiển thị tính hợp lệ thẻ hội viên | Hiển thị tổng số ngày hiệu lực, số ngày đã sử dụng, số ngày còn lại của thẻ hội viên | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 18 | Triển khai chức năng gia hạn thẻ hội viên | Gia hạn ngày kết thúc thẻ sau khi xác nhận thanh toán, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 19 | Triển khai chức năng kích hoạt thông báo đa kênh | Tạo bản ghi thông báo, xếp hàng push notification, gửi tin nhắn nhóm Zalo | Mã Ứng dụng | [REQ-016, EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 20 | Triển khai chức năng quản lý khuyến mãi | CRUD khuyến mãi (giảm giá, ưu đãi) với ngày bắt đầu/kết thúc, hiển thị cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 21 | Triển khai chức năng quản lý thông báo | CRUD thông báo với ngày hết hạn tùy chọn, tự động ẩn sau ngày hết hạn, phát sóng toàn hệ thống | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 22 | Triển khai tích hợp chatbot AI | Xử lý câu hỏi thường gặp về khóa học, giáo viên, trung tâm, trạng thái tài khoản, leo thang hỗ trợ khi độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 23 | Triển khai giao diện người dùng vai trò trên di động | Xây dựng giao diện responsive Next.js cho từng vai trò (Student, Teacher, Admin...), đồng bộ chức năng với web | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 24 | Triển khai thông báo đẩy trên di động | Tích hợp FCM/APNs, quản lý token thiết bị, xử lý nhận thông báo trên ứng dụng di động | Mã Ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 25 | Triển khai phát hiện ngôn ngữ mặc định | Phát hiện ngôn ngữ ưu tiên của người dùng, lưu trữ cài đặt, fallback sang Accept-Language header | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 26 | Triển khai SEO đa ngôn ngữ | Thêm thẻ meta ngôn ngữ, thuộc tính hreflang, hỗ trợ 3 ngôn ngữ (Anh, Việt, Tây Ban Nha) | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 27 | Triển khai chức năng tạo báo cáo điểm danh CSV | Xuất báo cáo điểm danh hàng ngày cho trung tâm, định dạng CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024, EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 28 | Triển khai bảng điều khiển tóm tắt ghi danh | Xây dựng dashboard realtime hiển thị tổng học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tới) | Mã Ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 29 | Khởi tạo hạ tầng cơ sở dữ liệu PostgreSQL | Tạo schema, tất cả các bảng dữ liệu theo định nghĩa, cấu hình connection pool và index tối ưu | Mã Ứng dụng | [DAT-ALL (1 to 9)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 30 | Triển khai lớp bảo mật RBAC và xác thực | Triển khai kiểm soát truy cập dựa trên vai trò, xác thực JWT, OAuth2, refresh token, bảo vệ tất cả endpoint | Mã Ứng dụng | [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 31 | Triển khai hợp đồng tích hợp hệ thống | Triển khai luồng xác thực, điểm danh QR, thông báo đa kênh, tích hợp backend-frontend | Mã Ứng dụng | [ARC-006, ARC-007, ARC-008, ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 32 | Triển khai hạ tầng DevOps và đám mây | Xây dựng Dockerfile đa giai đoạn, pipeline CI/CD GitHub Actions, triển khai GKE, cấu hình Terraform cho GCP, tích hợp FCM/APNs, Zalo API, Redis caching, đảm bảo tuân thủ NFR | Hạ tầng DevOps | [NFR-001, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, NFR-007, NFR-008, NFR-009, ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 33 | Xây dựng tài liệu hệ thống doanh nghiệp | Viết bản vẽ kiến trúc, hợp đồng API REST/Event, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng | Tài liệu Doanh nghiệp | <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **TÓM TẮT** | **Tổng số thẻ theo dõi đã bao phủ:** 58 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** ĐÃ XÁC THỰC | **Mức độ bao phủ:** 100% <!--REGISTERED_BACKLOG_TASK_ROW--> |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 
@@ -819,22 +835,21 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 
 ### 🔭 4.2. MA TRẬN TỔNG QUAN ĐA GIAI ĐOẠN
 <!--START_PHASE_SYNOPSIS_GRID-->
-### [MA TRẬN SỐ HỌC VÒNG ĐỜI]
-> - **Tổng số nhiệm vụ backlog:** 29 Nhiệm vụ
-> - **Tổng số thẻ backlog:** 60 Thẻ
-> - **Tổng số nhiệm vụ được phân phối:** 29 Nhiệm vụ
-> - **Tổng số thẻ được phân phối:** 60 Thẻ
+### CHU KỲ SỐ HỌC MA TRẬN
+> - **Tổng số nhiệm vụ backlog:** 33 Nhiệm vụ
+> - **Tổng số thẻ backlog:** 58 Thẻ
+> - **Tổng số nhiệm vụ đã phân phối:** 33 Nhiệm vụ
+> - **Tổng số thẻ đã phân phối:** 58 Thẻ
 
-| Giai đoạn | Khoảng ngày | ID nhiệm vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm kỹ thuật | Đại lý phụ được phân công | ID thẻ mục tiêu |
+| Giai đoạn | Khoảng ngày | ID Nhiệm vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm bàn giao kỹ thuật | Đại lý phụ trách | ID Thẻ được nhắm mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | Ngày 1 - 4 | Nhiệm vụ 1, Nhiệm vụ 2, Nhiệm vụ 3, Nhiệm vụ 4, Nhiệm vụ 5, Nhiệm vụ 6, Nhiệm vụ 26 | ./sources/backend/migrations, ./sources/backend/auth-service, ./sources/backend/user-service, ./sources/backend/center-service | Khởi tạo schema PostgreSQL cho các bảng người dùng, vai trò, trung tâm; triển khai xác thực email/mật khẩu và OAuth2 (Firebase/Google/Facebook); cấp JWT token 15 phút và refresh token 7 ngày; triển khai cơ chế RBAC với 5 vai trò được định nghĩa; xây dựng API CRUD quản lý trung tâm với kiểm tra trùng lặp mã số thuế | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [EXC-004], [DAT-001], [DAT-003], [ARC-001], [ARC-002], [ARC-006] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 2 | Ngày 1 - 5 | Nhiệm vụ 7, Nhiệm vụ 8, Nhiệm vụ 9, Nhiệm vụ 10, Nhiệm vụ 11, Nhiệm vụ 12, Nhiệm vụ 13 | ./sources/backend/course-service, ./sources/backend/enrollment-service, ./sources/backend/attendance-service, ./sources/frontend/web/course | Xây dựng API quản lý khóa học CRUD với kiểm tra xung đột lịch trình giáo viên/địa điểm; phân công giáo viên vào khóa học và gửi thông báo; xây dựng chức năng duyệt và đăng ký khóa học cho học viên (tự động tạo tài khoản Student nếu chưa tồn tại); triển khai endpoint quét mã QR điểm danh với tính chất idempotent, đảm bảo chỉ 1 bản ghi điểm danh mỗi học viên/khóa học/ngày; xử lý ngoại lệ mất kết nối mạng và gửi điểm danh trùng lặp | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [EXC-001], [EXC-002], [DAT-004], [DAT-005], [DAT-006], [ARC-007] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 3 | Ngày 1 - 4 | Nhiệm vụ 14, Nhiệm vụ 15, Nhiệm vụ 16, Nhiệm vụ 17, Nhiệm vụ 18 | ./sources/backend/membership-service, ./sources/backend/notification-service, ./sources/backend/promotion-service, ./sources/frontend/web/membership | Xây dựng API hiển thị thẻ hội viên kỹ thuật số với số ngày còn lại hiệu lực; triển khai chức năng gia hạn thẻ với tích hợp thanh toán; xây dựng hệ thống thông báo đa kênh (push FCM/APNs, nhóm Zalo) với cơ chế retry tối đa 3 lần khi gửi thất bại; triển khai quản lý khuyến mãi và thông báo có thời hạn hiển thị tùy chọn, tự động ẩn thông báo hết hạn | Coder, Tester, Reviewer, Doc | [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [EXC-003], [DAT-007], [DAT-008], [DAT-009], [ARC-008] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 4 | Ngày 1 - 4 | Nhiệm vụ 19, Nhiệm vụ 20, Nhiệm vụ 21, Nhiệm vụ 22, Nhiệm vụ 23, Nhiệm vụ 24, Nhiệm vụ 25 | ./sources/frontend/mobile-app, ./sources/backend/chatbot-service, ./sources/backend/report-service, ./sources/frontend/web/seo | Tích hợp chatbot AI hỗ trợ khách hàng với chuyển tiếp đến hỗ trợ con người khi độ tin cậy thấp; phát triển giao diện di động đáp ứng theo vai trò người dùng; triển khai thông báo đẩy di động (FCM/APNs); cấu hình phát hiện ngôn ngữ mặc định và lưu trữ tùy chọn người dùng, hỗ trợ đa ngôn ngữ (Anh, Việt, Tây Ban Nha); triển khai SEO đa ngôn ngữ với thẻ meta và hreflang; xây dựng chức năng tạo báo cáo điểm danh CSV hàng ngày theo trung tâm và bảng điều khiển tóm tắt ghi danh thời gian thực; xử lý ngoại lệ khôi phục hệ thống sau sự cố, xử lý điểm danh pending theo thứ tự FIFO | Coder, Tester, Reviewer, Doc | [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [EXC-003], [EXC-005], [DAT-011], [ARC-009] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 5 | Ngày 1 - 5 | Nhiệm vụ 27, Nhiệm vụ 28, Nhiệm vụ 29 | ./sources/infra/terraform, ./sources/infra/docker, ./sources/infra/gke, ./sources/docs/architecture, ./sources/docs/api, ./sources/docs/operations | Triển khai lớp bảo mật RBAC toàn hệ thống và các luồng kiểm soát truy cập kiến trúc, đảm bảo tuân thủ OWASP Top 10; xây dựng hạ tầng DevOps với Docker đa giai đoạn (kích thước hình ảnh cuối <500MB), Terraform provisioning tài nguyên GCP, triển khai manifest GKE với HPA tự động scale dựa trên CPU >70% hoặc độ trễ yêu cầu >300ms, thiết lập pipeline CI/CD với GitHub Actions; xây dựng tài liệu kiến trúc hệ thống, tài liệu tham chiếu API REST, hướng dẫn cài đặt và vận hành; đảm bảo tuân thủ các yêu cầu phi chức năng về hiệu suất (độ trễ API <200ms), khả năng sẵn sàng (99.9% uptime), bảo mật (TLS 1.3, mã hóa AES-256), khả năng mở rộng, ghi log audit lưu trữ 1 năm, đa ngôn ngữ, tuân thủ GDPR/CCPA, sao lưu PostgreSQL hàng ngày và phục hồi điểm thời lên đến 24 giờ | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
-| **Kiểm toán** | **Xác minh phân phối backlog tổng thể** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ backlog:** 60 | **Tổng số thẻ được phân phối:** 60 | **Tổng số nhiệm vụ được phân phối:** 29 | **Trạng thái & Tuân thủ:** Đã xác minh (100%) |
+| Giai đoạn 1 | 1-7 | Nhiệm vụ 1, 2, 3, 29, 30, 4, 5, 6, 7, 8, 9 | ./sources/backend, ./sources/frontend, ./sources/docs | Khởi tạo cấu trúc dự án vi mô backend Quarkus (pom.xml gốc và các module service), cấu trúc dự án frontend Next.js (package.json, tsconfig.json), cấu trúc thư mục tài liệu doanh nghiệp, khởi tạo schema cơ sở dữ liệu PostgreSQL với toàn bộ các bảng dữ liệu theo định nghĩa, triển khai lớp xác thực RBAC và OAuth2 (JWT, refresh token), triển khai các chức năng cốt lõi quản lý người dùng (đăng ký, xác thực xã hội, phân quyền) và quản lý trung tâm (xem danh sách, CRUD, phân quyền quản trị trung tâm) | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [REQ-001], [EXC-004], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 2 | 1-2 | Nhiệm vụ 10, 11, 12, 13, 14 | ./sources/backend/course-service, ./sources/backend/enrollment-service, ./sources/frontend | Triển khai các chức năng quản lý khóa học (xem danh sách, CRUD với kiểm tra xung đột lịch giáo viên/địa điểm, phân công giáo viên) và chức năng đăng ký khóa học cho học viên (duyệt khóa học chưa đăng ký, xử lý đăng ký tự động tạo tài khoản Student nếu cần, gửi thông báo tự động) | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 3 | 1-4 | Nhiệm vụ 15, 16, 17, 18, 19, 20, 21 | ./sources/backend/attendance-service, ./sources/backend/membership-service, ./sources/backend/notification-service, ./sources/backend/promotion-service, ./sources/frontend | Triển khai chức năng điểm danh quét mã QR với tính bất biến chống trùng lặp (đảm bảo 1 bản ghi điểm danh/học viên/khóa học/ngày), quản lý thẻ hội viên (hiển thị số ngày còn lại, gia hạn thẻ sau thanh toán), hệ thống thông báo đa kênh (push notification, tin nhắn nhóm Zalo) với cơ chế retry khi gửi thất bại, quản lý khuyến mãi và thông báo hệ thống (CRUD với ngày hết hạn tùy chọn, tự động ẩn thông báo hết hạn) | Coder, Tester, Reviewer, Doc | [REQ-012], [EXC-001], [EXC-002], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [EXC-003], [REQ-017], [REQ-018] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 4 | 1-3 | Nhiệm vụ 22, 23, 24, 25, 26, 27, 28 | ./sources/backend/ai-chatbot-service, ./sources/frontend, ./sources/docs | Triển khai tích hợp chatbot AI hỗ trợ trả lời câu hỏi thường gặp và leo thang hỗ trợ khi độ tin cậy thấp, xây dựng giao diện người dùng responsive cho ứng dụng di động với phân quyền theo vai trò, tích hợp thông báo đẩy FCM/APNs, triển khai phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ (hreflang, thẻ meta), xây dựng chức năng xuất báo cáo điểm danh CSV và bảng điều khiển tóm tắt ghi danh realtime | Coder, Tester, Reviewer, Doc | [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [EXC-005], [REQ-025] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 5 | 1-5 | Nhiệm vụ 31, 32, 33 | ./sources/infra, ./sources/docs | Triển khai toàn bộ hạ tầng DevOps và đám mây: xây dựng Dockerfile đa giai đoạn cho tất cả service, pipeline CI/CD GitHub Actions, triển khai cụm GKE với auto-scaling, cấu hình hạ tầng GCP (VPC, IAM, Storage, PostgreSQL read replicas) qua Terraform, tích hợp FCM/APNs, Zalo API, Redis caching cho session, đảm bảo tuân thủ tất cả yêu cầu phi chức năng (hiệu năng, bảo mật, khả năng sẵn sàng, sao lưu và phục hồi thảm họa, tuân thủ GDPR/CCPA), hoàn thiện toàn bộ tài liệu hệ thống doanh nghiệp (bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng) | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
+| **Kiểm toán** | **Xác minh phân phối tổng backlog** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ backlog:** 58 | **Tổng số thẻ đã phân phối:** 58 | **Tổng số nhiệm vụ đã phân phối:** 33 | **Trạng thái & Tuân thủ:** Đã xác thực (100%) |
 <!--END_PHASE_SYNOPSIS_GRID-->
-<!--END_PART_1_MATRIX_4_2-->
 --- END BACKLOG TASKS ---
 </PROJECT_BACKLOG_TASKS_DATA>
 
@@ -842,11 +857,11 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 --- HISTORY LEDGER MAP ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ### Phase 3 Logs (Atomic Salvaged Tag Lines):
 
@@ -854,7 +869,7 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 
 ### Phase 4 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 --- END HISTORY LEDGER MAP ---
 </HISTORIC_LEDGER_MAP>
 
@@ -865,122 +880,382 @@ Kiến trúc hệ thống membership-hub được thiết kế theo mô hình mi
 ---
 
 <!--START_PHASE_INDEX-->
-### 📈 GIAI ĐOẠN 5 - TRIỂN KHAI HẠ TẦNG DEVOPS, BẢO MẬT TOÀN HỆ THỐNG VÀ TÀI LIỆU DOANH NGHIỆP
-- **Mục tiêu cốt lõi của giai đoạn:** Triển khai lớp kiểm soát truy cập dựa trên vai trò (RBAC) toàn hệ thống đảm bảo tuân thủ OWASP Top 10, xây dựng toàn bộ hạ tầng DevOps (Docker đa giai đoạn, Terraform provisioning tài nguyên GCP, GKE orchestration với HPA tự động scale, pipeline CI/CD GitHub Actions), và hoàn thiện toàn bộ tài liệu doanh nghiệp (bản vẽ kiến trúc, tài liệu tham chiếu API, hướng dẫn vận hành) để đáp ứng tất cả các yêu cầu phi chức năng về hiệu suất, khả năng sẵn sàng, bảo mật và khả năng mở rộng.
-- **Bản đồ ma trận đường dẫn vật lý mục tiêu:**
-    * ./sources/infra/terraform/main.tf [NFR-001], [NFR-002], [NFR-004], [NFR-009]
-    * ./sources/infra/terraform/variables.tf [NFR-001], [NFR-002], [NFR-004], [NFR-009]
-    * ./sources/infra/terraform/outputs.tf [NFR-001], [NFR-002], [NFR-004], [NFR-009]
-    * ./sources/infra/docker/Dockerfile [NFR-005]
-    * ./sources/infra/docker/.dockerignore [NFR-005]
-    * ./sources/infra/gke/deployment.yaml [NFR-002], [NFR-004], [NFR-009]
-    * ./sources/infra/gke/hpa.yaml [NFR-004]
-    * ./sources/infra/gke/service.yaml [NFR-002], [NFR-004]
-    * ./sources/docs/architecture/system-architecture.md [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010]
-    * ./sources/docs/api/rest-api-reference.md [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010]
-    * ./sources/docs/operations/installation-guide.md [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-    * ./sources/docs/operations/backup-recovery-guide.md [NFR-009]
-- **Đặc tả SQL DDL cơ sở dữ liệu** [DAT-XXX]:
+
+### 📈 Giai đoạn 5 - Triển khai hạ tầng DevOps, tích hợp hệ thống và tài liệu doanh nghiệp
+- **Mục tiêu cốt lõi của giai đoạn & Mục đích:** Giai đoạn này tập trung vào việc hoàn thiện hạ tầng DevOps và đám mây, tích hợp các hợp đồng hệ thống giữa các service vi mô và frontend, đồng thời bàn giao toàn bộ tài liệu kỹ thuật doanh nghiệp. Các nhiệm vụ bao gồm: xây dựng Dockerfile đa giai đoạn, pipeline CI/CD GitHub Actions, triển khai cụm GKE với auto-scaling, cấu hình hạ tầng GCP (VPC, IAM, Storage, PostgreSQL read replicas) qua Terraform, tích hợp FCM/APNs, Zalo API, Redis caching, đảm bảo tuân thủ tất cả yêu cầu phi chức năng (hiệu năng, bảo mật, khả năng sẵn sàng, sao lưu và phục hồi thảm họa, tuân thủ GDPR/CCPA), và hoàn thiện toàn bộ tài liệu hệ thống doanh nghiệp (bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng).
+
+- **Bản đồ thư mục vật lý mục tiêu:**
+    * ./sources/infra/terraform/main.tf [ARC-010], [NFR-002], [NFR-003], [NFR-004], [NFR-009]
+    * ./sources/infra/terraform/gke-cluster.tf [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/terraform/postgres-replica.tf [ARC-010], [NFR-004], [NFR-009]
+    * ./sources/infra/terraform/iam.tf [ARC-010], [NFR-003], [NFR-008]
+    * ./sources/infra/terraform/monitoring.tf [ARC-010], [NFR-006], [NFR-002]
+    * ./sources/infra/terraform/security-policies.tf [ARC-010], [NFR-003], [NFR-008]
+    * ./sources/infra/docker/Dockerfile.auth-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.center-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.course-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.enrollment-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.attendance-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.membership-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.notification-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.promotion-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.report-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/Dockerfile.ai-chatbot-service [ARC-010], [NFR-005]
+    * ./sources/infra/docker/push-images.sh [ARC-010], [NFR-005]
+    * ./sources/infra/k8s/deployment-auth-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-center-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-course-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-enrollment-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-attendance-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-membership-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-notification-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-promotion-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-report-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/deployment-ai-chatbot-service.yaml [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/k8s/service-auth-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-center-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-course-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-enrollment-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-attendance-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-membership-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-notification-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-promotion-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-report-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/service-ai-chatbot-service.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/hpa-auth-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-center-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-course-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-enrollment-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-attendance-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-membership-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-notification-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-promotion-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-report-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/hpa-ai-chatbot-service.yaml [ARC-010], [NFR-004]
+    * ./sources/infra/k8s/ingress.yaml [ARC-010], [NFR-002]
+    * ./sources/infra/k8s/configmap.yaml [ARC-010], [NFR-007]
+    * ./sources/infra/k8s/secret.yaml [ARC-010], [NFR-003]
+    * ./sources/infra/k8s/api-gateway.yaml [ARC-006], [ARC-009]
+    * ./sources/infra/k8s/kafka-topics.yaml [ARC-007], [ARC-008], [ARC-009]
+    * ./sources/infra/k8s/istio-config.yaml [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+    * ./sources/infra/.github/workflows/ci-cd.yml [ARC-010], [NFR-001], [NFR-006]
+    * ./sources/infra/test/infra_test.go [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/test/e2e_deployment_test.go [ARC-010], [NFR-002], [NFR-004]
+    * ./sources/infra/test/security_compliance_test.go [ARC-010], [NFR-003], [NFR-008]
+    * ./sources/infra/test/full_e2e_test.go [ARC-010], [NFR-001], [NFR-002], [NFR-006]
+    * ./sources/docs/architecture-overview.md [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
+    * ./sources/docs/api-integration-contracts.md [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+    * ./sources/docs/operational-runbooks.md [ARC-010], [NFR-002], [NFR-009]
+    * ./sources/docs/database-architecture.md [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
+    * ./sources/docs/user-guide.md [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [REQ-025]
+
+- **Đặc tả SQL DDL Schema Cơ sở dữ liệu [DAT-XXX]:**
 ```sql
--- Giai đoạn này không yêu cầu thay đổi cơ sở dữ liệu hoặc lớp lưu trữ nào
+-- Không có thay đổi cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu cho ngữ cảnh giai đoạn này
 ```
-- **Trình xử lý ngoại lệ địa phương của giai đoạn** [EXC-XXX]:
-    * [EXC-006] Lỗi xác thực quyền truy cập RBAC: Nếu người dùng không có quyền truy cập tài nguyên, hệ thống trả về mã lỗi 403 Forbidden với thông báo chi tiết về quyền bị thiếu.
-    * [EXC-007] Lỗi triển khai hạ tầng GCP: Nếu quá trình provisioning tài nguyên GCP qua Terraform thất bại, hệ thống ghi log lỗi chi tiết, rollback các tài nguyên đã tạo và thông báo cho đội ngũ vận hành.
-    * [EXC-008] Lỗi triển khai workload GKE: Nếu việc triển khai manifest lên GKE thất bại, hệ thống giữ nguyên phiên bản cũ, ghi log lỗi và kích hoạt cảnh báo cho đội ngũ DevOps.
-    * [EXC-009] Lỗi xây dựng hình ảnh Docker: Nếu quá trình build Docker image thất bại, hệ thống dừng pipeline CI/CD, ghi log lỗi build và thông báo cho nhà phát triển.
-    * [EXC-010] Lỗi sao lưu cơ sở dữ liệu: Nếu quá trình sao lưu PostgreSQL hàng ngày thất bại, hệ thống thử lại tối đa 3 lần, nếu vẫn thất bại thì gửi cảnh báo khẩn cấp cho đội ngũ vận hành.
 
-#### 📅 NHẬT KÝ PHÂN PHỐI CÔNG VIỆC PHỤ TÁC TỬ THEO THỜI GIAN TỪNG NGÀY (GIAI ĐOẠN 5)
+- **Hợp đồng API và Định tuyến Sự kiện [REQ-XXX], [ARC-XXX]:**
+```json
+{
+  "api_gateway_routes": [
+    {
+      "service_name": "auth-service",
+      "path": "/api/v1/auth/*",
+      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "plugins": ["jwt", "rate-limiting"]
+    },
+    {
+      "service_name": "attendance-service",
+      "path": "/api/v1/attendance/scan",
+      "methods": ["POST"],
+      "plugins": ["jwt"]
+    },
+    {
+      "service_name": "notification-service",
+      "path": "/api/v1/notifications/*",
+      "methods": ["GET", "POST"],
+      "plugins": ["jwt"]
+    }
+  ],
+  "kafka_topics": [
+    {
+      "topic_name": "attendance.scan",
+      "partitions": 3,
+      "replication_factor": 2,
+      "retention_ms": 604800000
+    },
+    {
+      "topic_name": "notification.push",
+      "partitions": 3,
+      "replication_factor": 2,
+      "retention_ms": 604800000
+    },
+    {
+      "topic_name": "notification.zalo",
+      "partitions": 3,
+      "replication_factor": 2,
+      "retention_ms": 604800000
+    },
+    {
+      "topic_name": "course.enrollment",
+      "partitions": 3,
+      "replication_factor": 2,
+      "retention_ms": 604800000
+    }
+  ]
+}
+```
+
+#### 📅 Nhật ký nhiệm vụ phân phối tác nhân phụ theo ngày (Giai đoạn 5)
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 1: TRIỂN KHAI CỐT LÕI RBAC VÀ KIỂM THỬ ĐƠN VỊ QUYỀN TRUY CẬP
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 1: TRIỂN KHAI LỚP TRUNG GIAN RBAC
-* **Chuyên môn quy trình phụ tác tử:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth/src/main/java/com/hub/security/RbacMiddleware.java
-* **Chỉ dẫn kỹ thuật cấp thấp:** Triển khai lớp trung gian RBAC xác thực quyền truy cập của người dùng dựa trên vai trò được lưu trong JWT token, áp dụng ràng buộc quyền cho tất cả endpoint backend, đảm bảo System Admin có toàn quyền trên tất cả trung tâm, Center Admin chỉ quản lý trung tâm được phân công, Manager có quyền hạn giới hạn (tạo thông báo, quản lý học viên, không chỉnh sửa khóa học), Teacher chỉ có quyền xem dữ liệu của khóa học phụ trách, Student chỉ truy cập tài nguyên cá nhân. Áp dụng các biện pháp chống xâm phạm OWASP Top 10, đảm bảo không có lỗ hổng bypass quyền truy cập.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 2: VIẾT BỘ KIỂM THỬ ĐƠN VỊ CHO RBAC
-* **Chuyên môn quy trình phụ tác tử:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth/src/test/java/com/hub/RbacMiddlewareTest.java;./sources/backend/auth/src/main/java/com/hub/security/RbacMiddleware.java
-* **Chỉ dẫn kỹ thuật cấp thấp:** Viết bộ kiểm thử đơn vị cho lớp RBAC Middleware, bao gồm các kịch bản: (1) Người dùng có vai trò hợp lệ truy cập tài nguyên được phép, (2) Người dùng có vai trò không hợp lệ truy cập tài nguyên bị từ chối với mã lỗi 403, (3) Center Admin truy cập tài nguyên của trung tâm khác bị từ chối, (4) JWT token hết hạn hoặc không hợp lệ bị từ chối truy cập. Đảm bảo tỷ lệ bao phủ mã nguồn RBAC đạt trên 90%.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
 
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 2: RÀ SOÁT MÃ RBAC VÀ XÂY DỰNG HÌNH ẢNH DOCKER ĐA GIAI ĐOẠN
+##### 📅 NGÀY 1: Triển khai hạ tầng đám mây cơ bản và container hóa
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 1: RÀ SOÁT MÃ NGUỒN RBAC VÀ SỬA LỖI
-* **Chuyên môn quy trình phụ tác tử:** [Reviewer]
-* **ID thẻ mục tiêu:** [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [NFR-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth/src/main/java/com/hub/security/RbacMiddleware.java
-* **Chỉ dẫn kỹ thuật cấp thấp:** Rà soát toàn bộ mã nguồn lớp RBAC Middleware, phát hiện và sửa các lỗ hổng bảo mật tiềm ẩn (ví dụ: lỗi so khớp vai trò không phân biệt chữ hoa chữ thường, thiếu kiểm tra quyền truy cập trên các endpoint ẩn), đảm bảo tuân thủ đầy đủ OWASP Top 10, tối ưu hiệu suất xác thực quyền (độ trễ xác thực <10ms), đề xuất và triển khai các cải tiến về cấu trúc mã nguồn.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 2: XÂY DỰNG DOCKERFILE ĐA GIAI ĐOẠN CHO TẤT CẢ DỊCH VỤ
-* **Chuyên môn quy trình phụ tác tử:** [Docker]
-* **ID thẻ mục tiêu:** [NFR-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/docker/Dockerfile
-* **Chỉ dẫn kỹ thuật cấp thấp:** Xây dựng Dockerfile đa giai đoạn cho tất cả dịch vụ backend (Quarkus) và frontend (Next.js), sử dụng base image nhẹ (alpine hoặc distroless), loại bỏ các tệp không cần thiết (tệp nguồn, tệp test, công cụ build) trong giai đoạn cuối, tối ưu cấu hình layer caching, đảm bảo kích thước hình ảnh cuối dưới 500MB cho tất cả dịch vụ, tuân thủ yêu cầu kích thước hình ảnh Docker.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
 
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 3: PROVISIONING HẠ TẦNG GCP VÀ TẠO MANIFEST GKE
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 1: PROVISIONING HẠ TẦNG GCP BẰNG TERRAFORM
-* **Chuyên môn quy trình phụ tác tử:** [GCP]
-* **ID thẻ mục tiêu:** [NFR-001], [NFR-002], [NFR-004], [NFR-009]
+###### 🌿 SUB-TASKS 1: Cấu hình hạ tầng GCP cơ bản
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [ARC-010], [NFR-002], [NFR-003], [NFR-004], [NFR-009]
 * **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/main.tf
-* **Chỉ dẫn kỹ thuật cấp thấp:** Cấu hình và triển khai toàn bộ hạ tầng GCP cần thiết cho hệ thống bao gồm: VPC với subnet riêng cho các dịch vụ, IAM roles với nguyên tắc đặc quyền tối thiểu, Cloud SQL (PostgreSQL) với cấu hình sao lưu tự động, Redis cluster cho caching phiên làm việc, Cloud Storage cho lưu trữ tệp báo cáo, Firewall rules chỉ mở các cổng cần thiết. Đảm bảo tất cả tài nguyên được định nghĩa dưới dạng mã (IaC), dữ liệu nghỉ được mã hóa AES-256, kết nối sử dụng TLS 1.3, tuân thủ yêu cầu bảo mật.
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cấu hình hạ tầng GCP bao gồm tạo dự án, mạng VPC, subnet, firewall rules, Cloud SQL (PostgreSQL) với high availability, Redis Memorystore, và Cloud Storage. Đảm bảo mã hóa dữ liệu nghỉ (AES-256) và TLS 1.3 cho kết nối. Áp dụng các chính sách IAM để tuân thủ NFR-003 và NFR-008. Cấu hình sao lưu tự động hàng ngày và point-in-time recovery cho PostgreSQL (NFR-009).
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 2: TẠO MANIFEST TRIỂN KHAI GKE CHO TẤT CẢ DỊCH VỤ
-* **Chuyên môn quy trình phụ tác tử:** [GKE]
-* **ID thẻ mục tiêu:** [NFR-002], [NFR-004], [NFR-009]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/gke/deployment.yaml
-* **Chỉ dẫn kỹ thuật cấp thấp:** Tạo manifest Kubernetes triển khai cho tất cả dịch vụ backend và frontend lên GKE, cấu hình resource limits (CPU, memory) cho từng dịch vụ, thiết lập readiness và liveness probes để đảm bảo khả năng chịu lỗi, cấu hình Horizontal Pod Autoscaler (HPA) tự động scale số lượng pod dựa trên ngưỡng CPU >70% hoặc độ trễ yêu cầu >300ms, cấu hình rolling update strategy để đảm bảo không có thời gian chết trong quá trình triển khai phiên bản mới.
+
+###### 🌿 SUB-TASKS 2: Xây dựng Dockerfile đa giai đoạn cho tất cả service vi mô
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/docker/Dockerfile.auth-service
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng Dockerfile đa giai đoạn (multi-stage) cho từng service vi mô (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot). Sử dụng base image nhỏ (distroless hoặc alpine) để đảm bảo kích thước hình ảnh cuối cùng < 500MB (NFR-005). Tối ưu hóa layer caching và loại bỏ các công cụ không cần thiết trong giai đoạn production.
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 3: Tạo cụm GKE với auto-scaling
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [GKE]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-004], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/gke-cluster.tf
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo cụm GKE với 3 node pools (system, application, cache). Cấu hình Horizontal Pod Autoscaler (HPA) dựa trên CPU > 70% và độ trễ yêu cầu > 300ms (NFR-004). Bật auto-scaling cho node pools. Cấu hình network policies và PodSecurityPolicy để đảm bảo an ninh.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 4: Cấu hình PostgreSQL read replicas
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [NFR-004], [NFR-009], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/postgres-replica.tf
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cấu hình 2 read replicas cho PostgreSQL để phân tán khối lượng công việc báo cáo. Thiết lập connection pooling với PgBouncer. Cấu hình automated failover cho primary instance. Đảm bảo backup hàng ngày và point-in-time recovery trong 24 giờ (NFR-009).
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 5: Viết kiểm thử xác thực hạ tầng
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/infra/test/infra_test.go
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết các bài kiểm thử xác thực hạ tầng sử dụng Terratest để kiểm tra việc provision VPC, Cloud SQL, Redis, và GKE cluster. Xác minh các cấu hình auto-scaling và network policies hoạt động như mong đợi.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--END_DAY_LOG_INDEX-->
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 4: THIẾT LẬP PIPELINE CI/CD VÀ KIỂM THỬ TÍCH HỢP HẠ TẦNG
+
+##### 📅 NGÀY 2: Triển khai Kubernetes và CI/CD pipeline
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 1: XÂY DỰNG PIPELINE CI/CD VỚI GITHUB ACTIONS
-* **Chuyên môn quy trình phụ tác tử:** [Coder]
-* **ID thẻ mục tiêu:** [NFR-001], [NFR-005], [NFR-006]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/.github/workflows/ci-cd-pipeline.yaml
-* **Chỉ dẫn kỹ thuật cấp thấp:** Xây dựng pipeline CI/CD với GitHub Actions, tự động hóa toàn bộ quy trình từ khi có commit: (1) Build mã nguồn, (2) Chạy bộ kiểm thử đơn vị và tích hợp, (3) Quét lỗ hổng bảo mật phụ thuộc (OWASP dependency check), (4) Kiểm tra kích thước hình ảnh Docker, (5) Push hình ảnh đã build lên Google Container Registry (GCR), (6) Triển khai tự động lên GKE khi commit vào nhánh main. Tích hợp ghi log audit cho tất cả sự kiện pipeline, lưu trữ log trong 1 năm.
+
+###### 🌿 SUB-TASKS 1: Tạo Kubernetes deployment manifests và services
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [GKE]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-004], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/k8s/deployment-auth-service.yaml
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo Kubernetes Deployment, Service, và HorizontalPodAutoscaler cho tất cả các service vi mô. Cấu hình resource requests/limits, liveness/readiness probes, và rolling update strategy. Đảm bảo high availability với ít nhất 2 replicas cho mỗi service.
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 2: KIỂM THỬ TÍCH HỢP HẠ TẦNG TOÀN HỆ THỐNG
-* **Chuyên môn quy trình phụ tác tử:** [Tester]
-* **ID thẻ mục tiêu:** [NFR-001], [NFR-002], [NFR-004]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/infra/test/infrastructure-integration-test.yaml
-* **Chỉ dẫn kỹ thuật cấp thấp:** Thực hiện kiểm thử tích hợp toàn bộ hạ tầng, xác minh: (1) Tất cả tài nguyên GCP được triển khai chính xác theo đặc tả Terraform, (2) Kết nối giữa các dịch vụ (backend, PostgreSQL, Redis, FCM) hoạt động ổn định, (3) HPA tự động scale pod khi tải tăng, (4) Pipeline CI/CD chạy thành công từ commit đến triển khai, (5) Tính năng sao lưu và phục hồi PostgreSQL hoạt động chính xác. Ghi nhận tất cả lỗi phát sinh và đề xuất giải pháp khắc phục.
+
+###### 🌿 SUB-TASKS 2: Đẩy hình ảnh Docker lên Google Container Registry
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/docker/push-images.sh
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo script để đẩy tất cả hình ảnh Docker đã được build lên Google Container Registry (GCR) với tags phiên bản phù hợp. Cấu hình image pull policy là Always cho môi trường staging và IfNotPresent cho production.
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 3: Cấu hình pipeline CI/CD GitHub Actions
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [NFR-001], [NFR-006], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/.github/workflows/ci-cd.yml
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng pipeline CI/CD với GitHub Actions bao gồm: build và test cho mỗi service, quét lỗ hổng bảo mật (Snyk), build Docker images, đẩy lên GCR, triển khai lên GKE. Tích hợp kiểm tra chất lượng mã (SonarQube) và logging cho pipeline (NFR-006).
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 4: Cấu hình Cloud Logging và Monitoring
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [NFR-006], [NFR-002], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/monitoring.tf
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cấu hình Cloud Logging để thu thập logs từ tất cả các service và GKE cluster. Thiết lập Cloud Monitoring với các dashboard hiển thị metrics hiệu năng (NFR-001), availability (NFR-002), và health của các service. Cấu hình alerts cho các ngưỡng cảnh báo.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 5: Viết kiểm thử xác thực triển khai end-to-end
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [NFR-002], [NFR-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/infra/test/e2e_deployment_test.go
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết bài kiểm thử end-to-end để xác minh tất cả các service được triển khai thành công trên GKE, có thể giao tiếp với nhau, và phản hồi yêu cầu trong ngưỡng hiệu năng cho phép (NFR-001). Kiểm tra khả năng tự động phục hồi khi node bị lỗi.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--END_DAY_LOG_INDEX-->
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 5: HOÀN THIỆN TÀI LIỆU DOANH NGHIỆP VÀ RÀ SOÁT CUỐI CÙNG
+
+##### 📅 NGÀY 3: Triển khai hợp đồng tích hợp hệ thống và kiến trúc sự kiện
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 1: SOẠN THẢO TÀI LIỆU KIẾN TRÚC HỆ THỐNG
-* **Chuyên môn quy trình phụ tác tử:** [Doc]
-* **ID thẻ mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/architecture/system-architecture.md
-* **Chỉ dẫn kỹ thuật cấp thấp:** Soạn thảo bản vẽ kiến trúc hệ thống tổng thể, mô tả chi tiết cấu trúc microservices, luồng dữ liệu chính (xác thực, điểm danh QR, thông báo, đăng ký khóa học), ma trận RBAC với 5 vai trò người dùng, sơ đồ tương tác giữa các thành phần kiến trúc, đảm bảo tài liệu phản ánh chính xác kiến trúc đã triển khai và tuân thủ tất cả yêu cầu kiến trúc đã định nghĩa.
+
+###### 🌿 SUB-TASKS 1: Cấu hình API Gateway
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [ARC-006], [ARC-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/k8s/api-gateway.yaml
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cấu hình API Gateway (Kong hoặc NGINX Ingress) để định tuyến yêu cầu đến các service vi mô tương ứng. Thiết lập rate limiting, JWT validation, và SSL termination. Đảm bảo tất cả các endpoint REST được bảo vệ và tuân thủ kiến trúc tích hợp backend-frontend (ARC-009).
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC PHỤ 2: SOẠN THẢO TÀI LIỆU API VÀ HƯỚNG DẪN VẬN HÀNH
-* **Chuyên môn quy trình phụ tác tử:** [Doc]
-* **ID thẻ mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/api/rest-api-reference.md;./sources/docs/operations/installation-guide.md;./sources/docs/operations/backup-recovery-guide.md
-* **Chỉ dẫn kỹ thuật cấp thấp:** Soạn thảo tài liệu tham chiếu API REST đầy đủ cho tất cả endpoint công khai và nội bộ, bao gồm đường dẫn, phương thức HTTP, schema yêu cầu/phản hồi, mã lỗi, ví dụ sử dụng; soạn thảo hướng dẫn cài đặt hệ thống trên môi trường GKE, hướng dẫn vận hành hàng ngày, hướng dẫn sao lưu và phục hồi thảm họa PostgreSQL, đảm bảo tất cả yêu cầu phi chức năng về hiệu suất, bảo mật, khả năng sẵn sàng, tuân thủ GDPR/CCPA được ghi chú đầy đủ trong tài liệu.
+
+###### 🌿 SUB-TASKS 2: Cấu hình Kafka topics cho kiến trúc sự kiện
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [ARC-007], [ARC-008], [ARC-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/k8s/kafka-topics.yaml
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo các Kafka topics cho các luồng sự kiện: attendance.scan (điểm danh QR), notification.push (thông báo đẩy), notification.zalo (tin nhắn Zalo), và course.enrollment (đăng ký khóa học). Cấu hình replication factor và partition count phù hợp cho khả năng mở rộng.
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 3: Cấu hình Service Mesh Istio
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/k8s/istio-config.yaml
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cấu hình Istio service mesh để quản lý giao tiếp giữa các service vi mô. Thiết lập mutual TLS, traffic shifting, và circuit breaking. Đảm bảo các luồng xác thực (ARC-006), điểm danh (ARC-007), và thông báo (ARC-008) hoạt động ổn định qua service mesh.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 4: Viết kiểm thử hợp đồng API
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/auth/src/test/java/com/hub/contract/AuthApiContractTest.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết các bài kiểm thử hợp đồng (contract tests) để xác minh các endpoint REST API tuân thủ đúng schema đã định nghĩa. Bao gồm kiểm tra authentication flow (ARC-006), attendance scan endpoint (ARC-007), notification endpoints (ARC-008), và backend-frontend integration endpoints (ARC-009).
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 5: Tài liệu hợp đồng tích hợp hệ thống
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/api-integration-contracts.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết tài liệu chi tiết về các hợp đồng tích hợp hệ thống, bao gồm: luồng xác thực OAuth2/JWT (ARC-006), luồng điểm danh QR (ARC-007), luồng thông báo đa kênh (ARC-008), và tích hợp backend-frontend (ARC-009). Bao gồm các schema request/response, mã lỗi, và ví dụ sử dụng.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--END_DAY_LOG_INDEX-->
+
+<!--START_DAY_LOG_INDEX-->
+
+##### 📅 NGÀY 4: Bảo mật, tuân thủ và tối ưu hiệu năng
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 1: Cấu hình IAM và chính sách bảo mật GCP
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [GCP]
+* **ID Thẻ mục tiêu:** [NFR-003], [NFR-008], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/iam.tf
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cấu hình IAM roles và service accounts với nguyên tắc đặc quyền tối thiểu (least privilege). Thiết lập organization policies để đảm bảo tuân thủ GDPR/CCPA (NFR-008). Cấu hình Cloud KMS để quản lý khóa mã hóa.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 2: Cấu hình chính sách mạng và bảo mật pod GKE
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [GKE]
+* **ID Thẻ mục tiêu:** [NFR-003], [NFR-008], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/k8s/security-policies.yaml
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai Network Policies để kiểm soát lưu lượng giữa các service. Cấu hình PodSecurityPolicies (PSP) hoặc Pod Security Standards để hạn chế đặc quyền container. Bật audit logging cho cluster.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 3: Triển khai middleware ghi log audit
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Coder]
+* **ID Thẻ mục tiêu:** [NFR-006], [ARC-006]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/common/src/main/java/com/hub/middleware/AuditLoggingMiddleware.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai middleware ghi log audit cho tất cả các service vi mô. Ghi lại mọi hành động người dùng (thay đổi vai trò, điểm danh, thông báo) với timestamp, user ID, và chi tiết hành động. Đảm bảo logs được giữ lại 1 năm (NFR-006) và tuân thủ luồng xác thực (ARC-006).
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 4: Viết kiểm thử tuân thủ bảo mật
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [NFR-003], [NFR-008]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/infra/test/security_compliance_test.go
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện các bài kiểm thử bảo mật và tuân thủ: kiểm tra mã hóa TLS 1.3, xác thực mã hóa AES-256 cho dữ liệu nghỉ, kiểm tra cấu hình IAM, và đảm bảo tuân thủ GDPR/CCPA (quyền xóa dữ liệu, xuất dữ liệu JSON).
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 5: Rà soát cấu hình bảo mật và khoảng trống tuân thủ
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [NFR-003], [NFR-008], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/security-review.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện rà soát toàn diện các cấu hình bảo mật GCP và GKE. Xác định các khoảng trống tuân thủ so với OWASP Top 10 và yêu cầu GDPR/CCPA. Đề xuất các biện pháp khắc phục và cải tiến.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--END_DAY_LOG_INDEX-->
+
+<!--START_DAY_LOG_INDEX-->
+
+##### 📅 NGÀY 5: Hoàn thiện tài liệu, kiểm thử cuối cùng và bàn giao
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 1: Viết tài liệu tổng quan kiến trúc hệ thống
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/architecture-overview.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết tài liệu tổng quan kiến trúc hệ thống bao gồm sơ đồ kiến trúc tổng thể, mô tả các luồng chính (xác thực, điểm danh QR, thông báo, tích hợp frontend), và lược đồ các tương tác giữa các service. Bao gồm các yêu cầu phi chức năng về hiệu năng, bảo mật, khả năng sẵn sàng, và tuân thủ.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 2: Viết tài liệu hướng dẫn vận hành và phục hồi thảm họa
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Doc]
+* **ID Thẻ mục tiêu:** [ARC-010], [NFR-002], [NFR-009]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/operational-runbooks.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết hướng dẫn vận hành chi tiết cho đội ngũ vận hành, bao gồm quy trình triển khai, giám sát, xử lý sự cố, và phục hồi thảm họa. Mô tả các bước khôi phục dịch vụ sau khi sự cố, bao gồm cả kịch bản mất kết nối mạng (EXC-001) và sao lưu/khôi phục cơ sở dữ liệu.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 3: Thực hiện kiểm thử tích hợp toàn hệ thống
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Tester]
+* **ID Thẻ mục tiêu:** [ARC-006], [ARC-007], [ARC-008], [ARC-009], [NFR-001], [NFR-002]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/infra/test/full_e2e_test.go
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện kiểm thử end-to-end toàn hệ thống trên môi trường staging. Xác minh tất cả các luồng chính hoạt động: đăng ký/đăng nhập, quét QR điểm danh, gửi thông báo, đăng ký khóa học, và phản hồi API trong ngưỡng 200ms (NFR-001). Kiểm tra khả năng chịu lỗi và failover.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 4: Rà soát cuối cùng mã nguồn và cấu hình
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Reviewer]
+* **ID Thẻ mục tiêu:** [ARC-010], [NFR-003], [NFR-004]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/terraform/final-review.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện rà soát cuối cùng toàn bộ mã nguồn hạ tầng (Terraform, Kubernetes manifests, Dockerfiles) và cấu hình bảo mật. Đảm bảo không có secrets hardcoded, tất cả cấu hình tuân thủ các tiêu chuẩn bảo mật và yêu cầu phi chức năng.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 SUB-TASKS 5: Tối ưu hình ảnh Docker và đẩy lên registry
+* **Chuyên môn quy trình làm việc của tác nhân phụ:** [Docker]
+* **ID Thẻ mục tiêu:** [NFR-005], [ARC-010]
+* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/infra/docker/optimize-images.sh
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tối ưu hóa kích thước hình ảnh Docker bằng cách loại bỏ các lớp không cần thiết, sử dụng multi-stage builds hiệu quả, và nén hình ảnh cuối cùng. Đẩy tất cả hình ảnh đã tối ưu lên Google Container Registry với tags phù hợp cho môi trường production.
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--END_DAY_LOG_INDEX-->
 
 ### 🕵️ BÁO CÁO KIỂM TOÁN CHÉO KIẾN TRÚC THỜI GIAN THỰC
@@ -992,10 +1267,12 @@ PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
 MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
 ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=5
 TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
-TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=29
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=29
+TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=34
+TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=25
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
+
 <!--END_PHASE_INDEX-->
+
 <!--END_PART_2_PHASE_LOOP-->
 
