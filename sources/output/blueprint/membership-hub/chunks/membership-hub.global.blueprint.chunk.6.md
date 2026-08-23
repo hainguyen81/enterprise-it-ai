@@ -749,84 +749,81 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 <PROJECT_BACKLOG_TASKS_DATA>
 --- BACKLOG TASKS ---
-## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN MỨC CAO
+## 🏁 4. BẢNG TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN CẤP CAO
 
-### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
+### 📦 4.1. DANH MỤC CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
+
+Tập hợp công việc dưới đây được cấu trúc theo chuỗi phụ thuộc kiến trúc của nền tảng membership-hub: lớp khung dự án [ARC-000] khởi tạo descriptor build backend Java/Quarkus theo mô hình microservices và workspace frontend Next.js/React Native làm nền móng cho toàn bộ module chức năng; các dịch vụ nghiệp vụ (auth-service, center-service, course-service, enrollment-service, attendance-service, card-service, notification-service, promotion-service, chatbot-service, reporting-service) đều phụ thuộc vào lớp dữ liệu quan hệ hợp nhất [DAT-ALL (1 to 11)] và bị ràng buộc bởi cơ chế thực thi phân quyền RBAC [ARC-001 to ARC-005]; bốn luồng tích hợp liên dịch vụ [ARC-006 to ARC-009] (xác thực OAuth2/JWT, điểm danh QR idempotent, điều phối thông báo đa kênh FCM/APNs/Zalo, kết nối mobile–backend có caching ngoại tuyến) được chuẩn hóa qua api-gateway và Redis session cache; cuối cùng, nền tảng công nghệ [ARC-010], hạ tầng DevOps (Docker, Terraform/GCP, GKE, CI/CD GitHub Actions) và khối tài liệu doanh nghiệp đóng gói toàn bộ ràng buộc phi chức năng [NFR-001] đến [NFR-009] thành chuỗi bàn giao production hoàn chỉnh.
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
-### MA TRẬN SỐ HỌC HỆ THỐNG
-> - Tổng số thẻ [REQ]: 25 Thẻ
-
-> - Tổng số thẻ [EXC]: 5 Thẻ
-
-> - Tổng số thẻ [ARC]: 10 Thẻ
-
-> - Tổng số thẻ [DAT]: 9 Thẻ
-
-> - Tổng số thẻ [NFR]: 9 Thẻ
-
-> - ➡️ Tổng số thẻ SRS: 58 Thẻ
-
-Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh xạ toàn bộ các yêu cầu nghiệp vụ, kiến trúc, dữ liệu và phi chức năng từ đặc tả yêu cầu phần mềm vào các nhiệm vụ kỹ thuật cụ thể, đảm bảo tính truy xuất nguồn gốc 100% và tuân thủ các tiêu chuẩn doanh nghiệp. Các thành phần kiến trúc có mối phụ thuộc chặt chẽ: hạ tầng cơ sở dữ liệu PostgreSQL là nền tảng cho tất cả các service vi mô, lớp bảo mật RBAC và xác thực OAuth2 kiểm soát truy cập vào toàn bộ hệ thống, hạ tầng DevOps trên GKE đảm bảo tính sẵn sàng và khả năng mở rộng, còn hệ thống tài liệu hỗ trợ vận hành và bảo trì lâu dài.
+### [MA TRẬN TÍNH TOÁN HỆ THỐNG]
+> - **Tổng số thẻ [REQ]:** 25 thẻ
+> - **Tổng số thẻ [EXC]:** 5 thẻ
+> - **Tổng số thẻ [ARC]:** 10 thẻ
+> - **Tổng số thẻ [DAT]:** 11 thẻ
+> - **Tổng số thẻ [NFR]:** 9 thẻ
+> - ➡️ **Tổng số thẻ SRS:** 60 thẻ
 
 | STT | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm bàn giao | Loại | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Khởi tạo cấu trúc dự án backend vi mô Quarkus | Tạo pom.xml gốc và pom.xml cho từng service vi mô (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot) | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Khởi tạo cấu trúc dự án frontend Next.js | Tạo package.json và tsconfig.json cho ứng dụng web và di động | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Khởi tạo cấu trúc thư mục tài liệu doanh nghiệp | Tạo cấu trúc thư mục cho bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành | Tài liệu Doanh nghiệp | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Triển khai chức năng đăng ký người dùng bằng email/mật khẩu | Xác thực đầu vào, tạo bản ghi người dùng với vai trò Student, cấp JWT token | Mã Ứng dụng | [REQ-001, EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Triển khai xác thực mạng xã hội OAuth2 | Tích hợp Firebase, Google, Facebook OAuth2, xử lý mã xác thực, tạo/cập nhật bản ghi người dùng, cấp JWT | Mã Ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Triển khai chức năng phân quyền người dùng | Gán/thay đổi vai trò người dùng, áp dụng quyền truy cập ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Triển khai chức năng xem danh sách trung tâm | Hiển thị danh sách trung tâm với địa chỉ, mã số thuế, thông tin liên hệ quản trị | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Triển khai chức năng quản lý trung tâm (CRUD) | Thêm, sửa, xóa bản ghi trung tâm, kiểm tra trùng mã số thuế | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 9 | Triển khai chức năng phân quyền quản trị trung tâm | Gán/huỷ gán quyền Center Admin cho người dùng tại trung tâm cụ thể | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 10 | Triển khai chức năng xem danh sách khóa học | Hiển thị danh sách khóa học với lịch học và giáo viên phụ trách | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 11 | Triển khai chức năng quản lý khóa học (CRUD) với kiểm tra xung đột lịch | Thêm, sửa, xóa khóa học, kiểm tra trùng lịch giáo viên/địa điểm | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 12 | Triển khai chức năng phân công giáo viên vào khóa học | Gán/huỷ gán giáo viên cho khóa học, kích hoạt thông báo cho giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 13 | Triển khai chức năng duyệt khóa học cho học viên | Hiển thị danh sách khóa học chưa đăng ký của học viên | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 14 | Triển khai chức năng đăng ký khóa học học viên | Xử lý đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại, gửi thông báo | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 15 | Triển khai chức năng điểm danh quét mã QR | Nhận payload quét QR, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012, EXC-001, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 16 | Triển khai tính chất bất biến của điểm danh | Đảm bảo chỉ tạo 1 bản ghi điểm danh/học viên/khóa học/ngày, xử lý yêu cầu trùng lặp | Mã Ứng dụng | [REQ-013, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 17 | Triển khai chức năng hiển thị tính hợp lệ thẻ hội viên | Hiển thị tổng số ngày hiệu lực, số ngày đã sử dụng, số ngày còn lại của thẻ hội viên | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 18 | Triển khai chức năng gia hạn thẻ hội viên | Gia hạn ngày kết thúc thẻ sau khi xác nhận thanh toán, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 19 | Triển khai chức năng kích hoạt thông báo đa kênh | Tạo bản ghi thông báo, xếp hàng push notification, gửi tin nhắn nhóm Zalo | Mã Ứng dụng | [REQ-016, EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 20 | Triển khai chức năng quản lý khuyến mãi | CRUD khuyến mãi (giảm giá, ưu đãi) với ngày bắt đầu/kết thúc, hiển thị cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 21 | Triển khai chức năng quản lý thông báo | CRUD thông báo với ngày hết hạn tùy chọn, tự động ẩn sau ngày hết hạn, phát sóng toàn hệ thống | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 22 | Triển khai tích hợp chatbot AI | Xử lý câu hỏi thường gặp về khóa học, giáo viên, trung tâm, trạng thái tài khoản, leo thang hỗ trợ khi độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 23 | Triển khai giao diện người dùng vai trò trên di động | Xây dựng giao diện responsive Next.js cho từng vai trò (Student, Teacher, Admin...), đồng bộ chức năng với web | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 24 | Triển khai thông báo đẩy trên di động | Tích hợp FCM/APNs, quản lý token thiết bị, xử lý nhận thông báo trên ứng dụng di động | Mã Ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 25 | Triển khai phát hiện ngôn ngữ mặc định | Phát hiện ngôn ngữ ưu tiên của người dùng, lưu trữ cài đặt, fallback sang Accept-Language header | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 26 | Triển khai SEO đa ngôn ngữ | Thêm thẻ meta ngôn ngữ, thuộc tính hreflang, hỗ trợ 3 ngôn ngữ (Anh, Việt, Tây Ban Nha) | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 27 | Triển khai chức năng tạo báo cáo điểm danh CSV | Xuất báo cáo điểm danh hàng ngày cho trung tâm, định dạng CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024, EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 28 | Triển khai bảng điều khiển tóm tắt ghi danh | Xây dựng dashboard realtime hiển thị tổng học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tới) | Mã Ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 29 | Khởi tạo hạ tầng cơ sở dữ liệu PostgreSQL | Tạo schema, tất cả các bảng dữ liệu theo định nghĩa, cấu hình connection pool và index tối ưu | Mã Ứng dụng | [DAT-ALL (1 to 9)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 30 | Triển khai lớp bảo mật RBAC và xác thực | Triển khai kiểm soát truy cập dựa trên vai trò, xác thực JWT, OAuth2, refresh token, bảo vệ tất cả endpoint | Mã Ứng dụng | [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 31 | Triển khai hợp đồng tích hợp hệ thống | Triển khai luồng xác thực, điểm danh QR, thông báo đa kênh, tích hợp backend-frontend | Mã Ứng dụng | [ARC-006, ARC-007, ARC-008, ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 32 | Triển khai hạ tầng DevOps và đám mây | Xây dựng Dockerfile đa giai đoạn, pipeline CI/CD GitHub Actions, triển khai GKE, cấu hình Terraform cho GCP, tích hợp FCM/APNs, Zalo API, Redis caching, đảm bảo tuân thủ NFR | Hạ tầng DevOps | [NFR-001, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, NFR-007, NFR-008, NFR-009, ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 33 | Xây dựng tài liệu hệ thống doanh nghiệp | Viết bản vẽ kiến trúc, hợp đồng API REST/Event, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng | Tài liệu Doanh nghiệp | <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| **TÓM TẮT** | **Tổng số thẻ theo dõi đã bao phủ:** 58 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** ĐÃ XÁC THỰC | **Mức độ bao phủ:** 100% <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 1 | Khởi tạo khung dự án backend microservices | Sinh descriptor build gốc `./sources/backend/pom.xml` (Quarkus BOM, dependencyManagement tập trung) và descriptor module con `./sources/backend/<service-name>/pom.xml` cho từng dịch vụ; thiết lập profile build dev/production và plugin compile thống nhất. | Mã ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Khởi tạo workspace frontend | Sinh manifest `./sources/frontend/package.json` (Next.js, React Native, TypeScript) và cấu hình biên dịch `./sources/frontend/tsconfig.json` (strict mode, path alias) làm nền chung cho web-app và mobile-app. | Mã ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Đăng ký người dùng bằng email/mật khẩu | Endpoint POST /api/v1/auth/register trên auth-service: validate email unique và độ mạnh mật khẩu, hash bcrypt, tạo bản ghi Users vai trò mặc định 'Student', cấp JWT 15 phút kèm refresh token; khi validation thất bại trả thông báo liệt kê từng trường không hợp lệ. | Mã ứng dụng | [REQ-001], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Xác thực mạng xã hội OAuth2 | Tích hợp Firebase/Google/Facebook qua OAuth2: nhận authorization code từ popup provider, exchange lấy user info, tạo/cập nhật bản ghi Users cục bộ theo provider tương ứng, phát hành JWT phiên làm việc. | Mã ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Phân quyền vai trò người dùng | API quản trị gán/thay đổi roleId (System Admin, Center Admin, Manager, Teacher, Student); cập nhật cột vai trò và áp dụng ma trận quyền tức thời; ghi audit log mọi thay đổi vai trò kèm timestamp và userId. | Mã ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Xem danh sách trung tâm | GET /api/v1/centers trả bảng trung tâm (Name, Address, TaxID, AdminContact) cho mọi người dùng đã xác thực; phân trang và index truy vấn sub-second. | Mã ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Tạo/cập nhật/xóa trung tâm | CRUD trung tâm dành cho System Admin tại center-service: validate taxId numeric 10–13 chữ số với ràng buộc unique, trả 409 Conflict khi taxId trùng; persist contactPhone/contactEmail đúng định dạng chuẩn. | Mã ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Phân quyền quản trị trung tâm | Gán/hủy gán user làm Center Admin cho centerId cụ thể: set role 'Center Admin', ghi center ID vào phạm vi quản lý; thao tác unassign đảo ngược hoàn toàn; cô lập tenant theo trung tâm. | Mã ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 9 | Xem danh sách khóa học | GET /api/v1/courses trả lưới CourseID, Title, StartDate, EndDate, TeacherName (join Users); hỗ trợ duyệt danh sách offering cho mọi vai trò đã xác thực. | Mã ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 10 | Quản lý khóa học chống xung đột lịch | CRUD khóa học (System Admin/Center Admin): kiểm tra giao thoa khoảng startDate–endDate trên cùng teacherId hoặc venue trước khi persist, trả lỗi xung đột lịch nếu trùng; maxStudents mặc định 30. | Mã ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 11 | Phân công giáo viên vào khóa học | Gán/hủy ánh xạ course–teacher; khi gán, phát event sang notification-service để queue push notification tới mobile app của giáo viên được chỉ định. | Mã ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 12 | Duyệt khóa học dành cho học viên | GET /api/v1/enrollments/browse lọc loại các khóa học đã có bản ghi Enrollment của studentId; hiển thị capacity và lịch học còn trống để học viên lựa chọn. | Mã ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 13 | Đăng ký khóa học của học viên | POST đăng ký khóa học trong một transaction: tạo bản ghi Enrollments, tự động cấp tài khoản vai trò 'Student' nếu chưa tồn tại, phát sự kiện thông báo tới mobile app học viên và nhóm Zalo của trung tâm. | Mã ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 14 | Chụp ảnh điểm danh qua quét mã QR | Mobile scanner gửi studentId + timestamp tới POST /api/v1/attendance/scan: xác thực quan hệ student–course, ghi bản ghi Attendance kèm attendanceDate; cơ chế retry sau khi reconnect và ghi nhận điểm danh một lần khi dịch vụ reachable trở lại. | Mã ứng dụng | [REQ-012], [EXC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 15 | Bất biến (idempotent) điểm danh | Ràng buộc unique (studentId, courseId, attendanceDate) tại tầng PostgreSQL; nhiều lần quét cùng ngày chỉ tạo một dòng attendance; request trùng trả success kèm cờ 'duplicate' ('already recorded') không phát sinh thêm bản ghi. | Mã ứng dụng | [REQ-013], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 16 | Hiển thị tính hợp lệ thẻ hội viên | GET /api/v1/cards/me suy ra totalValidityDays, daysUsed, daysRemaining từ thực thể StudentCard (issueDate, validityDays); render thẻ hội viên kỹ thuật số kèm đếm ngày hiệu lực còn lại. | Mã ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 17 | Gia hạn thẻ hội viên | Luồng gia hạn theo kỳ chọn (ví dụ 30 ngày): khi payment service xác nhận success thì mở rộng EndDate/validityDays của StudentCard và gửi notification xác nhận gia hạn tới học viên. | Mã ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 18 | Kích hoạt thông báo đa kênh | Khi admin tạo announcement, phân công giáo viên hoặc đăng ký học viên: tạo bản ghi Notifications, queue push payload qua FCM/APNs và đăng tin nhắn văn bản lên nhóm Zalo chỉ định; log thất bại delivery và retry tối đa 3 lần trước khi đánh dấu failed khi device token invalid. | Mã ứng dụng | [REQ-016], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 19 | Quản lý khuyến mãi | CRUD Promotions (code unique, discountPercent, startDate/endDate, description) cho Center Admin/Manager; endDate bỏ trống coi là khuyến mãi vĩnh viễn; công khai danh sách ưu đãi áp dụng phía học viên. | Mã ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 20 | Quản lý thông báo công khai | CRUD Announcements (title tối đa 150 ký tự, content tối đa 2000 ký tự, expiry tùy chọn); phát sóng toàn site và tự động ẩn sau ngày hết hạn đã cấu hình. | Mã ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 21 | Tích hợp chatbot AI chăm sóc khách hàng | Widget chat tiêu thụ chatbot-service: trả lời truy vấn về khóa học, giáo viên, trung tâm và trạng thái tài khoản; escalate lên nhân viên hỗ trợ khi độ tin cậy thấp; ghi log hội thoại vào AuditLog. | Mã ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 22 | Giao diện di động theo vai trò | Responsive UI (React Native) phản chiếu đầy đủ chức năng web theo vai trò (Student, Teacher, Admin); render menu điều hướng và màn hình tương ứng ngay sau đăng nhập trên Android/iOS. | Mã ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 23 | Thông báo đẩy trên di động | Đăng ký device token sau login; nhận push qua FCM/APNs cho xác nhận điểm danh, announcement mới và tin nhắn nhắc nhở; điều hướng deep-link tới màn hình liên quan. | Mã ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 24 | Phát hiện ngôn ngữ mặc định | Ưu tiên ngôn ngữ đã lưu của người dùng, fallback theo Accept-Language header của trình duyệt; externalize toàn bộ UI strings (en/vi/es) và chuyển locale không cần reload trang. | Mã ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 25 | SEO đa ngôn ngữ | Render thẻ `<html lang='en'>`, language-specific meta tags và hreflang alternate links cho en/vi/es trên từng page; SSR metadata phục vụ crawler lập chỉ mục. | Mã ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 26 | Báo cáo điểm danh CSV | Xuất file CSV cột StudentName, CourseName, AttendanceDate, Status theo trung tâm và khoảng ngày chọn; xử lý FIFO các scan tồn đọng sau outage và gửi thông báo sự kiện đã phục hồi tới người dùng. | Mã ứng dụng | [REQ-024], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 27 | Bảng điều khiển tóm tắt ghi danh | Dashboard real-time cho Center Admin: thẻ totalStudents, activeCourses, upcomingSessions (7 ngày tới); đọc qua PostgreSQL read replica để cách ly workload báo cáo khỏi OLTP. | Mã ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 28 | Khởi tạo hạ tầng cơ sở dữ liệu hợp nhất | Flyway migration tại `./sources/backend/db-migrations/` tạo đủ 11 bảng lõi: Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings; khóa ngoại, unique constraint và index tối ưu truy vấn sub-second. | Mã ứng dụng | [DAT-ALL (1 to 11)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 29 | Thực thi bảo mật RBAC toàn cục | Bộ filter/interceptor phân quyền 5 vai trò: System Admin toàn quyền mọi trung tâm, Center Admin giới hạn trong trung tâm sở tại, Manager không được sửa khóa học/chỉ định giáo viên, Teacher chỉ đọc lịch dạy, Student duyệt/đăng ký/xem thẻ; áp dụng thống nhất qua api-gateway tại `./sources/backend/auth-service/`. | Mã ứng dụng | [ARC-001 to ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 30 | Hợp đồng tích hợp liên dịch vụ | Chuẩn hóa 4 luồng kiến trúc: xác thực OAuth2/JWT (access 15 phút + refresh token), điểm danh QR idempotent, điều phối thông báo đa kênh (FCM/APNs/Zalo), tích hợp mobile–backend qua bearer token với offline caching; công bố OpenAPI contracts qua api-gateway tại `./sources/backend/api-gateway/`. | Mã ứng dụng | [ARC-006 to ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 31 | Nền tảng công nghệ & hạ tầng chuẩn | Chốt stack production: Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration, Redis session caching, CI/CD GitHub Actions; tham số hóa cấu hình môi trường tại `./sources/infra/`. | Hạ tầng DevOps | [ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 32 | Hạ tầng DevOps & pipeline triển khai | Multi-stage Dockerfiles (base image nhỏ hơn 200MB, final image nhỏ hơn 500MB), Terraform provisioning VPC/IAM/Storage trên GCP, manifests GKE với HPA (CPU vượt 70% hoặc latency vượt 300ms), failover liên cluster đạt uptime 99.9%, TLS 1.3/AES-256 kèm mitigations OWASP Top 10, backup PITR 24h đa region, audit log lưu trữ 1 năm, workflow GDPR/CCPA data export/deletion và consent management. | Hạ tầng DevOps | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 33 | Kiến trúc tài liệu doanh nghiệp | Biên soạn blueprint kiến trúc, sơ đồ topology cơ sở dữ liệu, hướng dẫn vận hành bản địa hóa (vi/en/es) và hợp đồng API tham chiếu (OpenAPI) đặt tại `./sources/docs/`; bổ sung quy trình audit log, quản lý consent và xuất dữ liệu cá nhân theo GDPR/CCPA. | Tài liệu doanh nghiệp | [NFR-006], [NFR-007], [NFR-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **TỔNG KẾT** | **Tổng số thẻ theo dõi đã bao phủ:** 60 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** Đã xác minh | **Độ bao phủ:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 
-<!--END_PART_1_BACKLOG_4_1-->
-
 ### 🔭 4.2. MA TRẬN TỔNG QUAN ĐA GIAI ĐOẠN
-<!--START_PHASE_SYNOPSIS_GRID-->
-### CHU KỲ SỐ HỌC MA TRẬN
-> - **Tổng số nhiệm vụ backlog:** 33 Nhiệm vụ
-> - **Tổng số thẻ backlog:** 58 Thẻ
-> - **Tổng số nhiệm vụ đã phân phối:** 33 Nhiệm vụ
-> - **Tổng số thẻ đã phân phối:** 58 Thẻ
 
-| Giai đoạn | Khoảng ngày | ID Nhiệm vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm bàn giao kỹ thuật | Đại lý phụ trách | ID Thẻ được nhắm mục tiêu |
+<!--START_PHASE_SYNOPSIS_GRID-->
+
+### [VÒNG ĐỜI TÍNH TOÁN MA TRẬN]
+
+> - **Tổng số nhiệm vụ Backlog:** 33 Nhiệm vụ
+> - **Tổng số thẻ Backlog:** 61 Thẻ
+> - **Tổng số nhiệm vụ đã phân bổ:** 33 Nhiệm vụ
+> - **Tổng số thẻ đã phân bổ:** 61 Thẻ
+
+| Giai đoạn | Khoảng ngày | Task ID bao phủ | Thành phần kiến trúc / Đường dẫn Module | Tóm tắt sản phẩm bàn giao kỹ thuật | Sub-Agent được phân công | Thẻ theo dõi mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | 1-7 | Nhiệm vụ 1, 2, 3, 29, 30, 4, 5, 6, 7, 8, 9 | ./sources/backend, ./sources/frontend, ./sources/docs | Khởi tạo cấu trúc dự án vi mô backend Quarkus (pom.xml gốc và các module service), cấu trúc dự án frontend Next.js (package.json, tsconfig.json), cấu trúc thư mục tài liệu doanh nghiệp, khởi tạo schema cơ sở dữ liệu PostgreSQL với toàn bộ các bảng dữ liệu theo định nghĩa, triển khai lớp xác thực RBAC và OAuth2 (JWT, refresh token), triển khai các chức năng cốt lõi quản lý người dùng (đăng ký, xác thực xã hội, phân quyền) và quản lý trung tâm (xem danh sách, CRUD, phân quyền quản trị trung tâm) | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [REQ-001], [EXC-004], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 2 | 1-2 | Nhiệm vụ 10, 11, 12, 13, 14 | ./sources/backend/course-service, ./sources/backend/enrollment-service, ./sources/frontend | Triển khai các chức năng quản lý khóa học (xem danh sách, CRUD với kiểm tra xung đột lịch giáo viên/địa điểm, phân công giáo viên) và chức năng đăng ký khóa học cho học viên (duyệt khóa học chưa đăng ký, xử lý đăng ký tự động tạo tài khoản Student nếu cần, gửi thông báo tự động) | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 3 | 1-4 | Nhiệm vụ 15, 16, 17, 18, 19, 20, 21 | ./sources/backend/attendance-service, ./sources/backend/membership-service, ./sources/backend/notification-service, ./sources/backend/promotion-service, ./sources/frontend | Triển khai chức năng điểm danh quét mã QR với tính bất biến chống trùng lặp (đảm bảo 1 bản ghi điểm danh/học viên/khóa học/ngày), quản lý thẻ hội viên (hiển thị số ngày còn lại, gia hạn thẻ sau thanh toán), hệ thống thông báo đa kênh (push notification, tin nhắn nhóm Zalo) với cơ chế retry khi gửi thất bại, quản lý khuyến mãi và thông báo hệ thống (CRUD với ngày hết hạn tùy chọn, tự động ẩn thông báo hết hạn) | Coder, Tester, Reviewer, Doc | [REQ-012], [EXC-001], [EXC-002], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [EXC-003], [REQ-017], [REQ-018] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 4 | 1-3 | Nhiệm vụ 22, 23, 24, 25, 26, 27, 28 | ./sources/backend/ai-chatbot-service, ./sources/frontend, ./sources/docs | Triển khai tích hợp chatbot AI hỗ trợ trả lời câu hỏi thường gặp và leo thang hỗ trợ khi độ tin cậy thấp, xây dựng giao diện người dùng responsive cho ứng dụng di động với phân quyền theo vai trò, tích hợp thông báo đẩy FCM/APNs, triển khai phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ (hreflang, thẻ meta), xây dựng chức năng xuất báo cáo điểm danh CSV và bảng điều khiển tóm tắt ghi danh realtime | Coder, Tester, Reviewer, Doc | [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [EXC-005], [REQ-025] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 5 | 1-5 | Nhiệm vụ 31, 32, 33 | ./sources/infra, ./sources/docs | Triển khai toàn bộ hạ tầng DevOps và đám mây: xây dựng Dockerfile đa giai đoạn cho tất cả service, pipeline CI/CD GitHub Actions, triển khai cụm GKE với auto-scaling, cấu hình hạ tầng GCP (VPC, IAM, Storage, PostgreSQL read replicas) qua Terraform, tích hợp FCM/APNs, Zalo API, Redis caching cho session, đảm bảo tuân thủ tất cả yêu cầu phi chức năng (hiệu năng, bảo mật, khả năng sẵn sàng, sao lưu và phục hồi thảm họa, tuân thủ GDPR/CCPA), hoàn thiện toàn bộ tài liệu hệ thống doanh nghiệp (bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng) | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
-| **Kiểm toán** | **Xác minh phân phối tổng backlog** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ backlog:** 58 | **Tổng số thẻ đã phân phối:** 58 | **Tổng số nhiệm vụ đã phân phối:** 33 | **Trạng thái & Tuân thủ:** Đã xác thực (100%) |
+| Giai đoạn 1 | Ngày 1 - 6 | Task 1, Task 2, Task 3, Task 4, Task 5, Task 28 | ./sources/backend/pom.xml; ./sources/backend/auth-service/; ./sources/backend/db-migrations/; ./sources/frontend/package.json; ./sources/frontend/tsconfig.json | Khởi tạo descriptor build gốc và descriptor module con cho chuỗi dịch vụ Quarkus, đồng thời sinh manifest workspace Next.js/React Native với TypeScript strict mode [ARC-000]; Flyway migration tạo đủ 11 bảng lõi (Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings) với khóa ngoại, unique constraint và index truy vấn sub-second [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]; endpoint POST /api/v1/auth/register hash bcrypt cấp JWT 15 phút kèm refresh token [REQ-001], [EXC-004]; đăng nhập OAuth2 Firebase/Google/Facebook [REQ-002]; API gán/thay đổi vai trò kèm audit log [REQ-003]. Tester bàn giao JUnit suite auth, integration test migration CSDL và profile E2E đăng ký; Doc bàn giao blueprint kiến trúc tổng thể và đặc tả API auth-service. | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011], [REQ-001], [EXC-004], [REQ-002], [REQ-003] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 2 | Ngày 1 - 5 | Task 6, Task 7, Task 8, Task 9, Task 10, Task 11, Task 29, Task 30 | ./sources/backend/center-service/; ./sources/backend/course-service/; ./sources/backend/api-gateway/ | API GET /api/v1/centers phân trang với index sub-second [REQ-004]; CRUD trung tâm validate taxId numeric 10–13 chữ số trả 409 Conflict khi trùng [REQ-005]; gán/hủy Center Admin ghi phạm vi trung tâm và cô lập tenant [REQ-006]; lưới khóa học CourseID, Title, StartDate, EndDate, TeacherName [REQ-007]; CRUD khóa học chặn xung đột lịch trên cùng teacherId với maxStudents mặc định 30 [REQ-008]; gán/hủy giáo viên phát event sang notification-service [REQ-009]; bộ filter/interceptor RBAC 5 vai trò thống nhất qua api-gateway [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]; công bố hợp đồng OpenAPI cho xác thực OAuth2/JWT, điểm danh QR idempotent, điều phối thông báo đa kênh và tích hợp mobile bearer token [ARC-006], [ARC-007], [ARC-008], [ARC-009]. Tester bàn giao JUnit phân quyền RBAC, integration test xung đột lịch và E2E đa vai trò; Doc bàn giao tài liệu tham chiếu API center/course và sơ đồ topology RBAC. | Coder, Tester, Reviewer, Doc | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 3 | Ngày 1 - 3 | Task 12, Task 13, Task 14, Task 15, Task 16, Task 17 | ./sources/backend/enrollment-service/; ./sources/backend/attendance-service/; ./sources/backend/card-service/ | Duyệt khóa học loại trừ các khóa đã có bản ghi Enrollment kèm capacity còn trống [REQ-010]; đăng ký khóa học trong một transaction tự cấp tài khoản Student nếu thiếu và queue thông báo tới mobile app cùng nhóm Zalo trung tâm [REQ-011]; mobile scanner gửi studentId + timestamp tới POST /api/v1/attendance/scan với cơ chế retry sau reconnect [REQ-012], [EXC-001]; ràng buộc unique (studentId, courseId, attendanceDate) bảo đảm idempotent trả success kèm cờ duplicate [REQ-013], [EXC-002]; thẻ hội viên suy ra totalValidityDays, daysUsed, daysRemaining từ thực thể StudentCard [REQ-014]; gia hạn thẻ theo kỳ 30 ngày sau khi payment service xác nhận thành công [REQ-015]. Tester bàn giao JUnit idempotency, integration test transaction ghi danh và E2E luồng quét QR; Doc cập nhật đặc tả API enrollment/attendance/card. | Coder, Tester, Reviewer, Doc | [REQ-010], [REQ-011], [REQ-012], [EXC-001], [REQ-013], [EXC-002], [REQ-014], [REQ-015] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 4 | Ngày 1 - 3 | Task 18, Task 19, Task 20, Task 21, Task 22, Task 23, Task 24, Task 25 | ./sources/backend/notification-service/; ./sources/backend/promotion-service/; ./sources/backend/chatbot-service/; ./sources/frontend/web-app/; ./sources/frontend/mobile-app/ | Điều phối thông báo đa kênh FCM/APNs/Zalo với log thất bại delivery và retry tối đa 3 lần trước khi đánh dấu failed [REQ-016], [EXC-003]; CRUD Promotions code unique, endDate bỏ trống coi là khuyến mãi vĩnh viễn [REQ-017]; CRUD Announcements tự động ẩn sau ngày hết hạn [REQ-018]; chatbot AI trả lời truy vấn khóa học/giáo viên/trung tâm/tài khoản và escalate lên nhân viên hỗ trợ khi độ tin cậy thấp [REQ-019]; responsive UI React Native phản chiếu chức năng web theo vai trò trên Android/iOS [REQ-020]; push notification deep-link qua device token FCM/APNs [REQ-021]; phát hiện ngôn ngữ ưu tiên preference đã lưu rồi fallback Accept-Language, chuyển locale không reload [REQ-022]; SSR meta tags và hreflang alternate links en/vi/es phục vụ crawler [REQ-023]. Tester bàn giao JUnit retry delivery, integration test FCM/APNs và E2E mobile đa ngôn ngữ; Doc bổ sung hướng dẫn bản địa hóa và đặc tả API notification/promotion. | Coder, Tester, Reviewer, Doc | [REQ-016], [EXC-003], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 5 | Ngày 1 - 5 | Task 26, Task 27, Task 31, Task 32, Task 33 | ./sources/backend/reporting-service/; ./sources/infra/; ./sources/docs/ | Xuất file CSV báo cáo điểm danh cột StudentName, CourseName, AttendanceDate, Status theo trung tâm và khoảng ngày, xử lý FIFO các scan tồn đọng hậu outage kèm thông báo phục hồi [REQ-024], [EXC-005]; dashboard real-time totalStudents, activeCourses, upcomingSessions đọc qua PostgreSQL read replica cách ly workload báo cáo [REQ-025]; chốt stack production Java/Quarkus, PostgreSQL, Redis session caching, FCM/APNs, Zalo API, GitHub Actions [ARC-010]; Dockerfile multi-stage base image dưới 200MB và final image dưới 500MB, Terraform provisioning VPC/IAM/Storage trên GCP, manifests GKE HPA CPU vượt 70% hoặc latency vượt 300ms, failover liên cluster uptime 99.9%, TLS 1.3/AES-256 với mitigations OWASP Top 10, backup PITR 24h đa region, audit log lưu trữ 1 năm, workflow GDPR/CCPA export/deletion và consent management [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]; bộ tài liệu doanh nghiệp blueprint kiến trúc, hợp đồng OpenAPI, hướng dẫn vận hành vi/en/es [NFR-006], [NFR-007], [NFR-008]. Tester bàn giao performance/integration test hạ tầng và profile E2E production; Doc hoàn thiện blueprint kiến trúc, quy trình audit log và consent GDPR/CCPA. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-024], [EXC-005], [REQ-025], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
+| **Kiểm toán** | **Xác minh phân phối Master Backlog** | **Tổng số Giai đoạn:** 5 | **Tổng số Thẻ Backlog:** 61 | **Tổng số Thẻ đã phân bổ:** 61 | **Tổng số Nhiệm vụ đã phân bổ:** 33 | **Trạng thái & Tuân thủ:** Đã xác minh (100%) |
+
 <!--END_PHASE_SYNOPSIS_GRID-->
 --- END BACKLOG TASKS ---
 </PROJECT_BACKLOG_TASKS_DATA>
@@ -835,11 +832,11 @@ Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh 
 --- HISTORY LEDGER MAP ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX-->
 
 ### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 --- END HISTORY LEDGER MAP ---
 </HISTORIC_LEDGER_MAP>
 
@@ -849,337 +846,676 @@ Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh 
 
 ---
 
-### 📈 Giai đoạn 3 - Triển khai điểm danh QR, quản lý thẻ hội viên, thông báo đa kênh và khuyến mãi
-- **Mục tiêu cốt lõi và mục đích của giai đoạn:** Giai đoạn này triển khai các tính năng vận hành cốt lõi của hệ thống, bao gồm chức năng điểm danh quét mã QR với tính bất biến chống trùng lặp bản ghi, quản lý thẻ hội viên (hiển thị số ngày còn lại hiệu lực, gia hạn thẻ sau thanh toán), hệ thống thông báo đa kênh (push notification, tin nhắn nhóm Zalo) với cơ chế tự động thử lại khi gửi thất bại, quản lý khuyến mãi và thông báo hệ thống (CRUD với ngày hết hạn tùy chọn, tự động ẩn thông báo hết hạn), đảm bảo tất cả quy tắc nghiệp vụ liên quan đến tương tác của học viên và vận hành trung tâm được đáp ứng.
+<!--START_PHASE_INDEX-->
 
-- **Bản đồ ma trận đường dẫn vật lý mục tiêu:**
-  * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceService.java [REQ-012, EXC-001, EXC-002, REQ-013]
-  * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceController.java [REQ-012, REQ-013, ARC-007]
-  * ./sources/backend/attendance-service/src/main/resources/db/migration/V1_0_0__create_attendance_table.sql [DAT-006]
-  * ./sources/backend/membership-service/src/main/java/com/hub/membership/MembershipService.java [REQ-014, REQ-015]
-  * ./sources/backend/membership-service/src/main/java/com/hub/membership/MembershipController.java [REQ-014, REQ-015, ARC-009]
-  * ./sources/backend/membership-service/src/main/resources/db/migration/V1_0_0__create_student_cards_table.sql [DAT-007]
-  * ./sources/backend/notification-service/src/main/java/com/hub/notification/NotificationService.java [REQ-016, EXC-003]
-  * ./sources/backend/notification-service/src/main/java/com/hub/notification/NotificationController.java [REQ-016, ARC-008]
-  * ./sources/backend/notification-service/src/main/resources/db/migration/V1_0_0__create_notifications_table.sql [DAT-008]
-  * ./sources/backend/promotion-service/src/main/java/com/hub/promotion/PromotionService.java [REQ-017]
-  * ./sources/backend/promotion-service/src/main/java/com/hub/promotion/PromotionController.java [REQ-017]
-  * ./sources/backend/promotion-service/src/main/java/com/hub/announcement/AnnouncementService.java [REQ-018]
-  * ./sources/backend/promotion-service/src/main/java/com/hub/announcement/AnnouncementController.java [REQ-018]
-  * ./sources/backend/promotion-service/src/main/resources/db/migration/V1_0_0__create_promotions_announcements_tables.sql [DAT-009]
-  * ./sources/frontend/src/app/attendance/page.tsx [REQ-012, REQ-013]
-  * ./sources/frontend/src/app/membership-card/page.tsx [REQ-014, REQ-015]
-  * ./sources/frontend/src/app/notifications/page.tsx [REQ-016]
-  * ./sources/frontend/src/app/promotions/page.tsx [REQ-017, REQ-018]
-  * ./sources/docs/attendance-service-api-spec.md [REQ-012, REQ-013, ARC-007]
-  * ./sources/docs/membership-service-api-spec.md [REQ-014, REQ-015]
-  * ./sources/docs/notification-service-api-spec.md [REQ-016, ARC-008]
-  * ./sources/docs/promotion-service-api-spec.md [REQ-017, REQ-018]
+### 📈 Giai đoạn 3 - Dịch Vụ Ghi Danh, Điểm Danh QR & Thẻ Hội Viên Kỹ Thuật Số
 
-- **Đặc tả SQL DDL lược đồ cơ sở dữ liệu [DAT-006, DAT-007, DAT-008, DAT-009]:**
+- **Mục tiêu cốt lõi & mục đích của giai đoạn:** Giai đoạn 3 bàn giao chuỗi nghiệp vụ học viên end-to-end trên ba microservices: enrollment-service cung cấp duyệt khóa học loại trừ mọi khóa đã có bản ghi ghi danh kèm số chỗ còn trống [REQ-010] và đăng ký khóa học trong một transaction nguyên tử tự cấp tài khoản vai trò 'Student' khi thiếu, đồng thời phát sự kiện thông báo tới mobile app học viên và nhóm Zalo của trung tâm [REQ-011]; attendance-service tiếp nhận payload quét QR (studentId + timestamp) tại POST /api/v1/attendance/scan với chính sách retry sau reconnect [REQ-012], [EXC-001] cùng ràng buộc idempotent (studentId, courseId, attendanceDate) trả success kèm cờ duplicate cho mọi lần quét trùng [REQ-013], [EXC-002]; card-service suy ra totalValidityDays, daysUsed, daysRemaining từ thực thể StudentCard để hiển thị thẻ hội viên kỹ thuật số [REQ-014] và thực thi gia hạn theo kỳ 30 ngày ngay sau khi payment service xác nhận thành công [REQ-015]. Chất lượng được bảo chứng bởi bộ JUnit/integration test và bộ đặc tả API cập nhật cho cả ba dịch vụ.
+
+- **Ma trận bản đồ thư mục vật lý đích:** toàn bộ tệp vật lý được khởi tạo, refactor hoặc xử lý trong phạm vi giai đoạn này:
+    * ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentBrowseResource.java [REQ-010]
+    * ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentRegistrationResource.java [REQ-011]
+    * ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentService.java [REQ-010], [REQ-011]
+    * ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/dto/CourseAvailabilityDto.java [REQ-010]
+    * ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/dto/EnrollmentRequestDto.java [REQ-011]
+    * ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/event/EnrollmentNotificationPublisher.java [REQ-011]
+    * ./sources/backend/enrollment-service/src/main/resources/db/migration/V3__enrollment_browse_outbox.sql [REQ-010], [REQ-011]
+    * ./sources/backend/enrollment-service/src/test/java/com/hub/enrollment/EnrollmentBrowseResourceTest.java [REQ-010]
+    * ./sources/backend/enrollment-service/src/test/java/com/hub/enrollment/EnrollmentRegistrationTransactionIT.java [REQ-011]
+    * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceScanResource.java [REQ-012], [EXC-001]
+    * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceService.java [REQ-012], [REQ-013], [EXC-002]
+    * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/retry/OfflineReplayPolicy.java [EXC-001]
+    * ./sources/backend/attendance-service/src/main/java/com/hub/attendance/exception/DuplicateAttendanceMapper.java [EXC-002]
+    * ./sources/backend/attendance-service/src/main/resources/db/migration/V4__attendance_unique_idempotency.sql [REQ-013], [EXC-002]
+    * ./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceScanResourceTest.java [REQ-012]
+    * ./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceIdempotencyIT.java [REQ-013], [EXC-002]
+    * ./sources/backend/card-service/src/main/java/com/hub/card/CardQueryResource.java [REQ-014]
+    * ./sources/backend/card-service/src/main/java/com/hub/card/CardValidityCalculator.java [REQ-014]
+    * ./sources/backend/card-service/src/main/java/com/hub/card/CardRenewalResource.java [REQ-015]
+    * ./sources/backend/card-service/src/main/java/com/hub/card/PaymentConfirmationConsumer.java [REQ-015]
+    * ./sources/backend/card-service/src/main/resources/db/migration/V5__card_validity_support.sql [REQ-014]
+    * ./sources/backend/card-service/src/test/java/com/hub/card/CardValidityCalculatorTest.java [REQ-014]
+    * ./sources/backend/card-service/src/test/java/com/hub/card/CardRenewalFlowIT.java [REQ-015]
+    * ./sources/docs/api-enrollment-service.md [REQ-010], [REQ-011]
+    * ./sources/docs/api-attendance-service.md [REQ-012], [REQ-013], [EXC-001], [EXC-002]
+    * ./sources/docs/api-card-service.md [REQ-014], [REQ-015]
+
+- **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
 ```sql
--- Tạo bảng điểm danh [DAT-006]
-CREATE TABLE attendance (
-    attendance_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    student_id UUID NOT NULL REFERENCES users(user_id),
-    course_id UUID NOT NULL REFERENCES courses(course_id),
-    attendance_date DATE NOT NULL,
-    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT unique_attendance_per_student_course_day UNIQUE (student_id, course_id, attendance_date)
+-- ============================================================
+-- PHASE 3 CONSOLIDATED MIGRATIONS (membership-hub)
+-- ============================================================
+
+-- V3__enrollment_browse_outbox.sql (enrollment-service)
+CREATE INDEX idx_enrollments_student_lookup
+    ON enrollments (student_id, course_id);
+
+CREATE INDEX idx_courses_schedule_window
+    ON courses (start_date, end_date, teacher_id);
+
+CREATE TABLE enrollment_outbox (
+    outbox_id uuid PRIMARY KEY,
+    aggregate_id uuid NOT NULL,
+    event_type VARCHAR(50) NOT NULL,
+    payload TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    published_at TIMESTAMP NULL,
+    CONSTRAINT chk_enrollment_outbox_event_type
+        CHECK (event_type IN ('ENROLLMENT_CREATED'))
 );
 
--- Tạo bảng thẻ hội viên [DAT-007]
-CREATE TABLE student_cards (
-    card_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    student_id UUID NOT NULL UNIQUE REFERENCES users(user_id),
-    issue_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    validity_days INT NOT NULL CHECK (validity_days > 0),
-    remaining_days INT NOT NULL CHECK (remaining_days >= 0)
-);
+CREATE INDEX idx_enrollment_outbox_pending
+    ON enrollment_outbox (published_at, outbox_id);
 
--- Tạo bảng thông báo [DAT-008]
-CREATE TABLE notifications (
-    notification_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID NULL REFERENCES users(user_id),
-    group_zalo VARCHAR(255) NULL,
-    message TEXT NOT NULL,
-    sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    delivered BOOLEAN NOT NULL DEFAULT FALSE,
-    retry_count INT NOT NULL DEFAULT 0 CHECK (retry_count BETWEEN 0 AND 3)
-);
+-- V4__attendance_unique_idempotency.sql (attendance-service)
+ALTER TABLE attendance
+    ADD CONSTRAINT uq_attendance_student_course_date
+    UNIQUE (student_id, course_id, attendance_date);
 
--- Tạo bảng khuyến mãi [DAT-009]
-CREATE TABLE promotions (
-    promo_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    code VARCHAR(50) NOT NULL UNIQUE,
-    discount_percent SMALLINT NOT NULL CHECK (discount_percent BETWEEN 1 AND 100),
-    start_date DATE NULL,
-    end_date DATE NULL,
-    description TEXT NULL,
-    CHECK (end_date IS NULL OR end_date >= start_date)
-);
+CREATE INDEX idx_attendance_course_date
+    ON attendance (course_id, attendance_date);
 
--- Tạo bảng thông báo hệ thống [DAT-009]
-CREATE TABLE announcements (
-    announcement_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    title VARCHAR(150) NOT NULL,
-    content TEXT NOT NULL CHECK (LENGTH(content) <= 2000),
-    start_date DATE NULL DEFAULT CURRENT_DATE,
-    end_date DATE NULL,
-    CHECK (end_date IS NULL OR end_date >= start_date)
-);
+-- V5__card_validity_support.sql (card-service)
+CREATE INDEX idx_student_cards_student_lookup
+    ON student_cards (student_id, issue_date);
 ```
 
-- **Hợp đồng định tuyến API và sự kiện [REQ-012, REQ-013, REQ-014, REQ-015, REQ-016, REQ-017, REQ-018, ARC-007, ARC-008, ARC-009]:**
-  * **Hợp đồng REST API:**
-    1. Dịch vụ điểm danh:
-       - `POST /api/attendance/scan` [REQ-012, REQ-013, ARC-007]
-         ```json
-         // Yêu cầu
-         {
-           "studentId": "uuid",
-           "courseId": "uuid",
-           "qrToken": "string"
-         }
-         // Phản hồi thành công
-         {
-           "attendanceId": "uuid",
-           "timestamp": "timestamp",
-           "status": "RECORDED | DUPLICATE"
-         }
-         ```
-       - `GET /api/attendance/course/{courseId}/date/{date}` [REQ-012, ARC-007]: Trả về danh sách bản ghi điểm danh của khóa học trong ngày được chỉ định.
-    2. Dịch vụ thẻ hội viên:
-       - `GET /api/membership/card` [REQ-014, ARC-009]
-         ```json
-         // Phản hồi thành công
-         {
-           "cardId": "uuid",
-           "issueDate": "date",
-           "validityDays": "int",
-           "remainingDays": "int"
-         }
-         ```
-       - `POST /api/membership/renew` [REQ-015, ARC-009]
-         ```json
-         // Yêu cầu
-         {
-           "renewalDays": "int",
-           "paymentTransactionId": "string"
-         }
-         // Phản hồi thành công
-         {
-           "newRemainingDays": "int",
-           "newExpiryDate": "date"
-         }
-         ```
-    3. Dịch vụ thông báo:
-       - `POST /api/notifications/send` [REQ-016, ARC-008]
-         ```json
-         // Yêu cầu
-         {
-           "userId": "uuid",
-           "groupZalo": "string",
-           "message": "string",
-           "channels": ["PUSH", "ZALO"]
-         }
-         // Phản hồi thành công
-         {
-           "notificationId": "uuid",
-           "status": "QUEUED | FAILED"
-         }
-         ```
-    4. Dịch vụ khuyến mãi và thông báo: Các endpoint REST CRUD chuẩn cho `/api/promotions` [REQ-017] và `/api/announcements` [REQ-018], với schema yêu cầu/phản hồi tương ứng với từng thực thể.
-  * **Hợp đồng sự kiện (Kafka Topics):**
-    - `attendance.scan.request` [REQ-012, ARC-007]: Payload yêu cầu quét mã QR
-    - `attendance.scan.response` [REQ-013, ARC-007]: Payload kết quả quét mã QR (bao gồm cờ trùng lặp)
-    - `notification.send.request` [REQ-016, ARC-008]: Payload yêu cầu gửi thông báo
-    - `notification.send.failed` [EXC-003, ARC-008]: Payload sự kiện gửi thông báo thất bại để xử lý thử lại
-    - `membership.renewed` [REQ-015, ARC-008]: Sự kiện kích hoạt sau khi gia hạn thẻ hội viên thành công để gửi thông báo xác nhận
+- **Hợp đồng định tuyến API và sự kiện [REQ-010], [REQ-011], [REQ-012], [REQ-013], [REQ-014], [REQ-015]:**
 
-- **Trình xử lý ngoại lệ được bản địa hóa của giai đoạn [EXC-001, EXC-002, EXC-003]:**
-  * [EXC-001] Lỗi kết nối mạng trong quá trình quét mã QR: Nếu học viên quét mã QR nhưng kết nối mạng bị gián đoạn, ứng dụng di động sẽ lưu trữ tạm payload quét vào bộ nhớ cục bộ và tự động gửi lại yêu cầu khi kết nối được khôi phục. Hệ thống backend xử lý yêu cầu một cách idempotent để đảm bảo chỉ tạo một bản ghi điểm danh duy nhất.
-  * [EXC-002] Gửi điểm danh trùng lặp: Nếu học viên quét mã QR nhiều lần trong cùng một ngày cho cùng một khóa học, hệ thống sẽ phát hiện trùng lặp dựa trên ràng buộc duy nhất (student_id, course_id, attendance_date), trả về phản hồi thành công với cờ "already_recorded" và không tạo bản ghi điểm danh bổ sung.
-  * [EXC-003] Gửi thông báo thất bại: Nếu thông báo đẩy không thể gửi đến thiết bị (ví dụ: token thiết bị không hợp lệ), hệ thống sẽ ghi lại lỗi vào bảng notifications, tự động thử lại tối đa 3 lần với khoảng cách tăng dần, sau đó đánh dấu trạng thái là "thất bại" và ghi nhật ký cho đội ngũ vận hành.
+```json
+{
+  "serviceRegistry": [
+    {
+      "service": "enrollment-service",
+      "routes": [
+        { "method": "GET", "path": "/api/v1/enrollments/browse", "purpose": "browse courses excluding enrolled ones with availableSeats", "tags": ["REQ-010"] },
+        { "method": "POST", "path": "/api/v1/enrollments/register", "purpose": "transactional enrollment with auto student account provisioning", "tags": ["REQ-011"] }
+      ]
+    },
+    {
+      "service": "attendance-service",
+      "routes": [
+        { "method": "POST", "path": "/api/v1/attendance/scan", "purpose": "QR attendance capture with absolute idempotent guarantee", "tags": ["REQ-012", "REQ-013", "EXC-001", "EXC-002"] }
+      ]
+    },
+    {
+      "service": "card-service",
+      "routes": [
+        { "method": "GET", "path": "/api/v1/cards/me", "purpose": "membership card validity metrics computation", "tags": ["REQ-014"] },
+        { "method": "POST", "path": "/api/v1/cards/renew", "purpose": "extend card validity after payment confirmation", "tags": ["REQ-015"] }
+      ]
+    }
+  ],
+  "eventBindings": [
+    { "topic": "enrollment.created", "producer": "enrollment-service", "consumer": "notification-service", "tags": ["REQ-011"] },
+    { "topic": "payment.confirmed", "producer": "payment-service", "consumer": "card-service", "tags": ["REQ-015"] }
+  ]
+}
+```
 
-#### 📅 Nhật ký phân công nhiệm vụ theo trình tự thời gian từng ngày cho đại lý phụ trách (Giai đoạn 3)
+- **Bộ xử lý ngoại lệ cục bộ của giai đoạn [EXC-001], [EXC-002]:**
+    * **[EXC-001] Mất kết nối mạng trong lúc quét QR:** Khi thiết bị không gửi được request do mất mạng, ứng dụng di động cache payload scan ngoại tuyến và phát lại sau khi kết nối khôi phục; attendance-service tiếp nhận bó scan tồn đọng, xử lý FIFO theo clientTimestamp gốc và vẫn áp dụng cổng idempotent nên mỗi ngày mỗi cặp student–course chỉ tạo đúng một bản ghi Attendance.
+    * **[EXC-002] Gửi điểm danh trùng lặp:** Khi nhiều lần quét cùng studentId–courseId xảy ra trong cùng một ngày, ràng buộc unique (student_id, course_id, attendance_date) chặn hàng trùng; service bắt ConstraintViolationException và ánh xạ sang phản hồi 200 với status='DUPLICATE', duplicate=true, mã nghiệp vụ ATT-DUP-001 ('already recorded'), không phát sinh thêm dòng dữ liệu.
+
+#### 📅 Nhật ký phân bổ nhiệm vụ Sub-Agent theo trình tự thời gian (Giai đoạn 3)
 
 <!--START_DAY_LOG_INDEX-->
 
-##### 📅 NGÀY 1: Triển khai cốt lõi dịch vụ điểm danh và kiểm thử đơn vị
+##### 📅 NGÀY 1: Hiện thực hóa enrollment-service — duyệt khóa học còn chỗ và đăng ký ghi danh giao dịch nguyên tử kèm outbox thông báo
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 1: Xây dựng logic nghiệp vụ cốt lõi dịch vụ điểm danh và migration cơ sở dữ liệu
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-012], [EXC-001], [EXC-002], [REQ-013], [DAT-006]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng logic nghiệp vụ cốt lõi của dịch vụ điểm danh, bao gồm xác thực quan hệ học viên-khóa học, triển khai cơ chế idempotent để đảm bảo chỉ tạo một bản ghi điểm danh duy nhất cho mỗi học viên/khóa học/ngày, xử lý yêu cầu quét mã QR trùng lặp, tích hợp với bảng attendance cơ sở dữ liệu. Đồng thời tạo script migration DDL SQL cho bảng attendance với ràng buộc duy nhất unique_attendance_per_student_course_day.
+
+###### 🌿 NHIỆM VỤ CON [1]: Triển khai endpoint duyệt khóa học dành cho học viên
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-010]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentBrowseResource.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng REST resource GET /api/v1/enrollments/browse nhận tham số studentId bắt buộc; truy vấn courses bằng LEFT JOIN với enrollments để loại trừ hoàn toàn mọi khóa học đã có bản ghi ghi danh của học viên [REQ-010]; tính availableSeats = maxStudents − COUNT(enrollments) và chỉ trả về các khóa còn chỗ trống; sắp xếp kết quả theo startDate tăng dần với phân trang mặc định 20 bản ghi/trang; ánh xạ kết quả sang CourseAvailabilityDto và tận dụng index idx_enrollments_student_lookup để bảo đảm thời gian phản hồi sub-second.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- V3__enrollment_browse_outbox.sql (enrollment-service)
+CREATE INDEX idx_enrollments_student_lookup
+    ON enrollments (student_id, course_id);
+
+CREATE INDEX idx_courses_schedule_window
+    ON courses (start_date, end_date, teacher_id);
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-010]:**
+
+```json
+{
+  "endpoint": "/api/v1/enrollments/browse",
+  "method": "GET",
+  "queryParams": {
+    "studentId": "uuid (required)",
+    "page": "int (default 0)",
+    "size": "int (default 20)"
+  },
+  "response_200": {
+    "courses": [
+      {
+        "courseId": "uuid",
+        "title": "string",
+        "startDate": "YYYY-MM-DD",
+        "endDate": "YYYY-MM-DD",
+        "teacherName": "string",
+        "maxStudents": 30,
+        "availableSeats": 12
+      }
+    ],
+    "totalElements": 42,
+    "page": 0
+  }
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 2: Xây dựng endpoint REST cho dịch vụ điểm danh
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-012], [REQ-013], [ARC-007]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceController.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng endpoint REST POST /api/attendance/scan để nhận payload quét mã QR từ ứng dụng di động, endpoint GET /api/attendance/course/{courseId}/date/{date} để truy xuất danh sách điểm danh của khóa học trong ngày, áp dụng xác thực JWT và kiểm soát quyền truy cập theo RBAC.
+
+###### 🌿 NHIỆM VỤ CON [2]: Triển khai endpoint đăng ký khóa học giao dịch nguyên tử
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-011]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentRegistrationResource.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cài đặt POST /api/v1/enrollments/register chạy trong đúng một @Transactional: kiểm tra capacity còn trống, chèn bản ghi Enrollments; nếu studentId chưa tồn tại thì gọi nội bộ auth-service tự động cấp tài khoản vai trò 'Student' trước khi ghi danh [REQ-011]; sau khi commit, phát sự kiện enrollment.created tới notification-service để queue push notification tới mobile app học viên và đăng tin nhắn vào nhóm Zalo của trung tâm; rollback toàn bộ khi bất kỳ bước nào thất bại, trả 409 ENR-409-CAPACITY khi khóa đã đầy.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-011]:**
+
+```json
+{
+  "endpoint": "/api/v1/enrollments/register",
+  "method": "POST",
+  "request": {
+    "studentId": "uuid | null",
+    "fullName": "string (required when studentId is null)",
+    "email": "string (required when studentId is null)",
+    "courseId": "uuid (required)"
+  },
+  "response_201": {
+    "enrollmentId": "uuid",
+    "studentId": "uuid",
+    "courseId": "uuid",
+    "enrollmentDate": "YYYY-MM-DDTHH:mm:ssZ",
+    "autoCreatedAccount": true,
+    "notificationTargets": ["MOBILE_PUSH", "ZALO_GROUP"]
+  },
+  "error_409": {
+    "errorCode": "ENR-409-CAPACITY",
+    "message": "Course has reached maxStudents capacity"
+  }
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 3: Viết kiểm thử đơn vị cho dịch vụ điểm danh
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-012], [EXC-001], [EXC-002], [REQ-013]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceServiceTest.java;./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết bộ kiểm thử đơn vị cho AttendanceService, bao gồm các trường hợp: quét mã QR hợp lệ tạo bản ghi điểm danh mới, quét mã QR trùng lặp trong cùng ngày trả về cờ DUPLICATE, xử lý lỗi khi học viên không đăng ký khóa học, xác minh cơ chế idempotent hoạt động chính xác.
+
+###### 🌿 NHIỆM VỤ CON [3]: Xuất bản sự kiện thông báo ghi danh qua transactional outbox
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-011]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/event/EnrollmentNotificationPublisher.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cài đặt mẫu transactional outbox: ghi hàng enrollment_outbox trong cùng transaction với bản ghi ghi danh [REQ-011]; worker poll định kỳ đẩy sự kiện vào topic enrollment.created với payload {enrollmentId, studentId, courseId, centerZaloGroup}; bảo đảm chế độ at-least-once, cập nhật published_at sau khi điều phối thành công và giữ hàng pending khi broker lỗi tạm thời.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- V3__enrollment_browse_outbox.sql (enrollment-service)
+CREATE TABLE enrollment_outbox (
+    outbox_id uuid PRIMARY KEY,
+    aggregate_id uuid NOT NULL,
+    event_type VARCHAR(50) NOT NULL,
+    payload TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    published_at TIMESTAMP NULL,
+    CONSTRAINT chk_enrollment_outbox_event_type
+        CHECK (event_type IN ('ENROLLMENT_CREATED'))
+);
+
+CREATE INDEX idx_enrollment_outbox_pending
+    ON enrollment_outbox (published_at, outbox_id);
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-011]:**
+
+```json
+{
+  "topic": "enrollment.created",
+  "deliveryMode": "at-least-once (transactional outbox)",
+  "payload": {
+    "eventId": "uuid",
+    "enrollmentId": "uuid",
+    "studentId": "uuid",
+    "courseId": "uuid",
+    "centerZaloGroup": "string",
+    "occurredAt": "YYYY-MM-DDTHH:mm:ssZ"
+  },
+  "consumer": "notification-service"
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 4: Viết kiểm thử tích hợp cho endpoint điểm danh
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-012], [EXC-001], [ARC-007]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceControllerIntegrationTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết kiểm thử tích hợp cho endpoint /api/attendance/scan, mô phỏng payload quét mã QR từ ứng dụng di động, xác minh phản hồi API chính xác, xác minh bản ghi điểm danh được lưu vào cơ sở dữ liệu, xác minh xử lý yêu cầu trùng lặp hoạt động đúng.
+
+###### 🌿 NHIỆM VỤ CON [4]: Bộ test đơn vị bộ lọc duyệt khóa học
+
+* **Chuyên môn vai trò Sub-Agent:** [Tester]
+* **Tag IDs được nhắm tới:** [REQ-010]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentBrowseResource.java;./sources/backend/enrollment-service/src/test/java/com/hub/enrollment/EnrollmentBrowseResourceTest.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết JUnit 5 xác minh bộ lọc duyệt khóa học [REQ-010]: loại trừ đúng mọi khóa đã có bản ghi Enrollment của studentId; availableSeats tính chính sát theo maxStudents bao gồm biên capacity=0; xác minh phân trang, thứ tự startDate và cấu trúc CourseAvailabilityDto trả về.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 5: Soạn thảo tài liệu đặc tả API dịch vụ điểm danh
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Doc]
-* **ID thẻ mục tiêu:** [REQ-012], [REQ-013], [ARC-007]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/attendance-service-api-spec.md
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Soạn thảo tài liệu đặc tả API cho dịch vụ điểm danh, bao gồm mô tả endpoint, schema yêu cầu/phản hồi, mã lỗi, luồng xử lý điểm danh trùng lặp, tích hợp với luồng quét mã QR.
+
+###### 🌿 NHIỆM VỤ CON [5]: Kiểm thử tích hợp giao dịch đăng ký khóa học
+
+* **Chuyên môn vai trò Sub-Agent:** [Tester]
+* **Tag IDs được nhắm tới:** [REQ-011]
+* **Đường dẫn tệp thành phần đích (target_component):** INTEGRATION_SCOPE;./sources/backend/enrollment-service/src/test/java/com/hub/enrollment/EnrollmentRegistrationTransactionIT.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Khởi chạy profile %test với PostgreSQL Testcontainers; xác minh kịch bản học viên mới: tài khoản vai trò 'Student' tự cấp + bản ghi Enrollments + hàng outbox được tạo trong cùng một transaction [REQ-011]; kịch bản khóa đầy trả 409 và rollback sạch không để lại dữ liệu mồ côi; xác minh sự kiện enrollment.created được đẩy ra broker sau commit.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON [6]: Rà soát chất lượng và chiến lược tối ưu enrollment-service
+
+* **Chuyên môn vai trò Sub-Agent:** [Reviewer]
+* **Tag IDs được nhắm tới:** [REQ-010], [REQ-011]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/enrollment-service/src/main/java/com/hub/enrollment/EnrollmentService.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Phân tích race condition khi hai request đăng ký đồng thời giành chỗ cuối cùng của khóa, yêu cầu áp dụng khóa biên (SELECT ... FOR UPDATE trên courses) hoặc optimistic version; rà soát chống N+1 query trong luồng duyệt khóa [REQ-010]; chuẩn hóa DTO và bảo đảm mọi nhánh lỗi trả ProblemDetail RFC 7807 [REQ-011]; đề xuất bản fix cụ thể kèm diff.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON [7]: Biên soạn đặc tả API enrollment-service
+
+* **Chuyên môn vai trò Sub-Agent:** [Doc]
+* **Tag IDs được nhắm tới:** [REQ-010], [REQ-011]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/docs/api-enrollment-service.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tài liệu hóa hai endpoint browse và register kèm bảng tham số, ví dụ payload request/response, mã trạng thái 200/201/400/409 [REQ-010], [REQ-011]; bổ sung sơ đồ tuần tự luồng outbox → notification-service và định nghĩa hợp đồng sự kiện enrollment.created kèm chính sách at-least-once.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_DAY_LOG_INDEX-->
 
 <!--START_DAY_LOG_INDEX-->
 
-##### 📅 NGÀY 2: Triển khai cốt lõi dịch vụ thẻ hội viên và thông báo
+##### 📅 NGÀY 2: Vận hành attendance-service — quét điểm danh QR, chính sách retry ngoại tuyến và bảo đảm tính idempotent tuyệt đối
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 1: Xây dựng logic nghiệp vụ cốt lõi dịch vụ thẻ hội viên và migration cơ sở dữ liệu
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-014], [REQ-015], [DAT-007]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/membership-service/src/main/java/com/hub/membership/MembershipService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng logic nghiệp vụ quản lý thẻ hội viên, bao gồm tính toán số ngày còn lại hiệu lực, xử lý yêu cầu gia hạn thẻ sau khi xác nhận thanh toán, cập nhật trường remaining_days tự động, tích hợp với bảng student_cards cơ sở dữ liệu. Đồng thời tạo script migration DDL SQL cho bảng student_cards với các ràng buộc kiểm tra tính hợp lệ của trường validity_days và remaining_days.
+
+###### 🌿 NHIỆM VỤ CON [1]: Triển khai endpoint quét điểm danh QR
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-012], [EXC-001]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceScanResource.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cài đặt POST /api/v1/attendance/scan nhận {studentId, courseId, clientTimestamp}; xác thực quan hệ student–course thông qua kiểm tra bản ghi Enrollment trước khi ghi [REQ-012]; suy ra attendanceDate từ clientTimestamp và ghi bản ghi Attendance kèm timestamp máy chủ; chấp nhận các scan tồn đọng được mobile app phát lại sau khi reconnect theo thứ tự FIFO clientTimestamp tăng dần [EXC-001]; trả 409 ATT-VAL-409 khi quan hệ student–course không tồn tại.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-012]:**
+
+```json
+{
+  "endpoint": "/api/v1/attendance/scan",
+  "method": "POST",
+  "request": {
+    "studentId": "uuid (required)",
+    "courseId": "uuid (required)",
+    "clientTimestamp": "ISO-8601 (required)"
+  },
+  "response_200_recorded": {
+    "attendanceId": "uuid",
+    "status": "RECORDED",
+    "duplicate": false,
+    "attendanceDate": "YYYY-MM-DD"
+  },
+  "error_409": {
+    "errorCode": "ATT-VAL-409",
+    "message": "Student-course enrollment relation not found"
+  }
+}
+```
+
+* **Bộ xử lý ngoại lệ cục bộ của giai đoạn [EXC-001]:** Khi mạng đứt trong lúc quét, mobile app giữ payload trong hàng đợi ngoại tuyến và tự động retry sau khi kết nối khôi phục; attendance-service luôn sẵn sàng tiếp nhận request muộn, dùng clientTimestamp gốc làm mốc attendanceDate và không惩罚 request đến trễ — bản ghi vẫn được tạo đúng một lần nhờ cổng idempotent ở tầng lưu trữ.
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 2: Xây dựng endpoint REST cho dịch vụ thẻ hội viên
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-014], [REQ-015], [ARC-009]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/membership-service/src/main/java/com/hub/membership/MembershipController.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng endpoint REST GET /api/membership/card để lấy thông tin thẻ hội viên của học viên đang đăng nhập, endpoint POST /api/membership/renew để xử lý yêu cầu gia hạn thẻ, áp dụng xác thực JWT và kiểm tra quyền truy cập của học viên.
+
+###### 🌿 NHIỆM VỤ CON [2]: Bảo đảm tính idempotent của bản ghi điểm danh
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-013], [EXC-002]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceService.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Áp dụng ràng buộc unique (student_id, course_id, attendance_date) tại tầng PostgreSQL làm cổng idempotent duy nhất [REQ-013]; bắt ConstraintViolationException và ánh xạ qua DuplicateAttendanceMapper sang phản hồi 200 với status='DUPLICATE', duplicate=true, mã nghiệp vụ ATT-DUP-001 ('already recorded') mà không phát sinh hàng mới [EXC-002]; bảo đảm hai lần quét cách nhau dưới một phút trong cùng ngày trả kết quả nhất quán.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- V4__attendance_unique_idempotency.sql (attendance-service)
+ALTER TABLE attendance
+    ADD CONSTRAINT uq_attendance_student_course_date
+    UNIQUE (student_id, course_id, attendance_date);
+
+CREATE INDEX idx_attendance_course_date
+    ON attendance (course_id, attendance_date);
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-013]:**
+
+```json
+{
+  "endpoint": "/api/v1/attendance/scan",
+  "method": "POST",
+  "idempotencyRule": "UNIQUE (student_id, course_id, attendance_date)",
+  "response_200_duplicate": {
+    "attendanceId": "uuid (existing record reference)",
+    "status": "DUPLICATE",
+    "duplicate": true,
+    "businessCode": "ATT-DUP-001",
+    "message": "already recorded"
+  }
+}
+```
+
+* **Bộ xử lý ngoại lệ cục bộ của giai đoạn [EXC-002]:** Mọi submission trùng lặp bị chặn bởi ràng buộc unique thay vì check-then-insert; hệ thống trả success kèm cờ 'already recorded' để client hiển thị trạng thái điểm danh đã ghi nhận, đồng thời ghi audit log sự kiện duplicate kèm userId và timestamp phục vụ truy vết.
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 3: Xây dựng logic nghiệp vụ cốt lõi dịch vụ thông báo và migration cơ sở dữ liệu
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-016], [EXC-003], [DAT-008]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/notification-service/src/main/java/com/hub/notification/NotificationService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng logic nghiệp vụ hệ thống thông báo đa kênh, bao gồm xếp hàng thông báo đẩy (FCM/APNs) và tin nhắn nhóm Zalo, triển khai cơ chế retry tự động tối đa 3 lần khi gửi thất bại, ghi nhật ký lỗi gửi thông báo, tích hợp với bảng notifications cơ sở dữ liệu. Đồng thời tạo script migration DDL SQL cho bảng notifications với ràng buộc retry_count từ 0 đến 3.
+
+###### 🌿 NHIỆM VỤ CON [3]: Cơ chế tái xử lý scan ngoại tuyến sau ngắt kết nối
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [EXC-001]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/retry/OfflineReplayPolicy.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cài đặt hàng đợi nội bộ tiếp nhận bó scan được mobile app gửi lại sau reconnect; xử lý nghiêm ngặt FIFO theo clientTimestamp tăng dần [EXC-001]; từng phần tử vẫn đi qua cổng idempotent nên không tạo bản ghi trùng; ghi audit log mỗi phiên replay kèm userId, số lượng phần tử và timestamp để phục vụ giám sát phục hồi hậu outage.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+* **Bộ xử lý ngoại lệ cục bộ của giai đoạn [EXC-001]:** Chính sách replay bảo đảm thứ tự xử lý FIFO tuyệt đối: scan có clientTimestamp sớm hơn luôn được ghi trước, kết hợp ràng buộc idempotent khiến các bản sao lặp trong bó replay tự động hội tụ về một bản ghi duy nhất mà không phát sinh lỗi phía client.
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 4: Viết kiểm thử đơn vị cho dịch vụ thẻ hội viên
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-014], [REQ-015]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/membership-service/src/test/java/com/hub/membership/MembershipServiceTest.java;./sources/backend/membership-service/src/main/java/com/hub/membership/MembershipService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết bộ kiểm thử đơn vị cho MembershipService, bao gồm các trường hợp: tính toán số ngày còn lại thẻ chính xác, xử lý yêu cầu gia hạn thẻ cập nhật ngày kết thúc đúng, xử lý lỗi khi giao dịch thanh toán không hợp lệ.
+
+###### 🌿 NHIỆM VỤ CON [4]: Bộ test đơn vị xác thực quan hệ student–course
+
+* **Chuyên môn vai trò Sub-Agent:** [Tester]
+* **Tag IDs được nhắm tới:** [REQ-012]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceScanResource.java;./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceScanResourceTest.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết JUnit 5 xác minh [REQ-012]: quan hệ student–course hợp lệ → ghi bản ghi Attendance thành công; quan hệ không tồn tại → 409 ATT-VAL-409; attendanceDate được suy đúng từ clientTimestamp kể cả trường hợp múi giờ khác UTC; payload thiếu trường bắt buộc trả 400 với danh sách trường lỗi.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 5: Viết kiểm thử đơn vị cho dịch vụ thông báo
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-016], [EXC-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/notification-service/src/test/java/com/hub/notification/NotificationServiceTest.java;./sources/backend/notification-service/src/main/java/com/hub/notification/NotificationService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết bộ kiểm thử đơn vị cho NotificationService, bao gồm các trường hợp: xếp hàng thông báo đẩy và Zalo thành công, xử lý retry tự động khi gửi thất bại, đánh dấu thông báo là thất bại sau 3 lần thử không thành công, ghi nhật ký lỗi gửi thông báo.
+
+###### 🌿 NHIỆM VỤ CON [5]: Kiểm thử tích hợp tính idempotent điểm danh
+
+* **Chuyên môn vai trò Sub-Agent:** [Tester]
+* **Tag IDs được nhắm tới:** [REQ-013], [EXC-002]
+* **Đường dẫn tệp thành phần đích (target_component):** INTEGRATION_SCOPE;./sources/backend/attendance-service/src/test/java/com/hub/attendance/AttendanceIdempotencyIT.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Dùng PostgreSQL Testcontainers; gửi song song hai request quét cùng student/course/ngày cách nhau dưới một phút, assert đúng một hàng Attendance được tạo và request thứ hai trả 200 duplicate=true [REQ-013], [EXC-002]; mô phỏng replay bó 5 scan ngoại tuyến sau outage asserting thứ tự FIFO và zero bản ghi trùng lặp [EXC-001].
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON [6]: Rà soát đồng thời và ràng buộc idempotent attendance-service
+
+* **Chuyên môn vai trò Sub-Agent:** [Reviewer]
+* **Tag IDs được nhắm tới:** [REQ-013], [EXC-002]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/attendance-service/src/main/java/com/hub/attendance/AttendanceService.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Phân tích đường đua giữa INSERT và vi phạm unique để xác nhận không tồn tại mẫu check-then-insert dễ lỗi TOCTOU [REQ-013]; đánh giá cấu hình connection pool và timeout khi xử lý burst replay; kiểm tra ánh xạ ConstraintViolationException không lộ chi tiết SQL ra ngoài phản hồi [EXC-002]; đề xuất bản fix tối ưu kèm diff cụ thể.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON [7]: Biên soạn đặc tả API attendance-service
+
+* **Chuyên môn vai trò Sub-Agent:** [Doc]
+* **Tag IDs được nhắm tới:** [REQ-012], [REQ-013], [EXC-001], [EXC-002]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/docs/api-attendance-service.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tài liệu hóa endpoint scan với semantics idempotent [REQ-012], [REQ-013]; mô tả chính sách retry ngoại tuyến và thứ tự FIFO replay [EXC-001]; liệt kê bảng mã lỗi ATT-VAL-409 và ATT-DUP-001 kèm ví dụ payload RECORDED/DUPLICATE [EXC-002].
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_DAY_LOG_INDEX-->
 
 <!--START_DAY_LOG_INDEX-->
 
-##### 📅 NGÀY 3: Triển khai dịch vụ khuyến mãi, thông báo hệ thống và giao diện frontend liên quan
+##### 📅 NGÀY 3: Hoàn thiện card-service — truy vấn ngày hiệu lực thẻ hội viên và luồng gia hạn sau xác nhận thanh toán
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 1: Xây dựng endpoint REST cho dịch vụ thông báo
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-016], [ARC-008]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/notification-service/src/main/java/com/hub/notification/NotificationController.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng endpoint REST POST /api/notifications/send để kích hoạt gửi thông báo đa kênh, tích hợp với dịch vụ FCM/APNs và Zalo API, xử lý phân phối thông báo đến người dùng hoặc nhóm Zalo mục tiêu.
+
+###### 🌿 NHIỆM VỤ CON [1]: Triển khai truy vấn thẻ hội viên và tính toán ngày hiệu lực
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-014]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/card-service/src/main/java/com/hub/card/CardQueryResource.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cài đặt GET /api/v1/cards/me suy ra totalValidityDays từ validityDays, daysUsed = CURRENT_DATE − issueDate được kẹp biên trong khoảng [0, validityDays], daysRemaining = validityDays − daysUsed từ thực thể StudentCard [REQ-014]; chuẩn hóa mọi phép toán ngày theo UTC; trả 404 CARD-NOT-FOUND khi học viên chưa được cấp thẻ; tận dụng index idx_student_cards_student_lookup bảo đảm phản hồi sub-second.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- V5__card_validity_support.sql (card-service)
+CREATE INDEX idx_student_cards_student_lookup
+    ON student_cards (student_id, issue_date);
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-014]:**
+
+```json
+{
+  "endpoint": "/api/v1/cards/me",
+  "method": "GET",
+  "auth": "Bearer JWT (role Student)",
+  "response_200": {
+    "cardId": "uuid",
+    "issueDate": "YYYY-MM-DD",
+    "totalValidityDays": 90,
+    "daysUsed": 34,
+    "daysRemaining": 56
+  },
+  "error_404": {
+    "errorCode": "CARD-NOT-FOUND",
+    "message": "No membership card issued for this student"
+  }
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 2: Xây dựng logic nghiệp vụ dịch vụ khuyến mãi và migration cơ sở dữ liệu
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-017], [DAT-009]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/promotion-service/src/main/java/com/hub/promotion/PromotionService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng logic nghiệp vụ quản lý khuyến mãi, bao gồm CRUD khuyến mãi với kiểm tra tính hợp lệ của ngày bắt đầu/kết thúc, lọc khuyến mãi đang hoạt động cho học viên, tích hợp với bảng promotions cơ sở dữ liệu. Đồng thời tạo script migration DDL SQL cho bảng promotions với ràng buộc kiểm tra phần trăm giảm giá và tính hợp lệ của ngày hiệu lực.
+
+###### 🌿 NHIỆM VỤ CON [2]: Triển khai luồng gia hạn thẻ sau xác nhận thanh toán
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-015]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/card-service/src/main/java/com/hub/card/CardRenewalResource.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cài đặt POST /api/v1/cards/renew nhận renewalPeriodDays (ví dụ 30) và paymentReferenceId; chỉ mở rộng validityDays/ngày kết thúc của StudentCards sau khi PaymentConfirmationConsumer xác nhận sự kiện payment.confirmed từ payment service [REQ-015]; trong một transaction cập nhật thẻ và phát yêu cầu notification xác nhận gia hạn tới học viên; từ chối gia hạn khi paymentReferenceId chưa được xác nhận bằng 409 PAYMENT-PENDING mà không làm thay đổi dữ liệu thẻ.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-015]:**
+
+```json
+{
+  "endpoint": "/api/v1/cards/renew",
+  "method": "POST",
+  "request": {
+    "studentId": "uuid (required)",
+    "renewalPeriodDays": 30,
+    "paymentReferenceId": "string (required)"
+  },
+  "response_200": {
+    "cardId": "uuid",
+    "validityDaysBefore": 90,
+    "validityDaysAfter": 120,
+    "extendedUntil": "YYYY-MM-DD",
+    "confirmationNotificationSent": true
+  },
+  "error_409": {
+    "errorCode": "PAYMENT-PENDING",
+    "message": "Payment reference not confirmed yet"
+  }
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 3: Xây dựng logic nghiệp vụ dịch vụ thông báo hệ thống và migration cơ sở dữ liệu
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-018], [DAT-009]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/promotion-service/src/main/java/com/hub/announcement/AnnouncementService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng logic nghiệp vụ quản lý thông báo hệ thống, bao gồm CRUD thông báo với ngày hết hạn tùy chọn, tự động ẩn thông báo sau ngày hết hạn, phát sóng thông báo toàn hệ thống, tích hợp với bảng announcements cơ sở dữ liệu.
+
+###### 🌿 NHIỆM VỤ CON [3]: Consumer xác nhận thanh toán cho luồng gia hạn thẻ
+
+* **Chuyên môn vai trò Sub-Agent:** [Coder]
+* **Tag IDs được nhắm tới:** [REQ-015]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/card-service/src/main/java/com/hub/card/PaymentConfirmationConsumer.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tiêu thụ topic payment.confirmed với chế độ at-least-once; áp dụng khóa idempotent theo paymentReferenceId để chống cộng dồn validityDays khi sự kiện được phát lại [REQ-015]; khi xử lý thành công thì kích hoạt extendValidityDays và điều phối notification xác nhận; đẩy payload sai schema vào dead-letter topic để phân tích hậu kiểm.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
+* **Hợp đồng định tuyến API và sự kiện [REQ-015]:**
+
+```json
+{
+  "topic": "payment.confirmed",
+  "groupId": "card-service-renewal",
+  "deliveryMode": "at-least-once",
+  "idempotencyKey": "paymentReferenceId",
+  "deadLetterTopic": "payment.confirmed.dlq",
+  "onSuccess": ["extend validityDays", "dispatch renewal confirmation notification"]
+}
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 4: Xây dựng giao diện frontend cho điểm danh và thẻ hội viên
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-012], [REQ-013], [REQ-014], [REQ-015]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/src/app/attendance/page.tsx;./sources/frontend/src/app/membership-card/page.tsx
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng giao diện người dùng trang điểm danh cho học viên, tích hợp tính năng quét mã QR, hiển thị trạng thái điểm danh; xây dựng giao diện trang thẻ hội viên, hiển thị số ngày còn lại hiệu lực, nút gia hạn thẻ với lựa chọn thời hạn gia hạn.
+
+###### 🌿 NHIỆM VỤ CON [4]: Bộ test đơn vị máy tính ngày hiệu lực thẻ
+
+* **Chuyên môn vai trò Sub-Agent:** [Tester]
+* **Tag IDs được nhắm tới:** [REQ-014]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/card-service/src/main/java/com/hub/card/CardValidityCalculator.java;./sources/backend/card-service/src/test/java/com/hub/card/CardValidityCalculatorTest.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết JUnit parametrized xác minh [REQ-014]: daysUsed được kẹp biên tại 0 và validityDays; daysRemaining không bao giờ âm; thẻ hết hạn trả daysRemaining=0; mọi phép trừ ngày thống nhất múi giờ UTC; phủ case issueDate trùng ngày hiện hành.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 5: Viết kiểm thử đơn vị cho dịch vụ khuyến mãi và thông báo hệ thống
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-017], [REQ-018]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/promotion-service/src/test/java/com/hub/promotion/PromotionServiceTest.java;./sources/backend/promotion-service/src/test/java/com/hub/announcement/AnnouncementServiceTest.java;./sources/backend/promotion-service/src/main/java/com/hub/promotion/PromotionService.java;./sources/backend/promotion-service/src/main/java/com/hub/announcement/AnnouncementService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết bộ kiểm thử đơn vị cho PromotionService và AnnouncementService, bao gồm các trường hợp: tạo khuyến mãi với ngày hết hạn hợp lệ, lọc khuyến mãi đang hoạt động, tự động ẩn thông báo sau ngày hết hạn, xử lý lỗi khi ngày kết thúc nhỏ hơn ngày bắt đầu.
-<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--END_DAY_LOG_INDEX-->
+###### 🌿 NHIỆM VỤ CON [5]: Kiểm thử tích hợp luồng gia hạn thẻ
 
-<!--START_DAY_LOG_INDEX-->
+* **Chuyên môn vai trò Sub-Agent:** [Tester]
+* **Tag IDs được nhắm tới:** [REQ-015]
+* **Đường dẫn tệp thành phần đích (target_component):** INTEGRATION_SCOPE;./sources/backend/card-service/src/test/java/com/hub/card/CardRenewalFlowIT.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Mô phỏng toàn trình [REQ-015]: POST renew → sự kiện payment.confirmed → validityDays tăng đúng 30 ngày → notification xác nhận được điều phối; kịch bản payment chưa xác nhận trả 409 PAYMENT-PENDING và dữ liệu thẻ bất biến; kịch bản paymentReferenceId trùng lặp chứng minh tính idempotent không cộng dồn ngày hiệu lực.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
 
-##### 📅 NGÀY 4: Hoàn thiện endpoint, giao diện frontend, kiểm thử tích hợp và tài liệu kỹ thuật
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 1: Xây dựng endpoint REST cho dịch vụ khuyến mãi và thông báo hệ thống
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-017], [REQ-018]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/promotion-service/src/main/java/com/hub/promotion/PromotionController.java;./sources/backend/promotion-service/src/main/java/com/hub/announcement/AnnouncementController.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng endpoint REST CRUD cho `/api/promotions` và `/api/announcements`, áp dụng xác thực JWT và kiểm soát quyền truy cập theo RBAC (chỉ Center Admin/Manager mới có quyền tạo/sửa/xóa, tất cả người dùng đăng nhập có quyền xem).
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 2: Xây dựng giao diện frontend cho thông báo và khuyến mãi
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Coder]
-* **ID thẻ mục tiêu:** [REQ-016], [REQ-017], [REQ-018]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/src/app/notifications/page.tsx;./sources/frontend/src/app/promotions/page.tsx
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Xây dựng giao diện trang thông báo hiển thị danh sách thông báo hệ thống và thông báo cá nhân, tích hợp hiển thị trạng thái đã gửi/thất bại; xây dựng giao diện trang khuyến mãi hiển thị các khuyến mãi đang hoạt động cho học viên.
+
+###### 🌿 NHIỆM VỤ CON [6]: Rà soát card-service về phép toán ngày và tính idempotent gia hạn
+
+* **Chuyên môn vai trò Sub-Agent:** [Reviewer]
+* **Tag IDs được nhắm tới:** [REQ-014], [REQ-015]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/backend/card-service/src/main/java/com/hub/card/CardValidityCalculator.java
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Rà soát phép trừ ngày theo UTC để loại trừ lỗi lệch múi giờ làm sai daysUsed/daysRemaining [REQ-014]; kiểm tra consumer chống cộng dồn validityDays khi sự kiện payment.confirmed được phát lại và xác minh khóa idempotent theo paymentReferenceId [REQ-015]; chuẩn hóa thông điệp lỗi và đề xuất bản fix kèm diff cụ thể.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 3: Viết kiểm thử tích hợp cho các endpoint dịch vụ thông báo, khuyến mãi và thông báo hệ thống
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Tester]
-* **ID thẻ mục tiêu:** [REQ-016], [EXC-003], [REQ-017], [REQ-018]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/notification-service/src/test/java/com/hub/notification/NotificationControllerIntegrationTest.java;./sources/backend/promotion-service/src/test/java/com/hub/promotion/PromotionControllerIntegrationTest.java;./sources/backend/promotion-service/src/test/java/com/hub/announcement/AnnouncementControllerIntegrationTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết bộ kiểm thử tích hợp cho tất cả endpoint của dịch vụ thông báo, khuyến mãi và thông báo hệ thống, xác minh logic nghiệp vụ hoạt động đúng, xác minh kiểm soát quyền RBAC hoạt động chính xác, xác minh cơ chế retry thông báo hoạt động đúng.
-<!--END_ATOMIC_SUB_TASK_NODE-->
 
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 4: Rà soát chất lượng mã nguồn giai đoạn 3
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Reviewer]
-* **ID thẻ mục tiêu:** [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [EXC-001], [EXC-002], [EXC-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** Toàn bộ mã nguồn dịch vụ điểm danh, thẻ hội viên, thông báo, khuyến mãi và giao diện frontend liên quan trong giai đoạn 3
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Kiểm tra chất lượng mã nguồn của tất cả các thành phần được phát triển trong giai đoạn 3, đảm bảo tuân thủ tiêu chuẩn lập trình doanh nghiệp, phát hiện lỗi logic, điểm nghẽn hiệu năng, đề xuất chiến lược sửa lỗi tối ưu.
-<!--END_ATOMIC_SUB_TASK_NODE-->
+###### 🌿 NHIỆM VỤ CON [7]: Biên soạn đặc tả API card-service
 
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 Công việc con 5: Soạn thảo tài liệu kỹ thuật cho các dịch vụ giai đoạn 3
-* **Chuyên môn quy trình làm việc của đại lý phụ trách:** [Doc]
-* **ID thẻ mục tiêu:** [REQ-012], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [EXC-001], [EXC-002], [EXC-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/notification-service-api-spec.md;./sources/docs/promotion-service-api-spec.md
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Soạn thảo tài liệu đặc tả kỹ thuật cho dịch vụ thông báo, khuyến mãi và thông báo hệ thống, bao gồm mô tả luồng nghiệp vụ, hợp đồng API, xử lý ngoại lệ, hướng dẫn tích hợp.
+* **Chuyên môn vai trò Sub-Agent:** [Doc]
+* **Tag IDs được nhắm tới:** [REQ-014], [REQ-015]
+* **Đường dẫn tệp thành phần đích (target_component):** ./sources/docs/api-card-service.md
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tài liệu hóa cards/me với quy tắc suy ra daysUsed/daysRemaining [REQ-014] và luồng renew phụ thuộc xác nhận payment.confirmed [REQ-015]; bổ sung bảng mã lỗi CARD-NOT-FOUND/PAYMENT-PENDING, ví dụ payload đầy đủ và sơ đồ tuần tự consumer gia hạn.
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp lưu trữ nào cần thiết cho ngữ cảnh giai đoạn này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
 
 <!--END_DAY_LOG_INDEX-->

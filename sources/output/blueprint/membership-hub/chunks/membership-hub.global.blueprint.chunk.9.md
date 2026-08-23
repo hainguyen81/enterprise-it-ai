@@ -688,19 +688,19 @@ You MUST dynamically and contextually translate 100% of both the level-3 markdow
 --- GENERATED PHASES CONTEXT ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX-->
 
 ---
 
 ### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
 ### Phase 3 Logs (Atomic Salvaged Tag Lines):
 
-<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
+<!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX--><!--START_DAY_LOG_INDEX-->
 
 ---
 
@@ -722,39 +722,67 @@ You MUST dynamically and contextually translate 100% of both the level-3 markdow
 
 ---
 
-### BỐI CẢNH NỀN TẢNG TỪ CÁC BƯỚC TRƯỚC
+### NGỮ CẢNH ĐỊNH CƠ TỪ CÁC BƯỚC TRƯỚC
 
-## ☣️ 6. MÃ BẢO MẬT DOANH NGHIỆP PHỔ QUÁT & CÁC BIỆN PHÁP CHỐNG TIẾM QUYỀN [NFR-XXX]
+Toàn bộ mã bảo mật, thanh chắn di động và cổng pipeline trình bày dưới đây đã được đối chiếu và neo chặt vào stack công nghệ đã hiện thực hóa trong ngữ cảnh các giai đoạn sinh trước đó: backend Java/Quarkus trên PostgreSQL, Redis session cache, Firebase Authentication, FCM/APNs, tích hợp Zalo API, container Docker triển khai trên GKE và CI/CD GitHub Actions theo nền tảng kiến trúc [ARC-010]. Không có mã đối phó nào mâu thuẫn với các quyết định kỹ thuật đã chốt của 5 giai đoạn.
 
-### 1. Biện pháp chống tiêm chích SQL (SQLi) tuyệt đối
-Triển khai các câu lệnh đã chuẩn bị (prepared statements) với tham số vị trí (positional query parameters) để ngăn chặn hoàn toàn các cuộc tấn công SQL injection. Áp dụng danh sách trắng (whitelist) động cho các đầu vào sắp xếp (sorting input) thông qua Hibernate ORM, đảm bảo chỉ các cột và hướng hợp lệ được phép truy vấn. Tất cả các truy vấn cơ sở dữ liệu phải sử dụng PreparedStatement với tham số được bind đúng cách, loại bỏ hoàn toàn việc nối chuỗi SQL động. Các tham số phân trang và sắp xếp phải được kiểm tra chống lại danh sách trắng các trường được phép trước khi đưa vào truy vấn. [NFR-003], [EXC-004], [DAT-001], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-011]
+## ☣️ 6. BỘ MÃ BẢO MẬT DOANH NGHIỆP TOÀN CỤC & BIỆN PHÁP ĐỐI PHÓ TẤN CÔNG TIÊM NHẬP [NFR-XXX]
 
-### 2. Cross-Site Scripting (XSS) & Content Security Policy (CSP)
-Thực hiện làm sạch ngữ cảnh tự động (automated context sanitization) cho tất cả đầu vào người dùng và bật tự động escape JSX (JSX auto-escaping) trong giao diện người dùng. Tiêm động các tiêu đề HTTP Content Security Policy (CSP) nghiêm ngặt thông qua Ingress Gateway, hạn chế nguồn script chỉ đến các domain đáng tin cậy. Cấu hình CSP với các directive như default-src 'self', script-src 'self' https://trusted.cdn.com, và loại bỏ 'unsafe-inline', 'unsafe-eval'. Tích hợp sanitization library như DOMPurify cho nội dung HTML động. [NFR-003], [REQ-020], [REQ-021], [ARC-009], [ARC-006]
+### 1. Biện pháp khắc chế tuyệt đối tấn công SQL Injection (SQLi)
 
-### 3. CORS Multi-Tenant Security Rails
-Thiết lập đường ray bảo mật CORS đa tenant (Multi-Tenant CORS) với nghiêm cấm wildcard origin (*). Triển khai kiểm tra động tenant validation boundaries dựa trên token xác thực và cấu hình origin được phép của từng trung tâm. Mỗi request CORS phải được xác thực chéo (cross-validated) với tenant ID trong JWT và danh sách origin cho phép của center tương ứng. Cấu hình Ingress Controller với annotation cho phép origin động dựa trên header X-Tenant-ID. [ARC-001], [ARC-002], [NFR-003], [REQ-004]
+Mọi truy vấn đọc/ghi lên PostgreSQL từ các service Quarkus bắt buộc thực thi qua Hibernate ORM với prepared statement và positional query parameter (`?1`, `?2`) hoặc named parameter (`:param`); việc nối chuỗi (string concatenation) đầu vào người dùng vào câu lệnh SQL/JPQL native bị cấm tuyệt đối ở mọi tầng repository. Các tác vụ sắp xếp và lọc động trên danh sách khóa học [DAT-004], danh sách trung tâm [DAT-003] và truy xuất hồ sơ người dùng [DAT-001] phải đi qua whitelist cứng tên cột/hướng sắp xếp (ASC/DESC) khai báo tại tầng repository; mọi giá trị nằm ngoài whitelist bị từ chối tức thời bằng HTTP 400 mà không chạm tới database. Thao tác ghi điểm danh [DAT-006] sử dụng truy vấn tham số hóa với ràng buộc duy nhất `(student_id, course_id, attendance_date)` để vừa triệt tiêu SQLi vừa bảo đảm tính idempotent [REQ-013]. Tài khoản ứng dụng kết nối database tuân thủ nguyên tắc đặc quyền tối thiểu, không sở hữu quyền DDL trên schema production.
 
-### 4. Zero-Leak Log Scrubbing & PII Data Masking Engines
-Xây dựng công cụ làm sạch log không rò rỉ (Zero-Leak Log Scrubbing) và động mask dữ liệu PII sử dụng các interceptor tự động với chú thích @JsonSerialize. Tất cả các trường nhạy cảm (email, số điện thoại, tên đầy đủ) phải được mask hoặc loại bỏ hoàn toàn khỏi log trước khi ghi vào hệ thống logging. Áp dụng masking theo chuẩn AES-256 cho dữ liệu at rest và TLS 1.3 cho dữ liệu in transit. Tích hợp với hệ thống logging tập trung (ELK Stack) để đảm bảo không có PII nào lọt vào log. [NFR-008], [DAT-001], [DAT-007], [REQ-014], [REQ-015]
+**Thẻ truy vết:** [NFR-003], [REQ-013], [DAT-001], [DAT-003], [DAT-004], [DAT-006]
 
-## 📱 7. QUY TẮC TUÂN THỦ DI ĐỘNG HYBRID & CƠ CHẾ SEO ĐA NGÔN NGỮ
+### 2. Tấn công Cross-Site Scripting (XSS) & Chính sách Bảo mật Nội dung (CSP)
 
-### 1. Capacitor Mobile Hybrid Compliance Rails
-Tuân thủ kiến trúc hybrid di động Capacitor với dynamic client-side fetching, absolute URL addressing để tránh vấn đề hydration, và hydration safeguards. Sử dụng @capacitor/preferences cho native storage abstraction, đảm bảo dữ liệu được đồng bộ hóa an toàn giữa web và native layers. Triển khai hardware back-button interception để điều hướng người dùng quay lại màn hình trước đó trong ứng dụng, không thoát ứng dụng đột ngột. Cấu hình Capacitor với server URL động dựa trên môi trường (development, staging, production). [REQ-020], [REQ-021], [ARC-009], [NFR-007]
+Toàn bộ lớp giao diện Next.js [ARC-009] dựa vào cơ chế tự động escape của JSX/React để vô hiệu hóa mọi chuỗi HTML/JavaScript do người dùng cung cấp; thuộc tính `dangerouslySetInnerHTML` bị cấm trên mọi trường nội dung động gồm mô tả khóa học [DAT-004], nội dung thông báo [DAT-008] và nội dung khuyến mãi/thông cáo [DAT-009]. Trước khi persist xuống PostgreSQL, mọi payload rich-text do Center Admin hoặc Manager nhập [ARC-002], [ARC-003] được làm sạch server-side bằng OWASP Java HTML Sanitizer với whitelist thẻ nghiêm ngặt. Tại tầng Ingress Gateway trên GKE [ARC-010], hệ thống tiêm header CSP nghiêm ngặt `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'` kèm `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY` và `Referrer-Policy: strict-origin-when-cross-origin` cho mọi phản hồi HTML.
 
-### 2. Internationalization (i18n) & Dynamic SEO Injection
-Xây dựng edge-layer locale recognition middleware để phát hiện ngôn ngữ người dùng dựa trên Accept-Language header, cookie lưu trữ, và tham số URL. Tự động inject dynamic hreflang control vào HTML head, tạo các link hreflang cho tiếng Anh, tiếng Việt, và tiếng Tây Ban Nha. Đảm bảo mỗi trang đều có thẻ <html lang='xx'> và các link hreflang chính xác cho công cụ tìm kiếm. Tích hợp với Next.js Middleware để xử lý locale ở edge layer, giảm latency cho người dùng toàn cầu. [REQ-022], [REQ-023], [NFR-007], [ARC-010]
+**Thẻ truy vết:** [NFR-003], [ARC-002], [ARC-003], [ARC-009], [ARC-010], [DAT-004], [DAT-008], [DAT-009]
 
-## 🚀 8. LUỒNG NHÁNH GIT TỰ ĐỘNG CHO PHIÊN LÀM VIỆC HÀNG NGÀY TRONG PIPELINE
+### 3. Thanh chắn bảo mật CORS đa tenant (Multi-Tenant CORS)
 
-### 1. Daily Workspace Forking Isolation
-Thiết lập chương trình forking isolation động cho workspace với cấu trúc nhánh features/development-phase-X-day-Y, trong đó X là số thứ tự phase và Y là số thứ tự day. Mỗi phiên làm việc hàng ngày được cách ly hoàn toàn trong nhánh riêng, ngăn chặn xung đột code và đảm bảo khả năng rollback độc lập. Áp dụng quy tắc bảo vệ nhánh (branch protection rules) yêu cầu ít nhất 1 reviewer trước khi merge, và bắt buộc status checks pass (build, test, lint) trước khi merge. [ARC-010], [NFR-006]
+Cấu hình CORS trên mọi REST endpoint Quarkus nghiêm cấm tuyệt đối giá trị đại diện `*` cho header `Access-Control-Allow-Origin` cũng như tổ hợp wildcard với `Access-Control-Allow-Credentials`. Danh sách origin hợp lệ của từng trung tâm được đăng ký tập trung trong bảng SystemSettings [DAT-011] theo quy ước key `cors.allowed.origin.<centerId>`, được nạp vào Redis [ARC-010] và đối chiếu động với header `Origin` của từng yêu cầu bởi bộ lọc CORS tùy chỉnh trước khi cấp phản hồi; origin không đăng ký bị chặn với HTTP 403. Các luồng nhạy cảm — phát hành JWT [ARC-006] và ghi nhận điểm danh QR [ARC-007] — chỉ chấp nhận yêu cầu từ domain chính thức của nền tảng và origin nội bộ của WebView Capacitor; mọi method ngoài GET/POST/PUT/PATCH/DELETE và header tùy chỉnh ngoài danh sách cho phép bị loại bỏ ngay ở bước preflight OPTIONS.
 
-### 2. Validation Guard Pipeline Gates
-Thiết lập validation guard pipeline gates với automated compilation verification, SonarQube lint gates đánh giá chất lượng code, và mục tiêu test coverage tự động >= 85%. Pipeline phải chạy trên mỗi pull request và commit, chặn merge nếu coverage thấp hơn ngưỡng hoặc có lỗi lint nghiêm trọng. Tích hợp SonarQube quality gates với các điều kiện: coverage > 85%, no new bugs, no new vulnerabilities, no code smells. Sử dụng GitHub Actions để orchestrate pipeline với các stage: checkout, setup-java, build, test, sonar-scan, và deploy. [NFR-001], [NFR-004], [NFR-005], [ARC-010]
+**Thẻ truy vết:** [NFR-003], [ARC-006], [ARC-007], [ARC-010], [DAT-011]
 
-### 📊 YÊU CẦU KIỂM TRA PHỦ MA TRẬN
+### 4. Công cụ làm sạch nhật ký không rò rỉ (Zero-Leak Log Scrubbing) & Engine che giấu dữ liệu PII
 
-[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: 25, TOTAL ARC TAGS: 10, TOTAL EXC TAGS: 5, TOTAL DAT TAGS: 9, TOTAL NFR TAGS: 9. ZERO UNASSIGNED CODES FOUND.]
+Mọi trường PII — email và họ tên người dùng [DAT-001], số điện thoại/email liên hệ trung tâm [DAT-003] — được tuần tự hóa qua serializer tùy chỉnh gắn chú thích `@JsonSerialize(using = EmailMaskingSerializer.class)` / `@JsonSerialize(using = PhoneMaskingSerializer.class)` để che một phần giá trị trong mọi phản hồi API dành cho vai trò không đủ thẩm định theo ma trận RBAC [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]. Bộ đánh chặn logging toàn cục quét và làm sạch tự động mọi sự kiện trước khi ghi vào Cloud Logging: access token JWT, refresh token, `passwordHash` bcrypt [DAT-001] và payload QR điểm danh [DAT-006] được thay bằng hằng `[REDACTED]`; nhật ký kiểm toán vẫn giữ nguyên timestamp, userId và chi tiết hành động theo chuẩn [NFR-006]. Cơ chế này bảo đảm tuân thủ quyền xóa và xuất dữ liệu cá nhân GDPR/CCPA [NFR-008] mà không làm suy giảm khả năng điều tra sự cố.
+
+**Thẻ truy vết:** [NFR-006], [NFR-008], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [DAT-001], [DAT-003], [DAT-006]
+
+## 📱 7. QUY TẮC THANH CHẮN TƯƠNG THÍCH DI ĐỘNG HYBRID & CƠ CHẾ SEO QUỐC TẾ HÓA
+
+### 1. Thanh chắn tương thích Capacitor Mobile Hybrid
+
+Ứng dụng di động Capacitor phải thực hiện toàn bộ truy xuất dữ liệu bằng fetch động phía client tới REST API backend [ARC-009] thông qua địa chỉ URL tuyệt đối được bơm lúc build (`API_BASE_URL`), nghiêm cấm đường dẫn tương đối gây lỗi phân giải trong WebView native. Cơ chế hydration safeguards bảo vệ trạng thái phiên đăng nhập, cache ngoại tuyến của luồng điểm danh QR [EXC-001] và hàng đợi đồng bộ khỏi bị mất khi ứng dụng khởi động lại hoặc chuyển background/foreground; khi mạng phục hồi, hàng đợi được gửi lại theo FIFO và ghi nhận đúng một bản ghi nhờ tính idempotent [REQ-013]. Refresh token, ngôn ngữ ưu tiên [REQ-022] và device token push được lưu qua abstraction gốc `@capacitor/preferences` thay vì localStorage của WebView. Interceptor nút back vật lý (`App.addListener('backButton')`) chặn hành vi thoát đột ngột trên Android để điều hướng theo ngăn xếp màn hình của vai trò hiện hành [REQ-020]; ngay sau đăng nhập thành công, ứng dụng đăng ký device token để nhận thông báo đẩy FCM/APNs [REQ-021].
+
+**Thẻ truy vết:** [REQ-013], [REQ-020], [REQ-021], [REQ-022], [ARC-009], [EXC-001]
+
+### 2. Quốc tế hóa (i18n) & Tiêm SEO động (Dynamic SEO Injection)
+
+Middleware nhận diện locale vận hành tại tầng edge của Next.js: thứ tự ưu tiên là ngôn ngữ đã chọn trước đó của người dùng (lưu trong `@capacitor/preferences` trên di động hoặc cookie trên web), fallback sang header `Accept-Language` của trình duyệt, và mặc định cuối cùng là tiếng Việt [REQ-022]. Toàn bộ chuỗi giao diện được externalize vào bộ resource `en/vi/es` đáp ứng [NFR-007], cho phép chuyển đổi locale không cần tải lại trang ở mức khả thi. Với mỗi yêu cầu render, hệ thống tiêm động thuộc tính `<html lang='...'>` khớp locale hiện hành cùng bộ liên kết `<link rel='alternate' hreflang='en|vi|es'>` trỏ tới ba phiên bản ngôn ngữ tương ứng [REQ-023]; thẻ meta title/description/og:locale được bản địa hóa theo từng locale để tối ưu chỉ mục tìm kiếm đa ngôn ngữ. Ngôn ngữ mặc định toàn hệ thống và danh sách locale kích hoạt được quản trị tập trung qua bảng SystemSettings [DAT-011].
+
+**Thẻ truy vết:** [REQ-022], [REQ-023], [NFR-007], [DAT-011]
+
+## 🚀 8. LUỒNG NHÁNH GIT PHIÊN LÀM VIỆC HÀNG NGÀY TỰ ĐỘNG HÓA PIPELINE
+
+### 1. Cô lập phân nhánh Workspace hàng ngày (Daily Workspace Forking Isolation)
+
+Mỗi phiên làm việc hàng ngày được cô lập trên nhánh riêng tuân thủ mẫu đặt tên bắt buộc `features/development-phase-X-day-Y` (X là chỉ số giai đoạn, Y là chỉ số ngày) do kịch bản fork tự động của GitHub Actions [ARC-010] tạo ra ngay đầu phiên; nhánh luôn được cắt từ commit tích hợp mới nhất để loại bỏ xung đột merge tiềm ẩn. Branch protection rules chặn tuyệt đối việc push trực tiếp lên `main` và nhánh tích hợp; mỗi Sub-Agent (Coder, Tester, Reviewer, Doc, Docker, GCP, GKE) chỉ được commit lên nhánh phiên được phân công. Khi kết thúc phiên, pull request của nhánh `features/development-phase-X-day-Y` phải vượt qua toàn bộ cổng kiểm chứng trước khi được squash-merge và dọn dẹp nhánh nguồn.
+
+**Thẻ truy vết:** [ARC-010]
+
+### 2. Cổng chặn kiểm chứng Pipeline (Validation Guard Pipeline Gates)
+
+Pipeline CI/CD GitHub Actions [ARC-010] thực thi tuần tự các cổng chặn bắt buộc trước khi cho phép merge: (1) biên dịch sạch `mvn verify` cho backend Quarkus và `next build` cho frontend Next.js; (2) phân tích tĩnh SonarQube với quality gate chặn mọi blocker/critical vulnerability mới phát sinh; (3) độ bao phủ kiểm thử tự động bắt buộc đạt ngưỡng `>= 85%` trên cả module backend lẫn frontend, vi phạm ngưỡng khiến pipeline fail ngay lập tức; (4) kiểm tra kích thước image Docker sau build phải nhỏ hơn 200 MB (base) và 500 MB (final) theo [NFR-005]. Chỉ khi toàn bộ cổng trả về trạng thái xanh, artifact mới được đẩy lên container registry và giải phóng lên cụm GKE.
+
+**Thẻ truy vết:** [ARC-010], [NFR-005]
+
+### 📊 NGHỊ ĐỊNH KIỂM TRA MA TRẬN BAO PHỦ
+
+Kết quả kiểm đếm ngược (reverse-scan) phạm vi log giai đoạn đã sinh bên dưới mốc neo ngữ cảnh các giai đoạn, áp dụng điều kiện parse đơn lẻ/khoảng tuần tự/gom nhóm toàn cục trên 5 loại thẻ nền tảng REQ, ARC, EXC, DAT, NFR:
+
+[TRACEABILITY MATRIX ENFORCEMENT: 100% COVERAGE VALIDATED. TOTAL UNIQUE REQ TAGS MAPPED: 25, TOTAL ARC TAGS: 11, TOTAL EXC TAGS: 5, TOTAL DAT TAGS: 9, TOTAL NFR TAGS: 9. ZERO UNASSIGNED CODES FOUND.]
 

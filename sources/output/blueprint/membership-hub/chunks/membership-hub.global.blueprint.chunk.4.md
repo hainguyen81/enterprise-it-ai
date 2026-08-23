@@ -751,84 +751,81 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 <PROJECT_BACKLOG_TASKS_DATA>
 --- BACKLOG TASKS ---
-## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN MỨC CAO
+## 🏁 4. BẢNG TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN CẤP CAO
 
-### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
+### 📦 4.1. DANH MỤC CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
+
+Tập hợp công việc dưới đây được cấu trúc theo chuỗi phụ thuộc kiến trúc của nền tảng membership-hub: lớp khung dự án [ARC-000] khởi tạo descriptor build backend Java/Quarkus theo mô hình microservices và workspace frontend Next.js/React Native làm nền móng cho toàn bộ module chức năng; các dịch vụ nghiệp vụ (auth-service, center-service, course-service, enrollment-service, attendance-service, card-service, notification-service, promotion-service, chatbot-service, reporting-service) đều phụ thuộc vào lớp dữ liệu quan hệ hợp nhất [DAT-ALL (1 to 11)] và bị ràng buộc bởi cơ chế thực thi phân quyền RBAC [ARC-001 to ARC-005]; bốn luồng tích hợp liên dịch vụ [ARC-006 to ARC-009] (xác thực OAuth2/JWT, điểm danh QR idempotent, điều phối thông báo đa kênh FCM/APNs/Zalo, kết nối mobile–backend có caching ngoại tuyến) được chuẩn hóa qua api-gateway và Redis session cache; cuối cùng, nền tảng công nghệ [ARC-010], hạ tầng DevOps (Docker, Terraform/GCP, GKE, CI/CD GitHub Actions) và khối tài liệu doanh nghiệp đóng gói toàn bộ ràng buộc phi chức năng [NFR-001] đến [NFR-009] thành chuỗi bàn giao production hoàn chỉnh.
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
-### MA TRẬN SỐ HỌC HỆ THỐNG
-> - Tổng số thẻ [REQ]: 25 Thẻ
-
-> - Tổng số thẻ [EXC]: 5 Thẻ
-
-> - Tổng số thẻ [ARC]: 10 Thẻ
-
-> - Tổng số thẻ [DAT]: 9 Thẻ
-
-> - Tổng số thẻ [NFR]: 9 Thẻ
-
-> - ➡️ Tổng số thẻ SRS: 58 Thẻ
-
-Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh xạ toàn bộ các yêu cầu nghiệp vụ, kiến trúc, dữ liệu và phi chức năng từ đặc tả yêu cầu phần mềm vào các nhiệm vụ kỹ thuật cụ thể, đảm bảo tính truy xuất nguồn gốc 100% và tuân thủ các tiêu chuẩn doanh nghiệp. Các thành phần kiến trúc có mối phụ thuộc chặt chẽ: hạ tầng cơ sở dữ liệu PostgreSQL là nền tảng cho tất cả các service vi mô, lớp bảo mật RBAC và xác thực OAuth2 kiểm soát truy cập vào toàn bộ hệ thống, hạ tầng DevOps trên GKE đảm bảo tính sẵn sàng và khả năng mở rộng, còn hệ thống tài liệu hỗ trợ vận hành và bảo trì lâu dài.
+### [MA TRẬN TÍNH TOÁN HỆ THỐNG]
+> - **Tổng số thẻ [REQ]:** 25 thẻ
+> - **Tổng số thẻ [EXC]:** 5 thẻ
+> - **Tổng số thẻ [ARC]:** 10 thẻ
+> - **Tổng số thẻ [DAT]:** 11 thẻ
+> - **Tổng số thẻ [NFR]:** 9 thẻ
+> - ➡️ **Tổng số thẻ SRS:** 60 thẻ
 
 | STT | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm bàn giao | Loại | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Khởi tạo cấu trúc dự án backend vi mô Quarkus | Tạo pom.xml gốc và pom.xml cho từng service vi mô (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot) | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Khởi tạo cấu trúc dự án frontend Next.js | Tạo package.json và tsconfig.json cho ứng dụng web và di động | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Khởi tạo cấu trúc thư mục tài liệu doanh nghiệp | Tạo cấu trúc thư mục cho bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành | Tài liệu Doanh nghiệp | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Triển khai chức năng đăng ký người dùng bằng email/mật khẩu | Xác thực đầu vào, tạo bản ghi người dùng với vai trò Student, cấp JWT token | Mã Ứng dụng | [REQ-001, EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Triển khai xác thực mạng xã hội OAuth2 | Tích hợp Firebase, Google, Facebook OAuth2, xử lý mã xác thực, tạo/cập nhật bản ghi người dùng, cấp JWT | Mã Ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Triển khai chức năng phân quyền người dùng | Gán/thay đổi vai trò người dùng, áp dụng quyền truy cập ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Triển khai chức năng xem danh sách trung tâm | Hiển thị danh sách trung tâm với địa chỉ, mã số thuế, thông tin liên hệ quản trị | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Triển khai chức năng quản lý trung tâm (CRUD) | Thêm, sửa, xóa bản ghi trung tâm, kiểm tra trùng mã số thuế | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 9 | Triển khai chức năng phân quyền quản trị trung tâm | Gán/huỷ gán quyền Center Admin cho người dùng tại trung tâm cụ thể | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 10 | Triển khai chức năng xem danh sách khóa học | Hiển thị danh sách khóa học với lịch học và giáo viên phụ trách | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 11 | Triển khai chức năng quản lý khóa học (CRUD) với kiểm tra xung đột lịch | Thêm, sửa, xóa khóa học, kiểm tra trùng lịch giáo viên/địa điểm | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 12 | Triển khai chức năng phân công giáo viên vào khóa học | Gán/huỷ gán giáo viên cho khóa học, kích hoạt thông báo cho giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 13 | Triển khai chức năng duyệt khóa học cho học viên | Hiển thị danh sách khóa học chưa đăng ký của học viên | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 14 | Triển khai chức năng đăng ký khóa học học viên | Xử lý đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại, gửi thông báo | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 15 | Triển khai chức năng điểm danh quét mã QR | Nhận payload quét QR, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012, EXC-001, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 16 | Triển khai tính chất bất biến của điểm danh | Đảm bảo chỉ tạo 1 bản ghi điểm danh/học viên/khóa học/ngày, xử lý yêu cầu trùng lặp | Mã Ứng dụng | [REQ-013, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 17 | Triển khai chức năng hiển thị tính hợp lệ thẻ hội viên | Hiển thị tổng số ngày hiệu lực, số ngày đã sử dụng, số ngày còn lại của thẻ hội viên | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 18 | Triển khai chức năng gia hạn thẻ hội viên | Gia hạn ngày kết thúc thẻ sau khi xác nhận thanh toán, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 19 | Triển khai chức năng kích hoạt thông báo đa kênh | Tạo bản ghi thông báo, xếp hàng push notification, gửi tin nhắn nhóm Zalo | Mã Ứng dụng | [REQ-016, EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 20 | Triển khai chức năng quản lý khuyến mãi | CRUD khuyến mãi (giảm giá, ưu đãi) với ngày bắt đầu/kết thúc, hiển thị cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 21 | Triển khai chức năng quản lý thông báo | CRUD thông báo với ngày hết hạn tùy chọn, tự động ẩn sau ngày hết hạn, phát sóng toàn hệ thống | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 22 | Triển khai tích hợp chatbot AI | Xử lý câu hỏi thường gặp về khóa học, giáo viên, trung tâm, trạng thái tài khoản, leo thang hỗ trợ khi độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 23 | Triển khai giao diện người dùng vai trò trên di động | Xây dựng giao diện responsive Next.js cho từng vai trò (Student, Teacher, Admin...), đồng bộ chức năng với web | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 24 | Triển khai thông báo đẩy trên di động | Tích hợp FCM/APNs, quản lý token thiết bị, xử lý nhận thông báo trên ứng dụng di động | Mã Ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 25 | Triển khai phát hiện ngôn ngữ mặc định | Phát hiện ngôn ngữ ưu tiên của người dùng, lưu trữ cài đặt, fallback sang Accept-Language header | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 26 | Triển khai SEO đa ngôn ngữ | Thêm thẻ meta ngôn ngữ, thuộc tính hreflang, hỗ trợ 3 ngôn ngữ (Anh, Việt, Tây Ban Nha) | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 27 | Triển khai chức năng tạo báo cáo điểm danh CSV | Xuất báo cáo điểm danh hàng ngày cho trung tâm, định dạng CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024, EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 28 | Triển khai bảng điều khiển tóm tắt ghi danh | Xây dựng dashboard realtime hiển thị tổng học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tới) | Mã Ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 29 | Khởi tạo hạ tầng cơ sở dữ liệu PostgreSQL | Tạo schema, tất cả các bảng dữ liệu theo định nghĩa, cấu hình connection pool và index tối ưu | Mã Ứng dụng | [DAT-ALL (1 to 9)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 30 | Triển khai lớp bảo mật RBAC và xác thực | Triển khai kiểm soát truy cập dựa trên vai trò, xác thực JWT, OAuth2, refresh token, bảo vệ tất cả endpoint | Mã Ứng dụng | [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 31 | Triển khai hợp đồng tích hợp hệ thống | Triển khai luồng xác thực, điểm danh QR, thông báo đa kênh, tích hợp backend-frontend | Mã Ứng dụng | [ARC-006, ARC-007, ARC-008, ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 32 | Triển khai hạ tầng DevOps và đám mây | Xây dựng Dockerfile đa giai đoạn, pipeline CI/CD GitHub Actions, triển khai GKE, cấu hình Terraform cho GCP, tích hợp FCM/APNs, Zalo API, Redis caching, đảm bảo tuân thủ NFR | Hạ tầng DevOps | [NFR-001, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, NFR-007, NFR-008, NFR-009, ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 33 | Xây dựng tài liệu hệ thống doanh nghiệp | Viết bản vẽ kiến trúc, hợp đồng API REST/Event, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng | Tài liệu Doanh nghiệp | <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| **TÓM TẮT** | **Tổng số thẻ theo dõi đã bao phủ:** 58 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** ĐÃ XÁC THỰC | **Mức độ bao phủ:** 100% <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 1 | Khởi tạo khung dự án backend microservices | Sinh descriptor build gốc `./sources/backend/pom.xml` (Quarkus BOM, dependencyManagement tập trung) và descriptor module con `./sources/backend/<service-name>/pom.xml` cho từng dịch vụ; thiết lập profile build dev/production và plugin compile thống nhất. | Mã ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Khởi tạo workspace frontend | Sinh manifest `./sources/frontend/package.json` (Next.js, React Native, TypeScript) và cấu hình biên dịch `./sources/frontend/tsconfig.json` (strict mode, path alias) làm nền chung cho web-app và mobile-app. | Mã ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Đăng ký người dùng bằng email/mật khẩu | Endpoint POST /api/v1/auth/register trên auth-service: validate email unique và độ mạnh mật khẩu, hash bcrypt, tạo bản ghi Users vai trò mặc định 'Student', cấp JWT 15 phút kèm refresh token; khi validation thất bại trả thông báo liệt kê từng trường không hợp lệ. | Mã ứng dụng | [REQ-001], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Xác thực mạng xã hội OAuth2 | Tích hợp Firebase/Google/Facebook qua OAuth2: nhận authorization code từ popup provider, exchange lấy user info, tạo/cập nhật bản ghi Users cục bộ theo provider tương ứng, phát hành JWT phiên làm việc. | Mã ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Phân quyền vai trò người dùng | API quản trị gán/thay đổi roleId (System Admin, Center Admin, Manager, Teacher, Student); cập nhật cột vai trò và áp dụng ma trận quyền tức thời; ghi audit log mọi thay đổi vai trò kèm timestamp và userId. | Mã ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Xem danh sách trung tâm | GET /api/v1/centers trả bảng trung tâm (Name, Address, TaxID, AdminContact) cho mọi người dùng đã xác thực; phân trang và index truy vấn sub-second. | Mã ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Tạo/cập nhật/xóa trung tâm | CRUD trung tâm dành cho System Admin tại center-service: validate taxId numeric 10–13 chữ số với ràng buộc unique, trả 409 Conflict khi taxId trùng; persist contactPhone/contactEmail đúng định dạng chuẩn. | Mã ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Phân quyền quản trị trung tâm | Gán/hủy gán user làm Center Admin cho centerId cụ thể: set role 'Center Admin', ghi center ID vào phạm vi quản lý; thao tác unassign đảo ngược hoàn toàn; cô lập tenant theo trung tâm. | Mã ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 9 | Xem danh sách khóa học | GET /api/v1/courses trả lưới CourseID, Title, StartDate, EndDate, TeacherName (join Users); hỗ trợ duyệt danh sách offering cho mọi vai trò đã xác thực. | Mã ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 10 | Quản lý khóa học chống xung đột lịch | CRUD khóa học (System Admin/Center Admin): kiểm tra giao thoa khoảng startDate–endDate trên cùng teacherId hoặc venue trước khi persist, trả lỗi xung đột lịch nếu trùng; maxStudents mặc định 30. | Mã ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 11 | Phân công giáo viên vào khóa học | Gán/hủy ánh xạ course–teacher; khi gán, phát event sang notification-service để queue push notification tới mobile app của giáo viên được chỉ định. | Mã ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 12 | Duyệt khóa học dành cho học viên | GET /api/v1/enrollments/browse lọc loại các khóa học đã có bản ghi Enrollment của studentId; hiển thị capacity và lịch học còn trống để học viên lựa chọn. | Mã ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 13 | Đăng ký khóa học của học viên | POST đăng ký khóa học trong một transaction: tạo bản ghi Enrollments, tự động cấp tài khoản vai trò 'Student' nếu chưa tồn tại, phát sự kiện thông báo tới mobile app học viên và nhóm Zalo của trung tâm. | Mã ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 14 | Chụp ảnh điểm danh qua quét mã QR | Mobile scanner gửi studentId + timestamp tới POST /api/v1/attendance/scan: xác thực quan hệ student–course, ghi bản ghi Attendance kèm attendanceDate; cơ chế retry sau khi reconnect và ghi nhận điểm danh một lần khi dịch vụ reachable trở lại. | Mã ứng dụng | [REQ-012], [EXC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 15 | Bất biến (idempotent) điểm danh | Ràng buộc unique (studentId, courseId, attendanceDate) tại tầng PostgreSQL; nhiều lần quét cùng ngày chỉ tạo một dòng attendance; request trùng trả success kèm cờ 'duplicate' ('already recorded') không phát sinh thêm bản ghi. | Mã ứng dụng | [REQ-013], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 16 | Hiển thị tính hợp lệ thẻ hội viên | GET /api/v1/cards/me suy ra totalValidityDays, daysUsed, daysRemaining từ thực thể StudentCard (issueDate, validityDays); render thẻ hội viên kỹ thuật số kèm đếm ngày hiệu lực còn lại. | Mã ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 17 | Gia hạn thẻ hội viên | Luồng gia hạn theo kỳ chọn (ví dụ 30 ngày): khi payment service xác nhận success thì mở rộng EndDate/validityDays của StudentCard và gửi notification xác nhận gia hạn tới học viên. | Mã ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 18 | Kích hoạt thông báo đa kênh | Khi admin tạo announcement, phân công giáo viên hoặc đăng ký học viên: tạo bản ghi Notifications, queue push payload qua FCM/APNs và đăng tin nhắn văn bản lên nhóm Zalo chỉ định; log thất bại delivery và retry tối đa 3 lần trước khi đánh dấu failed khi device token invalid. | Mã ứng dụng | [REQ-016], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 19 | Quản lý khuyến mãi | CRUD Promotions (code unique, discountPercent, startDate/endDate, description) cho Center Admin/Manager; endDate bỏ trống coi là khuyến mãi vĩnh viễn; công khai danh sách ưu đãi áp dụng phía học viên. | Mã ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 20 | Quản lý thông báo công khai | CRUD Announcements (title tối đa 150 ký tự, content tối đa 2000 ký tự, expiry tùy chọn); phát sóng toàn site và tự động ẩn sau ngày hết hạn đã cấu hình. | Mã ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 21 | Tích hợp chatbot AI chăm sóc khách hàng | Widget chat tiêu thụ chatbot-service: trả lời truy vấn về khóa học, giáo viên, trung tâm và trạng thái tài khoản; escalate lên nhân viên hỗ trợ khi độ tin cậy thấp; ghi log hội thoại vào AuditLog. | Mã ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 22 | Giao diện di động theo vai trò | Responsive UI (React Native) phản chiếu đầy đủ chức năng web theo vai trò (Student, Teacher, Admin); render menu điều hướng và màn hình tương ứng ngay sau đăng nhập trên Android/iOS. | Mã ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 23 | Thông báo đẩy trên di động | Đăng ký device token sau login; nhận push qua FCM/APNs cho xác nhận điểm danh, announcement mới và tin nhắn nhắc nhở; điều hướng deep-link tới màn hình liên quan. | Mã ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 24 | Phát hiện ngôn ngữ mặc định | Ưu tiên ngôn ngữ đã lưu của người dùng, fallback theo Accept-Language header của trình duyệt; externalize toàn bộ UI strings (en/vi/es) và chuyển locale không cần reload trang. | Mã ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 25 | SEO đa ngôn ngữ | Render thẻ `<html lang='en'>`, language-specific meta tags và hreflang alternate links cho en/vi/es trên từng page; SSR metadata phục vụ crawler lập chỉ mục. | Mã ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 26 | Báo cáo điểm danh CSV | Xuất file CSV cột StudentName, CourseName, AttendanceDate, Status theo trung tâm và khoảng ngày chọn; xử lý FIFO các scan tồn đọng sau outage và gửi thông báo sự kiện đã phục hồi tới người dùng. | Mã ứng dụng | [REQ-024], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 27 | Bảng điều khiển tóm tắt ghi danh | Dashboard real-time cho Center Admin: thẻ totalStudents, activeCourses, upcomingSessions (7 ngày tới); đọc qua PostgreSQL read replica để cách ly workload báo cáo khỏi OLTP. | Mã ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 28 | Khởi tạo hạ tầng cơ sở dữ liệu hợp nhất | Flyway migration tại `./sources/backend/db-migrations/` tạo đủ 11 bảng lõi: Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings; khóa ngoại, unique constraint và index tối ưu truy vấn sub-second. | Mã ứng dụng | [DAT-ALL (1 to 11)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 29 | Thực thi bảo mật RBAC toàn cục | Bộ filter/interceptor phân quyền 5 vai trò: System Admin toàn quyền mọi trung tâm, Center Admin giới hạn trong trung tâm sở tại, Manager không được sửa khóa học/chỉ định giáo viên, Teacher chỉ đọc lịch dạy, Student duyệt/đăng ký/xem thẻ; áp dụng thống nhất qua api-gateway tại `./sources/backend/auth-service/`. | Mã ứng dụng | [ARC-001 to ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 30 | Hợp đồng tích hợp liên dịch vụ | Chuẩn hóa 4 luồng kiến trúc: xác thực OAuth2/JWT (access 15 phút + refresh token), điểm danh QR idempotent, điều phối thông báo đa kênh (FCM/APNs/Zalo), tích hợp mobile–backend qua bearer token với offline caching; công bố OpenAPI contracts qua api-gateway tại `./sources/backend/api-gateway/`. | Mã ứng dụng | [ARC-006 to ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 31 | Nền tảng công nghệ & hạ tầng chuẩn | Chốt stack production: Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration, Redis session caching, CI/CD GitHub Actions; tham số hóa cấu hình môi trường tại `./sources/infra/`. | Hạ tầng DevOps | [ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 32 | Hạ tầng DevOps & pipeline triển khai | Multi-stage Dockerfiles (base image nhỏ hơn 200MB, final image nhỏ hơn 500MB), Terraform provisioning VPC/IAM/Storage trên GCP, manifests GKE với HPA (CPU vượt 70% hoặc latency vượt 300ms), failover liên cluster đạt uptime 99.9%, TLS 1.3/AES-256 kèm mitigations OWASP Top 10, backup PITR 24h đa region, audit log lưu trữ 1 năm, workflow GDPR/CCPA data export/deletion và consent management. | Hạ tầng DevOps | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 33 | Kiến trúc tài liệu doanh nghiệp | Biên soạn blueprint kiến trúc, sơ đồ topology cơ sở dữ liệu, hướng dẫn vận hành bản địa hóa (vi/en/es) và hợp đồng API tham chiếu (OpenAPI) đặt tại `./sources/docs/`; bổ sung quy trình audit log, quản lý consent và xuất dữ liệu cá nhân theo GDPR/CCPA. | Tài liệu doanh nghiệp | [NFR-006], [NFR-007], [NFR-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **TỔNG KẾT** | **Tổng số thẻ theo dõi đã bao phủ:** 60 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** Đã xác minh | **Độ bao phủ:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
 
-<!--END_PART_1_BACKLOG_4_1-->
-
 ### 🔭 4.2. MA TRẬN TỔNG QUAN ĐA GIAI ĐOẠN
-<!--START_PHASE_SYNOPSIS_GRID-->
-### CHU KỲ SỐ HỌC MA TRẬN
-> - **Tổng số nhiệm vụ backlog:** 33 Nhiệm vụ
-> - **Tổng số thẻ backlog:** 58 Thẻ
-> - **Tổng số nhiệm vụ đã phân phối:** 33 Nhiệm vụ
-> - **Tổng số thẻ đã phân phối:** 58 Thẻ
 
-| Giai đoạn | Khoảng ngày | ID Nhiệm vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm bàn giao kỹ thuật | Đại lý phụ trách | ID Thẻ được nhắm mục tiêu |
+<!--START_PHASE_SYNOPSIS_GRID-->
+
+### [VÒNG ĐỜI TÍNH TOÁN MA TRẬN]
+
+> - **Tổng số nhiệm vụ Backlog:** 33 Nhiệm vụ
+> - **Tổng số thẻ Backlog:** 61 Thẻ
+> - **Tổng số nhiệm vụ đã phân bổ:** 33 Nhiệm vụ
+> - **Tổng số thẻ đã phân bổ:** 61 Thẻ
+
+| Giai đoạn | Khoảng ngày | Task ID bao phủ | Thành phần kiến trúc / Đường dẫn Module | Tóm tắt sản phẩm bàn giao kỹ thuật | Sub-Agent được phân công | Thẻ theo dõi mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | 1-7 | Nhiệm vụ 1, 2, 3, 29, 30, 4, 5, 6, 7, 8, 9 | ./sources/backend, ./sources/frontend, ./sources/docs | Khởi tạo cấu trúc dự án vi mô backend Quarkus (pom.xml gốc và các module service), cấu trúc dự án frontend Next.js (package.json, tsconfig.json), cấu trúc thư mục tài liệu doanh nghiệp, khởi tạo schema cơ sở dữ liệu PostgreSQL với toàn bộ các bảng dữ liệu theo định nghĩa, triển khai lớp xác thực RBAC và OAuth2 (JWT, refresh token), triển khai các chức năng cốt lõi quản lý người dùng (đăng ký, xác thực xã hội, phân quyền) và quản lý trung tâm (xem danh sách, CRUD, phân quyền quản trị trung tâm) | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [REQ-001], [EXC-004], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 2 | 1-2 | Nhiệm vụ 10, 11, 12, 13, 14 | ./sources/backend/course-service, ./sources/backend/enrollment-service, ./sources/frontend | Triển khai các chức năng quản lý khóa học (xem danh sách, CRUD với kiểm tra xung đột lịch giáo viên/địa điểm, phân công giáo viên) và chức năng đăng ký khóa học cho học viên (duyệt khóa học chưa đăng ký, xử lý đăng ký tự động tạo tài khoản Student nếu cần, gửi thông báo tự động) | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 3 | 1-4 | Nhiệm vụ 15, 16, 17, 18, 19, 20, 21 | ./sources/backend/attendance-service, ./sources/backend/membership-service, ./sources/backend/notification-service, ./sources/backend/promotion-service, ./sources/frontend | Triển khai chức năng điểm danh quét mã QR với tính bất biến chống trùng lặp (đảm bảo 1 bản ghi điểm danh/học viên/khóa học/ngày), quản lý thẻ hội viên (hiển thị số ngày còn lại, gia hạn thẻ sau thanh toán), hệ thống thông báo đa kênh (push notification, tin nhắn nhóm Zalo) với cơ chế retry khi gửi thất bại, quản lý khuyến mãi và thông báo hệ thống (CRUD với ngày hết hạn tùy chọn, tự động ẩn thông báo hết hạn) | Coder, Tester, Reviewer, Doc | [REQ-012], [EXC-001], [EXC-002], [REQ-013], [REQ-014], [REQ-015], [REQ-016], [EXC-003], [REQ-017], [REQ-018] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 4 | 1-3 | Nhiệm vụ 22, 23, 24, 25, 26, 27, 28 | ./sources/backend/ai-chatbot-service, ./sources/frontend, ./sources/docs | Triển khai tích hợp chatbot AI hỗ trợ trả lời câu hỏi thường gặp và leo thang hỗ trợ khi độ tin cậy thấp, xây dựng giao diện người dùng responsive cho ứng dụng di động với phân quyền theo vai trò, tích hợp thông báo đẩy FCM/APNs, triển khai phát hiện ngôn ngữ mặc định và SEO đa ngôn ngữ (hreflang, thẻ meta), xây dựng chức năng xuất báo cáo điểm danh CSV và bảng điều khiển tóm tắt ghi danh realtime | Coder, Tester, Reviewer, Doc | [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023], [REQ-024], [EXC-005], [REQ-025] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 5 | 1-5 | Nhiệm vụ 31, 32, 33 | ./sources/infra, ./sources/docs | Triển khai toàn bộ hạ tầng DevOps và đám mây: xây dựng Dockerfile đa giai đoạn cho tất cả service, pipeline CI/CD GitHub Actions, triển khai cụm GKE với auto-scaling, cấu hình hạ tầng GCP (VPC, IAM, Storage, PostgreSQL read replicas) qua Terraform, tích hợp FCM/APNs, Zalo API, Redis caching cho session, đảm bảo tuân thủ tất cả yêu cầu phi chức năng (hiệu năng, bảo mật, khả năng sẵn sàng, sao lưu và phục hồi thảm họa, tuân thủ GDPR/CCPA), hoàn thiện toàn bộ tài liệu hệ thống doanh nghiệp (bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng) | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [ARC-006], [ARC-007], [ARC-008], [ARC-009], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
-| **Kiểm toán** | **Xác minh phân phối tổng backlog** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ backlog:** 58 | **Tổng số thẻ đã phân phối:** 58 | **Tổng số nhiệm vụ đã phân phối:** 33 | **Trạng thái & Tuân thủ:** Đã xác thực (100%) |
+| Giai đoạn 1 | Ngày 1 - 6 | Task 1, Task 2, Task 3, Task 4, Task 5, Task 28 | ./sources/backend/pom.xml; ./sources/backend/auth-service/; ./sources/backend/db-migrations/; ./sources/frontend/package.json; ./sources/frontend/tsconfig.json | Khởi tạo descriptor build gốc và descriptor module con cho chuỗi dịch vụ Quarkus, đồng thời sinh manifest workspace Next.js/React Native với TypeScript strict mode [ARC-000]; Flyway migration tạo đủ 11 bảng lõi (Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings) với khóa ngoại, unique constraint và index truy vấn sub-second [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]; endpoint POST /api/v1/auth/register hash bcrypt cấp JWT 15 phút kèm refresh token [REQ-001], [EXC-004]; đăng nhập OAuth2 Firebase/Google/Facebook [REQ-002]; API gán/thay đổi vai trò kèm audit log [REQ-003]. Tester bàn giao JUnit suite auth, integration test migration CSDL và profile E2E đăng ký; Doc bàn giao blueprint kiến trúc tổng thể và đặc tả API auth-service. | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011], [REQ-001], [EXC-004], [REQ-002], [REQ-003] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 2 | Ngày 1 - 5 | Task 6, Task 7, Task 8, Task 9, Task 10, Task 11, Task 29, Task 30 | ./sources/backend/center-service/; ./sources/backend/course-service/; ./sources/backend/api-gateway/ | API GET /api/v1/centers phân trang với index sub-second [REQ-004]; CRUD trung tâm validate taxId numeric 10–13 chữ số trả 409 Conflict khi trùng [REQ-005]; gán/hủy Center Admin ghi phạm vi trung tâm và cô lập tenant [REQ-006]; lưới khóa học CourseID, Title, StartDate, EndDate, TeacherName [REQ-007]; CRUD khóa học chặn xung đột lịch trên cùng teacherId với maxStudents mặc định 30 [REQ-008]; gán/hủy giáo viên phát event sang notification-service [REQ-009]; bộ filter/interceptor RBAC 5 vai trò thống nhất qua api-gateway [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]; công bố hợp đồng OpenAPI cho xác thực OAuth2/JWT, điểm danh QR idempotent, điều phối thông báo đa kênh và tích hợp mobile bearer token [ARC-006], [ARC-007], [ARC-008], [ARC-009]. Tester bàn giao JUnit phân quyền RBAC, integration test xung đột lịch và E2E đa vai trò; Doc bàn giao tài liệu tham chiếu API center/course và sơ đồ topology RBAC. | Coder, Tester, Reviewer, Doc | [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-007], [ARC-008], [ARC-009] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 3 | Ngày 1 - 3 | Task 12, Task 13, Task 14, Task 15, Task 16, Task 17 | ./sources/backend/enrollment-service/; ./sources/backend/attendance-service/; ./sources/backend/card-service/ | Duyệt khóa học loại trừ các khóa đã có bản ghi Enrollment kèm capacity còn trống [REQ-010]; đăng ký khóa học trong một transaction tự cấp tài khoản Student nếu thiếu và queue thông báo tới mobile app cùng nhóm Zalo trung tâm [REQ-011]; mobile scanner gửi studentId + timestamp tới POST /api/v1/attendance/scan với cơ chế retry sau reconnect [REQ-012], [EXC-001]; ràng buộc unique (studentId, courseId, attendanceDate) bảo đảm idempotent trả success kèm cờ duplicate [REQ-013], [EXC-002]; thẻ hội viên suy ra totalValidityDays, daysUsed, daysRemaining từ thực thể StudentCard [REQ-014]; gia hạn thẻ theo kỳ 30 ngày sau khi payment service xác nhận thành công [REQ-015]. Tester bàn giao JUnit idempotency, integration test transaction ghi danh và E2E luồng quét QR; Doc cập nhật đặc tả API enrollment/attendance/card. | Coder, Tester, Reviewer, Doc | [REQ-010], [REQ-011], [REQ-012], [EXC-001], [REQ-013], [EXC-002], [REQ-014], [REQ-015] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 4 | Ngày 1 - 3 | Task 18, Task 19, Task 20, Task 21, Task 22, Task 23, Task 24, Task 25 | ./sources/backend/notification-service/; ./sources/backend/promotion-service/; ./sources/backend/chatbot-service/; ./sources/frontend/web-app/; ./sources/frontend/mobile-app/ | Điều phối thông báo đa kênh FCM/APNs/Zalo với log thất bại delivery và retry tối đa 3 lần trước khi đánh dấu failed [REQ-016], [EXC-003]; CRUD Promotions code unique, endDate bỏ trống coi là khuyến mãi vĩnh viễn [REQ-017]; CRUD Announcements tự động ẩn sau ngày hết hạn [REQ-018]; chatbot AI trả lời truy vấn khóa học/giáo viên/trung tâm/tài khoản và escalate lên nhân viên hỗ trợ khi độ tin cậy thấp [REQ-019]; responsive UI React Native phản chiếu chức năng web theo vai trò trên Android/iOS [REQ-020]; push notification deep-link qua device token FCM/APNs [REQ-021]; phát hiện ngôn ngữ ưu tiên preference đã lưu rồi fallback Accept-Language, chuyển locale không reload [REQ-022]; SSR meta tags và hreflang alternate links en/vi/es phục vụ crawler [REQ-023]. Tester bàn giao JUnit retry delivery, integration test FCM/APNs và E2E mobile đa ngôn ngữ; Doc bổ sung hướng dẫn bản địa hóa và đặc tả API notification/promotion. | Coder, Tester, Reviewer, Doc | [REQ-016], [EXC-003], [REQ-017], [REQ-018], [REQ-019], [REQ-020], [REQ-021], [REQ-022], [REQ-023] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 5 | Ngày 1 - 5 | Task 26, Task 27, Task 31, Task 32, Task 33 | ./sources/backend/reporting-service/; ./sources/infra/; ./sources/docs/ | Xuất file CSV báo cáo điểm danh cột StudentName, CourseName, AttendanceDate, Status theo trung tâm và khoảng ngày, xử lý FIFO các scan tồn đọng hậu outage kèm thông báo phục hồi [REQ-024], [EXC-005]; dashboard real-time totalStudents, activeCourses, upcomingSessions đọc qua PostgreSQL read replica cách ly workload báo cáo [REQ-025]; chốt stack production Java/Quarkus, PostgreSQL, Redis session caching, FCM/APNs, Zalo API, GitHub Actions [ARC-010]; Dockerfile multi-stage base image dưới 200MB và final image dưới 500MB, Terraform provisioning VPC/IAM/Storage trên GCP, manifests GKE HPA CPU vượt 70% hoặc latency vượt 300ms, failover liên cluster uptime 99.9%, TLS 1.3/AES-256 với mitigations OWASP Top 10, backup PITR 24h đa region, audit log lưu trữ 1 năm, workflow GDPR/CCPA export/deletion và consent management [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009]; bộ tài liệu doanh nghiệp blueprint kiến trúc, hợp đồng OpenAPI, hướng dẫn vận hành vi/en/es [NFR-006], [NFR-007], [NFR-008]. Tester bàn giao performance/integration test hạ tầng và profile E2E production; Doc hoàn thiện blueprint kiến trúc, quy trình audit log và consent GDPR/CCPA. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-024], [EXC-005], [REQ-025], [ARC-010], [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_PHASE_ROW--> |
+| **Kiểm toán** | **Xác minh phân phối Master Backlog** | **Tổng số Giai đoạn:** 5 | **Tổng số Thẻ Backlog:** 61 | **Tổng số Thẻ đã phân bổ:** 61 | **Tổng số Nhiệm vụ đã phân bổ:** 33 | **Trạng thái & Tuân thủ:** Đã xác minh (100%) |
+
 <!--END_PHASE_SYNOPSIS_GRID-->
 --- END BACKLOG TASKS ---
 </PROJECT_BACKLOG_TASKS_DATA>
@@ -845,432 +842,1355 @@ Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh 
 
 ---
 
-## 🔬 5. CHUYÊN MÔN HÓA CHI TIẾT GIAI ĐOẠN & SẢN PHẨM BÀN GIAO TỪNG NGÀY
+## 🔬 5. ĐẶC TẢ CHI TIẾT THEO GIAI ĐOẠN & SẢN PHẨM BÀN GIAO HÀNG NGÀY
+
 <!--START_PHASE_INDEX-->
-### 📈 GIAI ĐOẠN 1 - KHỞI TẠO CẤU TRÚC DỰ ÁN VÀ NỀN TẢNG HẠ TẦNG CƠ SỞ
-- **Mục tiêu cốt lõi của giai đoạn:** Thiết lập toàn bộ cấu trúc dự án nền tảng cho kiến trúc vi mô backend Quarkus và frontend Next.js, khởi tạo toàn bộ schema cơ sở dữ liệu PostgreSQL với 9 bảng nghiệp vụ chính, triển khai lớp xác thực RBAC và OAuth2 cốt lõi, cùng các chức năng quản lý người dùng và trung tâm đầu tiên, đảm bảo mọi service có môi trường phát triển ổn định, sẵn sàng cho các giai đoạn phát triển chức năng tiếp theo.
 
-- **Bản đồ ma trận thư mục vật lý mục tiêu:** Danh sách đầy đủ các tệp vật lý cụ thể được tạo/xử lý trong giai đoạn này, kèm Tag ID truy xuất:
-  * ./sources/backend/pom.xml [ARC-000]
-  * ./sources/backend/auth-service/pom.xml [ARC-000]
-  * ./sources/backend/center-service/pom.xml [ARC-000]
-  * ./sources/backend/course-service/pom.xml [ARC-000]
-  * ./sources/backend/enrollment-service/pom.xml [ARC-000]
-  * ./sources/backend/attendance-service/pom.xml [ARC-000]
-  * ./sources/backend/membership-service/pom.xml [ARC-000]
-  * ./sources/backend/notification-service/pom.xml [ARC-000]
-  * ./sources/backend/promotion-service/pom.xml [ARC-000]
-  * ./sources/backend/report-service/pom.xml [ARC-000]
-  * ./sources/backend/ai-chatbot-service/pom.xml [ARC-000]
-  * ./sources/frontend/package.json [ARC-000]
-  * ./sources/frontend/tsconfig.json [ARC-000]
-  * ./sources/docs/architecture-overview.md [ARC-000]
-  * ./sources/docs/api-contracts-auth.md [ARC-000]
-  * ./sources/docs/api-contracts-center.md [ARC-000]
-  * ./sources/docs/database-schema.md [ARC-000]
-  * ./sources/backend/auth-service/src/main/java/com/hub/auth/entity/User.java [DAT-001, ARC-001]
-  * ./sources/backend/auth-service/src/main/java/com/hub/auth/entity/Role.java [DAT-002, ARC-001]
-  * ./sources/backend/auth-service/src/main/java/com/hub/auth/repository/UserRepository.java [DAT-001, ARC-001]
-  * ./sources/backend/auth-service/src/main/java/com/hub/auth/repository/RoleRepository.java [DAT-002, ARC-001]
-  * ./sources/backend/auth-service/src/main/java/com/hub/auth/service/AuthService.java [REQ-001, REQ-002, ARC-006]
-  * ./sources/backend/auth-service/src/main/java/com/hub/auth/controller/AuthController.java [REQ-001, REQ-002, ARC-006]
-  * ./sources/backend/center-service/src/main/java/com/hub/center/entity/Center.java [DAT-003, ARC-002]
-  * ./sources/backend/center-service/src/main/java/com/hub/center/repository/CenterRepository.java [DAT-003, ARC-002]
-  * ./sources/backend/center-service/src/main/java/com/hub/center/service/CenterService.java [REQ-004, REQ-005, ARC-002]
-  * ./sources/backend/center-service/src/main/java/com/hub/center/controller/CenterController.java [REQ-004, REQ-005, ARC-002]
+### 📈 Giai đoạn 1 - Khởi tạo Khung Dự án, Lược đồ Dữ liệu Hợp nhất & Dịch vụ Xác thực
 
-- **Đặc tả DDL SQL cơ sở dữ liệu [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009]:**
+- **Mục tiêu Cốt lõi & Mục đích của Giai đoạn:** Hoàn tất nền móng hạ tầng của nền tảng membership-hub: sinh descriptor build gốc `./sources/backend/pom.xml` cùng descriptor module con cho auth-service và db-migrations theo mô hình microservices Java/Quarkus, đồng thời khởi tạo workspace frontend Next.js/React Native với TypeScript strict mode [ARC-000]; thực thi chuỗi Flyway migration tạo đủ 11 bảng lõi (Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings) với khóa ngoại, unique constraint và index tối ưu truy vấn [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]; triển khai endpoint POST /api/v1/auth/register hash bcrypt cấp JWT 15 phút kèm refresh token [REQ-001] với cơ chế liệt kê từng trường không hợp lệ khi validation thất bại [EXC-004]; tích hợp đăng nhập mạng xã hội OAuth2 Firebase/Google/Facebook [REQ-002]; xây dựng API gán/thay đổi vai trò người dùng kèm audit log mọi thay đổi [REQ-003]. Tester bàn giao JUnit suite auth, integration test migration CSDL và profile E2E đăng ký; Doc bàn giao blueprint kiến trúc tổng thể và đặc tả tham chiếu API auth-service.
+
+- **Ma trận Bản đồ Thư mục Vật lý Đích:**
+    * ./sources/backend/pom.xml [ARC-000]
+    * ./sources/backend/auth-service/pom.xml [ARC-000]
+    * ./sources/backend/db-migrations/pom.xml [ARC-000]
+    * ./sources/frontend/package.json [ARC-000]
+    * ./sources/frontend/tsconfig.json [ARC-000]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql [DAT-002], [DAT-001]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V2__create_centers_table.sql [DAT-003]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V3__create_courses_table.sql [DAT-004]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V4__create_enrollments_table.sql [DAT-005]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V5__create_attendance_table.sql [DAT-006]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V6__create_student_cards_table.sql [DAT-007]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V7__create_notifications_table.sql [DAT-008]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V8__create_promotions_and_announcements_tables.sql [DAT-009], [DAT-010]
+    * ./sources/backend/db-migrations/src/main/resources/db/migration/V9__create_system_settings_table.sql [DAT-011]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/dto/RegisterRequest.java [REQ-001], [EXC-004]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserRegistrationService.java [REQ-001]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/JwtTokenIssuer.java [REQ-001]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/AuthResource.java [REQ-001]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/exception/GlobalExceptionMapper.java [EXC-004]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/OAuth2LoginService.java [REQ-002]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/oauth/SocialProviderAdapter.java [REQ-002]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/OAuthResource.java [REQ-002]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/RoleAssignmentService.java [REQ-003]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/audit/AuditLogRecorder.java [REQ-003]
+    * ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/AdminRoleResource.java [REQ-003]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/BootstrapContextIT.java [ARC-000]
+    * ./sources/backend/db-migrations/src/test/java/com/membershiphub/db/CoreSchemaMigrationIT.java [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+    * ./sources/backend/db-migrations/src/test/java/com/membershiphub/db/FullMigrationChainIT.java [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/UserRegistrationServiceTest.java [REQ-001], [EXC-004]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/OAuth2LoginServiceTest.java [REQ-002]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/OAuth2FlowIT.java [REQ-002]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/RoleAssignmentServiceTest.java [REQ-003]
+    * ./sources/backend/auth-service/src/test/java/com/membershiphub/auth/AuthLifecycleE2EIT.java [REQ-001], [REQ-002], [REQ-003]
+    * ./sources/docs/architecture-blueprint.md [ARC-000]
+    * ./sources/docs/data-dictionary-core-tables.md [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+    * ./sources/docs/data-dictionary-operational-tables.md [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+    * ./sources/docs/api-auth-service-reference.md [REQ-001], [EXC-004], [REQ-002], [REQ-003]
+
+- **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]:
+
 ```sql
--- Tạo bảng vai trò người dùng
+-- =====================================================================
+-- membership-hub | Unified Flyway Migration Chain (PostgreSQL 15+)
+-- Scope: Phase 1 | ANSI-compliant typing, no inline ENUM types
+-- =====================================================================
+
+-- ---------------------------------------------------------------------
+-- File: V1__create_roles_and_users_tables.sql [DAT-002], [DAT-001]
+-- ---------------------------------------------------------------------
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
 CREATE TABLE roles (
-    role_id SMALLINT PRIMARY KEY,
-    name VARCHAR(30) NOT NULL UNIQUE,
-    description VARCHAR(200)
+    role_id      SMALLINT     NOT NULL,
+    name         VARCHAR(30)  NOT NULL,
+    description  VARCHAR(200),
+    CONSTRAINT pk_roles PRIMARY KEY (role_id),
+    CONSTRAINT uq_roles_name UNIQUE (name)
 );
 
--- Tạo bảng người dùng
+INSERT INTO roles (role_id, name, description) VALUES
+    (1, 'SYSTEM_ADMIN', 'Global super user across all centers'),
+    (2, 'CENTER_ADMIN', 'Full control limited to the assigned center'),
+    (3, 'MANAGER',      'Deputy administrator with restricted permissions'),
+    (4, 'TEACHER',      'Read-only access to own teaching schedule'),
+    (5, 'STUDENT',      'Course browsing, enrollment and membership card');
+
 CREATE TABLE users (
-    user_id UUID PRIMARY KEY,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password_hash CHAR(60) NOT NULL,
-    full_name VARCHAR(100) NOT NULL,
-    role_id SMALLINT NOT NULL REFERENCES roles(role_id),
-    provider VARCHAR(20) NOT NULL DEFAULT 'local' CHECK (provider IN ('local', 'firebase', 'google', 'facebook')),
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    user_id        UUID          NOT NULL DEFAULT gen_random_uuid(),
+    email          VARCHAR(255)  NOT NULL,
+    password_hash  CHAR(60)      NOT NULL,
+    full_name      VARCHAR(100)  NOT NULL,
+    role_id        SMALLINT      NOT NULL,
+    provider       VARCHAR(20)   NOT NULL DEFAULT 'local',
+    created_at     TIMESTAMP     NOT NULL DEFAULT now(),
+    updated_at     TIMESTAMP     NOT NULL DEFAULT now(),
+    CONSTRAINT pk_users PRIMARY KEY (user_id),
+    CONSTRAINT uq_users_email UNIQUE (email),
+    CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles (role_id),
+    CONSTRAINT ck_users_provider CHECK (provider IN ('local', 'firebase', 'google', 'facebook'))
 );
+CREATE INDEX idx_users_role_id ON users (role_id);
+CREATE INDEX idx_users_provider ON users (provider);
 
--- Tạo bảng trung tâm
+-- ---------------------------------------------------------------------
+-- File: V2__create_centers_table.sql [DAT-003]
+-- ---------------------------------------------------------------------
 CREATE TABLE centers (
-    center_id UUID PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    tax_id VARCHAR(13) NOT NULL UNIQUE CHECK (tax_id ~ '^[0-9]{10,13}$'),
-    contact_phone VARCHAR(20),
-    contact_email VARCHAR(255) CHECK (contact_email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+    center_id      UUID          NOT NULL DEFAULT gen_random_uuid(),
+    name           VARCHAR(100)  NOT NULL,
+    address        VARCHAR(255)  NOT NULL,
+    tax_id         VARCHAR(13)   NOT NULL,
+    contact_phone  VARCHAR(30),
+    contact_email  VARCHAR(255),
+    CONSTRAINT pk_centers PRIMARY KEY (center_id),
+    CONSTRAINT uq_centers_tax_id UNIQUE (tax_id),
+    CONSTRAINT ck_centers_tax_id_digits CHECK (tax_id ~ '^[0-9]{10,13}$'),
+    CONSTRAINT ck_centers_contact_email CHECK (contact_email IS NULL OR contact_email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$')
 );
 
--- Tạo bảng khóa học
+-- ---------------------------------------------------------------------
+-- File: V3__create_courses_table.sql [DAT-004]
+-- ---------------------------------------------------------------------
 CREATE TABLE courses (
-    course_id UUID PRIMARY KEY,
-    title VARCHAR(150) NOT NULL,
-    description TEXT,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
-    teacher_id UUID NOT NULL REFERENCES users(user_id),
-    max_students INT NOT NULL DEFAULT 30,
-    CHECK (end_date > start_date)
+    course_id     UUID          NOT NULL DEFAULT gen_random_uuid(),
+    title         VARCHAR(150)  NOT NULL,
+    description   TEXT,
+    start_date    DATE          NOT NULL,
+    end_date      DATE          NOT NULL,
+    teacher_id    UUID,
+    max_students  INTEGER       NOT NULL DEFAULT 30,
+    CONSTRAINT pk_courses PRIMARY KEY (course_id),
+    CONSTRAINT fk_courses_teacher FOREIGN KEY (teacher_id) REFERENCES users (user_id),
+    CONSTRAINT ck_courses_date_range CHECK (end_date >= start_date),
+    CONSTRAINT ck_courses_capacity CHECK (max_students > 0)
 );
+CREATE INDEX idx_courses_teacher_id ON courses (teacher_id);
+CREATE INDEX idx_courses_start_date ON courses (start_date);
 
--- Tạo bảng ghi danh
+-- ---------------------------------------------------------------------
+-- File: V4__create_enrollments_table.sql [DAT-005]
+-- ---------------------------------------------------------------------
 CREATE TABLE enrollments (
-    enrollment_id UUID PRIMARY KEY,
-    student_id UUID NOT NULL REFERENCES users(user_id),
-    course_id UUID NOT NULL REFERENCES courses(course_id),
-    enrollment_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (student_id, course_id)
+    enrollment_id    UUID       NOT NULL DEFAULT gen_random_uuid(),
+    student_id       UUID       NOT NULL,
+    course_id        UUID       NOT NULL,
+    enrollment_date  TIMESTAMP  NOT NULL DEFAULT now(),
+    CONSTRAINT pk_enrollments PRIMARY KEY (enrollment_id),
+    CONSTRAINT fk_enrollments_student FOREIGN KEY (student_id) REFERENCES users (user_id),
+    CONSTRAINT fk_enrollments_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
+    CONSTRAINT uq_enrollments_student_course UNIQUE (student_id, course_id)
 );
+CREATE INDEX idx_enrollments_student_id ON enrollments (student_id);
+CREATE INDEX idx_enrollments_course_id ON enrollments (course_id);
 
--- Tạo bảng điểm danh
+-- ---------------------------------------------------------------------
+-- File: V5__create_attendance_table.sql [DAT-006]
+-- Idempotency gate: one row per (student, course, day)
+-- ---------------------------------------------------------------------
 CREATE TABLE attendance (
-    attendance_id UUID PRIMARY KEY,
-    student_id UUID NOT NULL REFERENCES users(user_id),
-    course_id UUID NOT NULL REFERENCES courses(course_id),
-    attendance_date DATE NOT NULL,
-    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (student_id, course_id, attendance_date)
+    attendance_id    UUID        NOT NULL DEFAULT gen_random_uuid(),
+    student_id       UUID        NOT NULL,
+    course_id        UUID        NOT NULL,
+    attendance_date  DATE        NOT NULL,
+    recorded_at      TIMESTAMP   NOT NULL DEFAULT now(),
+    CONSTRAINT pk_attendance PRIMARY KEY (attendance_id),
+    CONSTRAINT fk_attendance_student FOREIGN KEY (student_id) REFERENCES users (user_id),
+    CONSTRAINT fk_attendance_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
+    CONSTRAINT uq_attendance_idempotent UNIQUE (student_id, course_id, attendance_date)
 );
+CREATE INDEX idx_attendance_course_date ON attendance (course_id, attendance_date);
 
--- Tạo bảng thẻ hội viên
+-- ---------------------------------------------------------------------
+-- File: V6__create_student_cards_table.sql [DAT-007]
+-- ---------------------------------------------------------------------
 CREATE TABLE student_cards (
-    card_id UUID PRIMARY KEY,
-    student_id UUID NOT NULL UNIQUE REFERENCES users(user_id),
-    issue_date DATE NOT NULL,
-    validity_days INT NOT NULL,
-    remaining_days INT NOT NULL
+    card_id         UUID       NOT NULL DEFAULT gen_random_uuid(),
+    student_id      UUID       NOT NULL,
+    issue_date      DATE       NOT NULL,
+    validity_days   INTEGER    NOT NULL,
+    remaining_days  INTEGER    NOT NULL DEFAULT 0,
+    CONSTRAINT pk_student_cards PRIMARY KEY (card_id),
+    CONSTRAINT fk_student_cards_student FOREIGN KEY (student_id) REFERENCES users (user_id),
+    CONSTRAINT uq_student_cards_student UNIQUE (student_id),
+    CONSTRAINT ck_student_cards_validity CHECK (validity_days > 0)
 );
+CREATE INDEX idx_student_cards_student_id ON student_cards (student_id);
 
--- Tạo bảng thông báo
+-- ---------------------------------------------------------------------
+-- File: V7__create_notifications_table.sql [DAT-008]
+-- ---------------------------------------------------------------------
 CREATE TABLE notifications (
-    notification_id UUID PRIMARY KEY,
-    user_id UUID REFERENCES users(user_id),
-    group_zalo VARCHAR(255),
-    message TEXT NOT NULL,
-    sent_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    delivered BOOLEAN NOT NULL DEFAULT FALSE
+    notification_id  UUID          NOT NULL DEFAULT gen_random_uuid(),
+    user_id          UUID,
+    group_zalo       VARCHAR(100),
+    message          TEXT          NOT NULL,
+    sent_at          TIMESTAMP     NOT NULL DEFAULT now(),
+    delivered        BOOLEAN       NOT NULL DEFAULT FALSE,
+    retry_count      SMALLINT      NOT NULL DEFAULT 0,
+    delivery_status  VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
+    CONSTRAINT pk_notifications PRIMARY KEY (notification_id),
+    CONSTRAINT fk_notifications_user FOREIGN KEY (user_id) REFERENCES users (user_id),
+    CONSTRAINT ck_notifications_status CHECK (delivery_status IN ('PENDING', 'SENT', 'RETRYING', 'FAILED')),
+    CONSTRAINT ck_notifications_retry_cap CHECK (retry_count <= 3)
 );
+CREATE INDEX idx_notifications_user_id ON notifications (user_id);
+CREATE INDEX idx_notifications_status ON notifications (delivery_status);
 
--- Tạo bảng khuyến mãi
+-- ---------------------------------------------------------------------
+-- File: V8__create_promotions_and_announcements_tables.sql [DAT-009], [DAT-010]
+-- ---------------------------------------------------------------------
 CREATE TABLE promotions (
-    promo_id UUID PRIMARY KEY,
-    code VARCHAR(50) NOT NULL UNIQUE,
-    discount_percent SMALLINT NOT NULL CHECK (discount_percent BETWEEN 1 AND 100),
-    start_date DATE,
-    end_date DATE,
-    description TEXT,
-    CHECK (end_date IS NULL OR end_date >= start_date)
+    promo_id          UUID          NOT NULL DEFAULT gen_random_uuid(),
+    code              VARCHAR(50)   NOT NULL,
+    discount_percent  SMALLINT      NOT NULL,
+    start_date        DATE,
+    end_date          DATE,
+    description       TEXT,
+    CONSTRAINT pk_promotions PRIMARY KEY (promo_id),
+    CONSTRAINT uq_promotions_code UNIQUE (code),
+    CONSTRAINT ck_promotions_discount_range CHECK (discount_percent BETWEEN 1 AND 100),
+    CONSTRAINT ck_promotions_date_range CHECK (end_date IS NULL OR end_date >= start_date)
 );
 
--- Tạo bảng thông báo hệ thống
 CREATE TABLE announcements (
-    announcement_id UUID PRIMARY KEY,
-    title VARCHAR(150) NOT NULL,
-    content TEXT NOT NULL,
-    start_date DATE,
-    end_date DATE,
-    CHECK (end_date IS NULL OR end_date >= start_date)
+    announcement_id  UUID           NOT NULL DEFAULT gen_random_uuid(),
+    title            VARCHAR(150)   NOT NULL,
+    content          VARCHAR(2000)  NOT NULL,
+    start_date       DATE,
+    end_date         DATE,
+    CONSTRAINT pk_announcements PRIMARY KEY (announcement_id),
+    CONSTRAINT ck_announcements_date_range CHECK (end_date IS NULL OR end_date >= start_date)
 );
+CREATE INDEX idx_announcements_end_date ON announcements (end_date);
 
--- Tạo bảng cài đặt hệ thống
+-- ---------------------------------------------------------------------
+-- File: V9__create_system_settings_table.sql [DAT-011]
+-- ---------------------------------------------------------------------
 CREATE TABLE system_settings (
-    setting_key VARCHAR(50) PRIMARY KEY,
-    setting_value TEXT NOT NULL,
-    description VARCHAR(200)
+    setting_key    VARCHAR(100)  NOT NULL,
+    setting_value  TEXT          NOT NULL,
+    description    VARCHAR(255),
+    CONSTRAINT pk_system_settings PRIMARY KEY (setting_key)
 );
 ```
 
-- **Hợp đồng định tuyến API và sự kiện [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-006], [ARC-007]:**
+- **Hợp đồng Định tuyến API và Sự kiện** [REQ-001], [REQ-002], [REQ-003], [ARC-000]:
+
+1. Đăng ký người dùng — POST /api/v1/auth/register [REQ-001], [EXC-004]:
+
 ```json
-// Endpoint xác thực
-POST /api/auth/register
-Request Body: {
-  "email": "string",
-  "password": "string",
-  "fullName": "string"
+{
+  "endpoint": "POST /api/v1/auth/register",
+  "security": "PUBLIC",
+  "request": {
+    "email": "string | required | RFC 5322 | unique | max 255",
+    "password": "string | required | min 8 chars | 1 uppercase + 1 digit + 1 special",
+    "fullName": "string | required | max 100",
+    "acceptedTerms": "boolean | required | must be true"
+  },
+  "response_201": {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "email": "nguyen.van.a@example.com",
+    "fullName": "Nguyen Van A",
+    "role": "STUDENT",
+    "accessToken": "<JWT_RS256_exp_900s>",
+    "refreshToken": "<OPAQUE_UUID_exp_604800s>",
+    "tokenType": "Bearer"
+  },
+  "response_400": {
+    "errorCode": "AUTH_VALIDATION_FAILED",
+    "invalidFields": [
+      {"field": "email", "rejectedValue": "abc@", "message": "Invalid email format"},
+      {"field": "password", "rejectedValue": null, "message": "Password does not meet complexity policy"}
+    ]
+  },
+  "response_409": {
+    "errorCode": "EMAIL_ALREADY_EXISTS",
+    "message": "A user with this email already exists"
+  }
 }
-Response 200: {
-  "accessToken": "string",
-  "refreshToken": "string",
-  "expiresIn": 900,
-  "user": { "userId": "uuid", "role": "string" }
-}
-Response 400: { "error": "VALIDATION_ERROR", "details": ["Email không hợp lệ", "Mật khẩu phải có ít nhất 8 ký tự"] }
-
-POST /api/auth/oauth2/{provider}
-Request Body: { "code": "string", "redirectUri": "string" }
-Response 200: Tương tự register
-
-POST /api/auth/refresh
-Request Body: { "refreshToken": "string" }
-Response 200: { "accessToken": "string", "expiresIn": 900 }
-
-// Endpoint quản lý trung tâm
-GET /api/centers
-Response 200: [
-  { "centerId": "uuid", "name": "string", "address": "string", "taxId": "string", "contactPhone": "string", "contactEmail": "string" }
-]
-
-POST /api/centers
-Request Body: { "name": "string", "address": "string", "taxId": "string", "contactPhone": "string", "contactEmail": "string" }
-Response 201: { "centerId": "uuid" }
-Response 409: { "error": "DUPLICATE_TAX_ID", "message": "Mã số thuế đã tồn tại" }
-
-PUT /api/centers/{centerId}
-DELETE /api/centers/{centerId}
-
-POST /api/centers/{centerId}/admins
-Request Body: { "userId": "uuid" }
-Response 200: { "message": "Phân quyền quản trị trung tâm thành công" }
 ```
 
-- **Trình xử lý ngoại lệ cục bộ của giai đoạn [EXC-004]:**
-Xử lý lỗi xác thực đầu vào không hợp lệ cho chức năng đăng ký người dùng:
-- Mã lỗi: `VALIDATION_ERROR`
-- Trạng thái HTTP: 400 Bad Request
-- Thông báo trả về: Liệt kê chi tiết từng trường không hợp lệ (ví dụ: "Email không đúng định dạng", "Mật khẩu phải có ít nhất 8 ký tự bao gồm chữ hoa, chữ thường và số", "Họ tên không được để trống")
-- Hành động hệ thống: Không tạo bản ghi người dùng, ghi log lỗi xác thực vào hệ thống theo yêu cầu [NFR-006]
+2. Đăng nhập mạng xã hội — POST /api/v1/auth/oauth2/{provider} [REQ-002]:
 
-#### 📅 NHẬT KÝ PHÂN PHỐI NHIỆM VỤ ĐẠI LÝ PHỤ TRÁCH THEO THỨ TỰ THỜI GIAN TỪNG NGÀY (GIAI ĐOẠN 1)
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 1: KHỞI TẠO CẤU TRÚC DỰ ÁN NỀN TẢNG
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Tạo cấu trúc dự án backend vi mô Quarkus
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [ARC-000]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/pom.xml
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp pom.xml gốc cho dự án backend vi mô Quarkus, cấu hình các module service con (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot), thiết lập các phụ thuộc chung cho Quarkus, JWT, PostgreSQL driver, OAuth2, và các thư viện bổ trợ cần thiết, đảm bảo cấu hình build thành công cho tất cả module.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Tạo cấu trúc dự án frontend Next.js
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [ARC-000]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/frontend/package.json
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp package.json cho dự án frontend Next.js, cấu hình các phụ thuộc cốt lõi (Next.js, React, Redux Toolkit, Axios, i18n), khởi tạo cấu hình tsconfig.json cho TypeScript, đảm bảo cấu hình build và chạy môi trường phát triển thành công.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Khởi tạo cấu trúc thư mục tài liệu doanh nghiệp
-* **Chuyên môn đại lý phụ trách:** [Doc]
-* **Tag ID mục tiêu:** [ARC-000]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/architecture-overview.md
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo cấu trúc thư mục tài liệu doanh nghiệp, khởi tạo các tệp mẫu cho bản vẽ kiến trúc tổng thể, hợp đồng API, hướng dẫn vận hành, đảm bảo cấu trúc tài liệu tuân thủ chuẩn doanh nghiệp, dễ dàng mở rộng cho các giai đoạn sau.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Xác thực cấu trúc dự án build thành công
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [ARC-000]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/pom.xml;./sources/backend/auth-service/src/test/java/com/hub/auth/BuildValidationTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện build tất cả module backend và dự án frontend, xác nhận không có lỗi biên dịch, tất cả phụ thuộc được tải đúng, ghi nhận kết quả kiểm thực vào báo cáo.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
+```json
+{
+  "endpoint": "POST /api/v1/auth/oauth2/{provider}",
+  "pathParams": {"provider": "firebase | google | facebook"},
+  "security": "PUBLIC",
+  "request": {
+    "authorizationCode": "string | required | provider-issued OAuth2 code",
+    "redirectUri": "string | required | registered callback URL"
+  },
+  "response_200": {
+    "userId": "6f1c2a84-93b0-4f7e-8a21-c0d5e7b91123",
+    "email": "tran.thi.b@gmail.com",
+    "fullName": "Tran Thi B",
+    "provider": "google",
+    "role": "STUDENT",
+    "accessToken": "<JWT_RS256_exp_900s>",
+    "refreshToken": "<OPAQUE_UUID_exp_604800s>",
+    "tokenType": "Bearer",
+    "isNewUser": false
+  },
+  "response_401": {
+    "errorCode": "OAUTH2_CODE_EXCHANGE_FAILED",
+    "message": "Provider rejected the authorization code"
+  }
+}
+```
 
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 2: KHỞI TẠO SCHEMA CƠ SỞ DỮ LIỆU VÀ THỰC THỂ RBAC CƠ BẢN
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Tạo script DDL khởi tạo toàn bộ bảng nghiệp vụ
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/resources/db/migration/V1__init_schema.sql
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết script DDL ANSI compliant khởi tạo toàn bộ 9 bảng nghiệp vụ (roles, users, centers, courses, enrollments, attendance, student_cards, notifications, promotions, announcements, system_settings), định nghĩa rõ ràng kiểu dữ liệu, ràng buộc khóa chính/khóa ngoại, ràng buộc CHECK cho các trường kiểm tra, đảm bảo script chạy thành công trên PostgreSQL.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Triển khai thực thể Role và User trong service auth
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [DAT-001], [DAT-002], [ARC-001]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/entity/Role.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai thực thể JPA cho bảng roles và users, ánh xạ chính xác các trường dữ liệu, thiết lập quan hệ giữa User và Role (nhiều-người dùng thuộc một vai trò), đảm bảo ánh xạ khớp với schema cơ sở dữ liệu đã định nghĩa.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Xác thực migration cơ sở dữ liệu thành công
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [DAT-ALL]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/resources/db/migration/V1__init_schema.sql;./sources/backend/auth-service/src/test/java/com/hub/auth/DbMigrationTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Chạy script migration trên cơ sở dữ liệu PostgreSQL cục bộ, xác nhận tất cả các bảng được tạo đúng, các ràng buộc khóa chính/khóa ngoại hoạt động, không có lỗi khi chạy script.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Cập nhật tài liệu schema cơ sở dữ liệu
-* **Chuyên môn đại lý phụ trách:** [Doc]
-* **Tag ID mục tiêu:** [DAT-ALL]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/database-schema.md
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cập nhật tệp tài liệu schema cơ sở dữ liệu với mô tả chi tiết từng bảng, trường dữ liệu, kiểu dữ liệu, ràng buộc, mối quan hệ giữa các bảng, kèm sơ đồ ERD đã được cung cấp trong yêu cầu.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
+3. Phân quyền vai trò — PUT /api/v1/admin/users/{userId}/role [REQ-003]:
+
+```json
+{
+  "endpoint": "PUT /api/v1/admin/users/{userId}/role",
+  "security": "BEARER JWT | role=SYSTEM_ADMIN",
+  "pathParams": {"userId": "uuid"},
+  "request": {
+    "roleId": 2,
+    "reason": "string | optional | audit trail annotation"
+  },
+  "response_200": {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "previousRoleId": 5,
+    "newRoleId": 2,
+    "permissionsAppliedAt": "2025-01-15T08:30:00Z",
+    "auditLogId": "9a7b6c5d-4e3f-4a2b-8c1d-0f9e8d7c6b5a"
+  },
+  "response_403": {
+    "errorCode": "ROLE_ASSIGNMENT_FORBIDDEN",
+    "message": "Caller lacks SYSTEM_ADMIN privilege"
+  },
+  "auditEvent": {
+    "action": "USER_ROLE_CHANGED",
+    "actorUserId": "uuid",
+    "targetUserId": "uuid",
+    "timestamp": "now()"
+  }
+}
+```
+
+- **Trình Xử lý Ngoại lệ Cục bộ của Giai đoạn** [EXC-004]:
+    * **Mã lỗi:** `AUTH_VALIDATION_FAILED` — HTTP 400, kích hoạt khi request POST /api/v1/auth/register vi phạm ít nhất một ràng buộc đầu vào.
+    * **Quy tắc nghiệp vụ:** email phải đúng định dạng RFC 5322 và duy nhất trong hệ thống; mật khẩu tối thiểu 8 ký tự bao gồm chữ hoa, chữ số và ký tự đặc biệt; fullName bắt buộc, tối đa 100 ký tự; acceptedTerms phải mang giá trị true.
+    * **Luồng xử lý:** Bean Validation chặn tại lớp DTO → ném ConstraintViolationException → GlobalExceptionMapper hợp nhất toàn bộ vi phạm → phản hồi JSON chứa mảng invalidFields liệt kê từng trường không hợp lệ kèm thông báo rõ ràng, hướng dẫn người dùng chỉnh sửa trước khi gửi lại biểu mẫu.
+
+#### 📅 Nhật ký Phân bổ Tác vụ Sub-Agent theo Trình tự Thời gian (Giai đoạn 1)
 
 <!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 3: TRIỂN KHAI CHỨC NĂNG ĐĂNG KÝ VÀ XÁC THỰC NGƯỜI DÙNG CƠ BẢN
+
+##### 📅 NGÀY 1: Khởi tạo khung dự án backend multi-module và workspace frontend [ARC-000]
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Triển khai logic đăng ký email/mật khẩu trong AuthService
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [REQ-001], [EXC-004]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/AuthService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai logic đăng ký người dùng bằng email/mật khẩu, bao gồm xác thực đầu vào (định dạng email, độ mạnh mật khẩu), mã hóa mật khẩu bằng bcrypt, tạo bản ghi người dùng với vai trò mặc định là Student, xử lý lỗi xác thực theo yêu cầu [EXC-004].
+
+###### 🌿 NHIỆM VỤ CON 1: Sinh descriptor build gốc Maven cho chuỗi dịch vụ Quarkus
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/pom.xml
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Khai báo packaging=pom với Quarkus BOM trong dependencyManagement tập trung; cố định maven-compiler-plugin ở Java 21 với encoding UTF-8; liệt kê hai module con auth-service và db-migrations; thiết lập profile dev và production kiểm soát cấu hình môi trường thống nhất. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Triển khai endpoint đăng ký và đăng nhập trong AuthController
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [REQ-001], [ARC-006]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/controller/AuthController.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai các endpoint REST cho đăng ký, đăng nhập, cấp access token và refresh token theo chuẩn JWT, thời hạn access token 15 phút, refresh token 7 ngày, trả về phản hồi JSON theo hợp đồng API đã định nghĩa.
+
+###### 🌿 NHIỆM VỤ CON 2: Sinh descriptor module con auth-service
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/pom.xml
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Kế thừa parent root; khai báo dependency quarkus-rest, quarkus-hibernate-orm, quarkus-jdbc-postgresql, quarkus-smallrye-jwt, quarkus-redis-client; gắn quarkus-maven-plugin cho vòng đời dev/build; định nghĩa thuộc tính tên dịch vụ phục vụ đóng gói image. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Viết unit test cho chức năng đăng ký và xác thực
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [REQ-001], [EXC-004]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/AuthService.java;./sources/backend/auth-service/src/test/java/com/hub/auth/AuthServiceTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết unit test đầy đủ cho logic đăng ký, bao gồm trường hợp thành công, lỗi xác thực đầu vào (email không hợp lệ, mật khẩu yếu), trùng lặp email, xác nhận mật khẩu bcrypt được tạo đúng, bản ghi người dùng được lưu chính xác vào cơ sở dữ liệu.
+
+###### 🌿 NHIỆM VỤ CON 3: Sinh descriptor module con db-migrations
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/pom.xml
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Thiết lập module chuyên chứa tài nguyên Flyway: dependency flyway-core và postgresql driver; cấu hình resource copying giữ nguyên thư mục db/migration để chuỗi migration được đóng gói vào artifact triển khai chung. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Rà soát mã nguồn chức năng xác thực
-* **Chuyên môn đại lý phụ trách:** [Reviewer]
-* **Tag ID mục tiêu:** [REQ-001], [EXC-004], [NFR-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/AuthService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Rà soát mã nguồn chức năng đăng ký và xác thực, kiểm tra tuân thủ chuẩn bảo mật mật khẩu bcrypt, không có lỗ hổng SQL injection, xác thực đầu vào đầy đủ, xử lý ngoại lệ chính xác, đề xuất cải tiến nếu có.
+
+###### 🌿 NHIỆM VỤ CON 4: Khởi tạo manifest workspace frontend Next.js/React Native
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/frontend/package.json
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Khai báo scripts dev/build/lint/start; khai báo dependencies next, react, react-native, typescript; cấu hình workspaces cho hai ứng dụng con web-app và mobile-app làm nền chung cho các giai đoạn giao diện phía sau. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
 <!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 5: Cấu hình biên dịch TypeScript strict mode
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/frontend/tsconfig.json
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Bật strict:true, noUncheckedIndexedAccess, exactOptionalPropertyTypes; ánh xạ path alias @/* về src/*; chọn target ES2022, moduleResolution bundler, jsx preserve để tương thích đồng thời Next.js SSR và React Native Metro. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 6: Kiểm chứng bootstrap context dịch vụ xác thực
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/com/membershiphub/auth/BootstrapContextIT.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Viết @QuarkusIntegrationTest khởi động auth-service từ descriptor vừa sinh; xác minh context tải thành công, health probe UP và cây Maven không xung đột phiên bản; fail build nếu bootstrap lỗi. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 7: Kiểm toán chất lượng descriptor build
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Reviewer]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/pom.xml
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Rà soát dependencyManagement tránh phiên bản trùng lặp hoặc xung đột plugin, chuẩn hóa thứ tự khai báo module; lập danh sách remediation và chốt điều kiện mở khóa giai đoạn xây dựng lược đồ dữ liệu. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 8: Biên soạn bản phác thảo blueprint kiến trúc
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Doc]
+* **Tag ID Mục tiêu:** [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/docs/architecture-blueprint.md
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Biên soạn khung blueprint: topology microservices hiện hành (auth-service, db-migrations), sơ đồ phụ thuộc Maven, chiến lược profile dev/production, quy ước gói com.membershiphub.*; đánh dấu mục lục các phần sẽ bổ sung ở giai đoạn sau. [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 2: Xây dựng lược đồ dữ liệu hạt nhân — Roles, Users, Centers, Courses [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 1: Migration V1 — bảng Roles và Users
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-002], [DAT-001]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo bảng roles (role_id SMALLINT PK, name VARCHAR(30) UNIQUE, description VARCHAR(200)) và seed 5 vai trò SYSTEM_ADMIN/CENTER_ADMIN/MANAGER/TEACHER/STUDENT; tạo bảng users với email VARCHAR(255) UNIQUE, password_hash CHAR(60) bcrypt, role_id FK, provider VARCHAR(20) DEFAULT 'local' kèm CHECK IN ('local','firebase','google','facebook'); thêm index idx_users_role_id. [DAT-002], [DAT-001]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-002], [DAT-001]:
+
+```sql
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+CREATE TABLE roles (
+    role_id      SMALLINT     NOT NULL,
+    name         VARCHAR(30)  NOT NULL,
+    description  VARCHAR(200),
+    CONSTRAINT pk_roles PRIMARY KEY (role_id),
+    CONSTRAINT uq_roles_name UNIQUE (name)
+);
+
+INSERT INTO roles (role_id, name, description) VALUES
+    (1, 'SYSTEM_ADMIN', 'Global super user across all centers'),
+    (2, 'CENTER_ADMIN', 'Full control limited to the assigned center'),
+    (3, 'MANAGER',      'Deputy administrator with restricted permissions'),
+    (4, 'TEACHER',      'Read-only access to own teaching schedule'),
+    (5, 'STUDENT',      'Course browsing, enrollment and membership card');
+
+CREATE TABLE users (
+    user_id        UUID          NOT NULL DEFAULT gen_random_uuid(),
+    email          VARCHAR(255)  NOT NULL,
+    password_hash  CHAR(60)      NOT NULL,
+    full_name      VARCHAR(100)  NOT NULL,
+    role_id        SMALLINT      NOT NULL,
+    provider       VARCHAR(20)   NOT NULL DEFAULT 'local',
+    created_at     TIMESTAMP     NOT NULL DEFAULT now(),
+    updated_at     TIMESTAMP     NOT NULL DEFAULT now(),
+    CONSTRAINT pk_users PRIMARY KEY (user_id),
+    CONSTRAINT uq_users_email UNIQUE (email),
+    CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles (role_id),
+    CONSTRAINT ck_users_provider CHECK (provider IN ('local', 'firebase', 'google', 'facebook'))
+);
+CREATE INDEX idx_users_role_id ON users (role_id);
+CREATE INDEX idx_users_provider ON users (provider);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 2: Migration V2 — bảng Centers
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-003]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V2__create_centers_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo bảng centers với tax_id VARCHAR(13) UNIQUE và CHECK regex ^[0-9]{10,13}$ ép định dạng số 10–13 chữ số; contact_email áp dụng kiểm tra pattern email khi có giá trị; các cột name/address NOT NULL theo từ điển dữ liệu. [DAT-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-003]:
+
+```sql
+CREATE TABLE centers (
+    center_id      UUID          NOT NULL DEFAULT gen_random_uuid(),
+    name           VARCHAR(100)  NOT NULL,
+    address        VARCHAR(255)  NOT NULL,
+    tax_id         VARCHAR(13)   NOT NULL,
+    contact_phone  VARCHAR(30),
+    contact_email  VARCHAR(255),
+    CONSTRAINT pk_centers PRIMARY KEY (center_id),
+    CONSTRAINT uq_centers_tax_id UNIQUE (tax_id),
+    CONSTRAINT ck_centers_tax_id_digits CHECK (tax_id ~ '^[0-9]{10,13}$'),
+    CONSTRAINT ck_centers_contact_email CHECK (contact_email IS NULL OR contact_email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$')
+);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 3: Migration V3 — bảng Courses
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V3__create_courses_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo bảng courses với teacher_id FK về users(user_id) cho phép NULL, max_students INTEGER DEFAULT 30 kèm CHECK > 0, CHECK end_date >= start_date; index teacher_id và start_date phục vụ tra cứu lịch dạy và lưới khóa học. [DAT-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-004]:
+
+```sql
+CREATE TABLE courses (
+    course_id     UUID          NOT NULL DEFAULT gen_random_uuid(),
+    title         VARCHAR(150)  NOT NULL,
+    description   TEXT,
+    start_date    DATE          NOT NULL,
+    end_date      DATE          NOT NULL,
+    teacher_id    UUID,
+    max_students  INTEGER       NOT NULL DEFAULT 30,
+    CONSTRAINT pk_courses PRIMARY KEY (course_id),
+    CONSTRAINT fk_courses_teacher FOREIGN KEY (teacher_id) REFERENCES users (user_id),
+    CONSTRAINT ck_courses_date_range CHECK (end_date >= start_date),
+    CONSTRAINT ck_courses_capacity CHECK (max_students > 0)
+);
+CREATE INDEX idx_courses_teacher_id ON courses (teacher_id);
+CREATE INDEX idx_courses_start_date ON courses (start_date);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 4: Integration test chuỗi migration V1–V3
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+* **Đường dẫn Thành phần Đích (target_component):** INTEGRATION_SCOPE;./sources/backend/db-migrations/src/test/java/com/membershiphub/db/CoreSchemaMigrationIT.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Dùng Testcontainers PostgreSQL 15 chạy Flyway migrate; assert 5 dòng seed roles; chèn user hợp lệ thành công; email trùng bị từ chối bởi unique constraint; tax_id 9 chữ số bị chặn, tax_id 10–13 chữ số được chấp nhận. [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 5: Rà soát ràng buộc và index lược đồ hạt nhân
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Reviewer]
+* **Tag ID Mục tiêu:** [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Kiểm tra tuân thủ ANSI SQL (cấm ENUM inline, thay bằng VARCHAR + CHECK), độ kín của khóa ngoại, unique constraint và index cho các truy vấn danh sách; đề xuất chỉnh sửa trước khi cho phép merge. [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 6: Biên soạn từ điển dữ liệu bảng hạt nhân
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Doc]
+* **Tag ID Mục tiêu:** [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/docs/data-dictionary-core-tables.md
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Mô tả từng cột, kiểu dữ liệu, ràng buộc của 4 bảng hạt nhân; vẽ quan hệ ROLES ||--o{ USERS và USERS ||--o{ COURSES; kèm ví dụ giá trị và ghi chú ảnh hưởng tới API giai đoạn 2. [DAT-001], [DAT-002], [DAT-003], [DAT-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 3: Hoàn thiện chuỗi migration 11 bảng lõi — Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 1: Migration V4 — bảng Enrollments
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-005]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V4__create_enrollments_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo enrollments với FK student_id→users, course_id→courses và UNIQUE (student_id, course_id) chặn ghi danh trùng; index hai chiều phục vụ duyệt khóa học loại trừ các khóa đã có bản ghi. [DAT-005]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-005]:
+
+```sql
+CREATE TABLE enrollments (
+    enrollment_id    UUID       NOT NULL DEFAULT gen_random_uuid(),
+    student_id       UUID       NOT NULL,
+    course_id        UUID       NOT NULL,
+    enrollment_date  TIMESTAMP  NOT NULL DEFAULT now(),
+    CONSTRAINT pk_enrollments PRIMARY KEY (enrollment_id),
+    CONSTRAINT fk_enrollments_student FOREIGN KEY (student_id) REFERENCES users (user_id),
+    CONSTRAINT fk_enrollments_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
+    CONSTRAINT uq_enrollments_student_course UNIQUE (student_id, course_id)
+);
+CREATE INDEX idx_enrollments_student_id ON enrollments (student_id);
+CREATE INDEX idx_enrollments_course_id ON enrollments (course_id);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 2: Migration V5 — bảng Attendance với cổng idempotent
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-006]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V5__create_attendance_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo attendance với cổng idempotent UNIQUE (student_id, course_id, attendance_date) bảo đảm một dòng duy nhất mỗi ngày; recorded_at TIMESTAMP DEFAULT now(); index (course_id, attendance_date) phục vụ báo cáo điểm danh theo trung tâm. [DAT-006]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-006]:
+
+```sql
+CREATE TABLE attendance (
+    attendance_id    UUID        NOT NULL DEFAULT gen_random_uuid(),
+    student_id       UUID        NOT NULL,
+    course_id        UUID        NOT NULL,
+    attendance_date  DATE        NOT NULL,
+    recorded_at      TIMESTAMP   NOT NULL DEFAULT now(),
+    CONSTRAINT pk_attendance PRIMARY KEY (attendance_id),
+    CONSTRAINT fk_attendance_student FOREIGN KEY (student_id) REFERENCES users (user_id),
+    CONSTRAINT fk_attendance_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
+    CONSTRAINT uq_attendance_idempotent UNIQUE (student_id, course_id, attendance_date)
+);
+CREATE INDEX idx_attendance_course_date ON attendance (course_id, attendance_date);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 3: Migration V6 — bảng StudentCards
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-007]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V6__create_student_cards_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo student_cards với UNIQUE(student_id) bảo đảm một thẻ mỗi học viên, validity_days CHECK > 0, remaining_days DEFAULT 0 do tầng ứng dụng suy ra từ issue_date cộng validityDays. [DAT-007]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-007]:
+
+```sql
+CREATE TABLE student_cards (
+    card_id         UUID       NOT NULL DEFAULT gen_random_uuid(),
+    student_id      UUID       NOT NULL,
+    issue_date      DATE       NOT NULL,
+    validity_days   INTEGER    NOT NULL,
+    remaining_days  INTEGER    NOT NULL DEFAULT 0,
+    CONSTRAINT pk_student_cards PRIMARY KEY (card_id),
+    CONSTRAINT fk_student_cards_student FOREIGN KEY (student_id) REFERENCES users (user_id),
+    CONSTRAINT uq_student_cards_student UNIQUE (student_id),
+    CONSTRAINT ck_student_cards_validity CHECK (validity_days > 0)
+);
+CREATE INDEX idx_student_cards_student_id ON student_cards (student_id);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 4: Migration V7 — bảng Notifications
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-008]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V7__create_notifications_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo notifications với delivery_status VARCHAR(20) DEFAULT 'PENDING' kèm CHECK IN ('PENDING','SENT','RETRYING','FAILED'), retry_count SMALLINT CHECK <= 3 tương ứng cơ chế thử lại tối đa ba lần, delivered BOOLEAN DEFAULT FALSE. [DAT-008]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-008]:
+
+```sql
+CREATE TABLE notifications (
+    notification_id  UUID          NOT NULL DEFAULT gen_random_uuid(),
+    user_id          UUID,
+    group_zalo       VARCHAR(100),
+    message          TEXT          NOT NULL,
+    sent_at          TIMESTAMP     NOT NULL DEFAULT now(),
+    delivered        BOOLEAN       NOT NULL DEFAULT FALSE,
+    retry_count      SMALLINT      NOT NULL DEFAULT 0,
+    delivery_status  VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
+    CONSTRAINT pk_notifications PRIMARY KEY (notification_id),
+    CONSTRAINT fk_notifications_user FOREIGN KEY (user_id) REFERENCES users (user_id),
+    CONSTRAINT ck_notifications_status CHECK (delivery_status IN ('PENDING', 'SENT', 'RETRYING', 'FAILED')),
+    CONSTRAINT ck_notifications_retry_cap CHECK (retry_count <= 3)
+);
+CREATE INDEX idx_notifications_user_id ON notifications (user_id);
+CREATE INDEX idx_notifications_status ON notifications (delivery_status);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 5: Migration V8 — bảng Promotions và Announcements
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-009], [DAT-010]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V8__create_promotions_and_announcements_tables.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo promotions (code UNIQUE, discount_percent SMALLINT CHECK BETWEEN 1 AND 100, start_date/end_date NULLABLE với end_date NULL nghĩa là khuyến mãi vĩnh viễn) và announcements (title 150, content 2000, index end_date phục vụ tự động ẩn sau hết hạn). [DAT-009], [DAT-010]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-009], [DAT-010]:
+
+```sql
+CREATE TABLE promotions (
+    promo_id          UUID          NOT NULL DEFAULT gen_random_uuid(),
+    code              VARCHAR(50)   NOT NULL,
+    discount_percent  SMALLINT      NOT NULL,
+    start_date        DATE,
+    end_date          DATE,
+    description       TEXT,
+    CONSTRAINT pk_promotions PRIMARY KEY (promo_id),
+    CONSTRAINT uq_promotions_code UNIQUE (code),
+    CONSTRAINT ck_promotions_discount_range CHECK (discount_percent BETWEEN 1 AND 100),
+    CONSTRAINT ck_promotions_date_range CHECK (end_date IS NULL OR end_date >= start_date)
+);
+
+CREATE TABLE announcements (
+    announcement_id  UUID           NOT NULL DEFAULT gen_random_uuid(),
+    title            VARCHAR(150)   NOT NULL,
+    content          VARCHAR(2000)  NOT NULL,
+    start_date       DATE,
+    end_date         DATE,
+    CONSTRAINT pk_announcements PRIMARY KEY (announcement_id),
+    CONSTRAINT ck_announcements_date_range CHECK (end_date IS NULL OR end_date >= start_date)
+);
+CREATE INDEX idx_announcements_end_date ON announcements (end_date);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 6: Migration V9 — bảng SystemSettings
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [DAT-011]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V9__create_system_settings_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Tạo system_settings dạng key-value với setting_key VARCHAR(100) PK, setting_value TEXT NOT NULL, description tùy chọn; làm nơi lưu locale mặc định và tham số SEO hreflang cho giai đoạn bản địa hóa. [DAT-011]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu** [DAT-011]:
+
+```sql
+CREATE TABLE system_settings (
+    setting_key    VARCHAR(100)  NOT NULL,
+    setting_value  TEXT          NOT NULL,
+    description    VARCHAR(255),
+    CONSTRAINT pk_system_settings PRIMARY KEY (setting_key)
+);
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 7: Integration test chuỗi migration đầy đủ V1–V9
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+* **Đường dẫn Thành phần Đích (target_component):** INTEGRATION_SCOPE;./sources/backend/db-migrations/src/test/java/com/membershiphub/db/FullMigrationChainIT.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Chạy toàn bộ chuỗi V1→V9 trên Testcontainers; assert chèn attendance trùng cùng ngày bị từ chối, retry_count vượt 3 bị chặn, discount_percent ngoài 1–100 bị chặn, promotion không end_date được chấp nhận; xác minh đủ 11 bảng tồn tại. [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 8: Kiểm toán đồ thị khóa ngoại toàn cục
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Reviewer]
+* **Tag ID Mục tiêu:** [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/db-migrations/src/main/resources/db/migration/V5__create_attendance_table.sql
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Xác minh thứ tự phụ thuộc FK V1→V9 không tạo orphan reference; xác nhận cổng idempotent UNIQUE đúng ba cột (student_id, course_id, attendance_date); duyệt và ký merge toàn bộ chuỗi migration. [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 9: Cập nhật từ điển dữ liệu bảng vận hành
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Doc]
+* **Tag ID Mục tiêu:** [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/docs/data-dictionary-operational-tables.md
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Bổ sung mô tả cột/ràng buộc của 7 bảng vận hành; diễn giải vòng đời trạng thái notification PENDING→SENT/RETRYING/FAILED và cơ chế idempotent của attendance kèm ví dụ truy vấn. [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 4: Endpoint đăng ký người dùng và xử lý ngoại lệ xác thực đầu vào [REQ-001], [EXC-004]
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 1: DTO đăng ký kèm ràng buộc Bean Validation
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-001], [EXC-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/dto/RegisterRequest.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Định nghĩa record RegisterRequest với @Email @NotBlank @Size(max=255) cho email, @NotBlank @Pattern chính sách mạnh (tối thiểu 8 ký tự, chữ hoa, chữ số, ký tự đặc biệt) cho password, @NotBlank @Size(max=100) cho fullName, @AssertTrue cho acceptedTerms. [REQ-001], [EXC-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 2: Dịch vụ đăng ký người dùng hash bcrypt
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-001]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserRegistrationService.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Triển khai @Transactional UserRegistrationService: kiểm tra email unique và ném EmailAlreadyExistsException khi trùng, hash BCrypt cost 12, persist Users với roleId mặc định STUDENT (TEACHER nếu theo lời mời), trả về thực thể đã tạo. [REQ-001]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 3: Bộ phát hành JWT và refresh token
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-001]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/security/JwtTokenIssuer.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Phát hành access token RS256 hết hạn 900 giây chứa claims sub/role; refresh token opaque có TTL 7 ngày lưu Redis phục vụ xoay vòng; không đưa dữ liệu nhạy cảm vào payload JWT theo khung OWASP. [REQ-001]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 4: REST endpoint POST /api/v1/auth/register
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-001]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/AuthResource.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** JAX-RS resource POST /api/v1/auth/register nhận RegisterRequest, điều phối UserRegistrationService, trả 201 kèm TokenResponse (accessToken, refreshToken, tokenType=Bearer); ánh xạ validation thất bại sang 400 và email trùng sang 409. [REQ-001]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+* **Hợp đồng Định tuyến API và Sự kiện** [REQ-001]:
+
+```json
+{
+  "endpoint": "POST /api/v1/auth/register",
+  "security": "PUBLIC",
+  "request": {
+    "email": "string | required | RFC 5322 | unique | max 255",
+    "password": "string | required | min 8 chars | 1 uppercase + 1 digit + 1 special",
+    "fullName": "string | required | max 100",
+    "acceptedTerms": "boolean | required | must be true"
+  },
+  "response_201": {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "email": "nguyen.van.a@example.com",
+    "fullName": "Nguyen Van A",
+    "role": "STUDENT",
+    "accessToken": "<JWT_RS256_exp_900s>",
+    "refreshToken": "<OPAQUE_UUID_exp_604800s>",
+    "tokenType": "Bearer"
+  },
+  "response_400": {
+    "errorCode": "AUTH_VALIDATION_FAILED",
+    "invalidFields": [
+      {"field": "email", "rejectedValue": "abc@", "message": "Invalid email format"}
+    ]
+  },
+  "response_409": {
+    "errorCode": "EMAIL_ALREADY_EXISTS",
+    "message": "A user with this email already exists"
+  }
+}
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 5: GlobalExceptionMapper cho luồng xác thực đầu vào
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [EXC-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/exception/GlobalExceptionMapper.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** @Provider ExceptionMapper<ConstraintViolationException> gom từng violation thành cặp {field, message}, trả 400 với errorCode=AUTH_VALIDATION_FAILED và mảng invalidFields liệt kê từng trường không hợp lệ đúng tiêu chí chấp nhận. [EXC-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+* **Trình Xử lý Ngoại lệ Cục bộ của Giai đoạn** [EXC-004]:
+    * **Mã lỗi:** `AUTH_VALIDATION_FAILED` — HTTP 400.
+    * **Điều kiện kích hoạt:** request POST /api/v1/auth/register vi phạm ít nhất một ràng buộc (email sai định dạng RFC 5322, mật khẩu không đạt chính sách mạnh, fullName rỗng hoặc vượt 100 ký tự, acceptedTerms = false).
+    * **Luồng xử lý:** Bean Validation chặn tại DTO → ConstraintViolationException → GlobalExceptionMapper hợp nhất vi phạm → phản hồi JSON chứa invalidFields liệt kê từng trường không hợp lệ kèm thông báo rõ ràng yêu cầu chỉnh sửa.
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 6: Unit test dịch vụ đăng ký
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [REQ-001], [EXC-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/UserRegistrationService.java;./sources/backend/auth-service/src/test/java/com/membershiphub/auth/UserRegistrationServiceTest.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** @QuarkusTest: assert hash bcrypt khác plaintext và verify() thành công; email trùng sinh conflict; mật khẩu yếu và email sai định dạng sinh đúng số violation tương ứng từng trường. [REQ-001], [EXC-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 7: Rà soát bảo mật luồng đăng ký
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Reviewer]
+* **Tag ID Mục tiêu:** [REQ-001], [EXC-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/AuthResource.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Kiểm chứng BCrypt cost, thời hạn access 15 phút/refresh 7 ngày, không log password hay hash; bảo đảm thông điệp lỗi không dò được sự tồn tại email; phê duyệt merge endpoint đăng ký. [REQ-001], [EXC-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 8: Đặc tả tham chiếu API đăng ký
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Doc]
+* **Tag ID Mục tiêu:** [REQ-001], [EXC-004]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/docs/api-auth-service-reference.md
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Ghi hợp đồng POST /api/v1/auth/register: schema yêu cầu, phản hồi 201/400/409, bảng mã lỗi, ví dụ curl; mô tả chính sách mật khẩu và cách hiển thị danh sách trường không hợp lệ. [REQ-001], [EXC-004]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 5: Đăng nhập mạng xã hội OAuth2 Firebase/Google/Facebook [REQ-002]
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 1: Dịch vụ trao đổi mã OAuth2
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/OAuth2LoginService.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Nhận authorizationCode từ client, gọi token endpoint của provider để exchange userinfo, upsert Users theo email với provider tương ứng trong một transaction, sau đó phát hành JWT phiên làm việc. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 2: Adapter nhà cung cấp danh tính xã hội
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/oauth/SocialProviderAdapter.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Định nghĩa interface SocialProviderAdapter cùng ba triển khai FirebaseTokenVerifier, GoogleIdTokenVerifier, FacebookGraphClient; chuẩn hóa UserProfile(email, fullName, provider) và xác thực chữ ký cùng audience trước khi chấp nhận danh tính. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 3: REST endpoint POST /api/v1/auth/oauth2/{provider}
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/OAuthResource.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** POST /api/v1/auth/oauth2/{provider} giới hạn provider IN (firebase, google, facebook); trả 200 TokenResponse kèm cờ isNewUser; exchange thất bại trả 401 OAUTH2_CODE_EXCHANGE_FAILED. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+* **Hợp đồng Định tuyến API và Sự kiện** [REQ-002]:
+
+```json
+{
+  "endpoint": "POST /api/v1/auth/oauth2/{provider}",
+  "pathParams": {"provider": "firebase | google | facebook"},
+  "security": "PUBLIC",
+  "request": {
+    "authorizationCode": "string | required | provider-issued OAuth2 code",
+    "redirectUri": "string | required | registered callback URL"
+  },
+  "response_200": {
+    "userId": "6f1c2a84-93b0-4f7e-8a21-c0d5e7b91123",
+    "email": "tran.thi.b@gmail.com",
+    "fullName": "Tran Thi B",
+    "provider": "google",
+    "role": "STUDENT",
+    "accessToken": "<JWT_RS256_exp_900s>",
+    "refreshToken": "<OPAQUE_UUID_exp_604800s>",
+    "tokenType": "Bearer",
+    "isNewUser": false
+  },
+  "response_401": {
+    "errorCode": "OAUTH2_CODE_EXCHANGE_FAILED",
+    "message": "Provider rejected the authorization code"
+  }
+}
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 4: Unit test dịch vụ OAuth2
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/OAuth2LoginService.java;./sources/backend/auth-service/src/test/java/com/membershiphub/auth/OAuth2LoginServiceTest.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Mock adapter: mã hợp lệ → upsert và cấp JWT; mã hết hạn/sai chữ ký → 401; email đã tồn tại với provider khác → cập nhật provider, không nhân bản dòng Users. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 5: Integration test luồng OAuth2 đầu-cuối
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/com/membershiphub/auth/OAuth2FlowIT.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** @QuarkusIntegrationTest với stub provider server: lần đầu isNewUser=true, lần sau false; giải mã access token xác nhận claims role và exp=900s. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 6: Rà soát an ninh trao đổi token OAuth2
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Reviewer]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/OAuth2LoginService.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Xác thực state/nonce chống CSRF, kiểm tra audience/client-id và clock skew; bảo đảm không ghi log authorizationCode hay token trung gian; phê duyệt merge luồng OAuth2. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 7: Bổ sung đặc tả OAuth2 vào tham chiếu API
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Doc]
+* **Tag ID Mục tiêu:** [REQ-002]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/docs/api-auth-service-reference.md
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Cập nhật chương OAuth2: bảng ba provider, schema yêu cầu/phản hồi, mã lỗi 401, sơ đồ sequence popup→callback→exchange→JWT phát hành. [REQ-002]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+##### 📅 NGÀY 6: Phân quyền vai trò, audit log và đóng gói bàn giao giai đoạn [REQ-003]
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 1: Dịch vụ gán/thay đổi vai trò người dùng
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-003]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/RoleAssignmentService.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Cập nhật users.role_id trong transaction; vô hiệu hóa cache phiên để ma trận quyền áp dụng tức thời; chỉ caller SYSTEM_ADMIN được phép; ném RoleAssignmentForbiddenException khi thiếu quyền. [REQ-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 2: Bộ ghi audit log thay đổi vai trò
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-003]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/audit/AuditLogRecorder.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Ghi append-only mỗi thay đổi vai trò gồm actorUserId, targetUserId, oldRoleId, newRoleId, action=USER_ROLE_CHANGED và timestamp; cấm cập nhật/xóa dòng audit phục vụ truy vết. [REQ-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 3: REST endpoint PUT /api/v1/admin/users/{userId}/role
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Coder]
+* **Tag ID Mục tiêu:** [REQ-003]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/AdminRoleResource.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** PUT /api/v1/admin/users/{userId}/role với @RolesAllowed("SYSTEM_ADMIN"); nhận RoleAssignmentRequest(roleId, reason); trả 200 kèm previousRoleId/newRoleId/auditLogId; 403 khi thiếu quyền, 404 khi userId không tồn tại. [REQ-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+* **Hợp đồng Định tuyến API và Sự kiện** [REQ-003]:
+
+```json
+{
+  "endpoint": "PUT /api/v1/admin/users/{userId}/role",
+  "security": "BEARER JWT | role=SYSTEM_ADMIN",
+  "pathParams": {"userId": "uuid"},
+  "request": {
+    "roleId": 2,
+    "reason": "string | optional | audit trail annotation"
+  },
+  "response_200": {
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "previousRoleId": 5,
+    "newRoleId": 2,
+    "permissionsAppliedAt": "2025-01-15T08:30:00Z",
+    "auditLogId": "9a7b6c5d-4e3f-4a2b-8c1d-0f9e8d7c6b5a"
+  },
+  "response_403": {
+    "errorCode": "ROLE_ASSIGNMENT_FORBIDDEN",
+    "message": "Caller lacks SYSTEM_ADMIN privilege"
+  },
+  "auditEvent": {
+    "action": "USER_ROLE_CHANGED",
+    "actorUserId": "uuid",
+    "targetUserId": "uuid",
+    "timestamp": "now()"
+  }
+}
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 4: Unit test dịch vụ phân quyền
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [REQ-003]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/service/RoleAssignmentService.java;./sources/backend/auth-service/src/test/java/com/membershiphub/auth/RoleAssignmentServiceTest.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Assert gán hợp lệ cập nhật role_id; caller thường bị chặn 403; roleId không tồn tại ném lỗi nghiệp vụ; mỗi thao tác phát sinh đúng một dòng audit. [REQ-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 5: Profile E2E vòng đời xác thực
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Tester]
+* **Tag ID Mục tiêu:** [REQ-001], [REQ-002], [REQ-003]
+* **Đường dẫn Thành phần Đích (target_component):** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/com/membershiphub/auth/AuthLifecycleE2EIT.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Kịch bản E2E: đăng ký → đăng nhập OAuth2 → admin đổi vai trò → gọi API bằng token mới xác nhận quyền có hiệu lực ngay; đo latency trung bình register ở mức dưới 200 ms. [REQ-001], [REQ-002], [REQ-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 6: Rà soát tổng kết chất lượng giai đoạn
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Reviewer]
+* **Tag ID Mục tiêu:** [REQ-003], [ARC-000]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/backend/auth-service/src/main/java/com/membershiphub/auth/resource/AdminRoleResource.java
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Duyệt toàn bộ diff giai đoạn: descriptor build, chuỗi 9 migration, bộ endpoint auth; đối chiếu 100% tag traceability và chuẩn coding Quarkus; ký duyệt bàn giao sang Giai đoạn 2. [REQ-003], [ARC-000]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
+<!--START_ATOMIC_SUB_TASK_NODE-->
+
+###### 🌿 NHIỆM VỤ CON 7: Hoàn thiện blueprint và tham chiếu API giai đoạn 1
+
+* **Chuyên môn hóa Quy trình Sub-Agent:** [Doc]
+* **Tag ID Mục tiêu:** [ARC-000], [REQ-001], [REQ-002], [REQ-003]
+* **Đường dẫn Thành phần Đích (target_component):** ./sources/docs/architecture-blueprint.md
+* **Hướng dẫn Tác vụ Kỹ thuật Cấp thấp:** Cập nhật trạng thái bàn giao: 11 bảng lõi đã migrate, auth-service hoàn chỉnh đăng ký/OAuth2/phân quyền; liên kết chéo data dictionary và API reference; liệt kê hạng mục mở cho Giai đoạn 2. [ARC-000], [REQ-001], [REQ-002], [REQ-003]
+
+* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu:**
+
+```sql
+-- Không có thay đổi hạ tầng cơ sở dữ liệu hoặc lớp persistence nào được yêu cầu trong ngữ cảnh này
+```
+
+<!--END_ATOMIC_SUB_TASK_NODE-->
+
 <!--END_DAY_LOG_INDEX-->
 
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 4: TRIỂN KHAI XÁC THỰC MẠNG XÃ HỘI VÀ PHÂN QUYỀN NGƯỜI DÙNG
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Tích hợp OAuth2 Firebase/Google/Facebook vào AuthService
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [REQ-002], [ARC-006]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/OAuth2Service.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai logic tích hợp OAuth2 với các nhà cung cấp Firebase, Google, Facebook, xử lý mã xác thực từ nhà cung cấp, trao đổi lấy thông tin người dùng, tạo hoặc cập nhật bản ghi người dùng cục bộ, cấp JWT token sau khi xác thực thành công.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Triển khai logic gán/thay đổi vai trò người dùng
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/RoleManagementService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai logic gán, thay đổi, hủy gán vai trò người dùng, đảm bảo quyền truy cập được áp dụng ngay lập tức sau khi thay đổi vai trò, kiểm tra quyền của người thực hiện thao tác phân quyền theo RBAC.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Viết unit test cho xác thực mạng xã hội và phân quyền
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [REQ-002], [REQ-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/OAuth2Service.java;./sources/backend/auth-service/src/test/java/com/hub/auth/OAuth2ServiceTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết unit test cho luồng xác thực mạng xã hội (giả lập phản hồi từ nhà cung cấp OAuth2), xác nhận bản ghi người dùng được tạo/cập nhật đúng, JWT token được cấp chính xác; viết test cho logic phân quyền, xác nhận vai trò người dùng được cập nhật đúng trong cơ sở dữ liệu.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Rà soát logic phân quyền và xác thực mạng xã hội
-* **Chuyên môn đại lý phụ trách:** [Reviewer]
-* **Tag ID mục tiêu:** [REQ-002], [REQ-003], [NFR-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/OAuth2Service.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Rà soát logic tích hợp OAuth2 và phân quyền người dùng, kiểm tra không có lỗ hổng bảo mật (ví dụ: lộ thông tin người dùng, phân quyền sai vai trò), xác nhận tuân thủ yêu cầu OAuth2 và RBAC, đề xuất cải tiến nếu có.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
-
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 5: TRIỂN KHAI CHỨC NĂNG QUẢN LÝ TRUNG TÂM CƠ BẢN
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Triển khai thực thể Center và repository tương ứng
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [DAT-003], [ARC-002]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/center-service/src/main/java/com/hub/center/entity/Center.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai thực thể JPA cho bảng centers, ánh xạ chính xác các trường dữ liệu, thiết lập các ràng buộc ánh xạ khớp với schema cơ sở dữ liệu, triển khai repository cho thực thể Center với các phương thức truy vấn cơ bản.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Triển khai logic nghiệp vụ quản lý trung tâm
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [REQ-004], [REQ-005], [ARC-002]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/center-service/src/main/java/com/hub/center/service/CenterService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai logic nghiệp vụ cho các chức năng xem danh sách trung tâm, thêm/sửa/xóa trung tâm, kiểm tra trùng lặp mã số thuế khi tạo mới hoặc cập nhật trung tâm, đảm bảo chỉ System Admin có quyền thực hiện các thao tác quản lý.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Triển khai endpoint quản lý trung tâm
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [REQ-004], [REQ-005], [ARC-002]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/center-service/src/main/java/com/hub/center/controller/CenterController.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai các endpoint REST cho chức năng quản lý trung tâm (GET /api/centers, POST /api/centers, PUT /api/centers/{id}, DELETE /api/centers/{id}), áp dụng bộ lọc RBAC để kiểm soát quyền truy cập, trả về phản hồi JSON theo hợp đồng API đã định nghĩa.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Viết unit test cho chức năng quản lý trung tâm
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/center-service/src/main/java/com/hub/center/service/CenterService.java;./sources/backend/center-service/src/test/java/com/hub/center/CenterServiceTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết unit test đầy đủ cho các chức năng quản lý trung tâm, bao gồm trường hợp thành công, lỗi trùng mã số thuế, truy cập trái phép khi không có quyền System Admin, xác nhận dữ liệu trả về đúng định dạng.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
-
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 6: TRIỂN KHAI LỚP BẢO MẬT RBAC VÀ BỘ LỌC XÁC THỰC JWT
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Triển khai công cụ tạo và xác thực JWT token
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [ARC-006], [NFR-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/util/JwtUtil.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai công cụ tạo access token và refresh token, xác thực token, kiểm tra thời hạn token, sử dụng thuật toán mã hóa an toàn (HS256), đảm bảo token không thể bị giả mạo.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Triển khai bộ lọc xác thực RBAC cho tất cả endpoint
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [NFR-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/filter/RbacFilter.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai bộ lọc JWT và RBAC toàn cục cho tất cả service vi mô, kiểm tra tính hợp lệ của access token trên mỗi yêu cầu, xác thực quyền truy cập của người dùng dựa trên vai trò và tài nguyên được yêu cầu, trả về lỗi 401 Unauthorized hoặc 403 Forbidden nếu không có quyền.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Viết unit test cho bộ lọc RBAC
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/filter/RbacFilter.java;./sources/backend/auth-service/src/test/java/com/hub/auth/RbacFilterTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Viết unit test cho bộ lọc RBAC, kiểm tra các trường hợp: token hợp lệ có quyền truy cập, token hết hạn, token không hợp lệ, người dùng có quyền truy cập, người dùng không có quyền truy cập, xác nhận phản hồi lỗi đúng định dạng.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Cập nhật tài liệu đặc tả bảo mật và luồng xác thực
-* **Chuyên môn đại lý phụ trách:** [Doc]
-* **Tag ID mục tiêu:** [ARC-006], [NFR-003]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/security-spec.md
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Cập nhật tài liệu đặc tả bảo mật với mô tả chi tiết luồng xác thực, cấu trúc JWT token, chính sách phân quyền RBAC, các yêu cầu bảo mật tuân thủ OWASP Top 10 và NFR-003.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
-
-<!--START_DAY_LOG_INDEX-->
-##### 📅 NGÀY 7: XỬ LÝ NGOẠI LỆ, KIỂM THỬ TÍCH HỢP VÀ HOÀN THIỆN TÀI LIỆU GIAI ĐOẠN
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 1: Triển khai trình xử lý ngoại lệ toàn cục
-* **Chuyên môn đại lý phụ trách:** [Coder]
-* **Tag ID mục tiêu:** [EXC-004]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/exception/GlobalExceptionHandler.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Triển khai trình xử lý ngoại lệ toàn cục cho tất cả service, chuẩn hóa cấu trúc phản hồi lỗi, xử lý các ngoại lệ nghiệp vụ (lỗi xác thực, lỗi phân quyền, lỗi trùng dữ liệu) và ngoại lệ hệ thống, ghi log lỗi theo yêu cầu [NFR-006].
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 2: Thực hiện kiểm thử tích hợp giữa service auth và center
-* **Chuyên môn đại lý phụ trách:** [Tester]
-* **Tag ID mục tiêu:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/com/hub/auth/IntegrationAuthCenterTest.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Thực hiện kiểm thử tích hợp toàn bộ luồng nghiệp vụ: đăng ký người dùng -> đăng nhập -> lấy JWT token -> truy cập danh sách trung tâm -> tạo trung tâm mới -> phân quyền Center Admin -> xác nhận quyền truy cập của Center Admin hoạt động đúng, không có lỗi trong toàn bộ luồng.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 3: Rà soát toàn bộ mã nguồn giai đoạn
-* **Chuyên môn đại lý phụ trách:** [Reviewer]
-* **Tag ID mục tiêu:** [ALL_PHASE_1_TAGS]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/backend/auth-service/src/main/java/com/hub/auth/service/AuthService.java
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Rà soát toàn bộ mã nguồn được tạo trong giai đoạn 1, kiểm tra tuân thủ chuẩn mã hóa doanh nghiệp, không có lỗ hổng bảo mật, hiệu năng đáp ứng yêu cầu NFR-001, đề xuất các cải tiến về cấu trúc mã và tối ưu hóa.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--START_ATOMIC_SUB_TASK_NODE-->
-###### 🌿 CÔNG VIỆC CON 4: Hoàn thiện tài liệu giai đoạn 1
-* **Chuyên môn đại lý phụ trách:** [Doc]
-* **Tag ID mục tiêu:** [ARC-000], [DAT-ALL]
-* **Đường dẫn tệp thành phần mục tiêu (target_component):** ./sources/docs/api-contracts-auth.md
-* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Hoàn thiện tài liệu hợp đồng API cho tất cả endpoint của service auth và center, cập nhật tài liệu kiến trúc tổng thể với cấu trúc dự án đã được khởi tạo, đảm bảo tài liệu đầy đủ, chính xác, dễ hiểu cho các đội phát triển các giai đoạn sau.
-<!--END_ATOMIC_SUB_TASK_NODE-->
-<!--END_DAY_LOG_INDEX-->
-
-**Sổ cái kiểm toán chéo giai đoạn:**
-| Tên trường | Giá trị |
-| :--- | :--- |
-| Tổng số sub-task nguyên tử đã tạo trong toàn bộ lịch sử (H) | 0 |
-| Tổng số sub-task nguyên tử tạo mới trong giai đoạn này (A) | 28 |
-| Tổng số sub-task nguyên tử tổng cộng (Final_Total = H + A) | 28 |
-| TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5 | 28 |
 <!--END_PHASE_INDEX-->
 

@@ -713,65 +713,58 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 ---
 
-## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN MỨC CAO
+## 🏁 4. BẢNG TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN CẤP CAO
 
-### 📦 4.1. DANH SÁCH CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
+### 📦 4.1. DANH MỤC CÔNG VIỆC SẢN PHẨM KIẾN TRÚC TỔNG THỂ
+
+Tập hợp công việc dưới đây được cấu trúc theo chuỗi phụ thuộc kiến trúc của nền tảng membership-hub: lớp khung dự án [ARC-000] khởi tạo descriptor build backend Java/Quarkus theo mô hình microservices và workspace frontend Next.js/React Native làm nền móng cho toàn bộ module chức năng; các dịch vụ nghiệp vụ (auth-service, center-service, course-service, enrollment-service, attendance-service, card-service, notification-service, promotion-service, chatbot-service, reporting-service) đều phụ thuộc vào lớp dữ liệu quan hệ hợp nhất [DAT-ALL (1 to 11)] và bị ràng buộc bởi cơ chế thực thi phân quyền RBAC [ARC-001 to ARC-005]; bốn luồng tích hợp liên dịch vụ [ARC-006 to ARC-009] (xác thực OAuth2/JWT, điểm danh QR idempotent, điều phối thông báo đa kênh FCM/APNs/Zalo, kết nối mobile–backend có caching ngoại tuyến) được chuẩn hóa qua api-gateway và Redis session cache; cuối cùng, nền tảng công nghệ [ARC-010], hạ tầng DevOps (Docker, Terraform/GCP, GKE, CI/CD GitHub Actions) và khối tài liệu doanh nghiệp đóng gói toàn bộ ràng buộc phi chức năng [NFR-001] đến [NFR-009] thành chuỗi bàn giao production hoàn chỉnh.
 
 <!--START_BACKLOG_SYNOPSIS_GRID-->
 
-### MA TRẬN SỐ HỌC HỆ THỐNG
-> - Tổng số thẻ [REQ]: 25 Thẻ
-
-> - Tổng số thẻ [EXC]: 5 Thẻ
-
-> - Tổng số thẻ [ARC]: 10 Thẻ
-
-> - Tổng số thẻ [DAT]: 9 Thẻ
-
-> - Tổng số thẻ [NFR]: 9 Thẻ
-
-> - ➡️ Tổng số thẻ SRS: 58 Thẻ
-
-Bảng danh sách công việc sản phẩm kiến trúc tổng thể này ánh xạ toàn bộ các yêu cầu nghiệp vụ, kiến trúc, dữ liệu và phi chức năng từ đặc tả yêu cầu phần mềm vào các nhiệm vụ kỹ thuật cụ thể, đảm bảo tính truy xuất nguồn gốc 100% và tuân thủ các tiêu chuẩn doanh nghiệp. Các thành phần kiến trúc có mối phụ thuộc chặt chẽ: hạ tầng cơ sở dữ liệu PostgreSQL là nền tảng cho tất cả các service vi mô, lớp bảo mật RBAC và xác thực OAuth2 kiểm soát truy cập vào toàn bộ hệ thống, hạ tầng DevOps trên GKE đảm bảo tính sẵn sàng và khả năng mở rộng, còn hệ thống tài liệu hỗ trợ vận hành và bảo trì lâu dài.
+### [MA TRẬN TÍNH TOÁN HỆ THỐNG]
+> - **Tổng số thẻ [REQ]:** 25 thẻ
+> - **Tổng số thẻ [EXC]:** 5 thẻ
+> - **Tổng số thẻ [ARC]:** 10 thẻ
+> - **Tổng số thẻ [DAT]:** 11 thẻ
+> - **Tổng số thẻ [NFR]:** 9 thẻ
+> - ➡️ **Tổng số thẻ SRS:** 60 thẻ
 
 | STT | Nhiệm vụ | Mục đích kỹ thuật / Tóm tắt sản phẩm bàn giao | Loại | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Khởi tạo cấu trúc dự án backend vi mô Quarkus | Tạo pom.xml gốc và pom.xml cho từng service vi mô (auth, center, course, enrollment, attendance, membership, notification, promotion, report, ai-chatbot) | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Khởi tạo cấu trúc dự án frontend Next.js | Tạo package.json và tsconfig.json cho ứng dụng web và di động | Mã Ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Khởi tạo cấu trúc thư mục tài liệu doanh nghiệp | Tạo cấu trúc thư mục cho bản vẽ kiến trúc, hợp đồng API, hướng dẫn vận hành | Tài liệu Doanh nghiệp | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Triển khai chức năng đăng ký người dùng bằng email/mật khẩu | Xác thực đầu vào, tạo bản ghi người dùng với vai trò Student, cấp JWT token | Mã Ứng dụng | [REQ-001, EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Triển khai xác thực mạng xã hội OAuth2 | Tích hợp Firebase, Google, Facebook OAuth2, xử lý mã xác thực, tạo/cập nhật bản ghi người dùng, cấp JWT | Mã Ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Triển khai chức năng phân quyền người dùng | Gán/thay đổi vai trò người dùng, áp dụng quyền truy cập ngay lập tức | Mã Ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Triển khai chức năng xem danh sách trung tâm | Hiển thị danh sách trung tâm với địa chỉ, mã số thuế, thông tin liên hệ quản trị | Mã Ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Triển khai chức năng quản lý trung tâm (CRUD) | Thêm, sửa, xóa bản ghi trung tâm, kiểm tra trùng mã số thuế | Mã Ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 9 | Triển khai chức năng phân quyền quản trị trung tâm | Gán/huỷ gán quyền Center Admin cho người dùng tại trung tâm cụ thể | Mã Ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 10 | Triển khai chức năng xem danh sách khóa học | Hiển thị danh sách khóa học với lịch học và giáo viên phụ trách | Mã Ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 11 | Triển khai chức năng quản lý khóa học (CRUD) với kiểm tra xung đột lịch | Thêm, sửa, xóa khóa học, kiểm tra trùng lịch giáo viên/địa điểm | Mã Ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 12 | Triển khai chức năng phân công giáo viên vào khóa học | Gán/huỷ gán giáo viên cho khóa học, kích hoạt thông báo cho giáo viên | Mã Ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 13 | Triển khai chức năng duyệt khóa học cho học viên | Hiển thị danh sách khóa học chưa đăng ký của học viên | Mã Ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 14 | Triển khai chức năng đăng ký khóa học học viên | Xử lý đăng ký khóa học, tự động tạo tài khoản Student nếu chưa tồn tại, gửi thông báo | Mã Ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 15 | Triển khai chức năng điểm danh quét mã QR | Nhận payload quét QR, xác thực quan hệ học viên-khóa học, tạo bản ghi điểm danh | Mã Ứng dụng | [REQ-012, EXC-001, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 16 | Triển khai tính chất bất biến của điểm danh | Đảm bảo chỉ tạo 1 bản ghi điểm danh/học viên/khóa học/ngày, xử lý yêu cầu trùng lặp | Mã Ứng dụng | [REQ-013, EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 17 | Triển khai chức năng hiển thị tính hợp lệ thẻ hội viên | Hiển thị tổng số ngày hiệu lực, số ngày đã sử dụng, số ngày còn lại của thẻ hội viên | Mã Ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 18 | Triển khai chức năng gia hạn thẻ hội viên | Gia hạn ngày kết thúc thẻ sau khi xác nhận thanh toán, gửi thông báo xác nhận | Mã Ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 19 | Triển khai chức năng kích hoạt thông báo đa kênh | Tạo bản ghi thông báo, xếp hàng push notification, gửi tin nhắn nhóm Zalo | Mã Ứng dụng | [REQ-016, EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 20 | Triển khai chức năng quản lý khuyến mãi | CRUD khuyến mãi (giảm giá, ưu đãi) với ngày bắt đầu/kết thúc, hiển thị cho học viên | Mã Ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 21 | Triển khai chức năng quản lý thông báo | CRUD thông báo với ngày hết hạn tùy chọn, tự động ẩn sau ngày hết hạn, phát sóng toàn hệ thống | Mã Ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 22 | Triển khai tích hợp chatbot AI | Xử lý câu hỏi thường gặp về khóa học, giáo viên, trung tâm, trạng thái tài khoản, leo thang hỗ trợ khi độ tin cậy thấp | Mã Ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 23 | Triển khai giao diện người dùng vai trò trên di động | Xây dựng giao diện responsive Next.js cho từng vai trò (Student, Teacher, Admin...), đồng bộ chức năng với web | Mã Ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 24 | Triển khai thông báo đẩy trên di động | Tích hợp FCM/APNs, quản lý token thiết bị, xử lý nhận thông báo trên ứng dụng di động | Mã Ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 25 | Triển khai phát hiện ngôn ngữ mặc định | Phát hiện ngôn ngữ ưu tiên của người dùng, lưu trữ cài đặt, fallback sang Accept-Language header | Mã Ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 26 | Triển khai SEO đa ngôn ngữ | Thêm thẻ meta ngôn ngữ, thuộc tính hreflang, hỗ trợ 3 ngôn ngữ (Anh, Việt, Tây Ban Nha) | Mã Ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 27 | Triển khai chức năng tạo báo cáo điểm danh CSV | Xuất báo cáo điểm danh hàng ngày cho trung tâm, định dạng CSV với các cột StudentName, CourseName, AttendanceDate, Status | Mã Ứng dụng | [REQ-024, EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 28 | Triển khai bảng điều khiển tóm tắt ghi danh | Xây dựng dashboard realtime hiển thị tổng học viên, khóa học đang hoạt động, buổi học sắp tới (7 ngày tới) | Mã Ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 29 | Khởi tạo hạ tầng cơ sở dữ liệu PostgreSQL | Tạo schema, tất cả các bảng dữ liệu theo định nghĩa, cấu hình connection pool và index tối ưu | Mã Ứng dụng | [DAT-ALL (1 to 9)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 30 | Triển khai lớp bảo mật RBAC và xác thực | Triển khai kiểm soát truy cập dựa trên vai trò, xác thực JWT, OAuth2, refresh token, bảo vệ tất cả endpoint | Mã Ứng dụng | [ARC-001, ARC-002, ARC-003, ARC-004, ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 31 | Triển khai hợp đồng tích hợp hệ thống | Triển khai luồng xác thực, điểm danh QR, thông báo đa kênh, tích hợp backend-frontend | Mã Ứng dụng | [ARC-006, ARC-007, ARC-008, ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 32 | Triển khai hạ tầng DevOps và đám mây | Xây dựng Dockerfile đa giai đoạn, pipeline CI/CD GitHub Actions, triển khai GKE, cấu hình Terraform cho GCP, tích hợp FCM/APNs, Zalo API, Redis caching, đảm bảo tuân thủ NFR | Hạ tầng DevOps | [NFR-001, NFR-002, NFR-003, NFR-004, NFR-005, NFR-006, NFR-007, NFR-008, NFR-009, ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 33 | Xây dựng tài liệu hệ thống doanh nghiệp | Viết bản vẽ kiến trúc, hợp đồng API REST/Event, hướng dẫn vận hành, tài liệu cơ sở dữ liệu, hướng dẫn người dùng | Tài liệu Doanh nghiệp | <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| **TÓM TẮT** | **Tổng số thẻ theo dõi đã bao phủ:** 58 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** ĐÃ XÁC THỰC | **Mức độ bao phủ:** 100% <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 1 | Khởi tạo khung dự án backend microservices | Sinh descriptor build gốc `./sources/backend/pom.xml` (Quarkus BOM, dependencyManagement tập trung) và descriptor module con `./sources/backend/<service-name>/pom.xml` cho từng dịch vụ; thiết lập profile build dev/production và plugin compile thống nhất. | Mã ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Khởi tạo workspace frontend | Sinh manifest `./sources/frontend/package.json` (Next.js, React Native, TypeScript) và cấu hình biên dịch `./sources/frontend/tsconfig.json` (strict mode, path alias) làm nền chung cho web-app và mobile-app. | Mã ứng dụng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Đăng ký người dùng bằng email/mật khẩu | Endpoint POST /api/v1/auth/register trên auth-service: validate email unique và độ mạnh mật khẩu, hash bcrypt, tạo bản ghi Users vai trò mặc định 'Student', cấp JWT 15 phút kèm refresh token; khi validation thất bại trả thông báo liệt kê từng trường không hợp lệ. | Mã ứng dụng | [REQ-001], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Xác thực mạng xã hội OAuth2 | Tích hợp Firebase/Google/Facebook qua OAuth2: nhận authorization code từ popup provider, exchange lấy user info, tạo/cập nhật bản ghi Users cục bộ theo provider tương ứng, phát hành JWT phiên làm việc. | Mã ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Phân quyền vai trò người dùng | API quản trị gán/thay đổi roleId (System Admin, Center Admin, Manager, Teacher, Student); cập nhật cột vai trò và áp dụng ma trận quyền tức thời; ghi audit log mọi thay đổi vai trò kèm timestamp và userId. | Mã ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Xem danh sách trung tâm | GET /api/v1/centers trả bảng trung tâm (Name, Address, TaxID, AdminContact) cho mọi người dùng đã xác thực; phân trang và index truy vấn sub-second. | Mã ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Tạo/cập nhật/xóa trung tâm | CRUD trung tâm dành cho System Admin tại center-service: validate taxId numeric 10–13 chữ số với ràng buộc unique, trả 409 Conflict khi taxId trùng; persist contactPhone/contactEmail đúng định dạng chuẩn. | Mã ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Phân quyền quản trị trung tâm | Gán/hủy gán user làm Center Admin cho centerId cụ thể: set role 'Center Admin', ghi center ID vào phạm vi quản lý; thao tác unassign đảo ngược hoàn toàn; cô lập tenant theo trung tâm. | Mã ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 9 | Xem danh sách khóa học | GET /api/v1/courses trả lưới CourseID, Title, StartDate, EndDate, TeacherName (join Users); hỗ trợ duyệt danh sách offering cho mọi vai trò đã xác thực. | Mã ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 10 | Quản lý khóa học chống xung đột lịch | CRUD khóa học (System Admin/Center Admin): kiểm tra giao thoa khoảng startDate–endDate trên cùng teacherId hoặc venue trước khi persist, trả lỗi xung đột lịch nếu trùng; maxStudents mặc định 30. | Mã ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 11 | Phân công giáo viên vào khóa học | Gán/hủy ánh xạ course–teacher; khi gán, phát event sang notification-service để queue push notification tới mobile app của giáo viên được chỉ định. | Mã ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 12 | Duyệt khóa học dành cho học viên | GET /api/v1/enrollments/browse lọc loại các khóa học đã có bản ghi Enrollment của studentId; hiển thị capacity và lịch học còn trống để học viên lựa chọn. | Mã ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 13 | Đăng ký khóa học của học viên | POST đăng ký khóa học trong một transaction: tạo bản ghi Enrollments, tự động cấp tài khoản vai trò 'Student' nếu chưa tồn tại, phát sự kiện thông báo tới mobile app học viên và nhóm Zalo của trung tâm. | Mã ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 14 | Chụp ảnh điểm danh qua quét mã QR | Mobile scanner gửi studentId + timestamp tới POST /api/v1/attendance/scan: xác thực quan hệ student–course, ghi bản ghi Attendance kèm attendanceDate; cơ chế retry sau khi reconnect và ghi nhận điểm danh một lần khi dịch vụ reachable trở lại. | Mã ứng dụng | [REQ-012], [EXC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 15 | Bất biến (idempotent) điểm danh | Ràng buộc unique (studentId, courseId, attendanceDate) tại tầng PostgreSQL; nhiều lần quét cùng ngày chỉ tạo một dòng attendance; request trùng trả success kèm cờ 'duplicate' ('already recorded') không phát sinh thêm bản ghi. | Mã ứng dụng | [REQ-013], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 16 | Hiển thị tính hợp lệ thẻ hội viên | GET /api/v1/cards/me suy ra totalValidityDays, daysUsed, daysRemaining từ thực thể StudentCard (issueDate, validityDays); render thẻ hội viên kỹ thuật số kèm đếm ngày hiệu lực còn lại. | Mã ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 17 | Gia hạn thẻ hội viên | Luồng gia hạn theo kỳ chọn (ví dụ 30 ngày): khi payment service xác nhận success thì mở rộng EndDate/validityDays của StudentCard và gửi notification xác nhận gia hạn tới học viên. | Mã ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 18 | Kích hoạt thông báo đa kênh | Khi admin tạo announcement, phân công giáo viên hoặc đăng ký học viên: tạo bản ghi Notifications, queue push payload qua FCM/APNs và đăng tin nhắn văn bản lên nhóm Zalo chỉ định; log thất bại delivery và retry tối đa 3 lần trước khi đánh dấu failed khi device token invalid. | Mã ứng dụng | [REQ-016], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 19 | Quản lý khuyến mãi | CRUD Promotions (code unique, discountPercent, startDate/endDate, description) cho Center Admin/Manager; endDate bỏ trống coi là khuyến mãi vĩnh viễn; công khai danh sách ưu đãi áp dụng phía học viên. | Mã ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 20 | Quản lý thông báo công khai | CRUD Announcements (title tối đa 150 ký tự, content tối đa 2000 ký tự, expiry tùy chọn); phát sóng toàn site và tự động ẩn sau ngày hết hạn đã cấu hình. | Mã ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 21 | Tích hợp chatbot AI chăm sóc khách hàng | Widget chat tiêu thụ chatbot-service: trả lời truy vấn về khóa học, giáo viên, trung tâm và trạng thái tài khoản; escalate lên nhân viên hỗ trợ khi độ tin cậy thấp; ghi log hội thoại vào AuditLog. | Mã ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 22 | Giao diện di động theo vai trò | Responsive UI (React Native) phản chiếu đầy đủ chức năng web theo vai trò (Student, Teacher, Admin); render menu điều hướng và màn hình tương ứng ngay sau đăng nhập trên Android/iOS. | Mã ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 23 | Thông báo đẩy trên di động | Đăng ký device token sau login; nhận push qua FCM/APNs cho xác nhận điểm danh, announcement mới và tin nhắn nhắc nhở; điều hướng deep-link tới màn hình liên quan. | Mã ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 24 | Phát hiện ngôn ngữ mặc định | Ưu tiên ngôn ngữ đã lưu của người dùng, fallback theo Accept-Language header của trình duyệt; externalize toàn bộ UI strings (en/vi/es) và chuyển locale không cần reload trang. | Mã ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 25 | SEO đa ngôn ngữ | Render thẻ `<html lang='en'>`, language-specific meta tags và hreflang alternate links cho en/vi/es trên từng page; SSR metadata phục vụ crawler lập chỉ mục. | Mã ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 26 | Báo cáo điểm danh CSV | Xuất file CSV cột StudentName, CourseName, AttendanceDate, Status theo trung tâm và khoảng ngày chọn; xử lý FIFO các scan tồn đọng sau outage và gửi thông báo sự kiện đã phục hồi tới người dùng. | Mã ứng dụng | [REQ-024], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 27 | Bảng điều khiển tóm tắt ghi danh | Dashboard real-time cho Center Admin: thẻ totalStudents, activeCourses, upcomingSessions (7 ngày tới); đọc qua PostgreSQL read replica để cách ly workload báo cáo khỏi OLTP. | Mã ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 28 | Khởi tạo hạ tầng cơ sở dữ liệu hợp nhất | Flyway migration tại `./sources/backend/db-migrations/` tạo đủ 11 bảng lõi: Users, Roles, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings; khóa ngoại, unique constraint và index tối ưu truy vấn sub-second. | Mã ứng dụng | [DAT-ALL (1 to 11)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 29 | Thực thi bảo mật RBAC toàn cục | Bộ filter/interceptor phân quyền 5 vai trò: System Admin toàn quyền mọi trung tâm, Center Admin giới hạn trong trung tâm sở tại, Manager không được sửa khóa học/chỉ định giáo viên, Teacher chỉ đọc lịch dạy, Student duyệt/đăng ký/xem thẻ; áp dụng thống nhất qua api-gateway tại `./sources/backend/auth-service/`. | Mã ứng dụng | [ARC-001 to ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 30 | Hợp đồng tích hợp liên dịch vụ | Chuẩn hóa 4 luồng kiến trúc: xác thực OAuth2/JWT (access 15 phút + refresh token), điểm danh QR idempotent, điều phối thông báo đa kênh (FCM/APNs/Zalo), tích hợp mobile–backend qua bearer token với offline caching; công bố OpenAPI contracts qua api-gateway tại `./sources/backend/api-gateway/`. | Mã ứng dụng | [ARC-006 to ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 31 | Nền tảng công nghệ & hạ tầng chuẩn | Chốt stack production: Java/Quarkus, PostgreSQL, Docker, Kubernetes (GKE), Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API integration, Redis session caching, CI/CD GitHub Actions; tham số hóa cấu hình môi trường tại `./sources/infra/`. | Hạ tầng DevOps | [ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 32 | Hạ tầng DevOps & pipeline triển khai | Multi-stage Dockerfiles (base image nhỏ hơn 200MB, final image nhỏ hơn 500MB), Terraform provisioning VPC/IAM/Storage trên GCP, manifests GKE với HPA (CPU vượt 70% hoặc latency vượt 300ms), failover liên cluster đạt uptime 99.9%, TLS 1.3/AES-256 kèm mitigations OWASP Top 10, backup PITR 24h đa region, audit log lưu trữ 1 năm, workflow GDPR/CCPA data export/deletion và consent management. | Hạ tầng DevOps | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 33 | Kiến trúc tài liệu doanh nghiệp | Biên soạn blueprint kiến trúc, sơ đồ topology cơ sở dữ liệu, hướng dẫn vận hành bản địa hóa (vi/en/es) và hợp đồng API tham chiếu (OpenAPI) đặt tại `./sources/docs/`; bổ sung quy trình audit log, quản lý consent và xuất dữ liệu cá nhân theo GDPR/CCPA. | Tài liệu doanh nghiệp | [NFR-006], [NFR-007], [NFR-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **TỔNG KẾT** | **Tổng số thẻ theo dõi đã bao phủ:** 60 | **Tổng số nhiệm vụ:** 33 | **Trạng thái:** Đã xác minh | **Độ bao phủ:** 100% |
 
 <!--END_BACKLOG_SYNOPSIS_GRID-->
-
-<!--END_PART_1_BACKLOG_4_1-->
 

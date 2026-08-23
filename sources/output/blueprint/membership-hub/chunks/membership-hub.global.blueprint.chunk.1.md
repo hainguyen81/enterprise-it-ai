@@ -267,10 +267,10 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 | Item | Details |
 | :--- | :--- |
-| **Blueprint ID** | ARCH-20260822094056 |
+| **Blueprint ID** | ARCH-20260823050512 |
 | **Project Name** | membership-hub |
 | **Version** | 1.0 (Baseline) |
-| **Date.Time** | 2026/08/22 09:40:56 |
+| **Date.Time** | 2026/08/23 05:05:12 |
 | **Author** | Enterprise System Architect (SA Agent) |
 | **Approval** | Pending Technical Governance Review |
 
@@ -721,57 +721,107 @@ DEVOPS_LAYER_REQUIRED=auto_evaluate
 
 # BỐI CẢNH DỰ ÁN TOÀN CẦU: membership-hub
 
-## 📊 Kiểm soát tài liệu
+## 📊 Kiểm soát Tài liệu
 
-| Mục | Chi tiết |
+| Hạng mục | Chi tiết |
 | :--- | :--- |
-| **Mã bản thiết kế** | ARCH-20260822094056 |
+| **ID Bản thiết kế** | ARCH-20260823050512 |
 | **Tên dự án** | membership-hub |
 | **Phiên bản** | 1.0 (Cơ sở) |
-| **Ngày.Giờ** | 2026/08/22 09:40:56 |
-| **Tác giả** | Kiến trúc sư hệ thống doanh nghiệp (Đặc vụ SA) |
-| **Phê duyệt** | Đang chờ xem xét quản trị kỹ thuật |
+| **Ngày.Giờ** | 2026/08/23 05:05:12 |
+| **Tác giả** | Kiến trúc sư Hệ thống Doanh nghiệp (SA Agent) |
+| **Phê duyệt** | Đang chờ Đánh giá Quản trị Kỹ thuật |
 
-## 📊 1. TỔNG QUAN HỆ THỐNG & CHẾ ĐỘ KIẾN TRÚC CỐT LÕI
+## 📊 1. TỔNG QUAN HỆ THỐNG & MÔ HÌNH KIẾN TRÚC CỐT LÕI
 
-### ⚙️ 1.1. Chế độ hoạt động hệ thống cốt lõi & chế độ kiến trúc cốt lõi
-- Hệ thống áp dụng kiến trúc microservices với backend được xây dựng bằng Java/Quarkus, triển khai trên môi trường Kubernetes (GKE) để đảm bảo khả năng mở rộng ngang và tính sẵn sàng cao.
-- Hệ thống tuân thủ mô hình RBAC (Kiểm soát truy cập dựa trên vai trò) với 5 vai trò phân quyền rõ ràng: System Admin, Center Admin, Manager, Teacher, Student, đảm bảo quyền hạn được cách ly theo từng trung tâm.
-- Luồng xác thực hỗ trợ đăng nhập email/mật khẩu, OAuth2 (Firebase, Google, Facebook), cấp JWT token có thời hạn 15 phút và refresh token có thời hạn 7 ngày.
-- Luồng xử lý điểm danh QR đảm bảo tính idempotent, chỉ tạo một bản ghi điểm danh duy nhất cho mỗi học viên, khóa học và ngày, ngay cả khi người dùng quét mã nhiều lần.
-- Hệ thống tích hợp đa kênh thông báo: gửi push notification qua FCM/APNs, đăng bài lên nhóm Zalo được chỉ định, đảm bảo thông báo đến người dùng cuối kịp thời cho các sự kiện quan trọng.
-- Cơ sở dữ liệu chính sử dụng PostgreSQL 16 với hỗ trợ bản sao đọc cho khối lượng công việc báo cáo, Redis 7.2 được sử dụng để lưu cache phiên người dùng và dữ liệu ngoại tuyến cho ứng dụng di động.
-- Hệ thống hỗ trợ đa ngôn ngữ (Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha) với khả năng chuyển đổi ngôn ngữ không cần tải lại trang, đáp ứng yêu cầu bản địa hóa toàn cầu.
+### ⚙️ 1.1. Mô hình Hệ thống Cốt lõi & Kiến trúc Tổng thể
 
-### 🌊 1.2. Các kiến trúc luồng dữ liệu doanh nghiệp & hệ sinh thái lõi
-- Luồng xác thực: Người dùng gửi yêu cầu đăng nhập/đăng ký đến API Gateway, dịch vụ xác thực Quarkus xác thực thông tin, cấp JWT token và lưu thông tin phiên vào Redis để xác thực các yêu cầu tiếp theo.
-- Luồng xử lý điểm danh QR: Ứng dụng di động quét mã QR của khóa học, gửi student ID và timestamp đến backend qua REST API; dịch vụ điểm danh xác thực tính idempotent, ghi bản ghi vào bảng Attendance, đồng bộ trạng thái thẻ hội viên nếu cần.
-- Luồng gửi thông báo: Các sự kiện hệ thống (đăng ký khóa học, phân công giáo viên, tạo thông báo, điểm danh thành công) được xuất bản lên chủ đề Apache Kafka, dịch vụ thông báo tiêu thụ sự kiện, gửi push notification qua FCM/APNs và đăng bài lên nhóm Zalo qua Zalo API.
-- Luồng tích hợp ứng dụng di động: Frontend Next.js tiêu thụ REST API với bearer token, hỗ trợ caching dữ liệu ngoại tuyến trên thiết bị để xử lý trường hợp mất kết nối mạng, đồng bộ dữ liệu tự động khi kết nối trở lại.
-- Luồng báo cáo & phân tích: Dữ liệu điểm danh, ghi danh được đồng bộ đến kho dữ liệu phân tích, dịch vụ báo cáo tổng hợp dữ liệu theo yêu cầu, xuất báo cáo CSV hoặc hiển thị số liệu trên dashboard thời gian thực cho quản trị viên.
+- Kiến trúc microservices trên nền Java 21 LTS + Quarkus 3.x, container hóa bằng Docker và điều phối production trên Google Kubernetes Engine (GKE). [ARC-010]
+- Mô hình Event-Driven Architecture (EDA): mọi sự kiện nghiệp vụ (điểm danh, ghi danh, gia hạn thẻ, thông báo) được phát hành bất đồng bộ qua Apache Kafka đến các dịch vụ tiêu thụ chuyên trách. [ARC-008]
+- Ranh giới CQRS tách bạch đường ghi/đọc: khối lượng báo cáo và dashboard thời gian thực được route sang PostgreSQL read replicas, cô lập hoàn toàn khỏi cụm ghi giao dịch. [NFR-004]
+- Lõi Reactive: RESTEasy Reactive trên Vert.x kết hợp Hibernate Reactive cho phép I/O phi chặn, bảo đảm mục tiêu độ trễ trung bình 200 ms của API lõi. [NFR-001]
+- Điểm danh QR được thiết kế idempotent tuyệt đối nhờ ràng buộc duy nhất (studentId, courseId, attendanceDate); quét trùng cùng ngày trả về cờ 'duplicate' mà không phát sinh thêm bản ghi. [REQ-013], [EXC-002]
+- Xác thực liên hợp OAuth2 qua Firebase/Google/Facebook, phát hành JWT access token 15 phút kèm refresh token 7 ngày. [ARC-006], [NFR-003]
+- Redis 7.x đóng vai trò session cache và kho dữ liệu nóng, giảm áp lực truy vấn trực tiếp lên PostgreSQL. [ARC-010]
+- Tầng fan-out thông báo đa kênh: FCM/APNs cho push notification di động và Zalo Open API cho đăng bài nhóm Zalo. [ARC-008]
+- Frontend Next.js tiêu thụ REST API chuẩn hóa qua bearer token, tích hợp caching ngoại tuyến cho kịch bản mất kết nối mạng. [ARC-009]
+- Ma trận RBAC 5 vai trò (System Admin, Center Admin, Manager, Teacher, Student) được thực thi tập trung tại tầng gateway và kiểm chứng lại tại từng dịch vụ. [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
 
-## 📁 2. CÁC PHỤ THUỘC NGĂN XẾP CÔNG NGHỆ & THƯ VIỆN HỆ SINH THÁI
-- **Hạ tầng lõi Backend:** Java 21, Quarkus 3.15, PostgreSQL 16, Redis 7.2, Apache Kafka 3.6, Hibernate ORM 6.4, Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs, Zalo API, JWT 0.12, thư viện mã hóa bcrypt.
-- **Ngăn xếp Frontend & Giao diện di động đa nền tảng:** Next.js 14, React 18, React Native 0.73, Tailwind CSS 3.4, i18next 23.7, Axios 1.6, Firebase SDK 10.7.
+### 🌊 1.2. Topology Luồng Dữ liệu Doanh nghiệp & Hệ sinh thái Cốt lõi
 
-## 📁 3. RÀNG BUỘC TOÀN CẦU & TIÊU CHUẨN TUÂN THỦ DOANH NGHIỆP
+- **Cổng tiếp nhận (Ingestion Gateway):**
+  - Toàn bộ request đi qua Ingress trên GKE với TLS 1.3 termination; JWT được kiểm chứng tại filter OIDC của Quarkus trước khi đi vào business logic. [NFR-003], [ARC-006]
+  - Rate limiting theo user và theo trung tâm áp tại tầng gateway nhằm bảo vệ SLA độ trễ 200 ms. [NFR-001]
+- **Topology topic Kafka:**
+  - `attendance.events`: phát hành khi quét QR hợp lệ; partition theo `courseId` để bảo đảm thứ tự xử lý trong phạm vi từng khóa học. [ARC-007]
+  - `enrollment.events`: phát hành khi học viên được ghi danh; payload chứa `studentId`, `courseId`, `centerId`. [REQ-011]
+  - `card.renewal.events`: phát hành ngay sau khi thanh toán gia hạn thẻ được xác nhận thành công. [REQ-015]
+  - `notification.dispatch`: hàng đợi lệnh gửi thông báo; consumer duy nhất là notification-service. [REQ-016]
+  - `audit.log.stream`: dòng sự kiện kiểm toán phục vụ lưu trữ truy vết 1 năm. [NFR-006]
+- **Fan-out đa kênh ra bên ngoài:**
+  - notification-service tiêu thụ `notification.dispatch`, đẩy payload push tới FCM (Android) và APNs (iOS); thất bại được phát lại tối đa 3 lần trước khi đánh dấu `failed`. [EXC-003], [REQ-021]
+  - Song song, hệ thống gọi Zalo Open API để đăng tin nhắn vào nhóm Zalo được chỉ định của trung tâm tương ứng. [ARC-008]
+- **Khả năng phục hồi luồng:**
+  - Ứng dụng di động hàng đợi cục bộ các lần quét QR khi mất mạng và tự động retry khi có lại kết nối. [EXC-001]
+  - Sau sự cố hệ thống, các bản điểm danh tồn đọng được xử lý theo thứ tự FIFO và người dùng nhận thông báo khôi phục sự kiện. [EXC-005]
 
-### 🔑 3.1. Cơ sở bảo mật & tuân thủ
-- Mã hóa dữ liệu khi truyền sử dụng TLS 1.3, mã hóa dữ liệu lưu trữ sử dụng AES-256 để đảm bảo bảo mật dữ liệu nhạy cảm.
-- Token JWT có thời hạn 15 phút, refresh token có thời hạn 7 ngày, lưu trữ token an toàn trong Redis với thời gian sống phù hợp, hỗ trợ thu hồi token khi có sự cố bảo mật.
-- Triển khai các biện pháp giảm thiểu OWASP Top 10: chống injection SQL bằng prepared statements, chống XSS bằng cách lọc đầu vào và mã hóa đầu ra, chống CSRF bằng token CSRF cho các yêu cầu nhạy cảm, kiểm tra quyền hạn trên mọi điểm cuối API.
-- Tuân thủ GDPR/CCPA: hỗ trợ xóa dữ liệu cá nhân theo yêu cầu người dùng, xuất dữ liệu ở định dạng JSON, quản lý sự đồng ý cho các thông tin marketing, lưu trữ dữ liệu chỉ trong thời gian cần thiết.
-- Ghi log tất cả hành động người dùng (thay đổi vai trò, bản ghi điểm danh, gửi thông báo, thay đổi khóa học) với timestamp, ID người dùng và chi tiết hành động, lưu log trong 1 năm để đáp ứng yêu cầu kiểm toán.
+## 📁 2. PHỤ THUỘC TECH STACK & THƯ VIỆN HỆ SINH THÁI
 
-### 🌐 3.2. Ràng buộc hạ tầng & hiệu suất
-- Độ trễ trung bình của API cốt lõi (xác thực, ghi điểm danh, danh sách khóa học) dưới 200ms, hỗ trợ đọc sub-second cho 10.000 người dùng đồng thời với các chỉ mục cơ sở dữ liệu được tối ưu.
-- Mục tiêu thời gian hoạt động 99.9% hàng năm, hỗ trợ chuyển đổi tự động giữa các cụm GKE để đảm bảo tính sẵn sàng cao, không có thời gian chết kế hoạch.
-- Quy mô ngang dịch vụ Quarkus thông qua Kubernetes HPA khi CPU > 70% hoặc độ trễ yêu cầu > 300ms, sử dụng bản sao đọc PostgreSQL cho khối lượng công việc báo cáo để giảm tải cho cơ sở dữ liệu chính.
-- Kích thước hình ảnh Docker cơ sở dưới 200MB, hình ảnh cuối cùng dưới 500MB, sử dụng đa giai đoạn build để tối ưu kích thước và bảo mật hình ảnh.
-- Hạn mức kết nối cơ sở dữ liệu được cấu hình thông qua HikariCP với giá trị tối ưu cho tải công việc, chính sách xóa cache Redis được cấu hình để đảm bảo dữ liệu phiên luôn tươi, không lưu trữ dữ liệu nhạy cảm trong cache.
-- Sao lưu cơ sở dữ liệu PostgreSQL hàng ngày, hỗ trợ phục hồi điểm thời gian trong 24 giờ, sao lưu cụm GKE đến vùng riêng để phục hồi thảm họa, kiểm tra sao lưu định kỳ để đảm bảo tính toàn vẹn của dữ liệu.
+- **Stack hạ tầng Backend cốt lõi:**
+  - Runtime: Java 21 LTS trên Quarkus 3.15.x (extensions: resteasy-reactive, hibernate-orm-panache, flyway, redis-client, oidc, smallrye-reactive-messaging-kafka). [ARC-010]
+  - Dependency Injection: ArC (CDI-lite) nguyên sinh của Quarkus.
+  - ORM & Migration: Hibernate ORM với Panache 3.15.x; quản lý schema bằng Flyway 10.x trên PostgreSQL 16.x. [ARC-010]
+  - Connection Pooling: Agroal với cấu hình pool tối ưu theo từng dịch vụ.
+  - Messaging: SmallRye Reactive Messaging 4.x trên Apache Kafka 3.7.x. [ARC-008]
+  - Cache: Quarkus Redis Client trên Redis 7.2.x cho session và dữ liệu nóng. [ARC-010]
+  - Bảo mật: Quarkus OIDC + MicroProfile JWT 2.1; Firebase Admin SDK 9.x cho xác thực mạng xã hội. [ARC-006]
+  - Tích hợp ngoài: Zalo Open Platform REST API, FCM HTTP v1 API, Apple APNs Provider API. [ARC-008], [REQ-021]
+  - Tiện ích: Jackson 2.17.x, MapStruct 1.6.x, Lombok, Hibernate Validator 8.x.
+  - Chất lượng: JUnit 5.10.x, RestAssured 5.x, Testcontainers 1.20.x, Mockito 5.x.
+  - Build & CI/CD: Maven 3.9.x, GitHub Actions pipeline, Docker multi-stage build (base image < 200 MB, image cuối < 500 MB). [NFR-005]
+- **Frontend & Cross-Platform UI Mobile Stack:**
+  - Web: Next.js 14.2.x (App Router) + React 18.3.x + TypeScript 5.5.x.
+  - UI: TailwindCSS 3.4.x + shadcn/ui; Recharts 2.x cho dashboard tổng quan.
+  - i18n & SEO: next-intl 3.x với định tuyến locale động (/en, /vi, /es), tự sinh hreflang và meta tags theo ngôn ngữ của từng trang. [REQ-022], [REQ-023], [NFR-007]
+  - State & Data: TanStack Query 5.x + Zustand 4.x; axios interceptor gắn bearer token tự động. [ARC-009]
+  - Offline: next-pwa (Service Worker) với chiến lược stale-while-revalidate cho caching ngoại tuyến. [ARC-009]
+  - Mobile: React Native 0.75.x trên Expo SDK 51; react-navigation 6.x cho điều hướng và màn hình render theo vai trò (Student, Teacher, Admin). [REQ-020]
+  - QR: react-native-vision-camera + plugin giải mã mã QR cho luồng điểm danh. [REQ-012]
+  - Push: @react-native-firebase/messaging (FCM) và cầu nối APNs cho iOS. [REQ-021]
 
-### 🥞 3.3. MA TRẬN NGĂN XẾP KIẾN TRÚC
+## 📁 3. RÀO CHẮN TOÀN CẦU & TIÊU CHUẨN TUÂN THỦ DOANH NGHIỆP
+
+- Toàn bộ hành động người dùng (thay đổi vai trò, ghi điểm danh, gửi thông báo) đều được ghi log kiểm toán với timestamp, userId và chi tiết hành động; log lưu trữ 1 năm. [NFR-006]
+- Tuân thủ GDPR/CCPA: xóa dữ liệu cá nhân theo yêu cầu người dùng, xuất dữ liệu định dạng JSON, quản lý đồng ý truyền thông marketing. [NFR-008]
+- Đa ngôn ngữ bắt buộc EN/VI/ES: chuỗi UI externalized hoàn toàn, chuyển đổi locale không cần reload trang ở mức khả thi. [NFR-007]
+- Backup & Disaster Recovery: full backup PostgreSQL hằng ngày, point-in-time recovery trong 24 giờ, backup cụm GKE sang region riêng biệt. [NFR-009]
+- Mô hình RBAC 5 vai trò thực thi nguyên tắc đặc quyền tối thiểu: System Admin toàn quyền toàn cầu, Center Admin bị cô lập trong phạm vi trung tâm của mình, Manager bị giới hạn quyền chỉnh sửa, Teacher chỉ đọc, Student giới hạn trong nghiệp vụ tự phục vụ. [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+### 🔑 3.1. Nền tảng Bảo mật & Tuân thủ
+
+- Mã hóa toàn bộ dữ liệu truyền bằng TLS 1.3; mã hóa at-rest bằng AES-256. [NFR-003]
+- JWT access token hết hạn sau 15 phút; refresh token có thời hạn 7 ngày. [ARC-006], [NFR-003]
+- Triển khai đầy đủ mitigation OWASP Top 10: prepared statements chống SQL injection, output encoding chống XSS, CSRF token cho các operation thay đổi trạng thái. [NFR-003]
+- Mật khẩu lưu trữ dưới dạng bcrypt hash độ dài 60 ký tự, tuyệt đối không lưu plaintext. [DAT-001]
+- Cô lập ranh giới tenant: Center Admin chỉ thao tác trên trung tâm mình phụ trách, không rò rỉ dữ liệu chéo trung tâm. [ARC-002]
+- Teacher bị khóa quyền chỉ đọc trên lịch dạy và danh sách học viên. [ARC-004]
+- Xác thực đầu vào form trả về thông báo lỗi liệt kê từng trường không hợp lệ để người dùng chỉnh sửa. [EXC-004]
+
+### 🌐 3.2. Rào chắn Hạ tầng & Hiệu năng
+
+- Độ trễ trung bình các API lõi (xác thực, ghi điểm danh, danh sách khóa học) ≤ 200 ms. [NFR-001]
+- Index hóa truy vấn database bảo đảm đọc dưới 1 giây ở mức 10.000 người dùng đồng thời. [NFR-001]
+- Uptime mục tiêu 99.9%/năm với automatic failover liên cụm GKE. [NFR-002]
+- Horizontal scaling qua Kubernetes HPA: trigger khi CPU > 70% hoặc request latency > 300 ms. [NFR-004]
+- PostgreSQL read replicas tiếp nhận toàn bộ workload báo cáo và dashboard. [NFR-004]
+- Base image Docker < 200 MB; image cuối cùng < 500 MB. [NFR-005]
+- Redis session cache hấp thụ truy vấn phiên, giảm tải ghi/đọc lên PostgreSQL. [ARC-010]
+- Ghi điểm danh idempotent: nhiều lần quét cùng học viên/khóa học/ngày chỉ tạo đúng một bản ghi. [REQ-013], [EXC-002]
+- Thông báo giao thất bại được retry tối đa 3 lần trước khi đánh dấu failed. [EXC-003]
+- Sau outage, các bản điểm danh tồn đọng được tái xử lý theo FIFO kèm thông báo khôi phục cho người dùng. [EXC-005]
+
+### 🥞 3.3. MA TRẬN STACK KIẾN TRÚC
+
 ```properties:stack_matrix
 PERSISTENCE_LAYER_REQUIRED=true
 BACKEND_LAYER_REQUIRED=true
