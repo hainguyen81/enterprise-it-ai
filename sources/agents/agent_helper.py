@@ -333,6 +333,12 @@ def render_prompt(template: str, context: dict) -> str:
 def render_kwargs_prompt(template: str, **kwargs) -> str:
     return render_prompt(template=template, context={ **kwargs })
 
+def custom_jinja_tojson_filter(*args, **kwargs):
+    # Jinja2 có thể truyền EvalContext hoặc Environment làm tham số đầu tiên tùy cấu hình template
+    # Chúng ta bốc phần tử cuối cùng trong args hoặc lọc ra đối tượng không phải là Context/Environment
+    target_obj = args[0] if len(args) == 1 else args[1]
+    return json.dumps(target_obj, ensure_ascii=False)
+
 def regex_extract(pattern, data):
     if not pattern or not data:
         return (0, [])

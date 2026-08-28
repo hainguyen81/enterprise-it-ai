@@ -1,7 +1,8 @@
 {
 	"phase_id": {{ ai.phase | default(ai.phase_idx, true) | default(1) | int }},
-	"phase_name": "{{ ai.phase_name | default(ai.phase_title, true) | default(ai.phase, true) | default('Phase ' ~ ai.phase_idx | default(1)) }}",
-	"phase_description": "{{ ai.phase_description | default(ai.description, true) | default(ai.desc, true) | default('No description provided for Phase ' ~ ai.phase_idx | default(1)) }}",
+	"phase_name": {{ ai.phase_name | default(ai.phase_title, true) | default(ai.phase, true) | default('Phase ' ~ ai.phase_idx | default(1)) | tojson }},
+	"phase_description": {{ ai.phase_description | default(ai.description, true) | default(ai.desc, true) | default('No description provided for Phase ' ~ ai.phase_idx | default(1)) | tojson }},
+	"objectives": {{ ai.objectives | default('No objectives provided for Phase ' ~ ai.phase_idx | default(1)) | tojson }},
 	"project_name": "{{ ai.project_name | default('No Specific Project') | lower }}",
 	"global_context_file": "{{ ai.global_context_file | default('No Specific Project Global BluePrint Context File') }}",
 	"source_target_dir": "sources/",
@@ -11,14 +12,14 @@
 			{% set day_idx = day_item.day | default(loop.index, true) | default(0) | int %}
 			{
 			  "day": {{ day_idx }},
-			  "context_section": "{{ day_item.context_section | default(day_item.context, true) | default(day_item.section, true) | default('DAY ' ~ day_idx | default(1)) }}",
+			  "context_section": {{ day_item.context_section | default(day_item.context, true) | default(day_item.section, true) | default('DAY ' ~ day_idx | default(1)) | tojson }},
 			  "context_file": "{{ day_item.context_file | default(day_item.phase_context_file, true) | default(day_item.phase_context, true) | default('No Specific Project Phase BluePrint Context File') }}",
 			  "sub_tasks": [
 				{% for task_item in day_item.tasks | default(day_item.sub_tasks, true) | default(day_item.sub_agent_tasks, true) | default([]) %}
 				{
 				  "id": "D{{ day_idx }}_ST{{ loop.index | default(0) | int }}",
 				  "agent": "{{ day_item.get('subAgent') | default(task_item.assignee, true) | default(task_item.agent, true) | default(task_item.agent_role, true) | default('Coder') }}",
-				  "desc": "{{ task_item.task | default(task_item.desc, true) | default(task_item.description, true) | default(task_item.task_description, true) | default(task_item, true) | default('No task description provided') }}",
+				  "desc": {{ task_item.task | default(task_item.desc, true) | default(task_item.description, true) | default(task_item.task_description, true) | default(task_item, true) | default('No task description provided') | tojson }},
 				  "targeted_tags": [
 				    {% for tag in task_item.targeted_tags | default(task_item.tags, true) | default([]) %}
 					"{{ tag }}"{% if not loop.last %},{% endif %}
@@ -40,14 +41,14 @@
 			{% set day_idx = day_item.day | default(loop.index, true) | default(0) | int %}
 			{
 			  "day": {{ day_idx }},
-			  "context_section": "{{ day_item.context_section | default(day_item.context, true) | default(day_item.section, true) | default('DAY ' ~ day_idx | default(1)) }}",
+			  "context_section": {{ day_item.context_section | default(day_item.context, true) | default(day_item.section, true) | default('DAY ' ~ day_idx | default(1)) | tojson }},
 			  "context_file": "{{ day_item.context_file | default(day_item.phase_context_file, true) | default(day_item.phase_context, true) | default('No Specific Project Phase BluePrint Context File') }}",
 			  "sub_tasks": [
 				{% for task_item in day_item.tasks | default(day_item.sub_tasks, true) | default(day_item.sub_agent_tasks, true) | default([]) %}
 				{
 				  "id": "D{{ day_idx }}_ST{{ loop.index | default(0) | int }}",
 				  "agent": "{{ day_item.get('subAgent') | default(task_item.assignee, true) | default(task_item.agent, true) | default(task_item.agent_role, true) | default('Coder') }}",
-				  "desc": "{{ task_item.task | default(task_item.desc, true) | default(task_item.description, true) | default(task_item.task_description, true) | default(task_item, true) | default('No description provided') }}",
+				  "desc": {{ task_item.task | default(task_item.desc, true) | default(task_item.description, true) | default(task_item.task_description, true) | default(task_item, true) | default('No description provided') | tojson }},
 				  "targeted_tags": [
 				    {% for tag in task_item.targeted_tags | default(task_item.tags, true) | default([]) %}
 					"{{ tag }}"{% if not loop.last %},{% endif %}
@@ -69,14 +70,14 @@
 			{% set day_idx = day_item.day | default(loop.index, true) | default(0) | int %}
 			{
 			  "day": {{ day_idx }},
-			  "context_section": "{{ day_item.context_section | default(day_item.context, true) | default(day_item.section, true) | default('DAY ' ~ day_idx | default(1)) }}",
+			  "context_section": {{ day_item.context_section | default(day_item.context, true) | default(day_item.section, true) | default('DAY ' ~ day_idx | default(1)) | tojson }},
 			  "context_file": "{{ day_item.context_file | default(day_item.phase_context_file, true) | default(day_item.phase_context, true) | default('No Specific Project Phase BluePrint Context File') }}",
 			  "sub_tasks": [
 				{% for task_item in day_item.tasks | default(day_item.sub_tasks, true) | default(day_item.sub_agent_tasks, true) | default([]) %}
 				{
 				  "id": "D{{ day_idx }}_ST{{ loop.index | default(0) | int }}",
 				  "agent": "{{ day_item.get('subAgent') | default(task_item.assignee, true) | default(task_item.agent, true) | default(task_item.agent_role, true) | default('Coder') }}",
-				  "desc": "{{ task_item.task | default(task_item.desc, true) | default(task_item.description, true) | default(task_item.task_description, true) | default(task_item, true) | default('No description provided') }}",
+				  "desc": {{ task_item.task | default(task_item.desc, true) | default(task_item.description, true) | default(task_item.task_description, true) | default(task_item, true) | default('No description provided') | tojson }},
 				  "targeted_tags": [
 				    {% for tag in task_item.targeted_tags | default(task_item.tags, true) | default([]) %}
 					"{{ tag }}"{% if not loop.last %},{% endif %}

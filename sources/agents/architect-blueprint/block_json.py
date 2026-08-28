@@ -17,6 +17,7 @@ from pydantic import BaseModel, Field
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
+    custom_jinja_tojson_filter,
     exception_stacktrace,
     get_logger,
     json_loads,
@@ -76,6 +77,9 @@ class PhaseStepsPlan(BaseModel):
     phase_id: int = Field(description="Target phase tracker index.")
     phase_name: str = Field(default="No phase name provided", description="Target phase tracker name.")
     phase_description: str = Field(default="No phase description provided", description="Target phase description.")
+    objectives: str = Field(
+        default="No phase objectives provided", description="Target phase objectives."
+    )
     project_name: str = Field(description="Target project tracker name.")
     global_context_file: str = Field(description="Project global context Markdown file for closure.")
     source_target_dir: str = Field(description="Project sources folder path for closure.")
@@ -94,6 +98,7 @@ def dynamic_transform(json_data, project_name: str, phase_idx: int, template_fil
         logger.warning(f"        └── ⚠️ The mapping JSON file not found: {template_file_path}. So using manual transform...")
         return manual_transform(json_data, project_name, phase_idx)
     
+    cleaned_str = None
     try:
         # custom field mapping
         # logger.debug(f"        └── ⚠️ The mapping JSON template: {template_content}")
@@ -110,6 +115,8 @@ def dynamic_transform(json_data, project_name: str, phase_idx: int, template_fil
         # 2. Render template using Jinja2 with AI json data
         # wrap AI json data to variable `ai` in mapping config file to use
         jinja_template = Template(template_content)
+        # jinja to support escape JSON value, UTF-8 unicode
+        jinja_template.environment.filters["tojson"] = custom_jinja_tojson_filter
         rendered_str = jinja_template.render(ai=json_data)
         # logger.debug(f"        └── ⚠️ The mapping JSON Rendered String:")
         # logger.debug(f"           { rendered_str }")
@@ -126,7 +133,7 @@ def dynamic_transform(json_data, project_name: str, phase_idx: int, template_fil
         cleaned_str = re.sub(r',\s*\]', ']', rendered_str)
         cleaned_str = re.sub(r'\[\s*,', '[', cleaned_str)
         cleaned_str = re.sub(r',\s*\}', '}', cleaned_str)
-        # logger.debug(f"        └── ⚠️ The mapping JSON Cleaned String:")
+        # logger.debug("        └── ⚠️ The mapping JSON Cleaned String:")
         # logger.debug(f"            { cleaned_str }")
         
         # write log for tracing
@@ -137,15 +144,26 @@ def dynamic_transform(json_data, project_name: str, phase_idx: int, template_fil
         # 4. Parse result JSON after rendering by Jinja
         return json_loads(cleaned_str)
     except Exception as e:
-        logger.warning(f"        └── ❌ Exception while mapping JSON: { str(e) }. So using manual transform...")
+        logger.warning(f"        └── ❌ Exception while mapping JSON: {e!s}. So using manual transform...")
+        logger.warning(f"               JSON: {cleaned_str}")
         logger.warning(f"               StackTrace: { exception_stacktrace(e) }")
         return manual_transform(json_data, project_name, phase_idx)
 
 def manual_transform(json_data, project_name: str, phase_idx: int):
+    phase_name = json_data.get(
+        "phase_name", json_data.get("phase", f"Phase {phase_idx}")
+    )
+    phase_desc = json_data.get(
+        "phase_description",
+        json_data.get(
+            "description",
+            json_data.get("desc", f"No description provided for Phase {phase_idx}."),
+        ),
+    )
     transform_json_data = {
         "phase_id": phase_idx,
-        "phase_name": json_data.get("phase_name", json_data.get("phase", f"Phase {phase_idx}")),
-        "phase_description": json_data.get("phase_description", json_data.get("description", json_data.get("desc", f"No description provided for Phase {phase_idx}."))),
+        "phase_name": phase_name,
+        "phase_description": phase_desc,
         "project_name": project_name.strip(),
         "global_context_file": project_context_file(project_name),
         "source_target_dir": "sources/",
@@ -156,9 +174,13 @@ def manual_transform(json_data, project_name: str, phase_idx: int):
     for item in json_days:
         day_val = item.get("day", 1)
         
+        context_section = item.get(
+            "context_section",
+            item.get("context", item.get("section", f"DAY {day_val}")),
+        )
         step_node = {
             "day": day_val,
-            "context_section": item.get("context_section", item.get("context", item.get("section", f"DAY {day_val}"))),
+            "context_section": context_section,
             "context_file": phase_context_file(phase_idx),
             "sub_tasks": []
         }
@@ -256,11 +278,11 @@ def convert_phases_to_json(
                 "phase_id": phase_idx,
                 "phase_name": f"Phase {phase_idx}",
                 "phase_description": f"No description provided for Phase {phase_idx}.",
+                "objectives": f"No objectives provided for Phase {phase_idx}.",
                 "project_name": project_name.strip(),
                 "global_context_file": global_context_file,
                 "source_target_dir": "sources/",
-                "objectives": [],
-                "days": [] # Matches your dynamic transform's expected source property fields
+                "days": [],  # Matches your dynamic transform's expected source property fields
             }
             
             current_start_day = 1
@@ -374,12 +396,26 @@ def convert_phases_to_json(
                     break
                 
                 # Extract target task collections using flexible property matching vectors
-                master_phase_plan["phase_name"] = json_data.get("phase_name", json_data.get("phase", f"Phase {phase_idx}"))
-                master_phase_plan["phase_description"] = json_data.get("phase_description", json_data.get("description", f"No description provided for Phase {phase_idx}."))
+                master_phase_plan["phase_name"] = json_data.get(
+                    "phase_name", json_data.get("phase", f"Phase {phase_idx}")
+                )
+                master_phase_plan["phase_description"] = json_data.get(
+                    "phase_description",
+                    json_data.get(
+                        "description", f"No description provided for Phase {phase_idx}."
+                    ),
+                )
+                master_phase_plan["objectives"] = json_data.get(
+                    "objectives", f"No objectives provided for Phase {phase_idx}."
+                )
                 chunk_steps_array = json_data.get("days", json_data.get("steps", json_data.get("dailyTasks", json_data.get("dayByDayPlan", []))))
+                days_chunk = len(chunk_steps_array) if chunk_steps_array else 0
+                logger.info(
+                    f"                      └── 🌞 Found/Received {days_chunk} step days."
+                )
                 
                 # Termination trigger: If array is missing or empty, the entire markdown blueprint context has been fully scanned
-                if not chunk_steps_array:
+                if not chunk_steps_array or days_chunk <= 0:
                     logger.warning(
                         f"                      └── 🏁 Reached timeline boundary. No data mapped for Day {current_start_day}+."
                     )
@@ -401,7 +437,13 @@ def convert_phases_to_json(
                         # Auto-inject string metadata if AI fills them with blank placeholders during chunking
                         if not day_node.get("context_file"):
                             day_node["context_file"] = f"{project_phase_context_file}"
-                        day_node["context_section"] = day_node.get("context_section", day_node.get("context", day_node.get("section", f"Day {day_num}")))
+                        context_section = day_node.get(
+                            "context_section",
+                            day_node.get(
+                                "context", day_node.get("section", f"Day {day_num}")
+                            ),
+                        )
+                        day_node["context_section"] = context_section
                         master_phase_plan["days"].append(day_node)
                         new_days_added_in_this_chunk += 1
                 
@@ -413,6 +455,14 @@ def convert_phases_to_json(
                     has_more_days = False
                     break
                 
+                # else if new days or received days array is less than days chunk number, it means next chunk will be empty
+                elif 0 < new_days_added_in_this_chunk < DAYS_PER_CHUNK or days_chunk < DAYS_PER_CHUNK:
+                    logger.warning(
+                        f"                      └── 🏁 [ NO MORE DAY in NEXT ], Active chunk ({days_chunk} days) is less than the current span [{current_start_day}-{current_end_day}]. Ending scroll vector."
+                    )
+                    has_more_days = False
+                    break
+                
                 # chunk day
                 else:
                     # not found any days
@@ -420,6 +470,7 @@ def convert_phases_to_json(
                         logger.warning(
                             f"                      └── 🏁 No new valid days matched the current span [{current_start_day}-{current_end_day}]. Ending scroll vector."
                         )
+                        has_more_days = False
                         break
                     
                     # loop chunk
@@ -427,7 +478,7 @@ def convert_phases_to_json(
                     chunk_counter += 1
                     
                     # Short internal sleep interval protecting free engine limits from burst failures
-                    time.sleep(1)
+                    time.sleep(3)
             
             # --- END OF CHUNK SCROLL LOOP ---
             # dump_json_data = json.dumps(master_phase_plan, indent=4, ensure_ascii=False)
@@ -530,9 +581,11 @@ def run_test_phase_steps_generation(callback, phase: int = 0, daysPerChunk: int 
         AGENTS_PATH, "architect-blueprint", "blueprint.config.map.json"
     )
 
-    AI_BASE_URL = "https://api.mistral.ai/v1"
-    AI_API_KEY = "<!--API Key HERE-->"
-    MODEL_NAME = "codestral-latest"
+    AI_BASE_URL = "https://openrouter.ai/api/v1"
+    AI_API_KEY = (
+        "<!--API Key HERE-->"
+    )
+    MODEL_NAME = "poolside/laguna-xs-2.1:free"
 
     # openAI
     client = OpenAI(
