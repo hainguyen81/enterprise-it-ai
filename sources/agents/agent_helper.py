@@ -353,6 +353,45 @@ def regex_extract_by_pair_tags(tag_start: str, tag_end: str, data):
 def regex_extract_by_tag(tag: str, data):
     return regex_extract_by_pair_tags(tag_start=tag, tag_end=None, data=data)
 
+def regex_remove(pattern, data):
+    if not pattern or not data:
+        return data
+    
+    # remove by regex pattern
+    return re.sub(pattern, "", str(data), flags=re.DOTALL)
+
+def regex_remove_hidden_tag(data, tag: str, emptyToRemAll: bool=False):
+    if not data:
+        return data
+    return (
+        regex_remove(rf"<!--.*?{tag}.*?-->", data) if tag
+        else regex_remove(r"<!--.*?-->", data) if emptyToRemAll
+        else data
+    )
+
+def regex_remove_hidden_tags(
+    data, tags: list[str] | None = None, emptyToRemAll: bool = False
+):
+    if not data:
+        return data
+    
+    # not tags
+    if emptyToRemAll and (not tags or len(tags) <= 0):
+        return regex_remove(r"<!--.*?-->", data)
+    elif not tags or len(tags) <= 0:
+        return data
+    
+    # loop tag
+    cleaned_data = str(data)
+    for tag in tags:
+        cleaned_data = regex_remove_hidden_tag(
+            data=cleaned_data, tag=tag, emptyToRemAll=emptyToRemAll
+        )
+    return cleaned_data
+
+def regex_remove_all_hidden_tags(data):
+    return regex_remove_hidden_tags(data=data)
+
 def validateAIResponse(response):
     if not response or not hasattr(response, 'choices') or not response.choices:
         raise RuntimeError("[API Upstream Error 404]: No Response Found")

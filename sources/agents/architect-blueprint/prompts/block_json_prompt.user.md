@@ -1,5 +1,11 @@
 {% set target_language = language if language and language.strip() != "" else "English" %}
-Analyze the attached Phase {{ phase_idx }} Context Markdown content inside the `--- PHASE {{ phase_idx }} CONTEXT MARKDOWN ---` section. 
+<PHASE_CONTEXT_REFERENCE_BOUND>
+--- PHASE {{ phase_idx }} CONTEXT MARKDOWN ---
+{{ phase_markdown_content }}
+------------------------------------------
+</PHASE_CONTEXT_REFERENCE_BOUND>
+
+Analyze the attached Phase {{ phase_idx }} Context Markdown content inside the `--- PHASE {{ phase_idx }} CONTEXT MARKDOWN ---` section to understand exactly what you MUST do.
 
 {% if is_chunked %}
 # SYSTEM CRITICAL BOUNDARY: CHUNKED CONFIGURATION IS ACTIVE (is_chunked is TRUE)
@@ -39,11 +45,12 @@ Analyze the attached Phase {{ phase_idx }} Context Markdown content inside the `
 - **STRICT STRING SANITIZATION MATRIX:** When extracting strings for the "context_section" field, you MUST programmatically trim away all leading/trailing whitespaces, invisible carriage return anomaly tokens, and line break padding, starting clean directly from the first alpha-numeric character printed.
 - **STRICT AGENT ROLE SEGREGATION (ANTI-AGGREGATION):** If a workflow file involves multiple actions by different personas on the same calendar day, you MUST split this workflow into completely separate, sequential task objects inside the 'sub_tasks' array.
 - **HIGH-DENSITY TECHNICAL SPECIFICATION:** The 'task' field MUST contain an exhaustive, granular engineering instruction. If the sub-task involves an API route, integration endpoint, database query, or message block, you MUST explicitly inline the complete technical contract (e.g., Request/Response Payload Schemas, Data Types, Error Status Codes, or Queue names) directly inside this string value. Vague high-level bullet summaries are forbidden.
-{# START: fixes on 22/08/2026 #}
-- **UNIVERSAL WORKSPACE SCAFFOLDING MULTI-AGENT INJECTION LAW:**
-  - As a permanent system override to Rule 17 and Rule 35, if a generated sub-task targets root architecture configuration descriptors (`pom.xml`, `package.json`, `tsconfig.json`) under Tag ID `[ARC-000]`, you are BANNED from outputting only a single persona node.
-  - You MUST dynamically duplicate, split, and output separate sequential sub-task objects within the active day array mapped to 'Coder' (compilation baseline setup), 'Tester' (test engine layout initialization), and 'Doc' (architectural specifications contract) respectively.
-{# END: fixes on 22/08/2026 #}
+{# START: fixes on 22/08/2026
+- **TARGETED INITIAL WORKSPACE INJECTION MANDATE:**
+  - Only for the first day element of the Phase 1 (normalized as "day": 1), you MUST explicitly locate the specific sub-task object assigned to the 'Coder' agent that handles project initialization (under Tag ID `[ARC-000]`).
+  - You MUST directly inject and append all root and module-level architecture configuration descriptors discovered in the scope (including but not limited to the root `pom.xml`, sub-module `pom.xml` files for each microservice, `package.json`, and `tsconfig.json`) straight into the "components" array field of this SINGLE 'Coder' sub-task object. 
+  - Do NOT split, duplicate, or create separate sub-task objects for each configuration file, and do NOT apply this injection to any other agents ('Tester' or 'Doc') or subsequent days. This ensures all foundational configurations are consolidated cleanly within the initial Coder baseline task without bloating the JSON payload or breaking chronological chunking sequences.
+END: fixes on 22/08/2026 #}
 - **WORKSPACE PREFIX RULE & MULTI-LANGUAGE TEST EXCEPTION:** Every path in 'components' array MUST strictly begin with `./sources/`. 
   * *CRITICAL EXCEPTION:* If the first parameter before the semi-colon character in a tester task is the literal string token `INTEGRATION_SCOPE`, you MUST leave that token completely unmodified. Do NOT append any path prefix to it (e.g., `"components": ["INTEGRATION_SCOPE;./sources/frontend/tests/auth.spec.ts"]`).
 
@@ -111,9 +118,3 @@ You must conform strictly and output exactly ONE (1) single, standalone, unified
 🚨 **CRITICAL PIPELINE FREEZE MANDATE**: You are ABSOLUTELY FORBIDDEN from outputting conversational filler text, dashes, symbols, separators (NO `----------------------------------`), post-generation text remarks, or secondary blocks. Open exactly with a single line of triple backticks + json, render the unified schema, close with a closing brace, close with triple backticks, and STOP GENERATING INSTANTLY. Any token after the first valid closing fence crashes the enterprise runtime.
 
 Required JSON Schema layout design structure: {{ phase_steps_json_schema }}
-
-<PHASE_CONTEXT_REFERENCE_BOUND>
---- PHASE {{ phase_idx }} CONTEXT MARKDOWN ---
-{{ phase_markdown_content }}
-------------------------------------------
-</PHASE_CONTEXT_REFERENCE_BOUND>

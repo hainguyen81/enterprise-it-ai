@@ -1,7 +1,7 @@
 {
     "phase_id": 1,
-    "phase_name": "Thiết lập hạ tầng cơ sở và xác thực cốt lõi",
-    "phase_description": "Giai đoạn này tập trung vào việc xây dựng nền tảng cơ sở của hệ thống quản lý hội viên, bao gồm khởi tạo lược đồ cơ sở dữ liệu PostgreSQL cho các thực thể người dùng, vai trò và trung tâm; triển khai toàn bộ luồng xác thực người dùng (email/mật khẩu, OAuth2 Firebase/Google/Facebook); cấp phát JWT access token (hết hạn 15 phút) và refresh token (hết hạn 7 ngày); triển khai cơ chế phân quyền RBAC với 5 vai trò được định nghĩa; xây dựng API CRUD quản lý trung tâm với kiểm tra trùng lặp mã số thuế; đảm bảo tất cả thành phần tuân thủ các yêu cầu bảo mật cốt lõi, bao gồm biện pháp chống OWASP Top 10, mã hóa dữ liệu và kiểm soát truy cập nghiêm ngặt. Tất cả tệp được tạo trong giai đoạn này nằm trong phạm vi thư mục backend cốt lõi và tài liệu kỹ thuật, không can thiệp vào các module chức năng khác của hệ thống.",
+    "phase_name": "Khởi Tạo Khung Dự Án, Lược Đồ Dữ Liệu Hợp Nhất Và Dịch Vụ Xác Thực",
+    "phase_description": "Hoàn tất nền móng hạ tầng của nền tảng membership-hub: sinh descriptor build gốc Maven multi-module cùng descriptor module con auth-service và db-migrations theo mô hình microservices Java 21/Quarkus 3.15, đồng thời khởi tạo workspace frontend Next.js/React Native với TypeScript strict mode [ARC-000]; thực thi chuỗi Flyway migration V1→V9 tạo đủ 11 bảng lõi với khóa ngoại, unique constraint và index truy vấn sub-second [DAT-001] đến [DAT-011]; triển khai endpoint POST /api/v1/auth/register hash bcrypt cost 12 cấp JWT RS256 15 phút kèm refresh token 7 ngày với cơ chế liệt kê từng trường không hợp lệ khi validation thất bại [REQ-001], [EXC-004]; tích hợp đăng nhập mạng xã hội OAuth2 Firebase/Google/Facebook [REQ-002]; xây dựng API gán/thay đổi vai trò người dùng kèm audit log append-only [REQ-003]. Tester bàn giao JUnit suite auth, integration test migration CSDL và profile E2E đăng ký; Doc bàn giao blueprint kiến trúc tổng thể và đặc tả tham chiếu API auth-service.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -9,67 +9,98 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Khởi tạo schema cơ sở dữ liệu và dịch vụ xác thực cốt lõi",
+            "context_section": "Khởi Tạo Khung Dự Án Backend Multi-Module Và Workspace Frontend TypeScript Strict Mode",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Viết script migration ANSI SQL chuẩn để tạo 3 bảng: roles, users, centers",
+                    "desc": "Khai báo packaging=pom với groupId org.nlh4j, artifactId membership-hub-backend, version 1.0.0-SNAPSHOT; import Quarkus BOM 3.15.x vào dependencyManagement tập trung để khóa phiên bản toàn chuỗi dịch vụ; cố định maven-compiler-plugin ở release Java 21 với encoding UTF-8; liệt kê hai module con auth-service và db-migrations theo thứ tự phụ thuộc; thiết lập hai profile dev và production kiểm soát biến cấu hình môi trường thống nhất (quarkus.profile, datasource host, redis endpoint) không chứa secret hardcode; khai báo pluginManagement dùng chung cho quarkus-maven-plugin, surefire và failsafe bảo đảm mọi module con kế thừa vòng đời build đồng nhất. Nghiêm cấm khai báo trùng phiên bản dependency ở module con gây xung đột cây Maven.",
                     "targeted_tags": [
-                        "[DAT-001]",
-                        "[DAT-003]"
+                        "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/migrations/V1__init_user_center_schema.sql"
+                        "./sources/backend/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST2",
                     "agent": "Coder",
-                    "desc": "Triển khai logic xác thực email/mật khẩu và cấp phát JWT token",
+                    "desc": "Kế thừa parent membership-hub-backend mà không tái khai báo phiên bản; khai báo dependency quarkus-rest, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-smallrye-jwt, quarkus-redis-client, quarkus-hibernate-validator cùng quarkus-flyway phục vụ bootstrap schema; gắn quarkus-maven-plugin cho các goal dev/build/package; định nghĩa thuộc tính quarkus.container-image.name=auth-service phục vụ đóng gói image ở giai đoạn DevOps; bổ sung dependency test scope junit-jupiter, rest-assured và testcontainers-postgresql làm nền cho suite kiểm thử của Tester ở các ngày tiếp theo.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[ARC-006]"
+                        "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/AuthService.java"
+                        "./sources/backend/auth-service/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST3",
                     "agent": "Coder",
-                    "desc": "Xây dựng endpoint đăng ký và đăng nhập người dùng",
+                    "desc": "Thiết lập module chuyên chứa tài nguyên Flyway: dependency flyway-core và org.postgresql:postgresql driver scope runtime; cấu hình maven-resources-plugin giữ nguyên thư mục db/migration khi copy tài nguyên để tên file V{n}__{description}.sql không bị biến đổi; đóng gói toàn bộ chuỗi migration vào artifact triển khai chung để auth-service và các dịch vụ ở giai đoạn sau tham chiếu cùng một nguồn schema duy nhất; cấm phát sinh mã Java trong module này ngoài lớp bootstrap tối thiểu.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[EXC-004]"
+                        "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/AuthResource.java"
+                        "./sources/backend/db-migrations/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST4",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử đơn vị cho dịch vụ xác thực và endpoint đăng ký",
+                    "agent": "Coder",
+                    "desc": "Khai báo scripts dev/build/lint/start chuẩn npm workspaces; khai báo dependencies next 14.2.x, react 18.3.x, react-dom, react-native 0.75.x, expo SDK 51, typescript 5.5.x; devDependencies eslint, prettier, tailwindcss 3.4.x; cấu hình workspaces trỏ tới hai ứng dụng con web-app và mobile-app làm nền chung cho các giai đoạn giao diện phía sau; đặt private:true chặn publish nhầm lên registry; ghim engines node >= 20 bảo đảm tương thích build CI GitHub Actions.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[EXC-004]"
+                        "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/AuthService.java;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/AuthServiceTest.java"
+                        "./sources/frontend/package.json"
                     ]
                 },
                 {
                     "id": "D1_ST5",
-                    "agent": "Doc",
-                    "desc": "Viết tài liệu đặc tả API cho luồng xác thực người dùng",
+                    "agent": "Coder",
+                    "desc": "Bật strict:true, noUncheckedIndexedAccess, exactOptionalPropertyTypes, noImplicitOverride; ánh xạ path alias @/* về src/* phục vụ import tuyệt đối; chọn target ES2022, lib DOM+ES2022, moduleResolution bundler, jsx preserve để tương thích đồng thời Next.js SSR và React Native Metro bundler; bật skipLibCheck giảm nhiễu kiểu từ thư viện bên thứ ba; cấu hình include phủ src và exclude node_modules/dist/.next.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[REQ-002]",
-                        "[ARC-006]"
+                        "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/docs/auth-api-spec.md"
+                        "./sources/frontend/tsconfig.json"
+                    ]
+                },
+                {
+                    "id": "D1_ST6",
+                    "agent": "Tester",
+                    "desc": "Viết @QuarkusIntegrationTest khởi động auth-service từ descriptor vừa sinh; xác minh application context tải thành công, health probe /q/health trả UP cho cả liveness và readiness; chạy `mvn -q dependency:tree` khẳng định cây Maven không xung đột phiên bản giữa Quarkus BOM và dependency của module con; fail build ngay nếu bootstrap lỗi hoặc xuất hiện convergence warning; ghi kết quả smoke nền móng vào báo cáo kiểm thử làm điều kiện mở khóa Ngày 2.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/BootstrapContextIT.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST7",
+                    "agent": "Reviewer",
+                    "desc": "Rà soát dependencyManagement tránh phiên bản trùng lặp hoặc xung đột plugin; chuẩn hóa thứ tự khai báo module theo chiều phụ thuộc db-migrations trước auth-service; đối chiếu encoding UTF-8 và release 21 trên compiler; kiểm tra profile dev/production không chứa credential hardcode; lập danh sách remediation ưu tiên kèm chủ sở hữu fix và chốt điều kiện mở khóa giai đoạn xây dựng lược đồ dữ liệu ở Ngày 2.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/backend/pom.xml"
+                    ]
+                },
+                {
+                    "id": "D1_ST8",
+                    "agent": "Doc",
+                    "desc": "Biên soạn khung blueprint kiến trúc tổng thể: topology microservices hiện hành (auth-service, db-migrations) và lộ trình 10 dịch vụ mục tiêu; sơ đồ phụ thuộc Maven parent–child; chiến lược profile dev/production; quy ước gói org.nlh4j.membership_hub.*; ma trận stack công nghệ Java 21 LTS/Quarkus 3.15.x/PostgreSQL 16.x/Redis 7.2.x/Kafka 3.7.x; đánh dấu mục lục các phần sẽ bổ sung ở giai đoạn sau (RBAC gateway, enrollment, notification đa kênh, reporting); neo mọi mục vào thẻ truy vết [ARC-000] và chuẩn bị cấu trúc liên kết chéo cho từ điển dữ liệu cũng như đặc tả API auth-service.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
                     ]
                 }
             ]
@@ -77,188 +108,83 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Triển khai xác thực OAuth2 và cơ chế phân quyền RBAC",
+            "context_section": "Xây Dựng Lược Đồ Dữ Liệu Hạt Nhân Roles, Users, Centers, Courses Với Ràng Buộc Và Index Tối Ưu",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Tích hợp luồng xác thực OAuth2 với Firebase, Google và Facebook",
+                    "desc": "Tạo extension pgcrypto phục vụ gen_random_uuid(); dựng bảng roles (role_id SMALLINT PK, name VARCHAR(30) UNIQUE NOT NULL, description VARCHAR(200)) và seed đúng 5 vai trò SYSTEM_ADMIN/CENTER_ADMIN/MANAGER/TEACHER/STUDENT; dựng bảng users với email VARCHAR(255) UNIQUE NOT NULL, password_hash CHAR(60) NOT NULL dành cho bcrypt, full_name VARCHAR(100) NOT NULL, role_id SMALLINT FK về roles, provider VARCHAR(20) DEFAULT 'local' kèm CHECK IN ('local','firebase','google','facebook'), created_at/updated_at TIMESTAMP DEFAULT now(); thêm index idx_users_role_id và idx_users_provider phục vụ lọc vai trò và nguồn xác thực; tuân thủ ANSI SQL nghiêm cấm ENUM inline, thay bằng VARCHAR + CHECK.",
                     "targeted_tags": [
-                        "[REQ-002]",
-                        "[EXC-004]"
+                        "[DAT-002]",
+                        "[DAT-001]"
                     ],
                     "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/OAuth2Service.java"
+                        "./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql"
                     ]
                 },
                 {
                     "id": "D2_ST2",
                     "agent": "Coder",
-                    "desc": "Xây dựng endpoint quản lý vai trò người dùng (RBAC)",
+                    "desc": "Tạo bảng centers với center_id UUID PK DEFAULT gen_random_uuid(), name VARCHAR(100) NOT NULL, address VARCHAR(255) NOT NULL, tax_id VARCHAR(13) NOT NULL UNIQUE kèm CHECK regex ^[0-9]{10,13}$ ép định dạng số 10–13 chữ số, contact_phone VARCHAR(30) nullable, contact_email VARCHAR(255) nullable áp dụng CHECK pattern email khi có giá trị; đặt tên ràng buộc tường minh pk_centers/uq_centers_tax_id/ck_centers_tax_id_digits/ck_centers_contact_email để tầng ứng dụng ở Giai đoạn 2 ánh xạ chính xác lỗi 409 TAX_ID_CONFLICT.",
                     "targeted_tags": [
-                        "[REQ-003]",
-                        "[ARC-001]"
+                        "[DAT-003]"
                     ],
                     "components": [
-                        "./sources/backend/user-service/src/main/java/org/nlh4j/membership_hub/user/RoleService.java"
+                        "./sources/backend/db-migrations/src/main/resources/db/migration/V2__create_centers_table.sql"
                     ]
                 },
                 {
                     "id": "D2_ST3",
                     "agent": "Coder",
-                    "desc": "Xây dựng endpoint lấy danh sách người dùng và quản lý vai trò",
+                    "desc": "Tạo bảng courses với course_id UUID PK DEFAULT gen_random_uuid(), title VARCHAR(150) NOT NULL, description TEXT nullable, start_date/end_date DATE NOT NULL kèm CHECK end_date >= start_date, teacher_id UUID FK về users(user_id) cho phép NULL, max_students INTEGER NOT NULL DEFAULT 30 kèm CHECK > 0; tạo index idx_courses_teacher_id và idx_courses_start_date phục vụ tra cứu lịch dạy và lưới khóa học đạt độ trễ sub-second ở Giai đoạn 2.",
                     "targeted_tags": [
-                        "[REQ-003]",
-                        "[ARC-001]"
+                        "[DAT-004]"
                     ],
                     "components": [
-                        "./sources/backend/user-service/src/main/java/org/nlh4j/membership_hub/user/UserResource.java"
+                        "./sources/backend/db-migrations/src/main/resources/db/migration/V3__create_courses_table.sql"
                     ]
                 },
                 {
                     "id": "D2_ST4",
                     "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử đơn vị cho luồng OAuth2 và RBAC",
+                    "desc": "Dùng Testcontainers PostgreSQL 16 khởi động container sạch rồi chạy Flyway migrate qua module db-migrations; assert bảng roles chứa đúng 5 dòng seed; chèn user hợp lệ với bcrypt hash 60 ký tự thành công; chèn email trùng bị từ chối bởi uq_users_email; tax_id 9 chữ số bị ck_centers_tax_id_digits chặn còn tax_id 10–13 chữ số được chấp nhận; khóa học với end_date sớm hơn start_date bị ck_courses_date_range chặn; đo thời gian migrate toàn chuỗi làm baseline CI và fail pipeline nếu vượt ngưỡng 5 giây.",
                     "targeted_tags": [
-                        "[REQ-002]",
-                        "[REQ-003]",
-                        "[EXC-004]"
+                        "[DAT-001]",
+                        "[DAT-002]",
+                        "[DAT-003]",
+                        "[DAT-004]"
                     ],
                     "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/OAuth2Service.java;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/OAuth2ServiceTest.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 3,
-            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Triển khai quản lý trung tâm và phân quyền quản trị trung tâm",
-            "sub_tasks": [
-                {
-                    "id": "D3_ST1",
-                    "agent": "Coder",
-                    "desc": "Xây dựng dịch vụ quản lý trung tâm (CRUD)",
-                    "targeted_tags": [
-                        "[REQ-005]",
-                        "[ARC-002]"
-                    ],
-                    "components": [
-                        "./sources/backend/center-service/src/main/java/org/nlh4j/membership_hub/center/CenterService.java"
+                        "INTEGRATION_SCOPE;./sources/backend/db-migrations/src/test/java/org/nlh4j/membership_hub/db/CoreSchemaMigrationIT.java"
                     ]
                 },
                 {
-                    "id": "D3_ST2",
-                    "agent": "Coder",
-                    "desc": "Xây dựng API CRUD quản lý trung tâm",
-                    "targeted_tags": [
-                        "[REQ-004]",
-                        "[REQ-005]",
-                        "[ARC-002]"
-                    ],
-                    "components": [
-                        "./sources/backend/center-service/src/main/java/org/nlh4j/membership_hub/center/CenterResource.java"
-                    ]
-                },
-                {
-                    "id": "D3_ST3",
-                    "agent": "Coder",
-                    "desc": "Triển khai chức năng gán/huỷ gán quản trị viên trung tâm",
-                    "targeted_tags": [
-                        "[REQ-006]",
-                        "[ARC-002]"
-                    ],
-                    "components": [
-                        "./sources/backend/center-service/src/main/java/org/nlh4j/membership_hub/center/CenterAdminService.java"
-                    ]
-                },
-                {
-                    "id": "D3_ST4",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử tích hợp cho API quản lý trung tâm",
-                    "targeted_tags": [
-                        "[REQ-004]",
-                        "[REQ-005]",
-                        "[REQ-006]"
-                    ],
-                    "components": [
-                        "INTEGRATION_SCOPE;./sources/backend/center-service/src/test/java/org/nlh4j/membership_hub/center/CenterIntegrationTest.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 4,
-            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Hoàn thiện phân quyền RBAC và kiểm thử toàn diện giai đoạn",
-            "sub_tasks": [
-                {
-                    "id": "D4_ST1",
-                    "agent": "Coder",
-                    "desc": "Triển khai bộ lọc phân quyền RBAC toàn cục cho tất cả endpoint",
-                    "targeted_tags": [
-                        "[ARC-001]",
-                        "[ARC-002]",
-                        "[ARC-003]",
-                        "[ARC-004]",
-                        "[ARC-005]"
-                    ],
-                    "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/RbacFilter.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST2",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử đơn vị cho bộ lọc RBAC",
-                    "targeted_tags": [
-                        "[ARC-001]",
-                        "[ARC-002]",
-                        "[ARC-003]",
-                        "[ARC-004]",
-                        "[ARC-005]"
-                    ],
-                    "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/RbacFilter.java;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/RbacFilterTest.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST3",
+                    "id": "D2_ST5",
                     "agent": "Reviewer",
-                    "desc": "Rà soát mã nguồn và sửa lỗi cho các thành phần giai đoạn 1",
+                    "desc": "Kiểm tra tuân thủ ANSI SQL: cấm ENUM inline, thay bằng VARCHAR + CHECK; độ kín khóa ngoại users.role_id→roles.role_id và courses.teacher_id→users.user_id; xác nhận unique constraint email/tax_id đặt tên tường minh phục vụ ánh xạ lỗi nghiệp vụ; đánh giá index phục vụ truy vấn danh sách Giai đoạn 2; rà soát an toàn rollback migration và khả năng replay trên môi trường sạch; đề xuất chỉnh sửa trước khi cho phép merge lên nhánh tích hợp.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[REQ-002]",
-                        "[REQ-003]",
-                        "[REQ-004]",
-                        "[REQ-005]",
-                        "[REQ-006]",
-                        "[EXC-004]",
-                        "[ARC-001]",
-                        "[ARC-002]",
-                        "[ARC-006]"
+                        "[DAT-001]",
+                        "[DAT-002]",
+                        "[DAT-003]",
+                        "[DAT-004]"
                     ],
                     "components": [
-                        "./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/AuthResource.java;./sources/backend/user-service/src/main/java/org/nlh4j/membership_hub/user/UserResource.java;./sources/backend/center-service/src/main/java/org/nlh4j/membership_hub/center/CenterResource.java"
+                        "./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql"
                     ]
                 },
                 {
-                    "id": "D4_ST4",
+                    "id": "D2_ST6",
                     "agent": "Doc",
-                    "desc": "Hoàn thiện tài liệu kỹ thuật cho giai đoạn 1",
+                    "desc": "Mô tả từng cột, kiểu dữ liệu, ràng buộc và giá trị mặc định của 4 bảng hạt nhân ROLES/USERS/CENTERS/COURSES; vẽ sơ đồ quan hệ ROLES ||--o{ USERS và USERS ||--o{ COURSES bằng Mermaid; kèm ví dụ giá trị mẫu và ghi chú ảnh hưởng tới API quản trị trung tâm/khóa học ở Giai đoạn 2; liệt kê từng index kèm mục đích tối ưu truy vấn và ghi chú chính sách bcrypt 60 ký tự cho cột password_hash.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[REQ-002]",
-                        "[REQ-003]",
-                        "[REQ-004]",
-                        "[REQ-005]",
-                        "[REQ-006]",
-                        "[ARC-001]",
-                        "[ARC-002]",
-                        "[ARC-006]"
+                        "[DAT-001]",
+                        "[DAT-002]",
+                        "[DAT-003]",
+                        "[DAT-004]"
                     ],
                     "components": [
-                        "./sources/docs/rbac-policy.md;./sources/docs/center-management-spec.md"
+                        "./sources/docs/database/PHYSICAL_ERD_RELATIONAL_MAPPING.md",
+                        "./sources/docs/database/ENTERPRISE_DATA_DICTIONARY_SPEC.md"
                     ]
                 }
             ]
