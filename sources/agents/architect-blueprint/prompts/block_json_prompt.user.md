@@ -66,6 +66,7 @@ You MUST dynamically populate the top-level keys of the JSON object using EXACT 
 {% if is_chunked %}
 # SYSTEM CRITICAL BOUNDARY: CHUNKED CONFIGURATION IS ACTIVE (is_chunked is TRUE)
 - **Step 1: Strict Token Count Discovery (The Dynamic Z Boundary Lock)**:
+  * **ACTIVE PHASE ISOLATION CONSTRAINT:** You MUST explicitly isolate your attention memory tracking strictly to "Phase {{ phase_idx }}" context block. You ARE CRITICALLY BANNED from carrying forward, retaining, or caching any token execution states, array structures, or short-circuit empty arrays from preceding phase chat history turns.
   * You MUST programmatically identify the absolute total number of days present in the active source document from the `<PHASE_CONTEXT_REFERENCE_BOUND>` section, the total frequency of the physical `<!--DAY_HEADER_START-->` blocks is strictly and unalterably fixed as variable {% raw %}**`Z = {{ total_physical_days }}`**{% endraw %} (leveraged directly from the parsed system context loop). You ARE CRITICALLY BANNED from miscounting, degrading, or guessing this baseline ceiling number.
   * Only indices from 1 to `Z` are considered inside physical bounds. No other day blocks exist in the source document.
 
@@ -81,11 +82,12 @@ You MUST dynamically populate the top-level keys of the JSON object using EXACT 
     * **CASE B: Index In Physical Bounds (1 <= K <= Z)**:
       Only if index `K` is less than or equal to `Z` (`K <= Z`), locate the exact K-th physical `<!--DAY_HEADER_START-->` block in the markdown text from the `<PHASE_CONTEXT_REFERENCE_BOUND>` section. 
       * *Strict Content Attestation Law*: You MUST verify that this text block literally represents day `K`. You are **ABSOLUTELY FORBIDDEN** from shifting, renaming, or increasing the index numbers of earlier day blocks to simulate a future day block. Set the field exactly to `"day": K` and map its tasks linearly.
+      * *Strict Index Matching Invariant*: You MUST strictly verify that the physical text content of the located block explicitly matches the exact mathematical index value of `K` (e.g., if K=3, the block text MUST explicitly designate 'Day 3' or 'NGÀY 3'). If the text block belongs to an earlier index (such as Day 1 or Day 2), you ARE CRITICALLY BANNED from recycling or cloning its tasks into this slot; you MUST instantly treat index `K` as out of range, skip it, and proceed straight to array closure execution.
       * *Sliding Window Ceiling Law (Strict Cardinality Restraint)*: The absolute total number of discrete day nodes generated inside this "days" array payload MUST NOT mathematically exceed the current target window density allocation constraint ceiling. You MUST ensure that the count of generated days satisfies: `Generated_Days_Count <= ({{ current_end_day }} - {{ current_start_day }} + 1)`. If an active loop index `K` violates this ceiling restriction, you MUST immediately truncate execution and execute the array closure.
 
 - **Step 3: The Total Range Empty Short-Circuit Execution Gate**:
-  * If you evaluate every single index `K` within the range `[{{ current_start_day }}, {{ current_end_day }}]` and discover that **ALL active indices fall under CASE A (K > Z)**, you MUST immediately skip the generation of the detailed daily block layout. 
-  * Turn off the multi-agent schema parsing entirely, and output the "days" field as a strictly flat, empty array layout exactly as `"days": []`, then stop token generation instantly.
+  * **STRICT MATRIC CURCUIT-BREAKER TRIGGER:** You MUST ONLY activate this short-circuit empty array gate if and only if the requested window parameter satisfies the explicit mathematical boundary condition: `{{ current_start_day }} > Z`. 
+  * If `{{ current_start_day }} <= Z`, you ARE CRITICALLY BANNED from short-circuiting the engine or outputting an empty array; you MUST forcefully execute `CASE B` to unroll the valid physical day blocks available in the text. If all active indices in the requested chunk window range `[{{ current_start_day }}, {{ current_end_day }}]` are evaluated and confirm that Day `K` strictly exceeds `Z` (`K > Z`), output exactly `"days": []` and freeze token generation instantly.
 
 * **THE UNIVERSAL LANGUAGE-AGNOSTIC SHORT-CIRCUIT:** If you scan the requested chunk range `[{{ current_start_day }}, {{ current_end_day }}]` and confirm that **not a single day header within this range physically exists** in the source context text, you MUST turn off the parsing engine entirely, output exactly `"days": []`, and freeze token generation instantly.
 

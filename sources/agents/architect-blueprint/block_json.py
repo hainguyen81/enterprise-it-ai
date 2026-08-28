@@ -458,7 +458,7 @@ def convert_phases_to_json(
                 # else if new days or received days array is less than days chunk number, it means next chunk will be empty
                 elif 0 < new_days_added_in_this_chunk < DAYS_PER_CHUNK or days_chunk < DAYS_PER_CHUNK:
                     logger.warning(
-                        f"                      └── 🏁 [ NO MORE DAY in NEXT ], Active chunk ({days_chunk} days) is less than the current span [{current_start_day}-{current_end_day}]. Ending scroll vector."
+                        f"                      └── 🏁 [ NO MORE DAY in NEXT ], Active chunk ({days_chunk} days, new VALID {new_days_added_in_this_chunk} days) is less than the current span [{current_start_day}-{current_end_day}]. Ending scroll vector."
                     )
                     has_more_days = False
                     break
@@ -478,7 +478,7 @@ def convert_phases_to_json(
                     chunk_counter += 1
                     
                     # Short internal sleep interval protecting free engine limits from burst failures
-                    time.sleep(3)
+                    time.sleep(5)
             
             # --- END OF CHUNK SCROLL LOOP ---
             # dump_json_data = json.dumps(master_phase_plan, indent=4, ensure_ascii=False)
@@ -541,7 +541,7 @@ def convert_phases_to_json(
                 
                 # Save the raw unparsed text payload directly to file for manual logging evaluation
                 with open(fallback_path, "w", encoding="utf-8") as f:
-                    f.write(f"```text{raw_data}```")
+                    f.write(raw_data)
                     f.write("\n-------------------------------------------------\n")
                     f.write(f"```text{json.dumps(master_phase_plan, indent=4, ensure_ascii=False)}```")
                     f.write("\n-------------------------------------------------\n")
@@ -585,7 +585,7 @@ def run_test_phase_steps_generation(callback, phase: int = 0, daysPerChunk: int 
     AI_API_KEY = (
         "<!--API Key HERE-->"
     )
-    MODEL_NAME = "poolside/laguna-xs-2.1:free"
+    MODEL_NAME = "minimax/minimax-m3:free"
 
     # openAI
     client = OpenAI(

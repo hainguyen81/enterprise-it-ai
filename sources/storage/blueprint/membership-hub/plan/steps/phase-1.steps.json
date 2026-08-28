@@ -2,6 +2,7 @@
     "phase_id": 1,
     "phase_name": "Khởi Tạo Khung Microservices, Di Trú Cơ Sở Dữ Liệu Lõi Và Nền Tảng Bảo Mật Gateway",
     "phase_description": "Giai đoạn 1 tập trung vào việc thiết lập toàn bộ khung dự án microservices Quarkus với Maven multi-module cho sáu service backend, đồng thời khởi tạo frontend Next.js. Triển khai Flyway migration scripts cho 11 bảng cơ sở dữ liệu lõi với các ràng buộc UNIQUE, FOREIGN KEY, INDEXES tuân thủ chuẩn OWASP. Thiết lập lớp bảo mật nền tảng gồm JWT filter chain, OAuth2 resource server, CORS policy, OpenAPI 3.0 gateway spec và Kafka topic schemas. Giai đoạn này đặt nền móng kiến trúc vững chắc cho toàn bộ hệ thống membership-hub, đảm bảo 100% tuân thủ các tiêu chuẩn bảo mật doanh nghiệp và khả năng mở rộng theo chiều ngang.",
+    "objectives": "Khởi tạo khung dự án Maven multi-module cho sáu microservice backend sử dụng Quarkus 3.15.1 trên nền tảng JDK 21 LTS, thiết lập frontend Next.js 14.2.5 với TypeScript strict mode, triển khai Flyway migration cho 11 bảng cơ sở dữ liệu lõi với đầy đủ ràng buộc UNIQUE/FOREIGN KEY/CHECK/INDEXES, xây dựng lớp bảo mật nền tảng gồm JWT filter chain RS256, OAuth2 resource server với JWKS, CORS policy, OpenAPI 3.0 gateway spec và Kafka topic schemas, đảm bảo 100% tuân thủ OWASP Top 10 và mã hóa bcrypt cost 12.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -80,7 +81,6 @@
                         "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/docs/review/phase1-day1-manifest-review.md",
                         "./sources/backend/pom.xml",
                         "./sources/backend/user-service/pom.xml",
                         "./sources/backend/center-service/pom.xml",
@@ -89,7 +89,8 @@
                         "./sources/backend/attendance-service/pom.xml",
                         "./sources/backend/notification-service/pom.xml",
                         "./sources/frontend/package.json",
-                        "./sources/frontend/tsconfig.json"
+                        "./sources/frontend/tsconfig.json",
+                        "./sources/docs/review/phase1-day1-manifest-review.md"
                     ]
                 },
                 {
@@ -232,7 +233,6 @@
                         "[DAT-011]"
                     ],
                     "components": [
-                        "./sources/docs/review/phase1-day2-migration-review.md",
                         "./sources/backend/user-service/src/main/resources/db/migration/V1__init_users_roles.sql",
                         "./sources/backend/user-service/src/main/resources/db/migration/V2__init_users_provider.sql",
                         "./sources/backend/center-service/src/main/resources/db/migration/V1__init_centers.sql",
@@ -243,7 +243,8 @@
                         "./sources/backend/notification-service/src/main/resources/db/migration/V2__init_notifications.sql",
                         "./sources/backend/notification-service/src/main/resources/db/migration/V3__init_promotions.sql",
                         "./sources/backend/notification-service/src/main/resources/db/migration/V4__init_announcements.sql",
-                        "./sources/backend/notification-service/src/main/resources/db/migration/V5__init_system_settings.sql"
+                        "./sources/backend/notification-service/src/main/resources/db/migration/V5__init_system_settings.sql",
+                        "./sources/docs/review/phase1-day2-migration-review.md"
                     ]
                 },
                 {
@@ -264,12 +265,12 @@
         {
             "day": 3,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "NGÀY 3: Thiết Lập Lớp Bảo Mật, Gateway Và Kafka Topic Schemas",
+            "context_section": "Thiết Lập Lớp Bảo Mật, Gateway Và Kafka Topic Schemas",
             "sub_tasks": [
                 {
                     "id": "D3_ST1",
                     "agent": "Coder",
-                    "desc": "Tạo class Java tại đường dẫn ./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtFilter.java thuộc package org.nlh4j.membershiphub.userservice.security. Class triển khai interface ContainerRequestFilter với annotation @Provider và @Priority(Priorities.AUTHENTICATION). Inject JwtParser từ SmallRye JWT thông qua @Inject. Phương thức filter(ContainerRequestContext requestContext) đọc header Authorization với định dạng Bearer <token>, gọi jwtParser.parse(token) để xác minh chữ ký RS256 và parse các claim. Trích xuất claim sub (user UUID), groups (danh sách role), exp (thời gian hết hạn). Khi thiếu token hoặc token không hợp lệ, gọi requestContext.abortWith(Response.status(401).build()). Khi token hết hạn, abort với 401 và thông điệp \"Token expired\". Khi role không hợp lệ so với yêu cầu endpoint, abort với 403. Lưu principal là user UUID vào SecurityContext thông qua requestContext.setSecurityContext(). Đảm bảo filter chỉ áp dụng cho các đường dẫn bắt đầu bằng /api/v1/. Hợp đồng OpenAPI: openapi 3.0.3, info title Membership Hub - JWT Filter Security Contract, version 1.0.0, components securitySchemes bearerAuth type http scheme bearer bearerFormat JWT, security [{ bearerAuth: [] }], paths /api/v1/auth/register post summary Reference endpoint security [].",
+                    "desc": "Khởi tạo class Java tại đường dẫn ./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtFilter.java thuộc package org.nlh4j.membershiphub.userservice.security. Class triển khai interface ContainerRequestFilter với annotation @Provider và @Priority(Priorities.AUTHENTICATION). Inject JwtParser từ SmallRye JWT thông qua @Inject. Phương thức filter(ContainerRequestContext requestContext) đọc header Authorization với định dạng Bearer <token>, gọi jwtParser.parse(token) để xác minh chữ ký RS256 và parse các claim. Trích xuất claim sub (user UUID), groups (danh sách role), exp (thời gian hết hạn). Khi thiếu token hoặc token không hợp lệ, gọi requestContext.abortWith(Response.status(401).build()). Khi token hết hạn, abort với 401 và thông điệp \"Token expired\". Khi role không hợp lệ so với yêu cầu endpoint, abort với 403. Lưu principal là user UUID vào SecurityContext thông qua requestContext.setSecurityContext(). Đảm bảo filter chỉ áp dụng cho các đường dẫn bắt đầu bằng /api/v1/.",
                     "targeted_tags": [
                         "[ARC-006]"
                     ],
@@ -291,7 +292,7 @@
                 {
                     "id": "D3_ST3",
                     "agent": "Coder",
-                    "desc": "Tạo class Java tại đường dẫn ./sources/backend/api-gateway/src/main/java/org/nlh4j/membershiphub/gateway/CorsFilter.java thuộc package org.nlh4j.membershiphub.gateway. Class triển khai hai interface: ContainerResponseFilter để áp dụng CORS header cho mọi response, và ContainerRequestFilter để xử lý preflight OPTIONS request. Trong ContainerResponseFilter.filter(), thêm các header sau vào response: Access-Control-Allow-Origin: https://app.membershiphub.example.com (cấm wildcard), Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS, Access-Control-Allow-Headers: Authorization,Content-Type,Accept-Language, Access-Control-Allow-Credentials: true, Access-Control-Max-Age: 3600. Trong ContainerRequestFilter.filter(), kiểm tra nếu method là OPTIONS, gọi requestContext.abortWith(Response.status(200).build()) để trả về 200 OK ngay cho preflight request. Class phải là API Gateway infrastructure, không chứa logic nghiệp vụ.",
+                    "desc": "Triển khai class Java tại đường dẫn ./sources/backend/api-gateway/src/main/java/org/nlh4j/membershiphub/gateway/CorsFilter.java thuộc package org.nlh4j.membershiphub.gateway. Class triển khai hai interface: ContainerResponseFilter để áp dụng CORS header cho mọi response, và ContainerRequestFilter để xử lý preflight OPTIONS request. Trong ContainerResponseFilter.filter(), thêm các header sau vào response: Access-Control-Allow-Origin: https://app.membershiphub.example.com (cấm wildcard), Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS, Access-Control-Allow-Headers: Authorization,Content-Type,Accept-Language, Access-Control-Allow-Credentials: true, Access-Control-Max-Age: 3600. Trong ContainerRequestFilter.filter(), kiểm tra nếu method là OPTIONS, gọi requestContext.abortWith(Response.status(200).build()) để trả về 200 OK ngay cho preflight request. Class phải là API Gateway infrastructure, không chứa logic nghiệp vụ.",
                     "targeted_tags": [
                         "[ARC-006]",
                         "[ARC-009]"
@@ -317,7 +318,7 @@
                 {
                     "id": "D3_ST5",
                     "agent": "Coder",
-                    "desc": "Tạo class Java tại đường dẫn ./sources/backend/notification-service/src/main/java/org/nlh4j/membershiphub/notificationservice/kafka/TopicSchemas.java thuộc package org.nlh4j.membershiphub.notificationservice.kafka. Class chứa ba inner record class đại diện cho JSON schema của ba Kafka topic chính: (1) EnrollmentCreated với các trường enrollmentId, studentId, courseId, timestamp định dạng ISO-8601; (2) TeacherAssigned với các trường courseId, teacherId, assignedBy, assignedAt; (3) AttendanceRecorded với các trường attendanceId, studentId, courseId, attendanceDate định dạng YYYY-MM-DD. Mỗi record sử dụng annotation Jackson @JsonProperty cho key và value, kèm builder method thông qua @JsonCreator. Class sử dụng quarkus-messaging-kafka để produce event với cấu hình acks=all, compression.type=snappy, batch.size=65536, linger.ms=20. Đồng thời tạo tệp YAML tại ./sources/backend/notification-service/src/main/resources/kafka-topics.yaml khai báo cấu hình topic gồm enrollment.created (partitions: 6, replication: 3), teacher.assigned (partitions: 3, replication: 3), attendance.recorded (partitions: 6, replication: 3), kèm retention.ms và cleanup.policy.",
+                    "desc": "Định nghĩa class Java tại đường dẫn ./sources/backend/notification-service/src/main/java/org/nlh4j/membershiphub/notificationservice/kafka/TopicSchemas.java thuộc package org.nlh4j.membershiphub.notificationservice.kafka. Class chứa ba inner record class đại diện cho JSON schema của ba Kafka topic chính: (1) EnrollmentCreated với các trường enrollmentId, studentId, courseId, timestamp định dạng ISO-8601; (2) TeacherAssigned với các trường courseId, teacherId, assignedBy, assignedAt; (3) AttendanceRecorded với các trường attendanceId, studentId, courseId, attendanceDate định dạng YYYY-MM-DD. Mỗi record sử dụng annotation Jackson @JsonProperty cho key và value, kèm builder method thông qua @JsonCreator. Class sử dụng quarkus-messaging-kafka để produce event với cấu hình acks=all, compression.type=snappy, batch.size=65536, linger.ms=20. Đồng thời tạo tệp YAML tại ./sources/backend/notification-service/src/main/resources/kafka-topics.yaml khai báo cấu hình topic gồm enrollment.created (partitions: 6, replication: 3), teacher.assigned (partitions: 3, replication: 3), attendance.recorded (partitions: 6, replication: 3), kèm retention.ms và cleanup.policy.",
                     "targeted_tags": [
                         "[ARC-008]"
                     ],
@@ -349,13 +350,14 @@
                         "[ARC-009]"
                     ],
                     "components": [
+                        "./sources/backend/notification-service/src/main/resources/kafka-topics.yaml",
                         "./sources/docs/review/phase1-day3-security-review.md"
                     ]
                 },
                 {
                     "id": "D3_ST8",
                     "agent": "Doc",
-                    "desc": "Tạo tài liệu Markdown tại đường dẫn ./sources/docs/api/OpenAPIContracts.md mô tả chi tiết hợp đồng API Gateway. Nội dung bắt buộc gồm: (1) Mục lục rõ ràng; (2) Bảng danh sách endpoint theo Tag ID, bao gồm method, path, mô tả chức năng, security scheme yêu cầu; (3) Phần mô tả security scheme gồm bearerAuth (HTTP Bearer với JWT) và oauth2 (authorization code flow); (4) Giải thích chi tiết CORS policy, danh sách allowed origins, allowed methods, allowed headers; (5) Danh sách Kafka topic với cấu hình partitions, replication factor, key, value schema; (6) Sơ đồ Mermaid sequence cho bốn luồng chính: Authentication Flow, Attendance QR Flow, Notification Delivery Flow, Mobile App Integration Flow. Tài liệu phải viết bằng tiếng Việt, có bảng Tag ID mapping chính xác và tham chiếu 1:1 với tệp openapi.yaml đã tạo ở nhiệm vụ trước.",
+                    "desc": "Biên soạn tài liệu Markdown tại đường dẫn ./sources/docs/api/OpenAPIContracts.md mô tả chi tiết hợp đồng API Gateway. Nội dung bắt buộc gồm: (1) Mục lục rõ ràng; (2) Bảng danh sách endpoint theo Tag ID, bao gồm method, path, mô tả chức năng, security scheme yêu cầu; (3) Phần mô tả security scheme gồm bearerAuth (HTTP Bearer với JWT) và oauth2 (authorization code flow); (4) Giải thích chi tiết CORS policy, danh sách allowed origins, allowed methods, allowed headers; (5) Danh sách Kafka topic với cấu hình partitions, replication factor, key, value schema; (6) Sơ đồ Mermaid sequence cho bốn luồng chính: Authentication Flow, Attendance QR Flow, Notification Delivery Flow, Mobile App Integration Flow. Tài liệu phải viết bằng tiếng Việt, có bảng Tag ID mapping chính xác và tham chiếu 1:1 với tệp openapi.yaml đã tạo ở nhiệm vụ trước.",
                     "targeted_tags": [
                         "[ARC-006]",
                         "[ARC-007]",
@@ -364,9 +366,12 @@
                         "[DOC-001]"
                     ],
                     "components": [
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
                         "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
                         "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md"
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
+                        "./sources/docs/api/OpenAPIContracts.md"
                     ]
                 }
             ]
