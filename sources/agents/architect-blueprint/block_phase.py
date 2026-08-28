@@ -185,9 +185,9 @@ def run_test_phase_generation(callback, phase: int = 0):
         SOURCES_PATH, "storage", "blueprint", PROJECT_NAME, "context", f"{PROJECT_NAME}.global.blueprint.md"
     )
 
-    AI_BASE_URL = "https://api.mistral.ai/v1"
-    AI_API_KEY = "<!--API Key Here-->"
-    MODEL_NAME = "codestral-latest"
+    AI_BASE_URL = "https://openrouter.ai/api/v1"
+    AI_API_KEY = "<!--API Key HERE-->"
+    MODEL_NAME = "minimax/minimax-m3:free"
 
     # openAI
     client = OpenAI(

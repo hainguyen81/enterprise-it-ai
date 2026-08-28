@@ -1,1407 +1,600 @@
-# Giai đoạn 1: <!--PHASE_NAME_START-->Khởi Tạo Khung Dự Án, Lược Đồ Dữ Liệu Hợp Nhất Và Dịch Vụ Xác Thực<!--PHASE_NAME_END-->
+<!--START_CHUNK_PHASE_1-->
 
-## 📊 Kiểm soát Tài liệu
+# Giai Đoạn 1: <!--PHASE_NAME_START-->Khởi Tạo Khung Microservices, Di Trú Cơ Sở Dữ Liệu Lõi Và Nền Tảng Bảo Mật Gateway<!--PHASE_NAME_END-->
 
-| Hạng mục | Chi tiết |
+## 📊 Kiểm Soát Tài Liệu
+
+| Mục | Chi tiết |
 | :--- | :--- |
-| **ID Bản thiết kế** | ARCH-20260823050512 |
+| **Mã bản thiết kế** | ARCH-20260828112120 |
 | **Tên dự án** | membership-hub |
 | **Giai đoạn** | 1 |
-| **Tên giai đoạn** | <!--PHASE_NAME_START-->Khởi Tạo Khung Dự Án, Lược Đồ Dữ Liệu Hợp Nhất Và Dịch Vụ Xác Thực<!--PHASE_NAME_END--> |
-| **Mô tả** | <!--PHASE_DESC_START-->Hoàn tất nền móng hạ tầng của nền tảng membership-hub: sinh descriptor build gốc Maven multi-module cùng descriptor module con auth-service và db-migrations theo mô hình microservices Java 21/Quarkus 3.15, đồng thời khởi tạo workspace frontend Next.js/React Native với TypeScript strict mode [ARC-000]; thực thi chuỗi Flyway migration V1→V9 tạo đủ 11 bảng lõi với khóa ngoại, unique constraint và index truy vấn sub-second [DAT-001] đến [DAT-011]; triển khai endpoint POST /api/v1/auth/register hash bcrypt cost 12 cấp JWT RS256 15 phút kèm refresh token 7 ngày với cơ chế liệt kê từng trường không hợp lệ khi validation thất bại [REQ-001], [EXC-004]; tích hợp đăng nhập mạng xã hội OAuth2 Firebase/Google/Facebook [REQ-002]; xây dựng API gán/thay đổi vai trò người dùng kèm audit log append-only [REQ-003]. Tester bàn giao JUnit suite auth, integration test migration CSDL và profile E2E đăng ký; Doc bàn giao blueprint kiến trúc tổng thể và đặc tả tham chiếu API auth-service.<!--PHASE_DESC_END--> |
-| **Phiên bản** | 1.0 (Cơ sở) |
-| **Ngày.Giờ** | 2026/08/23 05:05:12 |
-| **Tác giả** | Kiến trúc sư Hệ thống Doanh nghiệp (SA Agent) |
-| **Phê duyệt** | Đang chờ Đánh giá Quản trị Kỹ thuật |
+| **Tên giai đoạn** | <!--PHASE_NAME_START-->Khởi Tạo Khung Microservices, Di Trú Cơ Sở Dữ Liệu Lõi Và Nền Tảng Bảo Mật Gateway<!--PHASE_NAME_END--> |
+| **Mô tả** | <!--PHASE_DESC_START-->Giai đoạn 1 tập trung vào việc thiết lập toàn bộ khung dự án microservices Quarkus với Maven multi-module cho sáu service backend, đồng thời khởi tạo frontend Next.js. Triển khai Flyway migration scripts cho 11 bảng cơ sở dữ liệu lõi với các ràng buộc UNIQUE, FOREIGN KEY, INDEXES tuân thủ chuẩn OWASP. Thiết lập lớp bảo mật nền tảng gồm JWT filter chain, OAuth2 resource server, CORS policy, OpenAPI 3.0 gateway spec và Kafka topic schemas. Giai đoạn này đặt nền móng kiến trúc vững chắc cho toàn bộ hệ thống membership-hub, đảm bảo 100% tuân thủ các tiêu chuẩn bảo mật doanh nghiệp và khả năng mở rộng theo chiều ngang.<!--PHASE_DESC_END--> |
+| **Phiên bản** | 1.0 (Đường cơ sở) |
+| **Ngày giờ** | 2026/08/28 11:21:20 |
+| **Tác giả** | Kiến trúc sư hệ thống doanh nghiệp (SA Agent) |
+| **Phê duyệt** | Đang chờ đánh giá quản trị kỹ thuật |
 
-## 1. Phạm vi Vận hành Giai đoạn & Mục tiêu
+## 1. Phạm Vi Hoạt Động & Mục Tiêu Của Giai Đoạn
 
-Giai đoạn 1 thiết lập nền móng hạ tầng của nền tảng membership-hub trên ba trụ cột song song, bao phủ trọn vẹn Task 1, Task 2, Task 3, Task 4, Task 5 và Task 28 của Master Backlog.
+Giai đoạn 1 thuộc dự án membership-hub tập trung vào việc xây dựng nền tảng kiến trúc vững chắc cho toàn bộ hệ thống quản lý thành viên đa trung tâm. Phạm vi hoạt động cốt lõi bao gồm bốn trụ cột chính: (1) Khởi tạo khung dự án Maven multi-module cho sáu microservice backend gồm `user-service`, `center-service`, `course-service`, `enrollment-service`, `attendance-service` và `notification-service` sử dụng Quarkus 3.15.1 trên nền tảng JDK 21 LTS; (2) Thiết lập frontend Next.js 14.2.5 với đầy đủ cấu hình TypeScript strict mode và manifest package chuẩn; (3) Triển khai Flyway migration scripts cho 11 bảng cơ sở dữ liệu lõi (Users, Roles, Centers, User_Center, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings) với đầy đủ ràng buộc UNIQUE, FOREIGN KEY, CHECK constraint và INDEXES tối ưu; (4) Xây dựng lớp bảo mật nền tảng gồm JWT filter chain xác thực RS256, OAuth2 resource server với JWKS endpoint, CORS policy cho phép kết nối từ frontend, OpenAPI 3.0 spec tổng hợp cho API Gateway và Kafka topic schemas cho ba topic chính (enrollment.created, teacher.assigned, attendance.recorded).
 
-Thứ nhất, khởi tạo khung dự án multi-module: descriptor build gốc `./sources/backend/pom.xml` neo Quarkus BOM 3.15.x với dependencyManagement tập trung, hai descriptor module con `auth-service` và `db-migrations`, cùng workspace frontend `./sources/frontend/package.json` và `./sources/frontend/tsconfig.json` strict mode làm nền chung cho web-app và mobile-app [ARC-000].
+Mục tiêu kỹ thuật cụ thể của giai đoạn bao gồm việc đảm bảo mọi microservice expose đầy đủ endpoint `/q/health/ready`, `/q/health/live` và `/q/metrics` phục vụ Kubernetes probe, toàn bộ mã nguồn Java sử dụng package convention `org.nlh4j.membershiphub.<service>` theo chuẩn doanh nghiệp, áp dụng quy tắc đặt tên constraint thống nhất (`pk_*`, `fk_*`, `uq_*`, `ck_*`, `idx_*`), và đặc biệt thiết lập UNIQUE constraint composite `(student_id, course_id, attendance_date)` trên bảng `attendance` để đảm bảo idempotency cho luồng quét QR điểm danh theo yêu cầu nghiệp vụ [REQ-013] và [EXC-002]. Toàn bộ schema và mã nguồn phải tuân thủ chuẩn OWASP Top 10, hỗ trợ mã hóa bcrypt cost 12, ngăn chặn SQL injection thông qua PreparedStatement và Hibernate ORM Panache.
 
-Thứ hai, thực thi chuỗi Flyway migration V1→V9 tạo đủ 11 bảng lõi (Roles, Users, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Promotions, Announcements, SystemSettings) với khóa ngoại, unique constraint, CHECK constraint và index tối ưu truy vấn sub-second [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]. Cổng idempotent UNIQUE (student_id, course_id, attendance_date) trên bảng Attendance được neo ngay từ tầng schema làm nền cho tính bất biến điểm danh ở các giai đoạn sau.
+## 2. Phạm Vi Kỹ Thuật Được Phép & Ranh Giới Thư Mục
 
-Thứ ba, xây dựng tầng xác thực auth-service: endpoint POST /api/v1/auth/register hash bcrypt cost 12 cấp JWT RS256 15 phút kèm refresh token 7 ngày, kèm cơ chế liệt kê từng trường không hợp lệ khi validation thất bại [REQ-001], [EXC-004]; đăng nhập mạng xã hội OAuth2 Firebase/Google/Facebook [REQ-002]; API gán/thay đổi vai trò chỉ dành cho System Admin kèm audit log append-only [REQ-003]. Chất lượng được bảo chứng bởi JUnit suite auth, integration test migration trên Testcontainers PostgreSQL và profile E2E vòng đời xác thực; tài liệu được đóng gói qua blueprint kiến trúc, hai từ điển dữ liệu và đặc tả tham chiếu API auth-service.
+Danh sách kiểm tra kỹ thuật dưới đây định nghĩa 100% các tệp vật lý được phép khởi tạo trong phạm vi giai đoạn này, mỗi mục đại diện cho một tệp cụ thể kèm Tag ID truy vết:
 
-## 2. Phạm vi Kỹ thuật Được phép & Ranh giới Thư mục (Tệp, đường dẫn và Endpoint)
+* `./sources/backend/pom.xml` — [ARC-000]
+* `./sources/backend/user-service/pom.xml` — [ARC-000]
+* `./sources/backend/center-service/pom.xml` — [ARC-000]
+* `./sources/backend/course-service/pom.xml` — [ARC-000]
+* `./sources/backend/enrollment-service/pom.xml` — [ARC-000]
+* `./sources/backend/attendance-service/pom.xml` — [ARC-000]
+* `./sources/backend/notification-service/pom.xml` — [ARC-000]
+* `./sources/frontend/package.json` — [ARC-000]
+* `./sources/frontend/tsconfig.json` — [ARC-000]
+* `./sources/backend/user-service/src/main/resources/db/migration/V1__init_users_roles.sql` — [DAT-001]
+* `./sources/backend/user-service/src/main/resources/db/migration/V2__init_users_provider.sql` — [DAT-002]
+* `./sources/backend/center-service/src/main/resources/db/migration/V1__init_centers.sql` — [DAT-003]
+* `./sources/backend/course-service/src/main/resources/db/migration/V1__init_courses.sql` — [DAT-004]
+* `./sources/backend/enrollment-service/src/main/resources/db/migration/V1__init_enrollments.sql` — [DAT-005]
+* `./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql` — [DAT-006], [EXC-002]
+* `./sources/backend/notification-service/src/main/resources/db/migration/V1__init_student_cards.sql` — [DAT-007]
+* `./sources/backend/notification-service/src/main/resources/db/migration/V2__init_notifications.sql` — [DAT-008]
+* `./sources/backend/notification-service/src/main/resources/db/migration/V3__init_promotions.sql` — [DAT-009]
+* `./sources/backend/notification-service/src/main/resources/db/migration/V4__init_announcements.sql` — [DAT-010]
+* `./sources/backend/notification-service/src/main/resources/db/migration/V5__init_system_settings.sql` — [DAT-011]
+* `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtFilter.java` — [ARC-006]
+* `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/OAuth2ResourceServer.java` — [ARC-006]
+* `./sources/backend/api-gateway/src/main/resources/openapi.yaml` — [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+* `./sources/backend/api-gateway/src/main/java/org/nlh4j/membershiphub/gateway/CorsFilter.java` — [ARC-006]
+* `./sources/backend/notification-service/src/main/java/org/nlh4j/membershiphub/notificationservice/kafka/TopicSchemas.java` — [ARC-008]
+* `./sources/backend/notification-service/src/main/resources/kafka-topics.yaml` — [ARC-008]
+* `./sources/infra/test/maven-build-integration.sh` — [ARC-000]
+* `./sources/infra/test/npm-install-integration.sh` — [ARC-000]
+* `./sources/infra/test/migration-integration-test.sql` — [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+* `./sources/infra/test/security-gateway-integration.sh` — [ARC-006], [ARC-009]
+* `./sources/docs/architecture/SystemArchitectureBlueprint.md` — [DOC-001], [ARC-000]
+* `./sources/docs/database/DatabaseSchemaTopology.md` — [DOC-001]
+* `./sources/docs/api/OpenAPIContracts.md` — [DOC-001], [ARC-006], [ARC-007], [ARC-008], [ARC-009]
+* `./sources/docs/review/phase1-day1-manifest-review.md` — [ARC-000]
+* `./sources/docs/review/phase1-day2-migration-review.md` — [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
+* `./sources/docs/review/phase1-day3-security-review.md` — [ARC-006], [ARC-007], [ARC-008], [ARC-009]
 
-* **Ma trận thư mục Backend được phép:**
-    * ./sources/backend/pom.xml [ARC-000]
-    * ./sources/backend/auth-service/pom.xml [ARC-000]
-    * ./sources/backend/db-migrations/pom.xml [ARC-000]
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/dto/*.java
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/*.java
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/security/*.java
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/resource/*.java
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/exception/*.java
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/oauth/*.java
-    * ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/audit/*.java
-    * ./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/*.java
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql [DAT-002], [DAT-001]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V2__create_centers_table.sql [DAT-003]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V3__create_courses_table.sql [DAT-004]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V4__create_enrollments_table.sql [DAT-005]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V5__create_attendance_table.sql [DAT-006]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V6__create_student_cards_table.sql [DAT-007]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V7__create_notifications_table.sql [DAT-008]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V8__create_promotions_and_announcements_tables.sql [DAT-009], [DAT-010]
-    * ./sources/backend/db-migrations/src/main/resources/db/migration/V9__create_system_settings_table.sql [DAT-011]
-    * ./sources/backend/db-migrations/src/test/java/org/nlh4j/membership_hub/db/*.java
-* **Ma trận thư mục Frontend được phép:**
-    * ./sources/frontend/package.json [ARC-000]
-    * ./sources/frontend/tsconfig.json [ARC-000]
-* **Ma trận thư mục Tài liệu được phép:**
-    * ./sources/docs/architecture-blueprint.md [ARC-000]
-    * ./sources/docs/data-dictionary-core-tables.md [DAT-001], [DAT-002], [DAT-003], [DAT-004]
-    * ./sources/docs/data-dictionary-operational-tables.md [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]
-    * ./sources/docs/api-auth-service-reference.md [REQ-001], [EXC-004], [REQ-002], [REQ-003]
-* **Mẫu định tuyến Endpoint được phép trong giai đoạn:**
-    * POST /api/v1/auth/register — PUBLIC [REQ-001], [EXC-004]
-    * POST /api/v1/auth/oauth2/{provider} — PUBLIC, provider ∈ {firebase, google, facebook} [REQ-002]
-    * PUT /api/v1/admin/users/{userId}/role — BEARER JWT, role=SYSTEM_ADMIN [REQ-003]
-* **Ranh giới cấm xâm phạm:** mọi module và endpoint thuộc center-service, course-service, enrollment-service, attendance-service, card-service, notification-service, promotion-service, chatbot-service, reporting-service, api-gateway cùng toàn bộ cây ./sources/infra/ được dành riêng cho các giai đoạn 2 đến 5; Giai đoạn 1 nghiêm cấm phát sinh tệp ngoài ma trận trên.
+* **BẮT BUỘC VỀ BỘ KHUNG NỀN TẢNG**: Khi khởi tạo blueprint vòng đời hoạt động (giới hạn cụ thể trong Giai đoạn 1 - NGÀY 1), cần phải tiêm và khai báo rõ ràng các bộ mô tả cấu trúc hạ tầng kho lưu trữ chính trước khi tạo bất kỳ thành phần mã nguồn ứng dụng nào. Đối với kiến trúc backend Microservices, phải thực thi định nghĩa đường dẫn bắt buộc của bộ mô tả dự án cha `./sources/backend/pom.xml` và các bộ mô tả module con riêng biệt `./sources/backend/<tên-dịch-vụ>/pom.xml`. Đối với lớp giao diện Frontend, cần thực thi đăng ký đường dẫn cấu hình rõ ràng của `./sources/frontend/package.json` và `./sources/frontend/tsconfig.json`. Toàn bộ tài sản khung được tạo ra phải ánh xạ chặt chẽ tới mã theo dõi kiến trúc hệ thống `[ARC-000]`.
 
-* **INVARIANT KHUNG NỀN TẢNG BẮT BUỘC (PLATFORM SKELETON MANIFEST INVARIANTS)**:
-    * Khi khởi tạo vòng đời vận hành (bên trong NGÀY 1 của Giai đoạn 1), hệ thống bắt buộc khai báo descriptor hạ tầng repository trước khi phát hành bất kỳ thành phần mã nguồn ứng dụng nào.
-    * Với topology microservices backend, bắt buộc neo đường dẫn descriptor cha `./sources/backend/pom.xml` và các manifest module con độc lập `./sources/backend/<service-name>/pom.xml`.
-    * Với lớp giao diện frontend đang kích hoạt, bắt buộc đăng ký cấu hình `./sources/frontend/package.json` và `./sources/frontend/tsconfig.json`. Toàn bộ tài sản scaffolding sinh ra phải ánh xạ nghiêm ngặt vào token theo dõi kiến trúc [ARC-000].
+## 3. Chỉ Thị Chức Năng Chuyên Biệt Cho Các Sub-Agent
 
-## 3. Chỉ đạo Chức năng Sub-Agent Chuyên trách
+*   **Coder**: Đóng vai trò Nhà phát triển ứng dụng cao cấp. Chịu trách nhiệm triển khai mã nguồn ứng dụng thuần túy trên cả dịch vụ backend và ứng dụng client frontend/mobile. Bị cấm viết bộ kiểm thử hoặc bản kê khai hạ tầng.
+* **Tester**: Đóng vai trò Trưởng phòng QC/QA. Chuyên về kỹ thuật bộ kiểm thử, xác nhận hợp lệ và cổng gác chất lượng. Chịu trách nhiệm tạo JUnit, kiểm thử tích hợp, kiểm thử tự động E2E và script xác nhận hợp lệ hiệu năng. Bị cấm sửa đổi mã sản phẩm. Nếu nhiệm vụ phụ liên quan đến phạm vi tích hợp hoặc end-to-end tổng thể, phải xuất chính xác chuỗi ký tự `INTEGRATION_SCOPE` làm tham số đầu tiên của cặp dấu chấm phẩy.
+* **Doc**: Đóng vai trò Technical Writer chính và Kiến trúc sư hệ thống doanh nghiệp. Chuyên biên soạn tài liệu đặc tả kỹ thuật toàn diện, tài liệu tham chiếu schema, bản thiết kế hệ thống và danh mục kiến trúc doanh nghiệp phù hợp với các lớp cấu trúc dự án đang hoạt động. Mọi tệp tài liệu kỹ thuật được tạo ra phải được liệt kê dưới dạng thực thể đường dẫn tệp rõ ràng kết thúc bằng phần mở rộng `.md` và nằm hoàn toàn trong bố cục lưu trữ tập trung `./sources/docs/`.
+*   **Reviewer**: Chịu trách nhiệm xác minh trình biên dịch, cổng gác phân tích tĩnh và vá lỗi phòng thủ. Chuyên về kiểm toán chất lượng mã, giải quyết lỗi biên dịch, sửa lỗ hổng bảo mật OWASP và xử lý các blocker cổng chất lượng SonarQube.
+*   **Docker**: Chuyên biệt về container hóa, kỹ thuật Dockerfile multi-stage, tối ưu gói và đẩy tài sản image ứng dụng đã xác minh lên DockerHub.
+*   **GCP**: Chuyên về tự động hóa đám mây trong Google Cloud Platform. Chịu trách nhiệm xây dựng và đẩy image lên Google Cloud Artifact Registry (GCR), điều phối môi trường container nguyên bản trên Google Cloud Run.
+*   **GKE**: Chuyên về điều phối container sản xuất bên trong Google Kubernetes Engine. Chịu trách nhiệm xây dựng bản kê khai triển khai Kubernetes, điều khiển định tuyến, cấu hình HPA, biểu đồ Helm và triển khai khối lượng công việc microservice vào cụm GKE đang hoạt động.
 
-Theo ma trận phân công của Giai đoạn 1, các Sub-Agent được kích hoạt gồm Coder, Tester, Reviewer và Doc; Docker, GCP và GKE được dự phòng và chỉ kích hoạt từ Giai đoạn 5.
+## 4. Định Nghĩa Hoàn Thành Giai Đoạn (DoD)
 
-* **Coder**: Đóng vai trò Lập trình viên Ứng dụng Cấp cao/Principal. Chịu trách nhiệm hiện thực mã nguồn ứng dụng thuần túy trên cả dịch vụ backend lẫn client frontend/mobile: descriptor Maven multi-module, chuỗi migration Flyway, DTO/service/resource/security/audit của auth-service và cấu hình workspace frontend. Bị cấm viết bộ kiểm thử hoặc manifest hạ tầng DevOps.
-* **Tester**: Đóng vai trò Trưởng QC/QA Principal. Chuyên về kỹ nghệ bộ kiểm thử, xác nhận và cổng chất lượng. Chịu trách nhiệm sinh JUnit, integration test trên Testcontainers PostgreSQL, E2E automation và kịch bản đo hiệu năng cho luồng xác thực. Bị cấm sửa mã production. Khi phạm vi kiểm thử mang tính tích hợp tổng thể hoặc E2E không cô lập được một tệp production đơn lẻ, bắt buộc dùng định dạng cặp semicolon với token `INTEGRATION_SCOPE` đứng đầu (ví dụ: `INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/AuthLifecycleE2EIT.java`).
-* **Doc**: Đóng vai trò Nhà văn Kỹ thuật Principal và Kiến trúc sư Hệ thống Doanh nghiệp. Chuyên biên soạn tài liệu đặc tả kỹ thuật, từ điển dữ liệu, blueprint kiến trúc và danh mục doanh nghiệp phù hợp topology dự án. Mọi tệp tài liệu phải là đường dẫn tệp tường minh đuôi `.md` nằm trong kho lưu trữ tập trung `./sources/docs/`. Theo luật định giai đoạn, Doc phải được phân công tối thiểu một nhiệm vụ nền móng ngay NGÀY 1 để khởi tạo khung tài liệu markdown, sơ đồ lược đồ dữ liệu và catalog kiến trúc tương thích stack Java/Quarkus/PostgreSQL của ngữ cảnh này.
-* **Reviewer**: Chịu trách nhiệm xác minh biên dịch, cổng phân tích tĩnh và vá phòng thủ. Chuyên kiểm toán chất lượng mã, xử lý lỗi compile, khắc phục lỗ hổng bảo mật OWASP Top 10 và gỡ blocker SonarQube trước khi merge; ký duyệt điều kiện mở khóa giữa các ngày làm việc.
-* **Docker**: Chuyên container hóa, kỹ nghệ Dockerfile multi-stage, tối ưu dung lượng image và đẩy image đã kiểm chứng lên registry. Trong Giai đoạn 1 chưa được phân công nhiệm vụ cụ thể.
-* **GCP**: Chuyên tự động hóa trên Google Cloud Platform: build/push image lên Artifact Registry và điều phối môi trường container trên Cloud Run. Trong Giai đoạn 1 chưa được phân công nhiệm vụ cụ thể.
-* **GKE**: Chuyên điều phối container production trong Google Kubernetes Engine: manifest deployment, routing control, cấu hình HPA, Helm chart và triển khai workload microservices. Trong Giai đoạn 1 chưa được phân công nhiệm vụ cụ thể.
+Giai đoạn 1 được coi là hoàn thành khi đáp ứng đồng thời các tiêu chí định lượng sau: (1) Toàn bộ 9 tệp manifest cấu hình bao gồm `pom.xml` gốc, 6 tệp `pom.xml` con cho sáu microservice backend, `package.json` và `tsconfig.json` cho frontend được tạo thành công và có thể biên dịch chéo module mà không phát sinh lỗi. (2) Toàn bộ 11 tệp Flyway migration scripts được thực thi thành công trên PostgreSQL 16 test container, tạo ra chính xác 11 bảng lõi với 100% ràng buộc UNIQUE, FOREIGN KEY, CHECK và INDEXES theo đặc tả. (3) UNIQUE constraint composite `(student_id, course_id, attendance_date)` trên bảng `attendance` hoạt động đúng, khi insert trùng composite key hệ thống trả về lỗi SQLSTATE 23505 xác nhận cơ chế idempotency cho [REQ-013] và [EXC-002]. (4) Lớp bảo mật JWT filter chain trả về HTTP 401 cho request không có token, HTTP 200 cho request có token hợp lệ, xác nhận [ARC-006] hoạt động. (5) CORS policy cho phép preflight OPTIONS request từ `https://app.membershiphub.example.com` với đầy đủ header theo đặc tả. (6) OpenAPI 3.0 spec tại `./sources/backend/api-gateway/src/main/resources/openapi.yaml` validate thành công bằng Swagger Parser với 5 nhóm endpoint chính (auth, centers, courses, attendance, reports). (7) Bộ ba tài liệu kỹ thuật tại `./sources/docs/` gồm System Architecture Blueprint, Database Schema Topology và OpenAPI Contracts được biên soạn đầy đủ bằng tiếng Việt với mục lục rõ ràng và Tag ID truy vết chính xác. (8) 100% Tag ID của giai đoạn (gồm [ARC-000], [ARC-006], [ARC-007], [ARC-008], [ARC-009], [DAT-001] đến [DAT-011], [DOC-001], [EXC-002]) được ánh xạ đầy đủ trong các tệp mã nguồn và tài liệu.
 
-## 4. Định nghĩa Hoàn thành Giai đoạn (DoD)
+## 5. NHẬT KÝ THỰC THI KIẾN TRÚC THEO NGÀY
 
-* 100% thẻ truy vết của giai đoạn ([ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011], [REQ-001], [REQ-002], [REQ-003], [EXC-004]) được ánh xạ tường minh vào nhật ký ngày qua container `<!--START_TAGS-->` không gaps.
-* `mvn -q verify` sạch trên descriptor cha và hai module con; workspace frontend pass `tsc --noEmit` ở chế độ strict; cây Maven không xung đột phiên bản.
-* Chuỗi Flyway V1→V9 chạy sạch trên PostgreSQL 16 Testcontainers; information_schema xác nhận đủ 11 bảng lõi và đúng 5 dòng seed roles.
-* Endpoint POST /api/v1/auth/register trả 201 với accessToken RS256 exp=900s và refreshToken TTL=604800s; bcrypt cost 12 khớp cột CHAR(60); phản hồi 400 trả mảng invalidFields liệt kê từng trường; phản hồi 409 trả EMAIL_ALREADY_EXISTS [REQ-001], [EXC-004].
-* OAuth2 ba provider firebase/google/facebook exchange thành công với cờ isNewUser chính xác; authorization code bị từ chối trả 401 OAUTH2_CODE_EXCHANGE_FAILED [REQ-002].
-* Role assignment chỉ chấp nhận caller SYSTEM_ADMIN; mỗi thay đổi phát sinh đúng một dòng audit append-only action=USER_ROLE_CHANGED kèm timestamp và userId [REQ-003].
-* Độ bao phủ kiểm thử tự động ≥ 85%; latency trung bình register ≤ 200 ms trong profile E2E đối chiếu ràng buộc [NFR-001].
-* Tuân thủ OWASP Top 10: không log password/hash/token ở bất kỳ tầng nào; toàn bộ truy vấn đi qua prepared statement; thông điệp lỗi không dò được sự tồn tại tài khoản.
-* Bốn tài liệu ./sources/docs/ hoàn chỉnh, liên kết chéo nhất quán với schema và hợp đồng API thực tế.
-* Zero blocker SonarQube; mọi merge thực hiện qua pull request squash theo quy trình phân nhánh hàng ngày.
+### 🌤️ NGÀY 1: <!--DAY_HEADER_START-->Khởi Tạo Khung Dự Án Và Bản Kê Khai Đa Module<!--DAY_HEADER_END-->
 
-## 5. Nhật ký Thực thi Kiến trúc Theo Ngày
-
-<!--START_DAY_LOG_INDEX-->
-
-### 🌤️ NGÀY 1:
-<!--DAY_HEADER_START-->Khởi Tạo Khung Dự Án Backend Multi-Module Và Workspace Frontend TypeScript Strict Mode<!--DAY_HEADER_END-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.1: Sinh descriptor build gốc Maven cho chuỗi dịch vụ Quarkus
-
+#### 📝 Nhiệm vụ phụ 1.1: Tạo tệp pom.xml gốc và quản lý module cha
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/pom.xml`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Khởi tạo Maven multi-module parent POM tại đường dẫn `./sources/backend/pom.xml` với `<groupId>org.nlh4j.membershiphub</groupId>`, `<artifactId>membershiphub-backend</artifactId>`, `<version>1.0.0-SNAPSHOT</version>` và packaging `pom`. Liệt kê chính xác sáu module con trong thẻ `<modules>` theo thứ tự: `user-service`, `center-service`, `course-service`, `enrollment-service`, `attendance-service`, `notification-service`. Import `quarkus-bom:3.15.1` vào `<dependencyManagement>` để quản lý phiên bản thống nhất cho tất cả dependency Quarkus. Cấu hình `maven-compiler-plugin` với `<source>21</source>` và `<target>21</target>`, đồng thời khai báo `quarkus-maven-plugin` và `flyway-maven-plugin` để hỗ trợ build và di trú cơ sở dữ liệu. Đảm bảo tệp là XML hợp lệ, sẵn sàng cho `mvn clean validate compile` thành công mà không cần chỉnh sửa.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/pom.xml
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Khai báo packaging=pom với groupId org.nlh4j, artifactId membership-hub-backend, version 1.0.0-SNAPSHOT; import Quarkus BOM 3.15.x vào dependencyManagement tập trung để khóa phiên bản toàn chuỗi dịch vụ; cố định maven-compiler-plugin ở release Java 21 với encoding UTF-8; liệt kê hai module con auth-service và db-migrations theo thứ tự phụ thuộc; thiết lập hai profile dev và production kiểm soát biến cấu hình môi trường thống nhất (quarkus.profile, datasource host, redis endpoint) không chứa secret hardcode; khai báo pluginManagement dùng chung cho quarkus-maven-plugin, surefire và failsafe bảo đảm mọi module con kế thừa vòng đời build đồng nhất. Nghiêm cấm khai báo trùng phiên bản dependency ở module con gây xung đột cây Maven.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.2: Sinh descriptor module con auth-service
-
+#### 📝 Nhiệm vụ phụ 1.2: Tạo tệp pom.xml riêng cho user-service
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/user-service/pom.xml`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp POM con cho `user-service` tại đường dẫn `./sources/backend/user-service/pom.xml` kế thừa từ `./sources/backend/pom.xml` thông qua khối `<parent>` với `<groupId>org.nlh4j.membershiphub</groupId>`, `<artifactId>membershiphub-backend</artifactId>` và `<version>1.0.0-SNAPSHOT</version>`. Khai báo `<artifactId>user-service</artifactId>`. Thêm đầy đủ dependencies Quarkus cần thiết cho chức năng xác thực và quản lý người dùng: `quarkus-resteasy-reactive-jackson`, `quarkus-hibernate-orm-panache`, `quarkus-jdbc-postgresql`, `quarkus-flyway`, `quarkus-smallrye-jwt`, `quarkus-smallrye-jwt-build`, `quarkus-arc`, `quarkus-rest-client-reactive-jackson`, `quarkus-hibernate-validator`. Cấu hình `quarkus-maven-plugin` chuẩn với extension `quarkus-container-image-jib`. Đảm bảo tệp có thể build standalone khi được gọi trực tiếp từ root thông qua `mvn -f ./sources/backend/user-service/pom.xml compile`.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/pom.xml
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Kế thừa parent membership-hub-backend mà không tái khai báo phiên bản; khai báo dependency quarkus-rest, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-smallrye-jwt, quarkus-redis-client, quarkus-hibernate-validator cùng quarkus-flyway phục vụ bootstrap schema; gắn quarkus-maven-plugin cho các goal dev/build/package; định nghĩa thuộc tính quarkus.container-image.name=auth-service phục vụ đóng gói image ở giai đoạn DevOps; bổ sung dependency test scope junit-jupiter, rest-assured và testcontainers-postgresql làm nền cho suite kiểm thử của Tester ở các ngày tiếp theo.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.3: Sinh descriptor module con db-migrations
-
+#### 📝 Nhiệm vụ phụ 1.3: Tạo tệp pom.xml cho năm service còn lại
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/notification-service/pom.xml`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Lặp lại cấu trúc parent-child POM cho năm service còn lại tại các đường dẫn `./sources/backend/center-service/pom.xml`, `./sources/backend/course-service/pom.xml`, `./sources/backend/enrollment-service/pom.xml`, `./sources/backend/attendance-service/pom.xml`, `./sources/backend/notification-service/pom.xml`. Mỗi POM con kế thừa `<parent>` từ `./sources/backend/pom.xml` với cùng `<groupId>` và `<version>`, đồng thời đặt `<artifactId>` khớp chính xác tên module. Service `notification-service` cần bổ sung thêm dependency `quarkus-messaging-kafka` để hỗ trợ tích hợp Apache Kafka 3.7.0, `quarkus-rest-client-reactive-jackson` cho FCM/APNs gateway, và `quarkus-smallrye-health`. Service `attendance-service` cần thêm `quarkus-redis-client` cho idempotency key cache. Tất cả artifactId phải khớp tên module và đảm bảo mỗi tệp là XML hợp lệ có thể compile độc lập từ root thông qua Maven multi-module.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/pom.xml
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Thiết lập module chuyên chứa tài nguyên Flyway: dependency flyway-core và org.postgresql:postgresql driver scope runtime; cấu hình maven-resources-plugin giữ nguyên thư mục db/migration khi copy tài nguyên để tên file V{n}__{description}.sql không bị biến đổi; đóng gói toàn bộ chuỗi migration vào artifact triển khai chung để auth-service và các dịch vụ ở giai đoạn sau tham chiếu cùng một nguồn schema duy nhất; cấm phát sinh mã Java trong module này ngoài lớp bootstrap tối thiểu.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.4: Khởi tạo manifest workspace frontend Next.js/React Native
-
+#### 📝 Nhiệm vụ phụ 1.4: Khởi tạo tệp package.json và tsconfig.json cho frontend Next.js
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/frontend/package.json`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp `./sources/frontend/package.json` cho dự án Next.js 14.2.5 với cấu trúc chuẩn. Khai báo `name: "membershiphub-frontend"`, `version: "1.0.0"`, `private: true`. Định nghĩa scripts: `dev` chạy `next dev`, `build` chạy `next build`, `start` chạy `next start`, `lint` chạy `next lint`, `type-check` chạy `tsc --noEmit`. Thêm dependencies: `next: 14.2.5`, `react: 18.3.1`, `react-dom: 18.3.1`, `next-intl: 3.17.2`, `next-i18next: 14.1.2`, `firebase: 10.13.0`, `axios: 1.7.4`. Thêm devDependencies: `typescript: 5.5.4`, `@types/react: 18.3.3`, `@types/node: 20.14.10`, `eslint: 8.57.0`, `prettier: 3.3.3`, `tailwindcss: 3.4.10`. Đồng thời tạo tệp `./sources/frontend/tsconfig.json` với `"strict": true`, `"target": "ES2022"`, `"module": "ESNext"`, `"moduleResolution": "Bundler"`, đường dẫn alias `"@/*": ["./src/*"]`. Đảm bảo cả hai tệp JSON hợp lệ, sẵn sàng cho `npm install` thành công.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/frontend/package.json
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Khai báo scripts dev/build/lint/start chuẩn npm workspaces; khai báo dependencies next 14.2.x, react 18.3.x, react-dom, react-native 0.75.x, expo SDK 51, typescript 5.5.x; devDependencies eslint, prettier, tailwindcss 3.4.x; cấu hình workspaces trỏ tới hai ứng dụng con web-app và mobile-app làm nền chung cho các giai đoạn giao diện phía sau; đặt private:true chặn publish nhầm lên registry; ghim engines node >= 20 bảo đảm tương thích build CI GitHub Actions.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.5: Cấu hình biên dịch TypeScript strict mode
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/frontend/tsconfig.json
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Bật strict:true, noUncheckedIndexedAccess, exactOptionalPropertyTypes, noImplicitOverride; ánh xạ path alias @/* về src/* phục vụ import tuyệt đối; chọn target ES2022, lib DOM+ES2022, moduleResolution bundler, jsx preserve để tương thích đồng thời Next.js SSR và React Native Metro bundler; bật skipLibCheck giảm nhiễu kiểu từ thư viện bên thứ ba; cấu hình include phủ src và exclude node_modules/dist/.next.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.6: Kiểm chứng bootstrap context dịch vụ xác thực
-
+#### 📝 Nhiệm vụ phụ 1.5: Kiểm thử tích hợp biên dịch đa module
 ##### Sub-Agent được phân công: Tester
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** INTEGRATION_SCOPE;./sources/infra/test/maven-build-integration.sh
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo script shell `./sources/infra/test/maven-build-integration.sh` thực thi tuần tự các bước kiểm thử: (1) `mvn -f ./sources/backend/pom.xml clean validate` để xác nhận Maven resolution hoạt động đúng; (2) `mvn -f ./sources/backend/pom.xml compile` để biên dịch toàn bộ sáu module backend; (3) `cd ./sources/frontend && npm install --dry-run` để xác nhận tất cả dependency trong `package.json` tồn tại trên npm registry. Đồng thời tạo script `./sources/infra/test/npm-install-integration.sh` chạy `npm install --dry-run` riêng cho frontend. Mỗi script phải ghi log chi tiết kết quả từng bước ra stdout, exit code 0 khi tất cả assertion pass, exit code khác 0 kèm thông điệp lỗi rõ ràng khi thất bại. Bổ sung shebang `#!/bin/bash` và `set -e` để dừng ngay khi gặp lỗi.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/BootstrapContextIT.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Viết @QuarkusIntegrationTest khởi động auth-service từ descriptor vừa sinh; xác minh application context tải thành công, health probe /q/health trả UP cho cả liveness và readiness; chạy `mvn -q dependency:tree` khẳng định cây Maven không xung đột phiên bản giữa Quarkus BOM và dependency của module con; fail build ngay nếu bootstrap lỗi hoặc xuất hiện convergence warning; ghi kết quả smoke nền móng vào báo cáo kiểm thử làm điều kiện mở khóa Ngày 2.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.7: Kiểm toán chất lượng descriptor build
-
+#### 📝 Nhiệm vụ phụ 1.6: Đánh giá cấu trúc manifest và chuẩn đặt tên
 ##### Sub-Agent được phân công: Reviewer
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/notification-service/pom.xml`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Kiểm tra chéo toàn bộ 9 tệp manifest gồm `./sources/backend/pom.xml`, 6 tệp `pom.xml` con cho sáu microservice backend, `./sources/frontend/package.json` và `./sources/frontend/tsconfig.json` để đảm bảo: (1) tất cả `<artifactId>` đồng bộ và không trùng lặp giữa các module; (2) phiên bản Quarkus BOM thống nhất 3.15.1 trong tất cả tệp; (3) Java target là 21 cho toàn bộ; (4) không còn tham chiếu đến `com.example` ở bất kỳ đâu trong codebase; (5) tất cả dependency `quarkus-*` đều resolve được thông qua BOM. Tạo báo cáo review tại `./sources/docs/review/phase1-day1-manifest-review.md` nêu rõ từng issue phát hiện, đề xuất fix cụ thể và liệt kê 100% Tag ID được xác minh.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/pom.xml
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Rà soát dependencyManagement tránh phiên bản trùng lặp hoặc xung đột plugin; chuẩn hóa thứ tự khai báo module theo chiều phụ thuộc db-migrations trước auth-service; đối chiếu encoding UTF-8 và release 21 trên compiler; kiểm tra profile dev/production không chứa credential hardcode; lập danh sách remediation ưu tiên kèm chủ sở hữu fix và chốt điều kiện mở khóa giai đoạn xây dựng lược đồ dữ liệu ở Ngày 2.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 1.8: Biên soạn bản phác thảo blueprint kiến trúc tổng thể
-
+#### 📝 Nhiệm vụ phụ 1.7: Biên soạn tài liệu kiến trúc tổng quan
 ##### Sub-Agent được phân công: Doc
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/docs/architecture/SystemArchitectureBlueprint.md`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-000], [DOC-001]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Biên soạn tài liệu Markdown `./sources/docs/architecture/SystemArchitectureBlueprint.md` mô tả tổng quan kiến trúc hệ thống membership-hub. Nội dung bắt buộc gồm: (1) Sơ đồ microservice gồm 6 service Quarkus (user-service, center-service, course-service, enrollment-service, attendance-service, notification-service), API Gateway, Frontend Next.js; (2) Công nghệ stack: Quarkus 3.15.1, Java 21, PostgreSQL 16, Apache Kafka 3.7.0, Redis 7.2, Firebase FCM; (3) Mô hình triển khai: GKE, Artifact Registry, Helm chart; (4) Bản đồ luồng dữ liệu chính: Authentication Flow [ARC-006], Attendance QR Processing Flow [ARC-007], Notification Delivery Flow [ARC-008], Mobile App Backend Integration Flow [ARC-009]. Sử dụng Mermaid để vẽ sơ đồ C4 Container. Tài liệu phải viết bằng tiếng Việt, có mục lục rõ ràng và Tag ID truy vết đầy đủ ở mỗi phần.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
+### 🌤️ NGÀY 2: <!--DAY_HEADER_START-->Triển Khai Flyway Migration Cho 11 Bảng Cơ Sở Dữ Liệu Lõi<!--DAY_HEADER_END-->
 
-* **Đường dẫn Đích:** ./sources/docs/architecture-blueprint.md
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Biên soạn khung blueprint kiến trúc tổng thể: topology microservices hiện hành (auth-service, db-migrations) và lộ trình 10 dịch vụ mục tiêu; sơ đồ phụ thuộc Maven parent–child; chiến lược profile dev/production; quy ước gói org.nlh4j.membership_hub.*; ma trận stack công nghệ Java 21 LTS/Quarkus 3.15.x/PostgreSQL 16.x/Redis 7.2.x/Kafka 3.7.x; đánh dấu mục lục các phần sẽ bổ sung ở giai đoạn sau (RBAC gateway, enrollment, notification đa kênh, reporting); neo mọi mục vào thẻ truy vết [ARC-000] và chuẩn bị cấu trúc liên kết chéo cho từ điển dữ liệu cũng như đặc tả API auth-service.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-### 🌤️ NGÀY 2:
-<!--DAY_HEADER_START-->Xây Dựng Lược Đồ Dữ Liệu Hạt Nhân Roles, Users, Centers, Courses Với Ràng Buộc Và Index Tối Ưu<!--DAY_HEADER_END-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 2.1: Migration V1 — bảng Roles và Users kèm seed 5 vai trò
-
+#### 📝 Nhiệm vụ phụ 2.1: Migration bảng roles và users
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/user-service/src/main/resources/db/migration/V1__init_users_roles.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-001]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp SQL tại đường dẫn `./sources/backend/user-service/src/main/resources/db/migration/V1__init_users_roles.sql` chứa DDL tạo hai bảng `roles` và `users`. Bảng `roles` gồm `role_id SMALLINT NOT NULL PRIMARY KEY`, `name VARCHAR(30) NOT NULL UNIQUE`, `description VARCHAR(200) NULL` với CHECK constraint `name IN ('SystemAdmin','CenterAdmin','Manager','Teacher','Student')`. Bảng `users` gồm `user_id UUID NOT NULL PRIMARY KEY`, `email VARCHAR(255) NOT NULL UNIQUE` với CHECK `email LIKE '%_@__%.__%'`, `password_hash CHAR(60) NOT NULL`, `full_name VARCHAR(100) NOT NULL`, `role_id SMALLINT NOT NULL` với FOREIGN KEY tham chiếu `roles(role_id)`, `created_at TIMESTAMP NOT NULL DEFAULT now()`, `updated_at TIMESTAMP NOT NULL DEFAULT now()`. Bổ sung INDEX `idx_users_role_id` trên cột `role_id`. Đảm bảo file SQL thuần ANSI, không sử dụng ENUM inline mà dùng VARCHAR kết hợp CHECK constraint.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-002], [DAT-001]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo extension pgcrypto phục vụ gen_random_uuid(); dựng bảng roles (role_id SMALLINT PK, name VARCHAR(30) UNIQUE NOT NULL, description VARCHAR(200)) và seed đúng 5 vai trò SYSTEM_ADMIN/CENTER_ADMIN/MANAGER/TEACHER/STUDENT; dựng bảng users với email VARCHAR(255) UNIQUE NOT NULL, password_hash CHAR(60) NOT NULL dành cho bcrypt, full_name VARCHAR(100) NOT NULL, role_id SMALLINT FK về roles, provider VARCHAR(20) DEFAULT 'local' kèm CHECK IN ('local','firebase','google','facebook'), created_at/updated_at TIMESTAMP DEFAULT now(); thêm index idx_users_role_id và idx_users_provider phục vụ lọc vai trò và nguồn xác thực; tuân thủ ANSI SQL nghiêm cấm ENUM inline, thay bằng VARCHAR + CHECK.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-002], [DAT-001]:**
-
-<!--START_DDL_MIGRATION-->
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu [DAT-001]:** <!--START_DDL_MIGRATION-->
 ```sql
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
-
+-- ============================================================
+-- MIGRATION: V1__init_users_roles.sql  (user-service)
+-- Tag ID: [DAT-001]
+-- ============================================================
 CREATE TABLE roles (
-    role_id      SMALLINT     NOT NULL,
-    name         VARCHAR(30)  NOT NULL,
-    description  VARCHAR(200),
+    role_id SMALLINT NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    description VARCHAR(200) NULL,
     CONSTRAINT pk_roles PRIMARY KEY (role_id),
-    CONSTRAINT uq_roles_name UNIQUE (name)
+    CONSTRAINT uq_roles_name UNIQUE (name),
+    CONSTRAINT ck_roles_name CHECK (name IN ('SystemAdmin','CenterAdmin','Manager','Teacher','Student'))
 );
-
-INSERT INTO roles (role_id, name, description) VALUES
-    (1, 'SYSTEM_ADMIN', 'Global super user across all centers'),
-    (2, 'CENTER_ADMIN', 'Full control limited to the assigned center'),
-    (3, 'MANAGER',      'Deputy administrator with restricted permissions'),
-    (4, 'TEACHER',      'Read-only access to own teaching schedule'),
-    (5, 'STUDENT',      'Course browsing, enrollment and membership card');
 
 CREATE TABLE users (
-    user_id        UUID          NOT NULL DEFAULT gen_random_uuid(),
-    email          VARCHAR(255)  NOT NULL,
-    password_hash  CHAR(60)      NOT NULL,
-    full_name      VARCHAR(100)  NOT NULL,
-    role_id        SMALLINT      NOT NULL,
-    provider       VARCHAR(20)   NOT NULL DEFAULT 'local',
-    created_at     TIMESTAMP     NOT NULL DEFAULT now(),
-    updated_at     TIMESTAMP     NOT NULL DEFAULT now(),
+    user_id UUID NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password_hash CHAR(60) NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    role_id SMALLINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT now(),
+    updated_at TIMESTAMP NOT NULL DEFAULT now(),
     CONSTRAINT pk_users PRIMARY KEY (user_id),
     CONSTRAINT uq_users_email UNIQUE (email),
-    CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles (role_id),
-    CONSTRAINT ck_users_provider CHECK (provider IN ('local', 'firebase', 'google', 'facebook'))
+    CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles(role_id),
+    CONSTRAINT ck_users_email_format CHECK (email LIKE '%_@__%.__%')
 );
-CREATE INDEX idx_users_role_id ON users (role_id);
-CREATE INDEX idx_users_provider ON users (provider);
+
+CREATE INDEX idx_users_role_id ON users(role_id);
 ```
 <!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 2.2: Migration V2 — bảng Centers ràng buộc taxId số học duy nhất
-
+#### 📝 Nhiệm vụ phụ 2.2: Migration bổ sung cột provider cho bảng users
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/user-service/src/main/resources/db/migration/V2__init_users_provider.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-002]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp SQL tại đường dẫn `./sources/backend/user-service/src/main/resources/db/migration/V2__init_users_provider.sql` thực thi lệnh `ALTER TABLE users ADD COLUMN provider VARCHAR(20) NOT NULL DEFAULT 'local'` và thêm ràng buộc `ALTER TABLE users ADD CONSTRAINT ck_users_provider CHECK (provider IN ('local','firebase','google','facebook'))`. Migration phải tương thích ngược với V1, không phá vỡ dữ liệu hiện có, đảm bảo giá trị mặc định `'local'` cho mọi bản ghi User đã tồn tại trước khi áp dụng migration.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V2__create_centers_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo bảng centers với center_id UUID PK DEFAULT gen_random_uuid(), name VARCHAR(100) NOT NULL, address VARCHAR(255) NOT NULL, tax_id VARCHAR(13) NOT NULL UNIQUE kèm CHECK regex ^[0-9]{10,13}$ ép định dạng số 10–13 chữ số, contact_phone VARCHAR(30) nullable, contact_email VARCHAR(255) nullable áp dụng CHECK pattern email khi có giá trị; đặt tên ràng buộc tường minh pk_centers/uq_centers_tax_id/ck_centers_tax_id_digits/ck_centers_contact_email để tầng ứng dụng ở Giai đoạn 2 ánh xạ chính xác lỗi 409 TAX_ID_CONFLICT.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-003]:**
-
-<!--START_DDL_MIGRATION-->
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu [DAT-002]:** <!--START_DDL_MIGRATION-->
 ```sql
+-- ============================================================
+-- MIGRATION: V2__init_users_provider.sql  (user-service)
+-- Tag ID: [DAT-002]
+-- ============================================================
+ALTER TABLE users ADD COLUMN provider VARCHAR(20) NOT NULL DEFAULT 'local';
+ALTER TABLE users ADD CONSTRAINT ck_users_provider
+    CHECK (provider IN ('local','firebase','google','facebook'));
+```
+<!--END_DDL_MIGRATION-->
+
+#### 📝 Nhiệm vụ phụ 2.3: Migration bảng centers và user_center
+##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/center-service/src/main/resources/db/migration/V1__init_centers.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-003]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp SQL tại đường dẫn `./sources/backend/center-service/src/main/resources/db/migration/V1__init_centers.sql` định nghĩa hai bảng `centers` và `user_center`. Bảng `centers` gồm `center_id UUID NOT NULL PRIMARY KEY`, `name VARCHAR(100) NOT NULL`, `address VARCHAR(255) NOT NULL`, `tax_id VARCHAR(20) NOT NULL UNIQUE` với CHECK `tax_id ~ '^[0-9]{10,13}$'`, `contact_phone VARCHAR(20) NULL` với CHECK regex số điện thoại, `contact_email VARCHAR(100) NULL`. Bảng `user_center` thiết lập quan hệ nhiều-nhiều giữa users và centers với composite PRIMARY KEY `(user_id, center_id)`, FOREIGN KEY tham chiếu `users(user_id)` và `centers(center_id)` với `ON DELETE CASCADE`, cùng cột `assigned_at TIMESTAMP NOT NULL DEFAULT now()`. Ràng buộc UNIQUE `tax_id` đảm bảo ngăn chặn trùng lặp theo yêu cầu nghiệp vụ.
+
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu [DAT-003]:** <!--START_DDL_MIGRATION-->
+```sql
+-- ============================================================
+-- MIGRATION: V1__init_centers.sql  (center-service)
+-- Tag ID: [DAT-003]
+-- ============================================================
 CREATE TABLE centers (
-    center_id      UUID          NOT NULL DEFAULT gen_random_uuid(),
-    name           VARCHAR(100)  NOT NULL,
-    address        VARCHAR(255)  NOT NULL,
-    tax_id         VARCHAR(13)   NOT NULL,
-    contact_phone  VARCHAR(30),
-    contact_email  VARCHAR(255),
+    center_id UUID NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    tax_id VARCHAR(20) NOT NULL,
+    contact_phone VARCHAR(20) NULL,
+    contact_email VARCHAR(100) NULL,
     CONSTRAINT pk_centers PRIMARY KEY (center_id),
     CONSTRAINT uq_centers_tax_id UNIQUE (tax_id),
-    CONSTRAINT ck_centers_tax_id_digits CHECK (tax_id ~ '^[0-9]{10,13}$'),
-    CONSTRAINT ck_centers_contact_email CHECK (contact_email IS NULL OR contact_email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$')
+    CONSTRAINT ck_centers_tax_id CHECK (tax_id ~ '^[0-9]{10,13}$'),
+    CONSTRAINT ck_centers_phone CHECK (contact_phone IS NULL OR contact_phone ~ '^[+0-9 ()\-]+$')
+);
+
+CREATE TABLE user_center (
+    user_id UUID NOT NULL,
+    center_id UUID NOT NULL,
+    assigned_at TIMESTAMP NOT NULL DEFAULT now(),
+    CONSTRAINT pk_user_center PRIMARY KEY (user_id, center_id),
+    CONSTRAINT fk_uc_user FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    CONSTRAINT fk_uc_center FOREIGN KEY (center_id) REFERENCES centers(center_id) ON DELETE CASCADE
 );
 ```
 <!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 2.3: Migration V3 — bảng Courses với khóa ngoại giáo viên và index lịch
-
+#### 📝 Nhiệm vụ phụ 2.4: Migration bảng courses và enrollments
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/course-service/src/main/resources/db/migration/V1__init_courses.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-004], [DAT-005]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo hai tệp SQL. Tệp thứ nhất tại `./sources/backend/course-service/src/main/resources/db/migration/V1__init_courses.sql` định nghĩa bảng `courses` gồm `course_id UUID NOT NULL PRIMARY KEY`, `title VARCHAR(150) NOT NULL`, `description TEXT NULL`, `start_date DATE NOT NULL`, `end_date DATE NOT NULL` với CHECK `end_date >= start_date`, `teacher_id UUID NOT NULL` với FOREIGN KEY tham chiếu `users(user_id)`, `max_students INT NOT NULL DEFAULT 30` với CHECK `max_students > 0`, bổ sung INDEX `idx_courses_teacher_id` và INDEX `idx_courses_dates`. Tệp thứ hai tại `./sources/backend/enrollment-service/src/main/resources/db/migration/V1__init_enrollments.sql` định nghĩa bảng `enrollments` gồm `enrollment_id UUID NOT NULL PRIMARY KEY`, `student_id UUID NOT NULL` với FOREIGN KEY `ON DELETE CASCADE` tham chiếu `users(user_id)`, `course_id UUID NOT NULL` với FOREIGN KEY `ON DELETE CASCADE` tham chiếu `courses(course_id)`, `enrollment_date TIMESTAMP NOT NULL DEFAULT now()`, UNIQUE composite `(student_id, course_id)`, kèm INDEX `idx_enr_student` và `idx_enr_course`.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V3__create_courses_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo bảng courses với course_id UUID PK DEFAULT gen_random_uuid(), title VARCHAR(150) NOT NULL, description TEXT nullable, start_date/end_date DATE NOT NULL kèm CHECK end_date >= start_date, teacher_id UUID FK về users(user_id) cho phép NULL, max_students INTEGER NOT NULL DEFAULT 30 kèm CHECK > 0; tạo index idx_courses_teacher_id và idx_courses_start_date phục vụ tra cứu lịch dạy và lưới khóa học đạt độ trễ sub-second ở Giai đoạn 2.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-004]:**
-
-<!--START_DDL_MIGRATION-->
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu [DAT-004], [DAT-005]:** <!--START_DDL_MIGRATION-->
 ```sql
+-- ============================================================
+-- MIGRATION: V1__init_courses.sql  (course-service)
+-- Tag ID: [DAT-004]
+-- ============================================================
 CREATE TABLE courses (
-    course_id     UUID          NOT NULL DEFAULT gen_random_uuid(),
-    title         VARCHAR(150)  NOT NULL,
-    description   TEXT,
-    start_date    DATE          NOT NULL,
-    end_date      DATE          NOT NULL,
-    teacher_id    UUID,
-    max_students  INTEGER       NOT NULL DEFAULT 30,
+    course_id UUID NOT NULL,
+    title VARCHAR(150) NOT NULL,
+    description TEXT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    teacher_id UUID NOT NULL,
+    max_students INT NOT NULL DEFAULT 30,
     CONSTRAINT pk_courses PRIMARY KEY (course_id),
-    CONSTRAINT fk_courses_teacher FOREIGN KEY (teacher_id) REFERENCES users (user_id),
+    CONSTRAINT fk_courses_teacher FOREIGN KEY (teacher_id) REFERENCES users(user_id),
     CONSTRAINT ck_courses_date_range CHECK (end_date >= start_date),
-    CONSTRAINT ck_courses_capacity CHECK (max_students > 0)
-);
-CREATE INDEX idx_courses_teacher_id ON courses (teacher_id);
-CREATE INDEX idx_courses_start_date ON courses (start_date);
-```
-<!--END_DDL_MIGRATION-->
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 2.4: Integration test chuỗi migration hạt nhân V1–V3 trên Testcontainers
-
-##### Sub-Agent được phân công: Tester
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** INTEGRATION_SCOPE;./sources/backend/db-migrations/src/test/java/org/nlh4j/membership_hub/db/CoreSchemaMigrationIT.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-001], [DAT-002], [DAT-003], [DAT-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Dùng Testcontainers PostgreSQL 16 khởi động container sạch rồi chạy Flyway migrate qua module db-migrations; assert bảng roles chứa đúng 5 dòng seed; chèn user hợp lệ với bcrypt hash 60 ký tự thành công; chèn email trùng bị từ chối bởi uq_users_email; tax_id 9 chữ số bị ck_centers_tax_id_digits chặn còn tax_id 10–13 chữ số được chấp nhận; khóa học với end_date sớm hơn start_date bị ck_courses_date_range chặn; đo thời gian migrate toàn chuỗi làm baseline CI và fail pipeline nếu vượt ngưỡng 5 giây.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-001], [DAT-002], [DAT-003], [DAT-004]:**
-
-<!--START_DDL_MIGRATION-->
-```sql
--- Verified chain executed by CoreSchemaMigrationIT (V1 -> V3)
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
-
-CREATE TABLE roles (
-    role_id      SMALLINT     NOT NULL,
-    name         VARCHAR(30)  NOT NULL,
-    description  VARCHAR(200),
-    CONSTRAINT pk_roles PRIMARY KEY (role_id),
-    CONSTRAINT uq_roles_name UNIQUE (name)
+    CONSTRAINT ck_courses_max_students CHECK (max_students > 0)
 );
 
-INSERT INTO roles (role_id, name, description) VALUES
-    (1, 'SYSTEM_ADMIN', 'Global super user across all centers'),
-    (2, 'CENTER_ADMIN', 'Full control limited to the assigned center'),
-    (3, 'MANAGER',      'Deputy administrator with restricted permissions'),
-    (4, 'TEACHER',      'Read-only access to own teaching schedule'),
-    (5, 'STUDENT',      'Course browsing, enrollment and membership card');
+CREATE INDEX idx_courses_teacher_id ON courses(teacher_id);
+CREATE INDEX idx_courses_dates ON courses(start_date, end_date);
 
-CREATE TABLE users (
-    user_id        UUID          NOT NULL DEFAULT gen_random_uuid(),
-    email          VARCHAR(255)  NOT NULL,
-    password_hash  CHAR(60)      NOT NULL,
-    full_name      VARCHAR(100)  NOT NULL,
-    role_id        SMALLINT      NOT NULL,
-    provider       VARCHAR(20)   NOT NULL DEFAULT 'local',
-    created_at     TIMESTAMP     NOT NULL DEFAULT now(),
-    updated_at     TIMESTAMP     NOT NULL DEFAULT now(),
-    CONSTRAINT pk_users PRIMARY KEY (user_id),
-    CONSTRAINT uq_users_email UNIQUE (email),
-    CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles (role_id),
-    CONSTRAINT ck_users_provider CHECK (provider IN ('local', 'firebase', 'google', 'facebook'))
-);
-CREATE INDEX idx_users_role_id ON users (role_id);
-CREATE INDEX idx_users_provider ON users (provider);
-
-CREATE TABLE centers (
-    center_id      UUID          NOT NULL DEFAULT gen_random_uuid(),
-    name           VARCHAR(100)  NOT NULL,
-    address        VARCHAR(255)  NOT NULL,
-    tax_id         VARCHAR(13)   NOT NULL,
-    contact_phone  VARCHAR(30),
-    contact_email  VARCHAR(255),
-    CONSTRAINT pk_centers PRIMARY KEY (center_id),
-    CONSTRAINT uq_centers_tax_id UNIQUE (tax_id),
-    CONSTRAINT ck_centers_tax_id_digits CHECK (tax_id ~ '^[0-9]{10,13}$'),
-    CONSTRAINT ck_centers_contact_email CHECK (contact_email IS NULL OR contact_email ~ '^[^@\s]+@[^@\s]+\.[^@\s]+$')
-);
-
-CREATE TABLE courses (
-    course_id     UUID          NOT NULL DEFAULT gen_random_uuid(),
-    title         VARCHAR(150)  NOT NULL,
-    description   TEXT,
-    start_date    DATE          NOT NULL,
-    end_date      DATE          NOT NULL,
-    teacher_id    UUID,
-    max_students  INTEGER       NOT NULL DEFAULT 30,
-    CONSTRAINT pk_courses PRIMARY KEY (course_id),
-    CONSTRAINT fk_courses_teacher FOREIGN KEY (teacher_id) REFERENCES users (user_id),
-    CONSTRAINT ck_courses_date_range CHECK (end_date >= start_date),
-    CONSTRAINT ck_courses_capacity CHECK (max_students > 0)
-);
-CREATE INDEX idx_courses_teacher_id ON courses (teacher_id);
-CREATE INDEX idx_courses_start_date ON courses (start_date);
-```
-<!--END_DDL_MIGRATION-->
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 2.5: Rà soát ràng buộc ANSI và index lược đồ hạt nhân
-
-##### Sub-Agent được phân công: Reviewer
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V1__create_roles_and_users_tables.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-001], [DAT-002], [DAT-003], [DAT-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Kiểm tra tuân thủ ANSI SQL: cấm ENUM inline, thay bằng VARCHAR + CHECK; độ kín khóa ngoại users.role_id→roles.role_id và courses.teacher_id→users.user_id; xác nhận unique constraint email/tax_id đặt tên tường minh phục vụ ánh xạ lỗi nghiệp vụ; đánh giá index phục vụ truy vấn danh sách Giai đoạn 2; rà soát an toàn rollback migration và khả năng replay trên môi trường sạch; đề xuất chỉnh sửa trước khi cho phép merge lên nhánh tích hợp.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 2.6: Biên soạn từ điển dữ liệu bốn bảng hạt nhân
-
-##### Sub-Agent được phân công: Doc
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/docs/data-dictionary-core-tables.md
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-001], [DAT-002], [DAT-003], [DAT-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Mô tả từng cột, kiểu dữ liệu, ràng buộc và giá trị mặc định của 4 bảng hạt nhân ROLES/USERS/CENTERS/COURSES; vẽ sơ đồ quan hệ ROLES ||--o{ USERS và USERS ||--o{ COURSES bằng Mermaid; kèm ví dụ giá trị mẫu và ghi chú ảnh hưởng tới API quản trị trung tâm/khóa học ở Giai đoạn 2; liệt kê từng index kèm mục đích tối ưu truy vấn và ghi chú chính sách bcrypt 60 ký tự cho cột password_hash.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-### 🌤️ NGÀY 3:
-<!--DAY_HEADER_START-->Hoàn Thiện Chuỗi Migration 11 Bảng Lõi Gồm Enrollments, Attendance Idempotent, StudentCards, Notifications, Promotions, Announcements, SystemSettings<!--DAY_HEADER_END-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.1: Migration V4 — bảng Enrollments chặn ghi danh trùng
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V4__create_enrollments_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-005]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo enrollments với enrollment_id UUID PK DEFAULT gen_random_uuid(), student_id UUID NOT NULL FK users(user_id), course_id UUID NOT NULL FK courses(course_id), enrollment_date TIMESTAMP NOT NULL DEFAULT now(); ràng buộc UNIQUE (student_id, course_id) chặn ghi danh trùng cùng khóa; index hai chiều idx_enrollments_student_id và idx_enrollments_course_id phục vụ duyệt khóa học loại trừ các khóa đã có bản ghi và đếm chỗ còn trống ở Giai đoạn 3.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-005]:**
-
-<!--START_DDL_MIGRATION-->
-```sql
+-- ============================================================
+-- MIGRATION: V1__init_enrollments.sql  (enrollment-service)
+-- Tag ID: [DAT-005]
+-- ============================================================
 CREATE TABLE enrollments (
-    enrollment_id    UUID       NOT NULL DEFAULT gen_random_uuid(),
-    student_id       UUID       NOT NULL,
-    course_id        UUID       NOT NULL,
-    enrollment_date  TIMESTAMP  NOT NULL DEFAULT now(),
+    enrollment_id UUID NOT NULL,
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    enrollment_date TIMESTAMP NOT NULL DEFAULT now(),
     CONSTRAINT pk_enrollments PRIMARY KEY (enrollment_id),
-    CONSTRAINT fk_enrollments_student FOREIGN KEY (student_id) REFERENCES users (user_id),
-    CONSTRAINT fk_enrollments_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
-    CONSTRAINT uq_enrollments_student_course UNIQUE (student_id, course_id)
+    CONSTRAINT fk_enr_student FOREIGN KEY (student_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    CONSTRAINT fk_enr_course FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
+    CONSTRAINT uq_enr_student_course UNIQUE (student_id, course_id)
 );
-CREATE INDEX idx_enrollments_student_id ON enrollments (student_id);
-CREATE INDEX idx_enrollments_course_id ON enrollments (course_id);
+
+CREATE INDEX idx_enr_student ON enrollments(student_id);
+CREATE INDEX idx_enr_course ON enrollments(course_id);
 ```
 <!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.2: Migration V5 — bảng Attendance với cổng idempotent ba cột
-
+#### 📝 Nhiệm vụ phụ 2.5: Migration bảng attendance với idempotency
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-006], [EXC-002]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp SQL tại đường dẫn `./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql` định nghĩa bảng `attendance` gồm `attendance_id UUID NOT NULL PRIMARY KEY`, `student_id UUID NOT NULL` với FOREIGN KEY tham chiếu `users(user_id)`, `course_id UUID NOT NULL` với FOREIGN KEY tham chiếu `courses(course_id)`, `attendance_date DATE NOT NULL`, `timestamp TIMESTAMP NOT NULL DEFAULT now()`. Đặc biệt bổ sung UNIQUE composite constraint đặt tên `uq_attendance_composite` trên bộ ba cột `(student_id, course_id, attendance_date)` - đây là ràng buộc cốt lõi đảm bảo idempotency cho [REQ-013] và [EXC-002], ngăn chặn việc tạo bản ghi điểm danh trùng lặp khi học viên quét QR nhiều lần trong cùng ngày. Bổ sung INDEX `idx_att_student_date` trên `(student_id, attendance_date)` và INDEX `idx_att_course_date` trên `(course_id, attendance_date)` để tối ưu truy vấn báo cáo.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V5__create_attendance_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-006]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo attendance với cổng idempotent UNIQUE (student_id, course_id, attendance_date) bảo đảm một dòng duy nhất mỗi học viên/khóa/ngày; recorded_at TIMESTAMP NOT NULL DEFAULT now() tách biệt attendance_date DATE được suy từ clientTimestamp của thiết bị; index composite idx_attendance_course_date (course_id, attendance_date) phục vụ báo cáo điểm danh theo trung tâm và khoảng ngày ở Giai đoạn 5; đây là nền móng schema cho cơ chế trả success kèm cờ duplicate không phát sinh bản ghi mới.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-006]:**
-
-<!--START_DDL_MIGRATION-->
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu [DAT-006], [EXC-002]:** <!--START_DDL_MIGRATION-->
 ```sql
+-- ============================================================
+-- MIGRATION: V1__init_attendance.sql  (attendance-service)
+-- Tag ID: [DAT-006], [EXC-002]
+-- ============================================================
 CREATE TABLE attendance (
-    attendance_id    UUID        NOT NULL DEFAULT gen_random_uuid(),
-    student_id       UUID        NOT NULL,
-    course_id        UUID        NOT NULL,
-    attendance_date  DATE        NOT NULL,
-    recorded_at      TIMESTAMP   NOT NULL DEFAULT now(),
+    attendance_id UUID NOT NULL,
+    student_id UUID NOT NULL,
+    course_id UUID NOT NULL,
+    attendance_date DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT now(),
     CONSTRAINT pk_attendance PRIMARY KEY (attendance_id),
-    CONSTRAINT fk_attendance_student FOREIGN KEY (student_id) REFERENCES users (user_id),
-    CONSTRAINT fk_attendance_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
-    CONSTRAINT uq_attendance_idempotent UNIQUE (student_id, course_id, attendance_date)
+    CONSTRAINT fk_att_student FOREIGN KEY (student_id) REFERENCES users(user_id),
+    CONSTRAINT fk_att_course FOREIGN KEY (course_id) REFERENCES courses(course_id),
+    CONSTRAINT uq_attendance_composite UNIQUE (student_id, course_id, attendance_date)
 );
-CREATE INDEX idx_attendance_course_date ON attendance (course_id, attendance_date);
+
+CREATE INDEX idx_att_student_date ON attendance(student_id, attendance_date);
+CREATE INDEX idx_att_course_date ON attendance(course_id, attendance_date);
 ```
 <!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
+* **Bộ xử lý ngoại lệ cục bộ hóa của giai đoạn [EXC-002]:** <!--START_EXC_HANDLER-->
+```java
+package org.nlh4j.membershiphub.attendanceservice.exception;
 
-<!--START_ATOMIC_SUB_TASK_NODE-->
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.ExceptionMapper;
+import jakarta.ws.rs.ext.Provider;
+import org.postgresql.util.PSQLException;
 
-#### 📝 NHIỆM VỤ CON 3.3: Migration V6 — bảng StudentCards một thẻ mỗi học viên
+/**
+ * Bắt lỗi UNIQUE constraint composite (student_id, course_id, attendance_date)
+ * và chuyển thành phản hồi 200 OK với cờ duplicate=true theo [EXC-002].
+ */
+@Provider
+public class DuplicateAttendanceExceptionMapper implements ExceptionMapper<PSQLException> {
 
+    @Override
+    public Response toResponse(PSQLException ex) {
+        if (ex.getSQLState() != null && ex.getSQLState().equals("23505")
+                && ex.getMessage() != null && ex.getMessage().contains("uq_attendance_composite")) {
+            return Response.ok()
+                    .entity("{\"status\":\"success\",\"duplicate\":true,\"message\":\"Attendance already recorded\"}")
+                    .build();
+        }
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                .entity("{\"status\":\"error\",\"message\":\"Database integrity violation\"}")
+                .build();
+    }
+}
+```
+<!--END_EXC_HANDLER-->
+
+#### 📝 Nhiệm vụ phụ 2.6: Migration bảng student_cards, notifications, promotions, announcements, system_settings
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/notification-service/src/main/resources/db/migration/V1__init_student_cards.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo năm tệp SQL trong thư mục `./sources/backend/notification-service/src/main/resources/db/migration/`. Tệp V1__init_student_cards.sql tạo bảng `student_cards` gồm `card_id UUID NOT NULL PRIMARY KEY`, `student_id UUID NOT NULL` với FOREIGN KEY `ON DELETE CASCADE` tham chiếu `users(user_id)`, `issue_date DATE NOT NULL`, `validity_days INT NOT NULL` với CHECK `validity_days > 0`, INDEX `idx_card_student`. Tệp V2__init_notifications.sql tạo bảng `notifications` gồm `notification_id UUID NOT NULL PRIMARY KEY`, `user_id UUID NULL` với FOREIGN KEY `ON DELETE SET NULL`, `group_zalo VARCHAR(50) NULL`, `message TEXT NOT NULL`, `sent_at TIMESTAMP NOT NULL DEFAULT now()`, `delivered BOOLEAN NOT NULL DEFAULT false`, CHECK `(user_id IS NOT NULL OR group_zalo IS NOT NULL)`, INDEX `idx_notif_user` và `idx_notif_delivered`. Tệp V3__init_promotions.sql tạo bảng `promotions` gồm `promo_id UUID NOT NULL PRIMARY KEY`, `code VARCHAR(30) NOT NULL UNIQUE`, `discount_percent SMALLINT NOT NULL` với CHECK BETWEEN 1 AND 100, `start_date DATE NULL`, `end_date DATE NULL` với CHECK `end_date IS NULL OR end_date >= start_date`, `description TEXT NULL`. Tệp V4__init_announcements.sql tạo bảng `announcements` gồm `announcement_id UUID NOT NULL PRIMARY KEY`, `title VARCHAR(150) NOT NULL` với CHECK `char_length(title) <= 150`, `content TEXT NOT NULL` với CHECK `char_length(content) <= 2000`, `start_date DATE NULL`, `end_date DATE NULL` với CHECK `end_date IS NULL OR end_date >= start_date`. Tệp V5__init_system_settings.sql tạo bảng `system_settings` gồm `setting_key VARCHAR(50) NOT NULL PRIMARY KEY`, `setting_value TEXT NOT NULL`, `description VARCHAR(200) NULL`.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V6__create_student_cards_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-007]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo student_cards với card_id UUID PK, student_id UUID NOT NULL FK users kèm UNIQUE(student_id) bảo đảm một thẻ mỗi học viên, issue_date DATE NOT NULL, validity_days INTEGER NOT NULL CHECK > 0, remaining_days INTEGER NOT NULL DEFAULT 0 do tầng ứng dụng suy ra từ issue_date cộng validityDays theo UTC; index idx_student_cards_student_id phục vụ truy vấn GET /api/v1/cards/me sub-second ở Giai đoạn 3.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-007]:**
-
-<!--START_DDL_MIGRATION-->
+* **Đặc tả DDL SQL lược đồ cơ sở dữ liệu [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]:** <!--START_DDL_MIGRATION-->
 ```sql
+-- ============================================================
+-- MIGRATION: V1__init_student_cards.sql  (notification-service shared schema)
+-- Tag ID: [DAT-007]
+-- ============================================================
 CREATE TABLE student_cards (
-    card_id         UUID       NOT NULL DEFAULT gen_random_uuid(),
-    student_id      UUID       NOT NULL,
-    issue_date      DATE       NOT NULL,
-    validity_days   INTEGER    NOT NULL,
-    remaining_days  INTEGER    NOT NULL DEFAULT 0,
+    card_id UUID NOT NULL,
+    student_id UUID NOT NULL,
+    issue_date DATE NOT NULL,
+    validity_days INT NOT NULL,
     CONSTRAINT pk_student_cards PRIMARY KEY (card_id),
-    CONSTRAINT fk_student_cards_student FOREIGN KEY (student_id) REFERENCES users (user_id),
-    CONSTRAINT uq_student_cards_student UNIQUE (student_id),
-    CONSTRAINT ck_student_cards_validity CHECK (validity_days > 0)
+    CONSTRAINT fk_card_student FOREIGN KEY (student_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    CONSTRAINT ck_card_validity CHECK (validity_days > 0)
 );
-CREATE INDEX idx_student_cards_student_id ON student_cards (student_id);
-```
-<!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
+CREATE INDEX idx_card_student ON student_cards(student_id);
 
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.4: Migration V7 — bảng Notifications với vòng đời trạng thái giao hàng
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V7__create_notifications_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-008]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo notifications với delivery_status VARCHAR(20) NOT NULL DEFAULT 'PENDING' kèm CHECK IN ('PENDING','SENT','RETRYING','FAILED') mô hình hóa vòng đời giao hàng; retry_count SMALLINT NOT NULL DEFAULT 0 kèm CHECK <= 3 tương ứng cơ chế thử lại tối đa ba lần trước khi đánh dấu FAILED; delivered BOOLEAN NOT NULL DEFAULT FALSE; group_zalo VARCHAR(100) nullable cho kênh nhóm Zalo; index idx_notifications_user_id và idx_notifications_status phục vụ quét hàng đợi retry ở Giai đoạn 4.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-008]:**
-
-<!--START_DDL_MIGRATION-->
-```sql
+-- ============================================================
+-- MIGRATION: V2__init_notifications.sql
+-- Tag ID: [DAT-008]
+-- ============================================================
 CREATE TABLE notifications (
-    notification_id  UUID          NOT NULL DEFAULT gen_random_uuid(),
-    user_id          UUID,
-    group_zalo       VARCHAR(100),
-    message          TEXT          NOT NULL,
-    sent_at          TIMESTAMP     NOT NULL DEFAULT now(),
-    delivered        BOOLEAN       NOT NULL DEFAULT FALSE,
-    retry_count      SMALLINT      NOT NULL DEFAULT 0,
-    delivery_status  VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
+    notification_id UUID NOT NULL,
+    user_id UUID NULL,
+    group_zalo VARCHAR(50) NULL,
+    message TEXT NOT NULL,
+    sent_at TIMESTAMP NOT NULL DEFAULT now(),
+    delivered BOOLEAN NOT NULL DEFAULT false,
     CONSTRAINT pk_notifications PRIMARY KEY (notification_id),
-    CONSTRAINT fk_notifications_user FOREIGN KEY (user_id) REFERENCES users (user_id),
-    CONSTRAINT ck_notifications_status CHECK (delivery_status IN ('PENDING', 'SENT', 'RETRYING', 'FAILED')),
-    CONSTRAINT ck_notifications_retry_cap CHECK (retry_count <= 3)
+    CONSTRAINT fk_notif_user FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE SET NULL,
+    CONSTRAINT ck_notif_target CHECK (user_id IS NOT NULL OR group_zalo IS NOT NULL)
 );
-CREATE INDEX idx_notifications_user_id ON notifications (user_id);
-CREATE INDEX idx_notifications_status ON notifications (delivery_status);
-```
-<!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
+CREATE INDEX idx_notif_user ON notifications(user_id);
+CREATE INDEX idx_notif_delivered ON notifications(delivered);
 
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.5: Migration V8 — bảng Promotions và Announcements
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V8__create_promotions_and_announcements_tables.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-009], [DAT-010]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo promotions (code VARCHAR(50) NOT NULL UNIQUE, discount_percent SMALLINT NOT NULL CHECK BETWEEN 1 AND 100, start_date/end_date DATE nullable với end_date NULL nghĩa là khuyến mãi vĩnh viễn, CHECK end_date >= start_date khi có giá trị) và announcements (title VARCHAR(150) NOT NULL, content VARCHAR(2000) NOT NULL, start_date/end_date nullable kèm CHECK khoảng ngày hợp lệ); index idx_announcements_end_date phục vụ tự động ẩn announcement sau ngày hết hạn đã cấu hình ở Giai đoạn 4.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-009], [DAT-010]:**
-
-<!--START_DDL_MIGRATION-->
-```sql
+-- ============================================================
+-- MIGRATION: V3__init_promotions.sql
+-- Tag ID: [DAT-009]
+-- ============================================================
 CREATE TABLE promotions (
-    promo_id          UUID          NOT NULL DEFAULT gen_random_uuid(),
-    code              VARCHAR(50)   NOT NULL,
-    discount_percent  SMALLINT      NOT NULL,
-    start_date        DATE,
-    end_date          DATE,
-    description       TEXT,
+    promo_id UUID NOT NULL,
+    code VARCHAR(30) NOT NULL,
+    discount_percent SMALLINT NOT NULL,
+    start_date DATE NULL,
+    end_date DATE NULL,
+    description TEXT NULL,
     CONSTRAINT pk_promotions PRIMARY KEY (promo_id),
     CONSTRAINT uq_promotions_code UNIQUE (code),
-    CONSTRAINT ck_promotions_discount_range CHECK (discount_percent BETWEEN 1 AND 100),
-    CONSTRAINT ck_promotions_date_range CHECK (end_date IS NULL OR end_date >= start_date)
+    CONSTRAINT ck_promo_percent CHECK (discount_percent BETWEEN 1 AND 100),
+    CONSTRAINT ck_promo_date_range CHECK (end_date IS NULL OR end_date >= start_date)
 );
 
+-- ============================================================
+-- MIGRATION: V4__init_announcements.sql
+-- Tag ID: [DAT-010]
+-- ============================================================
 CREATE TABLE announcements (
-    announcement_id  UUID           NOT NULL DEFAULT gen_random_uuid(),
-    title            VARCHAR(150)   NOT NULL,
-    content          VARCHAR(2000)  NOT NULL,
-    start_date       DATE,
-    end_date         DATE,
+    announcement_id UUID NOT NULL,
+    title VARCHAR(150) NOT NULL,
+    content TEXT NOT NULL,
+    start_date DATE NULL,
+    end_date DATE NULL,
     CONSTRAINT pk_announcements PRIMARY KEY (announcement_id),
-    CONSTRAINT ck_announcements_date_range CHECK (end_date IS NULL OR end_date >= start_date)
+    CONSTRAINT ck_ann_title_len CHECK (char_length(title) <= 150),
+    CONSTRAINT ck_ann_content_len CHECK (char_length(content) <= 2000),
+    CONSTRAINT ck_ann_date_range CHECK (end_date IS NULL OR end_date >= start_date)
 );
-CREATE INDEX idx_announcements_end_date ON announcements (end_date);
-```
-<!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.6: Migration V9 — bảng SystemSettings key-value
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V9__create_system_settings_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-011]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Tạo system_settings dạng key-value với setting_key VARCHAR(100) NOT NULL PK, setting_value TEXT NOT NULL, description VARCHAR(255) nullable; làm nơi lưu locale mặc định hệ thống, danh sách locale kích hoạt en/vi/es và tham số SEO hreflang cho giai đoạn bản địa hóa; cấu hình origin CORS theo trung tâm cũng đăng ký tập trung tại đây theo quy ước key cors.allowed.origin.<centerId> phục vụ rào chắn đa tenant.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-011]:**
-
-<!--START_DDL_MIGRATION-->
-```sql
+-- ============================================================
+-- MIGRATION: V5__init_system_settings.sql
+-- Tag ID: [DAT-011]
+-- ============================================================
 CREATE TABLE system_settings (
-    setting_key    VARCHAR(100)  NOT NULL,
-    setting_value  TEXT          NOT NULL,
-    description    VARCHAR(255),
+    setting_key VARCHAR(50) NOT NULL,
+    setting_value TEXT NOT NULL,
+    description VARCHAR(200) NULL,
     CONSTRAINT pk_system_settings PRIMARY KEY (setting_key)
 );
 ```
 <!--END_DDL_MIGRATION-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.7: Integration test chuỗi migration đầy đủ V1–V9
-
+#### 📝 Nhiệm vụ phụ 2.7: Kiểm thử đường ống migration PostgreSQL
 ##### Sub-Agent được phân công: Tester
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** INTEGRATION_SCOPE;./sources/infra/test/migration-integration-test.sql
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo script kiểm thử tích hợp tại đường dẫn `./sources/infra/test/migration-integration-test.sql` thực thi toàn bộ quy trình kiểm thử di trú trên PostgreSQL 16. Script phải bao gồm các bước: (1) Khởi tạo schema tạm thời bằng `CREATE SCHEMA test_migration;` và `SET search_path TO test_migration;`; (2) Thực thi tuần tự 11 tệp migration từ sáu service theo thứ tự phụ thuộc (users, roles, centers, courses, enrollments, attendance, student_cards, notifications, promotions, announcements, system_settings); (3) Verify số bảng tạo thành công lớn hơn hoặc bằng 11 bằng truy vấn `SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'test_migration';`; (4) Kiểm tra UNIQUE constraint trên bảng attendance bằng cách insert hai bản ghi trùng composite key `(student_id, course_id, attendance_date)` và expect lỗi SQLSTATE 23505; (5) Kiểm tra CHECK constraint trên bảng roles với giá trị không hợp lệ như `'InvalidRole'`, expect lỗi CHECK violation; (6) Kiểm tra CHECK constraint trên cột email của users với giá trị không chứa ký tự `@`, expect lỗi CHECK violation. Kết quả pass/fail phải được ghi ra stdout với mã exit tương ứng (0 cho pass, 1 cho fail) để pipeline CI/CD có thể tự động đánh giá.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** INTEGRATION_SCOPE;./sources/backend/db-migrations/src/test/java/org/nlh4j/membership_hub/db/FullMigrationChainIT.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Chạy toàn bộ chuỗi V1→V9 trên Testcontainers PostgreSQL sạch; assert chèn attendance trùng cùng (student, course, date) bị uq_attendance_idempotent từ chối; retry_count vượt 3 bị ck_notifications_retry_cap chặn; discount_percent ngoài 1–100 bị ck_promotions_discount_range chặn; promotion không end_date được chấp nhận như khuyến mãi vĩnh viễn; xác minh information_schema trả về đúng 11 bảng lõi tồn tại sau migrate và không có orphan reference giữa các khóa ngoại.
-
-* **Đặc tả DDL SQL Lược đồ Cơ sở Dữ liệu [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]:**
-
-<!--START_DDL_MIGRATION-->
-```sql
--- Verified chain executed by FullMigrationChainIT (V4 -> V9)
-CREATE TABLE enrollments (
-    enrollment_id    UUID       NOT NULL DEFAULT gen_random_uuid(),
-    student_id       UUID       NOT NULL,
-    course_id        UUID       NOT NULL,
-    enrollment_date  TIMESTAMP  NOT NULL DEFAULT now(),
-    CONSTRAINT pk_enrollments PRIMARY KEY (enrollment_id),
-    CONSTRAINT fk_enrollments_student FOREIGN KEY (student_id) REFERENCES users (user_id),
-    CONSTRAINT fk_enrollments_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
-    CONSTRAINT uq_enrollments_student_course UNIQUE (student_id, course_id)
-);
-CREATE INDEX idx_enrollments_student_id ON enrollments (student_id);
-CREATE INDEX idx_enrollments_course_id ON enrollments (course_id);
-
-CREATE TABLE attendance (
-    attendance_id    UUID        NOT NULL DEFAULT gen_random_uuid(),
-    student_id       UUID        NOT NULL,
-    course_id        UUID        NOT NULL,
-    attendance_date  DATE        NOT NULL,
-    recorded_at      TIMESTAMP   NOT NULL DEFAULT now(),
-    CONSTRAINT pk_attendance PRIMARY KEY (attendance_id),
-    CONSTRAINT fk_attendance_student FOREIGN KEY (student_id) REFERENCES users (user_id),
-    CONSTRAINT fk_attendance_course FOREIGN KEY (course_id) REFERENCES courses (course_id),
-    CONSTRAINT uq_attendance_idempotent UNIQUE (student_id, course_id, attendance_date)
-);
-CREATE INDEX idx_attendance_course_date ON attendance (course_id, attendance_date);
-
-CREATE TABLE student_cards (
-    card_id         UUID       NOT NULL DEFAULT gen_random_uuid(),
-    student_id      UUID       NOT NULL,
-    issue_date      DATE       NOT NULL,
-    validity_days   INTEGER    NOT NULL,
-    remaining_days  INTEGER    NOT NULL DEFAULT 0,
-    CONSTRAINT pk_student_cards PRIMARY KEY (card_id),
-    CONSTRAINT fk_student_cards_student FOREIGN KEY (student_id) REFERENCES users (user_id),
-    CONSTRAINT uq_student_cards_student UNIQUE (student_id),
-    CONSTRAINT ck_student_cards_validity CHECK (validity_days > 0)
-);
-CREATE INDEX idx_student_cards_student_id ON student_cards (student_id);
-
-CREATE TABLE notifications (
-    notification_id  UUID          NOT NULL DEFAULT gen_random_uuid(),
-    user_id          UUID,
-    group_zalo       VARCHAR(100),
-    message          TEXT          NOT NULL,
-    sent_at          TIMESTAMP     NOT NULL DEFAULT now(),
-    delivered        BOOLEAN       NOT NULL DEFAULT FALSE,
-    retry_count      SMALLINT      NOT NULL DEFAULT 0,
-    delivery_status  VARCHAR(20)   NOT NULL DEFAULT 'PENDING',
-    CONSTRAINT pk_notifications PRIMARY KEY (notification_id),
-    CONSTRAINT fk_notifications_user FOREIGN KEY (user_id) REFERENCES users (user_id),
-    CONSTRAINT ck_notifications_status CHECK (delivery_status IN ('PENDING', 'SENT', 'RETRYING', 'FAILED')),
-    CONSTRAINT ck_notifications_retry_cap CHECK (retry_count <= 3)
-);
-CREATE INDEX idx_notifications_user_id ON notifications (user_id);
-CREATE INDEX idx_notifications_status ON notifications (delivery_status);
-
-CREATE TABLE promotions (
-    promo_id          UUID          NOT NULL DEFAULT gen_random_uuid(),
-    code              VARCHAR(50)   NOT NULL,
-    discount_percent  SMALLINT      NOT NULL,
-    start_date        DATE,
-    end_date          DATE,
-    description       TEXT,
-    CONSTRAINT pk_promotions PRIMARY KEY (promo_id),
-    CONSTRAINT uq_promotions_code UNIQUE (code),
-    CONSTRAINT ck_promotions_discount_range CHECK (discount_percent BETWEEN 1 AND 100),
-    CONSTRAINT ck_promotions_date_range CHECK (end_date IS NULL OR end_date >= start_date)
-);
-
-CREATE TABLE announcements (
-    announcement_id  UUID           NOT NULL DEFAULT gen_random_uuid(),
-    title            VARCHAR(150)   NOT NULL,
-    content          VARCHAR(2000)  NOT NULL,
-    start_date       DATE,
-    end_date         DATE,
-    CONSTRAINT pk_announcements PRIMARY KEY (announcement_id),
-    CONSTRAINT ck_announcements_date_range CHECK (end_date IS NULL OR end_date >= start_date)
-);
-CREATE INDEX idx_announcements_end_date ON announcements (end_date);
-
-CREATE TABLE system_settings (
-    setting_key    VARCHAR(100)  NOT NULL,
-    setting_value  TEXT          NOT NULL,
-    description    VARCHAR(255),
-    CONSTRAINT pk_system_settings PRIMARY KEY (setting_key)
-);
-```
-<!--END_DDL_MIGRATION-->
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.8: Kiểm toán đồ thị khóa ngoại toàn cục và ký merge
-
+#### 📝 Nhiệm vụ phụ 2.8: Đánh giá chất lượng migration và tối ưu index
 ##### Sub-Agent được phân công: Reviewer
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/enrollment-service/src/main/resources/db/migration/V1__init_enrollments.sql`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Review toàn bộ 11 tệp migration đã tạo ở các bước trước. Kiểm tra chéo bốn tiêu chí chất lượng: (1) Mọi FOREIGN KEY đều có `ON DELETE` được chỉ định hợp lý (CASCADE cho quan hệ sở hữu, SET NULL cho quan hệ tham chiếu, RESTRICT cho quan hệ bảo vệ); (2) CHECK constraint đầy đủ cho mọi string enum thay vì dùng PostgreSQL ENUM inline, đảm bảo khả năng mở rộng dễ dàng; (3) Chỉ mục được tạo cho các cột truy vấn thường xuyên bao gồm `email`, `role_id`, `teacher_id`, `attendance_date`, `course_id`, `student_id`, `delivered`, `start_date`/`end_date`; (4) Tên constraint tuân thủ convention thống nhất: `pk_*` cho PRIMARY KEY, `fk_*` cho FOREIGN KEY, `uq_*` cho UNIQUE, `ck_*` cho CHECK, `idx_*` cho INDEX. Phát hiện và đề xuất bổ sung các index thiếu cho các hot path query. Tạo báo cáo chi tiết tại đường dẫn `./sources/docs/review/phase1-day2-migration-review.md` liệt kê từng issue phát hiện, đề xuất fix cụ thể và xác nhận 100% Tag ID [DAT-001] đến [DAT-011] đã được xác minh.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/db-migrations/src/main/resources/db/migration/V5__create_attendance_table.sql
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Xác minh thứ tự phụ thuộc FK V1→V9 không tạo orphan reference khi migrate tuần tự trên môi trường sạch; xác nhận cổng idempotent UNIQUE đúng ba cột (student_id, course_id, attendance_date) không thừa thiếu cột nào; rà soát CHECK constraint không che khuất lỗi nghiệp vụ cần surface lên tầng ứng dụng; duyệt và ký merge toàn bộ chuỗi migration làm điều kiện mở khóa tầng ứng dụng auth-service ở Ngày 4.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 3.9: Cập nhật từ điển dữ liệu bảy bảng vận hành
-
+#### 📝 Nhiệm vụ phụ 2.9: Biên soạn tài liệu Database Schema Topology
 ##### Sub-Agent được phân công: Doc
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/docs/database/DatabaseSchemaTopology.md`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[DOC-001]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tài liệu Markdown tại đường dẫn `./sources/docs/database/DatabaseSchemaTopology.md` mô tả toàn bộ topology 11 bảng cơ sở dữ liệu. Nội dung bắt buộc gồm: (1) Mục lục rõ ràng; (2) Sơ đồ ER tổng thể sử dụng cú pháp Mermaid `erDiagram` thể hiện quan hệ giữa 11 bảng; (3) Phần mô tả chi tiết cho từng bảng gồm tên bảng, Tag ID tương ứng, danh sách cột với kiểu dữ liệu, ràng buộc PRIMARY KEY/UNIQUE/CHECK/FOREIGN KEY, INDEX liên quan; (4) Giải thích ý nghĩa nghiệp vụ của từng bảng và mối quan hệ giữa chúng; (5) Chiến lược phân vùng migration theo microservice, giải thích lý do bảng `student_cards`, `notifications`, `promotions`, `announcements`, `system_settings` được đặt trong schema của `notification-service`; (6) Bảng đối chiếu 1:1 giữa 11 Tag ID `[DAT-001]` đến `[DAT-011]` với tên tệp migration tương ứng. Tài liệu phải viết bằng tiếng Việt, có sơ đồ Mermaid rõ ràng và Tag ID truy vết chính xác ở mỗi mục.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
+### 🌤️ NGÀY 3: <!--DAY_HEADER_START-->Thiết Lập Lớp Bảo Mật, Gateway Và Kafka Topic Schemas<!--DAY_HEADER_END-->
 
-* **Đường dẫn Đích:** ./sources/docs/data-dictionary-operational-tables.md
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Bổ sung mô tả cột/ràng buộc của 7 bảng vận hành ENROLLMENTS/ATTENDANCE/STUDENT_CARDS/NOTIFICATIONS/PROMOTIONS/ANNOUNCEMENTS/SYSTEM_SETTINGS; diễn giải vòng đời trạng thái notification PENDING→SENT/RETRYING/FAILED và cơ chế idempotent của attendance kèm ví dụ truy vấn minh họa; cập nhật sơ đồ Mermaid quan hệ USERS ||--o{ ENROLLMENTS, COURSES ||--o{ ENROLLMENTS, USERS ||--o| STUDENT_CARDS và ghi chú ý nghĩa end_date NULL của promotions.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-### 🌤️ NGÀY 4:
-<!--DAY_HEADER_START-->Triển Khai Endpoint Đăng Ký Người Dùng Hash Bcrypt Cấp JWT Và Bộ Xử Lý Ngoại Lệ Xác Thực Đầu Vào<!--DAY_HEADER_END-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.1: DTO đăng ký kèm ràng buộc Bean Validation
-
+#### 📝 Nhiệm vụ phụ 3.1: Triển khai JWT Filter Chain
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtFilter.java`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo class Java tại đường dẫn `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtFilter.java` thuộc package `org.nlh4j.membershiphub.userservice.security`. Class triển khai interface `ContainerRequestFilter` với annotation `@Provider` và `@Priority(Priorities.AUTHENTICATION)`. Inject `JwtParser` từ SmallRye JWT thông qua `@Inject`. Phương thức `filter(ContainerRequestContext requestContext)` đọc header `Authorization` với định dạng `Bearer <token>`, gọi `jwtParser.parse(token)` để xác minh chữ ký RS256 và parse các claim. Trích xuất claim `sub` (user UUID), `groups` (danh sách role), `exp` (thời gian hết hạn). Khi thiếu token hoặc token không hợp lệ, gọi `requestContext.abortWith(Response.status(401).build())`. Khi token hết hạn, abort với 401 và thông điệp "Token expired". Khi role không hợp lệ so với yêu cầu endpoint, abort với 403. Lưu principal là user UUID vào `SecurityContext` thông qua `requestContext.setSecurityContext()`. Đảm bảo filter chỉ áp dụng cho các đường dẫn bắt đầu bằng `/api/v1/`.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/dto/RegisterRequest.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001], [EXC-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Định nghĩa record RegisterRequest với @Email @NotBlank @Size(max=255) cho email, @NotBlank @Pattern(regexp chính sách mạnh: tối thiểu 8 ký tự, ít nhất một chữ hoa, một chữ số, một ký tự đặc biệt) cho password, @NotBlank @Size(max=100) cho fullName, @AssertTrue(message yêu cầu đồng ý điều khoản) cho acceptedTerms; gắn message tiếng Anh máy đọc cho từng ràng buộc để GlobalExceptionMapper ánh xạ sang mảng invalidFields đúng từng trường; cấm đặt annotation validation ở tầng controller thay vì DTO để bảo đảm một nguồn chân lý duy nhất.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.2: Dịch vụ đăng ký người dùng hash bcrypt transactional
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/UserRegistrationService.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Triển khai @Transactional UserRegistrationService: kiểm tra email unique qua repository dùng prepared statement và ném EmailAlreadyExistsException khi trùng; hash BCrypt cost 12 bảo đảm chuỗi hash đúng 60 ký tự khớp cột CHAR(60); persist Users với roleId mặc định STUDENT (id 5) hoặc TEACHER (id 4) khi request mang inviteToken hợp lệ; cập nhật updated_at tự động; trả về thực thể Users đã tạo cho tầng resource phát hành token; mọi truy vấn đi qua tham số hóa chống SQL injection.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.3: Bộ phát hành JWT RS256 và refresh token Redis
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/security/JwtTokenIssuer.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Phát hành access token RS256 hết hạn 900 giây chứa claims sub (userId), role, iss, iat, exp; refresh token opaque UUID có TTL 7 ngày (604800 giây) lưu Redis với key refresh:<userId>:<tokenId> phục vụ xoay vòng và thu hồi tức thời; ký bằng private key nạp từ cấu hình môi trường qua MicroProfile Config, nghiêm cấm hardcode trong mã nguồn; không đưa passwordHash hay PII nhạy cảm vào payload JWT theo khung OWASP; cung cấp hàm verify cho filter OIDC downstream ở Giai đoạn 2.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.4: REST endpoint POST /api/v1/auth/register
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/resource/AuthResource.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** JAX-RS resource POST /api/v1/auth/register nhận body RegisterRequest qua @Valid kích hoạt Bean Validation, điều phối UserRegistrationService rồi JwtTokenIssuer; trả 201 kèm TokenResponse (userId, email, fullName, role, accessToken, refreshToken, tokenType=Bearer); ánh xạ ConstraintViolationException sang 400 AUTH_VALIDATION_FAILED và EmailAlreadyExistsException sang 409 EMAIL_ALREADY_EXISTS; endpoint công khai không yêu cầu bearer; ghi log truy cập tuyệt đối không bao gồm password hay hash.
-
-* **Hợp đồng Định tuyến API và Sự kiện [REQ-001]:**
-
-<!--START_API_CONTRACT-->
+* **Hợp đồng định tuyến API và sự kiện [ARC-006]:** <!--START_API_CONTRACT-->
 ```json
 {
-  "endpoint": "POST /api/v1/auth/register",
-  "security": "PUBLIC",
-  "request": {
-    "email": "string | required | RFC 5322 | unique | max 255",
-    "password": "string | required | min 8 chars | 1 uppercase + 1 digit + 1 special",
-    "fullName": "string | required | max 100",
-    "acceptedTerms": "boolean | required | must be true"
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Membership Hub - JWT Filter Security Contract",
+    "version": "1.0.0",
+    "description": "JWT filter chain specification cho mọi endpoint /api/v1/** theo [ARC-006]"
   },
-  "response_201": {
-    "userId": "550e8400-e29b-41d4-a716-446655440000",
-    "email": "nguyen.van.a@example.com",
-    "fullName": "Nguyen Van A",
-    "role": "STUDENT",
-    "accessToken": "<JWT_RS256_exp_900s>",
-    "refreshToken": "<OPAQUE_UUID_exp_604800s>",
-    "tokenType": "Bearer"
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
   },
-  "response_400": {
-    "errorCode": "AUTH_VALIDATION_FAILED",
-    "invalidFields": [
-      {"field": "email", "rejectedValue": "abc@", "message": "Invalid email format"},
-      {"field": "password", "rejectedValue": null, "message": "Password does not meet complexity policy"}
-    ]
-  },
-  "response_409": {
-    "errorCode": "EMAIL_ALREADY_EXISTS",
-    "message": "A user with this email already exists"
+  "security": [{ "bearerAuth": [] }],
+  "paths": {
+    "/api/v1/auth/register": {
+      "post": {
+        "summary": "Reference endpoint - triển khai chi tiết ở Giai đoạn 2",
+        "security": []
+      }
+    }
   }
 }
 ```
 <!--END_API_CONTRACT-->
 
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.5: GlobalExceptionMapper hợp nhất vi phạm xác thực đầu vào
-
+#### 📝 Nhiệm vụ phụ 3.2: Cấu hình OAuth2 Resource Server
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/OAuth2ResourceServer.java`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo class Java tại đường dẫn `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/OAuth2ResourceServer.java` thuộc package `org.nlh4j.membershiphub.userservice.security`. Class đóng vai trò cấu hình tập trung cho `quarkus-smallrye-jwt` thông qua việc khai báo các `@ConfigProperty`. Các thuộc tính bắt buộc gồm: `mp.jwt.verify.publickey.location` trỏ tới JWKS endpoint từ identity provider, `mp.jwt.verify.issuer` định danh issuer hợp lệ, `smallrye.jwt.path.sub` thiết lập đường dẫn claim sub, `smallrye.jwt.always-check-authorization` bật chế độ kiểm tra quyền liên tục. Đồng thời tạo class `Application` với annotation `@ApplicationPath("/api")` để mount toàn bộ REST endpoint theo context path chuẩn. Class chỉ chứa cấu hình, không chứa logic nghiệp vụ.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/exception/GlobalExceptionMapper.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[EXC-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** @Provider ExceptionMapper<ConstraintViolationException> gom từng violation thành bộ {field, rejectedValue, message} bảo toàn thứ tự khai báo DTO, trả 400 với errorCode=AUTH_VALIDATION_FAILED và mảng invalidFields liệt kê từng trường không hợp lệ đúng tiêu chí chấp nhận [EXC-004]; bổ sung mapper cho EmailAlreadyExistsException trả 409 với thông điệp chung chống dò tài khoản; cấm leak stack trace hay chi tiết SQL ra phản hồi; thông điệp lỗi hướng dẫn người dùng chỉnh sửa từng trường trước khi gửi lại biểu mẫu.
-
-* **Trình Xử lý Ngoại lệ Cục bộ của Giai đoạn [EXC-004]:**
-
-<!--START_EXC_HANDLER-->
-```json
-{
-  "mapperClass": "GlobalExceptionMapper",
-  "package": "org.nlh4j.membership_hub.auth.exception",
-  "providers": [
-    {
-      "handles": "jakarta.validation.ConstraintViolationException",
-      "httpStatus": 400,
-      "errorCode": "AUTH_VALIDATION_FAILED",
-      "bodySchema": {
-        "errorCode": "AUTH_VALIDATION_FAILED",
-        "invalidFields": [
-          { "field": "string", "rejectedValue": "string|null", "message": "string" }
-        ]
-      },
-      "rule": "Aggregate every Bean Validation violation into invalidFields preserving DTO declaration order; never expose stack traces or SQL fragments"
-    },
-    {
-      "handles": "org.nlh4j.membership_hub.auth.exception.EmailAlreadyExistsException",
-      "httpStatus": 409,
-      "errorCode": "EMAIL_ALREADY_EXISTS",
-      "bodySchema": {
-        "errorCode": "EMAIL_ALREADY_EXISTS",
-        "message": "A user with this email already exists"
-      },
-      "rule": "Return fixed generic message to prevent account enumeration; keep constant response time"
-    }
-  ]
-}
-```
-<!--END_EXC_HANDLER-->
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.6: Unit test dịch vụ đăng ký và chính sách mật khẩu
-
-##### Sub-Agent được phân công: Tester
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/UserRegistrationService.java;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/UserRegistrationServiceTest.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001], [EXC-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** @QuarkusTest: assert hash bcrypt khác plaintext và verifier xác thực thành công với mật khẩu gốc; email trùng sinh EmailAlreadyExistsException ánh xạ 409; mật khẩu thiếu chữ hoa/chữ số/ký tự đặc biệt và email sai định dạng sinh đúng số violation tương ứng từng trường; acceptedTerms=false và fullName vượt 100 ký tự bị chặn; xác minh phản hồi 400 chứa mảng invalidFields đầy đủ đúng schema hợp đồng.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.7: Rà soát bảo mật luồng đăng ký theo OWASP
-
-##### Sub-Agent được phân công: Reviewer
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/resource/AuthResource.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001], [EXC-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Kiểm chứng BCrypt cost >= 12, thời hạn access 900 giây/refresh 604800 giây khớp hợp đồng; bảo đảm không log password, hash hay token ở bất kỳ tầng nào; thông điệp 409 không dò được sự tồn tại email qua timing attack (thời gian phản hồi ổn định giữa email tồn tại và không tồn tại); rà soát placeholder rate limiting tại gateway cho endpoint public; phê duyệt merge endpoint đăng ký sau khi SonarQube không còn blocker.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 4.8: Đặc tả tham chiếu API đăng ký
-
-##### Sub-Agent được phân công: Doc
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/docs/api-auth-service-reference.md
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001], [EXC-004]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Ghi hợp đồng POST /api/v1/auth/register: schema yêu cầu bắt buộc từng trường, phản hồi 201/400/409, bảng mã lỗi AUTH_VALIDATION_FAILED và EMAIL_ALREADY_EXISTS, ví dụ curl kèm payload mẫu; mô tả chính sách mật khẩu (tối thiểu 8 ký tự, chữ hoa, chữ số, ký tự đặc biệt) và cách UI hiển thị danh sách trường không hợp lệ trả về từ mảng invalidFields để người dùng chỉnh sửa trực tiếp.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-### 🌤️ NGÀY 5:
-<!--DAY_HEADER_START-->Tích Hợp Đăng Nhập Mạng Xã Hội OAuth2 Firebase Google Facebook Kèm Trao Đổi Token An Toàn<!--DAY_HEADER_END-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.1: Dịch vụ trao đổi mã OAuth2 upsert người dùng
-
+#### 📝 Nhiệm vụ phụ 3.3: Triển khai CORS Filter cho API Gateway
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/api-gateway/src/main/java/org/nlh4j/membershiphub/gateway/CorsFilter.java`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006], [ARC-009]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo class Java tại đường dẫn `./sources/backend/api-gateway/src/main/java/org/nlh4j/membershiphub/gateway/CorsFilter.java` thuộc package `org.nlh4j.membershiphub.gateway`. Class triển khai hai interface: `ContainerResponseFilter` để áp dụng CORS header cho mọi response, và `ContainerRequestFilter` để xử lý preflight OPTIONS request. Trong `ContainerResponseFilter.filter()`, thêm các header sau vào response: `Access-Control-Allow-Origin: https://app.membershiphub.example.com` (cấm wildcard), `Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS`, `Access-Control-Allow-Headers: Authorization,Content-Type,Accept-Language`, `Access-Control-Allow-Credentials: true`, `Access-Control-Max-Age: 3600`. Trong `ContainerRequestFilter.filter()`, kiểm tra nếu method là OPTIONS, gọi `requestContext.abortWith(Response.status(200).build())` để trả về 200 OK ngay cho preflight request. Class phải là API Gateway infrastructure, không chứa logic nghiệp vụ.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/OAuth2LoginService.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Nhận authorizationCode và redirectUri từ client, gọi token endpoint của provider tương ứng để exchange access token rồi lấy userinfo; upsert Users theo email trong một @Transaction: email chưa tồn tại thì tạo mới với provider tương ứng và role STUDENT, đã tồn tại thì cập nhật cột provider nếu khác mà không nhân bản dòng; sau commit phát hành JWT phiên qua JwtTokenIssuer; mọi lỗi exchange gói vào OAuth2CodeExchangeFailedException ánh xạ 401; toàn bộ HTTP outbound dùng timeout cấu hình và không log token trung gian.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.2: Adapter nhà cung cấp danh tính Firebase/Google/Facebook
-
+#### 📝 Nhiệm vụ phụ 3.4: Tạo OpenAPI 3.0 spec cho Gateway
 ##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/api-gateway/src/main/resources/openapi.yaml`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006], [ARC-007], [ARC-008], [ARC-009]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tệp YAML tại đường dẫn `./sources/backend/api-gateway/src/main/resources/openapi.yaml` chứa OpenAPI 3.0.3 spec cho API Gateway tổng hợp. Nội dung bắt buộc gồm: (1) Khối `info` với `title: "Membership Hub API Gateway"`, `version: "1.0.0"`, `description` tham chiếu đến các Tag ID [ARC-006] đến [ARC-009]; (2) Khối `servers` với URL production `https://api.membershiphub.example.com`; (3) Khối `components.securitySchemes` định nghĩa `bearerAuth` (HTTP Bearer với JWT) và `oauth2` (OAuth2 authorization code flow với scopes openid, profile, email); (4) Khối `security` mặc định yêu cầu `bearerAuth`; (5) Khối `paths` tham chiếu đến 5 nhóm endpoint chính gồm `/api/v1/auth/register`, `/api/v1/auth/login`, `/api/v1/centers`, `/api/v1/courses`, `/api/v1/attendance/scan`, `/api/v1/reports/attendance`. Mỗi path chỉ chứa summary stub và `$ref` đến file openapi.yaml riêng của từng service (sẽ triển khai chi tiết ở các giai đoạn sau). Spec phải validate thành công bằng Swagger Parser hoặc swagger-cli.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/oauth/SocialProviderAdapter.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Định nghĩa interface SocialProviderAdapter với phương thức exchange(authorizationCode, redirectUri) trả UserProfile(email, fullName, provider); triển khai ba bean FirebaseTokenVerifier, GoogleIdTokenVerifier, FacebookGraphClient chọn động theo tham số đường dẫn; xác thực chữ ký token, audience/client-id và expiry trước khi chấp nhận danh tính; chuẩn hóa trường họ tên về tối đa 100 ký tự khớp cột users.full_name; ném UnsupportedProviderException cho giá trị provider ngoài whitelist.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.3: REST endpoint POST /api/v1/auth/oauth2/{provider}
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/resource/OAuthResource.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** POST /api/v1/auth/oauth2/{provider} giới hạn provider IN (firebase, google, facebook), giá trị khác trả 400 OAUTH2_PROVIDER_UNSUPPORTED; trả 200 TokenResponse kèm cờ isNewUser phản ánh việc tạo bản ghi Users mới; exchange thất bại trả 401 OAUTH2_CODE_EXCHANGE_FAILED với thông điệp chung không tiết lộ nguyên nhân chi tiết; endpoint công khai; log chỉ ghi provider và kết quả, tuyệt đối không ghi authorizationCode hay token trung gian.
-
-* **Hợp đồng Định tuyến API và Sự kiện [REQ-002]:**
-
-<!--START_API_CONTRACT-->
-```json
-{
-  "endpoint": "POST /api/v1/auth/oauth2/{provider}",
-  "pathParams": {"provider": "firebase | google | facebook"},
-  "security": "PUBLIC",
-  "request": {
-    "authorizationCode": "string | required | provider-issued OAuth2 code",
-    "redirectUri": "string | required | registered callback URL"
-  },
-  "response_200": {
-    "userId": "6f1c2a84-93b0-4f7e-8a21-c0d5e7b91123",
-    "email": "tran.thi.b@gmail.com",
-    "fullName": "Tran Thi B",
-    "provider": "google",
-    "role": "STUDENT",
-    "accessToken": "<JWT_RS256_exp_900s>",
-    "refreshToken": "<OPAQUE_UUID_exp_604800s>",
-    "tokenType": "Bearer",
-    "isNewUser": false
-  },
-  "response_401": {
-    "errorCode": "OAUTH2_CODE_EXCHANGE_FAILED",
-    "message": "Provider rejected the authorization code"
-  }
-}
+* **Hợp đồng định tuyến API và sự kiện [ARC-006], [ARC-007], [ARC-008], [ARC-009]:** <!--START_API_CONTRACT-->
+```yaml
+openapi: 3.0.3
+info:
+  title: Membership Hub API Gateway
+  version: 1.0.0
+  description: |
+    Centralized API gateway contract cho hệ thống membership-hub.
+    Tham chiếu các Tag ID: [ARC-006] Authentication, [ARC-007] Attendance QR,
+    [ARC-008] Notification, [ARC-009] Mobile App Integration.
+servers:
+  - url: https://api.membershiphub.example.com
+    description: Production GKE gateway
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.membershiphub.example.com/oauth2/authorize
+          tokenUrl: https://auth.membershiphub.example.com/oauth2/token
+          scopes:
+            openid: OpenID
+            profile: Profile
+            email: Email
+security:
+  - bearerAuth: []
+paths:
+  /api/v1/auth/register:
+    post:
+      summary: Register a new user (stub reference for Phase 2)
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: Email/password login (stub reference for Phase 2)
+      security: []
+  /api/v1/centers:
+    get:
+      summary: List centers (stub reference for Phase 2)
+  /api/v1/courses:
+    get:
+      summary: List courses (stub reference for Phase 3)
+  /api/v1/attendance/scan:
+    post:
+      summary: QR scan attendance (stub reference for Phase 4)
+  /api/v1/reports/attendance:
+    get:
+      summary: Attendance CSV report (stub reference for Phase 4)
 ```
 <!--END_API_CONTRACT-->
 
-* **Trình Xử lý Ngoại lệ Cục bộ của Giai đoạn [REQ-002]:**
+#### 📝 Nhiệm vụ phụ 3.5: Định nghĩa Kafka Topic Schemas
+##### Sub-Agent được phân công: Coder
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/notification-service/src/main/java/org/nlh4j/membershiphub/notificationservice/kafka/TopicSchemas.java`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-008]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo class Java tại đường dẫn `./sources/backend/notification-service/src/main/java/org/nlh4j/membershiphub/notificationservice/kafka/TopicSchemas.java` thuộc package `org.nlh4j.membershiphub.notificationservice.kafka`. Class chứa ba inner record class đại diện cho JSON schema của ba Kafka topic chính: (1) `EnrollmentCreated` với các trường `enrollmentId`, `studentId`, `courseId`, `timestamp` định dạng ISO-8601; (2) `TeacherAssigned` với các trường `courseId`, `teacherId`, `assignedBy`, `assignedAt`; (3) `AttendanceRecorded` với các trường `attendanceId`, `studentId`, `courseId`, `attendanceDate` định dạng YYYY-MM-DD. Mỗi record sử dụng annotation Jackson `@JsonProperty` cho key và value, kèm builder method thông qua `@JsonCreator`. Class sử dụng `quarkus-messaging-kafka` để produce event với cấu hình `acks=all`, `compression.type=snappy`, `batch.size=65536`, `linger.ms=20`. Đồng thời tạo tệp YAML tại `./sources/backend/notification-service/src/main/resources/kafka-topics.yaml` khai báo cấu hình topic gồm `enrollment.created` (partitions: 6, replication: 3), `teacher.assigned` (partitions: 3, replication: 3), `attendance.recorded` (partitions: 6, replication: 3), kèm `retention.ms` và `cleanup.policy`.
 
-<!--START_EXC_HANDLER-->
-```json
-{
-  "mapperClass": "GlobalExceptionMapper",
-  "package": "org.nlh4j.membership_hub.auth.exception",
-  "providers": [
-    {
-      "handles": "org.nlh4j.membership_hub.auth.oauth.OAuth2CodeExchangeFailedException",
-      "httpStatus": 401,
-      "errorCode": "OAUTH2_CODE_EXCHANGE_FAILED",
-      "bodySchema": {
-        "errorCode": "OAUTH2_CODE_EXCHANGE_FAILED",
-        "message": "Provider rejected the authorization code"
-      },
-      "rule": "Generic message only; authorizationCode and intermediate tokens are banned from logs and response bodies"
-    },
-    {
-      "handles": "org.nlh4j.membership_hub.auth.oauth.UnsupportedProviderException",
-      "httpStatus": 400,
-      "errorCode": "OAUTH2_PROVIDER_UNSUPPORTED",
-      "bodySchema": {
-        "errorCode": "OAUTH2_PROVIDER_UNSUPPORTED",
-        "message": "Provider must be one of: firebase, google, facebook"
-      },
-      "rule": "Reject unknown path parameter before invoking any provider adapter"
-    }
-  ]
-}
-```
-<!--END_EXC_HANDLER-->
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.4: Unit test dịch vụ OAuth2 với mock adapter
-
+#### 📝 Nhiệm vụ phụ 3.6: Kiểm thử bảo mật và gateway
 ##### Sub-Agent được phân công: Tester
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** INTEGRATION_SCOPE;./sources/infra/test/security-gateway-integration.sh
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006], [ARC-009]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo script shell tại đường dẫn `./sources/infra/test/security-gateway-integration.sh` thực thi bộ kiểm thử tích hợp cho lớp bảo mật gateway. Script sử dụng `curl` kết hợp `jq` để thực hiện năm kịch bản kiểm thử: (1) Khởi động sáu service Quarkus thông qua `mvn quarkus:dev` trong background mode, đợi 60 giây cho service sẵn sàng; (2) Gửi GET request không có header `Authorization` đến `/api/v1/centers`, kỳ vọng HTTP status 401; (3) Gửi GET request với JWT hợp lệ (chuỗi bearer token giả lập đã qua kiểm tra chữ ký), kỳ vọng HTTP 200; (4) Gửi request với JWT hết hạn (sử dụng token có claim `exp` trong quá khứ), kỳ vọng HTTP 401 với thông điệp "Token expired"; (5) Gửi preflight OPTIONS request với header `Origin: https://app.membershiphub.example.com`, kỳ vọng HTTP 200 và response chứa header `Access-Control-Allow-Origin`. Mỗi kịch bản phải có assertion rõ ràng, script trả exit code 0 khi tất cả pass, exit code 1 kèm thông điệp lỗi chi tiết khi thất bại.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/OAuth2LoginService.java;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/OAuth2LoginServiceTest.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Mock adapter: mã hợp lệ → upsert và cấp JWT với claims đúng; mã hết hạn/sai chữ ký → OAuth2CodeExchangeFailedException ánh xạ 401; email đã tồn tại với provider khác → cập nhật provider, không nhân bản dòng Users; xác minh isNewUser=true chỉ lần đầu tạo bản ghi; kiểm tra transaction rollback khi userinfo thiếu email bắt buộc và không để lại bản ghi mồ côi.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.5: Integration test luồng OAuth2 đầu-cuối với stub provider
-
-##### Sub-Agent được phân công: Tester
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/OAuth2FlowIT.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** @QuarkusIntegrationTest với stub provider server (WireMock) giả lập token endpoint Google/Firebase/Facebook: lần đầu gọi trả isNewUser=true và dòng Users mới xuất hiện trong PostgreSQL Testcontainers; lần sau cùng email trả isNewUser=false; giải mã access token xác nhận claims role=STUDENT và exp−iat=900s; xác minh refresh token được lưu Redis với TTL 604800 giây và có thể thu hồi.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.6: Rà soát an ninh trao đổi token chống CSRF
-
+#### 📝 Nhiệm vụ phụ 3.7: Đánh giá lớp bảo mật và OpenAPI
 ##### Sub-Agent được phân công: Reviewer
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/backend/notification-service/src/main/resources/kafka-topics.yaml`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006], [ARC-007], [ARC-008], [ARC-009]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Review năm tệp bảo mật và gateway gồm `JwtFilter.java`, `OAuth2ResourceServer.java`, `CorsFilter.java`, `openapi.yaml` và `TopicSchemas.java`. Kiểm tra năm tiêu chí chất lượng: (1) Không có secret, key hay thông tin nhạy cảm nào được hard-code trong mã nguồn, tất cả phải được inject từ biến môi trường hoặc Secret Manager; (2) RS256 được sử dụng cho chữ ký JWT (cấm HS256 đối với hệ thống production); (3) OpenAPI spec tại `openapi.yaml` hợp lệ và validate thành công thông qua `swagger-cli validate`; (4) Kafka topic cấu hình `replication.factor >= 3` để đảm bảo high availability, `acks=all` cho producer để chống mất dữ liệu; (5) CORS policy không cho phép wildcard origin `*` mà chỉ định danh sách domain cụ thể. Tạo báo cáo review tại `./sources/docs/review/phase1-day3-security-review.md` liệt kê chi tiết từng issue phát hiện, đề xuất fix cụ thể và xác nhận 100% Tag ID [ARC-006] đến [ARC-009] đã được xác minh.
 
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/OAuth2LoginService.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Xác thực state/nonce chống CSRF trên luồng popup→callback; kiểm tra audience/client-id khớp cấu hình môi trường và clock skew cho phép ±60 giây; bảo đảm không ghi log authorizationCode, access token trung gian hay refresh token; rà soát whitelist redirectUri chặn open redirect; phê duyệt merge luồng OAuth2 sau khi cổng phân tích tĩnh xanh.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 5.7: Bổ sung chương OAuth2 vào tham chiếu API
-
+#### 📝 Nhiệm vụ phụ 3.8: Biên soạn tài liệu API Contracts
 ##### Sub-Agent được phân công: Doc
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/docs/api-auth-service-reference.md
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-002]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Cập nhật chương OAuth2: bảng ba provider firebase/google/facebook, schema yêu cầu authorizationCode/redirectUri, phản hồi 200 kèm cờ isNewUser, mã lỗi 401 OAUTH2_CODE_EXCHANGE_FAILED và 400 OAUTH2_PROVIDER_UNSUPPORTED; bổ sung sơ đồ sequence popup→callback→exchange→JWT phát hành bằng Mermaid và ghi chú chính sách bảo mật state/nonce.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-### 🌤️ NGÀY 6:
-<!--DAY_HEADER_START-->Xây Dựng Phân Quyền Vai Trò Kèm Audit Log Append-Only Và Đóng Gói Bàn Giao Giai Đoạn<!--DAY_HEADER_END-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.1: Dịch vụ gán/thay đổi vai trò vô hiệu hóa cache phiên
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/RoleAssignmentService.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Cập nhật users.role_id trong @Transaction sau khi xác minh caller mang claim role=SYSTEM_ADMIN; vô hiệu hóa cache phiên Redis của target user (key sessions:<userId>) để ma trận quyền áp dụng tức thời không cần đăng nhập lại; ném RoleAssignmentForbiddenException khi thiếu quyền và UserNotFoundException khi targetUserId không tồn tại; ghi nhận previousRoleId/newRoleId phục vụ phản hồi và audit; validate roleId trong khoảng 1–5 trước khi mutate.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.2: Bộ ghi audit log append-only thay đổi vai trò
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/audit/AuditLogRecorder.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Ghi append-only mỗi thay đổi vai trò gồm actorUserId, targetUserId, oldRoleId, newRoleId, action=USER_ROLE_CHANGED, reason tùy chọn và timestamp UTC; sử dụng repository audit riêng không expose update/delete ở bất kỳ tầng nào; bảo đảm ghi audit trong cùng transaction với thay đổi role để không xảy ra trạng thái lệch; định dạng dòng log chuẩn hóa phục vụ sink Cloud Logging retention 1 năm ở Giai đoạn 5.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.3: REST endpoint PUT /api/v1/admin/users/{userId}/role
-
-##### Sub-Agent được phân công: Coder
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/resource/AdminRoleResource.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** PUT /api/v1/admin/users/{userId}/role với @RolesAllowed("SYSTEM_ADMIN"); nhận RoleAssignmentRequest(roleId, reason optional); trả 200 kèm userId, previousRoleId, newRoleId, permissionsAppliedAt, auditLogId; 403 ROLE_ASSIGNMENT_FORBIDDEN khi caller thiếu quyền, 404 USER_NOT_FOUND khi userId không tồn tại, 400 khi roleId ngoài khoảng hợp lệ; bearer JWT bắt buộc trên toàn endpoint.
-
-* **Hợp đồng Định tuyến API và Sự kiện [REQ-003]:**
-
-<!--START_API_CONTRACT-->
-```json
-{
-  "endpoint": "PUT /api/v1/admin/users/{userId}/role",
-  "security": "BEARER JWT | role=SYSTEM_ADMIN",
-  "pathParams": {"userId": "uuid"},
-  "request": {
-    "roleId": 2,
-    "reason": "string | optional | audit trail annotation"
-  },
-  "response_200": {
-    "userId": "550e8400-e29b-41d4-a716-446655440000",
-    "previousRoleId": 5,
-    "newRoleId": 2,
-    "permissionsAppliedAt": "2025-01-15T08:30:00Z",
-    "auditLogId": "9a7b6c5d-4e3f-4a2b-8c1d-0f9e8d7c6b5a"
-  },
-  "response_403": {
-    "errorCode": "ROLE_ASSIGNMENT_FORBIDDEN",
-    "message": "Caller lacks SYSTEM_ADMIN privilege"
-  },
-  "auditEvent": {
-    "action": "USER_ROLE_CHANGED",
-    "actorUserId": "uuid",
-    "targetUserId": "uuid",
-    "timestamp": "now()"
-  }
-}
-```
-<!--END_API_CONTRACT-->
-
-* **Trình Xử lý Ngoại lệ Cục bộ của Giai đoạn [REQ-003]:**
-
-<!--START_EXC_HANDLER-->
-```json
-{
-  "mapperClass": "GlobalExceptionMapper",
-  "package": "org.nlh4j.membership_hub.auth.exception",
-  "providers": [
-    {
-      "handles": "org.nlh4j.membership_hub.auth.service.RoleAssignmentForbiddenException",
-      "httpStatus": 403,
-      "errorCode": "ROLE_ASSIGNMENT_FORBIDDEN",
-      "bodySchema": {
-        "errorCode": "ROLE_ASSIGNMENT_FORBIDDEN",
-        "message": "Caller lacks SYSTEM_ADMIN privilege"
-      },
-      "rule": "Enforced by @RolesAllowed at resource layer and re-checked inside service transaction; every denial writes an audit entry"
-    },
-    {
-      "handles": "org.nlh4j.membership_hub.auth.exception.UserNotFoundException",
-      "httpStatus": 404,
-      "errorCode": "USER_NOT_FOUND",
-      "bodySchema": {
-        "errorCode": "USER_NOT_FOUND",
-        "message": "Target user does not exist"
-      },
-      "rule": "Validate targetUserId existence before mutating role_id; no partial updates"
-    }
-  ]
-}
-```
-<!--END_EXC_HANDLER-->
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.4: Unit test dịch vụ phân quyền và dòng audit
-
-##### Sub-Agent được phân công: Tester
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/service/RoleAssignmentService.java;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/RoleAssignmentServiceTest.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Assert gán hợp lệ cập nhật role_id và trả previousRoleId/newRoleId đúng; caller thường (STUDENT/TEACHER/MANAGER/CENTER_ADMIN) bị chặn RoleAssignmentForbiddenException ánh xạ 403; roleId không tồn tại ném lỗi nghiệp vụ 400; mỗi thao tác phát sinh đúng một dòng audit append-only với action=USER_ROLE_CHANGED và timestamp tăng dần; cache phiên target user bị invalidate sau đổi vai trò.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.5: Profile E2E vòng lifecycle xác thực đầu-cuối
-
-##### Sub-Agent được phân công: Tester
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** INTEGRATION_SCOPE;./sources/backend/auth-service/src/test/java/org/nlh4j/membership_hub/auth/AuthLifecycleE2EIT.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-001], [REQ-002], [REQ-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Kịch bản E2E đầu-cuối trên PostgreSQL Testcontainers: đăng ký local → đăng nhập OAuth2 stub → admin đổi vai trò STUDENT→CENTER_ADMIN → gọi lại API bằng token mới xác nhận quyền có hiệu lực ngay không cần đăng nhập lại; đo latency trung bình register qua 100 lần gọi giữ dưới 200 ms làm gate hiệu năng đối chiếu [NFR-001]; xác minh audit log ghi đủ ba sự kiện với timestamp tăng dần và không có bản ghi mồ côi sau rollback.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.6: Rà soát tổng kết chất lượng và ký duyệt bàn giao
-
-##### Sub-Agent được phân công: Reviewer
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/backend/auth-service/src/main/java/org/nlh4j/membership_hub/auth/resource/AdminRoleResource.java
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[REQ-003], [ARC-000]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Duyệt toàn bộ diff giai đoạn: descriptor build gốc và hai module con, chuỗi 9 migration, bộ endpoint auth (register/OAuth2/role); đối chiếu 100% tag traceability [ARC-000], [DAT-001] đến [DAT-011], [REQ-001], [REQ-002], [REQ-003], [EXC-004] với nhật ký ngày; chuẩn coding Quarkus và OWASP Top 10 không còn finding mức cao; ký duyệt bàn giao sang Giai đoạn 2 kèm danh sách nợ kỹ thuật được chấp nhận.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--START_ATOMIC_SUB_TASK_NODE-->
-
-#### 📝 NHIỆM VỤ CON 6.7: Hoàn thiện blueprint và tham chiếu API giai đoạn 1
-
-##### Sub-Agent được phân công: Doc
-
-##### Thành phần Đích & Yêu cầu Kỹ thuật:
-
-* **Đường dẫn Đích:** ./sources/docs/architecture-blueprint.md
-
-* **Thẻ Truy vết Tag Tokens:** <!--START_TAGS-->[ARC-000], [REQ-001], [REQ-002], [REQ-003]<!--END_TAGS-->
-
-* **Chỉ dẫn Nhiệm vụ Kỹ thuật Cấp thấp:** Cập nhật trạng thái bàn giao: 11 bảng lõi đã migrate qua chuỗi V1–V9, auth-service hoàn chỉnh đăng ký/OAuth2/phân quyền kèm audit log append-only; liên kết chéo data dictionary core/operational và api-auth-service-reference.md; liệt kê hạng mục mở cho Giai đoạn 2 (center-service, course-service, RBAC gateway, công bố hợp đồng OpenAPI); bổ sung sơ đồ topology cập nhật phản chiếu đúng cấu trúc module đã build.
-
-<!--END_ATOMIC_SUB_TASK_NODE-->
-
-<!--END_DAY_LOG_INDEX-->
+##### Thành phần mục tiêu & yêu cầu kỹ thuật:
+* **Đường dẫn mục tiêu:** `./sources/docs/api/OpenAPIContracts.md`
+* **Traceability Tag Tokens:** <!--START_TAGS-->[ARC-006], [ARC-007], [ARC-008], [ARC-009], [DOC-001]<!--END_TAGS-->
+* **Hướng dẫn nhiệm vụ kỹ thuật cấp thấp:** Tạo tài liệu Markdown tại đường dẫn `./sources/docs/api/OpenAPIContracts.md` mô tả chi tiết hợp đồng API Gateway. Nội dung bắt buộc gồm: (1) Mục lục rõ ràng; (2) Bảng danh sách endpoint theo Tag ID, bao gồm method, path, mô tả chức năng, security scheme yêu cầu; (3) Phần mô tả security scheme gồm `bearerAuth` (HTTP Bearer với JWT) và `oauth2` (authorization code flow); (4) Giải thích chi tiết CORS policy, danh sách allowed origins, allowed methods, allowed headers; (5) Danh sách Kafka topic với cấu hình partitions, replication factor, key, value schema; (6) Sơ đồ Mermaid sequence cho bốn luồng chính: Authentication Flow, Attendance QR Flow, Notification Delivery Flow, Mobile App Integration Flow. Tài liệu phải viết bằng tiếng Việt, có bảng Tag ID mapping chính xác và tham chiếu 1:1 với tệp `openapi.yaml` đã tạo ở nhiệm vụ trước.
+
+<!--END_CHUNK_PHASE_1-->
