@@ -1,8 +1,8 @@
 {
     "phase_id": 1,
-    "phase_name": "Khởi tạo nền tảng khung hệ thống và di cư cơ sở dữ liệu",
-    "phase_description": "Giai đoạn này tập trung hoàn toàn vào việc khởi tạo cấu trúc mã nguồn vi dịch vụ, xây dựng các tập lệnh di cư cơ sở dữ liệu PostgreSQL thông qua Flyway, thiết lập các ràng buộc bảo mật toàn cầu và cấu hình môi trường phát triển cơ bản mà chưa bao gồm logic nghiệp vụ đầu cuối.",
-    "objectives": "Giai đoạn 1 tập trung triển khai toàn bộ nền tảng hạ tầng mã nguồn và cơ sở dữ liệu cho hệ thống hội viên đa trung tâm membership-hub. Các mục tiêu chính bao gồm: thiết lập cấu trúc Maven đa mô-đun chuẩn doanh nghiệp trên nền tảng Quarkus Java 21 LTS, xây dựng hệ thống tập lệnh di cư cơ sở dữ liệu Flyway cho PostgreSQL 16 (bao gồm 11 bảng cốt lõi từ bảng người dùng, vai trò, trung tâm, khóa học, ghi danh, điểm danh, thẻ hội viên, thông báo, khuyến mãi, bản tin đến cài đặt hệ thống), cấu hình kiểm thử tích hợp với Testcontainers, và biên soạn toàn bộ tài liệu đặc tả kỹ thuật kiến trúc cơ sở dữ liệu.",
+    "phase_name": "Khởi Tạo Nền Tảng Đa Vi Dịch Vụ Và Di Trú Cơ Sở Dữ Liệu",
+    "phase_description": "Giai đoạn này thiết lập toàn bộ khung xương kiến trúc cho hệ thống Membership Hub, bao gồm khởi tạo descriptor Maven đa mô-đun cho sáu vi dịch vụ Quarkus, biểu mẫu gốc Next.js, di trú toàn bộ mười một bảng cơ sở dữ liệu quan hệ thông qua tập lệnh Flyway, đặc tả hợp đồng OpenAPI và sơ đồ Mermaid cho bốn luồng nghiệp vụ cốt lõi. Tất cả tài sản được theo dõi bằng hệ thống thẻ TagID chuẩn doanh nghiệp, đảm bảo tính nhất quán cho các giai đoạn phát triển tiếp theo. Phạm vi tập trung tuyệt đối vào hạ tầng nền tảng, không triển khai xử lý ngoại lệ nghiệp vụ hay luồng nghiệp vụ chi tiết.",
+    "objectives": "Khởi tạo descriptor Maven đa mô-đun cho 6 vi dịch vụ Quarkus với BOM 3.15.1 và Java 21, tạo biểu mẫu Next.js 14.2.15, di trú 11 bảng cơ sở dữ liệu quan hệ bằng Flyway DDL, đặc tả hợp đồng OpenAPI 3.0.3 cho 4 luồng nghiệp vụ cốt lõi (Xác thực, Điểm danh, Thông báo, Tích hợp di động), soạn thảo tài liệu blueprint kiến trúc với sơ đồ ERD và Mermaid sequenceDiagram, đảm bảo 100% mã TagID [ARC-000], [ARC-006] đến [ARC-009], [DAT-001] đến [DAT-011] được ánh xạ chính xác và tuân thủ chuẩn OWASP Top 10.",
     "project_name": "membership-hub",
     "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -10,12 +10,12 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Khởi tạo cấu trúc dự án vi dịch vụ Quarkus, thiết lập Maven pom.xml và phân chia các module con chuẩn doanh nghiệp.",
+            "context_section": "KHỞI TẠO DESCRIPTOR DỰ ÁN ĐA MÔ-ĐUN VÀ BIỂU MẪU XÂY DỰNG GỐC",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Tiến hành xây dựng tệp cấu hình Maven gốc với định danh groupId là org.nlh4j.membershiphub và artifactId là membership-hub-parent. Khai báo cấu hình quản lý phiên bản Quarkus 3.x, Java 21 LTS cùng các module con bao gồm userService, centerService, courseService, attendanceService và notificationService. Đảm bảo tích hợp đầy đủ các plugin quản lý phụ thuộc và cấu hình build mặc định cho toàn bộ hệ thống vi dịch vụ phân tán.",
+                    "desc": "Tạo tệp ./sources/backend/pom.xml với packaging pom làm descriptor cha, khai báo modules chứa 6 vi dịch vụ (user-service, center-service, course-service, attendance-service, notification-service, reporting-service). Cấu hình parent tham chiếu Quarkus BOM phiên bản 3.15.1, thiết lập properties cho Java 21, định nghĩa dependencyManagement quản lý phiên bản chuẩn: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-smallrye-jwt-build, quarkus-smallrye-health, quarkus-micrometer-registry-prometheus, quarkus-arc, quarkus-test-junit5. Đảm bảo không chứa ký tự gạch ngang - hoặc gạch dưới _ trong bất kỳ định danh kỹ thuật nào, chỉ sử dụng chữ thường alphanumeric.",
                     "targeted_tags": [
                         "[ARC-000]"
                     ],
@@ -26,52 +26,106 @@
                 {
                     "id": "D1_ST2",
                     "agent": "Coder",
-                    "desc": "Xây dựng tệp cấu hình pom.xml cho module userService kế thừa trực tiếp từ parent pom. Khai báo các dependency cốt lõi của Quarkus bao gồm RESTEasy Reactive, Hibernate ORM với Panache, PostgreSQL JDBC Driver và SmallRye JWT. Đảm bảo quy tắc đặt tên gói Java tuân thủ tuyệt đối cấu trúc org.nlh4j.membershiphub.userservice.",
+                    "desc": "Tạo tệp ./sources/backend/user-service/pom.xml kế thừa từ descriptor cha, định nghĩa artifactId là user-service. Khai báo các dependency thiết yếu: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-smallrye-jwt-build, quarkus-smallrye-health. Cấu hình plugin quarkus-maven-plugin với phiên bản tương thích BOM. Đảm bảo groupId là org.nlh4j.membershiphub.userservice.",
                     "targeted_tags": [
                         "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/userService/pom.xml"
+                        "./sources/backend/user-service/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST3",
                     "agent": "Coder",
-                    "desc": "Thiết lập tệp cấu hình pom.xml cho module centerService và courseService với định danh gói lần lượt là org.nlh4j.membershiphub.centerservice và org.nlh4j.membershiphub.courseservice. Cấu hình đầy đủ các thư viện hỗ trợ quản lý thực thể, kết nối cơ sở dữ liệu và xác thực REST API, đảm bảo phân tách rõ ràng ranh giới miền nghiệp vụ giữa quản lý trung tâm và lập lịch khóa học.",
+                    "desc": "Tạo tệp ./sources/backend/center-service/pom.xml với groupId org.nlh4j.membershiphub.centerservice, artifactId center-service, kế thừa từ descriptor cha. Bao gồm các dependency: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-smallrye-health. Cấu hình plugin quarkus-maven-plugin chuẩn với execution build, generate-code, generate-code-tests.",
                     "targeted_tags": [
                         "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/pom.xml",
-                        "./sources/backend/courseService/pom.xml"
+                        "./sources/backend/center-service/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST4",
                     "agent": "Coder",
-                    "desc": "Khởi tạo cấu hình pom.xml cho module attendanceService dưới định danh gói org.nlh4j.membershiphub.attendanceservice. Tích hợp các dependency hỗ trợ xử lý điểm danh QR thời gian thực, kết nối Redis Client để caching phiên làm việc và xử lý bất biến (idempotency) cho các yêu cầu quét mã điểm danh từ ứng dụng di động.",
+                    "desc": "Tạo tệp ./sources/backend/course-service/pom.xml với groupId org.nlh4j.membershiphub.courseservice, artifactId course-service. Khai báo dependency: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-messaging-kafka (cho sự kiện thông báo), quarkus-smallrye-health. Tích hợp plugin quarkus-maven-plugin chuẩn.",
                     "targeted_tags": [
                         "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/attendanceService/pom.xml"
+                        "./sources/backend/course-service/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST5",
                     "agent": "Coder",
-                    "desc": "Xây dựng tệp cấu hình pom.xml cho module notificationService với định danh gói org.nlh4j.membershiphub.notificationservice. Tích hợp các thư viện kết nối Firebase Admin SDK cho thông báo đẩy FCM/APNs và HTTP Client chuyên dụng để tích hợp Zalo Graph API phục vụ tự động phát tán thông báo sự kiện và cảnh báo điểm danh.",
+                    "desc": "Tạo tệp ./sources/backend/attendance-service/pom.xml với groupId org.nlh4j.membershiphub.attendanceservice, artifactId attendance-service. Bao gồm dependency: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-smallrye-health. Cấu hình plugin quarkus-maven-plugin chuẩn cho build và code generation.",
                     "targeted_tags": [
                         "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/backend/notificationService/pom.xml"
+                        "./sources/backend/attendance-service/pom.xml"
                     ]
                 },
                 {
                     "id": "D1_ST6",
+                    "agent": "Coder",
+                    "desc": "Tạo tệp ./sources/backend/notification-service/pom.xml với groupId org.nlh4j.membershiphub.notificationservice, artifactId notification-service. Khai báo dependency: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-messaging-kafka (cho sự kiện), quarkus-rest-client (cho FCM/APNs/Zalo API), quarkus-smallrye-health. Tích hợp quarkus-maven-plugin chuẩn.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/backend/notification-service/pom.xml"
+                    ]
+                },
+                {
+                    "id": "D1_ST7",
+                    "agent": "Coder",
+                    "desc": "Tạo tệp ./sources/backend/reporting-service/pom.xml với groupId org.nlh4j.membershiphub.reportingservice, artifactId reporting-service. Bao gồm dependency: quarkus-rest, quarkus-rest-jackson, quarkus-hibernate-orm-panache, quarkus-jdbc-postgresql, quarkus-flyway, quarkus-smallrye-jwt, quarkus-scheduler (cho refresh dashboard), quarkus-smallrye-health. Cấu hình plugin quarkus-maven-plugin chuẩn.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/backend/reporting-service/pom.xml"
+                    ]
+                },
+                {
+                    "id": "D1_ST8",
+                    "agent": "Coder",
+                    "desc": "Tạo tệp ./sources/frontend/web-app/package.json cho ứng dụng web Next.js, khai báo name là membershiphub-webapp, phiên bản 1.0.0. Liệt kê scripts: dev (next dev), build (next build), start (next start), lint (next lint), test (jest). Khai báo dependencies: next@14.2.15, react@18.3.1, react-dom@18.3.1, axios@1.7.7, next-i18next@15.3.1, firebase@10.14.1, firebase-admin@12.6.0, @react-oauth/google@0.12.1, react-facebook-login@4.1.1, qrcode-reader@1.0.4, react-qr-scanner@1.0.0-alpha.11, recharts@2.13.0. Khai báo devDependencies: typescript@5.6.3, @types/react@18.3.11, @types/node@22.7.5, jest@29.7.0, jest-environment-jsdom@29.7.0, @testing-library/react@16.0.1, eslint@8.57.1, eslint-config-next@14.2.15.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/frontend/web-app/package.json"
+                    ]
+                },
+                {
+                    "id": "D1_ST9",
+                    "agent": "Coder",
+                    "desc": "Tạo tệp ./sources/frontend/web-app/tsconfig.json cấu hình biên dịch TypeScript cho Next.js 14. Thiết lập target ES2022, module ESNext, moduleResolution Bundler, lib DOM/ES2022. Kích hoạt strict, noEmit, esModuleInterop, skipLibCheck, forceConsistentCasingInFileNames, resolveJsonModule, isolatedModules, jsx preserve. Bao gồm baseUrl là . và paths ánh xạ @/* tới ./src/*.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/frontend/web-app/tsconfig.json"
+                    ]
+                },
+                {
+                    "id": "D1_ST10",
+                    "agent": "Tester",
+                    "desc": "Tạo tệp ./sources/infra/test/maven-build-integration.sh chứa kịch bản bash kiểm thử tích hợp. Kịch bản phải thực hiện mvn clean validate tại thư mục ./sources/backend/ để xác nhận tất cả 6 descriptor pom.xml vi dịch vụ tải và phân giải đúng các dependency từ BOM Quarkus 3.15.1. Thoát với mã 0 nếu thành công, mã khác 0 nếu thất bại. In log rõ ràng cho mỗi vi dịch vụ.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "INTEGRATION_SCOPE;./sources/infra/test/maven-build-integration.sh"
+                    ]
+                },
+                {
+                    "id": "D1_ST11",
                     "agent": "Reviewer",
-                    "desc": "Tiến hành rà soát toàn bộ cấu trúc phụ thuộc Maven của hệ thống đa module. Thực thi lệnh biên dịch mvn clean compile trên môi trường dòng lệnh để xác nhận toàn bộ các module con liên kết thành công mà không phát sinh lỗi xung đột định danh hoặc thiếu phụ thuộc chia sẻ.",
+                    "desc": "Thực hiện đánh giá mã tĩnh (code review) cho descriptor ./sources/backend/pom.xml và toàn bộ 6 descriptor vi dịch vụ con. Xác minh: (1) tất cả groupId phải tuân thủ quy ước org.nlh4j.membershiphub.<servicename> không chứa ký tự - hoặc _; (2) tất cả artifactId đều ở dạng chữ thường alphanumeric; (3) mọi tham chiếu <parent> đều trỏ về membershiphub gốc phiên bản 1.0.0-SNAPSHOT; (4) phiên bản Quarkus BOM 3.15.1 được nhập đúng trong dependencyManagement; (5) plugin quarkus-maven-plugin được khai báo trong từng vi dịch vụ. Sinh báo cáo đánh giá với điểm số tuân thủ và đề xuất sửa lỗi nếu phát hiện bất thường.",
                     "targeted_tags": [
                         "[ARC-000]"
                     ],
@@ -80,19 +134,14 @@
                     ]
                 },
                 {
-                    "id": "D1_ST7",
+                    "id": "D1_ST12",
                     "agent": "Doc",
-                    "desc": "Biên soạn tài liệu kỹ thuật chi tiết mô tả cấu trúc thư mục dự án vi dịch vụ, quy ước đặt tên gói Java tuân thủ tuyệt đối chuẩn org.nlh4j.membershiphub, hướng dẫn thiết lập môi trường phát triển cục bộ và quy chuẩn phân chia ranh giới miền nghiệp vụ giữa các module.",
+                    "desc": "Soạn thảo biên bản khởi tạo dự án tại ./sources/docs/architecture/blueprint.md mô tả tổng quan cấu trúc monorepo, sơ đồ quan hệ cha-con giữa membershiphub gốc và 6 vi dịch vụ, bản đồ thư mục vật lý (theo chuẩn Unix), quy ước đặt tên package Java (org.nlh4j.membershiphub.<servicename>), quy ước cấu hình Maven (Java 21, Quarkus BOM 3.15.1), cùng danh sách plugin tích hợp bắt buộc. Tài liệu phải ở định dạng Markdown tiêu chuẩn với các tiêu đề phân cấp rõ ràng.",
                     "targeted_tags": [
-                        "[ARC-000]",
-                        "[DOC-001]"
+                        "[ARC-000]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                        "./sources/docs/architecture/blueprint.md"
                     ]
                 }
             ]
@@ -100,99 +149,68 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Xây dựng tập lệnh DDL di cư cơ sở dữ liệu Flyway cho bảng người dùng, vai trò và phân quyền hệ thống.",
+            "context_section": "DI TRÚ SCHEMA CƠ SỞ DỮ LIỆU BẰNG FLYWAY DDL - PHẦN 1 (USERS, ROLES, CENTERS)",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Viết tập lệnh SQL tạo bảng roles lưu trữ danh mục vai trò hệ thống và bảng users sử dụng định dạng UUID cho khóa chính, mã hóa cột mật khẩu passwordHash kiểu varchar(60) tuân thủ chuẩn bcrypt, thiết lập ràng buộc CHECK cho nhà cung cấp xác thực (local, firebase, google, facebook) và khởi tạo chỉ mục tối ưu trên cột email.",
+                    "desc": "Tạo tệp ./sources/backend/user-service/src/main/resources/db/migration/V1__init_roles_and_users.sql chứa DDL SQL chuẩn ANSI. Bảng roles (role_id SMALLINT PRIMARY KEY, name VARCHAR(30) UNIQUE NOT NULL, description VARCHAR(200)). Bảng users (user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), email VARCHAR(255) UNIQUE NOT NULL, password_hash CHAR(60) NOT NULL, full_name VARCHAR(100) NOT NULL, role_id SMALLINT NOT NULL, provider VARCHAR(20) NOT NULL DEFAULT 'local' với CHECK (provider IN ('local','firebase','google','facebook')), created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (role_id) REFERENCES roles(role_id)). Tạo chỉ mục idx_users_email, idx_users_role_id. Chèn dữ liệu khởi tạo 5 vai trò RBAC: SystemAdmin, CenterAdmin, Manager, Teacher, Student.",
                     "targeted_tags": [
                         "[DAT-001]",
-                        "[ARC-001]",
-                        "[ARC-002]",
-                        "[ARC-003]",
-                        "[ARC-004]",
-                        "[ARC-005]"
+                        "[DAT-002]"
                     ],
                     "components": [
-                        "./sources/backend/userService/src/main/resources/db/migration/V1__init_users.sql"
+                        "./sources/backend/user-service/src/main/resources/db/migration/V1__init_roles_and_users.sql"
                     ]
                 },
                 {
                     "id": "D2_ST2",
                     "agent": "Coder",
-                    "desc": "Viết câu lệnh SQL chèn dữ liệu mẫu cho bảng roles ứng với 5 vai trò cốt lõi trong ma trận RBAC: System Admin (1), Center Admin (2), Manager (3), Teacher (4) và Student (5), bảo đảm không trùng lặp khóa chính khi thực thi di cư nhiều lần.",
+                    "desc": "Tạo tệp ./sources/backend/center-service/src/main/resources/db/migration/V1__init_centers.sql định nghĩa bảng centers (center_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), name VARCHAR(100) NOT NULL, address VARCHAR(255) NOT NULL, tax_id VARCHAR(20) UNIQUE NOT NULL với CHECK (tax_id ~ '^[0-9]{10,13}$'), contact_phone VARCHAR(20), contact_email VARCHAR(100), admin_user_id UUID, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (admin_user_id) REFERENCES users(user_id)). Tạo chỉ mục idx_centers_tax_id, idx_centers_admin_user_id.",
                     "targeted_tags": [
-                        "[DAT-001]",
-                        "[ARC-001]"
+                        "[DAT-003]"
                     ],
                     "components": [
-                        "./sources/backend/userService/src/main/resources/db/migration/V1_1__seed_roles.sql"
+                        "./sources/backend/center-service/src/main/resources/db/migration/V1__init_centers.sql"
                     ]
                 },
                 {
                     "id": "D2_ST3",
-                    "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class User ánh xạ vào bảng users tuân thủ quy tắc gói org.nlh4j.membershiphub.userservice, sử dụng Quarkus Panache Entity base, khai báo đầy đủ các trường UUID, email, passwordHash, fullName, roleId và provider.",
+                    "agent": "Tester",
+                    "desc": "Tạo lớp kiểm thử tích hợp Flyway ./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/UserSchemaMigrationIT.java sử dụng @QuarkusTest. Cấu hình Testcontainers PostgreSQL 16, thực thi @QuarkusTestResource để khởi tạo container. Inject Flyway bean, gọi flyway.migrate() và xác minh các bảng roles, users tồn tại thông qua truy vấn JDBC metadata. Bổ sung kiểm tra ràng buộc CHECK chk_users_provider bằng cách chèn giá trị không hợp lệ và kỳ vọng ngoại lệ SQLException.",
                     "targeted_tags": [
                         "[DAT-001]",
-                        "[ARC-001]"
+                        "[DAT-002]",
+                        "[DAT-003]"
                     ],
                     "components": [
-                        "./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/User.java"
+                        "INTEGRATION_SCOPE;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/UserSchemaMigrationIT.java"
                     ]
                 },
                 {
                     "id": "D2_ST4",
-                    "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Role ánh xạ vào bảng roles tuân thủ cấu trúc gói org.nlh4j.membershiphub.userservice, khai báo khóa chính roleId, tên vai trò và mô tả chi tiết.",
+                    "agent": "Reviewer",
+                    "desc": "Đánh giá tệp SQL V1__init_roles_and_users.sql xác minh: (1) tất cả kiểu dữ liệu tuân thủ chuẩn ANSI SQL (không dùng ENUM); (2) provider được biểu diễn bằng VARCHAR(20) NOT NULL kết hợp CHECK (provider IN (...)); (3) ràng buộc FK giữa users.role_id và roles.role_id đúng; (4) chỉ mục idx_users_email và idx_users_role_id đủ để hỗ trợ truy vấn tần suất cao; (5) gen_random_uuid() được sử dụng đúng cho UUID PRIMARY KEY. Đồng thời đánh giá V1__init_centers.sql xác minh ràng buộc tax_id chỉ chấp nhận chuỗi số 10-13 ký tự thông qua biểu thức chính quy. Lập biên bản đánh giá với điểm tuân thủ.",
                     "targeted_tags": [
                         "[DAT-001]",
-                        "[ARC-001]"
+                        "[DAT-002]",
+                        "[DAT-003]"
                     ],
                     "components": [
-                        "./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/Role.java"
+                        "./sources/backend/user-service/src/main/resources/db/migration/V1__init_roles_and_users.sql"
                     ]
                 },
                 {
                     "id": "D2_ST5",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử JUnit 5 xác thực ánh xạ trường dữ liệu thực thể User, kiểm tra độ dài mật khẩu mã hóa bcrypt đúng 60 ký tự, định dạng email hợp lệ và tính toàn vẹn của ràng buộc khóa ngoại với thực thể Role.",
+                    "agent": "Doc",
+                    "desc": "Bổ sung section Sơ đồ quan hệ thực thể vào tệp ./sources/docs/architecture/blueprint.md mô tả chi tiết các bảng roles, users, centers bao gồm: từng cột với kiểu dữ liệu, ràng buộc, mô tả nghiệp vụ, các chỉ mục hỗ trợ truy vấn, mối quan hệ FK giữa các bảng. Tài liệu phải có bảng Markdown rõ ràng cho từng bảng. Sử dụng ngôn ngữ tiếng Việt cho phần mô tả, giữ nguyên tên cột tiếng Anh trong schema.",
                     "targeted_tags": [
                         "[DAT-001]",
-                        "[ARC-000]"
+                        "[DAT-002]",
+                        "[DAT-003]"
                     ],
                     "components": [
-                        "./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/User.java",
-                        "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/UserEntityTest.java"
-                    ]
-                },
-                {
-                    "id": "D2_ST6",
-                    "agent": "Reviewer",
-                    "desc": "Rà soát toàn bộ tệp mã nguồn Java trong module userService, bảo đảm tuân thủ tuyệt đối cấu trúc gói org.nlh4j.membershiphub.userservice, loại bỏ hoàn toàn các gói định danh mẫu com.example và kiểm tra tuân thủ tiêu chuẩn lập trình an toàn OWASP.",
-                    "targeted_tags": [
-                        "[ARC-000]",
-                        "[ARC-001]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/User.java"
-                    ]
-                },
-                {
-                    "id": "D2_ST7",
-                    "agent": "Doc",
-                    "desc": "Biên soạn tài liệu kỹ thuật mô tả chi tiết cấu trúc bảng users, roles, quy tắc phân quyền RBAC và sơ đồ thực thể mối quan hệ ERD tương ứng được lưu trữ tại thư mục ./sources/docs/.",
-                    "targeted_tags": [
-                        "[DOC-001]",
-                        "[DAT-001]"
-                    ],
-                    "components": [
-                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                        "./sources/docs/architecture/blueprint.md"
                     ]
                 }
             ]
@@ -200,94 +218,104 @@
         {
             "day": 3,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng trung tâm và khóa học kèm theo ràng buộc độc nhất và sức chứa.",
+            "context_section": "NGÀY 3: DI TRÚ SCHEMA CƠ SỞ DỮ LIỆU BẰNG FLYWAY DDL - PHẦN 2 (COURSES, ENROLLMENTS, ATTENDANCE, STUDENTCARDS)",
             "sub_tasks": [
                 {
                     "id": "D3_ST1",
                     "agent": "Coder",
-                    "desc": "Viết tập lệnh SQL tạo bảng centers với ràng buộc mã số thuế độc nhất (taxId) từ 10 đến 13 chữ số, và bảng courses hỗ trợ quản lý sức chứa tối đa mặc định 30 học viên, liên kết khóa ngoại tới bảng users cho giáo viên phụ trách, kèm chỉ mục tối ưu trên khoảng thời gian khóa học.",
+                    "desc": "Tạo tệp ./sources/backend/course-service/src/main/resources/db/migration/V1__init_courses.sql định nghĩa bảng courses với các cột: course_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), title VARCHAR(150) NOT NULL, description TEXT, start_date DATE NOT NULL, end_date DATE NOT NULL, teacher_id UUID NOT NULL, max_students INT NOT NULL DEFAULT 30, center_id UUID, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP. Khai báo ràng buộc FOREIGN KEY (teacher_id) REFERENCES users(user_id), FOREIGN KEY (center_id) REFERENCES centers(center_id), CONSTRAINT chk_courses_dates CHECK (end_date >= start_date). Tạo các chỉ mục idx_courses_teacher_id, idx_courses_center_id, idx_courses_dates (composite trên start_date, end_date).",
                     "targeted_tags": [
-                        "[DAT-003]",
-                        "[DAT-004]",
-                        "[ARC-006]"
+                        "[DAT-004]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/src/main/resources/db/migration/V2__init_centers_courses.sql"
+                        "./sources/backend/course-service/src/main/resources/db/migration/V1__init_courses.sql"
                     ]
                 },
                 {
                     "id": "D3_ST2",
                     "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Center ánh xạ vào bảng centers tuân thủ cấu trúc gói org.nlh4j.membershiphub.centerservice, khai báo đầy đủ các trường centerId, name, address, taxId, contactPhone và contactEmail.",
+                    "desc": "Tạo tệp ./sources/backend/course-service/src/main/resources/db/migration/V2__init_enrollments.sql định nghĩa bảng enrollments với các cột: enrollment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), student_id UUID NOT NULL, course_id UUID NOT NULL, enrollment_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, status VARCHAR(20) NOT NULL DEFAULT 'ACTIVE'. Khai báo ràng buộc FOREIGN KEY (student_id) REFERENCES users(user_id), FOREIGN KEY (course_id) REFERENCES courses(course_id), CONSTRAINT chk_enrollments_status CHECK (status IN ('ACTIVE','DROPPED','COMPLETED')), CONSTRAINT uq_enrollments_student_course UNIQUE (student_id, course_id). Tạo các chỉ mục idx_enrollments_student_id, idx_enrollments_course_id, idx_enrollments_status.",
                     "targeted_tags": [
-                        "[DAT-003]"
+                        "[DAT-005]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/Center.java"
+                        "./sources/backend/course-service/src/main/resources/db/migration/V2__init_enrollments.sql"
                     ]
                 },
                 {
                     "id": "D3_ST3",
                     "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Course ánh xạ vào bảng courses tuân thủ cấu trúc gói org.nlh4j.membershiphub.courseservice, khai báo đầy đủ các trường courseId, title, description, startDate, endDate, teacherId và maxStudents.",
+                    "desc": "Tạo tệp ./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql định nghĩa bảng attendance với idempotency key. Các cột: attendance_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), student_id UUID NOT NULL, course_id UUID NOT NULL, attendance_date DATE NOT NULL, timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, status VARCHAR(20) NOT NULL DEFAULT 'PRESENT', created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP. Khai báo ràng buộc FOREIGN KEY (student_id) REFERENCES users(user_id), FOREIGN KEY (course_id) REFERENCES courses(course_id), CONSTRAINT chk_attendance_status CHECK (status IN ('PRESENT','ABSENT','LATE')), CONSTRAINT uq_attendance_idempotency UNIQUE (student_id, course_id, attendance_date). Tạo các chỉ mục idx_attendance_student_id, idx_attendance_course_id, idx_attendance_date.",
                     "targeted_tags": [
-                        "[DAT-004]"
+                        "[DAT-006]"
                     ],
                     "components": [
-                        "./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/Course.java"
+                        "./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql"
                     ]
                 },
                 {
                     "id": "D3_ST4",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử JUnit 5 kiểm tra tính hợp lệ của mã số thuế trung tâm từ 10 đến 13 chữ số, xác thực ràng buộc không null cho tên trung tâm và kiểm tra sức chứa tối đa của khóa học.",
+                    "agent": "Coder",
+                    "desc": "Tạo tệp ./sources/backend/user-service/src/main/resources/db/migration/V2__init_student_cards.sql định nghĩa bảng student_cards với các cột: card_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), student_id UUID NOT NULL UNIQUE, issue_date DATE NOT NULL, validity_days INT NOT NULL, remaining_days INT NOT NULL, end_date DATE NOT NULL, status VARCHAR(20) NOT NULL DEFAULT 'ACTIVE', created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP. Khai báo ràng buộc FOREIGN KEY (student_id) REFERENCES users(user_id), CONSTRAINT chk_student_cards_validity CHECK (validity_days > 0 AND remaining_days >= 0), CONSTRAINT chk_student_cards_status CHECK (status IN ('ACTIVE','EXPIRED','SUSPENDED')). Tạo các chỉ mục idx_student_cards_student_id, idx_student_cards_status, idx_student_cards_end_date.",
                     "targeted_tags": [
-                        "[DAT-003]",
-                        "[DAT-004]"
+                        "[DAT-007]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/Center.java;./sources/backend/centerService/src/test/java/org/nlh4j/membershiphub/centerservice/CenterEntityTest.java"
+                        "./sources/backend/user-service/src/main/resources/db/migration/V2__init_student_cards.sql"
                     ]
                 },
                 {
                     "id": "D3_ST5",
-                    "agent": "Reviewer",
-                    "desc": "Kiểm tra mã nguồn module centerService và courseService, bảo đảm tuân thủ tuyệt đối cấu trúc gói org.nlh4j.membershiphub.centerservice và org.nlh4j.membershiphub.courseservice, không chứa bất kỳ sai lệch định danh nào.",
+                    "agent": "Tester",
+                    "desc": "Tạo lớp kiểm thử tích hợp Flyway ./sources/backend/attendance-service/src/test/java/org/nlh4j/membershiphub/attendanceservice/AttendanceSchemaMigrationIT.java sử dụng annotation @QuarkusTest kết hợp Testcontainers PostgreSQL 16 và @QuarkusTestResource để khởi tạo container. Inject bean Flyway và DataSource, thực thi flyway.migrate(). Xác minh các bảng courses, enrollments, attendance, student_cards tồn tại bằng truy vấn information_schema.tables với count(*) = 4. Đặc biệt kiểm tra ràng buộc uq_attendance_idempotency bằng cách chèn 2 bản ghi trùng (student_id, course_id, attendance_date) và kỳ vọng PSQLException mã lỗi ràng buộc duy nhất. Xác minh CHECK chk_attendance_status từ chối giá trị ngoài tập cho phép. Sử dụng Assertions.assertEquals, Assertions.assertNotNull từ JUnit 5.",
                     "targeted_tags": [
-                        "[ARC-000]",
-                        "[DAT-003]"
+                        "[DAT-004]",
+                        "[DAT-005]",
+                        "[DAT-006]",
+                        "[DAT-007]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/Center.java"
+                        "INTEGRATION_SCOPE;./sources/backend/attendance-service/src/test/java/org/nlh4j/membershiphub/attendanceservice/AttendanceSchemaMigrationIT.java"
                     ]
                 },
                 {
                     "id": "D3_ST6",
-                    "agent": "Tester",
-                    "desc": "Viết kiểm thử tích hợp QuarkusTest kết hợp Testcontainers để xác thực tập lệnh di cư V2 thực thi thành công trên cơ sở dữ liệu PostgreSQL thực tế, kiểm tra ràng buộc khóa ngoại liên kết giáo viên với bảng users.",
+                    "agent": "Reviewer",
+                    "desc": "Đánh giá tệp ./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql xác minh các tiêu chí: (1) ràng buộc uq_attendance_idempotency UNIQUE (student_id, course_id, attendance_date) đảm bảo idempotency đúng theo yêu cầu REQ-013; (2) kiểu status dùng VARCHAR(20) kết hợp CHECK thay vì ENUM theo chuẩn ANSI SQL; (3) các chỉ mục idx_attendance_student_id, idx_attendance_course_id, idx_attendance_date phục vụ truy vấn theo ngày và theo học viên/khóa học. Đồng thời đánh giá schema courses, enrollments, student_cards xác nhận ràng buộc ngày end_date >= start_date, UNIQUE (student_id, course_id) trong enrollments ngăn đăng ký trùng. Lập báo cáo đánh giá với bảng tuân thủ cho từng TagID và danh sách khuyến nghị sửa lỗi nếu phát hiện bất thường.",
                     "targeted_tags": [
-                        "[DAT-003]",
-                        "[DAT-004]"
+                        "[DAT-004]",
+                        "[DAT-005]",
+                        "[DAT-006]",
+                        "[DAT-007]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/src/main/resources/db/migration/V2__init_centers_courses.sql;./sources/backend/centerService/src/test/java/org/nlh4j/membershiphub/centerservice/MigrationV2Test.java"
+                        "./sources/backend/attendance-service/src/main/resources/db/migration/V1__init_attendance.sql"
                     ]
                 },
                 {
                     "id": "D3_ST7",
                     "agent": "Doc",
-                    "desc": "Biên soạn tài liệu kỹ thuật mô tả chi tiết lược đồ bảng centers, courses và quy tắc quản lý lịch trình giảng dạy tránh xung đột thời gian, lưu trữ tại ./sources/docs/.",
+                    "desc": "Bổ sung section 'Sơ đồ quan hệ thực thể - Phần 2' vào tệp ./sources/docs/architecture/blueprint.md mô tả chi tiết các bảng courses, enrollments, attendance, student_cards. Mỗi bảng phải có bảng Markdown với các cột: Tên cột | Kiểu dữ liệu | Ràng buộc | Mô tả. Mô tả quan hệ FOREIGN KEY giữa các bảng (courses.teacher_id → users.user_id, courses.center_id → centers.center_id, enrollments.student_id → users.user_id, enrollments.course_id → courses.course_id, attendance.student_id → users.user_id, attendance.course_id → courses.course_id, student_cards.student_id → users.user_id), đặc biệt nhấn mạnh khóa tổng hợp UNIQUE (student_id, course_id, attendance_date) đảm bảo idempotency. Tài liệu dùng tiếng Việt cho phần giải thích, giữ nguyên tên cột tiếng Anh trong schema.",
                     "targeted_tags": [
-                        "[DOC-001]",
-                        "[DAT-003]",
-                        "[DAT-004]"
+                        "[DAT-004]",
+                        "[DAT-005]",
+                        "[DAT-006]",
+                        "[DAT-007]"
                     ],
                     "components": [
+                        "./sources/docs/architecture/blueprint.md",
                         "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
                         "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
                         "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
                         "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
+                        "./sources/docs/database/PHYSICAL_ERD_RELATIONAL_MAPPING.md",
+                        "./sources/docs/database/ENTERPRISE_DATA_DICTIONARY_SPEC.md",
+                        "./sources/docs/database/DATABASE_MIGRATION_VERSIONING_RUNBOOK.md",
+                        "./sources/docs/backend/BACKEND_CORE_PROCESSING_ENGINE_LOGIC.md",
+                        "./sources/docs/backend/BACKEND_ENTERPRISE_CODING_STANDARDS.md",
+                        "./sources/docs/frontend/FRONTEND_WEB_RUNTIME_ENGINE_FLOWS.md",
+                        "./sources/docs/frontend/FRONTEND_ENTERPRISE_CODING_STANDARDS.md"
                     ]
                 }
             ]
@@ -295,299 +323,124 @@
         {
             "day": 4,
             "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng ghi danh, điểm danh với tính chất bất biến và thẻ hội viên.",
+            "context_section": "NGÀY 4: DI TRÚ SCHEMA CƠ SỞ DỮ LIỆU BẰNG FLYWAY DDL - PHẦN 3 (NOTIFICATIONS, PROMOTIONS, ANNOUNCEMENTS, SYSTEMSETTINGS) & HỢP ĐỒNG API",
             "sub_tasks": [
                 {
                     "id": "D4_ST1",
                     "agent": "Coder",
-                    "desc": "Viết lệnh SQL tạo bảng enrollments, bảng attendance hỗ trợ tính bất biến (idempotent) với chỉ mục độc nhất kết hợp (studentId, courseId, attendanceDate) nhằm ngăn chặn bản ghi trùng lặp trong cùng một ngày, và bảng studentcards lưu trữ thông tin thời hạn thẻ hội viên.",
+                    "desc": "Tạo tệp ./sources/backend/notification-service/src/main/resources/db/migration/V1__init_notifications.sql định nghĩa bảng notifications. Các cột: notification_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), user_id UUID, group_zalo VARCHAR(50), message TEXT NOT NULL, channel VARCHAR(20) NOT NULL với CHECK (channel IN ('PUSH','ZALO','EMAIL','SMS')), status VARCHAR(20) NOT NULL DEFAULT 'PENDING' với CHECK (status IN ('PENDING','SENT','FAILED','DELIVERED')), retry_count INT NOT NULL DEFAULT 0, sent_at TIMESTAMP, delivered BOOLEAN NOT NULL DEFAULT FALSE, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP. Khai báo FOREIGN KEY (user_id) REFERENCES users(user_id). Tạo các chỉ mục idx_notifications_user_id, idx_notifications_status, idx_notifications_channel, idx_notifications_sent_at.",
                     "targeted_tags": [
-                        "[DAT-005]",
-                        "[DAT-006]",
-                        "[DAT-007]",
-                        "[ARC-007]"
+                        "[DAT-008]"
                     ],
                     "components": [
-                        "./sources/backend/attendanceService/src/main/resources/db/migration/V3__init_attendance_cards.sql"
+                        "./sources/backend/notification-service/src/main/resources/db/migration/V1__init_notifications.sql"
                     ]
                 },
                 {
                     "id": "D4_ST2",
                     "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Enrollment ánh xạ vào bảng enrollments tuân thủ cấu trúc gói org.nlh4j.membershiphub.courseservice, khai báo các trường enrollmentId, studentId, courseId và enrollmentDate.",
+                    "desc": "Tạo tệp ./sources/backend/center-service/src/main/resources/db/migration/V2__init_promotions_announcements.sql định nghĩa hai bảng. Bảng promotions với các cột: promo_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), code VARCHAR(30) UNIQUE NOT NULL, discount_percent SMALLINT NOT NULL với CHECK (discount_percent BETWEEN 0 AND 100), start_date DATE, end_date DATE, description TEXT, center_id UUID, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP; ràng buộc FOREIGN KEY (center_id) REFERENCES centers(center_id), CHECK (end_date IS NULL OR start_date IS NULL OR end_date >= start_date); tạo idx_promotions_code, idx_promotions_center_id, idx_promotions_dates. Bảng announcements với các cột: announcement_id UUID PRIMARY KEY DEFAULT gen_random_uuid(), title VARCHAR(150) NOT NULL, content TEXT NOT NULL, start_date DATE, end_date DATE, center_id UUID, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP; ràng buộc FOREIGN KEY (center_id) REFERENCES centers(center_id); tạo idx_announcements_center_id, idx_announcements_dates.",
                     "targeted_tags": [
-                        "[DAT-005]"
+                        "[DAT-009]",
+                        "[DAT-010]"
                     ],
                     "components": [
-                        "./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/Enrollment.java"
+                        "./sources/backend/center-service/src/main/resources/db/migration/V2__init_promotions_announcements.sql"
                     ]
                 },
                 {
                     "id": "D4_ST3",
                     "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Attendance ánh xạ vào bảng attendance tuân thủ cấu trúc gói org.nlh4j.membershiphub.attendanceservice, cấu hình tính bất biến và ánh xạ khóa ngoại tới student và course.",
+                    "desc": "Tạo tệp ./sources/backend/center-service/src/main/resources/db/migration/V3__init_system_settings.sql định nghĩa bảng system_settings với các cột: setting_key VARCHAR(50) PRIMARY KEY, setting_value TEXT NOT NULL, description VARCHAR(200), updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_by UUID; ràng buộc FOREIGN KEY (updated_by) REFERENCES users(user_id). Tạo chỉ mục idx_system_settings_updated_at. Chèn 4 bản ghi khởi tạo: ('default_locale', 'vi', 'Locale mặc định cho hệ thống'), ('dashboard_refresh_minutes', '15', 'Chu kỳ làm mới dashboard (phút)'), ('max_renewal_days', '365', 'Số ngày gia hạn thẻ tối đa'), ('notification_retry_max', '3', 'Số lần thử lại gửi thông báo tối đa').",
                     "targeted_tags": [
-                        "[DAT-006]",
-                        "[ARC-007]"
+                        "[DAT-011]"
                     ],
                     "components": [
-                        "./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/Attendance.java"
+                        "./sources/backend/center-service/src/main/resources/db/migration/V3__init_system_settings.sql"
                     ]
                 },
                 {
                     "id": "D4_ST4",
-                    "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class StudentCard ánh xạ vào bảng studentcards tuân thủ cấu trúc gói org.nlh4j.membershiphub.userservice, quản lý thông tin ngày phát hành, tổng số ngày hiệu lực và số ngày còn lại.",
-                    "targeted_tags": [
-                        "[DAT-007]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/StudentCard.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST5",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử JUnit 5 kiểm tra tính đúng đắn của việc ánh xạ index bất biến điểm danh và logic tính toán số ngày còn lại của thẻ hội viên.",
-                    "targeted_tags": [
-                        "[DAT-006]",
-                        "[DAT-007]"
-                    ],
-                    "components": [
-                        "./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/Attendance.java;./sources/backend/attendanceService/src/test/java/org/nlh4j/membershiphub/attendanceservice/AttendanceEntityTest.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST6",
-                    "agent": "Reviewer",
-                    "desc": "Rà soát mã nguồn module attendanceService, đảm bảo tuân thủ cấu trúc gói org.nlh4j.membershiphub.attendanceservice và không chứa bất kỳ lỗi vi phạm định danh nào.",
-                    "targeted_tags": [
-                        "[ARC-000]",
-                        "[DAT-006]"
-                    ],
-                    "components": [
-                        "./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/Attendance.java"
-                    ]
-                },
-                {
-                    "id": "D4_ST7",
                     "agent": "Doc",
-                    "desc": "Biên soạn tài liệu kỹ thuật mô tả cấu trúc bảng enrollments, attendance (tính chất bất biến) và studentcards, lưu trữ tại ./sources/docs/.",
+                    "desc": "Tạo tệp ./sources/docs/api/openapi-spec.yaml đặc tả OpenAPI 3.0.3 cho 4 luồng nghiệp vụ cốt lõi với info.title 'Membership Hub API', version 1.0.0 và servers (production https://api.membershiphub.com, staging https://staging-api.membershiphub.com). Khai báo components.securitySchemes bearerAuth (type http, scheme bearer, bearerFormat JWT) và schemas AuthRegisterRequest (email format email maxLength 255, password minLength 8, fullName maxLength 100, termsAccepted boolean required), AuthLoginRequest, AuthTokenResponse (accessToken, refreshToken, expiresIn, tokenType default Bearer), AttendanceScanRequest (qrPayload base64 chứa studentId và courseId), AttendanceScanResponse (attendanceId uuid, recordedAt date-time, duplicate boolean), NotificationDispatchRequest (channel enum PUSH/ZALO/EMAIL/SMS, message, target {userId uuid, groupZalo}), MobileDashboardResponse, DeviceTokenRequest (deviceToken, platform enum IOS/ANDROID). Security mặc định bearerAuth. Paths: POST /api/auth/register, POST /api/auth/login, POST /api/auth/refresh, POST /api/auth/oauth/{provider} (enum firebase/google/facebook) cho Luồng Xác thực ARC-006; POST /api/attendance/scan (200 success, 409 conflict) cho Luồng Điểm danh ARC-007; POST /api/notifications/dispatch (202 accepted), GET /api/notifications/history cho Luồng Thông báo ARC-008; GET /api/mobile/dashboard, POST /api/mobile/device-token (204) cho Luồng Tích hợp di động ARC-009. Mỗi endpoint khai báo tags, requestBody required, responses với mã trạng thái HTTP đầy đủ.",
                     "targeted_tags": [
-                        "[DOC-001]",
-                        "[DAT-006]",
-                        "[DAT-007]"
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
                     ],
                     "components": [
+                        "./sources/docs/api/openapi-spec.yaml",
                         "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
                         "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
                         "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
                         "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
                         "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
                     ]
-                }
-            ]
-        },
-        {
-            "day": 5,
-            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng thông báo, khuyến mãi, bản tin và cài đặt hệ thống toàn cục.",
-            "sub_tasks": [
+                },
                 {
-                    "id": "D5_ST1",
-                    "agent": "Coder",
-                    "desc": "Viết tập lệnh SQL tạo bảng notifications hỗ trợ thông báo đẩy và nhóm Zalo, bảng promotions quản lý mã giảm giá, bảng announcements quản lý bản tin có thời hạn hiệu lực tự động ẩn, và bảng systemsettings lưu trữ cài đặt cấu hình hệ thống toàn cục.",
+                    "id": "D4_ST5",
+                    "agent": "Tester",
+                    "desc": "Tạo lớp kiểm thử tích hợp Flyway ./sources/backend/notification-service/src/test/java/org/nlh4j/membershiphub/notificationservice/NotificationSchemaMigrationIT.java sử dụng @QuarkusTest kết hợp Testcontainers PostgreSQL 16. Inject bean Flyway và DataSource, thực thi flyway.migrate(). Xác minh các bảng notifications, promotions, announcements, system_settings tồn tại thông qua truy vấn information_schema.tables với count(*) = 4. Kiểm tra ràng buộc CHECK chk_notifications_channel từ chối giá trị ngoài tập cho phép. Xác minh bảng system_settings chứa ít nhất 4 bản ghi khởi tạo (default_locale, dashboard_refresh_minutes, max_renewal_days, notification_retry_max) bằng SELECT count(*) FROM system_settings với Assertions.assertTrue(rs.getInt(1) >= 4). Sử dụng Assertions.assertEquals, Assertions.assertNotNull từ JUnit 5.",
                     "targeted_tags": [
                         "[DAT-008]",
                         "[DAT-009]",
-                        "[DAT-011]",
-                        "[ARC-008]",
-                        "[ARC-009]",
-                        "[ARC-010]"
-                    ],
-                    "components": [
-                        "./sources/backend/notificationService/src/main/resources/db/migration/V4__init_notifications_promotions.sql"
-                    ]
-                },
-                {
-                    "id": "D5_ST2",
-                    "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Notification ánh xạ vào bảng notifications tuân thủ cấu trúc gói org.nlh4j.membershiphub.notificationservice, quản lý thông điệp, trạng thái gửi và nhóm Zalo.",
-                    "targeted_tags": [
-                        "[DAT-008]",
-                        "[ARC-008]"
-                    ],
-                    "components": [
-                        "./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/Notification.java"
-                    ]
-                },
-                {
-                    "id": "D5_ST3",
-                    "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class Promotion và Announcement ánh xạ vào bảng promotions và announcements tuân thủ quy tắc gói org.nlh4j.membershiphub.centerservice.",
-                    "targeted_tags": [
-                        "[DAT-009]"
-                    ],
-                    "components": [
-                        "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/Promotion.java"
-                    ]
-                },
-                {
-                    "id": "D5_ST4",
-                    "agent": "Coder",
-                    "desc": "Xây dựng Java Entity class SystemSetting ánh xạ vào bảng systemsettings tuân thủ quy tắc gói org.nlh4j.membershiphub.centerservice.",
-                    "targeted_tags": [
+                        "[DAT-010]",
                         "[DAT-011]"
                     ],
                     "components": [
-                        "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/SystemSetting.java"
+                        "INTEGRATION_SCOPE;./sources/backend/notification-service/src/test/java/org/nlh4j/membershiphub/notificationservice/NotificationSchemaMigrationIT.java"
                     ]
                 },
                 {
-                    "id": "D5_ST5",
+                    "id": "D4_ST6",
                     "agent": "Tester",
-                    "desc": "Viết kiểm thử JUnit 5 xác thực ánh xạ thực thể thông báo và tính hợp lệ của mã khuyến mãi trong hệ thống.",
+                    "desc": "Tạo tệp ./sources/infra/test/openapi-spec-validation.sh chứa kịch bản bash kiểm thử tính hợp lệ của tệp OpenAPI. Sử dụng shebang #!/usr/bin/env bash và set -euo pipefail. Khai báo SPEC_PATH=./sources/docs/api/openapi-spec.yaml và DOCKER_IMAGE=redocly/cli:latest. Thực thi lệnh docker run --rm -v $(pwd):/spec redocly/cli lint /spec/openapi-spec.yaml để xác minh cú pháp. Thoát mã 0 nếu tệp hợp lệ, mã 1 nếu khóa tìm thấy tệp, mã khác 0 nếu có lỗi cú pháp hoặc tham chiếu schema bị thiếu. In log chi tiết cho mỗi endpoint được phát hiện bằng echo trong tiếng Việt.",
                     "targeted_tags": [
-                        "[DAT-008]",
-                        "[DAT-009]"
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
                     ],
                     "components": [
-                        "./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/Notification.java",
-                        "./sources/backend/notificationService/src/test/java/org/nlh4j/membershiphub/notificationservice/NotificationEntityTest.java"
+                        "INTEGRATION_SCOPE;./sources/infra/test/openapi-spec-validation.sh"
                     ]
                 },
                 {
-                    "id": "D5_ST6",
+                    "id": "D4_ST7",
                     "agent": "Reviewer",
-                    "desc": "Rà soát mã nguồn module notificationService, đảm bảo tuân thủ tuyệt đối cấu trúc gói org.nlh4j.membershiphub.notificationservice.",
+                    "desc": "Đánh giá cuối cùng giai đoạn 1: xác minh toàn bộ 11 bảng (roles, users, student_cards, centers, courses, enrollments, attendance, notifications, promotions, announcements, system_settings) đã được tạo với ràng buộc chuẩn ANSI SQL, không sử dụng kiểu ENUM, đầy đủ FOREIGN KEY và CHECK. Đánh giá hợp đồng OpenAPI tại ./sources/docs/api/openapi-spec.yaml: bảo đảm 4 luồng nghiệp vụ (Xác thực, Điểm danh, Thông báo, Tích hợp di động) đều có endpoint với security scheme JWT đúng (type http, scheme bearer, bearerFormat JWT), schema request/response đầy đủ với mã trạng thái HTTP 200/201/202/204/400/409 hợp lý. Sinh báo cáo đánh giá tổng hợp với bảng tuân thủ cho từng TagID [DAT-001] đến [DAT-011] và [ARC-006] đến [ARC-009]. Lập danh sách khuyến nghị cải tiến nếu phát hiện bất thường.",
                     "targeted_tags": [
-                        "[ARC-000]",
-                        "[DAT-008]"
+                        "[DAT-008]",
+                        "[DAT-009]",
+                        "[DAT-010]",
+                        "[DAT-011]",
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
                     ],
                     "components": [
-                        "./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/Notification.java"
+                        "./sources/docs/api/openapi-spec.yaml"
                     ]
                 },
                 {
-                    "id": "D5_ST7",
+                    "id": "D4_ST8",
                     "agent": "Doc",
-                    "desc": "Biên soạn tài liệu kỹ thuật mô tả lược đồ bảng notifications, promotions, announcements và systemsettings, lưu trữ tại ./sources/docs/.",
+                    "desc": "Bổ sung section 'Sơ đồ Mermaid - 4 Luồng nghiệp vụ cốt lõi' vào ./sources/docs/architecture/blueprint.md. Bao gồm 4 sơ đồ Mermaid sequenceDiagram được viết bằng cú pháp chính xác sequenceDiagram với các participant, note, và message mũi tên (->>, -->>): (1) Luồng Xác thực ARC-006 mô tả client gửi email/password đến user-service, kiểm tra credentials, ký JWT 15 phút, trả refresh token 7 ngày; (2) Luồng Điểm danh ARC-007 mô tả mobile app gửi QR payload đến attendance-service, xác thực quan hệ học viên-khóa học, idempotency check, ghi nhận; (3) Luồng Thông báo ARC-008 mô tả sự kiện nghiệp vụ publish Kafka topic, notification-service consume, dispatch FCM/APNs/Zalo; (4) Luồng Tích hợp di động ARC-009 mô tả mobile app gọi REST API qua bearer token, cache offline, đồng bộ khi có mạng. Tài liệu dùng tiếng Việt cho phần mô tả xung quanh sơ đồ, giữ nguyên tên thực thể tiếng Anh.",
                     "targeted_tags": [
-                        "[DOC-001]",
-                        "[DAT-008]",
-                        "[DAT-009]"
+                        "[ARC-006]",
+                        "[ARC-007]",
+                        "[ARC-008]",
+                        "[ARC-009]"
                     ],
                     "components": [
+                        "./sources/docs/architecture/blueprint.md",
                         "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
                         "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
                         "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
                         "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
-                        "./sources/docs/database/PHYSICAL_ERD_RELATIONAL_MAPPING.md",
-                        "./sources/docs/database/ENTERPRISE_DATA_DICTIONARY_SPEC.md",
-                        "./sources/docs/database/DATABASE_MIGRATION_VERSIONING_RUNBOOK.md",
-                        "./sources/docs/backend/BACKEND_CORE_PROCESSING_ENGINE_LOGIC.md",
-                        "./sources/docs/backend/BACKEND_ENTERPRISE_CODING_STANDARDS.md"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 6,
-            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-            "context_section": "Xây dựng bộ kiểm thử tích hợp kết nối cơ sở dữ liệu và kiểm tra tính toàn vẹn của các tập lệnh di cư Flyway V1-V4.",
-            "sub_tasks": [
-                {
-                    "id": "D6_ST1",
-                    "agent": "Tester",
-                    "desc": "Viết kiểm thử JUnit 5 kết hợp QuarkusTestContainer để kiểm tra việc thực thi thành công toàn bộ 4 tập lệnh di cư SQL (V1 đến V4) trên cơ sở dữ liệu PostgreSQL thực tế, đảm bảo không có lỗi cú pháp hoặc xung đột khóa ngoại.",
-                    "targeted_tags": [
-                        "[DAT-ALL (1 to 9)]",
-                        "[ARC-000]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/main/resources/db/migration/V1__init_users.sql",
-                        "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/MigrationIntegrationTest.java"
-                    ]
-                },
-                {
-                    "id": "D6_ST2",
-                    "agent": "Tester",
-                    "desc": "Viết kiểm thử xác thực toàn bộ các ràng buộc khóa ngoại giữa bảng users, centers, courses, enrollments, attendance và studentcards hoạt động chính xác và không bị lỗi tham chiếu.",
-                    "targeted_tags": [
-                        "[DAT-ALL (1 to 9)]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/ForeignConstraintTest.java"
-                    ]
-                },
-                {
-                    "id": "D6_ST3",
-                    "agent": "Reviewer",
-                    "desc": "Thực hiện đo lường thời gian truy vấn trên các bảng có index (users.email, centers.taxId, attendance.idempotent) đảm bảo đạt tiêu chuẩn sub-second cho 10,000 concurrent users theo yêu cầu phi chức năng [NFR-001].",
-                    "targeted_tags": [
-                        "[NFR-001]",
-                        "[DAT-ALL (1 to 9)]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/DatabaseIndexPerformanceTest.java"
-                    ]
-                },
-                {
-                    "id": "D6_ST4",
-                    "agent": "Reviewer",
-                    "desc": "Rà soát toàn bộ mã nguồn kiểm thử tích hợp, đảm bảo tuân thủ tiêu chuẩn định danh gói org.nlh4j.membershiphub.userservice và loại bỏ hoàn toàn các cảnh báo deprecation.",
-                    "targeted_tags": [
-                        "[ARC-000]",
-                        "[DAT-ALL (1 to 9)]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/MigrationIntegrationTest.java"
-                    ]
-                },
-                {
-                    "id": "D6_ST5",
-                    "agent": "Coder",
-                    "desc": "Cấu hình tệp thuộc tính kiểm thử kết nối cơ sở dữ liệu Testcontainers PostgreSQL và kích hoạt Flyway tự động chạy migration khi khởi động môi trường test.",
-                    "targeted_tags": [
-                        "[ARC-000]",
-                        "[DAT-ALL (1 to 9)]"
-                    ],
-                    "components": [
-                        "./sources/backend/userService/src/main/resources/application-test.properties"
-                    ]
-                },
-                {
-                    "id": "D6_ST6",
-                    "agent": "Tester",
-                    "desc": "Chạy lệnh Maven mvn test trên toàn bộ các module backend để xác thực 100% kiểm thử cơ sở dữ liệu vượt qua thành công mà không có lỗi phát sinh.",
-                    "targeted_tags": [
-                        "[DAT-ALL (1 to 9)]",
-                        "[ARC-000]"
-                    ],
-                    "components": [
-                        "./sources/backend/pom.xml"
-                    ]
-                },
-                {
-                    "id": "D6_ST7",
-                    "agent": "Doc",
-                    "desc": "Biên soạn báo cáo tổng kết kết quả kiểm thử tích hợp Flyway migration, kiểm tra hiệu năng index cơ sở dữ liệu và đánh giá độ bao phủ mã nguồn, lưu trữ tại ./sources/docs/.",
-                    "targeted_tags": [
-                        "[DOC-001]",
-                        "[DAT-ALL (1 to 9)]"
-                    ],
-                    "components": [
-                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
-                        "./sources/docs/database/PHYSICAL_ERD_RELATIONAL_MAPPING.md",
-                        "./sources/docs/database/ENTERPRISE_DATA_DICTIONARY_SPEC.md",
-                        "./sources/docs/database/DATABASE_MIGRATION_VERSIONING_RUNBOOK.md",
-                        "./sources/docs/backend/BACKEND_CORE_PROCESSING_ENGINE_LOGIC.md",
-                        "./sources/docs/backend/BACKEND_ENTERPRISE_CODING_STANDARDS.md"
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
                     ]
                 }
             ]

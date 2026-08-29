@@ -1,4 +1,4 @@
-# System Prompt (1-2):
+# System Prompt (7-8):
 
 <GLOBAL_GOVERNANCE_MATRIX>
 # ==============================================================================
@@ -193,7 +193,7 @@ You are a high-performance Data Ingestion and Transformation Engine. Your sole o
 
 ---
 
-# User Prompt (1-2):
+# User Prompt (7-8):
 
 <PHASE_CONTEXT_REFERENCE_BOUND>
 --- PHASE 2 CONTEXT MARKDOWN ---
@@ -1142,27 +1142,25 @@ You MUST dynamically populate the top-level keys of the JSON object using EXACT 
   * Only indices from 1 to `Z` are considered inside physical bounds. No other day blocks exist in the source document.
 
 - **Step 2: The Pure Algebraic Step-by-Step Exclusion Filtering Matrix**:
-  * **THE TOTAL OUT-OF-BOUNDS SHORT-CIRCUIT LAW:** Prior to initializing the task evaluation loop, you MUST mathematically examine the starting boundary configuration. If and ONLY IF the entire requested sliding window baseline strictly satisfies `1 > Z`, you MUST instantly determine that the active window targets a non-existent timeline. Under this absolute condition, completely bypass the parsing engine, output exactly `"days": []` and KILL the token output stream instantly with zero delay.
-  * You MUST process the requested chunk range `[1, 2]` by checking every target integer index `K` sequentially and independently (where `K` increments linearly from `1` up to `2`).
+  * You MUST process the requested chunk range `[7, 8]` by checking every target integer index `K` sequentially and independently (where `K` increments linearly from `7` up to `8`).
   * For each individual index `K`, execute the following strict mathematical filter before writing any JSON output:
     
     * **CASE A: Index Out of Physical Bounds (K > Z)**:
-      If the active loop index `K` is strictly greater than the dynamic baseline ceiling variable `Z` (`K > Z`), you MUST safely isolate this specific index node without destroying active valid nodes inside the current chunk window layer.
-      - **ALGEBRAIC CIRCUITS BREAKING LAW (ANTI-RECYCLING SHIELD):** You ARE PERMANENTLY AND CRITICALLY BANNED from parsing, fetching, or extracting any remaining string sequences or loose text elements lying outside the matching pair envelopes of `<!--DAY_HEADER_START-->` and `<!--DAY_HEADER_END-->`. You ARE ABSOLUTELY BANNED from looking backward into your attention context history, and you ARE STRICTLY FORBIDDEN from recycling, cloning, or double-emitting any historical day nodes belonging to previously processed index intervals into a post-bounds window. 
-      - **LOCAL NODE MICRO-GATED CLOSURE:** Under this specific node out-of-bounds condition (where prior valid elements exist in the current window but index `K` exceeds `Z`), do NOT print any comma `,` or open any new day object `{` for index `K`. You MUST instantly print the array closing bracket `]` right after the final closing character brace `}` of the mathematically valid day block (where index `K = Z`), resolve the root JSON metadata structure safely, and terminate execution cleanly.
-      - *Historical Context Isolation*: You are completely and critically banned from looking back into prior chat turns or cloning historical data to substitute into this missing slot.
+      If the active loop index `K` is strictly greater than `Z` (`K > Z`), you MUST **ABSOLUTELY REMOVE, OMIT, AND NUKE** the entire node immediately from the payload.
+      * *The Micro-Gated Array Closure Rule*: You are **STRICTLY FORBIDDEN** from printing a comma `,` or opening a new object `{` for this index `K`. The moment your loop reaches index `K` and detects `K > Z`, you MUST instantly print the array closing bracket `]` right after the closing brace `}` of the previous valid day block, and proceed straight to closing the root payload. 
+      * *Historical Context Isolation*: You are completely and critically banned from looking back into prior chat turns or cloning historical data to substitute into this missing slot.
 
     * **CASE B: Index In Physical Bounds (1 <= K <= Z)**:
-      Only if index `K` is less than or equal to `Z` (`K <= Z`), locate the exact K-th physical `<!--DAY_HEADER_START-->` block in the markdown text from the `<PHASE_CONTEXT_REFERENCE_BOUND>` section.
-      - **THE UNBROKEN DAY CONCURRENCY LAW (ANTI-SKIPPING RAIL):** You MUST execute an exhaustive, character-level lookup pass to extract day `K`. You ARE CRITICALLY BANNED from skipping any physical day block or dropping valid text intervals inside your designated sliding window span. You MUST unroll day indices sequentially and linearly as dictated by the active chunk loop boundaries. If your context parser fails to locate the explicit `<!--DAY_HEADER_START-->` tag for the active index `K` due to temporary attention drift, you ARE FORBIDDEN from closing early or skipping that index; you MUST forcefully reset your focus anchors to pull and unroll the exact data of day `K` from the corpus.
-      - *Strict Index Matching Invariant*: You MUST strictly verify that the physical text content of the located block explicitly matches the exact mathematical index value of `K` (e.g., if K=3, the block text MUST explicitly designate 'Day 3' or 'NGÀY 3'). If the text block belongs to an earlier index (such as Day 1 or Day 2), you ARE CRITICALLY BANNED from recycling or cloning its tasks into this slot; you MUST instantly treat index `K` as out of range, skip it, and proceed straight to array closure execution.
-      - *Sliding Window Ceiling Law (Strict Cardinality Restraint)*: The absolute total number of discrete day nodes generated inside this "days" array payload MUST NOT mathematically exceed the current target window density allocation constraint ceiling. You MUST ensure that the count of generated days satisfies: `Generated_Days_Count <= (2 - 1 + 1)`. If an active loop index `K` violates this ceiling restriction, you MUST immediately truncate execution and execute the array closure.
+      Only if index `K` is less than or equal to `Z` (`K <= Z`), locate the exact K-th physical `<!--DAY_HEADER_START-->` block in the markdown text from the `<PHASE_CONTEXT_REFERENCE_BOUND>` section. 
+      * *Strict Content Attestation Law*: You MUST verify that this text block literally represents day `K`. You are **ABSOLUTELY FORBIDDEN** from shifting, renaming, or increasing the index numbers of earlier day blocks to simulate a future day block. Set the field exactly to `"day": K` and map its tasks linearly.
+      * *Strict Index Matching Invariant*: You MUST strictly verify that the physical text content of the located block explicitly matches the exact mathematical index value of `K` (e.g., if K=3, the block text MUST explicitly designate 'Day 3' or 'NGÀY 3'). If the text block belongs to an earlier index (such as Day 1 or Day 2), you ARE CRITICALLY BANNED from recycling or cloning its tasks into this slot; you MUST instantly treat index `K` as out of range, skip it, and proceed straight to array closure execution.
+      * *Sliding Window Ceiling Law (Strict Cardinality Restraint)*: The absolute total number of discrete day nodes generated inside this "days" array payload MUST NOT mathematically exceed the current target window density allocation constraint ceiling. You MUST ensure that the count of generated days satisfies: `Generated_Days_Count <= (8 - 7 + 1)`. If an active loop index `K` violates this ceiling restriction, you MUST immediately truncate execution and execute the array closure.
 
 - **Step 3: The Total Range Empty Short-Circuit Execution Gate**:
-  * **STRICT MATRIC CURCUIT-BREAKER TRIGGER:** You MUST ONLY activate this short-circuit empty array gate if and only if the requested window parameter satisfies the explicit mathematical boundary condition: `1 > Z`. 
-  * If `1 <= Z`, you ARE CRITICALLY BANNED from short-circuiting the engine or outputting an empty array; you MUST forcefully execute `CASE B` to unroll the valid physical day blocks available in the text. If all active indices in the requested chunk window range `[1, 2]` are evaluated and confirm that Day `K` strictly exceeds `Z` (`K > Z`), output exactly `"days": []` and freeze token generation instantly.
+  * **STRICT MATRIC CURCUIT-BREAKER TRIGGER:** You MUST ONLY activate this short-circuit empty array gate if and only if the requested window parameter satisfies the explicit mathematical boundary condition: `7 > Z`. 
+  * If `7 <= Z`, you ARE CRITICALLY BANNED from short-circuiting the engine or outputting an empty array; you MUST forcefully execute `CASE B` to unroll the valid physical day blocks available in the text. If all active indices in the requested chunk window range `[7, 8]` are evaluated and confirm that Day `K` strictly exceeds `Z` (`K > Z`), output exactly `"days": []` and freeze token generation instantly.
 
-* **THE UNIVERSAL LANGUAGE-AGNOSTIC SHORT-CIRCUIT:** If you scan the requested chunk range `[1, 2]` and confirm that **not a single day header within this range physically exists** in the source context text, you MUST turn off the parsing engine entirely, output exactly `"days": []`, and freeze token generation instantly.
+* **THE UNIVERSAL LANGUAGE-AGNOSTIC SHORT-CIRCUIT:** If you scan the requested chunk range `[7, 8]` and confirm that **not a single day header within this range physically exists** in the source context text, you MUST turn off the parsing engine entirely, output exactly `"days": []`, and freeze token generation instantly.
 
 # 🛑 MANDATORY STRUCTURE ENFORCEMENT FOR TRACEABILITY TAGS VIA HTML ANCHORS (CRITICAL):
 - You MUST force your token processing core to sequentially look at every sub-task block in the source Markdown content. For each sub-task, locate the hidden technical container bounds delimited strictly between the HTML anchors `<!--START_TAGS-->` and `<!--END_TAGS-->`.
@@ -1322,158 +1320,17 @@ Required JSON Schema layout design structure: {
 
 ---
 
-# Response (1-2):
+# Response (7-8):
 
 ```json
 {
   "phase_id": 2,
   "phase_name": "Xây Dựng Xác Thực, Phân Quyền RBAC Và Quản Lý Trung Tâm",
   "phase_description": "Giai đoạn này tập trung kiến lập nền tảng bảo mật và quản trị nòng cốt của hệ thống Membership Hub, bao gồm toàn bộ luồng xác thực người dùng qua email mật khẩu và OAuth2 với Firebase, Google, Facebook kèm cấp phát JWT 15 phút và refresh token 7 ngày. Đồng thời, hệ thống phân quyền RBAC 5 cấp được thực thi thông qua bộ lọc bảo mật của Quarkus, đảm bảo phân tách quyền hạn chặt chẽ giữa System Admin, Center Admin, Manager, Teacher và Student. Module quản lý trung tâm cung cấp đầy đủ thao tác CRUD với cơ chế phát hiện và xử lý xung đột mã số thuế, hỗ trợ gán và thu hồi quyền Center Admin theo từng đơn vị. Bên cạnh đó, bộ tài liệu kiến trúc doanh nghiệp bao gồm blueprint tổng thể, ma trận phân quyền chi tiết và sổ tay vận hành được khởi tạo nhằm phục vụ công tác kiểm toán và bàn giao vận hành. Toàn bộ tài sản được truy vết bằng hệ thống thẻ TagID chuẩn doanh nghiệp, đảm bảo tính nhất quán và khả năng kiểm định chéo.",
-  "objectives": "Thiết lập nền tảng bảo mật và quản trị nòng cốt: xác thực email/mật khẩu + OAuth2 (Firebase, Google, Facebook), JWT 15 phút + refresh token 7 ngày; phân quyền RBAC 5 cấp qua RbacFilter; module quản lý trung tâm CRUD có phát hiện xung đột tax_id; bộ ba tài liệu blueprint/rbac-matrix/runbook; truy vết đầy đủ bằng TagID [REQ-001] đến [REQ-006], [ARC-001] đến [ARC-006], [EXC-004], [DOC-001].",
+  "objectives": "Xây dựng nền tảng bảo mật và quản trị cốt lõi: hoàn thiện luồng xác thực email/mật khẩu và OAuth2 với Firebase, Google, Facebook kèm JWT 15 phút và refresh token 7 ngày; triển khai hệ thống phân quyền RBAC 5 cấp thông qua bộ lọc bảo mật Quarkus; xây dựng module quản lý trung tâm với CRUD đầy đủ và cơ chế phát hiện xung đột mã số thuế; đồng thời khởi tạo bộ tài liệu kỹ thuật doanh nghiệp gồm blueprint tổng thể, ma trận phân quyền và sổ tay vận hành nhằm phục vụ kiểm toán và bàn giao.",
   "project_name": "membership-hub",
   "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
   "source_target_dir": "sources/",
-  "days": [
-    {
-      "day": 1,
-      "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-      "context_section": "THIẾT LẬP MODULE XÁC THỰC VÀ MA TRẬN RBAC",
-      "sub_tasks": [
-        {
-          "id": "D1_ST1",
-          "agent": "Coder",
-          "desc": "Tạo module Maven con user-service kế thừa từ pom.xml gốc, khai báo dependency Quarkus RESTEasy Reactive, Hibernate ORM Panache, JWT SmallRye, BCrypto. Đồng thời tạo entity JPA User.java ánh xạ bảng users với các trường user_id (UUID), email (varchar 255), password_hash (char 60), full_name (varchar 100), role_id (FK roles), provider (varchar 20, default 'local'), created_at, updated_at; định nghĩa quan hệ @ManyToOne(fetch=LAZY) tới Role với @JoinColumn name='role_id' và @ForeignKey name='fk_users_role'; áp dụng @Table uniqueConstraints @UniqueConstraint name='uq_users_email_provider' columnNames={'email','provider'}; thêm @PreUpdate cập nhật updatedAt=LocalDateTime.now(). Tuân thủ OWASP bằng prepared statement thông qua Panache, không nối chuỗi SQL thô. Package: org.nlh4j.membershiphub.userservice.",
-          "targeted_tags": [
-            "[ARC-000]",
-            "[REQ-001]",
-            "[REQ-003]",
-            "[DAT-001]"
-          ],
-          "components": [
-            "./sources/backend/user-service/pom.xml",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/User.java"
-          ]
-        },
-        {
-          "id": "D1_ST2",
-          "agent": "Tester",
-          "desc": "Xây dựng script kiểm thử tích hợp Maven build pipeline cho user-service xác nhận khả năng biên dịch cross-module, xác minh rằng entity User ánh xạ chính xác sang bảng users, kiểm tra các ràng buộc unique constraint (email, provider) được sinh ra đúng. Bao gồm test hồi quy cho việc load classpath và dependency resolution từ parent pom.xml. Sử dụng Testcontainers PostgreSQL 16 để xác minh schema thực tế.",
-          "targeted_tags": [
-            "[ARC-000]",
-            "[REQ-001]",
-            "[DAT-001]"
-          ],
-          "components": [
-            "INTEGRATION_SCOPE;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/UserServicesTestSuite.java"
-          ]
-        },
-        {
-          "id": "D1_ST3",
-          "agent": "Reviewer",
-          "desc": "Rà soát entity User.java đảm bảo tuân thủ quy ước Java Enterprise (đặt tên trường camelCase nhưng ánh xạ snake_case qua @Column), xác nhận rằng trường passwordHash sử dụng char(60) cho bcrypt, đảm bảo lazy loading đúng cách cho quan hệ Role, xác minh annotation @PreUpdate cập nhật updatedAt tự động. Đề xuất chiến lược fix nếu phát hiện bottleneck truy vấn và đảm bảo không có SQL injection vector.",
-          "targeted_tags": [
-            "[REQ-001]",
-            "[REQ-003]",
-            "[DAT-001]"
-          ],
-          "components": [
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/User.java"
-          ]
-        },
-        {
-          "id": "D1_ST4",
-          "agent": "Doc",
-          "desc": "Soạn thảo tài liệu kỹ thuật doanh nghiệp mô tả chi tiết ma trận RBAC 5 cấp, bao gồm bảng ánh xạ quyền hạn theo từng vai trò (System Admin, Center Admin, Manager, Teacher, Student), sơ đồ luồng phân quyền dạng Mermaid sequenceDiagram và flowchart, các ràng buộc truy cập chéo trung tâm, và quy trình leo thang khi vi phạm. Tài liệu phải ở định dạng Markdown tiêu chuẩn với các tiêu đề phân cấp rõ ràng.",
-          "targeted_tags": [
-            "[DOC-001]",
-            "[ARC-001]",
-            "[ARC-002]",
-            "[ARC-003]",
-            "[ARC-004]",
-            "[ARC-005]"
-          ],
-          "components": [
-            "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-            "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-            "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-            "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-            "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
-            "./sources/docs/architecture/rbac-matrix.md"
-          ]
-        }
-      ]
-    },
-    {
-      "day": 2,
-      "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-      "context_section": "XÂY DỰNG AUTHSERVICE, JWTTOKENPROVIDER VÀ CÁC DTO XÁC THỰC",
-      "sub_tasks": [
-        {
-          "id": "D2_ST1",
-          "agent": "Coder",
-          "desc": "Xây dựng AuthService.java (@ApplicationScoped) xử lý logic đăng ký, đăng nhập, làm mới token. Mã hóa mật khẩu bằng BCrypt cost factor 10, validate định dạng email (regex ^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$, max 255 ký tự) và độ mạnh mật khẩu (min 8 ký tự, có chữ hoa, chữ thường, số, ký tự đặc biệt). Tạo JWT access token TTL 900 giây và refresh token TTL 604800 giây thông qua JwtTokenProvider thuật toán HS256 với secret key từ biến môi trường. Tích hợp PasswordEncoderService để so sánh hash an toàn. AuthResponse gồm accessToken, refreshToken, expiresIn=900, tokenType='Bearer', userId, role. Ném DuplicateEmailException khi email+provider đã tồn tại; InvalidCredentialsException khi credentials sai; WeakPasswordException khi mật khẩu yếu. Mọi truy vấn cơ sở dữ liệu sử dụng prepared statement thông qua Panache.",
-          "targeted_tags": [
-            "[REQ-001]",
-            "[REQ-002]",
-            "[ARC-006]"
-          ],
-          "components": [
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/RegistrationRequest.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/LoginRequest.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/AuthResponse.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/AuthService.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/JwtTokenProvider.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/PasswordEncoderService.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/exception/InvalidCredentialsException.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/exception/DuplicateEmailException.java",
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/exception/WeakPasswordException.java"
-          ]
-        },
-        {
-          "id": "D2_ST2",
-          "agent": "Tester",
-          "desc": "Viết bộ test JUnit5 + Mockito cho AuthService xác minh các kịch bản: đăng ký thành công với email hợp lệ và mật khẩu mạnh, từ chối đăng ký khi email trùng lặp (ném DuplicateEmailException errorCode='EMAIL_DUPLICATE'), từ chối khi mật khẩu yếu thiếu chữ hoa/thường/số/ký tự đặc biệt (ném WeakPasswordException), đăng nhập thành công với credentials đúng, từ chối khi sai mật khẩu (ném InvalidCredentialsException errorCode='INVALID_CREDENTIALS'), refresh token hợp lệ được cấp access token mới. Sử dụng @ParameterizedTest để phủ nhiều trường hợp biên. Verify AuthResponse có expiresIn=900, tokenType='Bearer'.",
-          "targeted_tags": [
-            "[REQ-001]",
-            "[REQ-002]",
-            "[ARC-006]",
-            "[EXC-004]"
-          ],
-          "components": [
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/AuthService.java;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/AuthServiceTest.java"
-          ]
-        },
-        {
-          "id": "D2_ST3",
-          "agent": "Reviewer",
-          "desc": "Kiểm tra JwtTokenProvider đảm bảo secret key không hardcode (đọc từ System.getenv), sử dụng thuật toán ký HS256 an toàn, xác minh TTL access token đúng 900 giây và refresh token đúng 604800 giây, kiểm tra tính nguyên tử khi cấp token (không có race condition), đảm bảo exception khi token không hợp lệ được ném đúng cách. Đánh giá tuân thủ OWASP A02 (Cryptographic Failures) và A07 (Identification and Authentication Failures).",
-          "targeted_tags": [
-            "[REQ-001]",
-            "[ARC-006]",
-            "[NFR-003]"
-          ],
-          "components": [
-            "./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/JwtTokenProvider.java"
-          ]
-        },
-        {
-          "id": "D2_ST4",
-          "agent": "Doc",
-          "desc": "Bổ sung vào blueprint kiến trúc doanh nghiệp phần mô tả luồng xác thực chi tiết: biểu đồ tuần tự Mermaid sequenceDiagram cho quy trình đăng ký/đăng nhập, sơ đồ Mermaid flowChart cho OAuth2 flow với Firebase/Google/Facebook, cấu trúc JWT token và claim definitions (userId, role, provider, exp, iat), bảng mapping endpoint POST /api/v1/auth/register, POST /api/v1/auth/login, POST /api/v1/auth/refresh với Tag ID [REQ-001][REQ-002][ARC-006], chính sách mã hóa TLS 1.3 tại chỗ theo NFR-003.",
-          "targeted_tags": [
-            "[DOC-001]",
-            "[ARC-006]"
-          ],
-          "components": [
-            "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-            "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-            "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-            "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-            "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
-          ]
-        }
-      ]
-    }
-  ]
+  "days": []
 }
 ```
