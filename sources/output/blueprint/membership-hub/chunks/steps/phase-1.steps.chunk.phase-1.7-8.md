@@ -1,4 +1,4 @@
-# System Prompt (5-6):
+# System Prompt (7-8):
 
 <GLOBAL_GOVERNANCE_MATRIX>
 # ==============================================================================
@@ -193,7 +193,7 @@ You are a high-performance Data Ingestion and Transformation Engine. Your sole o
 
 ---
 
-# User Prompt (5-6):
+# User Prompt (7-8):
 
 <PHASE_CONTEXT_REFERENCE_BOUND>
 --- PHASE 1 CONTEXT MARKDOWN ---
@@ -1493,7 +1493,7 @@ You MUST dynamically populate the top-level keys of the JSON object using EXACT 
   * Only indices from 1 to `Z` are considered inside physical bounds. No other day blocks exist in the source document.
 
 - **Step 2: The Pure Algebraic Step-by-Step Exclusion Filtering Matrix**:
-  * You MUST process the requested chunk range `[5, 6]` by checking every target integer index `K` sequentially and independently (where `K` increments linearly from `5` up to `6`).
+  * You MUST process the requested chunk range `[7, 8]` by checking every target integer index `K` sequentially and independently (where `K` increments linearly from `7` up to `8`).
   * For each individual index `K`, execute the following strict mathematical filter before writing any JSON output:
     
     * **CASE A: Index Out of Physical Bounds (K > Z)**:
@@ -1505,13 +1505,13 @@ You MUST dynamically populate the top-level keys of the JSON object using EXACT 
       Only if index `K` is less than or equal to `Z` (`K <= Z`), locate the exact K-th physical `<!--DAY_HEADER_START-->` block in the markdown text from the `<PHASE_CONTEXT_REFERENCE_BOUND>` section. 
       * *Strict Content Attestation Law*: You MUST verify that this text block literally represents day `K`. You are **ABSOLUTELY FORBIDDEN** from shifting, renaming, or increasing the index numbers of earlier day blocks to simulate a future day block. Set the field exactly to `"day": K` and map its tasks linearly.
       * *Strict Index Matching Invariant*: You MUST strictly verify that the physical text content of the located block explicitly matches the exact mathematical index value of `K` (e.g., if K=3, the block text MUST explicitly designate 'Day 3' or 'NGÀY 3'). If the text block belongs to an earlier index (such as Day 1 or Day 2), you ARE CRITICALLY BANNED from recycling or cloning its tasks into this slot; you MUST instantly treat index `K` as out of range, skip it, and proceed straight to array closure execution.
-      * *Sliding Window Ceiling Law (Strict Cardinality Restraint)*: The absolute total number of discrete day nodes generated inside this "days" array payload MUST NOT mathematically exceed the current target window density allocation constraint ceiling. You MUST ensure that the count of generated days satisfies: `Generated_Days_Count <= (6 - 5 + 1)`. If an active loop index `K` violates this ceiling restriction, you MUST immediately truncate execution and execute the array closure.
+      * *Sliding Window Ceiling Law (Strict Cardinality Restraint)*: The absolute total number of discrete day nodes generated inside this "days" array payload MUST NOT mathematically exceed the current target window density allocation constraint ceiling. You MUST ensure that the count of generated days satisfies: `Generated_Days_Count <= (8 - 7 + 1)`. If an active loop index `K` violates this ceiling restriction, you MUST immediately truncate execution and execute the array closure.
 
 - **Step 3: The Total Range Empty Short-Circuit Execution Gate**:
-  * **STRICT MATRIC CURCUIT-BREAKER TRIGGER:** You MUST ONLY activate this short-circuit empty array gate if and only if the requested window parameter satisfies the explicit mathematical boundary condition: `5 > Z`. 
-  * If `5 <= Z`, you ARE CRITICALLY BANNED from short-circuiting the engine or outputting an empty array; you MUST forcefully execute `CASE B` to unroll the valid physical day blocks available in the text. If all active indices in the requested chunk window range `[5, 6]` are evaluated and confirm that Day `K` strictly exceeds `Z` (`K > Z`), output exactly `"days": []` and freeze token generation instantly.
+  * **STRICT MATRIC CURCUIT-BREAKER TRIGGER:** You MUST ONLY activate this short-circuit empty array gate if and only if the requested window parameter satisfies the explicit mathematical boundary condition: `7 > Z`. 
+  * If `7 <= Z`, you ARE CRITICALLY BANNED from short-circuiting the engine or outputting an empty array; you MUST forcefully execute `CASE B` to unroll the valid physical day blocks available in the text. If all active indices in the requested chunk window range `[7, 8]` are evaluated and confirm that Day `K` strictly exceeds `Z` (`K > Z`), output exactly `"days": []` and freeze token generation instantly.
 
-* **THE UNIVERSAL LANGUAGE-AGNOSTIC SHORT-CIRCUIT:** If you scan the requested chunk range `[5, 6]` and confirm that **not a single day header within this range physically exists** in the source context text, you MUST turn off the parsing engine entirely, output exactly `"days": []`, and freeze token generation instantly.
+* **THE UNIVERSAL LANGUAGE-AGNOSTIC SHORT-CIRCUIT:** If you scan the requested chunk range `[7, 8]` and confirm that **not a single day header within this range physically exists** in the source context text, you MUST turn off the parsing engine entirely, output exactly `"days": []`, and freeze token generation instantly.
 
 # 🛑 MANDATORY STRUCTURE ENFORCEMENT FOR TRACEABILITY TAGS VIA HTML ANCHORS (CRITICAL):
 - You MUST force your token processing core to sequentially look at every sub-task block in the source Markdown content. For each sub-task, locate the hidden technical container bounds delimited strictly between the HTML anchors `<!--START_TAGS-->` and `<!--END_TAGS-->`.
@@ -1671,7 +1671,7 @@ Required JSON Schema layout design structure: {
 
 ---
 
-# Response (5-6):
+# Response (7-8):
 
 ```json
 {
@@ -1682,211 +1682,6 @@ Required JSON Schema layout design structure: {
   "project_name": "membership-hub",
   "global_context_file": ".ai/.context/membership-hub.global.blueprint.md",
   "source_target_dir": "sources/",
-  "days": [
-    {
-      "day": 5,
-      "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-      "context_section": "Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng thông báo, khuyến mãi, bản tin và cài đặt hệ thống toàn cục.",
-      "sub_tasks": [
-        {
-          "id": "D5_ST1",
-          "agent": "Coder",
-          "desc": "Viết tập lệnh SQL tạo bảng notifications hỗ trợ thông báo đẩy và nhóm Zalo, bảng promotions quản lý mã giảm giá, bảng announcements quản lý bản tin có thời hạn hiệu lực tự động ẩn, và bảng systemsettings lưu trữ cài đặt cấu hình hệ thống toàn cục.",
-          "targeted_tags": [
-            "[DAT-008]",
-            "[DAT-009]",
-            "[DAT-011]",
-            "[ARC-008]",
-            "[ARC-009]",
-            "[ARC-010]"
-          ],
-          "components": [
-            "./sources/backend/notificationService/src/main/resources/db/migration/V4__init_notifications_promotions.sql"
-          ]
-        },
-        {
-          "id": "D5_ST2",
-          "agent": "Coder",
-          "desc": "Xây dựng Java Entity class Notification ánh xạ vào bảng notifications tuân thủ cấu trúc gói org.nlh4j.membershiphub.notificationservice, quản lý thông điệp, trạng thái gửi và nhóm Zalo.",
-          "targeted_tags": [
-            "[DAT-008]",
-            "[ARC-008]"
-          ],
-          "components": [
-            "./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/Notification.java"
-          ]
-        },
-        {
-          "id": "D5_ST3",
-          "agent": "Coder",
-          "desc": "Xây dựng Java Entity class Promotion và Announcement ánh xạ vào bảng promotions và announcements tuân thủ quy tắc gói org.nlh4j.membershiphub.centerservice.",
-          "targeted_tags": [
-            "[DAT-009]"
-          ],
-          "components": [
-            "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/Promotion.java"
-          ]
-        },
-        {
-          "id": "D5_ST4",
-          "agent": "Coder",
-          "desc": "Xây dựng Java Entity class SystemSetting ánh xạ vào bảng systemsettings tuân thủ quy tắc gói org.nlh4j.membershiphub.centerservice.",
-          "targeted_tags": [
-            "[DAT-011]"
-          ],
-          "components": [
-            "./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/SystemSetting.java"
-          ]
-        },
-        {
-          "id": "D5_ST5",
-          "agent": "Tester",
-          "desc": "Viết kiểm thử JUnit 5 xác thực ánh xạ thực thể thông báo và tính hợp lệ của mã khuyến mãi trong hệ thống.",
-          "targeted_tags": [
-            "[DAT-008]",
-            "[DAT-009]"
-          ],
-          "components": [
-            "./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/Notification.java",
-            "./sources/backend/notificationService/src/test/java/org/nlh4j/membershiphub/notificationservice/NotificationEntityTest.java"
-          ]
-        },
-        {
-          "id": "D5_ST6",
-          "agent": "Reviewer",
-          "desc": "Rà soát mã nguồn module notificationService, đảm bảo tuân thủ tuyệt đối cấu trúc gói org.nlh4j.membershiphub.notificationservice.",
-          "targeted_tags": [
-            "[ARC-000]",
-            "[DAT-008]"
-          ],
-          "components": [
-            "./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/Notification.java"
-          ]
-        },
-        {
-          "id": "D5_ST7",
-          "agent": "Doc",
-          "desc": "Biên soạn tài liệu kỹ thuật mô tả lược đồ bảng notifications, promotions, announcements và systemsettings, lưu trữ tại ./sources/docs/.",
-          "targeted_tags": [
-            "[DOC-001]",
-            "[DAT-008]",
-            "[DAT-009]"
-          ],
-          "components": [
-            "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-            "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-            "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-            "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-            "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
-            "./sources/docs/database/PHYSICAL_ERD_RELATIONAL_MAPPING.md",
-            "./sources/docs/database/ENTERPRISE_DATA_DICTIONARY_SPEC.md",
-            "./sources/docs/database/DATABASE_MIGRATION_VERSIONING_RUNBOOK.md",
-            "./sources/docs/backend/BACKEND_CORE_PROCESSING_ENGINE_LOGIC.md",
-            "./sources/docs/backend/BACKEND_ENTERPRISE_CODING_STANDARDS.md"
-          ]
-        }
-      ]
-    },
-    {
-      "day": 6,
-      "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
-      "context_section": "Xây dựng bộ kiểm thử tích hợp kết nối cơ sở dữ liệu và kiểm tra tính toàn vẹn của các tập lệnh di cư Flyway V1-V4.",
-      "sub_tasks": [
-        {
-          "id": "D6_ST1",
-          "agent": "Tester",
-          "desc": "Viết kiểm thử JUnit 5 kết hợp QuarkusTestContainer để kiểm tra việc thực thi thành công toàn bộ 4 tập lệnh di cư SQL (V1 đến V4) trên cơ sở dữ liệu PostgreSQL thực tế, đảm bảo không có lỗi cú pháp hoặc xung đột khóa ngoại.",
-          "targeted_tags": [
-            "[DAT-ALL (1 to 9)]",
-            "[ARC-000]"
-          ],
-          "components": [
-            "./sources/backend/userService/src/main/resources/db/migration/V1__init_users.sql",
-            "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/MigrationIntegrationTest.java"
-          ]
-        },
-        {
-          "id": "D6_ST2",
-          "agent": "Tester",
-          "desc": "Viết kiểm thử xác thực toàn bộ các ràng buộc khóa ngoại giữa bảng users, centers, courses, enrollments, attendance và studentcards hoạt động chính xác và không bị lỗi tham chiếu.",
-          "targeted_tags": [
-            "[DAT-ALL (1 to 9)]"
-          ],
-          "components": [
-            "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/ForeignConstraintTest.java"
-          ]
-        },
-        {
-          "id": "D6_ST3",
-          "agent": "Reviewer",
-          "desc": "Thực hiện đo lường thời gian truy vấn trên các bảng có index (users.email, centers.taxId, attendance.idempotent) đảm bảo đạt tiêu chuẩn sub-second cho 10,000 concurrent users theo yêu cầu phi chức năng [NFR-001].",
-          "targeted_tags": [
-            "[NFR-001]",
-            "[DAT-ALL (1 to 9)]"
-          ],
-          "components": [
-            "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/DatabaseIndexPerformanceTest.java"
-          ]
-        },
-        {
-          "id": "D6_ST4",
-          "agent": "Reviewer",
-          "desc": "Rà soát toàn bộ mã nguồn kiểm thử tích hợp, đảm bảo tuân thủ tiêu chuẩn định danh gói org.nlh4j.membershiphub.userservice và loại bỏ hoàn toàn các cảnh báo deprecation.",
-          "targeted_tags": [
-            "[ARC-000]",
-            "[DAT-ALL (1 to 9)]"
-          ],
-          "components": [
-            "./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/MigrationIntegrationTest.java"
-          ]
-        },
-        {
-          "id": "D6_ST5",
-          "agent": "Coder",
-          "desc": "Cấu hình tệp thuộc tính kiểm thử kết nối cơ sở dữ liệu Testcontainers PostgreSQL và kích hoạt Flyway tự động chạy migration khi khởi động môi trường test.",
-          "targeted_tags": [
-            "[ARC-000]",
-            "[DAT-ALL (1 to 9)]"
-          ],
-          "components": [
-            "./sources/backend/userService/src/main/resources/application-test.properties"
-          ]
-        },
-        {
-          "id": "D6_ST6",
-          "agent": "Tester",
-          "desc": "Chạy lệnh Maven mvn test trên toàn bộ các module backend để xác thực 100% kiểm thử cơ sở dữ liệu vượt qua thành công mà không có lỗi phát sinh.",
-          "targeted_tags": [
-            "[DAT-ALL (1 to 9)]",
-            "[ARC-000]"
-          ],
-          "components": [
-            "./sources/backend/pom.xml"
-          ]
-        },
-        {
-          "id": "D6_ST7",
-          "agent": "Doc",
-          "desc": "Biên soạn báo cáo tổng kết kết quả kiểm thử tích hợp Flyway migration, kiểm tra hiệu năng index cơ sở dữ liệu và đánh giá độ bao phủ mã nguồn, lưu trữ tại ./sources/docs/.",
-          "targeted_tags": [
-            "[DOC-001]",
-            "[DAT-ALL (1 to 9)]"
-          ],
-          "components": [
-            "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-            "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-            "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-            "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-            "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md",
-            "./sources/docs/database/PHYSICAL_ERD_RELATIONAL_MAPPING.md",
-            "./sources/docs/database/ENTERPRISE_DATA_DICTIONARY_SPEC.md",
-            "./sources/docs/database/DATABASE_MIGRATION_VERSIONING_RUNBOOK.md",
-            "./sources/docs/backend/BACKEND_CORE_PROCESSING_ENGINE_LOGIC.md",
-            "./sources/docs/backend/BACKEND_ENTERPRISE_CODING_STANDARDS.md"
-          ]
-        }
-      ]
-    }
-  ]
+  "days": []
 }
 ```
