@@ -174,7 +174,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
     
     try:
         datetime_prompt, datetime_docid = datetime_for_agent()
-        time_in_seconds = 15
+        time_in_seconds = 10
         
         # prompt context
         base_prompt_context = {
@@ -355,7 +355,6 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
         # ==============================================================================
         # CHUNK 1C: SECTION 4.2 (MULTI-PHASE SYNOPSIS MATRIX)
         # ==============================================================================
-        cleaned_chunk_1b = regex_remove_hidden_tags(data=chunk_1b, tags=["PART_1_MATRIX_4_2"])
         if all_chunks or 3 in chunks:
             logger.info("          └── [ PART 1C ] Distributing Workload into Section 4.2 Synopsis Matrix...")
             ctx_part1c = {
@@ -621,7 +620,7 @@ def run_test_global_generation(
     )
 
     AI_BASE_URL = "https://openrouter.ai/api/v1"
-    AI_API_KEY = "<!--API Key HERE-->"
+    AI_API_KEY = "sk-or-v1-*******"
     MODEL_NAME = "minimax/minimax-m3:free"
 
     # openAI
