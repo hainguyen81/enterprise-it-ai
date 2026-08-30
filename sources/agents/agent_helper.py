@@ -9,6 +9,13 @@ import argparse
 import json
 import logging
 import os
+
+# TODO to use as linux/unix path join
+import posixpath
+
+# TODO to use as linux/unix path join
+os.path.join = posixpath.join
+
 import re
 import sys
 import traceback
