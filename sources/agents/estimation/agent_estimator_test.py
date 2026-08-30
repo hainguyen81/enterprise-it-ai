@@ -4,10 +4,14 @@ from agent_estimator import EnterpriseAutonomousProjectEstimatorAgent
 
 
 def test_estimation():
+    AI_BASE_URL = "https://openrouter.ai/api/v1"
+    AI_API_KEY = (
+        "sk-or-v1-*******"
+    )
     os.environ["AI_MODELS_KEYS_JSON"] = (
-        '{ "https://api.mistral.ai/v1": "<!--API Key Here-->" }'
-    )    
-    PROJECT_NAME = "membership-hub"
+        f"{{ \"{AI_BASE_URL}\": \"{AI_API_KEY}\" }}"
+    )
+    PROJECT_NAME = "social-scheduler"
     EnterpriseAutonomousProjectEstimatorAgent(
         idea=PROJECT_NAME,
         project=PROJECT_NAME,
