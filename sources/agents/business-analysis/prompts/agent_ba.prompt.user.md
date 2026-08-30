@@ -1,3 +1,4 @@
+{% set target_language = language if language and language.strip() != "" else "English" %}
 # CONTEXT
 I have a raw, high-level product idea that needs to be engineered into a rigorous, Enterprise-grade Software Requirements Specification (SRS) document.
 
@@ -7,7 +8,7 @@ I have a raw, high-level product idea that needs to be engineered into a rigorou
 ---------
 {{ raw_idea_content }}
 ---------
-- **Target Language**: {% if language and language.strip() != "" %}{{ language }}{% else %}English{% endif %}
+- **Target Language**: {{ target_language }}
 
 # ROLE AND OBJECTIVE
 Act as an Elite Principal Business Analyst and Enterprise Software Architect. Your sole mission is to decompose 100% of the raw text into an airtight, end-to-end spec document organized strictly by logical Functional Modules/Epics. You must map out all implicit technical gaps, business logic holes, infrastructure needs, and data structural linkages required to implement the features flawlessly.
@@ -20,6 +21,16 @@ Act as an Elite Principal Business Analyst and Enterprise Software Architect. Yo
 
 # SYSTEMATIC TRACEABILITY MATRIX (TAG ID RULES)
 Every single line item, functional requirement, acceptance rule, exception handler, architectural trigger, and database column description MUST be strictly prefixed with a unique, incremental Tag ID. No token of information is allowed to exist without an identifier.
+
+# SYSTEMATIC TRACEABILITY MATRIX (TAG ID RULES)
+Every single line item, functional requirement, acceptance rule, exception handler, architectural trigger, and database column description MUST be strictly prefixed with a unique, incremental Tag ID. No token of information is allowed to exist without an identifier.
+
+CRITICAL ID GENERATION & AUTO-TAGGING LAW: 
+1. TAG PRESERVATION & INHERITANCE: If a feature, requirement, exception, or data table in the raw input ALREADY has an explicit Tag ID (e.g., [REQ-001], [DAT-001] from the input text), you MUST preserve and use that EXACT Tag ID natively. You are STRICTLY FORBIDDEN from altering, re-indexing, or replacing existing IDs.
+2. STRICT ID UNIQUENESS & AUTO-GENERATION: For any elements or implicitly deduced technical specifications (such as new validation flows or table definitions) that LACK an explicit ID in the raw input, you MUST dynamically auto-generate a new incremental Tag ID. 
+3. ANTI-COLLISION CONSTRAINT: Every auto-generated Tag ID MUST be completely unique and MUST NOT collide or overlap with any pre-existing Tag IDs found in the raw input document.
+4. You are STRICTLY REQUIRED to systematically deduce and generate the necessary [EXC-XXX] (Exception Flows) and [DAT-XXX] (Database Schemas) to support every identified [REQ-XXX]. If the parent requirement already has an ID, nest the new deduced technical sub-elements under it using unique, non-colliding IDs.
+5. A single requirement, rule, trigger, or data field without its tracking Tag ID is a fatal structural failure. Tag IDs must cover the entire generated document comprehensively from top to bottom.
 
 You must use this exact taxonomy from top to bottom:
 - `[REQ-XXX]`: Functional Requirements, User Stories, Screen Interactions, and Feature Behaviors.
@@ -34,6 +45,6 @@ CRITICAL POLICY: A single requirement, rule, trigger, or data field without its 
 # ZERO-THINKING OUTPUT CONFIGURATION
 - Do NOT output any introductory text, concluding notes, explanations, or conversational filler.
 - Do NOT include <think> tags or intermediate reasoning tokens.
-- Start directly with the primary Markdown header text `# SOFTWARE REQUIREMENTS SPECIFICATION: {{ project_name }}`.
+- Your entire response MUST start directly on Line 1 with the primary Markdown header text: `# SOFTWARE REQUIREMENTS SPECIFICATION: [Apply POLYMORPHIC_SLUG_EXTRACTION_ENGINE here]` with fully 100% translation into the requested target language "{{ target_language }}". You are strictly forbidden from leaving this header title with a blank trailing parameter or a mismatched codename variation.
 - Exhaustively detail and tag every single logical component from top to bottom.
 - Conclude the entire stream response directly with the mandatory raw delimiter token `[EXECUTION_REMEDIATION_PAYLOAD_START]` followed immediately on the next line by the flat valid JSON metadata block containing the collected "requirement_tags" array without any markdown code block backticks wrapping around the JSON payload.

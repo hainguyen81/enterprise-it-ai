@@ -1,11 +1,13 @@
 import hashlib
 import sys
+from types import SimpleNamespace
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
     datetime_for_docid,
     json_loads,
     parse_args,
+    read_json_file,
     write_file,
     write_json_file,
 )
@@ -62,14 +64,36 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
         
         # no idea also no requirements
         if not file_content:
-            self.logger.critical(f"💀 Not found IDEA / Requirements file to process")
+            self.logger.critical("💀 Not found IDEA / Requirements file to process")
             sys.exit(1)
+        
+        # check project name if it's idea from history ideas if necessary
+        detected_project_name = self.project_name if self.idea_is_project else None
+        if not self.idea_is_project:
+            _, ideas_history = read_json_file(self.__ideas_history_path__())
+            if ideas_history:
+                idea_history = next(
+                    (idea for idea in ideas_history if "id" in idea and idea.get("id") == self.idea_id),
+                    None,
+                )
+                detected_project_name = (
+                    idea_history.get("technical_codename")
+                    if idea_history and "technical_codename" in idea_history
+                    else idea_history.get("brand_name")
+                    if idea_history and "brand_name" in idea_history
+                    else idea_history.get("idea")
+                    if idea_history and "idea" in idea_history
+                    else None
+                )
+        self.logger.info(
+            f"⚙️ Detect Project Name `{detected_project_name}` to generate SRS Markdown Document"
+        )
         
         # return merged new values
         _, idea_file = self.__idea_files__()
         return {
             **kwargs,
-            "project_name": self.project_name if self.idea_is_project else None,
+            "project_name": detected_project_name if detected_project_name else "",
             "idea_file": idea_file,
             "raw_idea_content": file_content
         }
@@ -105,7 +129,9 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
         datetimeStr = datetime_for_docid()
         defaultPrjName = f"project-{datetimeStr}"
         project_name = self.project_name if self.idea_is_project and self.project_name else None
-        project_name = project_name or project_metadata.get("technical_codename") or defaultPrjName
+        project_name = project_name or project_metadata.get("technical_codename") or None
+        detected_project_name = self.get_kwargs_by_key(key="project_name", **kwargs)
+        project_name = project_name or detected_project_name or defaultPrjName
         
         # detect existing project info if any
         project_info = next((pi for pi in projects if pi.get("technical_codename") == project_name or pi.get("idea") == self.idea_id), project_metadata)
@@ -161,6 +187,9 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
         requirements_file = response_data.get("requirements_file")
         requirements_content = response_data.get("raw_srs_content")
         write_file(file=requirements_file, data=requirements_content)
+        self.logger.info(
+            f"🎉 [ SUCCESS ] Received/Saved SRS Markdown Document: {requirements_file}"
+        )
         
         # export project info
         project_info = response_data.get("project_info")
@@ -177,6 +206,16 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
                 data=raw_response
             )
 
+def execute_ba(args: dict, **unknown_args):
+    # to simple object namespace
+    if isinstance(args, dict):
+        args = SimpleNamespace(**args)
+
+    # execute
+    PrincipalBusinessAnalysisAgent(
+        idea=args.idea, project=args.idea, **unknown_args
+    ).execute()
+
 if __name__ == "__main__":
     def add_known_arguments(parser):
         parser.add_argument("--idea", type=str, help="Idea Identity / Project Name for searching")
@@ -185,8 +224,4 @@ if __name__ == "__main__":
         description="💡🎯 PrincipalBusinessAnalysisAgent",
         parser_callback=add_known_arguments
     )
-    PrincipalBusinessAnalysisAgent(
-        idea=args.idea,
-        project=args.idea,
-        **unknown_args
-    ).execute()
+    execute_ba(args=args, unknown_args=unknown_args)
