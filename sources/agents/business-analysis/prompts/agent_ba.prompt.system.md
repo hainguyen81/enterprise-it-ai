@@ -86,7 +86,7 @@ The content of the "srs_content_markdown" key must follow this structure, packin
 | **Project Name** | [Apply POLYMORPHIC_SLUG_EXTRACTION_ENGINE here] |
 | **Version** | 1.0 ([Translate "Baseline" into {{ target_language }}]) |
 | **Date Time** | {{ current_timestamp }} |
-| **Author** | Enterprise System Architect (SA Agent) |
+| **Author** | Principal Business Analyst (BA) / Product Strategist (BA Agent) |
 | **Approval** | [Translate "Pending Technical Governance Review" into {{ target_language }}] |
 
 ## 1. PROJECT OVERVIEW & GLOBAL ARCHITECTURE
