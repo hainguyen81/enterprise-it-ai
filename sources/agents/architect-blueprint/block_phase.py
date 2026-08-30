@@ -186,7 +186,7 @@ def run_test_phase_generation(callback, phase: int = 0):
     )
 
     AI_BASE_URL = "https://openrouter.ai/api/v1"
-    AI_API_KEY = "<!--API Key HERE-->"
+    AI_API_KEY = "sk-or-v1-*******"
     MODEL_NAME = "minimax/minimax-m3:free"
 
     # openAI

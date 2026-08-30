@@ -8,10 +8,10 @@
 # ==============================================================================
 
 ## 🌐 1. STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS
-- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "🇻🇳 Vietnamese".
+- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "Vietnamese".
 - **ABSOLUTE TECH PROTECTION BOUNDARY:** You are STRICTLY BANNED from translating, changing, altering, or breaking any technical structural layers. You MUST preserve these elements natively in their pristine Technical English/Primitive code state:
     * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
-    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**` or separated by `|` or followed right after `#...` as section headers / sub-headers, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. They MUST be translated into target language: "🇻🇳 Vietnamese". **Absolute Plaintext Override:** The tech protection boundary applies strictly to the numbers (`1.1`); 100% of the alphabetic semantic words following these indicators MUST be aggressively translated into pure plaintext 🇻🇳 Vietnamese equivalents. Freezing alphabetic text inside markdown header lines (starts with `#`, `##`, or `#...` multi-level markdown header) or inside strong markdown bold formatting `**` triggers an immediate infrastructure validation failure. **Absolute System Tag Exemption:** You are STRICTLY BANNED from applying any translation, filtration, encapsulation, or alteration algorithms to structural HTML comment tags matching the architecture patterns `<!--START_...-->` or `<!--END_...-->`. These infrastructure anchors MUST bypass 100% of the Plaintext Override filter and leak straight to the output buffer in their pristine Technical English primitive state. Emitting any codeblock wrapper like ```markdown ...``` around the stream or failing to terminate at the exact cursor boundary of the target terminal chunk tag triggers an immediate infrastructure failure.
+    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**` or separated by `|` or followed right after `#...` as section headers / sub-headers, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. They MUST be translated into target language: "Vietnamese". **Absolute Plaintext Override:** The tech protection boundary applies strictly to the numbers (`1.1`); 100% of the alphabetic semantic words following these indicators MUST be aggressively translated into pure plaintext Vietnamese equivalents. Freezing alphabetic text inside markdown header lines (starts with `#`, `##`, or `#...` multi-level markdown header) or inside strong markdown bold formatting `**` triggers an immediate infrastructure validation failure. **Absolute System Tag Exemption:** You are STRICTLY BANNED from applying any translation, filtration, encapsulation, or alteration algorithms to structural HTML comment tags matching the architecture patterns `<!--START_...-->` or `<!--END_...-->`. These infrastructure anchors MUST bypass 100% of the Plaintext Override filter and leak straight to the output buffer in their pristine Technical English primitive state. Emitting any codeblock wrapper like ```markdown ...``` around the stream or failing to terminate at the exact cursor boundary of the target terminal chunk tag triggers an immediate infrastructure failure.
     * All unique Tracking Tag IDs and Technical Nodes (e.g., `[REQ-XXX]`, `[DAT-XXX]`, `[EXC-XXX]`, `[IDEA_X]`, `[ARC-XXX]`, `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`).
     * All technical identifier strings, system variables, or dynamic formatting indices (e.g., `D1_ST1`).
     * All code execution blocks, text wrappers, and specialized chart definition syntaxes (e.g., Mermaid.js graphs, structural layout configurations).
@@ -26,8 +26,8 @@
     * All absolute or relative file paths starting with `./sources/`.
     * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
-    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`, or `#...` multi-level markdown, etc.), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like `GLOBAL PROJECT CONTEXT`, `Document Control`, `Item`, `Details`, `Blueprint ID`, `Project Name`, `Version`, `Date Time`, `Author`, `Approval`, `SYSTEM OVERVIEW`, `Core System Modality`, etc.), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface. You MUST translate them into the designated Target Output Language: "🇻🇳 Vietnamese". You ARE CRITICALLY AND ABSOLUTELY COMMANDED to fully translate 100% of all alphabetic characters operating as document titles, section headers (`#`, `##`, `###` or `####...` multi-level markdown section headers / sub-headers, etc.), table column keys, bold metadata labels, and layout descriptors located inside the initial control block into pure plaintext 🇻🇳 Vietnamese.
-    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "🇻🇳 Vietnamese" before committing them to the final output buffer.
+    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`, or `#...` multi-level markdown, etc.), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like `GLOBAL PROJECT CONTEXT`, `Document Control`, `Item`, `Details`, `Blueprint ID`, `Project Name`, `Version`, `Date Time`, `Author`, `Approval`, `SYSTEM OVERVIEW`, `Core System Modality`, etc.), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface. You MUST translate them into the designated Target Output Language: "Vietnamese". You ARE CRITICALLY AND ABSOLUTELY COMMANDED to fully translate 100% of all alphabetic characters operating as document titles, section headers (`#`, `##`, `###` or `####...` multi-level markdown section headers / sub-headers, etc.), table column keys, bold metadata labels, and layout descriptors located inside the initial control block into pure plaintext Vietnamese.
+    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "Vietnamese" before committing them to the final output buffer.
     * Only the internal technical runtime system variable values passed by the engine backend MUST be preserved natively in pure Technical English. Any model that emits a structural text title or a table key parameter in raw English triggers an immediate compliance pipeline crash.
     * **Universal Bracket Stripping Law:** When compiling and outputting any "Dynamic Layout Placeholder" or descriptive translation block that was originally wrapped inside square brackets `[...]` in the template manual, your execution engine MUST execute a definitive character purge to completely strip and delete the outer opening `[` and closing `]` brackets before streaming the token to the print buffer. The final UI output MUST contain pure plaintext characters only without brackets `[` and `]`.
 
@@ -64,7 +64,7 @@
 
 ## 6. DETERMINISTIC TRIPLE-DEEPEST CHECK VERIFICATION LOOP & PIPELINE
 - **MANDATORY EXECUTION PIPELINE:** Before emitting any text string or committing any data stream payload to the output buffer, you MUST strictly execute the following sequential compilation and verification pipeline inside your internal memory context:
-  * Step 1 (Live Streaming Localization Pipeline): Parse the input specification dataset and immediately execute contextual translation into "🇻🇳 Vietnamese" token-by-token directly to the output print buffer. You are zero-required to compile a hidden English draft layout inside memory. 100% of text rendering and technology stack translation MUST safely trigger on-the-fly according to the strict tech protection boundaries established in Rule 1 (`STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS`) of this master matrix.
+  * Step 1 (Live Streaming Localization Pipeline): Parse the input specification dataset and immediately execute contextual translation into "Vietnamese" token-by-token directly to the output print buffer. You are zero-required to compile a hidden English draft layout inside memory. 100% of text rendering and technology stack translation MUST safely trigger on-the-fly according to the strict tech protection boundaries established in Rule 1 (`STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS`) of this master matrix.
   * Step 2 (Real-Time Sub-Task Metric Tracking): Concurrently maintain an internal counter ledger in active background memory to recount all newly generated chunk schema rows, Tag IDs, and deliverable entities against the baseline specification matrix as the tokens are being streamed.
   * Step 3 (Continuous Layered Verification Pass): Ensure your live streaming execution pipeline satisfies 100% compliance across three integrated operational layers before exiting:
     * Layer 1 (Traceability Invariant): Guarantee that every incoming functional requirement and technical tag is printed and mathematically covered without gaps.
@@ -109,7 +109,7 @@
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
     * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
     * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
-    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the human-readable descriptive text, task objectives, and instructions generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into 🇻🇳 Vietnamese. However, you are STRICTLY BANNED from translating any technical syntax elements, raw executable code block interiors, SQL DDL text blocks, or JSON contract schemas residing within these boundaries; they MUST permanently freeze in pure Technical English.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the human-readable descriptive text, task objectives, and instructions generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese. However, you are STRICTLY BANNED from translating any technical syntax elements, raw executable code block interiors, SQL DDL text blocks, or JSON contract schemas residing within these boundaries; they MUST permanently freeze in pure Technical English.
 
 ### CORE PROTOCOL: DYNAMIC HIDDEN FRAMEWORK TAG SCANNING LOOP
 - **STRICT LAYOUT SPACING MANDATE:** You ARE ABSOLUTELY AND CRITICALLY BANNED from flattening, compounding, or compressing consecutive markdown elements into a single continuous plaintext line. You MUST strictly preserve and explicitly emit double literal newline carriage returns (`
@@ -144,7 +144,7 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 
 5. **100% Exhaustive Structural Granularity:** You are strictly forbidden from summarizing, truncating, or condensing the specialized enterprise architectural sections. You MUST deliver high-density technical deliverables (complete physical directory structures, Flyway/Liquibase DDL SQL schemas with fields and keys, explicit REST/Event API contracts, concrete business core code samples, and daily sub-agent task allocations) for all active timelines matching the full granularity of the raw requirements. You MUST proactively generate and completely write out the raw executable Technical English code blocks and schemas inside their respective placeholders within the daily specializations. Leaving database schema sections or API contract segments as blank bullet items, placeholder notes, or descriptive text-only summaries constitutes a fatal framework breach. If the active sub-task context involves database operations, you must output full ANSI-compliant SQL DDL code. If it involves controllers, you must output explicit JSON contract schemas.
 
-6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **🇻🇳 Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **🇻🇳 Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
+6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
 However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
 7. **MICROSERVICES ISOLATION & DESCRIPTOR INITIATION LAW [ARC-000]:**
@@ -155,7 +155,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   - Every generated manifest placeholder must be structured cleanly with zero incomplete code lines to support immediate cross-module blank compilation.
 
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
-- **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
+- **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in Vietnamese.
 - **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
 - **Banned Elements:** You are ABSOLUTELY BANNED from including any internal thinking processes, chain-of-thought blocks (`<think>` tags), conversational filler texts, greetings, introductions, or post-generation notes. Do NOT wrap the entire output inside any markdown codeblocks (no triple backticks wrapping around the whole response). Any token before or after this exact markdown structure will cause an immediate execution pipeline crash.
 </ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -199,8 +199,13 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   - 🧪 **Tester Agent Role**:
     * Core Duty: Test Suite Engineering and Validation.
     * Allowed Actions: Write unit tests, integration tests, and automation scripts. 
-    * Strict Boundary: Must strictly use the target-test pathing conditional syntax: for regular unit tests, utilize the semi-colon pair layout (`source_code_file;target_test_file`), but for any integration, performance test scope, you MUST permanently apply the explicit hard-coded prefix pattern layout (`INTEGRATION_SCOPE;target_test_file`). Forbidden from writing production application code.
-  - 🔍 **Reviewer Agent Role**:
+    * Strict Boundary: You MUST permanently isolate the `target_component` path layout syntax based strictly on the target technology layer and test modality with zero cross-contamination:
+          +  1. **BACKEND JUNIT/UNIT TEST WINDOW:** For regular Java unit tests, you MUST strictly employ a two-element semicolon-separated layout exactly formatted as: `<absolute_path_to_production_source_java_file>;<absolute_path_to_junit_test_class_file>` (e.g., `./sources/backend/user-service/.../User.java;./sources/backend/user-service/.../UserTest.java`). You ARE CRITICALLY BANNED from reversing this file order. **Strict Java Extension Lock:** This dual-file pairing layout MUST strictly apply ONLY to physical executable object class files ending with the `.java` extension.
+          2. **CORE BUILD DESCRIPTOR EXCLUSION LAW:** If the target under verification by the [Tester] agent involves multi-module build descriptors, pipeline integration scripts, or scaffolding verification (assets matching `pom.xml`, `package.json`, or `tsconfig.json` under tracking symbol `[ARC-000]` or `[DOC-001]`), you ARE ABSOLUTELY BANNED from mapping the raw build descriptor file directly as the target component. You MUST forcefully target the explicit integration suite script or validation pipeline file, applying the exact hard-coded prefix layout: `INTEGRATION_SCOPE;./sources/infra/test/maven-build-integration.sh` or `INTEGRATION_SCOPE;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/UserServicesTestSuite.java`. Any attempt to run an integration test scope directly on a naked `pom.xml` configuration asset is strictly banned.
+          3. **BACKEND INTEGRATION TEST WINDOW:** For backend cross-cutting integration, performance, or Gatling load test scopes where an isolated individual source file cannot be mapped, you MUST strictly enforce exactly two elements: `INTEGRATION_SCOPE;<absolute_path_to_integration_test_file>` (e.g., `INTEGRATION_SCOPE;./sources/backend/user-service/.../UserIntegrationTest.java`).
+          4. **FRONTEND APPLICATION TEST WINDOW:** For 100% of frontend applications, component styling, or Next.js web test scopes where a production source file cannot be isolated inline, you MUST permanently apply the explicit hard-coded token prefix layout containing exactly two elements: `INTEGRATION_SCOPE;<absolute_path_to_frontend_test_file>` (e.g., `INTEGRATION_SCOPE;./sources/frontend/web-app/src/test/Notification.spec.ts`).
+          * **MUTUALLY EXCLUSIVE GATEWAY:** You ARE CRITICALLY AND ABSOLUTELY BANNED from mixing, compounding, or concatenating these distinct layouts together. Emitting a three-segment path or leaking an `INTEGRATION_SCOPE` token inside a Java unit test string triggers an immediate architectural framework collapse.
+   - 🔍 **Reviewer Agent Role**:
     * Core Duty: Code Review, Issue/Bug Analysis and Fix Strategy.
     * Allowed Actions: Inspect code quality, enforce programming standards, detect optimization bottlenecks, analyze structural issues/bugs, and design explicit fix implementations.
   - 📝 **Doc Agent Role**:
@@ -232,22 +237,22 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   - **Placeholder Prohibition:** Any phase that outputs generic summaries, loops past infrastructure configuration lines, or serves as a dummy container to pad the phase quota triggers an immediate framework integration crash.
 
 #### 🚨 CRITICAL FULL TRANSLATION MANDATE
-  - The target generation language for all human-readable outputs is permanently bound to: 🇻🇳 Vietnamese. Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
+  - The target generation language for all human-readable outputs is permanently bound to: Vietnamese. Everything MUST be translated into Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
   - You MUST fully translate 100% of all headers, section titles, sub-headers, descriptive text, sentences, explanations, phase objectives, phase descriptions, phase section headers / titles / sub-headers / pullet titles, and task instructions into the designated target language (include following the translation rules that was defined in `STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS`).
 
 #### 🚨 DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
-  - Target Output Language Context: 🇻🇳 Vietnamese
+  - Target Output Language Context: Vietnamese
   - You MUST dynamically translate 100% of all user-facing structural components, table headers, phase layouts, and list prefixes into the designated Target Output Language Context.
   - 🚨 MANDATORY STRUCTURAL MAPPING DIRECTIVE (Translate these dynamically based on the target language context):
     * All Section and Sub-section Headers MUST be translated contextually into the Target Output Language.
     * All Table Headers MUST be translated contextually into the Target Output Language.
     * All list Prefixes and Phase Titles MUST be translated contextually into the Target Output Language.
     * You ARE CRITICALLY AND PERMANENTLY BANNED from emitting any literal instruction verbs, meta-text templates, or brackets containing uppercase commands like "Translate" or "SUB-TASKS" into the output pipeline (e.g., leaking raw strings like `[Translate "Phase" into the target language...]` triggers an immediate infrastructure system crash).
-    * You MUST treat every bracketed layout token exclusively as a dynamic runtime registry lookup key. Prior to character emission, your internal execution engine MUST evaluate the key against the targeted "🇻🇳 Vietnamese" vocabulary schema map.
+    * You MUST treat every bracketed layout token exclusively as a dynamic runtime registry lookup key. Prior to character emission, your internal execution engine MUST evaluate the key against the targeted "Vietnamese" vocabulary schema map.
     * You MUST translate and substitute the configuration hooks using a strict 1:1 linguistic dictionary matrix pass:
-      - Map `Phase` to its exact literal structural noun equivalent inside the "🇻🇳 Vietnamese" vocabulary database.
-      - Map `DAY` to its exact literal chronological milestone noun equivalent inside the "🇻🇳 Vietnamese" vocabulary database.
-      - Map the inner sub-task layout fields (`Sub-Agent Workflow Specialization`, `Targeted Tag IDs`, `Target Component file path`, `Low-Level Technical Task Instruction`) directly to their corresponding native contextual descriptors in "🇻🇳 Vietnamese" before streaming tokens.
+      - Map `Phase` to its exact literal structural noun equivalent inside the "Vietnamese" vocabulary database.
+      - Map `DAY` to its exact literal chronological milestone noun equivalent inside the "Vietnamese" vocabulary database.
+      - Map the inner sub-task layout fields (`Sub-Agent Workflow Specialization`, `Targeted Tag IDs`, `Target Component file path`, `Low-Level Technical Task Instruction`) directly to their corresponding native contextual descriptors in "Vietnamese" before streaming tokens.
     * Every single structural layout element must open clean, resolve dynamically, and close clean with zero template leakage.
   - 🚨 SPECIFIC SECTION CONTENT TRANSLATION RAILS:
     * For Sections 1 & 2: Translate all comprehensive technical overviews, main headers, sub-headers, section titles, labels, table columns, ecosystem descriptions, stack details, and asynchronous channel analysis.
@@ -255,7 +260,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
     * For Section 4 & 5: Translate all table headers (except technical tokens), main headers, sub-headers, section titles, labels, table columns, deliverables summaries, core objectives, localized exception handling descriptions, and low-level task instruction texts.
     * For Sections 6, 7 & 8: Translate all detail descriptions of injection countermeasures, main headers, sub-headers, section titles, labels, table columns, security rails, hybrid compliance rules, SEO mechanisms, and pipeline git flow gating rules.
   - 🚨 RIGID TECHNICAL BOUNDARY & TECHNICAL EXCLUSION ZONE (DO NOT TRANSLATE): You are strictly forbidden from translating or modifying technical structures, including:
-    * Crucially, this exclusion zone applies strictly to raw data primitives. You MUST naturally, contextually, and fully translate 100% of all chronological timeline indicator milestones (specifically including all uppercase, lowercase, or bolded Phase and Day header strings, e.g., 'Phase X', 'DAY Y') into the designated target language context matching the specified variable: 🇻🇳 Vietnamese. Leaking the naked raw English tokens "PHASE" or "DAY" inside the final markdown specialization report headers is a fatal violation of the localization law.
+    * Crucially, this exclusion zone applies strictly to raw data primitives. You MUST naturally, contextually, and fully translate 100% of all chronological timeline indicator milestones (specifically including all uppercase, lowercase, or bolded Phase and Day header strings, e.g., 'Phase X', 'DAY Y') into the designated target language context matching the specified variable: Vietnamese. Leaking the naked raw English tokens "PHASE" or "DAY" inside the final markdown specialization report headers is a fatal violation of the localization law.
     * All markdown syntax layout operators (`|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
     * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
     * All code blocks (SQL DDL, JSON schemas, JSON payloads, Java, etc.) and Mermaid flow diagrams.
@@ -266,7 +271,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
     * Retain all raw engineering strings: file paths (`./sources/...`), code blocks, Tag IDs (`[REQ-XXX]`, `[DAT-XXX]`, etc.), and strict Sub-Agent literal tokens (`Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`).
     * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
-  - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
+  - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in Vietnamese while completely freezing all technical paths, tags, and block codes.
 
 #### MANDATORY SEGMENT INSTRUCTION:  
 
@@ -287,7 +292,9 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 # STRICT OPERATIONAL AND SYNOPSIS MIRROR MANDATE FOR PHASE 2 OUT OF 5:
   - OPERATIONAL SCOPE: You are now executing target segment 'PART_2_PHASE_LOOP' exclusively for Phase 2 out of 5.
   - TIME BOUNDARY: You are strictly capped to generate chronological daily logs exactly from Day 1 to Day 7. Absolutely FORBIDDEN from generating any text, sub-headers, or tasks for Day 8 or beyond. Match this duration with your declaration from Section `<!--PHASE_SYNOPSIS_GRID_START-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section. This phase MUST act as a strict structural mirror of the specific phase calculated from Section `<!--PHASE_SYNOPSIS_GRID_START-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section. You MUST generate an independent, complete detailed block below for this phase.
-  - DYNAMIC MATRIX AUDIT: Scan the historic '## 4.2 MULTI-PHASE SYNOPSIS MATRIX' table generated in the previous step. Locate the exact row matching the phase rows that contains the `<!--REGISTERED_PHASE_ROW-->` tag.
+  - **THE STRICT SYNOPSIS TEMPORAL BINDING LAW:** Prior to unrolling any text block inside this section, your engine MUST run a strict validation lookup pass on the historical SynOpSis Matrix Phases table (inside the hidden HTML tags from `<!--PHASE_SYNOPSIS_GRID_START-->` to `<!--PHASE_SYNOPSIS_GRID_END-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section) generated. You MUST locate the exact horizontal row matching the active Phase integer `2` in the 1st column, and extract the exact computed string representation from the 'Day Range' column (the 2nd column).
+  - **THE ABSOLUTE CALENDAR BOUNDARY LOCK:** Let the minimum and maximum day parameters extracted from that specific matrix cell row be variable `Global_P_Start` and `Global_P_End`. The chronological day log unrolling sequence inside this section for this active Phase MUST strictly, linearly, and perfectly map from `Global_P_Start` up to exactly `Global_P_End` (e.g., if the table cell states Day 4 - Day 8, this section MUST explicitly unroll exactly Day 4, Day 5, Day 6, Day 7, and Day 8). You ARE CRITICALLY BANNED from dropping days, skipping indices, or altering the chronological milestones of the parent matrix grid.
+  - DYNAMIC MATRIX AUDIT: Scan the historic SynOpSis Matrix Phases table (inside the hidden HTML tags from `<!--PHASE_SYNOPSIS_GRID_START-->` to `<!--PHASE_SYNOPSIS_GRID_END-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section) generated in the previous step. Locate the exact row matching the phase rows that contains the `<!--REGISTERED_PHASE_ROW-->` tag.
   - AGENT ENFORCEMENT: Extract all assigned roles from the 'Assigned Sub-Agent' column (the 6th column) in that specific row (including Coder, Tester, Reviewer, Doc, Docker, GCP, GKE). You MUST explicitly output separate chronological sub-task blocks for EVERY single sub-agent declared in that row. If Docker/GCP/GKE infrastructure tokens are active, you are strictly commanded to engineer their cloud deployment and cluster setup logs inline. Do not drop any role.
   - COMPONENT ENFORCEMENT: Extract the exact 'Architectural Component / Module Path' from that row. All generated repository paths, migrations, and file configurations in this chunk MUST target that path.
   - **CHRONO-CUMULATIVE LEDGER VERIFICATION LAW (CORE COUNTING):** If this is the FINAL phase (Phase 5), you MUST execute a non-approximate string-matching loop over the exact text buffer to prevent ledger fraud:
@@ -296,16 +303,19 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
       * STEP C: Compute `Final_Total = H + A`. You ARE CRITICALLY BANNED from dropping the historical sum `H` or only outputting the local day count. The integer value of `Final_Total` MUST exactly equal the absolute total number of rows (excluding the summary row) inside the historical Master Product Backlog Table from Section `<!--PHASE_SYNOPSIS_GRID_START-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section. You MUST inject this exact evaluated integer directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` parameter.
   - **Strict Quantum Recount Overwrite:** You ARE CRITICALLY FORBIDDEN from substituting `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` with the local count of the final phase. The printed token value MUST be the literal mathematically computed `Final_Total`. Any execution that outputs the local chunk counter (such as printing `3` instead of the accumulated sum of all phases) will cause an immediate validation gate infrastructure crash.
   - **STRICT STEP 1.1 BUFFER CHAR RECOUNT COMPLIANCE:** During the final verification pass of the response stream, your execution engine MUST run a literal, token-level counting pass strictly over the active memory text buffer. You MUST manually scan and sum every single instance of the custom HTML anchor `<!--ATOMIC_SUB_TASK_NODE_START-->` freshly printed or loaded. If the math count fails to match the value committed to `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` inside your property block, halt the stream instantly to trigger a circuit-breaker failure.
-  - **STRICT PHASE 1 GEOMETRIC CONDITIONAL RAIL:** You MUST actively evaluate the current operational phase index before emitting tokens. If and ONLY IF the active service segment context is dedicated strictly to "Phase 1", you MUST instantly intercept the print stream to locate the literal string `## 5...` inside the template manual block, contextually translate 100% of its words into "🇻🇳 Vietnamese", and render it as your absolute first output line before opening any hidden HTML anchors.
+  - **STRICT PHASE 1 GEOMETRIC CONDITIONAL RAIL:** You MUST actively evaluate the current operational phase index before emitting tokens. If and ONLY IF the active service segment context is dedicated strictly to "Phase 1", you MUST instantly intercept the print stream to locate the literal string `## 5...` inside the template manual block, contextually translate 100% of its words into "Vietnamese", and render it as your absolute first output line before opening any hidden HTML anchors.
   - **ANTI-LEAKAGE FILTER MANDATE:** If the active phase index is greater than or equal to 2 (Phase >= 2), you ARE CRITICALLY BANNED from executing this parent header injection, and your execution engine MUST transition with zero-token delay straight into the `<!--PHASE_INDEX_START-->` layout boundary.
 
 # DYNAMIC CEILING BOUNDARY ENFORCEMENT:
 - The day-by-day logs of this phase MUST strictly map to the exact day range defined for this phase from Section `<!--PHASE_SYNOPSIS_GRID_START-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section.
-    * **STRICT PLACEHOLDER DESTRUCTION & UNROLLING LAW:** You ARE ABSOLUTELY AND CRITICALLY BANNED from leaving or leaking any raw structural template bracket signs (such as `[Y]`, `[Z]`, etc.) inside your text response stream. You MUST dynamically evaluate and expand 100% of these parameters into concrete technical data matching "🇻🇳 Vietnamese" context. If you lack token space to finish a phase daily log, you MUST stop clean at a valid day boundary, but you are 100% forbidden from printing empty template skeletons instead of actual actionable production elements.
+    * **STRICT PLACEHOLDER DESTRUCTION & UNROLLING LAW:** You ARE ABSOLUTELY AND CRITICALLY BANNED from leaving or leaking any raw structural template bracket signs (such as `[Y]`, `[Z]`, etc.) inside your text response stream. You MUST dynamically evaluate and expand 100% of these parameters into concrete technical data matching "Vietnamese" context. If you lack token space to finish a phase daily log, you MUST stop clean at a valid day boundary, but you are 100% forbidden from printing empty template skeletons instead of actual actionable production elements.
     * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
     * You ARE ABSOLUTELY AND CRITICALLY BANNED from copy paste, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
     * **Strict Multi-Phase Content Isolation Invariant:** You ARE CRITICALLY BANNED from duplicating or copy-pasting the structural objectives, directory maps, DDL SQL locks, or daily sub-task logs of Phase X into the body of Phase X+1. Each calculated phase sequence MUST generate its own distinct technical deliverables mapped exclusively to the specific workload task items assigned to that phase index inside the Multi-Phase Synopsis Matrix table.
-- **BLOCK DAY ENCAPSULATION PARADIGM:** To safeguard backend regex scraping, you MUST programmatically enforce absolute character-level symmetry for Zone 2 data anchors. The token `<!--DAY_LOG_INDEX_START-->` MUST be emitted strictly on its own independent fresh newline immediately BEFORE any day log text or sub-header is printed. The token `<!--DAY_LOG_INDEX_END-->` MUST be emitted strictly on its own independent fresh newline immediately AFTER the day log content terminates. Compounding, hiding, or shifting these anchors inside payload text blocks is critically banned.
+- **BLOCK DAY ENCAPSULATION PARADIGM:** To safeguard backend regex scraping, you MUST programmatically enforce absolute character-level symmetry for Zone 2 data anchors sequentially for EVERY SINGLE calendar day instance generated:
+    1. For EACH active index `Y` in the day loop, you MUST explicitly print the open anchor token `<!--DAY_LOG_INDEX_START-->` on its own fresh independent newline FIRST. 
+    2. On the immediate next newline, you MUST print the localized level-5 Markdown header (`##### DAY [Y]:` or `##### ...`). You ARE CRITICALLY BANNED from printing this header line without having the open anchor tag explicitly emitted on the line directly above it.
+    3. The moment 100% of the daily sub-task nodes for index `Y` are fully unrolled, you MUST instantly print the close anchor token `<!--DAY_LOG_INDEX_END-->` on its own fresh standalone newline before transitioning your cursor loop to evaluate day `Y+1`. Compounding, omitting, or running consecutive day elements without these matching boundary pairs triggers a fatal structural framework failure.
 - **ABSOLUTE LOCAL CHRONO RESET**: When generating the day element sub-headers inside this section (e.g., `- **DAY [Y]:**`), the counter variable Y MUST natively reset and restart from 1 for this phase block. You are permanently forbidden from bleeding the global progressive timeline into these sections.
 - The total days of this phase MUST NOT exceed the absolute upperbound of 7 days.
 - You MUST execute a hard log freeze and terminate the active day loop immediately on the exact day when 100% of the baseline BA tracking codes for this phase are covered. Fabricating dummy tasks or synthetic requirements to pad out the timeline up to 7 is completely banned.
@@ -314,7 +324,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 - **TARGETED SINGLE-PHASE ISOLATION RAIL:** Your entire response stream MUST focus exclusively on the requirements, tasks, components, and tag identifiers allocated to Phase 2. 
 - **DYNAMIC PHASE ITERATION GATEKEEPER:** When evaluating this active section block for Phase 2, you ARE CRITICALLY BANNED from dropping context or copying raw bracketed placeholders like `[Translate...]`, `[Emit...]` or `[...]` directly into the output stream. You MUST dynamically parse the exact matched row corresponding strictly to Phase 2 inside section `<!--PHASE_SYNOPSIS_GRID_START-->` above, extract its localized properties, and compile active operational technical data for every layout field.
 - **ZERO-PROSE CHARACTER GATEKEEPER:** You ARE ABSOLUTELY AND CRITICALLY BANNED from generating or leaking any introductory paragraphs, prose analysis, walls of text, or technical explanations right below the Phase header title. Your output stream MUST transition with 0-token delay directly from the Phase header line into the structural relative path matrix and daily log boundaries. Any leaked free-text sentence will break the backend gateway.
-- **STRICT PLACEHOLDER DESTRUCTION LAW:** Every single bracketed structural token (e.g., `[Translate "Phase"...]`, `[Translate "Phase Core Objective"...]`, `[Translate "Target Physical Directory"...]`, etc.) MUST be mathematically destroyed and replaced with its fully translated and finalized text value matching "🇻🇳 Vietnamese" at runtime.
+- **STRICT PLACEHOLDER DESTRUCTION LAW:** Every single bracketed structural token (e.g., `[Translate "Phase"...]`, `[Translate "Phase Core Objective"...]`, `[Translate "Target Physical Directory"...]`, etc.) MUST be mathematically destroyed and replaced with its fully translated and finalized text value matching "Vietnamese" at runtime.
 - **STRICT LOOP PARTITION ISOLATION LAW:** When compiling the daily logs for Phase 2, you ARE CRITICALLY BANNED from replicating, cloning, or copying task descriptions, file paths, or titles from other phases. You MUST explicitly map and unroll only the unique engineering deliverables and task indices allocated strictly to that specific Phase 2 inside the `<PROJECT_BACKLOG_TASKS_DATA>` section.
 - **MANDATORY HEADER DOUBLE-NEWLINE CARRIAGE RAIL:** To prevent layout breakdown and rule leakage across block boundaries, you MUST programmatically inject exactly two explicit, literal newline carriage returns (`
 
@@ -326,34 +336,34 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 <!--PHASE_INDEX_START-->
 
-### 📈 [Translate "Phase" into the target language 🇻🇳 Vietnamese] 2 - [Dynamically compute and emit a concise, high-level technical name for this milestone based on its core delivery component, completely translated into "🇻🇳 Vietnamese"]
-- **[Translate "Phase Core Objective & Purpose" into the target language 🇻🇳 Vietnamese]:** [Detailed technical explanation of what this phase achieves and its functional goals, and fully translated into 🇻🇳 Vietnamese]
+### 📈 [Translate "Phase" into the target language Vietnamese] 2 - [Dynamically compute and emit a concise, high-level technical name for this milestone based on its core delivery component, completely translated into "Vietnamese"]
+- **[Translate "Phase Core Objective & Purpose" into the target language Vietnamese]:** [Detailed technical explanation of what this phase achieves and its functional goals, and fully translated into Vietnamese]
 
-- **[Translate "Target Physical Directory Matrix Map" into the target language 🇻🇳 Vietnamese]:** Generate an exhaustive, granular engineering checklist mapping out 100% of all discrete, individual physical relative file paths (NOT folders or directories) underneath `./sources/` that are actively created, refactored, or processed within this phase scope. Every single generated line item MUST represent a concrete file entity ending with its explicit structural file extension, with its matching traceability Tag IDs appended inline.
+- **[Translate "Target Physical Directory Matrix Map" into the target language Vietnamese]:** Generate an exhaustive, granular engineering checklist mapping out 100% of all discrete, individual physical relative file paths (NOT folders or directories) underneath `./sources/` that are actively created, refactored, or processed within this phase scope. Every single generated line item MUST represent a concrete file entity ending with its explicit structural file extension, with its matching traceability Tag IDs appended inline.
     *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
 
-- **[Translate "Database Schema DDL SQL Specification" into the target language 🇻🇳 Vietnamese] [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+- **[Translate "Database Schema DDL SQL Specification" into the target language Vietnamese] [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
 <RULE>
     * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ```sql:matrix ...``` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
     * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
 </RULE>
 
-- **[Translate "API and Event Routing Contracts" into the target language 🇻🇳 Vietnamese] [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **[Translate "API and Event Routing Contracts" into the target language Vietnamese] [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
 
-- **[Translate "Phase Localized Exception Handlers" into the target language 🇻🇳 Vietnamese] [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
+- **[Translate "Phase Localized Exception Handlers" into the target language Vietnamese] [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into Vietnamese.
 
-#### 📅 [Translate "Chronological Day-by-Day Sub-Agent Task Distribution Logs" into 🇻🇳 Vietnamese] ([Translate "Phase" into 🇻🇳 Vietnamese] 2)
+#### 📅 [Translate "Chronological Day-by-Day Sub-Agent Task Distribution Logs" into Vietnamese] ([Translate "Phase" into Vietnamese] 2)
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 [Translate "DAY" into the target language 🇻🇳 Vietnamese] [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
+##### 📅 [Translate "DAY" into the target language Vietnamese] [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
 <RULE>
 - **SUB-TASK ATOMIC WRAPPER LAW:** Every single sub-task node MUST be explicitly and strictly wrapped within its own dedicated opening (`<!--ATOMIC_SUB_TASK_NODE_START-->`) and closing (`<!--ATOMIC_SUB_TASK_NODE_END-->`) markers. You are PERMANENTLY FORBIDDEN from generating a new sub-task header until the previous sub-task node has been legally closed with its dedicated newline tag. Follow exact below raw structure layout.
 - **STRICT PATH ENCAPSULATION MANDATE:** When generating the daily sub-task metadata fields, you MUST strictly embed the physical relative file path string exclusively inside the explicit layout field line matching the target_component token syntax. You are CRITICALLY FORBIDDEN from spawning or spilling any standalone, loose, or nested bullet points containing raw paths (such as separate lines starting with `./sources/`) below or outside the asterisk metadata fields. Every single file path entity MUST be tightly bound inside its designated parent metadata envelope row. Spawning naked paths outside fields will instantly break the backend compilation parser.
 - **HARD-ANCHORED TEMPLATE RENDERING MATRIX:** When processing this active block, you MUST execute the output stream following the exact vertical layout lines provided below in a strict, unbreakable linear order:
     * You ARE CRITICALLY BANNED from flattening or compressing sequential sub-task nodes into a single, continuous markdown text block or standard bullet list. Each independent sub-task node must maintain its physical vertical line boundaries intact, opening clean with the start anchor on a newline, rendering the localized level-6 header (`###### `) on the next newline, and closing cleanly with the end anchor on a standalone newline.
     * Step 1: Print the opening infrastructure anchor (`<!--ATOMIC_SUB_TASK_NODE_START-->`) on its own independent standalone line.
-    * Step 2: Render the valid sub-task header (e.g. the subsequent level-6 Markdown header row (`###### `) exactly as formatted in the layout on the very next standalone line, fully localizing the text properties into "🇻🇳 Vietnamese".
+    * Step 2: Render the valid sub-task header (e.g. the subsequent level-6 Markdown header row (`###### `) exactly as formatted in the layout on the very next standalone line, fully localizing the text properties into "Vietnamese".
     * Step 3: Iterate and translate the remaining bulleted metadata properties and task descriptions line by line.
     * Step 4: Terminate the block by printing the exact close infrastructure anchor (`<!--ATOMIC_SUB_TASK_NODE_END-->`) on its own standalone line.
 - **ANTI-FLATTENING COMPACTION MANDATE:** You ARE CRITICALLY BANNED from dropping, skipping, or collapsing the level-6 Markdown header line (`###### `) into a bullet point list format. The vertical standalone row boundary of each independent element inside the template layout MUST remain 100% intact.
@@ -361,32 +371,32 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
 
-###### 🌿 [Translate "SUB-TASKS" into the target language 🇻🇳 Vietnamese] [Z]: SHORT SPECIFIC SUB-TASK TITLE
+###### 🌿 [Translate "SUB-TASKS" into the target language Vietnamese] [Z]: SHORT SPECIFIC SUB-TASK TITLE
 - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
 
-* **[Translate "Sub-Agent Workflow Specialization" into the target language 🇻🇳 Vietnamese]:** You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
+* **[Translate "Sub-Agent Workflow Specialization" into the target language Vietnamese]:** You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
 
-* **[Translate "Targeted Tag IDs" into the target language 🇻🇳 Vietnamese]:** Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
+* **[Translate "Targeted Tag IDs" into the target language Vietnamese]:** Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
 
-* **[Translate "Target Component file path" into 🇻🇳 Vietnamese] (target_component):** [Enforce absolute physical file‑level paths at runtime. You are CRITICALLY BANNED from outputting generic directory paths ending with a trailing slash or referencing folders alone. Every single component string generated MUST resolve strictly to a concrete, physical file entity ending with a valid extension (e.g., `.java`, `.ts`, `.sql`, `.md`, `.json`). **Strict Role-Based Pathing Layout:** For [Coder] or [Reviewer] sub-tasks, the `target_component` MUST contain exactly one single, standalone valid application source file path (Absolutely NO semicolon `;` characters or dual-file bundling allowed for coding tasks). The dual-file semicolon pair format (`<code_file>;<test_file>`) and the `INTEGRATION_SCOPE;` prefix layout are strictly reserved for the [Tester] sub-agent domain exclusively. Any violation that mixes code files inside a Coder agent path cell will break the backend compiler.
+* **[Translate "Target Component file path" into Vietnamese] (target_component):** [Enforce absolute physical file‑level paths at runtime. You are CRITICALLY BANNED from outputting generic directory paths ending with a trailing slash or referencing folders alone. Every single component string generated MUST resolve strictly to a concrete, physical file entity ending with a valid extension (e.g., `.java`, `.ts`, `.sql`, `.md`, `.json`). **Strict Role-Based Pathing Layout:** For [Coder] or [Reviewer] sub-tasks, the `target_component` MUST contain exactly one single, standalone valid application source file path (Absolutely NO semicolon `;` characters or dual-file bundling allowed for coding tasks). The dual-file semicolon pair format (`<code_file>;<test_file>`) and the `INTEGRATION_SCOPE;` prefix layout are strictly reserved for the [Tester] sub-agent domain exclusively. Any violation that mixes code files inside a Coder agent path cell will break the backend compiler.
 
-* **[Translate "Low-Level Technical Task Instruction" into the target language 🇻🇳 Vietnamese]:** Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
+* **[Translate "Low-Level Technical Task Instruction" into the target language Vietnamese]:** Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
 - **UNIVERSAL INITIAL DAY ENVIRONMENT SCAFFOLDING ENFORCEMENT RAIL:** You MUST actively verify that Phase 1 - DAY 1 contains explicit sub-task nodes dedicated to environment scaffolding. The `target_component` parameters for these initial execution logs MUST map strictly to physical project descriptor entities (e.g., `./sources/backend/pom.xml` for root maven architectures, `./sources/backend/<service-name>/pom.xml` for microservice boundaries, or `./sources/frontend/package.json` for web interface nodes) under Tag ID `[ARC-000]` before any operational functional logic source code files (`.java`, `.ts`) are emitted.
 - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX], `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase 2' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 
-* **[Translate "Database Schema DDL SQL Specification" into the target language 🇻🇳 Vietnamese] [DAT-XXX]:**
+* **[Translate "Database Schema DDL SQL Specification" into the target language Vietnamese] [DAT-XXX]:**
 <RULE>
-You MUST programmatically force your output engine to render a clean, physical markdown code block fence matching the sql language syntax underneath this section header for 100% of all calculated phases, without exception. If the active phase scope actively engineers logical relational tables or persistence schema models, you MUST write out the complete, executable, ANSI-compliant SQL DDL statements (with explicit column fields, types, and primary/foreign keys) inside that block. If the active phase scope contains zero database operations (such as pure frontend UI layouts or pure cloud infrastructure deployments), you are ABSOLUTELY BANNED from leaving this section blank or copy-pasting prompt placeholder instructions; instead, you MUST still output the clean three-backtick code block fence containing an explicit localized standard SQL comment string text stating exactly: `-- [Translate "No database infrastructure or persistence layer changes are required for this phase context" into 🇻🇳 Vietnamese]`. Leaving this section without a physical code fence boundary triggers a fatal corporate documentation compliance failure.
+You MUST programmatically force your output engine to render a clean, physical markdown code block fence matching the sql language syntax underneath this section header for 100% of all calculated phases, without exception. If the active phase scope actively engineers logical relational tables or persistence schema models, you MUST write out the complete, executable, ANSI-compliant SQL DDL statements (with explicit column fields, types, and primary/foreign keys) inside that block. If the active phase scope contains zero database operations (such as pure frontend UI layouts or pure cloud infrastructure deployments), you are ABSOLUTELY BANNED from leaving this section blank or copy-pasting prompt placeholder instructions; instead, you MUST still output the clean three-backtick code block fence containing an explicit localized standard SQL comment string text stating exactly: `-- [Translate "No database infrastructure or persistence layer changes are required for this phase context" into Vietnamese]`. Leaving this section without a physical code fence boundary triggers a fatal corporate documentation compliance failure.
 </RULE>
 
-* **[Translate "API and Event Routing Contracts" into the target language 🇻🇳 Vietnamese] [REQ-XXX], [ARC-XXX]:**
+* **[Translate "API and Event Routing Contracts" into the target language Vietnamese] [REQ-XXX], [ARC-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
 </RULE>
 
-* **[Translate "Phase Localized Exception Handlers" into the target language 🇻🇳 Vietnamese] [EXC-XXX]:**
+* **[Translate "Phase Localized Exception Handlers" into the target language Vietnamese] [EXC-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
 </RULE>
@@ -401,726 +411,362 @@ You MUST actively inspect the active Sub-Agent token inside the parent sub-task 
 
 <PROJECT_SOURCE_GROUNDING_DATA>
 --- RAW REQUIREMENTS ---
-# SOFTWARE REQUIREMENTS SPECIFICATION: membership-hub
-## 1. TỔNG QUAN DỰ ÁN & KIẾN TRÚC TOÀN CẦU
-
-### Mục tiêu & giá trị cốt lõi
-- Cung cấp nền tảng thống nhất để quản lý hội viên đa trung tâm.
-- Cho phép theo dõi điểm danh thời gian thực qua quét mã QR.
-- Cung cấp thẻ hội viên kỹ thuật số với tính năng đếm ngày hiệu lực.
-- Hỗ trợ giao tiếp đa kênh (web, di động, nhóm Zalo).
-- Giá trị cốt lõi: độ tin cậy, khả năng mở rộng, bảo mật, tính thân thiện với người dùng, hỗ trợ đa ngôn ngữ.
-
-### Đối tượng người dùng mục tiêu
-- System Admin (siêu người dùng toàn cầu)
-- Center Admin (quản lý cấp trung tâm)
-- Manager (phó quản trị, quyền hạn giới hạn)
-- Teacher (xem chỉ đọc lịch dạy)
-- Student (duyệt khóa học, đăng ký, xem thẻ hội viên)
-- Mobile App User (giao diện đáp ứng cho các vai trò trên)
-
-### Ma trận kiểm soát truy cập dựa trên vai trò (RBAC)
-- [ARC-001] System Admin: toàn quyền trên tất cả các trung tâm.
-- [ARC-002] Center Admin: toàn quyền trong trung tâm của mình, không ảnh hưởng đến các trung tâm khác.
-- [ARC-003] Manager: có thể tạo thông báo, quản lý học viên, gán học viên hiện có vào khóa học, xem danh sách khóa học, không thể chỉnh sửa khóa học hoặc chỉ định giáo viên.
-- [ARC-004] Teacher: xem khóa học của mình, danh sách học viên, lịch dạy; chỉ đọc.
-- [ARC-005] Student: duyệt khóa học, đăng ký khóa học mới, xem thẻ hội viên (ngày còn lại), gia hạn ngày thẻ.
-
-### Kiến trúc & luồng dữ liệu (các luồng chính)
-- [ARC-006] Luồng xác thực: hỗ trợ email/mật khẩu, Firebase, Google, Facebook qua OAuth2; cấp JWT token với thời hạn 15 phút và refresh token.
-- [ARC-007] Luồng xử lý điểm danh QR: ứng dụng di động quét QR, gửi student ID và timestamp đến backend; dịch vụ xác thực và ghi lại điểm danh một cách idempotent.
-- [ARC-008] Luồng gửi thông báo: hệ thống kích hoạt push notification đến ứng dụng di động và đăng bài lên nhóm Zalo được chỉ định cho thông báo, phân công khóa học, và cảnh báo điểm danh.
-- [ARC-009] Luồng tích hợp backend ứng dụng di động: Frontend Next.js tiêu thụ REST APIs; xác thực qua bearer tokens; hỗ trợ caching ngoại tuyến cho trường hợp mất kết nối mạng.
-
-### Công nghệ & hạ tầng
-- [ARC-010] Công nghệ & hạ tầng: Backend sử dụng Java/Quarkus, cơ sở dữ liệu PostgreSQL, container hóa Docker, triển khai trên Kubernetes (GKE), sử dụng Firebase Authentication, Google Cloud Messaging (FCM)/Apple APNs cho push notification, Zalo API integration, Redis cho session caching, CI/CD pipeline với GitHub Actions.
-
-## 2. CÁC MODULE CHỨC NĂNG NÂNG CAO
-
-### 2.1 Quản lý người dùng
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-001] Đăng ký người dùng: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
-- [REQ-002] Xác thực qua mạng xã hội: As a user, I want to sign‑in/up using Firebase, Google, or Facebook OAuth so that I can leverage existing credentials.
-- [REQ-003] Phân quyền người dùng: As an administrator, I want to assign or change a user’s role (System Admin, Center Admin, Manager, Teacher, Student) so that permissions are correctly enforced.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a user provides a unique email, a strong password, and agrees to terms, When they submit the registration form, Then the system validates the input, creates a new user record with role ‘Student’ (or ‘Teacher’ if invited), and returns a success response with a JWT token. `[REQ-001]`
-- Given a user selects a social provider, When they authenticate through the provider’s popup, Then the system receives an OAuth2 code, exchanges it for user info, creates or updates the local user record, and issues a JWT token. `[REQ-002]`
-- Given an admin selects a user and a new role, When the assignment is confirmed, Then the user’s role column is updated, and appropriate permissions are applied immediately. `[REQ-003]`
-
-#### Luồng ngoại lệ của mô-đun
-- [EXC-004] Xác thực đầu vào không hợp lệ (ví dụ: email không đúng định dạng, thiếu trường bắt buộc): Nếu xác thực thất bại trên form submission, Khi lỗi được trả về cho người dùng, Sau đó một thông báo rõ ràng liệt kê từng trường không hợp lệ và yêu cầu chỉnh sửa.
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-001] Bảng người dùng & vai trò
-
-  **Users**
-  ```mermaid
-  erDiagram
-      USERS {
-          uuid userId PK "Unique identifier"
-          varchar email "Email address, not null, unique, max 255 chars"
-          char passwordHash "bcrypt hash, not null, length 60"
-          varchar fullName "Full name, not null, max 100 chars"
-          smallint roleId FK "Foreign key to Roles.roleId"
-          enum provider "Auth provider, default local, values: local, firebase, google, facebook"
-          timestamp createdAt "Timestamp of creation, not null, default now()"
-          timestamp updatedAt "Timestamp of last update, not null, default now()"
-      }
-      ROLES {
-          smallint roleId PK "Role identifier, primary key"
-          varchar name "Role name, unique, not null, max 30 chars"
-          varchar description "Role description, optional, max 200 chars"
-      }
-      ROLES ||--o{ USERS : "roleId"
-  ```
-  **Roles**
-  ```mermaid
-  erDiagram
-      ROLES {
-          smallint roleId PK "Role identifier, primary key"
-          varchar name "Role name, unique, not null, max 30 chars"
-          varchar description "Role description, optional, max 200 chars"
-      }
-  ```
-### 2.2 Quản lý trung tâm
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-004] Xem danh sách trung tâm: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
-- [REQ-005] Tạo/cập nhật/xóa trung tâm: As a System Admin, I want to add, edit, or remove a center record so that center information stays current.
-- [REQ-006] Phân quyền quản trị trung tâm: As a System Admin, I want to assign or unassign a user as a Center Admin for a specific center so that administrative control is delegated.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. `[REQ-004]`
-- Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. `[REQ-005]`
-- Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. `[REQ-006]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-003] Bảng trung tâm
-
-  **Centers**
-  ```mermaid
-  erDiagram
-      CENTERS {
-          uuid centerId PK "Unique identifier"
-          varchar name "Center name, not null, max 100 chars"
-          varchar address "Physical address, not null, max 255 chars"
-          varchar taxId "Tax identification number, unique, not null, numeric 10‑13 digits"
-          varchar contactPhone "Contact telephone, optional, may include +, digits, spaces, hyphens, parentheses"
-          varchar contactEmail "Contact email, optional, must be valid email format"
-      }
-  ```
-### 2.3 Quản lý khóa học
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-007] Xem danh sách khóa học: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
-- [REQ-008] Tạo/cập nhật/xóa khóa học (tránh xung đột): As a System Admin or Center Admin, I want to manage courses (add, edit, remove) while ensuring no overlapping schedules for the same teacher or venue.
-- [REQ-009] Phân công giáo viên vào khóa học: As a System Admin, I want to assign or unassign teachers to courses so that teaching responsibilities are updated.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. `[REQ-007]`
-- Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. `[REQ-008]`
-- Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. `[REQ-009]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-004] Bảng khóa học
-
-  **Courses**
-  ```mermaid
-  erDiagram
-      COURSES {
-          uuid courseId PK "Unique identifier"
-          varchar title "Course title, not null, max 150 chars"
-          text description "Course description, optional"
-          date startDate "Course start date, not null"
-          date endDate "Course end date, not null"
-          uuid teacherId FK "Foreign key to Users.userId"
-          int maxStudents "Course capacity, default 30"
-      }
-  ```
-### 2.4 Đăng ký & ghi danh học viên
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-010] Duyệt khóa học: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
-- [REQ-011] Đăng ký khóa học của học viên: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. `[REQ-010]`
-- Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. `[REQ-011]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-005] Bảng ghi danh
-
-  **Enrollments**
-  ```mermaid
-  erDiagram
-      ENROLLMENTS {
-          uuid enrollmentId PK "Unique identifier"
-          uuid studentId FK "Foreign key to Users.userId"
-          uuid courseId FK "Foreign key to Courses.courseId"
-          timestamp enrollmentDate "Date of enrollment, default now()"
-      }
-  ```
-### 2.5 Điểm danh & quét mã QR
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-012] Chụp ảnh điểm danh QR: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
-- [REQ-013] Tính chất bất biến của điểm danh: The attendance service must guarantee that multiple scans from the same student for the same course on the same day produce a single attendance record.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a Student opens the scanner, scans a valid course QR, and confirms attendance, When the API receives the payload, Then the system validates the student‑course relationship, creates an Attendance record with timestamp, and returns a success response; duplicate scans on the same day are ignored. `[REQ-012]`
-- Given a student scans a QR twice within a minute, When the service processes both requests, Then only one attendance row is created; subsequent requests return a success with a ‘duplicate’ flag. `[REQ-013]`
-
-#### Luồng ngoại lệ của mô-đun
-- [EXC-001] Network & Connectivity Drops During QR Scan: If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
-- [EXC-002] Duplicate Attendance Submission: If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-006] Bảng điểm danh
-
-  **Attendance**
-  ```mermaid
-  erDiagram
-      ATTENDANCE {
-          uuid attendanceId PK "Unique identifier"
-          uuid studentId FK "Foreign key to Users.userId"
-          uuid courseId FK "Foreign key to Courses.courseId"
-          date attendanceDate "Date of attendance, not null"
-          timestamp timestamp "Exact time recorded, default now()"
-      }
-  ```
-### 2.6 Quản lý thẻ hội viên
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-014] Hiển thị tính hợp lệ của thẻ: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
-- [REQ-015] Gia hạn thẻ: As a Student, I want to extend my membership card validity by paying a fee, which updates the end date.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. `[REQ-014]`
-- Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. `[REQ-015]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-007] Bảng thẻ hội viên
-
-  **StudentCards**
-  ```mermaid
-  erDiagram
-      STUDENTCARDS {
-          uuid cardId PK "Unique identifier"
-          uuid studentId FK "Foreign key to Users.userId"
-          date issueDate "Card issue date, not null"
-          int validityDays "Total validity days, not null"
-          int remainingDays "Computed days left until expiry"
-      }
-  ```
-### 2.7 Thông báo & truyền thông
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-016] Kích hoạt thông báo: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given an admin performs an action that requires notification, When the action is saved, Then a Notification record is created, a push notification payload is queued for the mobile app, and a text message is sent to the Zalo group chat. `[REQ-016]`
-
-#### Luồng ngoại lệ của mô-đun
-- [EXC-003] Failed Notification Delivery: When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-008] Bảng thông báo
-
-  **Notifications**
-  ```mermaid
-  erDiagram
-      NOTIFICATIONS {
-          uuid notificationId PK "Unique identifier"
-          uuid userId FK "Target user, optional"
-          varchar groupZalo "Target Zalo group, optional"
-          text message "Notification content, not null"
-          timestamp sentAt "When sent, default now()"
-          boolean delivered "Delivery status, default false"
-      }
-  ```
-### 2.8 Quản lý khuyến mãi & thông báo
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-017] Quản lý khuyến mãi: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
-- [REQ-018] Quản lý thông báo: As a Center Admin or Manager, I want to create, edit, or delete announcements with optional expiry dates for broadcast to all users.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. `[REQ-017]`
-- Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. `[REQ-018]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-009] Bảng khuyến mãi & thông báo
-
-  **Promotions**
-  ```mermaid
-  erDiagram
-      PROMOTIONS {
-          uuid promoId PK "Unique identifier"
-          varchar code "Discount code, unique"
-          smallint discountPercent "Discount percentage, not null"
-          date startDate "Promotion start, optional"
-          date endDate "Promotion end, optional"
-          text description "Promo details, optional"
-      }
-  ```
-  **Announcements**
-  ```mermaid
-  erDiagram
-      ANNOUNCEMENTS {
-          uuid announcementId PK "Unique identifier"
-          varchar title "Title, not null, max 150 chars"
-          text content "Content, not null, max 2000 chars"
-          date startDate "Effective start, optional"
-          date endDate "Effective end, optional"
-      }
-  ```
-### 2.9 Chatbot dịch vụ khách hàng AI
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-019] Tích hợp chatbot AI: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. `[REQ-019]`
-
-#### Luồng ngoại lệ của mô-đun
-- [NOT APPLICABLE] Chatbot AI không có bảng dữ liệu chuyên biệt; tất cả các tương tác được ghi lại trong bảng AuditLog (xem [ARC-006] để biết chi tiết logging).
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho chatbot AI.
-
-### 2.10 Các tính năng cốt lõi của ứng dụng di động
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-020] Giao diện người dùng vai trò cụ thể trên di động: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
-- [REQ-021] Thông báo đẩy trên di động: As a registered user, I want to receive push notifications on my mobile device for attendance confirmations, new announcements, and reminder messages.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. `[REQ-020]`
-- Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. `[REQ-021]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho các tính năng cốt lõi của ứng dụng di động; tất cả dữ liệu được quản lý qua các bảng hiện có (Người dùng, Thông báo, Điểm danh).
-
-### 2.11 Bản địa hóa & SEO
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-022] Phát hiện ngôn ngữ mặc định: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
-- [REQ-023] SEO đa ngôn ngữ: The platform must support SEO for at least English, Vietnamese, and Spanish; each page must include language‑specific meta tags and hreflang attributes.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. `[REQ-022]`
-- Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. `[REQ-023]`
-
-#### Luồng ngoại lệ của mô-đun
-- (Không có luồng ngoại lệ chuyên biệt được xác định cho mô-đun này.)
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [DAT-011] Bảng cài đặt hệ thống
-
-  **SystemSettings**
-  ```mermaid
-  erDiagram
-      SYSTEMSETTINGS {
-          varchar settingKey PK "Configuration key"
-          text settingValue "Configuration value, not null"
-          varchar description "Meaning of setting, optional"
-      }
-  ```
-### 2.12 Báo cáo & phân tích
-
-#### Yêu cầu chức năng cốt lõi
-- [REQ-024] Tạo báo cáo điểm danh: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
-- [REQ-025] Bảng điều khiển tóm tắt ghi danh: As a Center Admin, I want a real‑time dashboard summarizing total students, active courses, and upcoming sessions.
-
-#### Tiêu chí chấp nhận & tương tác
-- Given an admin selects a center and date range, When the report is requested, Then a CSV file is produced with columns: StudentName, CourseName, AttendanceDate, Status. `[REQ-024]`
-- Given an admin opens the dashboard, When the data refreshes, Then cards display totalStudents, activeCourses, upcomingSessions (next 7 days). `[REQ-025]`
-
-#### Luồng ngoại lệ của mô-đun
-- [EXC-005] System Recovery After Outage: If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
-
-#### Từ điển dữ liệu cục bộ của mô-đun
-- [NOT APPLICABLE] Không có bảng dữ liệu chuyên biệt cho báo cáo & phân tích; tất cả dữ liệu được tổng hợp từ các bảng hiện có.
-
-## 3. YÊU CẦU PHI CHỨC NĂNG TOÀN CẦU
-
-- [NFR-001] Performance Metrics: Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency. Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
-- [NFR-002] Availability: Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
-- [NFR-003] Security: All data in transit must use TLS 1.3; at rest encryption with AES‑256. JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry. Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF).
-- [NFR-004] Scalability & Availability: Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms. PostgreSQL read replicas for reporting workloads.
-- [NFR-005] Docker Image Size: Base image size < 200 MB; final image < 500 MB.
-- [NFR-006] Logging & Audit: All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year.
-- [NFR-007] Multi‑Language Support: UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
-- [NFR-008] GDPR/CCPA Compliance: Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
-- [NFR-009] Backup & Disaster Recovery: Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
+## 1. PROJECT OVERVIEW
+- **Product Objectives & Core Values**
+  - Provide a unified platform for multi‑center membership management.
+  - Enable real‑time attendance tracking via QR code scanning.
+  - Offer digital membership cards with validity counting.
+  - Facilitate multi‑channel communication (web, mobile, Zalo groups).
+  - Core values: reliability, scalability, security, user‑friendliness, multilingual support.
+- **Target User Personas**
+  - System Admin (global super‑user)
+  - Center Admin (center‑level manager)
+  - Manager (sub‑admin, limited rights)
+  - Teacher (read‑only course schedule)
+  - Student (course browsing, enrollment, card view)
+  - Mobile App User (same personas, responsive UI)
+- **Role‑Based Access Control (RBAC) Matrix**
+  - [ARC-001] System Admin: full permissions across all centers.
+  - [ARC-002] Center Admin: full permissions within own center, cannot affect other centers.
+  - [ARC-003] Manager: can create announcements, manage students, assign existing students to courses, view course list, cannot edit courses or assign teachers.
+  - [ARC-004] Teacher: view own courses, student lists, schedule; read‑only.
+  - [ARC-005] Student: browse courses, register for new courses, view own membership card (remaining days), renew card days.
+- **Architecture & Data Flow (key flows)**
+  - [ARC-006] Authentication Flow: supports email/password, Firebase, Google, Facebook via OAuth2; issues JWT tokens with 15‑minute expiry and refresh tokens.
+  - [ARC-007] Attendance QR Processing Flow: mobile app scans QR, sends student ID and timestamp to backend; service validates and records attendance idempotently.
+  - [ARC-008] Notification Delivery Flow: system triggers push notifications to mobile apps and posts to designated Zalo groups for announcements, course assignments, and attendance alerts.
+  - [ARC-009] Mobile App Backend Integration Flow: Next.js frontend consumes REST APIs; authentication via bearer tokens; supports offline caching for limited connectivity.
+
+## 2. FUNCTIONAL REQUIREMENTS
+
+### 2.1 User Management
+- **[REQ-001]** User Registration: As a prospective user, I want to register using email and password (or social providers) so that I can obtain an account in the system.
+  - **Acceptance Criteria**:
+    - Given a user provides a unique email, a strong password, and agrees to terms, When they submit the registration form, Then the system validates the input, creates a new user record with role ‘Student’ (or ‘Teacher’ if invited), and returns a success response with a JWT token. *[REQ-001]*
+  - **Data Inputs & Field Validations**:
+    - Email: required, max 255 chars, must contain a single ‘@’ and a domain part (e.g., user@example.com). Must be unique.
+    - Password: required, min 8 chars, at least one uppercase, one lowercase, one digit, one special character.
+    - Terms: required checkbox.
+- **[REQ-002]** Social Authentication: As a user, I want to sign‑in/up using Firebase, Google, or Facebook OAuth so that I can leverage existing credentials.
+  - **Acceptance Criteria**:
+    - Given a user selects a social provider, When they authenticate through the provider’s popup, Then the system receives an OAuth2 code, exchanges it for user info, creates or updates the local user record, and issues a JWT token. *[REQ-002]*
+  - **Data Inputs & Field Validations**: provider token, optional profile picture.
+- **[REQ-003]** User Role Assignment: As an administrator, I want to assign or change a user’s role (System Admin, Center Admin, Manager, Teacher, Student) so that permissions are correctly enforced.
+  - **Acceptance Criteria**:
+    - Given an admin selects a user and a new role, When the assignment is confirmed, Then the user’s role column is updated, and appropriate permissions are applied immediately. *[REQ-003]*
+  - **Data Inputs & Field Validations**: Role dropdown, audit log entry required.
+
+### 2.2 Center Management
+- **[REQ-004]** Center List View: As any authenticated user, I want to see a list of all centers with address, tax ID, and admin contact so that I can identify relevant centers.
+  - **Acceptance Criteria**:
+    - Given a user navigates to the Centers page, When the request completes, Then a table of centers (Name, Address, TaxID, AdminContact) is displayed. *[REQ-004]*
+  - **Data Inputs & Field Validations**: None (read‑only).
+- **[REQ-005]** Center Create/Update/Delete: As a System Admin, I want to add, edit, or remove a center record so that center information stays current.
+  - **Acceptance Criteria**:
+    - Given a System Admin provides center name, address, tax ID, primary contact phone and email, When the save action is executed, Then the center is persisted and appears in the list; if duplicate tax ID exists, the operation fails with a conflict error. *[REQ-005]*
+  - **Data Inputs & Field Validations**:
+    - Name: required, max 100 chars.
+    - Address: required, max 255 chars.
+    - TaxID: required, numeric, 10‑13 digits, unique.
+    - Contact Phone: optional, may include +, digits, spaces, hyphens, parentheses.
+    - Contact Email: optional, must be valid email format.
+- **[REQ-006]** Center Admin Assignment: As a System Admin, I want to assign or unassign a user as a Center Admin for a specific center so that administrative control is delegated.
+  - **Acceptance Criteria**:
+    - Given a System Admin selects a user and a center, When the assign action is confirmed, Then the user’s role is set to ‘Center Admin’ and the center ID is recorded; unassign reverses the operation. *[REQ-006]*
+  - **Data Inputs & Field Validations**: User ID, Center ID.
+
+### 2.3 Course Management
+- **[REQ-007]** Course List View: As any authenticated user, I want to see all courses with schedule and assigned teacher so that I can browse offerings.
+  - **Acceptance Criteria**:
+    - Given a user visits the Courses page, When the request completes, Then a grid displays CourseID, Title, StartDate, EndDate, TeacherName. *[REQ-007]*
+  - **Data Inputs & Field Validations**: None.
+- **[REQ-008]** Course Create/Update/Delete (Conflict Avoidance): As a System Admin or Center Admin, I want to manage courses (add, edit, remove) while ensuring no overlapping schedules for the same teacher or venue.
+  - **Acceptance Criteria**:
+    - Given an admin provides CourseTitle, StartDate, EndDate, TeacherID, When the save action is triggered, Then the system validates that the teacher is not already scheduled for another course intersecting these dates; if conflict, an error is returned; otherwise the course is persisted. *[REQ-008]*
+  - **Data Inputs & Field Validations**:
+    - Title: required, max 150 chars.
+    - StartDate/EndDate: required, EndDate >= StartDate.
+    - TeacherID: required, foreign key.
+    - Overlap check logic enforced at DB/trigger level.
+- **[REQ-009]** Teacher Assignment to Course: As a System Admin, I want to assign or unassign teachers to courses so that teaching responsibilities are updated.
+  - **Acceptance Criteria**:
+    - Given an admin selects a course and a teacher, When the assign action is executed, Then the course‑teacher mapping is created and a notification is queued for the teacher’s mobile app; unassign removes the mapping. *[REQ-009]*
+  - **Data Inputs & Field Validations**: CourseID, TeacherID (must exist).
+
+### 2.4 Student Enrollment & Registration
+- **[REQ-010]** Course Browse: As a Student, I want to browse available courses (excluding those already enrolled) so that I can select courses to join.
+  - **Acceptance Criteria**:
+    - Given a Student logs in and navigates to the Browse Courses page, When the request completes, Then a list of courses with capacity and schedule is shown, excluding courses where the student already has an enrollment record. *[REQ-010]*
+  - **Data Inputs & Field Validations**: None.
+- **[REQ-011]** Student Course Registration: As a Student, I want to register for a course (existing or new), which auto‑creates a Student account if missing, and assigns the student to the course.
+  - **Acceptance Criteria**:
+    - Given a Student selects a course and submits the registration, When the backend processes the request, Then a new enrollment record is created; if the student does not have a local account, one is created with role ‘Student’; a notification is queued to the student’s mobile app and the center’s Zalo group. *[REQ-011]*
+  - **Data Inputs & Field Validations**:
+    - CourseID: required, must be active.
+    - StudentID: derived from authentication token (or created on‑the‑fly).
+
+### 2.5 Attendance & QR Scanning
+- **[REQ-012]** QR Attendance Capture: As a Student (via mobile app), I want to scan a QR code at class start so that my attendance is recorded for the current day.
+  - **Acceptance Criteria**:
+    - Given a Student opens the scanner, scans a valid course QR, and confirms attendance, When the API receives the payload, Then the system validates the student‑course relationship, creates an Attendance record with timestamp, and returns a success response; duplicate scans on the same day are ignored. *[REQ-012]*
+  - **Data Inputs & Field Validations**:
+    - QR payload: base64 encoded string containing studentID and courseID.
+    - Validation: student must be enrolled in the course for the day.
+- **[REQ-013]** Attendance Idempotency: The attendance service must guarantee that multiple scans from the same student for the same course on the same day produce a single attendance record.
+  - **Acceptance Criteria**:
+    - Given a student scans a QR twice within a minute, When the service processes both requests, Then only one attendance row is created; subsequent requests return a success with a ‘duplicate’ flag. *[REQ-013]*
+  - **Data Inputs & Field Validations**: Unique composite key (StudentID, CourseID, Date).
+
+### 2.6 Student Card Management
+- **[REQ-014]** Card Validity Display: As a Student, I want to view my membership card showing remaining validity days so that I know when renewal is needed.
+  - **Acceptance Criteria**:
+    - Given a Student opens the Card page, When the request loads, Then the UI shows total validity days, days used, and days remaining; data is derived from the StudentCard entity. *[REQ-014]*
+  - **Data Inputs & Field Validations**: None (read‑only).
+- **[REQ-015]** Card Renewal: As a Student, I want to extend my membership card validity by paying a fee, which updates the end date.
+  - **Acceptance Criteria**:
+    - Given a Student selects a renewal period (e.g., 30 days), confirms payment, When the payment service confirms success, Then the StudentCard’s EndDate is extended by the selected days and a confirmation notification is sent. *[REQ-015]*
+  - **Data Inputs & Field Validations**:
+    - RenewalDays: integer, 1‑365.
+    - Payment gateway integration required (outside scope).
+
+### 2.7 Notifications & Communications
+- **[REQ-016]** Notification Trigger: When an admin creates an announcement, assigns a teacher to a course, or registers a student, the system must generate a notification to the student’s mobile app and post a message to the designated Zalo group.
+  - **Acceptance Criteria**:
+    - Given an admin performs an action that requires notification, When the action is saved, Then a Notification record is created, a push notification payload is queued for the mobile app, and a text message is sent to the Zalo group chat. *[REQ-016]*
+  - **Data Inputs & Field Validations**: Target audience (student, teacher, group), message content, optional media.
+
+### 2.8 Promotions & Announcements Management
+- **[REQ-017]** Promotion Management: As a Center Admin or Manager, I want to create, edit, or delete promotions (discounts, offers) with start/end dates so that students can see applicable deals.
+  - **Acceptance Criteria**:
+    - Given an admin provides PromotionName, description, conditions, startDate, endDate, When saved, Then the promotion appears in the student‑visible list; if endDate is omitted, the promotion is considered perpetual. *[REQ-017]*
+  - **Data Inputs & Field Validations**:
+    - Name: required, max 100 chars.
+    - StartDate/EndDate: optional, date format YYYY‑MM‑DD.
+    - Description: max 500 chars.
+- **[REQ-018]** Announcement Management: As a Center Admin or Manager, I want to create, edit, or delete announcements with optional expiry dates for broadcast to all users.
+  - **Acceptance Criteria**:
+    - Given an admin inputs AnnouncementTitle, content, optional expiry, When saved, Then the announcement is displayed site‑wide; if expiry is set, it auto‑disappears after the date. *[REQ-018]*
+  - **Data Inputs & Field Validations**:
+    - Title: required, max 150 chars.
+    - Content: required, max 2000 chars.
+
+### 2.9 AI Customer Service Chatbot
+- **[REQ-019]** AI Chatbot Integration: As any user, I want to interact with an AI chatbot that can answer common queries about courses, teachers, centers, and account status.
+  - **Acceptance Criteria**:
+    - Given a user opens the chat widget, When they ask a question, Then the AI returns a relevant answer or escalates to human support if confidence is low. *[REQ-019]*
+  - **Data Inputs & Field Validations**: Input text, session timeout.
+
+### 2.10 Mobile App Core Features
+- **[REQ-020]** Mobile App Role‑Specific UI: As a mobile user, I want a responsive UI that mirrors web functionality for my assigned role (Student, Teacher, Admin, etc.).
+  - **Acceptance Criteria**:
+    - Given a user logs in on Android or iOS, When the app loads, Then the appropriate navigation menu and screens are displayed based on the user’s role. *[REQ-020]*
+  - **Data Inputs & Field Validations**: None.
+- **[REQ-021]** Mobile Push Notifications: As a registered user, I want to receive push notifications on my mobile device for attendance confirmations, new announcements, and reminder messages.
+  - **Acceptance Criteria**:
+    - Given a backend event triggers a push, When the device token is registered, Then the notification is delivered via Firebase Cloud Messaging (FCM) or APNs. *[REQ-021]*
+  - **Data Inputs & Field Validations**: DeviceToken, Platform (iOS/Android).
+
+### 2.11 Localization & SEO
+- **[REQ-022]** Default Locale Detection: As a visitor, I want the system to use my previously selected language preference, falling back to browser settings, for a personalized experience.
+  - **Acceptance Criteria**:
+    - Given a user accesses the site, When the system evaluates locale, Then it selects the stored language if present; otherwise it uses the Accept‑Language header; the UI updates accordingly. *[REQ-022]*
+  - **Data Inputs & Field Validations**: None.
+- **[REQ-023]** Multi‑Language SEO: The platform must support SEO for at least English, Vietnamese, and Spanish; each page must include language‑specific meta tags and hreflang attributes.
+  - **Acceptance Criteria**:
+    - Given a page is requested with a specific locale, When the page is rendered, Then the HTML includes a <html lang='en'> tag and hreflang links pointing to alternate language versions. *[REQ-023]*
+  - **Data Inputs & Field Validations**: Language codes (en, vi, es).
+
+### 2.12 Reporting & Analytics
+- **[REQ-024]** Attendance Report Generation: As an admin, I want to generate a daily attendance report for a center (CSV) showing each student’s presence status.
+  - **Acceptance Criteria**:
+    - Given an admin selects a center and date range, When the report is requested, Then a CSV file is produced with columns: StudentName, CourseName, AttendanceDate, Status. *[REQ-024]*
+  - **Data Inputs & Field Validations**:
+    - Date range: start ≤ end, max 30 days.
+- **[REQ-025]** Enrollment Summary Dashboard: As a Center Admin, I want a real‑time dashboard summarizing total students, active courses, and upcoming sessions.
+  - **Acceptance Criteria**:
+    - Given an admin opens the dashboard, When the data refreshes, Then cards display totalStudents, activeCourses, upcomingSessions (next 7 days). *[REQ-025]*
+  - **Data Inputs & Field Validations**: Refresh interval configurable (default 15 minutes).
+
+## 3. EXCEPTION FLOWS & EDGE CASES
+- **[EXC-001]** Network & Connectivity Drops During QR Scan:
+  - If a student scans a QR but the network is unavailable, When the app retries the request after reconnection, Then the attendance is recorded once the service is reachable.
+- **[EXC-002]** Duplicate Attendance Submission:
+  - If the same student scans the same course QR multiple times within the same day, When the system detects a duplicate, Then it returns a success response indicating ‘already recorded’ and does not create extra rows.
+- **[EXC-003]** Failed Notification Delivery:
+  - When a push notification cannot be delivered (e.g., device token invalid), Then the system logs the failure and schedules a retry up to three times before marking as failed.
+- **[EXC-004]** Invalid Input Validation (e.g., malformed email, missing required fields):
+  - If validation fails on form submission, When the error is returned to the user, Then a clear message lists each invalid field and prompts correction.
+- **[EXC-005]** System Recovery After Outage:
+  - If the service becomes unavailable, When it restores, Then any pending attendance scans are processed in FIFO order, and users receive a notification of recovered events.
+
+## 4. NON-FUNCTIONAL REQUIREMENTS
+- **[NFR-001]** Performance Metrics:
+  - Core API responses (authentication, attendance capture, course list) must complete within 200 ms average latency.
+  - Database queries must be indexed to support sub‑second reads for up to 10 000 concurrent users.
+- **[NFR-002]** Availability:
+  - Target 99.9 % annual uptime; SLA includes automatic failover across GKE clusters.
+- **[NFR-003]** Security:
+  - All data in transit must use TLS 1.3; at rest encryption with AES‑256.
+  - JWT access tokens expire after 15 minutes; refresh tokens have 7‑day expiry.
+  - Implement OWASP Top 10 mitigations (SQL injection, XSS, CSRF).
+- **[NFR-004]** Scalability & Availability:
+  - Horizontal scaling of Quarkus services via Kubernetes HPA based on CPU > 70 % or request latency > 300 ms.
+  - PostgreSQL read replicas for reporting workloads.
+- **[NFR-005]** Docker Image Size:
+  - Base image size < 200 MB; final image < 500 MB.
+- **[NFR-006]** Logging & Audit:
+  - All user actions (role changes, attendance records, notifications) must be logged with timestamps, user ID, and action details; logs retained for 1 year.
+- **[NFR-007]** Multi‑Language Support:
+  - UI strings must be externalized; support English, Vietnamese, Spanish; locale switching without page reload where feasible.
+- **[NFR-008]** GDPR/CCPA Compliance:
+  - Personal data deletion on user request; data export in JSON format; consent management for marketing communications.
+- **[NFR-009]** Backup & Disaster Recovery:
+  - Daily PostgreSQL full backups; point‑in‑time recovery up to 24 hours; GKE cluster backup to separate region.
+
+## 5. PRELIMINARY DATA DICTIONARY
+| Entity | Field | Data Type | Constraints | Description |
+|--------|-------|-----------|-------------|-------------|
+| Users | user_id | UUID | PK, not null | Unique identifier |
+| | email | VARCHAR(255) | not null, unique | Primary login identifier |
+| | password_hash | CHAR(60) | not null | bcrypt hash |
+| | full_name | VARCHAR(100) | not null | Real name |
+| | role_id | SMALLINT | FK → Roles.role_id | Assigned role |
+| | provider | ENUM('local','firebase','google','facebook') | default 'local' | Auth provider |
+| | created_at | TIMESTAMP | not null, default now() | Account creation |
+| | updated_at | TIMESTAMP | not null, default now() | Last update |
+| Centers | center_id | UUID | PK, not null | Unique identifier |
+| | name | VARCHAR(100) | not null | Center name |
+| | address | VARCHAR(255) | not null | Physical address |
+| | tax_id | VARCHAR(20) | unique, not null | Tax identification number |
+| | contact_phone | VARCHAR(20) | optional | Contact telephone |
+| | contact_email | VARCHAR(100) | optional | Contact email |
+| Courses | course_id | UUID | PK, not null | Unique identifier |
+| | title | VARCHAR(150) | not null | Course name |
+| | description | TEXT | optional | Detailed description |
+| | start_date | DATE | not null | Course start |
+| | end_date | DATE | not null | Course end |
+| | teacher_id | UUID | FK → Users.user_id | Assigned teacher |
+| | max_students | INT | default 30 | Capacity |
+| Enrollments | enrollment_id | UUID | PK, not null | Unique identifier |
+| | student_id | UUID | FK → Users.user_id | Enrolled student |
+| | course_id | UUID | FK → Courses.course_id | Course |
+| | enrollment_date | TIMESTAMP | default now() | When enrolled |
+| Attendance | attendance_id | UUID | PK, not null | Unique identifier |
+| | student_id | UUID | FK → Users.user_id | Student present |
+| | course_id | UUID | FK → Courses.course_id | Course attended |
+| | attendance_date | DATE | not null | Date of attendance |
+| | timestamp | TIMESTAMP | default now() | Exact time recorded |
+| StudentCards | card_id | UUID | PK, not null | Unique identifier |
+| | student_id | UUID | FK → Users.user_id | Owner |
+| | issue_date | DATE | not null | Card issue date |
+| | validity_days | INT | not null | Total validity days |
+| | remaining_days | INT | computed | Days left until expiry |
+| Notifications | notification_id | UUID | PK, not null | Unique identifier |
+| | user_id | UUID | FK → Users.user_id (optional) | Target user |
+| | group_zalo | VARCHAR(50) | optional | Target Zalo group |
+| | message | TEXT | not null | Notification content |
+| | sent_at | TIMESTAMP | default now() | When sent |
+| | delivered | BOOLEAN | default false | Delivery status |
+| Roles | role_id | SMALLINT | PK | Role identifier |
+| | name | VARCHAR(30) | unique, not null | Role name |
+| | description | VARCHAR(200) | optional | Role description |
+| Promotions | promo_id | UUID | PK, not null | Unique identifier |
+| | code | VARCHAR(30) | unique | Discount code |
+| | discount_percent | SMALLINT | not null | Discount percentage |
+| | start_date | DATE | optional | Promotion start |
+| | end_date | DATE | optional | Promotion end |
+| | description | TEXT | optional | Promo details |
+| Announcements | announcement_id | UUID | PK, not null | Unique identifier |
+| | title | VARCHAR(150) | not null | Title |
+| | content | TEXT | not null | Content |
+| | start_date | DATE | optional | Effective start |
+| | end_date | DATE | optional | Effective end |
+| SystemSettings | setting_key | VARCHAR(50) | PK | Configuration key |
+| | setting_value | TEXT | not null | Configuration value |
+| | description | VARCHAR(200) | optional | Meaning of setting |
 --- END REQUIREMENTS ---
 </PROJECT_SOURCE_GROUNDING_DATA>
 
 <PROJECT_BACKLOG_TASKS_DATA>
 --- BACKLOG TASKS ---
-## 🏛️ 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN
+<!--START_CHUNK_PART_1_BACKLOG_4_1-->
 
-### 📦 4.1. TỒNG KẾT TỒN ĐỌC SẢN PHẨM KIẾN TRÚC
-Dự án được cấu trúc dựa trên kiến trúc vi dịch vụ phân tán, tận dụng tối đa khả năng mở rộng của Quarkus trên nền tảng Kubernetes (GKE). Các thành phần cốt lõi bao gồm phân hệ xác thực, quản lý trung tâm, khóa học và hệ thống điểm danh QR thời gian thực. Các phụ thuộc kiến trúc được phân tách rõ ràng nhằm đảm bảo tính cô lập giữa các miền nghiệp vụ (domain boundaries), đồng thời tối ưu hóa hiệu suất truy xuất dữ liệu thông qua cơ chế phân mảnh cơ sở dữ liệu PostgreSQL và chiến lược cache Redis.
+## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN
 
-#### [MA TRẬN TOÁN HỌC HỆ THỐNG]
-> - **Tổng Thẻ [REQ]:** 25 Thẻ
-> - **Tổng Thẻ [EXC]:** 5 Thẻ
-> - **Tổng Thẻ [ARC]:** 10 Thẻ
-> - **Tổng Thẻ [DAT]:** 9 Thẻ
-> - **Tổng Thẻ [NFR]:** 9 Thẻ
-> - ➡️ **Tổng Thẻ SRS:** 58 Thẻ
+### 📦 4.1. DANH SÁCH TỔNG THỂ CÁC HẠNG MỤC SẢN PHẨM KIẾN TRÚC
 
-| Stt | Tác Vụ | Tóm Tắt Mục Đích Kỹ Thuật / Bàn Giao | Loại | ID Thẻ |
+Bản đồ tổng thể hạng mục sản phẩm (Master Product Tasks Backlog) dưới đây mô tả toàn bộ các khối công việc kỹ thuật phân tán cần thiết để hiện thực hóa nền tảng Membership Hub — hệ thống microservices quản lý thành viên đa trung tâm. Bốn dịch vụ backend cốt lõi (`user-service`, `center-service`, `course-service`, `attendance-service`) giao tiếp theo mô hình REST + Kafka, sử dụng cơ sở dữ liệu PostgreSQL phân vùng theo nghiệp vụ, với tầng xác thực tập trung (JWT/OAuth2). Tầng frontend Next.js tiêu thụ API REST và hỗ trợ SEO đa ngôn ngữ. Hạ tầng DevOps triển khai qua GKE với container hóa Docker, tự động hóa Terraform cho GCP và manifest Kubernetes cho GKE. Tất cả mọi token truy vết (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`, `[DOC-XXX]`) đều được gán chính xác từng dòng để đảm bảo khả năng truy nguyên 100% từ yêu cầu nghiệp vụ thô đến triển khai thực tế.
+
+#### [MA TRẬN SỐ HỌC HỆ THỐNG]
+> - **Tổng số thẻ [REQ]:** 25 Thẻ
+> - **Tổng số thẻ [EXC]:** 5 Thẻ
+> - **Tổng số thẻ [ARC]:** 9 Thẻ
+> - **Tổng số thẻ [DAT]:** 12 Thẻ
+> - **Tổng số thẻ [NFR]:** 9 Thẻ
+> - ➡️ **Tổng số thẻ SRS:** 60 Thẻ
+
+<!--BACKLOG_SYNOPSIS_GRID_START-->
+
+| No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Khởi tạo cấu trúc dự án vi dịch vụ | Xây dựng cấu trúc thư mục gốc ./sources/backend/pom.xml và các module con kèm thiết lập build maven cho hệ thống. | Quản trị / Scaffolding | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Đăng ký người dùng | Triển khai endpoint đăng ký tài khoản với email, mật khẩu mã hóa bcrypt cho người dùng mới. | Mã nguồn ứng dụng | [REQ-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Xác thực qua mạng xã hội | Tích hợp xác thực OAuth2 qua Firebase, Google và Facebook. | Mã nguồn ứng dụng | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Phân quyền người dùng | Xây dựng hệ thống phân vai trò và gán quyền hạn động cho người dùng trong hệ thống. | Mã nguồn ứng dụng | [REQ-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Xem danh sách trung tâm | Cung cấp API truy xuất danh sách toàn bộ các trung tâm kèm thông tin chi tiết. | Mã nguồn ứng dụng | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Tạo/cập nhật/xóa trung tâm | Xây dựng logic quản trị trung tâm dành cho System Admin, đảm bảo kiểm tra mã số thuế duy nhất. | Mã nguồn ứng dụng | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Phân quyền quản trị trung tâm | Cấu hình phân quyền Center Admin cho từng trung tâm cụ thể. | Mã nguồn ứng dụng | [REQ-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Xem danh sách khóa học | Phát triển API hiển thị danh sách khóa học kèm lịch trình và giáo viên phụ trách. | Mã nguồn ứng dụng | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 9 | Quản lý khóa học tránh xung đột | Xây dựng thuật toán kiểm tra lịch trình giao viên và địa điểm để tránh xung đột thời gian. | Mã nguồn ứng dụng | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 10 | Phân công giáo viên vào khóa học | Xây dựng chức năng gán/hủy giáo viên phụ trách khóa học và kích hoạt thông báo tự động. | Mã nguồn ứng dụng | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 11 | Duyệt khóa học | Xây dựng giao diện và API cho phép học viên duyệt danh sách khóa học chưa đăng ký. | Mã nguồn ứng dụng | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 12 | Đăng ký khóa học của học viên | Xây dựng luồng đăng ký khóa học, tự động tạo tài khoản học viên và gửi thông báo Zalo. | Mã nguồn ứng dụng | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 13 | Chụp ảnh điểm danh QR | Xây dựng API tiếp nhận quét mã QR điểm danh học viên qua ứng dụng di động. | Mã nguồn ứng dụng | [REQ-012] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 14 | Tính chất bất biến của điểm danh | Đảm bảo tính idempotent cho các yêu cầu điểm danh trùng lặp trong cùng một ngày. | Mã nguồn ứng dụng | [REQ-013] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 15 | Hiển thị tính hợp lệ của thẻ | Xây dựng logic tính toán số ngày hiệu lực và ngày còn lại của thẻ hội viên. | Mã nguồn ứng dụng | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 16 | Gia hạn thẻ | Xây dựng API gia hạn thời hạn thẻ hội viên sau khi xác nhận thanh toán phí. | Mã nguồn ứng dụng | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 17 | Kích hoạt thông báo | Tích hợp hệ thống đẩy thông báo Firebase Cloud Messaging và tích hợp nhóm Zalo. | Mã nguồn ứng dụng | [REQ-016] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 18 | Quản lý khuyến mãi | Xây dựng chức năng tạo, chỉnh sửa và xóa các chương trình khuyến mãi. | Mã nguồn ứng dụng | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 19 | Quản lý thông báo | Xây dựng chức năng quản lý bản tin thông báo toàn hệ thống có thời hạn hiệu lực. | Mã nguồn ứng dụng | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 20 | Tích hợp chatbot AI | Tích hợp trợ lý ảo AI hỗ trợ giải đáp thắc mắc tự động cho người dùng. | Mã nguồn ứng dụng | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 21 | Giao diện người dùng vai trò trên di động | Xây dựng ứng dụng di động đa nền tảng tương thích với từng vai trò người dùng. | Mã nguồn ứng dụng | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 22 | Thông báo đẩy trên di động | Cấu hình nhận thông báo đẩy qua FCM và APNs cho ứng dụng di động. | Mã nguồn ứng dụng | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 23 | Phát hiện ngôn ngữ mặc định | Xây dựng cơ chế phát hiện ngôn ngữ dựa trên tùy chọn người dùng và header trình duyệt. | Mã nguồn ứng dụng | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 24 | SEO đa ngôn ngữ | Cấu hình thẻ meta và thuộc tính hreflang hỗ trợ đa ngôn ngữ (Anh, Việt, Tây Ban Nha). | Mã nguồn ứng dụng | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 25 | Tạo báo cáo điểm danh | Xây dựng chức năng xuất báo cáo điểm danh định dạng CSV cho từng trung tâm. | Mã nguồn ứng dụng | [REQ-024] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 26 | Bảng điều khiển tóm tắt ghi danh | Xây dựng API tổng hợp số liệu thống kê thời gian thực cho Center Admin. | Mã nguồn ứng dụng | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 27 | Lớp dữ liệu & Cơ sở dữ liệu cốt lõi | Triển khai toàn bộ cấu trúc bảng PostgreSQL cho người dùng, trung tâm, khóa học và điểm danh. | Lớp cơ sở dữ liệu | [DAT-ALL (1 to 9)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 28 | Khung kiểm soát truy cập và xác thực bảo mật | Thiết lập toàn bộ ma trận phân quyền RBAC và luồng xác thực JWT/OAuth2. | Kiến trúc hệ thống | [ARC-001 to ARC-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 29 | Hạ tầng DevOps & Vận hành đám mây | Cấu hình Docker multi-stage build, Kubernetes GKE manifests, và GitHub Actions CI/CD. | Hạ tầng DevOps | [NFR-001 to NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 30 | Tài liệu kỹ thuật hệ thống | Biên soạn toàn bộ tài liệu kiến trúc, hướng dẫn vận hành và API contract chuẩn. | Tài liệu kỹ thuật | [DOC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| **TỔNG KẾT** | **Tổng Số Thẻ Đã Bao Phủ:** 58 | **Tổng Số Tác Vụ:** 30 | **Trạng Thái:** Đã xác minh | **Độ Bao Phủ:** 100.0% |
+| 1 | Scaffolding & Build Descriptors cho toàn bộ hệ thống | Sinh mô tả build root `./sources/backend/pom.xml` cha Multi-Module Maven, các mô tả build con cho 4 dịch vụ (`user-service`, `center-service`, `course-service`, `attendance-service`), mô tả `package.json` và `tsconfig.json` cho frontend Next.js theo quy ước gói `org.nlh4j.membershiphub`. | Application Code | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Endpoint đăng ký người dùng mới | Triển khai REST POST `/api/v1/users/register` với xác thực email, mật khẩu mạnh, đồng ý điều khoản; sinh bản ghi user với role mặc định Student/Teacher, cấp JWT; tích hợp bean validation Jakarta. | Application Code | [REQ-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Xác thực Social OAuth2 (Firebase/Google/Facebook) | Triển khai REST POST `/api/v1/auth/social` tiếp nhận provider token, quy đổi OAuth2 code sang thông tin user, đồng bộ bản ghi local, cấp JWT. | Application Code | [REQ-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Gán và thay đổi vai trò người dùng (RBAC) | Triển khai REST PUT `/api/v1/users/{id}/role` cho phép Admin cập nhật role, ghi audit log, kích hoạt lại phiên bảo mật; tích hợp phân quyền theo `[ARC-001]`, `[ARC-002]`, `[ARC-003]`, `[ARC-004]`, `[ARC-005]`. | Application Code | [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Danh sách trung tâm cho mọi người dùng đã xác thực | Triển khai REST GET `/api/v1/centers` trả về trang dữ liệu gồm Name, Address, TaxID, AdminContact; bảo vệ route bằng JWT middleware. | Application Code | [REQ-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Quản lý CRUD trung tâm (System Admin) | Triển khai REST POST `/api/v1/centers`, PUT `/api/v1/centers/{id}`, DELETE `/api/v1/centers/{id}` với kiểm tra trùng lặp TaxID; áp dụng validation Bean. | Application Code | [REQ-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Gán/huỷ gán Center Admin cho trung tâm | Triển khai REST POST `/api/v1/centers/{id}/admins` và DELETE tương ứng, cập nhật role thành Center Admin và ghi nhận center_id; đảm bảo phân quyền `[ARC-002]`. | Application Code | [REQ-006], [ARC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Danh sách khoá học cho người dùng xác thực | Triển khai REST GET `/api/v1/courses` trả về CourseID, Title, StartDate, EndDate, TeacherName; hỗ trợ phân trang. | Application Code | [REQ-007] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 9 | CRUD khoá học và kiểm tra xung đột lịch | Triển khai REST POST/PUT/DELETE `/api/v1/courses` với logic overlap check dựa trên teacher_id và khoảng ngày; dùng ràng buộc exclusion tại DB. | Application Code | [REQ-008] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 10 | Gán/huỷ gán giáo viên cho khoá học | Triển khai REST POST `/api/v1/courses/{id}/teachers` và DELETE; đẩy sự kiện Kafka `teacher-assigned` để gửi push notification. | Application Code | [REQ-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 11 | Duyệt khoá học cho sinh viên (loại trừ đã đăng ký) | Triển khai REST GET `/api/v1/students/courses/available` với filter enrollment tồn tại; trả capacity và schedule. | Application Code | [REQ-010] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 12 | Đăng ký khoá học cho sinh viên | Triển khai REST POST `/api/v1/enrollments` tự sinh tài khoản Student nếu chưa có, tạo enrollment, đẩy Kafka `enrollment-created` cho notification + Zalo. | Application Code | [REQ-011] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 13 | Ghi nhận điểm danh QR cho sinh viên | Triển khai REST POST `/api/v1/attendance/scan` giải mã payload base64 (studentID, courseID), kiểm tra enrollment, tạo bản ghi attendance idempotent. | Application Code | [REQ-012], [REQ-013] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 14 | Xem thẻ thành viên và số ngày còn lại | Triển khai REST GET `/api/v1/students/{id}/card` tính remaining_days, used_days, total_days. | Application Code | [REQ-014] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 15 | Gia hạn thẻ thành viên | Triển khai REST POST `/api/v1/students/{id}/card/renew` với renewal_days (1-365), cập nhật EndDate, đẩy thông báo xác nhận. | Application Code | [REQ-015] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 16 | Kích hoạt thông báo đa kênh (Push + Zalo) | Triển khai REST POST `/api/v1/notifications` đẩy sự kiện Kafka `notification-queue` tiêu thụ bởi worker FCM/APNs và Zalo bot; hỗ trợ retry 3 lần `[EXC-003]`. | Application Code | [REQ-016], [REQ-021], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 17 | Quản lý khuyến mãi (CRUD) | Triển khai REST CRUD `/api/v1/promotions` với StartDate/EndDate tuỳ chọn; hỗ trợ perpetual promotion khi không có EndDate. | Application Code | [REQ-017] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 18 | Quản lý thông báo chung (CRUD) | Triển khai REST CRUD `/api/v1/announcements` với auto-hide khi quá expiry; phát broadcast toàn site. | Application Code | [REQ-018] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 19 | Tích hợp AI Chatbot tư vấn | Triển khai REST POST `/api/v1/chatbot/query` gọi Vertex AI/Gemini; cơ chế escalate khi độ tin cậy thấp. | Application Code | [REQ-019] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 20 | Giao diện responsive cho ứng dụng di động (Next.js) | Sinh layout điều hướng theo role, component NativeWind, màn hình học viên/giáo viên/quản trị; tích hợp React Native Web wrapper. | Application Code | [REQ-020] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 21 | Đẩy Push Notification qua FCM/APNs | Triển khai REST POST `/api/v1/devices/register` lưu device token; worker gửi push qua FCM/APNs với retry theo `[EXC-003]`. | Application Code | [REQ-021] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 22 | Phát hiện ngôn ngữ mặc định cho khách truy cập | Triển khai middleware Next.js đọc cookie, fallback Accept-Language; tích hợp `next-intl` cho i18n. | Application Code | [REQ-022] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 23 | SEO đa ngôn ngữ (en, vi, es) | Sinh trang động với `<html lang>` và thẻ `hreflang` cho từng locale; sitemap đa ngôn ngữ. | Application Code | [REQ-023] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 24 | Xuất báo cáo điểm danh CSV | Triển khai REST GET `/api/v1/reports/attendance` xuất CSV với StudentName, CourseName, AttendanceDate, Status; giới hạn 30 ngày. | Application Code | [REQ-024] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 25 | Dashboard tổng hợp tuyển sinh thời gian thực | Triển khai REST GET `/api/v1/dashboard/enrollment-summary` cache 15 phút; cards totalStudents, activeCourses, upcomingSessions. | Application Code | [REQ-025] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 26 | Khởi tạo & di trú Database Schema tổng thể | Sinh script Flyway V1__init.sql cho 12 bảng nghiệp vụ (Users, Centers, Courses, Enrollments, Attendance, StudentCards, Notifications, Roles, Promotions, Announcements, SystemSettings, AuditLogs), index, ràng buộc FK và composite unique `(student_id, course_id, attendance_date)`. | Application Code | [DAT-ALL (1 to 12)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 27 | Luồng xác thực và phát hành JWT/Refresh | Cấu hình OAuth2 Resource Server với JWT 15 phút và refresh token 7 ngày, hỗ trợ email/password + 3 social provider, ghi log kiểm toán; tuân thủ `[NFR-003]`. | Application Code | [ARC-006], [NFR-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 28 | Luồng xử lý điểm danh QR đầu cuối | Sinh REST endpoint chuẩn + idempotency key + cơ chế retry sau khi mất mạng `[EXC-001]`; tích hợp FIFO khi khôi phục `[EXC-005]`. | Application Code | [ARC-007], [EXC-001], [EXC-002], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 29 | Hợp đồng tích hợp Notification đa kênh | Thiết kế schema Kafka topic `notification-queue` với payload chuẩn JSON, đảm bảo phân phối tới mobile + Zalo; xử lý retry & dead-letter theo `[EXC-003]`. | Application Code | [ARC-008], [EXC-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 30 | Tích hợp Mobile App với Backend qua REST | Định nghĩa OpenAPI 3.1, bearer token auth, hỗ trợ offline cache (Service Worker + IndexedDB) trong frontend Next.js. | Application Code | [ARC-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 31 | Hạ tầng DevOps: Docker + Terraform GCP + GKE Manifest | Sinh Dockerfile đa giai đoạn (image <500MB), script Terraform cung cấp VPC, GKE Autopilot, Cloud SQL PostgreSQL, IAM, KMS, manifest GKE HPA theo CPU/latency. | DevOps Infrastructure | [NFR-001], [NFR-002], [NFR-003], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 32 | Tài liệu kiến trúc & vận hành doanh nghiệp | Sinh bộ tài liệu: kiến trúc tổng thể, sơ đồ C4, tài liệu API (OpenAPI), tài liệu DB, hướng dẫn DevOps, GDPR/CCPA, quy trình SEO/i18n, đặt tại `./sources/docs/`. | Enterprise Documentation | [DOC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **SUMMARY** | **Tổng số thẻ truy vết đã che phủ:** 60 | **Tổng số nhiệm vụ:** 32 | **Trạng thái:** ĐÃ XÁC MINH | **Mức độ bao phủ:** 100% |
+
+<!--BACKLOG_SYNOPSIS_GRID_END-->
 
 <!--END_CHUNK_PART_1_BACKLOG_4_1-->
 
-<!--START_CHUNK_PART_2_PHASE_1_2-->
-
-## 🏗️ 5. LỘ TRÌNH TRIỂN KHAI CHI TIẾT THEO GIAI ĐOẠN
-
-### 🚀 Giai đoạn 1: Nền tảng Khung Hệ Thống & Di Cư Cơ Sở Dữ Liệu
-Giai đoạn này tập trung hoàn toàn vào việc khởi tạo cấu trúc mã nguồn vi dịch vụ, xây dựng các tập lệnh di cư cơ sở dữ liệu PostgreSQL thông qua Flyway/Liquibase, thiết lập các ràng buộc bảo mật toàn cầu và cấu hình môi trường phát triển cơ bản mà chưa bao gồm logic nghiệp vụ đầu cuối.
-
-- **NGÀY 1:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Khởi tạo cấu trúc thư mục gốc dự án vi dịch vụ Quarkus và thiết lập cấu hình Maven parent/child cho toàn bộ hệ thống.
-  - **ID Thẻ Mục Tiêu:** [ARC-000]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/pom.xml`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Khởi tạo tệp cấu hình Maven gốc với các thuộc tính định danh enterprise `org.nlh4j.membershiphub`, cấu hình các plugin quản lý phụ thuộc Quarkus và khai báo các module con bao gồm userService, centerService, courseService và attendanceService.
-
-- **NGÀY 2:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng người dùng, vai trò và phân quyền hệ thống.
-  - **ID Thẻ Mục Tiêu:** [DAT-001], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/userService/src/main/resources/db/migration/V1__init_users.sql`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết mã lệnh SQL tạo bảng `roles` và `users` với khóa ngoại liên kết, thiết lập định dạng UUID cho khóa chính, mã hóa cột mật khẩu `passwordHash` kiểu varchar(60) và thiết lập index cho cột email.
-
-- **NGÀY 3:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng trung tâm và khóa học.
-  - **ID Thẻ Mục Tiêu:** [DAT-003], [DAT-004], [ARC-006]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/centerService/src/main/resources/db/migration/V2__init_centers_courses.sql`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết mã lệnh SQL tạo bảng `centers` với các ràng buộc mã số thuế độc nhất (`taxId`) và bảng `courses` hỗ trợ quản lý sức chứa và lịch trình giảng dạy.
-
-- **NGÀY 4:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng ghi danh, điểm danh và thẻ hội viên.
-  - **ID Thẻ Mục Tiêu:** [DAT-005], [DAT-006], [DAT-007], [ARC-007]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/attendanceService/src/main/resources/db/migration/V3__init_attendance_cards.sql`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết lệnh SQL tạo bảng `enrollments`, bảng `attendance` với tính chất bất biến (`idempotent`) và bảng `studentcards` lưu trữ thông tin thời hạn thẻ hội viên.
-
-- **NGÀY 5:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Xây dựng tập lệnh DDL di cư cơ sở dữ liệu cho bảng thông báo, khuyến mãi và cài đặt hệ thống.
-  - **ID Thẻ Mục Tiêu:** [DAT-008], [DAT-009], [DAT-011], [ARC-008], [ARC-009], [ARC-010]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/notificationService/src/main/resources/db/migration/V4__init_notifications_promotions.sql`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Tạo cấu trúc bảng `notifications`, `promotions`, `announcements` và `systemsettings` hỗ trợ đa ngôn ngữ và cấu hình hệ thống toàn cục.
-
-- **NGÀY 6:**
-  - **Chuyên Gia Phụ Trách:** `Tester`
-  - **Mục tiêu kỹ thuật:** Xây dựng bộ kiểm thử tích hợp kết nối cơ sở dữ liệu và kiểm tra tính toàn vẹn của các tập lệnh di cư Flyway.
-  - **ID Thẻ Mục Tiêu:** [DAT-ALL (1 to 9)], [ARC-000]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/userService/src/main/resources/db/migration/V1__init_users.sql;./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/MigrationIntegrationTest.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử JUnit 5 kết hợp QuarkusTestContainer để kiểm tra việc thực thi thành công toàn bộ các tệp lệnh di cư SQL trên cơ sở dữ liệu PostgreSQL thực tế.
-
-- **NGÀY 7:**
-  - **Chuyên Gia Phụ Trách:** `Doc`
-  - **Mục tiêu kỹ thuật:** Biên soạn tài liệu kỹ thuật đặc tả lược đồ kiến trúc cơ sở dữ liệu và quy ước khung phát triển.
-  - **ID Thẻ Mục Tiêu:** [DOC-001], [ARC-000]
-  - **Đường dẫn tệp thành phần:** `./sources/docs/architecture_database_blueprint.md`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tài liệu mô tả chi tiết sơ đồ thực thể mối quan hệ (ERD), quy ước đặt tên gói Java theo chuẩn `org.nlh4j.membershiphub` và hướng dẫn thiết lập môi trường phát triển cục bộ.
-
-<!--END_CHUNK_PART_2_PHASE_1_2-->
-
-<!--START_CHUNK_PART_3_PHASE_3_4-->
-
-### 🚀 Giai đoạn 2: Phát Triển Nghiệp Vụ Cốt Lõi - Phân Hệ Người Dùng, Trung Tâm & Khóa Học
-Giai đoạn này triển khai các tính năng nghiệp vụ cốt lõi bao gồm đăng ký người dùng, xác thực mạng xã hội, quản lý trung tâm, lập lịch khóa học tránh xung đột và quản lý ghi danh học viên.
-
-- **NGÀY 1:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai API đăng ký tài khoản người dùng và xác thực qua mạng xã hội OAuth2.
-  - **ID Thẻ Mục Tiêu:** [REQ-001], [REQ-002], [EXC-004]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng endpoint REST xử lý đăng ký bằng email/mật khẩu với mã hóa BCrypt, tích hợp xác thực Firebase/Google/Facebook OAuth2 và phát hành JWT token có thời hạn 15 phút.
-
-- **NGÀY 2:**
-  - **Chuyên Gia Phụ Trách:** `Tester`
-  - **Mục tiêu kỹ thuật:** Viết kiểm thử đơn vị và tích hợp cho phân hệ đăng ký và xử lý ngoại lệ đầu vào.
-  - **ID Thẻ Mục Tiêu:** [REQ-001], [REQ-002], [EXC-004]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java;./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/UserResourceTest.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng tập lệnh kiểm thử REST assured kiểm tra trường hợp dữ liệu đầu vào không hợp lệ (`[EXC-004]`) và xác thực thành công OAuth2.
-
-- **NGÀY 3:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai API quản lý trung tâm và phân quyền quản trị trung tâm cho System Admin.
-  - **ID Thẻ Mục Tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/CenterResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng các endpoint CRUD cho trung tâm, kiểm tra ràng buộc mã số thuế duy nhất và cơ chế gán/hủy quyền Center Admin.
-
-- **NGÀY 4:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai phân hệ quản lý khóa học và thuật toán kiểm tra tránh xung đột lịch trình giáo viên.
-  - **ID Thẻ Mục Tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003], [ARC-004]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng logic kiểm tra xung đột thời gian giảng dạy của giáo viên trước khi lưu khóa học, và cơ chế phân công giáo viên phụ trách.
-
-- **NGÀY 5:**
-  - **Chuyên Gia Phụ Trách:** `Tester`
-  - **Mục tiêu kỹ thuật:** Viết kiểm thử tích hợp cho phân hệ quản lý trung tâm và kiểm tra logic xung đột lịch khóa học.
-  - **ID Thẻ Mục Tiêu:** [REQ-005], [REQ-008]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java;./sources/backend/courseService/src/test/java/org/nlh4j/membershiphub/courseservice/CourseConflictTest.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử mô phỏng các kịch bản trùng lặp lịch dạy của giáo viên và kiểm chứng mã lỗi trả về khi trùng lặp.
-
-- **NGÀY 6:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai phân hệ đăng ký khóa học của học viên và tự động tạo tài khoản khi thiếu.
-  - **ID Thẻ Mục Tiêu:** [REQ-010], [REQ-011]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/EnrollmentResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng API duyệt khóa học và ghi danh học viên, kích hoạt sự kiện tạo tài khoản ngầm và xếp lịch thông báo Zalo.
-
-- **NGÀY 7:**
-  - **Chuyên Gia Phụ Trách:** `Doc`
-  - **Mục tiêu kỹ thuật:** Biên soạn tài liệu đặc tả API REST cho các phân hệ người dùng, trung tâm và khóa học.
-  - **ID Thẻ Mục Tiêu:** [DOC-001], [REQ-001], [REQ-005], [REQ-008]
-  - **Đường dẫn tệp thành phần:** `./sources/docs/api_core_modules_reference.md`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tài liệu hướng dẫn sử dụng API OpenApi/Swagger chi tiết cho các endpoint quản lý người dùng, trung tâm và đăng ký khóa học.
-
-### 🚀 Giai đoạn 3: Phát Triển Nghiệp Vụ Điểm Danh, Thẻ Hội Viên & Thông Báo Đa Kênh
-Giai đoạn này tập trung phát triển tính năng điểm danh quét mã QR với tính chất bất biến, quản lý thẻ hội viên, hệ thống thông báo đẩy qua FCM/APNs và tích hợp nhóm Zalo.
-
-- **NGÀY 1:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai API quét mã QR điểm danh học viên đảm bảo tính bất biến (idempotent).
-  - **ID Thẻ Mục Tiêu:** [REQ-012], [REQ-013], [EXC-002]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/AttendanceResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng logic xử lý quét mã QR điểm danh, kiểm tra ràng buộc sinh viên - khóa học, và ngăn chặn tạo bản ghi trùng lặp trong cùng một ngày.
-
-- **NGÀY 2:**
-  - **Chuyên Gia Phụ Trách:** `Tester`
-  - **Mục tiêu kỹ thuật:** Viết kiểm thử tự động cho tính chất bất biến của điểm danh và xử lý ngoại lệ gửi trùng lặp.
-  - **ID Thẻ Mục Tiêu:** [REQ-013], [EXC-002]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/AttendanceResource.java;./sources/backend/attendanceService/src/test/java/org/nlh4j/membershiphub/attendanceservice/AttendanceIdempotentTest.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử gửi đồng thời nhiều request điểm danh từ cùng một sinh viên trong vòng 1 phút và xác thực chỉ có đúng một bản ghi được tạo.
-
-- **NGÀY 3:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai phân hệ quản lý thẻ hội viên, tính toán ngày hiệu lực và gia hạn thẻ.
-  - **ID Thẻ Mục Tiêu:** [REQ-014], [REQ-015]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/StudentCardResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng API hiển thị thông tin thẻ hội viên (ngày phát hành, tổng số ngày hiệu lực, số ngày còn lại) và cơ chế gia hạn thẻ sau khi thanh toán.
-
-- **NGÀY 4:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai hệ thống thông báo đẩy qua Firebase Cloud Messaging và tích hợp Zalo API.
-  - **ID Thẻ Mục Tiêu:** [REQ-016], [EXC-003], [ARC-008]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/NotificationService.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng dịch vụ gửi thông báo đẩy đến thiết bị di động và đăng bài tự động lên nhóm Zalo được chỉ định, tích hợp cơ chế thử lại (`retry`) tối đa 3 lần khi thất bại (`[EXC-003]`).
-
-- **NGÀY 5:**
-  - **Chuyên Gia Phụ Trách:** `Tester`
-  - **Mục tiêu kỹ thuật:** Viết kiểm thử tích hợp cho cơ chế gửi thông báo và xử lý ngoại lệ khi thiết bị không hợp lệ.
-  - **ID Thẻ Mục Tiêu:** [REQ-016], [EXC-003]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/notificationService/src/main/java/org/nlh4j/membershiphub/notificationservice/NotificationService.java;./sources/backend/notificationService/src/test/java/org/nlh4j/membershiphub/notificationservice/NotificationRetryTest.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử mô phỏng lỗi kết nối FCM token và kiểm tra cơ chế lên lịch thử lại tự động của hệ thống thông báo.
-
-- **NGÀY 6:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai phân hệ quản lý khuyến mãi và thông báo bản tin toàn hệ thống.
-  - **ID Thẻ Mục Tiêu:** [REQ-017], [REQ-018]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/PromotionResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng API CRUD cho quản lý chương trình khuyến mãi và bản tin thông báo có thời hạn hiệu lực tự động ẩn.
-
-- **NGÀY 7:**
-  - **Chuyên Gia Phụ Trách:** `Doc`
-  - **Mục tiêu kỹ thuật:** Biên soạn tài liệu kỹ thuật tích hợp hệ thống thông báo Zalo và quy trình điểm danh QR.
-  - **ID Thẻ Mục Tiêu:** [DOC-001], [REQ-012], [REQ-016]
-  - **Đường dẫn tệp thành phần:** `./sources/docs/integration_qr_zalo_guide.md`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tài liệu đặc tả luồng dữ liệu quét mã QR điểm danh và tài liệu cấu hình tích hợp Zalo Graph API.
-
-### 🚀 Giai đoạn 4: Hoàn Thiện Ứng Dụng Di Động, Đa Ngôn Ngữ, Chatbot AI & Báo Cáo
-Giai đoạn này xây dựng giao diện ứng dụng di động, tích hợp AI chatbot, cấu hình đa ngôn ngữ, SEO và các công cụ báo cáo thống kê cho quản trị viên.
-
-- **NGÀY 1:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai ứng dụng di động Next.js / React Native hỗ trợ giao diện theo vai trò người dùng.
-  - **ID Thẻ Mục Tiêu:** [REQ-020], [REQ-021], [ARC-009]
-  - **Đường dẫn tệp thành phần:** `./sources/frontend/package.json`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Khởi tạo cấu hình package.json cho ứng dụng frontend, xây dựng các thành phần giao diện tương thích với từng vai trò (Student, Teacher, Admin).
-
-- **NGÀY 2:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Tích hợp chatbot AI dịch vụ khách hàng hỗ trợ giải đáp thắc mắc tự động.
-  - **ID Thẻ Mục Tiêu:** [REQ-019]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/AiChatbotResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng endpoint tích hợp mô hình ngôn ngữ lớn xử lý các truy vấn phổ biến về khóa học, trung tâm và trạng thái tài khoản.
-
-- **NGÀY 3:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai tính năng bản địa hóa ngôn ngữ và SEO đa ngôn ngữ (Anh, Việt, Tây Ban Nha).
-  - **ID Thẻ Mục Tiêu:** [REQ-022], [REQ-023], [NFR-007]
-  - **Đường dẫn tệp thành phần:** `./sources/frontend/src/app/layout.tsx`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Cấu hình thẻ meta hreflang động cho từng ngôn ngữ, phát hiện locale từ header Accept-Language và lưu tùy chọn người dùng.
-
-- **NGÀY 4:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Triển khai phân hệ báo cáo điểm danh CSV và bảng điều khiển tóm tắt ghi danh thời gian thực.
-  - **ID Thẻ Mục Tiêu:** [REQ-024], [REQ-025]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/ReportResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng API xuất tệp CSV báo cáo điểm danh theo trung tâm và khoảng thời gian, cùng bảng điều khiển tổng hợp số liệu sinh viên, khóa học active.
-
-- **NGÀY 5:**
-  - **Chuyên Gia Phụ Trách:** `Tester`
-  - **Mục tiêu kỹ thuật:** Viết kiểm thử tích hợp cho tính năng xuất báo cáo CSV và API thống kê bảng điều khiển.
-  - **ID Thẻ Mục Tiêu:** [REQ-024], [REQ-025]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/ReportResource.java;./sources/backend/centerService/src/test/java/org/nlh4j/membershiphub/centerservice/ReportResourceTest.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử xác thực định dạng tệp CSV xuất ra và kiểm tra độ chính xác của các số liệu thống kê trên bảng điều khiển.
-
-- **NGÀY 6:**
-  - **Chuyên Gia Phụ Trách:** `Coder`
-  - **Mục tiêu kỹ thuật:** Xây dựng cơ chế phục hồi hệ thống sau sự cố mất kết nối và xử lý đồng bộ sự kiện điểm danh bù.
-  - **ID Thẻ Mục Tiêu:** [EXC-005], [ARC-007]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/AttendanceRecoveryService.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng cơ chế hàng đợi xử lý tuần tự FIFO các bản ghi điểm danh ngoại tuyến khi kết nối mạng được khôi phục.
-
-- **NGÀY 7:**
-  - **Chuyên Gia Phụ Trách:** `Doc`
-  - **Mục tiêu kỹ thuật:** Biên soạn tài liệu hướng dẫn sử dụng ứng dụng di động và tính năng báo cáo phân tích.
-  - **ID Thẻ Mục Tiêu:** [DOC-001], [REQ-020], [REQ-024]
-  - **Đường dẫn tệp thành phần:** `./sources/docs/user_manual_and_reports.md`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tài liệu hướng dẫn vận hành chi tiết dành cho Center Admin và hướng dẫn sử dụng ứng dụng di động cho học viên.
-
-<!--END_CHUNK_PART_3_PHASE_3_4-->
-
-<!--START_CHUNK_PART_4_PHASE_5_FINALE-->
-
-### 🚀 Giai đoạn 5: Bảo Mật, Kiểm Tra Phi Chức Năng, Hạ Tầng DevOps & Đóng Gói Tài Liệu
-Giai đoạn này tập trung hoàn toàn vào việc thiết lập các biện pháp bảo mật OWASP Top 10, cấu hình tự động hóa CI/CD, đóng gói Docker, triển khai cụm Kubernetes GKE và hoàn thiện tài liệu kỹ thuật cuối cùng.
-
-- **NGÀY 1:**
-  - **Chuyên Gia Phụ Trách:** `Reviewer`
-  - **Mục tiêu kỹ thuật:** Thực hiện kiểm tra quét mã nguồn và rà soát các lỗ hổng bảo mật theo tiêu chuẩn OWASP Top 10.
-  - **ID Thẻ Mục Tiêu:** [NFR-003]
-  - **Đường dẫn tệp thành phần:** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Kiểm tra các câu lệnh SQL chống SQL Injection, xác thực cơ chế mã hóa mật khẩu AES-256 cho dữ liệu nghỉ ngơi và thiết lập cấu hình CORS bảo mật.
-
-- **NGÀY 2:**
-  - **Chuyên Gia Phụ Trách:** `Docker`
-  - **Mục tiêu kỹ thuật:** Xây dựng tệp Dockerfile đa tầng tối ưu hóa dung lượng cho các vi dịch vụ Quarkus.
-  - **ID Thẻ Mục Tiêu:** [NFR-005], [ARC-010]
-  - **Đường dẫn tệp thành phần:** `./sources/infra/docker/Dockerfile.quarkus`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết Dockerfile multi-stage build sử dụng base image Alpine nhẹ, đảm bảo kích thước image cơ sở dưới 200MB và image hoàn thiện dưới 500MB.
-
-- **NGÀY 3:**
-  - **Chuyên Gia Phụ Trách:** `GCP`
-  - **Mục tiêu kỹ thuật:** Cấu hình tập lệnh Terraform và thiết lập hạ tầng mạng VPC trên Google Cloud Platform.
-  - **ID Thẻ Mục Tiêu:** [NFR-002], [NFR-004], [ARC-010]
-  - **Đường dẫn tệp thành phần:** `./sources/infra/terraform/main.tf`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết mã lệnh Terraform thiết lập mạng ảo VPC, cơ sở dữ liệu PostgreSQL quản lý trên Cloud SQL và cụm Redis cache.
-
-- **NGÀY 4:**
-  - **Chuyên Gia Phụ Trách:** `GKE`
-  - **Mục tiêu kỹ thuật:** Xây dựng tệp cấu hình triển khai Kubernetes Deployment và HPA cho các vi dịch vụ trên GKE.
-  - **ID Thẻ Mục Tiêu:** [NFR-001], [NFR-002], [NFR-004]
-  - **Đường dẫn tệp thành phần:** `./sources/infra/k8s/deployment.yaml`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tệp YAML cấu hình Kubernetes HPA tự động scale-out khi CPU > 70% hoặc độ trễ request > 300ms, kèm cấu hình failover tự động giữa các cụm GKE.
-
-- **NGÀY 5:**
-  - **Chuyên Gia Phụ Trách:** `GCP`
-  - **Mục tiêu kỹ thuật:** Thiết lập hệ thống ghi log kiểm toán, chính sách lưu giữ log trong 1 năm và cấu hình sao lưu dữ liệu tự động.
-  - **ID Thẻ Mục Tiêu:** [NFR-006], [NFR-009]
-  - **Đường dẫn tệp thành phần:** `./sources/infra/gcp/audit_logging_config.yaml`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Cấu hình Google Cloud Logging lưu trữ toàn bộ hành động người dùng kèm thời gian, userId trong 1 năm và thiết lập lịch sao lưu PostgreSQL hàng ngày.
-
-- **NGÀY 6:**
-  - **Chuyên Gia Phụ Trách:** `Docker`
-  - **Mục tiêu kỹ thuật:** Xây dựng quy trình tự động hóa CI/CD với GitHub Actions kiểm thử và đẩy image lên container registry.
-  - **ID Thẻ Mục Tiêu:** [ARC-010], [NFR-005]
-  - **Đường dẫn tệp thành phần:** `./sources/infra/cicd/github-actions.yml`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tập lệnh GitHub Actions tự động chạy unit test, build docker image đa dịch vụ và đẩy lên Google Artifact Registry khi có merge code vào nhánh chính.
-
-- **NGÀY 7:**
-  - **Chuyên Gia Phụ Trách:** `Doc`
-  - **Mục tiêu kỹ thuật:** Hoàn thiện và đóng gói toàn bộ tài liệu kỹ thuật cuối cùng của dự án membership-hub.
-  - **ID Thẻ Mục Tiêu:** [DOC-001], [NFR-008]
-  - **Đường dẫn tệp thành phần:** `./sources/docs/final_system_compliance_report.md`
-  - **Hướng dẫn tác vụ kỹ thuật chi tiết:** Biên soạn báo cáo tổng kết tuân thủ GDPR/CCPA, hướng dẫn xuất dữ liệu JSON theo yêu cầu người dùng và tổng hợp tài liệu bàn giao kiến trúc hệ thống.
-
-<!--END_CHUNK_PART_4_PHASE_5_FINALE-->
-
 <!--START_CHUNK_PART_1_MATRIX_4_2-->
 
-### 🔭 4.2. MA TRẬN TÓM TẮT ĐA GIAI ĐOẠN
+### 🔭 4.2. MA TRẬN TỔNG HỢP ĐA GIAI ĐOẠN
+
+#### [VÒNG ĐỜI SỐ HỌC MA TRẬN]
+> - **Tổng số hạng mục Backlog:** 32 Nhiệm vụ
+> - **Tổng số thẻ Backlog:** 60 Thẻ
+> - **Tổng số nhiệm vụ đã phân bổ:** 32 Nhiệm vụ
+> - **Tổng số thẻ đã phân bổ:** 60 Thẻ
 
 <!--PHASE_SYNOPSIS_GRID_START-->
 
-#### [VÒNG ĐỜI TOÁN HỌC MA TRẬN]
-> - **Tổng Số Tác Vụ Tồn Đọng:** 30 Tác Vụ
-> - **Tổng Số Thẻ Tồn Đọng:** 58 Thẻ
-> - **Tổng Số Tác Vụ Đã Phân Bổ:** 30 Tác Vụ
-> - **Tổng Số Thẻ Đã Phân Bổ:** 58 Thẻ
-
-| Giai Đoạn | Khoảng Ngày | Các Tác Vụ Đã Bao Phủ | Thành Phần Kiến Trúc / Đường Dẫn Mô-đun | Tóm Tắt Bàn Giao Kỹ Thuật | Phân Bổ Chuyên Gia | Các Thẻ Mục Tiêu |
+| Phase | Khoảng Ngày | Mã Nhiệm Vụ Được Bao Phủ | Cấu Phần Kiến Trúc / Đường Dẫn Module | Tóm Tắt Sản Phẩm Kỹ Thuật Bàn Giao | Sub-Agent Được Phân Công | Mã Thẻ Truy Vết |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | Ngày 1 - 7 | Tác vụ 1, 2, 3, 4, 5, 6 | ./sources/backend/pom.xml, ./sources/backend/userService/src/main/resources/db/migration/V1__init_users.sql | Khởi tạo cấu trúc dự án vi dịch vụ Quarkus, thiết lập Maven pom.xml, và xây dựng toàn bộ tập lệnh DDL di cư cơ sở dữ liệu Flyway cho người dùng, vai trò, trung tâm và khóa học. | Coder, Tester, Doc | [ARC-000], [DAT-001], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [DAT-003], [DAT-004], [ARC-006] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 2 | Ngày 1 - 7 | Tác vụ 7, 8, 9, 10, 11, 12, 13 | ./sources/backend/attendanceService/src/main/resources/db/migration/V3__init_attendance_cards.sql, ./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java | Triển khai di cư cơ sở dữ liệu điểm danh và thẻ hội viên, phát triển API đăng ký người dùng, xác thực OAuth2, quản lý trung tâm và thuật toán kiểm tra tránh xung đột lịch khóa học. | Coder, Tester, Doc | [DAT-005], [DAT-006], [DAT-007], [ARC-007], [DAT-008], [DAT-009], [DAT-011], [ARC-008], [ARC-009], [ARC-010], [REQ-001], [REQ-002], [EXC-004], [REQ-004], [REQ-005], [REQ-006], [REQ-007], [REQ-008], [REQ-009] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 3 | Ngày 1 - 7 | Tác vụ 14, 15, 16, 17, 18, 19, 20 | ./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/EnrollmentResource.java, ./sources/backend/attendanceService/src/main/java/org/nlh4j/membershiphub/attendanceservice/AttendanceResource.java | Xây dựng luồng đăng ký khóa học học viên, điểm danh quét mã QR bảo đảm tính bất biến, quản lý thẻ hội viên, hệ thống thông báo đẩy FCM và tích hợp Zalo API. | Coder, Tester, Doc | [REQ-010], [REQ-011], [REQ-012], [REQ-013], [EXC-002], [REQ-014], [REQ-015], [REQ-016], [EXC-003], [ARC-008], [REQ-017], [REQ-018] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 4 | Ngày 1 - 7 | Tác vụ 21, 22, 23, 24, 25, 26, 27 | ./sources/frontend/package.json, ./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/AiChatbotResource.java | Phát triển giao diện ứng dụng di động, tích hợp AI chatbot dịch vụ khách hàng, cấu hình bản địa hóa đa ngôn ngữ, SEO, và phân hệ báo cáo điểm danh CSV kèm bảng điều khiển thời gian thực. | Coder, Tester, Doc | [REQ-019], [REQ-020], [REQ-021], [ARC-009], [REQ-022], [REQ-023], [NFR-007], [REQ-024], [REQ-025], [EXC-005], [ARC-007], [DAT-ALL (1 to 9)], [ARC-001 to ARC-010] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 5 | Ngày 1 - 7 | Tác vụ 28, 29, 30 | ./sources/infra/docker/Dockerfile.quarkus, ./sources/infra/terraform/main.tf, ./sources/infra/k8s/deployment.yaml | Thiết lập kiểm tra bảo mật OWASP Top 10, đóng gói Docker đa tầng tối ưu hóa dung lượng, cấu hình hạ tầng Terraform trên GCP, triển khai cụm GKE, và hoàn thiện tài liệu kỹ thuật cuối cùng. | Reviewer, Docker, GCP, GKE, Doc | [NFR-003], [NFR-005], [ARC-010], [NFR-002], [NFR-004], [NFR-001], [NFR-006], [NFR-009], [DOC-001], [NFR-008] <!--REGISTERED_PHASE_ROW--> |
-| **Kiểm Tra** | **Xác Minh Phân Bổ Tồn Đọng Tổng Thể** | **Tổng Số Giai Đoạn:** 5 | **Tổng Số Thẻ Tồn Đọng:** 58 | **Tổng Số Thẻ Đã Phân Bổ:** 58 | **Tổng Số Tác Vụ Đã Phân Bổ:** 30 | **Trạng Thái & Tuân Thủ:** Đã xác minh (100%) |
+| Giai đoạn 1 | Ngày 1 - 3 | Nhiệm vụ 1, Nhiệm vụ 26, Nhiệm vụ 27 | `./sources/backend/`, `./sources/backend/user-service/`, `./sources/backend/center-service/`, `./sources/backend/course-service/`, `./sources/backend/attendance-service/`, `./sources/frontend/` | Khởi tạo scaffolding root Maven multi-module cho 4 microservices backend với quy ước gói `org.nlh4j.membershiphub`, đồng thời sinh mô tả `package.json` và `tsconfig.json` cho frontend Next.js. Triển khai script di trú Flyway V1__init.sql cho 12 bảng nghiệp vụ với ràng buộc FK, index và composite unique `(student_id, course_id, attendance_date)`. Cấu hình OAuth2 Resource Server với JWT 15 phút và refresh token 7 ngày, tích hợp email/password và 3 social provider, ghi log kiểm toán tuân thủ bảo mật OWASP. | Coder, Tester, Reviewer, Doc | [ARC-000], [ARC-006], [DAT-001], [DAT-002], [DAT-003], [DAT-004], [DAT-005], [DAT-006], [DAT-007], [DAT-008], [DAT-009], [DAT-010], [DAT-011], [DAT-012], [NFR-003] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 2 | Ngày 1 - 7 | Nhiệm vụ 2, Nhiệm vụ 3, Nhiệm vụ 4, Nhiệm vụ 5, Nhiệm vụ 6, Nhiệm vụ 7, Nhiệm vụ 8 | `./sources/backend/user-service/`, `./sources/backend/center-service/` | Phát triển REST endpoint đăng ký người dùng mới với xác thực email, mật khẩu mạnh và bean validation Jakarta. Tích hợp xác thực Social OAuth2 qua Firebase/Google/Facebook. Hiện thực hoá cơ chế gán và thay đổi vai trò người dùng theo ma trận RBAC 5 cấp độ với audit log. Xây dựng REST API danh sách trung tâm có phân trang, REST CRUD trung tâm cho System Admin với kiểm tra trùng lặp TaxID, và endpoint gán/huỷ gán Center Admin với cập nhật role và ghi nhận center_id. | Coder, Tester, Reviewer, Doc | [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [EXC-004] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 3 | Ngày 1 - 7 | Nhiệm vụ 9, Nhiệm vụ 10, Nhiệm vụ 11, Nhiệm vụ 12, Nhiệm vụ 13, Nhiệm vụ 28 | `./sources/backend/course-service/`, `./sources/backend/attendance-service/` | Phát triển REST API danh sách khoá học, CRUD khoá học với logic overlap check dựa trên teacher_id và khoảng ngày sử dụng ràng buộc exclusion tại DB. Hiện thực hoá endpoint gán/huỷ gán giáo viên cho khoá học kèm đẩy sự kiện Kafka `teacher-assigned`. Xây dựng endpoint duyệt khoá học cho sinh viên với filter loại trừ enrollment tồn tại. Triển khai endpoint đăng ký khoá học tự sinh tài khoản Student và đẩy Kafka `enrollment-created`. Xây dựng REST POST điểm danh QR với giải mã payload base64, kiểm tra enrollment, idempotency key, cơ chế retry sau mất mạng và FIFO khi khôi phục. | Coder, Tester, Reviewer, Doc | [REQ-007], [REQ-008], [REQ-009], [REQ-010], [REQ-011], [REQ-012], [REQ-013], [ARC-007], [EXC-001], [EXC-002], [EXC-005] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 4 | Ngày 1 - 7 | Nhiệm vụ 14, Nhiệm vụ 15, Nhiệm vụ 16, Nhiệm vụ 17, Nhiệm vụ 18, Nhiệm vụ 19, Nhiệm vụ 29, Nhiệm vụ 30 | `./sources/backend/user-service/`, `./sources/backend/center-service/`, `./sources/backend/course-service/`, `./sources/backend/attendance-service/`, `./sources/frontend/` | Triển khai REST endpoint xem thẻ thành viên với tính toán remaining_days, used_days, total_days. Hiện thực hoá endpoint gia hạn thẻ với renewal_days 1-365 và cập nhật EndDate. Xây dựng REST endpoint kích hoạt thông báo đa kênh đẩy sự kiện Kafka `notification-queue` cho worker FCM/APNs và Zalo bot với retry 3 lần. Phát triển REST CRUD khuyến mãi với StartDate/EndDate tuỳ chọn, REST CRUD thông báo chung với auto-hide khi quá expiry, REST tích hợp AI Chatbot gọi Vertex AI/Gemini. Hoàn thiện hợp đồng tích hợp Notification đa kênh, OpenAPI 3.1 cho mobile app, bearer token auth, offline cache với Service Worker và IndexedDB trong frontend Next.js. | Coder, Tester, Reviewer, Doc | [REQ-014], [REQ-015], [REQ-016], [REQ-017], [REQ-018], [REQ-019], [REQ-021], [ARC-008], [ARC-009], [EXC-003] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 5 | Ngày 1 - 5 | Nhiệm vụ 20, Nhiệm vụ 22, Nhiệm vụ 23, Nhiệm vụ 24, Nhiệm vụ 25, Nhiệm vụ 31, Nhiệm vụ 32 | `./sources/frontend/`, `./sources/infra/`, `./sources/docs/` | Sinh giao diện responsive theo role với NativeWind, màn hình học viên/giáo viên/quản trị và React Native Web wrapper. Tích hợp `next-intl` cho phát hiện ngôn ngữ qua cookie và Accept-Language, SEO đa ngôn ngữ với thẻ `hreflang` và sitemap. Triển khai REST endpoint xuất báo cáo CSV giới hạn 30 ngày, dashboard tuyển sinh thời gian thực với cache 15 phút. Sinh Dockerfile đa giai đoạn image dưới 500MB, script Terraform cung cấp VPC, GKE Autopilot, Cloud SQL PostgreSQL, IAM, KMS, manifest GKE HPA theo CPU/latency. Hoàn thiện bộ tài liệu kiến trúc, sơ đồ C4, OpenAPI, GDPR/CCPA, SEO/i18n đặt tại `./sources/docs/`. | Coder, Tester, Reviewer, Doc, Docker, GCP, GKE | [REQ-020], [REQ-022], [REQ-023], [REQ-024], [REQ-025], [NFR-001], [NFR-002], [NFR-004], [NFR-005], [NFR-006], [NFR-007], [NFR-008], [NFR-009], [DOC-001] <!--REGISTERED_PHASE_ROW--> |
+| **Kiểm Định** | **Xác Minh Phân Bổ Backlog Tổng Thể** | **Tổng Số Giai Đoạn:** 5 | **Tổng Số Thẻ Backlog:** 60 | **Tổng Số Thẻ Đã Phân Bổ:** 60 | **Tổng Số Nhiệm Vụ Đã Phân Bổ:** 32 | **Trạng Thái & Tuân Thủ:** Đã Xác Minh (100%) |
 
 <!--PHASE_SYNOPSIS_GRID_END-->
 
@@ -1132,7 +778,7 @@ Giai đoạn này tập trung hoàn toàn vào việc thiết lập các biện 
 --- HISTORY LEDGER MAP ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START-->
+<!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START-->
 --- END HISTORY LEDGER MAP ---
 </HISTORIC_LEDGER_MAP>
 
@@ -1144,225 +790,733 @@ Giai đoạn này tập trung hoàn toàn vào việc thiết lập các biện 
 
 <!--START_CHUNK_PART_2_PHASE_LOOP-->
 
-### 📈 Giai đoạn 2 - Phát Triển Nghiệp Vụ Cốt Lõi - Phân Hệ Người Dùng, Trung Tâm & Khóa Học
-- **Mục tiêu & Mục đích cốt lõi của giai đoạn:** Triển khai di cư cơ sở dữ liệu điểm danh và thẻ hội viên, phát triển API đăng ký người dùng, xác thực OAuth2, quản lý trung tâm và thuật toán kiểm tra tránh xung đột lịch khóa học nhằm đảm bảo logic nghiệp vụ vận hành trơn tru.
+### 📈 Giai đoạn 2 - Quản Lý Người Dùng, Trung Tâm Và Phân Quyền RBAC
 
-- **Bản đồ ma trận thư mục vật lý mục tiêu:**
-    * `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java` `[REQ-001]`, `[REQ-002]`, `[EXC-004]`
-    * `./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/UserResourceTest.java` `[REQ-001]`, `[REQ-002]`, `[EXC-004]`
-    * `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/CenterResource.java` `[REQ-004]`, `[REQ-005]`, `[REQ-006]`, `[ARC-001]`, `[ARC-002]`
-    * `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java` `[REQ-007]`, `[REQ-008]`, `[REQ-009]`, `[ARC-003]`, `[ARC-004]`
-    * `./sources/backend/courseService/src/test/java/org/nlh4j/membershiphub/courseservice/CourseConflictTest.java` `[REQ-005]`, `[REQ-008]`
-    * `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/EnrollmentResource.java` `[REQ-010]`, `[REQ-011]`
-    * `./sources/docs/api_core_modules_reference.md` `[DOC-001]`, `[REQ-001]`, `[REQ-005]`, `[REQ-008]`
+- **Mục Tiêu Cốt Lõi & Mục Đích Của Giai Đoạn:** Giai đoạn 2 tập trung xây dựng hai trụ cột nghiệp vụ nền tảng của hệ thống Membership Hub: quản lý danh tính người dùng và quản lý hồ sơ trung tâm. Cụ thể, giai đoạn này hiện thực hóa toàn bộ luồng đăng ký tài khoản mới với xác thực email/mật khẩu theo chuẩn OWASP, tích hợp xác thực xã hội qua OAuth2 (Firebase/Google/Facebook), cơ chế gán và thay đổi vai trò người dùng theo ma trận phân quyền 5 cấp độ (RBAC) tuân thủ các token kiến trúc `[ARC-001]`, `[ARC-002]`, `[ARC-003]`, `[ARC-004]`, `[ARC-005]`. Song song đó, hệ thống REST API quản lý trung tâm được thiết lập với đầy đủ thao tác CRUD, kiểm tra trùng lặp TaxID, cơ chế gán/huỷ gán Center Admin với ranh giới phân quyền chặt chẽ. Mọi endpoint đều được bảo vệ bởi JWT middleware và ghi log kiểm toán phục vụ tuân thủ `[NFR-006]`.
 
-- **Đặc tả DDL SQL lược đồ cơ sở dữ liệu** [DAT-005], [DAT-006], [DAT-007]:
+- **Bản Đồ Ma Trận Đường Dẫn Vật Lý Mục Tiêu:** Danh sách đầy đủ các tệp tin vật lý được tạo, tái cấu trúc hoặc xử lý trong phạm vi giai đoạn này, ánh xạ chính xác đến thẻ truy vết tương ứng.
+
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/controller/AuthController.java` — [REQ-001], [REQ-002]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/controller/UserController.java` — [REQ-003]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/AuthService.java` — [REQ-001], [REQ-002]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/UserRoleService.java` — [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/SocialAuthService.java` — [REQ-002]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/RegisterRequest.java` — [REQ-001]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/SocialAuthRequest.java` — [REQ-002]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/RoleUpdateRequest.java` — [REQ-003]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/dto/AuthResponse.java` — [REQ-001], [REQ-002]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtAuthFilter.java` — [ARC-006], [NFR-003]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/SocialTokenVerifier.java` — [REQ-002]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/exception/GlobalExceptionHandler.java` — [EXC-004]
+    *   `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/audit/AuditLogger.java` — [NFR-006]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/controller/CenterController.java` — [REQ-004], [REQ-005], [REQ-006]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/service/CenterService.java` — [REQ-004], [REQ-005]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/service/CenterAdminService.java` — [REQ-006], [ARC-002]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/dto/CenterRequest.java` — [REQ-005]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/dto/CenterResponse.java` — [REQ-004]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/dto/CenterAdminRequest.java` — [REQ-006]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/repository/CenterRepository.java` — [REQ-004], [REQ-005]
+    *   `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/exception/CenterExceptionHandler.java` — [EXC-004]
+    *   `./sources/docs/architecture/phase-2-rbac-matrix.md` — [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [DOC-001]
+    *   `./sources/docs/api/user-center-contracts.md` — [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [DOC-001]
+
+- **Đặc Tả Lược Đồ Cơ Sở Dữ Liệu DDL SQL [DAT-001], [DAT-002], [DAT-008], [DAT-012]:**
+
 ```sql:matrix
--- Di cư cơ sở dữ liệu cho phân hệ ghi danh, điểm danh và thẻ hội viên
-CREATE TABLE IF NOT EXISTS enrollments (
-    enrollmentId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    studentId UUID NOT NULL,
-    courseId UUID NOT NULL,
-    enrollmentDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+-- Bảng Users (Bổ sung chỉ mục và ràng buộc nghiệp vụ cho Giai đoạn 2)
+ALTER TABLE Users ADD CONSTRAINT chk_users_email_format 
+    CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+CREATE INDEX idx_users_role_id ON Users(role_id);
+CREATE INDEX idx_users_provider ON Users(provider);
+CREATE INDEX idx_users_email_lower ON Users(LOWER(email));
 
-CREATE TABLE IF NOT EXISTS attendance (
-    attendanceId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    studentId UUID NOT NULL,
-    courseId UUID NOT NULL,
-    attendanceDate DATE NOT NULL,
-    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT uk_student_course_date UNIQUE (studentId, courseId, attendanceDate)
-);
+-- Bảng Roles (Bổ sung dữ liệu danh mục 5 vai trò chuẩn)
+INSERT INTO Roles (role_id, name, description) VALUES
+    (1, 'SystemAdmin', 'Global super-user with full permissions across all centers'),
+    (2, 'CenterAdmin', 'Center-level manager with full permissions within own center'),
+    (3, 'Manager', 'Sub-admin with announcement and student management rights'),
+    (4, 'Teacher', 'Read-only access to assigned courses and student lists'),
+    (5, 'Student', 'Course browsing, enrollment and card view access')
+ON CONFLICT (role_id) DO NOTHING;
 
-CREATE TABLE IF NOT EXISTS studentcards (
-    cardId UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    studentId UUID NOT NULL,
-    issueDate DATE NOT NULL,
-    validityDays INT NOT NULL,
-    remainingDays INT GENERATED ALWAYS AS (validityDays - (CURRENT_DATE - issueDate)) STORED
+-- Bảng AuditLogs (Ghi log kiểm toán cho mọi hành động quản lý người dùng và trung tâm)
+CREATE TABLE AuditLogs (
+    audit_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL,
+    action VARCHAR(100) NOT NULL,
+    target_entity VARCHAR(50) NOT NULL,
+    target_id UUID,
+    old_value TEXT,
+    new_value TEXT,
+    ip_address VARCHAR(45),
+    user_agent VARCHAR(500),
+    timestamp TIMESTAMP NOT NULL DEFAULT now()
 );
+CREATE INDEX idx_audit_logs_user_id ON AuditLogs(user_id);
+CREATE INDEX idx_audit_logs_timestamp ON AuditLogs(timestamp);
+CREATE INDEX idx_audit_logs_target ON AuditLogs(target_entity, target_id);
+
+-- Bảng UserSocialAccounts (Lưu trữ thông tin liên kết social provider)
+CREATE TABLE UserSocialAccounts (
+    social_account_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL,
+    provider VARCHAR(20) NOT NULL,
+    provider_user_id VARCHAR(255) NOT NULL,
+    profile_picture_url VARCHAR(500),
+    linked_at TIMESTAMP NOT NULL DEFAULT now(),
+    CONSTRAINT chk_social_provider CHECK (provider IN ('local', 'firebase', 'google', 'facebook')),
+    CONSTRAINT uk_social_provider UNIQUE (provider, provider_user_id)
+);
+CREATE INDEX idx_social_accounts_user_id ON UserSocialAccounts(user_id);
 ```
 
-- **Hợp đồng định tuyến API và Sự kiện** [REQ-001], [REQ-005], [REQ-008], [ARC-006]:
+- **Hợp Đồng Định Tuyến API Và Sự Kiện [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-006]:**
+
 ```json
 {
-  "endpoint": "/api/v1/users/register",
-  "method": "POST",
-  "requestPayload": {
-    "email": "student@nlh4j.org",
-    "password": "SecurePassword123",
-    "fullName": "Nguyen Van A"
+  "openapi": "3.1.0",
+  "info": {
+    "title": "User & Center Management API",
+    "version": "1.0.0",
+    "description": "REST contracts for user registration, social authentication, RBAC role assignment and center management"
   },
-  "responsePayload": {
-    "userId": "d290f1ee-6c54-4b01-90e6-d701748f0851",
-    "token": "eyJhbGciOiJIUzI1Ni...",
-    "expiresIn": 900
+  "paths": {
+    "/api/v1/users/register": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Register a new user with email and password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RegisterRequest" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "User registered successfully" },
+          "400": { "description": "Invalid input or duplicate email" }
+        }
+      }
+    },
+    "/api/v1/auth/social": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Authenticate via Firebase/Google/Facebook OAuth2",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SocialAuthRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Social authentication successful" }
+        }
+      }
+    },
+    "/api/v1/users/{id}/role": {
+      "put": {
+        "tags": ["User Management"],
+        "summary": "Assign or update user role",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/RoleUpdateRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Role updated" }
+        }
+      }
+    },
+    "/api/v1/centers": {
+      "get": {
+        "tags": ["Centers"],
+        "summary": "List all centers with pagination",
+        "responses": {
+          "200": { "description": "Paginated list of centers" }
+        }
+      },
+      "post": {
+        "tags": ["Centers"],
+        "summary": "Create a new center (System Admin only)",
+        "responses": {
+          "201": { "description": "Center created" },
+          "409": { "description": "Duplicate TaxID conflict" }
+        }
+      }
+    },
+    "/api/v1/centers/{id}": {
+      "put": { "tags": ["Centers"], "summary": "Update center" },
+      "delete": { "tags": ["Centers"], "summary": "Delete center" }
+    },
+    "/api/v1/centers/{id}/admins": {
+      "post": {
+        "tags": ["Centers"],
+        "summary": "Assign Center Admin to center",
+        "responses": { "200": { "description": "Admin assigned" } }
+      },
+      "delete": {
+        "tags": ["Centers"],
+        "summary": "Unassign Center Admin from center"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegisterRequest": {
+        "type": "object",
+        "required": ["email", "password", "agreedToTerms"],
+        "properties": {
+          "email": { "type": "string", "format": "email", "maxLength": 255 },
+          "password": { "type": "string", "minLength": 8, "maxLength": 128 },
+          "fullName": { "type": "string", "maxLength": 100 },
+          "agreedToTerms": { "type": "boolean" }
+        }
+      },
+      "SocialAuthRequest": {
+        "type": "object",
+        "required": ["provider", "idToken"],
+        "properties": {
+          "provider": { "type": "string", "enum": ["firebase", "google", "facebook"] },
+          "idToken": { "type": "string" },
+          "profilePicture": { "type": "string", "format": "uri" }
+        }
+      },
+      "RoleUpdateRequest": {
+        "type": "object",
+        "required": ["roleId"],
+        "properties": {
+          "roleId": { "type": "integer", "minimum": 1, "maximum": 5 }
+        }
+      },
+      "AuthResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": { "type": "string" },
+          "refreshToken": { "type": "string" },
+          "expiresIn": { "type": "integer" },
+          "userId": { "type": "string", "format": "uuid" },
+          "role": { "type": "string" }
+        }
+      }
+    }
   }
 }
 ```
 
-- **Trình xử lý ngoại lệ cục bộ của giai đoạn** [EXC-004]:
-```java
-package org.nlh4j.membershiphub.userservice;
+- **Trình Xử Lý Ngoại Lệ Cục Bộ Hoá Của Giai Đoạn [EXC-004]:** Trong giai đoạn này, mọi lỗi xác thực đầu vào đều được chuẩn hoá thông qua cơ chế Bean Validation của Jakarta kết hợp với `GlobalExceptionHandler` tập trung. Cụ thể: (1) Lỗi `MethodArgumentNotValidException` được bắt và trả về mảng JSON gồm `field`, `message`, `rejectedValue` cho từng trường vi phạm, bao gồm email sai định dạng, mật khẩu yếu, thiếu checkbox đồng ý điều khoản, TaxID trùng lặp, định dạng số điện thoại không hợp lệ; (2) Lỗi `ConstraintViolationException` khi các ràng buộc tầng service bị vi phạm (ví dụ trùng email, trùng TaxID) được ánh xạ thành mã lỗi `EMAIL_ALREADY_EXISTS`, `TAX_ID_CONFLICT`; (3) Lỗi `AuthenticationException` từ JWT filter trả về `401 UNAUTHORIZED` với thông điệp chuẩn; (4) Lỗi `AccessDeniedException` khi người dùng không đủ quyền trả về `403 FORBIDDEN`; (5) Mọi ngoại lệ khác được bắt bởi `Exception` mặc định trả về `500 INTERNAL_SERVER_ERROR` nhưng không để lộ stack trace ra response.
 
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.ext.ExceptionMapper;
-import jakarta.ws.rs.ext.Provider;
-import java.util.Map;
+#### 📅 Nhật Ký Phân Bổ Nhiệm Vụ Theo Ngày Cho Sub-Agent (Giai đoạn 2)
 
-@Provider
-public class ValidationExceptionMapper implements ExceptionMapper<IllegalArgumentException> {
-    @Override
-    public Response toResponse(IllegalArgumentException exception) {
-        return Response.status(Response.Status.BAD_REQUEST)
-                .entity(Map.of("error", "INVALID_INPUT", "message", exception.getMessage()))
-                .build();
+<!--DAY_LOG_INDEX_START-->
+
+##### 📅 NGÀY 1: KHỞI TẠO AUTHCONTROLLER VÀ LUỒNG ĐĂNG KÝ NGƯỜI DÙNG
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 1: TRIỂN KHAI CONTROLLER ĐĂNG KÝ NGƯỜI DÙNG
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [EXC-004], [ARC-006]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/controller/AuthController.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `AuthController` được đánh dấu `@RestController` với đường dẫn gốc `/api/v1`. Triển khai endpoint `POST /api/v1/users/register` nhận `RegisterRequest`, ủy quyền cho `AuthService.register()`. Áp dụng `@Valid` để kích hoạt Bean Validation, trả về `ResponseEntity` với mã 201 và `AuthResponse` chứa JWT access token 15 phút cùng refresh token 7 ngày tuân thủ `[NFR-003]`. Toàn bộ endpoint phải được bảo vệ bởi `JwtAuthFilter` ngoại trừ chính nó. Sử dụng annotation `@AuditLogged` để ghi log kiểm toán phục vụ `[NFR-006]`.
+
+* **Đặc Tả Lược Đồ Cơ Sở Dữ Liệu DDL SQL [DAT-001]:**
+```sql:matrix
+-- Bảng Users đã được tạo ở Giai đoạn 1, bổ sung index tối ưu cho luồng đăng ký
+CREATE UNIQUE INDEX uk_users_email_unique ON Users(LOWER(email));
+CREATE INDEX idx_users_created_at ON Users(created_at);
+```
+
+* **Hợp Đồng Định Tuyến API Và Sự Kiện [REQ-001], [ARC-006]:**
+```json
+{
+  "endpoint": "POST /api/v1/users/register",
+  "headers": { "Content-Type": "application/json" },
+  "requestBody": {
+    "email": "user@example.com",
+    "password": "Str0ng!Pass",
+    "fullName": "Nguyen Van A",
+    "agreedToTerms": true
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "refreshToken": "rt_8f3kd92kd...",
+      "expiresIn": 900,
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
+      "role": "Student"
     }
+  }
 }
 ```
 
-#### 📅 Nhật Ký Phân Bổ Tác Vụ Của Chuyên Gia (Giai đoạn 2)
-
-<!--DAY_LOG_INDEX_START-->
-
-##### 📅 NGÀY 1: TRIỂN KHAI ĐĂNG KÝ NGƯỜI DÙNG VÀ OAUTH2
-<!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Phát triển API đăng ký người dùng với mã hóa BCrypt
-- **Chuyên gia phụ thuộc chuyên môn:** [Coder]
-- **Các Thẻ Mục Tiêu:** [REQ-001], [REQ-002], [EXC-004]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng endpoint REST xử lý đăng ký bằng email và mật khẩu, áp dụng mã hóa BCrypt cho `passwordHash`, tích hợp xác thực Firebase/Google/Facebook OAuth2 và phát hành JWT token có thời hạn 15 phút kèm refresh token 7 ngày.
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 2: Xây dựng kiểm thử tự động cho luồng xác thực đăng ký
-- **Chuyên gia phụ thuộc chuyên môn:** [Tester]
-- **Các Thẻ Mục Tiêu:** [REQ-001], [REQ-002], [EXC-004]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java;./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/UserResourceTest.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kịch bản kiểm thử REST assured xác thực trường hợp dữ liệu đầu vào không hợp lệ (`[EXC-004]`) và kiểm tra phản hồi thành công khi đăng ký người dùng mới.
+
+###### 🌿 NHIỆM VỤ CON 2: VIẾT BỘ KIỂM THỬ ĐĂNG KÝ NGƯỜI DÙNG
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [EXC-004]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/controller/AuthController.java;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/controller/AuthControllerTest.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Xây dựng lớp `AuthControllerTest` sử dụng JUnit 5 kết hợp Mockito và RestAssured. Tạo ít nhất 6 test case: (1) đăng ký thành công với email hợp lệ; (2) đăng ký thất bại với email định dạng sai trả về 400; (3) đăng ký thất bại với mật khẩu yếu (thiếu chữ hoa, ký tự đặc biệt) trả về 400 với danh sách trường lỗi; (4) đăng ký thất bại khi không check vào ô đồng ý điều khoản; (5) đăng ký thất bại khi email đã tồn tại trả về 409 với mã `EMAIL_ALREADY_EXISTS`; (6) đăng ký thất bại khi thiếu trường bắt buộc trả về 400.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 3: Biên soạn tài liệu kỹ thuật đặc tả phân hệ người dùng
-- **Chuyên gia phụ thuộc chuyên môn:** [Doc]
-- **Các Thẻ Mục Tiêu:** [DOC-001], [REQ-001]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/docs/api_core_modules_reference.md`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết tài liệu mô tả chi tiết các luồng đăng ký người dùng, xác thực mạng xã hội và định dạng JWT token trả về.
+
+###### 🌿 NHIỆM VỤ CON 3: TÀI LIỆU API ĐĂNG KÝ
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Doc]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [DOC-001]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/docs/api/user-center-contracts.md`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Cập nhật tệp tài liệu API tổng hợp bổ sung mục mô tả endpoint `POST /api/v1/users/register` với các thành phần: mô tả nghiệp vụ, bảng mã lỗi (400, 409), schema request/response, ví dụ curl thực tế, ghi chú bảo mật (rate limiting 5 lần/phút), liên kết chéo đến ma trận RBAC.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 NGÀY 2: KIỂM THỬ VÀ HOÀN THIỆN PHÂN HỆ XÁC THỰC
+##### 📅 NGÀY 2: TÍCH HỢP XÁC THỰC SOCIAL OAUTH2
+
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Kiểm tra bảo mật và tối ưu hóa xử lý ngoại lệ đầu vào
-- **Chuyên gia phụ thuộc chuyên môn:** [Coder]
-- **Các Thẻ Mục Tiêu:** [REQ-001], [EXC-004]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Hoàn thiện bộ lọc xác thực dữ liệu đầu vào, đảm bảo trả về thông báo lỗi chi tiết cho từng trường hợp thiếu thông tin hoặc sai định dạng email.
+
+###### 🌿 NHIỆM VỤ CON 1: TRIỂN KHAI SOCIALAUTHSERVICE
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [REQ-002], [ARC-006], [NFR-003]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/SocialAuthService.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `SocialAuthService` được tiêm `SocialTokenVerifier`. Triển khai phương thức `authenticateWithSocial(SocialAuthRequest)` thực hiện: xác minh ID token với provider tương ứng (Firebase/Google/Facebook), trích xuất email và provider_user_id, tìm kiếm bản ghi trong `UserSocialAccounts`, nếu chưa tồn tại thì tạo mới user với role mặc định `Student` và liên kết social account, cập nhật `profile_picture_url` nếu có, cuối cùng gọi `JwtTokenProvider.generateToken()` trả về `AuthResponse`. Toàn bộ thao tác phải sử dụng `@Transactional` và ghi audit log.
+
+* **Hợp Đồng Định Tuyến API Và Sự Kiện [REQ-002], [ARC-006]:**
+```json
+{
+  "endpoint": "POST /api/v1/auth/social",
+  "requestBody": {
+    "provider": "google",
+    "idToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2ZTAw...",
+    "profilePicture": "https://lh3.googleusercontent.com/a/AGN..."
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "accessToken": "eyJhbGciOiJIUzI1NiIs...",
+      "refreshToken": "rt_4kd92kd...",
+      "expiresIn": 900,
+      "userId": "660e8400-e29b-41d4-a716-446655440001",
+      "role": "Student",
+      "isNewUser": true
+    }
+  }
+}
+```
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 2: Viết kiểm thử tích hợp cho dịch vụ OAuth2
-- **Chuyên gia phụ thuộc chuyên môn:** [Tester]
-- **Các Thẻ Mục Tiêu:** [REQ-002]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/userService/src/main/java/org/nlh4j/membershiphub/userservice/UserResource.java;./sources/backend/userService/src/test/java/org/nlh4j/membershiphub/userservice/OAuthIntegrationTest.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kịch bản kiểm thử mô phỏng quy trình trao đổi mã OAuth2 từ Google và Firebase để tạo hoặc cập nhật bản ghi người dùng cục bộ.
+
+###### 🌿 NHIỆM VỤ CON 2: KIỂM THỬ SOCIAL AUTH
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [REQ-002], [EXC-004]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/SocialAuthService.java;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/service/SocialAuthServiceTest.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `SocialAuthServiceTest` với các test case: (1) xác thực thành công với Google token hợp lệ cho user mới; (2) xác thực thành công cho user đã liên kết trước đó; (3) xác thực thất bại với token hết hạn; (4) xác thực thất bại với provider không hỗ trợ; (5) xác thực Facebook với profile_picture được lưu đúng. Sử dụng Mockito stub cho `SocialTokenVerifier` và `UserSocialAccountRepository`.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 3: REVIEW CODE AUTHENTICATION
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Reviewer]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [REQ-002], [NFR-003]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtAuthFilter.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Thực hiện đánh giá mã nguồn `JwtAuthFilter` và `SocialTokenVerifier` để phát hiện: (1) khả năng timing attack trong so sánh token; (2) lỗi xác thực chữ ký JWT; (3) xử lý trường hợp token bị thu hồi (blacklist); (4) tuân thủ nguyên tắc OWASP A02:2021 về Cryptographic Failures. Đề xuất vá lỗi cụ thể cho từng phát hiện.
+
+* **Trình Xử Lý Ngoại Lệ Cục Bộ Hoá Của Giai Đoạn [EXC-004]:** Khi phát hiện token không hợp lệ hoặc hết hạn, `JwtAuthFilter` phải trả về lỗi `401 UNAUTHORIZED` với mã `INVALID_TOKEN` hoặc `TOKEN_EXPIRED` tương ứng, kèm thông điệp thân thiện không tiết lộ chi tiết kỹ thuật. Khi token bị thu hồi (người dùng đăng xuất), hệ thống kiểm tra Redis blacklist trước khi cấp quyền truy cập.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 NGÀY 3: TRIỂN KHAI PHÂN HỆ QUẢN LÝ TRUNG TÂM
+##### 📅 NGÀY 3: CƠ CHẾ GÁN VÀ THAY ĐỔI VAI TRÒ NGƯỜI DÙNG (RBAC)
+
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Phát triển API quản lý trung tâm và phân quyền Center Admin
-- **Chuyên gia phụ thuộc chuyên môn:** [Coder]
-- **Các Thẻ Mục Tiêu:** [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/CenterResource.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng các endpoint CRUD đầy đủ cho đối tượng `Centers`, kiểm tra ràng buộc mã số thuế độc nhất (`taxId`) từ 10-13 chữ số và cơ chế gán/hủy quyền Center Admin.
+
+###### 🌿 NHIỆM VỤ CON 1: TRIỂN KHAI USERROLESERVICE
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/UserRoleService.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `UserRoleService` với phương thức `updateUserRole(UUID userId, int newRoleId)`. Triển khai logic: kiểm tra người thực hiện có phải SystemAdmin hay CenterAdmin hợp lệ, kiểm tra sự tồn tại của user, xác thực role_id thuộc tập {1,2,3,4,5}, cập nhật cột `role_id` trong bảng `Users`, vô hiệu hoá phiên JWT hiện tại bằng cách thêm vào blacklist Redis với TTL bằng thời gian còn lại của token, ghi `AuditLogs` với old_value và new_value, gửi Kafka event `user.role.changed` để các service khác cập nhật cache. Áp dụng `@PreAuthorize("hasAnyRole('SystemAdmin','CenterAdmin')")` và xử lý trường hợp CenterAdmin chỉ được đổi role trong phạm vi trung tâm mình quản lý.
+
+* **Hợp Đồng Định Tuyến API Và Sự Kiện [REQ-003], [ARC-001], [ARC-002]:**
+```json
+{
+  "endpoint": "PUT /api/v1/users/{id}/role",
+  "headers": {
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIs...",
+    "Content-Type": "application/json"
+  },
+  "requestBody": { "roleId": 2 },
+  "response": {
+    "status": 200,
+    "body": {
+      "userId": "550e8400-e29b-41d4-a716-446655440000",
+      "oldRoleId": 5,
+      "newRoleId": 2,
+      "updatedAt": "2024-01-15T10:30:00Z"
+    }
+  }
+}
+```
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 2: Viết kiểm thử đơn vị cho phân hệ quản lý trung tâm
-- **Chuyên gia phụ thuộc chuyên môn:** [Tester]
-- **Các Thَة Mục Tiêu:** [REQ-005], [REQ-006]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/centerService/src/main/java/org/nlh4j/membershiphub/centerservice/CenterResource.java;./sources/backend/centerService/src/test/java/org/nlh4j/membershiphub/centerservice/CenterResourceTest.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử JUnit kiểm tra ngoại lệ khi cố gắng tạo trung tâm với mã số thuế trùng lặp và xác thực quyền hạn của System Admin.
+
+###### 🌿 NHIỆM VỤ CON 2: KIỂM THỬ PHÂN QUYỀN RBAC
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [REQ-003], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [EXC-004]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/service/UserRoleService.java;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/service/UserRoleServiceTest.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Xây dựng `UserRoleServiceTest` với 8 test case: (1) SystemAdmin thay đổi role thành công; (2) CenterAdmin thay đổi role thành công trong trung tâm mình quản lý; (3) CenterAdmin cố gắng thay đổi user ở trung tâm khác bị từ chối 403; (4) Manager thay đổi role bị từ chối 403; (5) Teacher thay đổi role bị từ chối 403; (6) thay đổi role với role_id không hợp lệ (6, 0) trả về 400; (7) user không tồn tại trả về 404; (8) sau khi đổi role, JWT cũ bị blacklist không thể sử dụng.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 3: TÀI LIỆU MA TRẬN RBAC
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Doc]
+
+* **Mã Thẻ Truy Vết:** [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [DOC-001]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/docs/architecture/phase-2-rbac-matrix.md`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo tài liệu Markdown mô tả ma trận phân quyền 5 cấp độ theo định dạng bảng gồm các cột: Role, Scope, CRUD Permissions, Special Permissions, Allowed Endpoints. Đính kèm sơ đồ Mermaid biểu diễn quan hệ kế thừa giữa các role, danh sách endpoint mà từng role có thể truy cập, ghi chú tuân thủ nguyên tắc least privilege.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 NGÀY 4: TRIỂN KHAI PHÂN HỆ QUẢN LÝ KHÓA HỌC
+##### 📅 NGÀY 4: REST API DANH SÁCH VÀ QUẢN LÝ TRUNG TÂM (PHẦN 1)
+
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Phát triển API khóa học và thuật toán kiểm tra tránh xung đột lịch
-- **Chuyên gia phụ thuộc chuyên môn:** [Coder]
-- **Các Thẻ Mục Tiêu:** [REQ-007], [REQ-008], [REQ-009], [ARC-003], [ARC-004]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng thuật toán kiểm tra lịch trình giảng dạy của giáo viên để ngăn chặn việc trùng lặp thời gian, kèm chức năng phân công giáo viên vào khóa học.
+
+###### 🌿 NHIỆM VỤ CON 1: TRIỂN KHAI CENTERCONTROLLER VÀ DANH SÁCH
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [REQ-004], [REQ-005]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/controller/CenterController.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `CenterController` với các endpoint: (1) `GET /api/v1/centers` trả về danh sách phân trang gồm Name, Address, TaxID, AdminContact với `@PreAuthorize("isAuthenticated()")`; (2) `POST /api/v1/centers` chỉ SystemAdmin được phép tạo mới trung tâm; (3) `PUT /api/v1/centers/{id}` cập nhật; (4) `DELETE /api/v1/centers/{id}` xoá mềm. Tích hợp `CenterService` với validation cho TaxID unique. Áp dụng `@Valid` cho mọi request body.
+
+* **Hợp Đồng Định Tuyến API Và Sự Kiện [REQ-004], [REQ-005]:**
+```json
+{
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/centers?page=0&size=20&sort=name,asc",
+      "response": {
+        "content": [
+          {
+            "centerId": "770e8400-e29b-41d4-a716-446655440000",
+            "name": "Trung tâm Quận 1",
+            "address": "123 Nguyễn Huệ, Quận 1, TP.HCM",
+            "taxId": "0312345678",
+            "adminContact": "admin.q1@membershiphub.vn"
+          }
+        ],
+        "totalElements": 5,
+        "totalPages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/centers",
+      "requestBody": {
+        "name": "Trung tâm Quận 3",
+        "address": "456 Võ Văn Tần, Quận 3",
+        "taxId": "0398765432",
+        "contactPhone": "+84 28 1234 5678",
+        "contactEmail": "contact.q3@membershiphub.vn"
+      }
+    }
+  ]
+}
+```
+
+* **Đặc Tả Lược Đồ Cơ Sở Dữ Liệu DDL SQL [DAT-002]:**
+```sql:matrix
+-- Bổ sung ràng buộc và chỉ mục tối ưu cho bảng Centers
+ALTER TABLE Centers ADD CONSTRAINT chk_centers_taxid_numeric 
+    CHECK (tax_id ~ '^[0-9]{10,13}$');
+ALTER TABLE Centers ADD CONSTRAINT chk_centers_phone_format 
+    CHECK (contact_phone IS NULL OR contact_phone ~ '^[+0-9 ()-]+$');
+ALTER TABLE Centers ADD CONSTRAINT chk_centers_email_format 
+    CHECK (contact_email IS NULL OR contact_email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+CREATE INDEX idx_centers_taxid ON Centers(tax_id);
+CREATE INDEX idx_centers_name_lower ON Centers(LOWER(name));
+```
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 2: Viết kiểm thử tích hợp cho thuật toán chống xung đột khóa học
-- **Chuyên gia phụ thuộc chuyên môn:** [Tester]
-- **Các Thẻ Mục Tiêu:** [REQ-008], [REQ-009]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java;./sources/backend/courseService/src/test/java/org/nlh4j/membershiphub/courseservice/CourseConflictTest.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử mô phỏng các kịch bản giáo viên dạy trùng lịch và xác thực mã lỗi xung đột trả về từ hệ thống.
+
+###### 🌿 NHIỆM VỤ CON 2: KIỂM THỬ CENTER CONTROLLER
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [REQ-004], [REQ-005], [EXC-004]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/controller/CenterController.java;./sources/backend/center-service/src/test/java/org/nlh4j/membershiphub/centerservice/controller/CenterControllerTest.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo `CenterControllerTest` với 7 test case: (1) lấy danh sách phân trang thành công với user bất kỳ đã xác thực; (2) SystemAdmin tạo trung tâm mới thành công 201; (3) Manager cố tạo trung tâm bị 403; (4) tạo trung tâm với TaxID trùng trả về 409 `TAX_ID_CONFLICT`; (5) tạo trung tâm với email sai định dạng trả về 400; (6) cập nhật trung tâm thành công; (7) xoá trung tâm thành công.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 3: REVIEW MÃ NGUỒN CENTER
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Reviewer]
+
+* **Mã Thẻ Truy Vết:** [REQ-004], [REQ-005], [ARC-002], [NFR-003]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/service/CenterService.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Đánh giá `CenterService` để phát hiện: (1) lỗ hổng SQL injection trong truy vấn tìm kiếm; (2) tuân thủ nguyên tắc OWASP A03:2021 Injection; (3) khả năng race condition khi kiểm tra trùng lặp TaxID đồng thời; (4) hiệu năng truy vấn khi danh sách trung tâm lớn. Đề xuất sử dụng unique constraint kết hợp upsert pattern.
+
+* **Trình Xử Lý Ngoại Lệ Cục Bộ Hoá Của Giai Đoạn [EXC-004]:** Khi TaxID đã tồn tại, `CenterExceptionHandler` bắt `DataIntegrityViolationException` từ PostgreSQL và ánh xạ thành `409 CONFLICT` với mã `TAX_ID_CONFLICT`. Khi validation input thất bại (tên trống, địa chỉ trống, TaxID không đúng 10-13 chữ số), trả về 400 với mảng chi tiết lỗi từng trường.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 NGÀY 5: KIỂM TRA TÍNH TOÀN VẸN KHÓA HỌC VÀ TRUNG TÂM
+##### 📅 NGÀY 5: GÁN/HUỶ GÁN CENTER ADMIN
+
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Tối ưu hóa truy vấn danh sách khóa học và phân trang
-- **Chuyên gia phụ thuộc chuyên môn:** [Coder]
-- **Các Thẻ Mục Tiêu:** [REQ-007], [ARC-003]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Bổ sung các chỉ mục cơ sở dữ liệu (`indexes`) cho bảng `courses` và `centers` nhằm đảm bảo thời gian phản hồi API dưới 200ms theo chuẩn phi chức năng.
+
+###### 🌿 NHIỆM VỤ CON 1: TRIỂN KHAI CENTERADMINSERVICE
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [REQ-006], [ARC-002], [NFR-006]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/service/CenterAdminService.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `CenterAdminService` với phương thức `assignAdmin(centerId, userId)` thực hiện: xác thực center tồn tại, user tồn tại, chỉ SystemAdmin mới có quyền thực hiện, cập nhật `role_id = 2` (CenterAdmin) trong bảng Users, lưu `center_id` vào bảng liên kết `CenterAdmins` với khóa chính tổng hợp `(center_id, user_id)`, ghi audit log, gửi Kafka event `center.admin.assigned`. Phương thức `unassignAdmin` thực hiện ngược lại và đặt role về Student.
+
+* **Hợp Đồng Định Tuyến API Và Sự Kiện [REQ-006], [ARC-002]:**
+```json
+{
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/api/v1/centers/{id}/admins",
+      "requestBody": { "userId": "550e8400-e29b-41d4-a716-446655440000" },
+      "response": { "status": 200, "body": { "centerId": "770e8400-...", "userId": "550e8400-...", "assignedAt": "2024-01-15T10:30:00Z" } }
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/centers/{id}/admins/{userId}",
+      "response": { "status": 204 }
+    }
+  ]
+}
+```
+
+* **Đặc Tả Lược Đồ Cơ Sở Dữ Liệu DDL SQL [DAT-002], [DAT-012]:**
+```sql:matrix
+-- Bảng liên kết CenterAdmins
+CREATE TABLE CenterAdmins (
+    center_id UUID NOT NULL,
+    user_id UUID NOT NULL,
+    assigned_at TIMESTAMP NOT NULL DEFAULT now(),
+    assigned_by UUID NOT NULL,
+    PRIMARY KEY (center_id, user_id)
+);
+CREATE INDEX idx_center_admins_user ON CenterAdmins(user_id);
+```
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 2: Kiểm thử hiệu năng đọc dữ liệu khóa học quy mô lớn
-- **Chuyên gia phụ thuộc chuyên môn:** [Tester]
-- **Các Thẻ Mục Tiêu:** [REQ-007], [NFR-001]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/CourseResource.java;./sources/backend/courseService/src/test/java/org/nlh4j/membershiphub/courseservice/CoursePerformanceTest.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử tải mô phỏng đồng thời 10,000 người dùng truy vấn danh sách khóa học và kiểm tra thời gian phản hồi trung bình.
+
+###### 🌿 NHIỆM VỤ CON 2: KIỂM THỬ GÁN ADMIN
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [REQ-006], [ARC-002], [EXC-004]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/center-service/src/main/java/org/nlh4j/membershiphub/centerservice/service/CenterAdminService.java;./sources/backend/center-service/src/test/java/org/nlh4j/membershiphub/centerservice/service/CenterAdminServiceTest.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo `CenterAdminServiceTest` với 6 test case: (1) SystemAdmin gán Center Admin thành công; (2) CenterAdmin cố gán admin khác bị 403; (3) gán user không tồn tại trả về 404; (4) gán cho center không tồn tại trả về 404; (5) gán trùng lặp trả về 409; (6) huỷ gán thành công và role chuyển về Student.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 3: TÀI LIỆU HỢP ĐỒNG CENTER
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Doc]
+
+* **Mã Thẻ Truy Vết:** [REQ-004], [REQ-005], [REQ-006], [DOC-001]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/docs/api/user-center-contracts.md`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Cập nhật tệp tài liệu API tổng hợp bổ sung 3 endpoint mới: `POST /api/v1/centers/{id}/admins`, `DELETE /api/v1/centers/{id}/admins/{userId}`, mô tả bảng mã lỗi (403, 404, 409), ghi chú về hiệu lực quyền hạn ngay sau khi gán.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 NGÀY 6: PHÁT TRIỂN PHÂN HỆ GHI DANH VÀ DUYỆT KHÓA HỌC
+##### 📅 NGÀY 6: GLOBAL EXCEPTION HANDLER VÀ KIỂM TOÁN
+
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Triển khai API ghi danh khóa học học viên
-- **Chuyên gia phụ thuộc chuyên môn:** [Coder]
-- **Các Thẻ Mục Tiêu:** [REQ-010], [REQ-011]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/EnrollmentResource.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Xây dựng API cho phép học viên duyệt khóa học chưa đăng ký, thực hiện ghi danh, tự động tạo tài khoản học viên nếu thiếu và kích hoạt hàng đợi thông báo Zalo.
+
+###### 🌿 NHIỆM VỤ CON 1: TRIỂN KHAI GLOBAL EXCEPTION HANDLER
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [EXC-004], [NFR-003]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/exception/GlobalExceptionHandler.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `GlobalExceptionHandler` được đánh dấu `@RestControllerAdvice` xử lý tập trung: (1) `MethodArgumentNotValidException` trả về 400 với mảng `FieldErrorResponse`; (2) `ConstraintViolationException` trả về 400; (3) `DataIntegrityViolationException` ánh xạ thành 409 với mã lỗi tương ứng (EMAIL_ALREADY_EXISTS, TAX_ID_CONFLICT, DUPLICATE_KEY); (4) `AuthenticationException` trả về 401; (5) `AccessDeniedException` trả về 403; (6) `EntityNotFoundException` trả về 404; (7) `Exception` mặc định trả về 500 nhưng không để lộ stack trace. Mỗi response phải bao gồm `timestamp`, `status`, `errorCode`, `message`, `path`, `traceId` để phục vụ observability.
+
+* **Trình Xử Lý Ngoại Lệ Cục Bộ Hoá Của Giai Đoạn [EXC-004]:** Cấu trúc response lỗi chuẩn hoá là `{"timestamp":"2024-01-15T10:30:00Z","status":400,"errorCode":"VALIDATION_FAILED","message":"Input validation failed","errors":[{"field":"email","message":"must be a well-formed email address","rejectedValue":"invalid-email"}],"path":"/api/v1/users/register","traceId":"a1b2c3d4"}`. Mọi endpoint trong user-service và center-service đều sử dụng chung cấu trúc này.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 2: Viết kiểm thử đơn vị cho phân hệ ghi danh học viên
-- **Chuyên gia phụ thuộc chuyên môn:** [Tester]
-- **Các Thẻ Mục Tiêu:** [REQ-010], [REQ-011]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/backend/courseService/src/main/java/org/nlh4j/membershiphub/courseservice/EnrollmentResource.java;./sources/backend/courseService/src/test/java/org/nlh4j/membershiphub/courseservice/EnrollmentTest.java`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Viết kiểm thử xác thực việc tạo bản ghi ghi danh thành công và kiểm tra việc loại bỏ các khóa học đã đăng ký khỏi danh sách duyệt.
+
+###### 🌿 NHIỆM VỤ CON 2: KIỂM THỬ TÍCH HỢP EXCEPTION HANDLER
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [EXC-004], [NFR-003]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/exception/GlobalExceptionHandler.java;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/exception/GlobalExceptionHandlerTest.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo `GlobalExceptionHandlerTest` với 7 test case kiểm tra: (1) response 400 khi email sai định dạng; (2) response 409 khi email trùng; (3) response 401 khi thiếu token; (4) response 403 khi không đủ quyền; (5) response 404 khi user không tồn tại; (6) response 500 khi lỗi hệ thống không xác định nhưng không lộ stack trace; (7) đảm bảo response luôn có `traceId` để liên kết log.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 3: TRIỂN KHAI AUDIT LOGGER
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Coder]
+
+* **Mã Thẻ Truy Vết:** [NFR-006], [REQ-003], [REQ-006]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/audit/AuditLogger.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tạo lớp `AuditLogger` với annotation `@AuditLogged(action = "...")` cho phép ghi log kiểm toán tự động thông qua AOP aspect. Triển khai: (1) lưu bản ghi vào bảng `AuditLogs` với đầy đủ user_id, action, target_entity, target_id, old_value, new_value, ip_address, user_agent, timestamp; (2) đồng thời ghi log có cấu trúc (JSON) ra console để tích hợp với Stackdriver Logging; (3) đảm bảo thao tác ghi log không làm thất bại giao dịch chính thông qua cơ chế `@Transactional(propagation = Propagation.REQUIRES_NEW)`. Tuân thủ `[NFR-006]` yêu cầu lưu trữ 1 năm.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 NGÀY 7: TỔNG KẾT VÀ BIÊN SOẠN TÀI LIỆU GIAI ĐOẠN 2
+##### 📅 NGÀY 7: ĐÁNH GIÁ TỔNG THỂ VÀ TÍCH HỢP CUỐI KỲ
+
 <!--ATOMIC_SUB_TASK_NODE_START-->
-###### 🌿 TÁC VỤ PHỤ 1: Biên soạn tài liệu đặc tả API REST cho phân hệ trung tâm và khóa học
-- **Chuyên gia phụ thuộc chuyên môn:** [Doc]
-- **Các Thẻ Mục Tiêu:** [DOC-001], [REQ-005], [REQ-008], [REQ-011]
-- **Đường dẫn tệp thành phần (target_component):** `./sources/docs/api_core_modules_reference.md`
-- **Hướng dẫn tác vụ kỹ thuật chi tiết:** Tổng hợp toàn bộ tài liệu đặc tả API REST, mô tả cấu trúc request/response JSON của các module trung tâm, khóa học và ghi danh học viên.
+
+###### 🌿 NHIỆM VỤ CON 1: REVIEW TOÀN DIỆN GIAI ĐOẠN 2
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Reviewer]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [NFR-003], [NFR-006], [EXC-004]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/backend/user-service/src/main/java/org/nlh4j/membershiphub/userservice/security/JwtAuthFilter.java`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Thực hiện đánh giá tổng thể toàn bộ mã nguồn Giai đoạn 2 theo checklist: (1) Tuân thủ OWASP Top 10 — A01 Broken Access Control (kiểm tra quyền truy cập theo role), A03 Injection (parameterized queries), A07 Identification and Authentication Failures; (2) Tuân thủ nguyên tắc SOLID và Clean Architecture; (3) Khả năng mở rộng và tái sử dụng của các service layer; (4) Hiệu năng truy vấn database và khả năng chịu tải; (5) Phát hiện code smell và đề xuất cải tiến. Lập báo cáo đánh giá chi tiết với định dạng bảng gồm mức độ nghiêm trọng (Critical/High/Medium/Low), mô tả, đề xuất fix, file liên quan.
+
+* **Trình Xử Lý Ngoại Lệ Cục Bộ Hoá Của Giai Đoạn [EXC-004]:** Tổng hợp toàn bộ 5 mã lỗi nghiệp vụ đã được chuẩn hoá trong Giai đoạn 2: `EMAIL_ALREADY_EXISTS` (409), `TAX_ID_CONFLICT` (409), `INVALID_TOKEN` (401), `TOKEN_EXPIRED` (401), `INSUFFICIENT_PRIVILEGES` (403), `USER_NOT_FOUND` (404), `CENTER_NOT_FOUND` (404), `VALIDATION_FAILED` (400). Mỗi mã lỗi có mô tả tiếng Việt rõ ràng cho developer và end-user.
+
 <!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 2: KIỂM THỬ TÍCH HỢP LIÊN SERVICE
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Tester]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [REQ-003], [REQ-006], [ARC-001], [ARC-002], [ARC-006], [NFR-003]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** INTEGRATION_SCOPE;./sources/backend/user-service/src/test/java/org/nlh4j/membershiphub/userservice/UserCenterIntegrationTest.java
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Xây dựng bộ kiểm thử tích hợp liên service sử dụng Testcontainers (PostgreSQL + Redis) và WireMock. Các kịch bản: (1) Luồng hoàn chỉnh từ đăng ký user → gán role CenterAdmin → truy cập endpoint center thành công; (2) Sau khi đổi role từ CenterAdmin về Student, endpoint center trả về 403; (3) Đăng ký qua Google OAuth2 → liên kết social account → đăng nhập lần sau không tạo user mới; (4) Đồng bộ audit log giữa user-service và center-service.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 NHIỆM VỤ CON 3: TÀI LIỆU TỔNG KẾT GIAI ĐOẠN 2
+
+* **Chuyên Môn Hoá Quy Trình Sub-Agent:** [Doc]
+
+* **Mã Thẻ Truy Vết:** [REQ-001], [REQ-002], [REQ-003], [REQ-004], [REQ-005], [REQ-006], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [NFR-003], [NFR-006], [DOC-001]
+
+* **Đường Dẫn Tệp Thành Phần Mục Tiêu (target_component):** `./sources/docs/api/user-center-contracts.md`
+
+* **Hướng Dẫn Nhiệm Vụ Kỹ Thuật Cấp Thấp:** Tổng hợp và cập nhật tài liệu tổng kết Giai đoạn 2 bao gồm: (1) Bảng tổng hợp 7 endpoint đã triển khai với mã trạng thái, mô tả, role yêu cầu; (2) Sơ đồ tuần tự (sequence diagram) mô tả luồng đăng ký và xác thực; (3) Bảng mã lỗi chuẩn hoá; (4) Checklist tuân thủ OWASP đã áp dụng; (5) Hướng dẫn cấu hình biến môi trường cho OAuth2 providers; (6) Tài liệu chuyển giao cho Giai đoạn 3.
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
 <!--DAY_LOG_INDEX_END-->
 
 <!--PHASE_INDEX_END-->
+
+<!--END_CHUNK_PART_2_PHASE_LOOP-->
 

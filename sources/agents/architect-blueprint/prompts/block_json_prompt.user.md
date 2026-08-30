@@ -1,4 +1,9 @@
 {% set target_language = language if language and language.strip() != "" else "English" %}
+### CRITICAL ATTENTION ANCHORING PROTOCOL (ENFORCED):
+Before processing the deep technical payloads, code blocks, or schemas inside the `<PHASE_CONTEXT_REFERENCE_BOUND>` layer, your internal memory pipeline MUST dynamically run a zero-context token sweep exclusively to locate the absolute last physical day block index header.
+- You MUST explicitly trace all occurrences of the tag `<!--DAY_HEADER_START-->` or all 3rd level markdown headers / sub-headers (`### ...`) located strictly under section 5 (the 2nd level markdown header `## 5.`) to determine the true maximum milestone index.
+- If that structural pattern is physically present on your input stream, you are STRINCENTLY FORBIDDEN from dropping or omitting the final day node due to context fatigue or code block density. You MUST register the absolute physical ceiling variable `Z` to exactly match that maximum discovered day index.
+
 <PHASE_CONTEXT_REFERENCE_BOUND>
 --- PHASE {{ phase_idx }} CONTEXT MARKDOWN ---
 {{ phase_markdown_content }}
@@ -10,7 +15,7 @@ Analyze the attached Phase {{ phase_idx }} Context Markdown content inside the `
 {% if is_chunked %}
 # SYSTEM CRITICAL BOUNDARY: CHUNKED CONFIGURATION IS ACTIVE (is_chunked is TRUE)
 - **Strict Chunk Slice Existential Mandate**: Before attempting any parsing or schema mapping, you MUST actively scan the entire text layout bounded within `<PHASE_CONTEXT_REFERENCE_BOUND>` to establish the absolute maximum calendar day index physically documented (e.g., if the text physically stops at "### NGÀY 2:" or "### DAY 2:", the maximum physical boundary is exactly 2).
-- **The Zero-Workload Circuit-Breaker**: You MUST mathematically compare the static dynamic parameters of your requested slice window starting from 3 up to 4 against this maximum physical boundary. If the starting parameter index 3 is strictly greater than the maximum physical day index found in the source text (meaning your requested chunk window targets a future timeline segment that does not literally exist in the document), you MUST cognitively deduce that there is ZERO operational workload available for this execution block. Under this condition, you are STRICTLY BANNED from recycling, cloning, carrying forward, or re-mapping early day segments (such as Day 1 or Day 2 data) to pad or satisfy the payload. You MUST instantly terminate your parsing engine and proceed straight to Section 8 to output an un-padded empty days array.
+- **The Zero-Workload Circuit-Breaker**: You MUST mathematically compare the static dynamic parameters of your requested slice window starting from {{ current_start_day }} up to {{ current_end_day }} against this maximum physical boundary. If the starting parameter index {{ current_start_day }} is strictly greater than the maximum physical day index found in the source text (meaning your requested chunk window targets a future timeline segment that does not literally exist in the document), you MUST cognitively deduce that there is ZERO operational workload available for this execution block. Under this condition, you are STRICTLY BANNED from recycling, cloning, carrying forward, or re-mapping early day segments (such as Day 1 or Day 2 data) to pad or satisfy the payload. You MUST instantly terminate your parsing engine and proceed straight to Section 8 to output an un-padded empty days array.
 
 {% else %}
 # SYSTEM CRITICAL BOUNDARY: FLAT CONFIGURATION IS ACTIVE (is_chunked is FALSE)
@@ -76,9 +81,13 @@ You MUST dynamically populate the top-level keys of the JSON object using EXACT 
   * For each individual index `K`, execute the following strict mathematical filter before writing any JSON output:
     
     * **CASE A: Index Out of Physical Bounds (K > Z)**:
-      If the active loop index `K` is strictly greater than the dynamic baseline ceiling variable `Z` (`K > Z`), you MUST safely isolate this specific index node without destroying active valid nodes inside the current chunk window layer.
-      - **ALGEBRAIC CIRCUITS BREAKING LAW (ANTI-RECYCLING SHIELD):** You ARE PERMANENTLY AND CRITICALLY BANNED from parsing, fetching, or extracting any remaining string sequences or loose text elements lying outside the matching pair envelopes of `<!--DAY_HEADER_START-->` and `<!--DAY_HEADER_END-->`. You ARE ABSOLUTELY BANNED from looking backward into your attention context history, and you ARE STRICTLY FORBIDDEN from recycling, cloning, or double-emitting any historical day nodes belonging to previously processed index intervals into a post-bounds window. 
-      - **LOCAL NODE MICRO-GATED CLOSURE:** Under this specific node out-of-bounds condition (where prior valid elements exist in the current window but index `K` exceeds `Z`), do NOT print any comma `,` or open any new day object `{` for index `K`. You MUST instantly print the array closing bracket `]` right after the final closing character brace `}` of the mathematically valid day block (where index `K = Z`), resolve the root JSON metadata structure safely, and terminate execution cleanly.
+      If the active loop index `K` is strictly greater than the dynamic baseline ceiling variable `Z` (`K > Z`) but the starting window parameter was valid ({{ current_start_day }} <= Z):
+      - **ALGEBRAIC CIRCUITS BREAKING LAW (ANTI-RECYCLING SHIELD):** You ARE PERMANENTLY AND CRITICALLY BANNED from parsing, fetching, or extracting any remaining string sequences or loose text elements lying outside the matching pair envelopes of `<!--DAY_HEADER_START-->` and `<!--DAY_HEADER_END-->`. You ARE ABSOLUTELY BANNED from looking backward into your attention context history, and you ARE STRICTLY FORBIDDEN from recycling, cloning, or double-emitting any historical day nodes belonging to previously processed index intervals into a post-bounds window.
+      - **ADAPTIVE TRUNCATION PROTOCOL (ANTI-CRASH SHIELD):** You are CRITICALLY AND ABSOLUTELY BANNED from raw terminating, cutting off tokens early, or leaving the payload incomplete. 
+      - Do NOT open any new day JSON object block for index K.
+      - Do NOT print any trailing comma after the valid day object node where K = Z.
+      - Instantly print the array closing bracket `]` to seal the "days" array cleanly right after the day object of day Z.
+      - You MUST forcefully continue token generation to write and resolve 100% of the remaining top-level JSON metadata requirements at the bottom of the schema structure (specifically `project_name`, `global_context_file`, `source_target_dir`, and any closing braces `}`) to guarantee a perfectly closed, fully parseable RFC-8259 JSON payload.
       - *Historical Context Isolation*: You are completely and critically banned from looking back into prior chat turns or cloning historical data to substitute into this missing slot.
 
     * **CASE B: Index In Physical Bounds (1 <= K <= Z)**:
