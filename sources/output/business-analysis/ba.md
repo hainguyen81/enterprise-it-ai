@@ -1,234 +1,252 @@
-# YÊU CẦU CỦA HỆ THỐNG PHẦN MỀM: social-scheduler
+# YÊU CẦU CHUYÊN GIA: social-scheduler
 
 ## 📊 Kiểm soát Tài liệu
 
 | Mục | Chi tiết |
 | :--- | :--- |
-| **SRS ID** | SRS-20260830150648 |
-| **Tên Dự án** | social-scheduler |
-| **Phiên bản** | 1.0 (Cơ sở) |
-| **Ngày Giờ** | 2026/08/30 15:06:48 |
-| **Tác giả** | Enterprise System Architect (SA Agent) |
-| **Phê duyệt** | Chờ phê duyệt quản trị kỹ thuật
+| **SRS ID** | SRS-20260830153530 |
+| **Project Name** | social-scheduler |
+| **Version** | 1.0 (Cơ sở) |
+| **Date Time** | 2026/08/30 15:35:30 |
+| **Author** | Principal Business Analyst (BA) / Product Strategist (BA Agent) |
+| **Approval** | Chờ phê duyệt quản trị kỹ thuật |
 
 ## 1. Tổng quan Dự án & Kiến trúc Toàn cầu
 
-### Mục tiêu Sản phẩm & Giá trị Cốt lõi
+- **Mục tiêu Sản phẩm & Giá trị Cốt lõi**
+  * Tự động hóa lịch đăng bài trên mạng xã hội để đảm bảo sự hiện diện nhất quán.
+  * Cung cấp đề xuất nội dung được hỗ trợ bởi AI nhằm nâng cao tương tác.
+  * Cho phép xuất bản đa nền tảng (Facebook, Instagram, TikTok) từ một giao diện duy nhất.
 
-- [ARC-001] Mục tiêu: Tự động hóa việc lên lịch đăng bài trên mạng xã hội cho các doanh nghiệp nhỏ để duy trì sự hiện diện trực tuyến nhất quán.
-- [ARC-002] Giá trị cốt lõi: Hiệu quả, độ tin cậy, khả năng mở rộng và bảo mật.
+- **Đối tượng Mục tiêu**
+  * Chủ doanh nghiệp nhỏ.
+  * Quản lý tiếp thị.
+  * Chuyên gia marketing tự do.
 
-### Đối tượng Mục tiêu
+- **Ma trận Vai trò & Quyền hạn (RBAC)**
+  * **[ARC-001]** Quản trị viên: toàn quyền truy cập vào hệ thống, quản lý người dùng, cấu hình nền tảng, xem tất cả lịch đăng bài và báo cáo.
+  * **[ARC-002]** Chủ doanh nghiệp: tạo và quản lý lịch đăng bài cho doanh nghiệp của mình, xem báo cáo hiệu suất, cấu hình quyền truy cập của người dùng được chỉ định.
+  * **[ARC-003]** Quản lý tiếp thị: lên lịch và theo dõi lịch đăng bài được chỉ định, xem báo cáo hiệu suất cho các chiến dịch được giao.
+  * **[ARC-004]** Người dùng lên lịch: tạo và chỉnh sửa lịch đăng bài cá nhân, xem nội dung được đề xuất bởi AI.
 
-- [ARC-003] Chủ doanh nghiệp nhỏ: Người ra quyết định chính cho các hoạt động tiếp thị.
-- [ARC-004] Quản lý tiếp thị: Người giám sát chiến dịch và phân công nhiệm vụ.
-- [ARC-005] Chuyên gia marketing tự do: Nhà cung cấp dịch vụ làm việc với nhiều khách hàng.
-
-### Ma trận Kiểm soát Truy cập Dựa trên Vai trò (RBAC)
-
-- [ARC-006] Vai trò: Chủ doanh nghiệp (Owner). Quyền: Tạo lịch, xuất bản, quản lý người dùng, xem báo cáo phân tích, cấu hình tích hợp.
-- [ARC-007] Vai trò: Quản lý Tiếp thị (Marketing Manager). Quyền: Tạo lịch, xuất bản, xem báo cáo phân tích, cấu hình tích hợp (chỉ đọc).
-- [ARC-008] Vai trò: Người lập lịch (Scheduler). Quyền: Tạo lịch, lên lịch, xem lịch đã lên lịch.
-- [ARC-009] Vai trò: Nhà phân tích (Analyst). Quyền: Xem báo cáo phân tích, xuất dữ liệu.
-
-### Kiến trúc Kỹ thuật & Stack Toàn cầu
-
-- [ARC-011] API Gateway: Quản lý lưu lượng truy cập, xác thực, giới hạn tỷ lệ.
-- [ARC-012] Microservices: Các dịch vụ độc lập cho xác thực, lên lịch, gợi ý nội dung, lưu trữ dữ liệu hiệu suất, nhật ký giới hạn tỷ lệ.
-- [ARC-013] Containerization: Docker với Kubernetes để orchestration.
-- [ARC-014] Cloud Infrastructure: Triển khai trên AWS (hoặc GCP) với RDS cho PostgreSQL, Redis Cache, và Message Queue (Kafka).
-- [ARC-015] Message Queue: Apache Kafka cho các tác vụ đăng bài bất đồng bộ.
-- [ARC-016] Monitoring & Logging: Prometheus + Grafana, ELK Stack.
-- [ARC-017] Security: OAuth2 / JWT, WAF, mã hóa dữ liệu, tuân thủ OWASP Top 10.
-- [ARC-018] Multi-tenancy: Cô lập dữ liệu theo schema mỗi tenant trong PostgreSQL.
-- [ARC-019] CI/CD: GitLab CI với tự động triển khai blue-green.
+- **Blueprint Stack Công nghệ & Hạ tầng**
+  * **[ARC-005]** Lõi ứng dụng: Java Spring Boot (v3.2.x) với Kotlin, tích hợp Quarkus cho API gateway.
+  * **[ARC-005]** Dịch vụ front-end: React Native (v0.73) cho di động, Next.js (v14) cho web.
+  * **[ARC-005]** Cơ sở dữ liệu: PostgreSQL (v15) cho dữ liệu quan hệ, Redis (v7) cho bộ nhớ đệm và theo dõi phiên làm việc.
+  * **[ARC-005]** Dịch vụ bên ngoài: GraphQL API gateways cho Facebook, Instagram, TikTok, cùng với SDK xác thực OAuth2.
+  * **[ARC-005]** Máy học: Python với scikit-learn và TensorFlow (v2.15) để đào tạo mô hình đề xuất nội dung.
+  * **[ARC-005]** CI/CD: GitLab CI, Docker, Kubernetes (GKE) với tự động hóa triển khai canary.
+  * **[ARC-005]** Bảo mật: JWT access tokens với thời gian hết hạn ngắn, đa yếu tố cho vai trò quản trị, kiểm toán toàn bộ nhật ký thay đổi dữ liệu.
 
 ## 2. Các Mô-đun Tính năng Nâng cao
 
-### 2.1 Automated Posting Scheduler (REQ-001)
+### Mô-đun 1: Tích hợp Lịch đăng bài Tự động
 
-**Yêu cầu Chức năng Cốt lõi**
+- **Yêu cầu chức năng cốt lõi**: **[REQ-001]** Tự động hóa lịch đăng bài trên Facebook, Instagram và TikTok thông qua tích hợp API.
 
-- [REQ-001] Là một chủ doanh nghiệp nhỏ, tôi muốn hệ thống tự động lên lịch đăng bài lên Facebook, Instagram và TikTok dựa trên lịch đã định nghĩa, để duy trì sự hiện diện mạng xã hội nhất quán mà không cần thao tác thủ công.
+  **Tiêu chí chấp nhận**
+  * Given tôi là một chủ doanh nghiệp đã xác thực,
+    When tôi kết nối tài khoản mạng xã hội của mình và tạo một lịch đăng bài mới với nền tảng, nội dung và thời gian đã chọn,
+    Then hệ thống phải lưu lịch đăng bài đó và hiển thị xác nhận thành công với mã lịch đăng bài tương ứng.
+  * Given một lịch đăng bài đã lên lịch với trạng thái "đã lên lịch",
+    When thời điểm đã lên lịch đã đến,
+    Then hệ thống phải gọi API tương ứng của nền tảng và ghi lại kết quả xuất bản trong bảng hiệu suất bài đăng.
+  * Given bất kỳ lỗi nào từ API bên thứ ba,
+    When hệ thống nhận được phản hồi lỗi,
+    Then hệ thống phải ghi lại lỗi vào bảng nhật ký, đánh dấu lịch đăng bài là "lỗi", và lên lịch thử lại sau một khoảng thời gian configurable.
 
-**Tiêu chí Chấp nhận**
+  **Luồng ngoại lệ**
+  * **[EXC-001]** Khi API bên thứ ba trả về lỗi, hệ thống phải ghi lại chi tiết lỗi (bao gồm mã lỗi, phản hồi, timestamp), đánh dấu lịch đăng bài là "lỗi", và tự động lên lịch thử lại sau khoảng thời gian thử lại configurable (ví dụ: 5 phút). Nếu số lần thử lại vượt quá ngưỡng tối đa, lịch đăng bài sẽ bị đánh dấu là "thất bại" và thông báo được gửi đến người dùng.
 
-- Given tôi có một tài khoản active và một lịch đăng bài được định nghĩa trong hệ thống,
-  When tôi kích hoạt engine lên lịch,
-  Then bài đăng sẽ được xuất bản lên các nền tảng tương ứng (Facebook, Instagram, TikTok) tại scheduled_time.
+  **Từ điển Dữ liệu**
+  * **[DAT-001]** Bảng lưu trữ lịch đăng bài
 
-- Given trạng thái bài đăng là "scheduled",
-  When thời điểm hiện tại đạt đến scheduled_time,
-  Then hệ thống cố gắng xuất bản bài đăng qua API nền tảng tương ứng.
+    | Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
+    |-----------|-------------|------------|-------------|
+    | id | uuid | PK | Khóa chính, UUID của lịch đăng bài |
+    | userId | uuid | FK | Tham chiếu đến Users(userId), không null |
+    | platform | varchar |  | Tên nền tảng mạng xã hội (ví dụ: Facebook, Instagram, TikTok), không null |
+    | content | text |  | Nội dung bài đăng, không null |
+    | scheduledTime | timestamp |  | Thời điểm dự kiến xuất bản, không null |
+    | status | varchar |  | Trạng thái hiện tại của lịch đăng bài (ví dụ: đã lên lịch, đã xuất bản, lỗi, đã hủy), không null |
 
-**Luồng Ngoại lệ**
+    ```mermaid
+    erDiagram
+        Users ||--o{ Scheduling : "userId"
+        Scheduling {
+          uuid id PK "Primary key, UUID"
+          uuid userId FK "References Users(userId)"
+          varchar platform "Social platform name"
+          text content "Post content text"
+          timestamp scheduledTime "Scheduled publishing datetime"
+          varchar status "Current status of scheduled post"
+        }
+    ```
 
-- [EXC-001] Xử lý ngoại lệ khi API bên thứ ba trả về lỗi; ghi lại và thử lại sau.
+  * **[DAT-004]** Bảng thông tin người dùng
 
-**Từ điển Dữ liệu**
+    | Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
+    |-----------|-------------|------------|-------------|
+    | id | uuid | PK | Khóa chính, UUID của người dùng |
+    | username | varchar |  | Tên người dùng, không null, duy nhất |
+    | email | varchar |  | Địa chỉ email, không null, duy nhất |
+    | passwordHash | varchar |  | Băm mật khẩu, không null |
+    | createdAt | timestamp |  | Thời điểm tạo tài khoản, không null |
+    | updatedAt | timestamp |  | Thời điểm cập nhật tài khoản cuối cùng |
 
-- [DAT-001] Bảng lưu trữ lịch đăng bài: id, user_id, platform, content, scheduled_time, status.
+    ```mermaid
+    erDiagram
+        Users {
+          uuid id PK "Primary key"
+          varchar username "User's chosen username"
+          varchar email "User's email address"
+          varchar passwordHash "Hashed password"
+          timestamp createdAt "Account creation timestamp"
+          timestamp updatedAt "Last update timestamp"
+        }
+    ```
 
-```mermaid
-erDiagram
-    USERS {
-        uuid id PK "Primary key for user"
-        varchar email "User email"
-        varchar name "User name"
-    }
+### Mô-đun 2: Công cụ Đề xuất Nội dung được hỗ trợ bởi AI
 
-    POST_SESSIONS {
-        uuid id PK "Primary key for schedule entry"
-        varchar userId FK "Foreign key to Users"
-        varchar platform "Target platform"
-        text content "Post content"
-        timestamp scheduledTime "Scheduled publish time"
-        varchar status "Schedule status"
-    }
+- **Yêu cầu chức năng cốt lõi**: **[REQ-002]** Triển khai mô hình học máy để đề xuất nội dung bài đăng dựa trên hiệu suất trước đó.
 
-    USERS ||--o{ POST_SESSIONS : "userId"
-```
+  **Tiêu chí chấp nhận**
+  * Given một người dùng có lịch sử bài đăng,
+    When mô hình được huấn luyện,
+    Then hệ thống phải cung cấp danh sách nội dung được sắp xếp theo dự đoán tương tác cho mỗi lịch đăng bài được lên lịch tiếp theo.
+  * Given một lịch đăng bài được lên lịch mới,
+    When người dùng chấp nhận một gợi ý nội dung,
+    Then nội dung được chấp nhận phải được điền vào trường nội dung của lịch đăng bài đó.
 
-### 2.2 AI Content Suggestion Engine (REQ-002)
+  **Luồng ngoại lệ**
+  * **[EXC-004]** Khi mô hình học máy gặp lỗi trong quá trình dự đoán (ví dụ: đầu vào không hợp lệ, lỗi thuật toán), hệ thống phải ghi lại sự kiện lỗi, sử dụng nội dung mẫu mặc định, và thông báo cho quản trị viên để can thiệp thủ công.
 
-**Yêu cầu Chức năng Cốt lõi**
+  **Từ điển Dữ liệu**
+  * **[DAT-002]** Bảng hiệu suất bài đăng
 
-- [REQ-002] Là một quản lý tiếp thị, tôi muốn hệ thống đề xuất nội dung bài đăng dựa trên hiệu suất trước đó, để tạo ra các bài đăng hấp dẫn thúc đẩy tương tác cao hơn.
+    | Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
+    |-----------|-------------|------------|-------------|
+    | id | uuid | PK | Khóa chính, UUID của bản ghi hiệu suất |
+    | postId | varchar |  | Tham chiếu đến lịch đăng bài (social-scheduler ID), không null |
+    | metricLikes | smallint |  | Số lượt thích thu được |
+    | metricComments | smallint |  | Số bình luận thu được |
+    | metricShares | smallint |  | Số lượt chia sẻ thu được |
+    | collectedAt | timestamp |  | Thời điểm thu thập chỉ số |
 
-**Tiêu chí Chấp nhận**
+    ```mermaid
+    erDiagram
+        Scheduling ||--o{ PostPerformance : "postId"
+        Scheduling {
+          uuid id PK "Primary key"
+          uuid userId FK "References Users(userId)"
+          varchar platform "Platform name"
+          text content "Post content"
+          timestamp scheduledTime "Scheduled time"
+          varchar status "Status"
+        }
+        PostPerformance {
+          uuid id PK "Primary key"
+          varchar postId "Reference to scheduled post"
+          smallint metricLikes "Number of likes"
+          smallint metricComments "Number of comments"
+          smallint metricShares "Number of shares"
+          timestamp collectedAt "Timestamp of collection"
+        }
+    ```
 
-- Given tôi có dữ liệu hiệu suất bài đăng lịch sử,
-  When tôi yêu cầu gợi ý nội dung cho một nền tảng mục tiêu,
-  Then hệ thống trả về danh sách các đoạn nội dung được gợi ý, được xếp hạng theo dự đoán tương tác.
+### Mô-đun 3: Xác thực, Kiểm soát Tỷ lệ & Bảo mật
 
-- Given một mục nội dung được gợi ý,
-  When tôi chấp nhận và lên lịch cho nó,
-  Then nội dung được lưu vào bảng lịch đăng bài với trạng thái "scheduled".
+- **Yêu cầu chức năng cốt lõi**: **[REQ-003]** Thực hiện xác thực đầu vào dữ liệu và kiểm tra giới hạn tỷ lệ cho từng người dùng.
 
-**Luồng Ngoại lệ**
+  **Tiêu chí chấp nhận**
+  * Given một yêu cầu tạo lịch đăng bài mới,
+    When đầu vào không hợp lệ (ví dụ: thiếu nền tảng, định dạng thời gian không hợp lệ),
+    Then hệ thống phải trả về một thông báo lỗi cụ thể và không tạo lịch đăng bài.
+  * Given một người dùng vượt quá giới hạn tỷ lệ được phép (ví dụ: quá 10 yêu cầu trong 5 phút),
+    When người dùng thực hiện một yêu cầu mới,
+    Then hệ thống phải từ chối yêu cầu với một thông báo "vượt quá giới hạn tỷ lệ" và ghi lại sự kiện này.
 
-- [EXC-002] Xác thực quyền truy cập người dùng và xử lý trường hợp token hết hạn.
+  **Luồng ngoại lệ**
+  * **[EXC-002]** Khi token xác thực hết hạn hoặc không hợp lệ, hệ thống phải làm mới token (nếu có refresh token) hoặc yêu cầu người dùng đăng nhập lại, và ghi lại sự kiện xác thực không thành công.
+  * **[EXC-003]** Khi phát hiện một người dùng tạo nhiều lịch đăng bài trong một khoảng thời gian ngắn (ví dụ: < 1 phút), hệ thống phải tạm thời chặn người dùng đó (ví dụ: 5 phút) và ghi lại sự kiện spam.
 
-**Từ điển Dữ liệu**
+  **Từ điển Dữ liệu**
+  * **[DAT-003]** Bảng theo dõi tỷ lệ giới hạn
 
-- [DAT-002] Bảng hiệu suất bài đăng: id, post_id, metric_likes, metric_comments, metric_shares, collected_at.
+    | Tên trường | Kiểu dữ liệu | Ràng buộc | Mô tả |
+    |-----------|-------------|------------|-------------|
+    | id | uuid | PK | Khóa chính, UUID của bản ghi tỷ lệ |
+    | userId | uuid | FK | Tham chiếu đến Users(userId), không null |
+    | platform | varchar |  | Nền tảng mục tiêu cho quy tắc tỷ lệ, không null |
+    | requestCount | int |  | Số yêu cầu trong cửa sổ hiện tại, không null |
+    | windowStart | timestamp |  | Thời điểm bắt đầu cửa sổ tỷ lệ, không null |
+    | windowEnd | timestamp |  | Thời điểm kết thúc cửa sổ tỷ lệ, không null |
 
-```mermaid
-erDiagram
-    POST_SESSIONS {
-        uuid id PK "Primary key for scheduled post"
-        varchar userId FK "Foreign key to Users"
-        varchar platform "Target platform"
-        text content "Post content"
-        timestamp scheduledTime "Scheduled time"
-        varchar status "Status"
-    }
+    ```mermaid
+    erDiagram
+        Users ||--o{ RateLimitTracking : "userId"
+        Users {
+          uuid id PK "Primary key"
+          varchar username "User's chosen username"
+          varchar email "User's email address"
+          varchar passwordHash "Hashed password"
+          timestamp createdAt "Account creation timestamp"
+          timestamp updatedAt "Last update timestamp"
+        }
+        RateLimitTracking {
+          uuid id PK "Primary key"
+          uuid userId FK "References Users(userId)"
+          varchar platform "Target platform"
+          int requestCount "Request count"
+          timestamp windowStart "Window start"
+          timestamp windowEnd "Window end"
+        }
+    ```
 
-    POST_PERFORMANCES {
-        uuid id PK "Primary key for performance record"
-        varchar postId FK "Foreign key to POST_SESSIONS"
-        int metricLikes "Number of likes"
-        int metricComments "Number of comments"
-        int metricShares "Number of shares"
-        timestamp collectedAt "Timestamp when metrics were collected"
-    }
+## 3. Các Yêu cầu Phi chức năng Toàn cầu
 
-    POST_SESSIONS ||--o{ POST_PERFORMANCES : "postId"
-```
+- **[NFR-001]** Hiệu suất
+  * Thời gian phản hồi trung bình cho các yêu cầu tạo lịch đăng bài phải dưới 200 ms.
+  * Thông lượng xử lý lịch đăng bài phải đạt ít nhất 500 yêu cầu mỗi giây.
+  * Dịch vụ đề xuất nội dung phải phản hồi trong vòng 100 ms sau khi có yêu cầu.
 
-### 2.3 Validation & Rate Limiting (REQ-003)
+- **[NFR-002]** Bảo mật
+  * Tất cả dữ liệu truyền tải phải được mã hóa bằng TLS 1.3.
+  * Xác thực phải sử dụng JWT access token với thời gian hết hạn tối đa là 15 phút; refresh token phải có thời gian sống dài hơn nhưng phải được lưu trữ an toàn trong Redis.
+  * Tuân thủ OWASP Top 10: ngăn chặn SQL injection, XSS, và CSRF thông qua các prepared statement và Content Security Policy.
+  * Vai trò quản trị viên phải được bảo vệ bằng xác thực đa yếu tố (MFA).
+  * Mã hóa dữ liệu nhạy cảm tại chỗ (PSE) cho các trường như passwordHash và nội dung bài đăng.
 
-**Yêu cầu Chức năng Cốt lõi**
-
-- [REQ-003] Là một quản trị viên hệ thống, tôi muốn hệ thống thực thi xác thực đầu vào dữ liệu và giới hạn tỷ lệ cho từng người dùng để ngăn chặn lạm dụng và đảm bảo tính toàn vẹn dữ liệu.
-
-**Tiêu chí Chấp nhận**
-
-- Given một người dùng thực hiện yêu cầu lên lịch bài đăng,
-  When payload yêu cầu chứa dữ liệu không hợp lệ (ví dụ: thiếu trường bắt buộc),
-  Then hệ thống trả về lỗi xác thực với thông báo chi tiết.
-
-- Given một người dùng vượt quá ngưỡng yêu cầu cho phép trong một khoảng thời gian,
-  When kiểm tra giới hạn tỷ lệ được thực hiện,
-  Then yêu cầu bị từ chối với HTTP 429 và một thông báo mô tả.
-
-**Luồng Ngoại lệ**
-
-- [EXC-003] Bảo vệ chống lại việc spam lịch đăng bài và tấn công flood comment.
-
-**Từ điển Dữ liệu**
-
-- [DAT-003] Bảng nhật ký giới hạn tỷ lệ: id, user_id, endpoint, request_count, window_start, window_end, created_at.
-
-```mermaid
-erDiagram
-    USERS {
-        uuid id PK "Primary key for user"
-        varchar email "User email"
-        varchar name "User name"
-    }
-
-    RATE_LIMIT_LOGS {
-        uuid id PK "Primary key for rate limit log"
-        varchar userId FK "Foreign key to USERS"
-        varchar endpoint "API endpoint accessed"
-        int requestCount "Number of requests in window"
-        timestamp windowStart "Start of rate limit window"
-        timestamp windowEnd "End of rate limit window"
-        timestamp createdAt "Timestamp when log entry created"
-    }
-
-    USERS ||--o{ RATE_LIMIT_LOGS : "userId"
-```
-
-## 3. Yêu cầu Phi-chức năng Toàn cầu
-
-- [NFR-001] Hiệu suất: Thời gian phản hồi dưới 200ms cho các API lên lịch và gợi ý; thông lượng tối thiểu 1000 yêu cầu/giây.
-- [NFR-002] Bảo mật: Sử dụng JWT/OAuth2, mã hóa dữ liệu, tuân thủ OWASP Top 10, che giấu dữ liệu nhạy cảm, ghi nhật ký kiểm toán.
-- [NFR-003] Khả năng mở rộng: Kiến trúc theo chiều ngang, cô lập dữ liệu đa tenant, chia tỷ lệ cơ sở dữ liệu, cân bằng tải.
-- [NFR-004] Khả năng sẵn sàng cao: Mục tiêu thời gian hoạt động 99.9%, phục hồi sau sự cố trong vòng 5 phút.
-- [NFR-005] Quản lý phiên: Phiên làm việc có thời hạn, có thể thu hồi, ngăn chặn tấn công CSRF.
-- [NFR-006] Sao lưu và khôi phục: Sao lưu định kỳ, phục hồi điểm mục tiêu trong vòng 30 phút.
+- **[NFR-003]** Khả năng mở rộng, Tính sẵn sàng cao & Cô lập đa租
+  * Hệ thống phải hỗ trợ ít nhất 10,000 người dùng đồng thời với mỗi người dùng có không gian dữ liệu riêng biệt (bộ nhớ tách biệt theo tenant).
+  * Triển khai tự động hóa trong Kubernetes với tối thiểu ba bản sao cho mỗi service; sử dụng bộ cân bằng tải và kiểm tra độ khỏe để đảm bảo 99.9% thời gian hoạt động.
+  * Cô lập dữ liệu theo tenant thông qua schema prefixes hoặc các cơ sở dữ liệu riêng biệt; đảm bảo không có sự rò rỉ dữ liệu giữa các tenant.
+  * Hỗ trợ khả năng mở rộng theo chiều ngang cho dịch vụ đề xuất (sử dụng hàng đợi tin nhắn và các worker có thể mở rộng độc lập).
 
 [EXECUTION_REMEDIATION_PAYLOAD_START]
-
 {
   "technical_codename": "social-scheduler",
   "descriptive_name": "SocialScheduler",
   "brand_name": "LịchĐăngBài",
   "requirement_tags": [
-    "ARC-001",
-    "ARC-002",
-    "ARC-003",
-    "ARC-004",
-    "ARC-005",
-    "ARC-006",
-    "ARC-007",
-    "ARC-008",
-    "ARC-009",
-    "ARC-011",
-    "ARC-012",
-    "ARC-013",
-    "ARC-014",
-    "ARC-015",
-    "ARC-016",
-    "ARC-017",
-    "ARC-018",
-    "ARC-019",
-    "REQ-001",
-    "EXC-001",
-    "DAT-001",
-    "REQ-002",
-    "EXC-002",
-    "DAT-002",
-    "REQ-003",
-    "EXC-003",
-    "DAT-003",
-    "NFR-001",
-    "NFR-002",
-    "NFR-003",
-    "NFR-004",
-    "NFR-005",
-    "NFR-006"
+    "[REQ-001]",
+    "[REQ-002]",
+    "[REQ-003]",
+    "[DAT-001]",
+    "[DAT-002]",
+    "[DAT-003]",
+    "[DAT-004]",
+    "[EXC-001]",
+    "[EXC-002]",
+    "[EXC-003]",
+    "[EXC-004]",
+    "[ARC-001]",
+    "[ARC-002]",
+    "[ARC-003]",
+    "[ARC-004]",
+    "[ARC-005]",
+    "[NFR-001]",
+    "[NFR-002]",
+    "[NFR-003]"
   ]
 }

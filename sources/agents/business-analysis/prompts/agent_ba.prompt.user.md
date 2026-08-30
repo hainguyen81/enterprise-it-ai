@@ -45,6 +45,6 @@ CRITICAL POLICY: A single requirement, rule, trigger, or data field without its 
 # ZERO-THINKING OUTPUT CONFIGURATION
 - Do NOT output any introductory text, concluding notes, explanations, or conversational filler.
 - Do NOT include <think> tags or intermediate reasoning tokens.
-- Your entire response MUST start directly on Line 1 with the primary Markdown header text: `# SOFTWARE REQUIREMENTS SPECIFICATION: [Apply POLYMORPHIC_SLUG_EXTRACTION_ENGINE here]` with fully 100% translation into the requested target language "{{ target_language }}". You are strictly forbidden from leaving this header title with a blank trailing parameter or a mismatched codename variation.
+- Your entire response MUST start directly on Line 1 with the primary Markdown header text: `# SOFTWARE REQUIREMENTS SPECIFICATION: [Apply POLYMORPHIC_SLUG_EXTRACTION_ENGINE here]`, after evaluting raw value, then translating it fully 100% into the requested target language "{{ target_language }}". You are strictly forbidden from leaving this header title with a blank trailing parameter or a mismatched codename variation.
 - Exhaustively detail and tag every single logical component from top to bottom.
 - Conclude the entire stream response directly with the mandatory raw delimiter token `[EXECUTION_REMEDIATION_PAYLOAD_START]` followed immediately on the next line by the flat valid JSON metadata block containing the collected "requirement_tags" array without any markdown code block backticks wrapping around the JSON payload.
