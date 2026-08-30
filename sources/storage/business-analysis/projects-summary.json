@@ -107,5 +107,34 @@
         "idea": "idea_2b9764dd3302",
         "location": "sources/storage/business-analysis/financial-reconciliation",
         "requirements": "sources/storage/business-analysis/financial-reconciliation/requirements.md"
+    },
+    {
+        "technical_codename": "social-scheduler",
+        "descriptive_name": "Lịch đăng bài tự động trên mạng xã hội",
+        "brand_name": "LịchĐăngBài",
+        "requirement_tags": [
+            "[REQ-001]",
+            "[REQ-002]",
+            "[REQ-003]",
+            "[REQ-004]",
+            "[REQ-005]",
+            "[REQ-006]",
+            "[EXC-001]",
+            "[EXC-002]",
+            "[EXC-003]",
+            "[DAT-001]",
+            "[DAT-002]",
+            "[ARC-002]",
+            "[ARC-003]",
+            "[ARC-004]",
+            "[ARC-005]",
+            "[ARC-006]",
+            "[NFR-001]",
+            "[NFR-002]",
+            "[NFR-003]"
+        ],
+        "idea": "idea_d066d15f9b52",
+        "location": "sources/storage/business-analysis/social-scheduler",
+        "requirements": "sources/storage/business-analysis/social-scheduler/requirements.md"
     }
 ]
