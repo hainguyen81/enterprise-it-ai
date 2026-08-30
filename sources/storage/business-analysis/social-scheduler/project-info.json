@@ -24,6 +24,6 @@
         "[NFR-003]"
     ],
     "idea": "idea_d066d15f9b52",
-    "location": "sources/storage\\business-analysis\\social-scheduler",
-    "requirements": "sources/storage\\business-analysis\\social-scheduler/requirements.md"
+    "location": "sources/storage/business-analysis/social-scheduler",
+    "requirements": "sources/storage/business-analysis/social-scheduler/requirements.md"
 }
