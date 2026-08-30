@@ -1,0 +1,119 @@
+{
+    "phase_id": 2,
+    "phase_name": "Triển khai tích hợp lịch đăng bài và đề xuất nội dung AI",
+    "phase_description": "Triển khai các dịch vụ cốt lõi bao gồm tích hợp API mạng xã hội, mô hình đề xuất nội dung AI, xác thực đầu vào và thiết lập vai trò người dùng.",
+    "objectives": "Xây dựng logic tích hợp API cho Facebook, Instagram và TikTok; triển khai dịch vụ AI để đề xuất nội dung; thiết lập cơ chế xác thực đầu vào và giới hạn tỷ lệ API; đồng thời xác định cấu trúc vai trò người dùng để đảm bảo tính bảo mật và phân quyền.",
+    "project_name": "social-scheduler",
+    "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
+    "source_target_dir": "sources/",
+    "days": [
+        {
+            "day": 1,
+            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
+            "context_section": "Triển khai dịch vụ tích hợp lịch đăng bài",
+            "sub_tasks": [
+                {
+                    "id": "D1_ST1",
+                    "agent": "Coder",
+                    "desc": "Triển khai các phương thức kết nối API cho Facebook, Instagram và TikTok. Xây dựng logic xử lý token và ghi nhật ký trạng thái đăng bài. Đảm bảo sử dụng các thư viện client HTTP an toàn.",
+                    "targeted_tags": [
+                        "[REQ-001]",
+                        "[EXC-001]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
+            "context_section": "Triển khai dịch vụ đề xuất nội dung AI",
+            "sub_tasks": [
+                {
+                    "id": "D2_ST1",
+                    "agent": "Coder",
+                    "desc": "Xây dựng dịch vụ gọi mô hình AI để phân tích hiệu suất bài đăng cũ và tạo nội dung mới. Triển khai cơ chế fallback khi AI không phản hồi.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[EXC-004]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/AIRecommendationService.java"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 3,
+            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
+            "context_section": "Triển khai xác thực và giới hạn tỷ lệ",
+            "sub_tasks": [
+                {
+                    "id": "D3_ST1",
+                    "agent": "Coder",
+                    "desc": "Triển khai bộ lọc xác thực dữ liệu đầu vào và kiểm tra giới hạn tỷ lệ (rate limiting) dựa trên userId. Trả về mã lỗi 429 khi vượt ngưỡng.",
+                    "targeted_tags": [
+                        "[REQ-003]",
+                        "[EXC-005]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/ValidationService.java"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 4,
+            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
+            "context_section": "Kiểm thử đơn vị cho các dịch vụ",
+            "sub_tasks": [
+                {
+                    "id": "D4_ST1",
+                    "agent": "Tester",
+                    "desc": "Viết bộ kiểm thử JUnit để xác thực các phương thức tích hợp API mạng xã hội, đảm bảo xử lý đúng các trường hợp thành công và lỗi.",
+                    "targeted_tags": [
+                        "[REQ-001]"
+                    ],
+                    "components": [
+                        "INTEGRATION_SCOPE;./sources/backend/user-service/src/test/java/org/nlh4j/socialscheduler/userservice/UserServiceTest.java"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 5,
+            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
+            "context_section": "Đánh giá chất lượng và tài liệu hóa",
+            "sub_tasks": [
+                {
+                    "id": "D5_ST1",
+                    "agent": "Reviewer",
+                    "desc": "Thực hiện rà soát mã nguồn, kiểm tra các lỗ hổng bảo mật tiềm ẩn và đảm bảo tuân thủ các tiêu chuẩn coding của dự án.",
+                    "targeted_tags": [
+                        "[ARC-001]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java"
+                    ]
+                },
+                {
+                    "id": "D5_ST2",
+                    "agent": "Doc",
+                    "desc": "Cập nhật tài liệu kỹ thuật và hướng dẫn vận hành cho các tính năng mới.",
+                    "targeted_tags": [
+                        "[ARC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        }
+    ]
+}

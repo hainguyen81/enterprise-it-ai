@@ -1,0 +1,57 @@
+{
+    "phase_id": 4,
+    "phase_name": "Soạn thảo tài liệu tham chiếu API và hướng dẫn bảo mật",
+    "phase_description": "Xây dựng tài liệu tham chiếu API chi tiết và hướng dẫn bảo mật toàn diện cho hệ thống social-scheduler, đảm bảo tuân thủ các tiêu chuẩn bảo mật doanh nghiệp và hỗ trợ tích hợp hệ thống.",
+    "objectives": "Hoàn thiện tài liệu tham chiếu API và hướng dẫn bảo mật hệ thống, đảm bảo tính chính xác kỹ thuật và tuân thủ tiêu chuẩn OWASP.",
+    "project_name": "social-scheduler",
+    "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
+    "source_target_dir": "sources/",
+    "days": [
+        {
+            "day": 1,
+            "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
+            "context_section": "Soạn thảo tài liệu tham chiếu API",
+            "sub_tasks": [
+                {
+                    "id": "D1_ST1",
+                    "agent": "Doc",
+                    "desc": "Soạn thảo tài liệu tham chiếu API chi tiết, bao gồm mô tả các endpoint, phương thức HTTP, cấu trúc request/response JSON, và các mã lỗi API. Tài liệu phải được trình bày rõ ràng để hỗ trợ các nhà phát triển tích hợp hệ thống.",
+                    "targeted_tags": [
+                        "[DOC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/api-reference.md",
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "context_file": ".ai/.plan/.context/phase-4.context.blueprint.md",
+            "context_section": "Soạn thảo hướng dẫn bảo mật",
+            "sub_tasks": [
+                {
+                    "id": "D2_ST1",
+                    "agent": "Doc",
+                    "desc": "Xây dựng hướng dẫn bảo mật chi tiết, bao gồm các biện pháp kiểm soát truy cập, quản lý token JWT, mã hóa dữ liệu, và các quy trình tuân thủ OWASP Top 10 để đảm bảo an toàn cho hệ thống social-scheduler.",
+                    "targeted_tags": [
+                        "[DOC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/security-guide.md",
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        }
+    ]
+}

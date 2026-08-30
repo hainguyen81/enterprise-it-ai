@@ -1,0 +1,142 @@
+{
+    "phase_id": 5,
+    "phase_name": "Triển khai bảo mật hạ tầng và tài liệu kỹ thuật cuối cùng",
+    "phase_description": "Triển khai các biện pháp bảo mật doanh nghiệp, container hóa dịch vụ, cung cấp hạ tầng đám mây trên GCP/GKE và hoàn thiện tài liệu tham chiếu kỹ thuật cuối cùng cho hệ thống.",
+    "objectives": "Hiện thực hóa các yêu cầu phi chức năng (NFR) thông qua việc container hóa toàn bộ hệ thống, thiết lập cấu hình bảo mật Spring Security, triển khai hạ tầng trên Google Cloud Platform (GCP) và Google Kubernetes Engine (GKE), đồng thời hoàn thiện bộ tài liệu kỹ thuật cuối cùng để bàn giao hệ thống.",
+    "project_name": "social-scheduler",
+    "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
+    "source_target_dir": "sources/",
+    "days": [
+        {
+            "day": 1,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Container hóa dịch vụ backend",
+            "sub_tasks": [
+                {
+                    "id": "D1_ST1",
+                    "agent": "Docker",
+                    "desc": "Xây dựng Dockerfile đa giai đoạn (multi-stage) cho ứng dụng Java backend, đảm bảo tối ưu hóa kích thước image và bảo mật bằng cách sử dụng user không đặc quyền.",
+                    "targeted_tags": [
+                        "[NFR-001]"
+                    ],
+                    "components": [
+                        "./sources/infra/docker/backend/Dockerfile"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Container hóa dịch vụ frontend",
+            "sub_tasks": [
+                {
+                    "id": "D2_ST1",
+                    "agent": "Docker",
+                    "desc": "Xây dựng Dockerfile cho ứng dụng React frontend, sử dụng Nginx làm web server để phục vụ các tệp tĩnh đã được build.",
+                    "targeted_tags": [
+                        "[NFR-001]"
+                    ],
+                    "components": [
+                        "./sources/infra/docker/frontend/Dockerfile"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 3,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Cấu hình triển khai GCP",
+            "sub_tasks": [
+                {
+                    "id": "D3_ST1",
+                    "agent": "GCP",
+                    "desc": "Tạo cấu hình triển khai cho Google Cloud Platform, bao gồm các thiết lập về VPC, IAM và Cloud Run để đảm bảo môi trường chạy an toàn.",
+                    "targeted_tags": [
+                        "[NFR-003]"
+                    ],
+                    "components": [
+                        "./sources/infra/gcp/deployment.yaml"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 4,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Cấu hình triển khai GKE",
+            "sub_tasks": [
+                {
+                    "id": "D4_ST1",
+                    "agent": "GKE",
+                    "desc": "Tạo các manifest Kubernetes cho GKE, bao gồm Deployment, Service và HPA để quản lý các dịch vụ microservices.",
+                    "targeted_tags": [
+                        "[NFR-003]"
+                    ],
+                    "components": [
+                        "./sources/infra/gke/deployment.yaml"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 5,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Triển khai bảo mật Spring Security",
+            "sub_tasks": [
+                {
+                    "id": "D5_ST1",
+                    "agent": "Coder",
+                    "desc": "Triển khai cấu hình bảo mật Spring Security, tích hợp xác thực JWT và OAuth2, đồng thời thiết lập các quy tắc kiểm soát truy cập nghiêm ngặt.",
+                    "targeted_tags": [
+                        "[NFR-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/src/main/java/org/nlh4j/socialscheduler/security/SecurityConfig.java"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 6,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Hoàn thiện tài liệu kỹ thuật",
+            "sub_tasks": [
+                {
+                    "id": "D6_ST1",
+                    "agent": "Doc",
+                    "desc": "Tổng hợp và hoàn thiện tài liệu tham chiếu kỹ thuật, bao gồm hợp đồng API, sơ đồ dữ liệu, hướng dẫn vận hành và các biện pháp bảo mật đã triển khai.",
+                    "targeted_tags": [
+                        "[DOC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/technical-reference.md",
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 7,
+            "context_file": ".ai/.plan/.context/phase-5.context.blueprint.md",
+            "context_section": "Đẩy hình ảnh lên Registry",
+            "sub_tasks": [
+                {
+                    "id": "D7_ST1",
+                    "agent": "Docker",
+                    "desc": "Thực hiện script xây dựng và đẩy các hình ảnh Docker đã được kiểm thử lên Google Artifact Registry để chuẩn bị cho việc triển khai sản xuất.",
+                    "targeted_tags": [
+                        "[NFR-001]"
+                    ],
+                    "components": [
+                        "./sources/infra/docker/push.sh"
+                    ]
+                }
+            ]
+        }
+    ]
+}

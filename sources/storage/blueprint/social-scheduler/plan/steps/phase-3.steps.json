@@ -1,0 +1,55 @@
+{
+    "phase_id": 3,
+    "phase_name": "Soạn thảo tài liệu kiến trúc và tham chiếu kỹ thuật",
+    "phase_description": "Hoàn thiện hệ thống tài liệu kỹ thuật doanh nghiệp, bao gồm bản thiết kế kiến trúc, hướng dẫn vận hành và các tài liệu tham chiếu hệ thống để đảm bảo tính tuân thủ và bảo trì lâu dài.",
+    "objectives": "Chuẩn hóa toàn bộ tài liệu kỹ thuật của hệ thống social-scheduler, tạo ra các tài liệu kiến trúc chi tiết, hướng dẫn vận hành hệ thống và các bản thiết kế tham chiếu kỹ thuật để hỗ trợ đội ngũ vận hành và phát triển.",
+    "project_name": "social-scheduler",
+    "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
+    "source_target_dir": "sources/",
+    "days": [
+        {
+            "day": 1,
+            "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
+            "context_section": "Khởi tạo tài liệu kiến trúc hệ thống",
+            "sub_tasks": [
+                {
+                    "id": "D1_ST1",
+                    "agent": "Doc",
+                    "desc": "Phân tích và mô tả kiến trúc tổng thể của hệ thống social-scheduler, bao gồm sơ đồ khối, các thành phần microservices, luồng dữ liệu giữa các dịch vụ và các ràng buộc công nghệ đã được xác định trong các giai đoạn trước.",
+                    "targeted_tags": [
+                        "[DOC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
+            "context_section": "Soạn thảo hướng dẫn vận hành",
+            "sub_tasks": [
+                {
+                    "id": "D2_ST1",
+                    "agent": "Doc",
+                    "desc": "Xây dựng tài liệu hướng dẫn vận hành chi tiết, bao gồm quy trình triển khai, cấu hình môi trường, các bước giám sát hệ thống, quy trình sao lưu dữ liệu và các kịch bản xử lý sự cố thường gặp.",
+                    "targeted_tags": [
+                        "[DOC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,97 @@
+{
+    "phase_id": 1,
+    "phase_name": "Thiết lập hạ tầng cơ sở và cấu hình dự án",
+    "phase_description": "Khởi tạo cấu trúc dự án backend và frontend, thiết lập các tệp cấu hình xây dựng Maven và NPM, đồng thời định nghĩa sơ đồ cơ sở dữ liệu quan hệ cho hệ thống social-scheduler.",
+    "objectives": "Xây dựng nền tảng kỹ thuật vững chắc cho dự án social-scheduler, bao gồm cấu trúc thư mục chuẩn doanh nghiệp, cấu hình quản lý phụ thuộc và sơ đồ cơ sở dữ liệu ban đầu.",
+    "project_name": "social-scheduler",
+    "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
+    "source_target_dir": "sources/",
+    "days": [
+        {
+            "day": 1,
+            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
+            "context_section": "Khởi tạo cấu trúc dự án và cấu hình xây dựng gốc",
+            "sub_tasks": [
+                {
+                    "id": "D1_ST1",
+                    "agent": "Coder",
+                    "desc": "Khởi tạo tệp pom.xml cha với cấu hình quản lý phiên bản tập trung, định nghĩa các mô-đun con cho user-service, center-service, course-service, và attendance-service.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/backend/pom.xml"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Doc",
+                    "desc": "Soạn thảo tài liệu kiến trúc ban đầu, mô tả tổng quan về stack công nghệ, sơ đồ luồng dữ liệu và các thành phần cốt lõi của hệ thống social-scheduler.",
+                    "targeted_tags": [
+                        "[DOC-001]"
+                    ],
+                    "components": [
+                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
+                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
+                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
+                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
+                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
+            "context_section": "Cấu hình mô-đun dịch vụ và frontend",
+            "sub_tasks": [
+                {
+                    "id": "D2_ST1",
+                    "agent": "Coder",
+                    "desc": "Tạo tệp pom.xml cho từng dịch vụ con, kế thừa từ parent pom, khai báo các phụ thuộc cần thiết cho Spring Boot và các thư viện hỗ trợ.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/backend/user-service/pom.xml",
+                        "./sources/backend/center-service/pom.xml",
+                        "./sources/backend/course-service/pom.xml",
+                        "./sources/backend/attendance-service/pom.xml"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Coder",
+                    "desc": "Khởi tạo package.json và tsconfig.json với các cấu hình TypeScript nghiêm ngặt, thiết lập các script build và test cơ bản cho dự án frontend.",
+                    "targeted_tags": [
+                        "[ARC-000]"
+                    ],
+                    "components": [
+                        "./sources/frontend/package.json",
+                        "./sources/frontend/tsconfig.json"
+                    ]
+                }
+            ]
+        },
+        {
+            "day": 3,
+            "context_file": ".ai/.plan/.context/phase-1.context.blueprint.md",
+            "context_section": "Thiết lập sơ đồ cơ sở dữ liệu",
+            "sub_tasks": [
+                {
+                    "id": "D3_ST1",
+                    "agent": "Coder",
+                    "desc": "Viết các câu lệnh SQL DDL để tạo bảng schedules, performance_metrics, và rate_limits theo chuẩn ANSI SQL, đảm bảo các ràng buộc khóa ngoại và kiểu dữ liệu chính xác.",
+                    "targeted_tags": [
+                        "[DAT-001]",
+                        "[DAT-002]",
+                        "[DAT-003]"
+                    ],
+                    "components": [
+                        "./sources/backend/src/main/resources/db/migration/V1__create_tables.sql"
+                    ]
+                }
+            ]
+        }
+    ]
+}
