@@ -43255,3 +43255,201 @@ You are a high-performance Data Ingestion and Transformation Engine. Your sole o
 }
 ```
 
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 375, in generate_global_context_by_chunk
+    chunk_1c = parseAIResponseData(res_p1c)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 375, in generate_global_context_by_chunk
+    chunk_1c = parseAIResponseData(res_p1c)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 375, in generate_global_context_by_chunk
+    chunk_1c = parseAIResponseData(res_p1c)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 323, in generate_global_context_by_chunk
+    chunk_1b = parseAIResponseData(res_p1b)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 286, in generate_global_context_by_chunk
+    chunk_1a = parseAIResponseData(res_p1a)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 375, in generate_global_context_by_chunk
+    chunk_1c = parseAIResponseData(res_p1c)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 459, in generate_global_context_by_chunk
+    phase_chunk = parseAIResponseData(response)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 323, in generate_global_context_by_chunk
+    chunk_1b = parseAIResponseData(res_p1b)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+
+# AI Model: minimax/minimax-m3:free - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+[API Upstream Error 404]: No Response Found: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 323, in generate_global_context_by_chunk
+    chunk_1b = parseAIResponseData(res_p1b)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 447, in parseAIResponseData
+    first_choice = validateAIResponse(response)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 410, in validateAIResponse
+    raise RuntimeError("[API Upstream Error 404]: No Response Found")
+', 'RuntimeError: [API Upstream Error 404]: No Response Found
+']
+

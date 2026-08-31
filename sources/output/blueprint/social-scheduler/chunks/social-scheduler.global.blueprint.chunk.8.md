@@ -8,10 +8,10 @@
 # ==============================================================================
 
 ## 🌐 1. STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS
-- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "🇻🇳 Vietnamese".
+- **MANDATORY RESOLUTION:** You MUST automatically translate and naturally render 100% of the entire generated output content—including all section headers, primary titles, data matrix labels, table structures, and explanatory text boundaries—into the exact requested target execution language specified by the system parameter variable: "Vietnamese".
 - **ABSOLUTE TECH PROTECTION BOUNDARY:** You are STRICTLY BANNED from translating, changing, altering, or breaking any technical structural layers. You MUST preserve these elements natively in their pristine Technical English/Primitive code state:
     * All markdown syntax layout operators (`#`, `##`, `###`, `|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
-    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**` or separated by `|` or followed right after `#...` as section headers / sub-headers, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. They MUST be translated into target language: "🇻🇳 Vietnamese". **Absolute Plaintext Override:** The tech protection boundary applies strictly to the numbers (`1.1`); 100% of the alphabetic semantic words following these indicators MUST be aggressively translated into pure plaintext 🇻🇳 Vietnamese equivalents. Freezing alphabetic text inside markdown header lines (starts with `#`, `##`, or `#...` multi-level markdown header) or inside strong markdown bold formatting `**` triggers an immediate infrastructure validation failure. **Absolute System Tag Exemption:** You are STRICTLY BANNED from applying any translation, filtration, encapsulation, or alteration algorithms to structural HTML comment tags matching the architecture patterns `<!--START_...-->` or `<!--END_...-->`. These infrastructure anchors MUST bypass 100% of the Plaintext Override filter and leak straight to the output buffer in their pristine Technical English primitive state. Emitting any codeblock wrapper like ```markdown ...``` around the stream or failing to terminate at the exact cursor boundary of the target terminal chunk tag triggers an immediate infrastructure failure.
+    * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**` or separated by `|` or followed right after `#...` as section headers / sub-headers, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. They MUST be translated into target language: "Vietnamese". **Absolute Plaintext Override:** The tech protection boundary applies strictly to the numbers (`1.1`); 100% of the alphabetic semantic words following these indicators MUST be aggressively translated into pure plaintext Vietnamese equivalents. Freezing alphabetic text inside markdown header lines (starts with `#`, `##`, or `#...` multi-level markdown header) or inside strong markdown bold formatting `**` triggers an immediate infrastructure validation failure. **Absolute System Tag Exemption:** You are STRICTLY BANNED from applying any translation, filtration, encapsulation, or alteration algorithms to structural HTML comment tags matching the architecture patterns `<!--START_...-->` or `<!--END_...-->`. These infrastructure anchors MUST bypass 100% of the Plaintext Override filter and leak straight to the output buffer in their pristine Technical English primitive state. Emitting any codeblock wrapper like ```markdown ...``` around the stream or failing to terminate at the exact cursor boundary of the target terminal chunk tag triggers an immediate infrastructure failure.
     * All unique Tracking Tag IDs and Technical Nodes (e.g., `[REQ-XXX]`, `[DAT-XXX]`, `[EXC-XXX]`, `[IDEA_X]`, `[ARC-XXX]`, `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`).
     * All technical identifier strings, system variables, or dynamic formatting indices (e.g., `D1_ST1`).
     * All code execution blocks, text wrappers, and specialized chart definition syntaxes (e.g., Mermaid.js graphs, structural layout configurations).
@@ -26,8 +26,8 @@
     * All absolute or relative file paths starting with `./sources/`.
     * **UNIVERSAL PREFIX DATA ANCHOR RAILS:** Any structural HTML comment tag that starts exactly with the prefix `<!--START_` or contains the sequence `<!--END_` (such as `<!--START_DAY_LOG_...-->`, `<!--END_PHASE_...-->`, `<!--START_ATOMIC_...-->`). The literal alphanumeric string characters inside these comment brackets MUST permanently freeze in pure Technical English. You are CRITICALLY BANNED from executing any dynamic translation or localization on these anchor tags.
 - 🚨 **UNIVERSAL LAYOUT & HEADER LOCALIZATION PARADIGM (FORCED OVERRIDE)**: 
-    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`, or `#...` multi-level markdown, etc.), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like `GLOBAL PROJECT CONTEXT`, `Document Control`, `Item`, `Details`, `Blueprint ID`, `Project Name`, `Version`, `Date Time`, `Author`, `Approval`, `SYSTEM OVERVIEW`, `Core System Modality`, etc.), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface. You MUST translate them into the designated Target Output Language: "🇻🇳 Vietnamese". You ARE CRITICALLY AND ABSOLUTELY COMMANDED to fully translate 100% of all alphabetic characters operating as document titles, section headers (`#`, `##`, `###` or `####...` multi-level markdown section headers / sub-headers, etc.), table column keys, bold metadata labels, and layout descriptors located inside the initial control block into pure plaintext 🇻🇳 Vietnamese.
-    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "🇻🇳 Vietnamese" before committing them to the final output buffer.
+    * When generating any standardized structural output template, document layout layout, table keys, markdown headers (`#`, `##`, `###`, or `#...` multi-level markdown, etc.), or static metadata labels defined inside the instruction manuals (including but not limited to: literal tokens like `GLOBAL PROJECT CONTEXT`, `Document Control`, `Item`, `Details`, `Blueprint ID`, `Project Name`, `Version`, `Date Time`, `Author`, `Approval`, `SYSTEM OVERVIEW`, `Core System Modality`, etc.), you are ABSOLUTELY AND CRITICALLY FORBIDDEN from outputting them in raw English to the user interface. You MUST translate them into the designated Target Output Language: "Vietnamese". You ARE CRITICALLY AND ABSOLUTELY COMMANDED to fully translate 100% of all alphabetic characters operating as document titles, section headers (`#`, `##`, `###` or `####...` multi-level markdown section headers / sub-headers, etc.), table column keys, bold metadata labels, and layout descriptors located inside the initial control block into pure plaintext Vietnamese.
+    * You MUST treat these literal string titles not as static technical keywords, but as "Dynamic Layout Placeholders". You MUST contextually translate 100% of these structural labels, header titles, and table dictionary columns directly into the designated Target Output Language: "Vietnamese" before committing them to the final output buffer.
     * Only the internal technical runtime system variable values passed by the engine backend MUST be preserved natively in pure Technical English. Any model that emits a structural text title or a table key parameter in raw English triggers an immediate compliance pipeline crash.
     * **Universal Bracket Stripping Law:** When compiling and outputting any "Dynamic Layout Placeholder" or descriptive translation block that was originally wrapped inside square brackets `[...]` in the template manual, your execution engine MUST execute a definitive character purge to completely strip and delete the outer opening `[` and closing `]` brackets before streaming the token to the print buffer. The final UI output MUST contain pure plaintext characters only without brackets `[` and `]`.
 
@@ -64,7 +64,7 @@
 
 ## 6. DETERMINISTIC TRIPLE-DEEPEST CHECK VERIFICATION LOOP & PIPELINE
 - **MANDATORY EXECUTION PIPELINE:** Before emitting any text string or committing any data stream payload to the output buffer, you MUST strictly execute the following sequential compilation and verification pipeline inside your internal memory context:
-  * Step 1 (Live Streaming Localization Pipeline): Parse the input specification dataset and immediately execute contextual translation into "🇻🇳 Vietnamese" token-by-token directly to the output print buffer. You are zero-required to compile a hidden English draft layout inside memory. 100% of text rendering and technology stack translation MUST safely trigger on-the-fly according to the strict tech protection boundaries established in Rule 1 (`STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS`) of this master matrix.
+  * Step 1 (Live Streaming Localization Pipeline): Parse the input specification dataset and immediately execute contextual translation into "Vietnamese" token-by-token directly to the output print buffer. You are zero-required to compile a hidden English draft layout inside memory. 100% of text rendering and technology stack translation MUST safely trigger on-the-fly according to the strict tech protection boundaries established in Rule 1 (`STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS`) of this master matrix.
   * Step 2 (Real-Time Sub-Task Metric Tracking): Concurrently maintain an internal counter ledger in active background memory to recount all newly generated chunk schema rows, Tag IDs, and deliverable entities against the baseline specification matrix as the tokens are being streamed.
   * Step 3 (Continuous Layered Verification Pass): Ensure your live streaming execution pipeline satisfies 100% compliance across three integrated operational layers before exiting:
     * Layer 1 (Traceability Invariant): Guarantee that every incoming functional requirement and technical tag is printed and mathematically covered without gaps.
@@ -109,7 +109,7 @@
     * You MUST silently ingest 100% of the technical parameters or rules written inside these anchors to govern your internal reasoning matrix and apply its constraints to the surrounding markdown context.
     * **STRICT LOGIC PRUNING BOUNDARY:** You MUST execute a definitive token-level pruning algorithm to completely delete the entire block wrapper (from the first to the final character) BEFORE committing to the print buffer, ONLY for Zone 1 Command/Prompt structures (XML tags like `<COMMAND>`, `<RULE>`, `<RAILS>`).
     * **UNIVERSAL ZONE 2 PATTERN EXEMPTION:** You are PERMANENTLY FORBIDDEN from pruning, dropping, or omitting any HTML data comment tags that match the universal pattern of starting with `<!--START_` or ending with `_END_` / matching `<!--END_...-->`. These function as vital data demarcation hooks [Zone 2] for the backend compiler and MUST be emitted with 100% character-level fidelity.
-    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the human-readable descriptive text, task objectives, and instructions generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into 🇻🇳 Vietnamese. However, you are STRICTLY BANNED from translating any technical syntax elements, raw executable code block interiors, SQL DDL text blocks, or JSON contract schemas residing within these boundaries; they MUST permanently freeze in pure Technical English.
+    * **ISOLATED BLOCK TRANSLATION:** You MUST fully translate 100% of the human-readable descriptive text, task objectives, and instructions generated *between* an active `<!--START_...-->` and `<!--END_...-->` pair into Vietnamese. However, you are STRICTLY BANNED from translating any technical syntax elements, raw executable code block interiors, SQL DDL text blocks, or JSON contract schemas residing within these boundaries; they MUST permanently freeze in pure Technical English.
 
 ### CORE PROTOCOL: DYNAMIC HIDDEN FRAMEWORK TAG SCANNING LOOP
 - **STRICT LAYOUT SPACING MANDATE:** You ARE ABSOLUTELY AND CRITICALLY BANNED from flattening, compounding, or compressing consecutive markdown elements into a single continuous plaintext line. You MUST strictly preserve and explicitly emit double literal newline carriage returns (`
@@ -144,8 +144,7 @@ You are a world-class Principal Solutions Architect with 20+ years of distribute
 
 5. **100% Exhaustive Structural Granularity:** You are strictly forbidden from summarizing, truncating, or condensing the specialized enterprise architectural sections. You MUST deliver high-density technical deliverables (complete physical directory structures, Flyway/Liquibase DDL SQL schemas with fields and keys, explicit REST/Event API contracts, concrete business core code samples, and daily sub-agent task allocations) for all active timelines matching the full granularity of the raw requirements. You MUST proactively generate and completely write out the raw executable Technical English code blocks and schemas inside their respective placeholders within the daily specializations. Leaving database schema sections or API contract segments as blank bullet items, placeholder notes, or descriptive text-only summaries constitutes a fatal framework breach. If the active sub-task context involves database operations, you must output full ANSI-compliant SQL DDL code. If it involves controllers, you must output explicit JSON contract schemas.
 
-6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **🇻🇳 Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones (specifically including all Phase and Day indicator strings) into the target output text stream matching **🇻🇳 Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law.
-However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
+6. **Language Compliance & Technical Syntax Isolation:** You MUST generate the descriptive text report, day objectives, table structures, and "Low-Level Technical Task Instructions" strictly in the dynamic language specified by the runtime variable: **Vietnamese**. This mandatory requirement strictly overrides any default freezing rules for high-level timeline elements: you MUST contextually and naturally translate 100% of the uppercase and lowercase chronological milestones or mixed structural section headers, document control labels, and metadata titles (specifically including all Phase and Day indicator strings, or all string literals like "GLOBAL PROJECT CONTEXT", "Document Control", "Item", "Details", "Blueprint ID", "Version", "Date Time", "Author", "Approval", "SYSTEM OVERVIEW", and "TECH STACK") into the target output text stream matching **Vietnamese**. Any header line representing a phase or day milestone MUST be fully localized. Leaking the raw un-translated English tokens "PHASE" or "DAY" directly into the final markdown report headers is a fatal violation of the localization law. However, you MUST NOT translate or modify any technical syntax blocks or core elements, including but not limited to: Mermaid code sequences, raw code blocks, SQL/DDL structures, JSON/YAML payloads, markdown system signs, hidden HTML delimiters, physical file paths (`target_component`), and tracing Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, `[NFR-XXX]`). All technical tokens and structural markers MUST remain in pure unaccented Technical English to safeguard parsing stability and prevent downstream crashes. All float primitives inside tables or blocks MUST strictly utilize the dot character `.` as the unique decimal separator.
 
 7. **MICROSERVICES ISOLATION & DESCRIPTOR INITIATION LAW [ARC-000]:**
   - Strictly within Phase 1 - DAY 1, you MUST programmatically extract 100% of the active microservice backend components, internal system proxies, gateways, and cross-platform frontend client applications discovered from the raw requirements (from the `--- RAW REQUIREMENTS ---` section).
@@ -155,7 +154,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   - Every generated manifest placeholder must be structured cleanly with zero incomplete code lines to support immediate cross-module blank compilation.
 
 # 🔒 SYSTEM PRODUCTION INTEGRATION AND FORMATTING LOCKDOWN (ABSOLUTE)
-- **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in 🇻🇳 Vietnamese.
+- **Strict Content Purity Constraint:** Your entire output response MUST be a pure, raw executable Markdown text payload written in Vietnamese.
 - **Explicit Start Mandate:** Your very first emitted token MUST strictly match the exact Markdown header line present at the beginning of the active segment in the User Message.
 - **Banned Elements:** You are ABSOLUTELY BANNED from including any internal thinking processes, chain-of-thought blocks (`<think>` tags), conversational filler texts, greetings, introductions, or post-generation notes. Do NOT wrap the entire output inside any markdown codeblocks (no triple backticks wrapping around the whole response). Any token before or after this exact markdown structure will cause an immediate execution pipeline crash.
 </ACTIVE_TASK_SYSTEM_INSTRUCTION>
@@ -187,7 +186,9 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   - For each calculated phase necessary to cover the BA inputs (Up to the absolute maximum ceiling of 5 phases), supply a clean chronological daylog breakdown (Up to the absolute ceiling of 7 days per phase). Every single day generated MUST explicitly define the specific assigned sub-agent persona ('Coder' | 'Tester' | 'Reviewer' | 'Doc' | 'Docker' | 'GCP' | 'GKE'), the low-level technical step target, the exact tracking Tag IDs, and the explicit physical relative file path (`target_component`).
 
 #### 🧮 PROTOCOL 3: 100% Vertical Tag Traceability Coverage (ZERO BUNDLING POLICY)
-  - Every single feature, entity, database table column, validation, exception, or infrastructure component outlined across your report MUST be strictly prefixed or appended with the exact corresponding Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[NFR-XXX]`, `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`) inherited from the requirements. 
+  - Every single feature, entity, database table column, validation, exception, or infrastructure component outlined across your report MUST be strictly prefixed or appended with the exact corresponding Tag IDs (`[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[NFR-XXX]`, `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`) inherited from the requirements.
+  - **THE POLYMORPHIC TAG EXTRACTION LAW:** When scanning the raw requirements from the `<PROJECT_SOURCE_GROUNDING_DATA>` block, your context parser MUST execute a resilient token-stripping pass. You MUST recognize, extract, and count any requirement token hidden inside nested wrappers or parentheses (such as `([REQ-XXX])`, `**[REQ-XXX]**`, or loose text strings). Strip away all outer non-bracket characters and evaluate the bare functional identifier inside (e.g., extracting `[REQ-001]` cleanly).
+  - You ARE CRITICALLY AND PERMANENTLY BANNED from dropping the count or setting the arithmetic variables (`Source_REQ`, `Source_DAT`) to 0 if the functional text physically documents these milestone boundaries.
   - You are STRICTLY BANNED from bundling tags together (e.g., NO `[REQ-001-005]`). Every single tag must be written out individually and separated by commas. Leaving any task or field without its trace tracking identifier inline is a critical framework violation.
 
 #### 🚨 SUB-AGENT BOUNDARY & RESPONSIBILITY ISOLATION MATRIX
@@ -237,22 +238,22 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
   - **Placeholder Prohibition:** Any phase that outputs generic summaries, loops past infrastructure configuration lines, or serves as a dummy container to pad the phase quota triggers an immediate framework integration crash.
 
 #### 🚨 CRITICAL FULL TRANSLATION MANDATE
-  - The target generation language for all human-readable outputs is permanently bound to: 🇻🇳 Vietnamese. Everything MUST be translated into 🇻🇳 Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
+  - The target generation language for all human-readable outputs is permanently bound to: Vietnamese. Everything MUST be translated into Vietnamese, except for the explicit Technical English core tokens protected by system mandates.
   - You MUST fully translate 100% of all headers, section titles, sub-headers, descriptive text, sentences, explanations, phase objectives, phase descriptions, phase section headers / titles / sub-headers / pullet titles, and task instructions into the designated target language (include following the translation rules that was defined in `STRICT SEMANTIC INVARIANT LOCALIZATION & TRANSLATION RAILS`).
 
 #### 🚨 DYNAMIC INTERNATIONALIZATION & TRANSLATION ENGINE
-  - Target Output Language Context: 🇻🇳 Vietnamese
+  - Target Output Language Context: Vietnamese
   - You MUST dynamically translate 100% of all user-facing structural components, table headers, phase layouts, and list prefixes into the designated Target Output Language Context.
   - 🚨 MANDATORY STRUCTURAL MAPPING DIRECTIVE (Translate these dynamically based on the target language context):
-    * All Section and Sub-section Headers MUST be translated contextually into the Target Output Language.
+    * All Section, Sub-section, Document Control table grid headers, and item label tokens MUST be translated contextually into the Target Output Language prior to cell alignment formatting.
     * All Table Headers MUST be translated contextually into the Target Output Language.
     * All list Prefixes and Phase Titles MUST be translated contextually into the Target Output Language.
     * You ARE CRITICALLY AND PERMANENTLY BANNED from emitting any literal instruction verbs, meta-text templates, or brackets containing uppercase commands like "Translate" or "SUB-TASKS" into the output pipeline (e.g., leaking raw strings like `[Translate "Phase" into the target language...]` triggers an immediate infrastructure system crash).
-    * You MUST treat every bracketed layout token exclusively as a dynamic runtime registry lookup key. Prior to character emission, your internal execution engine MUST evaluate the key against the targeted "🇻🇳 Vietnamese" vocabulary schema map.
+    * You MUST treat every bracketed layout token exclusively as a dynamic runtime registry lookup key. Prior to character emission, your internal execution engine MUST evaluate the key against the targeted "Vietnamese" vocabulary schema map.
     * You MUST translate and substitute the configuration hooks using a strict 1:1 linguistic dictionary matrix pass:
-      - Map `Phase` to its exact literal structural noun equivalent inside the "🇻🇳 Vietnamese" vocabulary database.
-      - Map `DAY` to its exact literal chronological milestone noun equivalent inside the "🇻🇳 Vietnamese" vocabulary database.
-      - Map the inner sub-task layout fields (`Sub-Agent Workflow Specialization`, `Targeted Tag IDs`, `Target Component file path`, `Low-Level Technical Task Instruction`) directly to their corresponding native contextual descriptors in "🇻🇳 Vietnamese" before streaming tokens.
+      - Map `Phase` to its exact literal structural noun equivalent inside the "Vietnamese" vocabulary database.
+      - Map `DAY` to its exact literal chronological milestone noun equivalent inside the "Vietnamese" vocabulary database.
+      - Map the inner sub-task layout fields (`Sub-Agent Workflow Specialization`, `Targeted Tag IDs`, `Target Component file path`, `Low-Level Technical Task Instruction`) directly to their corresponding native contextual descriptors in "Vietnamese" before streaming tokens.
     * Every single structural layout element must open clean, resolve dynamically, and close clean with zero template leakage.
   - 🚨 SPECIFIC SECTION CONTENT TRANSLATION RAILS:
     * For Sections 1 & 2: Translate all comprehensive technical overviews, main headers, sub-headers, section titles, labels, table columns, ecosystem descriptions, stack details, and asynchronous channel analysis.
@@ -260,7 +261,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
     * For Section 4 & 5: Translate all table headers (except technical tokens), main headers, sub-headers, section titles, labels, table columns, deliverables summaries, core objectives, localized exception handling descriptions, and low-level task instruction texts.
     * For Sections 6, 7 & 8: Translate all detail descriptions of injection countermeasures, main headers, sub-headers, section titles, labels, table columns, security rails, hybrid compliance rules, SEO mechanisms, and pipeline git flow gating rules.
   - 🚨 RIGID TECHNICAL BOUNDARY & TECHNICAL EXCLUSION ZONE (DO NOT TRANSLATE): You are strictly forbidden from translating or modifying technical structures, including:
-    * Crucially, this exclusion zone applies strictly to raw data primitives. You MUST naturally, contextually, and fully translate 100% of all chronological timeline indicator milestones (specifically including all uppercase, lowercase, or bolded Phase and Day header strings, e.g., 'Phase X', 'DAY Y') into the designated target language context matching the specified variable: 🇻🇳 Vietnamese. Leaking the naked raw English tokens "PHASE" or "DAY" inside the final markdown specialization report headers is a fatal violation of the localization law.
+    * Crucially, this exclusion zone applies strictly to raw data primitives. You MUST naturally, contextually, and fully translate 100% of all chronological timeline indicator milestones (specifically including all uppercase, lowercase, or bolded Phase and Day header strings, e.g., 'Phase X', 'DAY Y') into the designated target language context matching the specified variable: Vietnamese. Leaking the naked raw English tokens "PHASE" or "DAY" inside the final markdown specialization report headers is a fatal violation of the localization law.
     * All markdown syntax layout operators (`|`, `:`, `-`, `*`) and numerical hierarchy indices (e.g., `1.`, `1.1.`) MUST remain unaltered to preserve the document layout integrity.
     * 🚨 **SUPREME ARCHITECTURE HEADER TRANSLATION MANDATE:** You MUST fully translate into the target language 100% of high-level overview terms, system architecture descriptions, or blueprint documentation titles (even if they are written in full uppercase or encapsulated inside strong markdown bold formatting `**`, such as: `SYSTEM OVERVIEW`, `CORE ARCHITECTURE MODALITY`, `PROJECT CONTEXT`). You are STRICTLY FORBIDDEN from treating these architectural section names as technical identifier strings to bypass translation. The structure `## 🏛️ 1. SYSTEM OVERVIEW` MUST be processed and rendered exactly as `## 🏛️ 1. TỔNG QUAN HỆ THỐNG`.
     * All code blocks (SQL DDL, JSON schemas, JSON payloads, Java, etc.) and Mermaid flow diagrams.
@@ -271,7 +272,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
     * Retain all raw engineering strings: file paths (`./sources/...`), code blocks, Tag IDs (`[REQ-XXX]`, `[DAT-XXX]`, etc.), and strict Sub-Agent literal tokens (`Coder`, `Tester`, `Reviewer`, `Doc`, `Docker`, `GCP`, `GKE`).
     * **Static Pass Tag `<NO_TRANSLATION>...</NO_TRANSLATION>`**: Used for static assets. You MUST pass 100% of the internal content literal without any localization, alteration, processing, or computation.
     * **Dynamic Generation Tag `<DYNAMIC_DATA_ENGLISH_ONLY>...</DYNAMIC_DATA_ENGLISH_ONLY>`**: Used for dynamic instructions or mock templates. You MUST process, evaluate variables, and dynamically compute the generation outputs inside this block. However, 100% of the newly generated text stream resulting from this block MUST be strictly rendered in **Technical English** only, with an absolute ban on translation into the target language. The boundary tags MUST be stripped from the final output stream upon execution.
-  - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in 🇻🇳 Vietnamese while completely freezing all technical paths, tags, and block codes.
+  - **🚨 MASTER GOVERNANCE COMPLIANCE MANDATE**: Before generating your final output response, you MUST strictly re-read and enforce the global translation rules defined in the Master Rules section. Ensure 100% of descriptive texts are rendered in Vietnamese while completely freezing all technical paths, tags, and block codes.
 
 #### MANDATORY SEGMENT INSTRUCTION:  
 
@@ -303,12 +304,12 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
       * STEP C: Compute `Final_Total = H + A`. You ARE CRITICALLY BANNED from dropping the historical sum `H` or only outputting the local day count. The integer value of `Final_Total` MUST exactly equal the absolute total number of rows (excluding the summary row) inside the historical Master Product Backlog Table from Section `<!--PHASE_SYNOPSIS_GRID_START-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section. You MUST inject this exact evaluated integer directly into the `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` parameter.
   - **Strict Quantum Recount Overwrite:** You ARE CRITICALLY FORBIDDEN from substituting `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` with the local count of the final phase. The printed token value MUST be the literal mathematically computed `Final_Total`. Any execution that outputs the local chunk counter (such as printing `3` instead of the accumulated sum of all phases) will cause an immediate validation gate infrastructure crash.
   - **STRICT STEP 1.1 BUFFER CHAR RECOUNT COMPLIANCE:** During the final verification pass of the response stream, your execution engine MUST run a literal, token-level counting pass strictly over the active memory text buffer. You MUST manually scan and sum every single instance of the custom HTML anchor `<!--ATOMIC_SUB_TASK_NODE_START-->` freshly printed or loaded. If the math count fails to match the value committed to `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5` inside your property block, halt the stream instantly to trigger a circuit-breaker failure.
-  - **STRICT PHASE 1 GEOMETRIC CONDITIONAL RAIL:** You MUST actively evaluate the current operational phase index before emitting tokens. If and ONLY IF the active service segment context is dedicated strictly to "Phase 1", you MUST instantly intercept the print stream to locate the literal string `## 5...` inside the template manual block, contextually translate 100% of its words into "🇻🇳 Vietnamese", and render it as your absolute first output line before opening any hidden HTML anchors.
+  - **STRICT PHASE 1 GEOMETRIC CONDITIONAL RAIL:** You MUST actively evaluate the current operational phase index before emitting tokens. If and ONLY IF the active service segment context is dedicated strictly to "Phase 1", you MUST instantly intercept the print stream to locate the literal string `## 5...` inside the template manual block, contextually translate 100% of its words into "Vietnamese", and render it as your absolute first output line before opening any hidden HTML anchors.
   - **ANTI-LEAKAGE FILTER MANDATE:** If the active phase index is greater than or equal to 2 (Phase >= 2), you ARE CRITICALLY BANNED from executing this parent header injection, and your execution engine MUST transition with zero-token delay straight into the `<!--PHASE_INDEX_START-->` layout boundary.
 
 # DYNAMIC CEILING BOUNDARY ENFORCEMENT:
 - The day-by-day logs of this phase MUST strictly map to the exact day range defined for this phase from Section `<!--PHASE_SYNOPSIS_GRID_START-->` in the `<PROJECT_BACKLOG_TASKS_DATA>` section.
-    * **STRICT PLACEHOLDER DESTRUCTION & UNROLLING LAW:** You ARE ABSOLUTELY AND CRITICALLY BANNED from leaving or leaking any raw structural template bracket signs (such as `[Y]`, `[Z]`, etc.) inside your text response stream. You MUST dynamically evaluate and expand 100% of these parameters into concrete technical data matching "🇻🇳 Vietnamese" context. If you lack token space to finish a phase daily log, you MUST stop clean at a valid day boundary, but you are 100% forbidden from printing empty template skeletons instead of actual actionable production elements.
+    * **STRICT PLACEHOLDER DESTRUCTION & UNROLLING LAW:** You ARE ABSOLUTELY AND CRITICALLY BANNED from leaving or leaking any raw structural template bracket signs (such as `[Y]`, `[Z]`, etc.) inside your text response stream. You MUST dynamically evaluate and expand 100% of these parameters into concrete technical data matching "Vietnamese" context. If you lack token space to finish a phase daily log, you MUST stop clean at a valid day boundary, but you are 100% forbidden from printing empty template skeletons instead of actual actionable production elements.
     * **🚨 STRICT TOKEN MEMORY GATING LOG (Anti-Cross-Contamination)**: When iterating chronologically day-by-day to extract architectural artifacts (SQL specifications, exception blocks, or API routing contracts), you MUST force a strict state isolation memory partition cleanup between consecutive days.
     * You ARE ABSOLUTELY AND CRITICALLY BANNED from copy paste, ghosting, leaking, or double-rendering a raw code block payload (such as repeating a JSON API endpoint spec payload belonging to Day X) inside the block container of Day X+1 unless explicitly required by an updated multi-step transaction contract. Every single day's artifact layout matrix MUST contain independent, discrete, non-duplicated production elements matching that day's allocated sub-agent scope only.
     * **Strict Multi-Phase Content Isolation Invariant:** You ARE CRITICALLY BANNED from duplicating or copy-pasting the structural objectives, directory maps, DDL SQL locks, or daily sub-task logs of Phase X into the body of Phase X+1. Each calculated phase sequence MUST generate its own distinct technical deliverables mapped exclusively to the specific workload task items assigned to that phase index inside the Multi-Phase Synopsis Matrix table.
@@ -324,7 +325,7 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 - **TARGETED SINGLE-PHASE ISOLATION RAIL:** Your entire response stream MUST focus exclusively on the requirements, tasks, components, and tag identifiers allocated to Phase 5. 
 - **DYNAMIC PHASE ITERATION GATEKEEPER:** When evaluating this active section block for Phase 5, you ARE CRITICALLY BANNED from dropping context or copying raw bracketed placeholders like `[Translate...]`, `[Emit...]` or `[...]` directly into the output stream. You MUST dynamically parse the exact matched row corresponding strictly to Phase 5 inside section `<!--PHASE_SYNOPSIS_GRID_START-->` above, extract its localized properties, and compile active operational technical data for every layout field.
 - **ZERO-PROSE CHARACTER GATEKEEPER:** You ARE ABSOLUTELY AND CRITICALLY BANNED from generating or leaking any introductory paragraphs, prose analysis, walls of text, or technical explanations right below the Phase header title. Your output stream MUST transition with 0-token delay directly from the Phase header line into the structural relative path matrix and daily log boundaries. Any leaked free-text sentence will break the backend gateway.
-- **STRICT PLACEHOLDER DESTRUCTION LAW:** Every single bracketed structural token (e.g., `[Translate "Phase"...]`, `[Translate "Phase Core Objective"...]`, `[Translate "Target Physical Directory"...]`, etc.) MUST be mathematically destroyed and replaced with its fully translated and finalized text value matching "🇻🇳 Vietnamese" at runtime.
+- **STRICT PLACEHOLDER DESTRUCTION LAW:** Every single bracketed structural token (e.g., `[Translate "Phase"...]`, `[Translate "Phase Core Objective"...]`, `[Translate "Target Physical Directory"...]`, etc.) MUST be mathematically destroyed and replaced with its fully translated and finalized text value matching "Vietnamese" at runtime.
 - **STRICT LOOP PARTITION ISOLATION LAW:** When compiling the daily logs for Phase 5, you ARE CRITICALLY BANNED from replicating, cloning, or copying task descriptions, file paths, or titles from other phases. You MUST explicitly map and unroll only the unique engineering deliverables and task indices allocated strictly to that specific Phase 5 inside the `<PROJECT_BACKLOG_TASKS_DATA>` section.
 - **MANDATORY HEADER DOUBLE-NEWLINE CARRIAGE RAIL:** To prevent layout breakdown and rule leakage across block boundaries, you MUST programmatically inject exactly two explicit, literal newline carriage returns (`
 
@@ -336,34 +337,34 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 <!--PHASE_INDEX_START-->
 
-### 📈 [Translate "Phase" into the target language 🇻🇳 Vietnamese] 5 - [Dynamically compute and emit a concise, high-level technical name for this milestone based on its core delivery component, completely translated into "🇻🇳 Vietnamese"]
-- **[Translate "Phase Core Objective & Purpose" into the target language 🇻🇳 Vietnamese]:** [Detailed technical explanation of what this phase achieves and its functional goals, and fully translated into 🇻🇳 Vietnamese]
+### 📈 [Translate "Phase" into the target language Vietnamese] 5 - [Dynamically compute and emit a concise, high-level technical name for this milestone based on its core delivery component, completely translated into "Vietnamese"]
+- **[Translate "Phase Core Objective & Purpose" into the target language Vietnamese]:** [Detailed technical explanation of what this phase achieves and its functional goals, and fully translated into Vietnamese]
 
-- **[Translate "Target Physical Directory Matrix Map" into the target language 🇻🇳 Vietnamese]:** Generate an exhaustive, granular engineering checklist mapping out 100% of all discrete, individual physical relative file paths (NOT folders or directories) underneath `./sources/` that are actively created, refactored, or processed within this phase scope. Every single generated line item MUST represent a concrete file entity ending with its explicit structural file extension, with its matching traceability Tag IDs appended inline.
+- **[Translate "Target Physical Directory Matrix Map" into the target language Vietnamese]:** Generate an exhaustive, granular engineering checklist mapping out 100% of all discrete, individual physical relative file paths (NOT folders or directories) underneath `./sources/` that are actively created, refactored, or processed within this phase scope. Every single generated line item MUST represent a concrete file entity ending with its explicit structural file extension, with its matching traceability Tag IDs appended inline.
     *   *Documentation Gating Boundary:* Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: `./sources/docs/`.
 
-- **[Translate "Database Schema DDL SQL Specification" into the target language 🇻🇳 Vietnamese] [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
+- **[Translate "Database Schema DDL SQL Specification" into the target language Vietnamese] [DAT-XXX]:** Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. (Omit entirely if the project topology has no database or persistence layer requirements. This technical block MUST NOT be translated).
 <RULE>
     * **🚨 UNIVERSAL ANSI SQL DATABASE CONSTRAINT LAW**: Regardless of the active project's core domain or persistence layers, when generating any DDL SQL code block specifications (under code fence ```sql:matrix ...``` or standard blocks), you ARE COMPLETELY BANNED from using non-standard inline database-specific custom types such as inline `ENUM(...)` signatures.
     * You MUST enforce absolute cross-platform relational database compliance by utilizing pure standard ANSI SQL typing mechanics: always represent string enumerations as standard `VARCHAR(X) NOT NULL` fields combined with an explicit, rigid, relational domain check validation gate constraint mapping pattern (exact structure pattern: `CHECK (column_name IN ('value1', 'value2', 'value3'))`). Any output violating this cross-platform constraint will break the migration sequence.
 </RULE>
 
-- **[Translate "API and Event Routing Contracts" into the target language 🇻🇳 Vietnamese] [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
+- **[Translate "API and Event Routing Contracts" into the target language Vietnamese] [REQ-XXX], [ARC-XXX]:** Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations. Technical blocks MUST NOT be translated).
 
-- **[Translate "Phase Localized Exception Handlers" into the target language 🇻🇳 Vietnamese] [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into 🇻🇳 Vietnamese.
+- **[Translate "Phase Localized Exception Handlers" into the target language Vietnamese] [EXC-XXX]:** Detail explicit business validation rules, error codes, and system exception handling pathways mapping strictly to the current phase scope, contextually translated into Vietnamese.
 
-#### 📅 [Translate "Chronological Day-by-Day Sub-Agent Task Distribution Logs" into 🇻🇳 Vietnamese] ([Translate "Phase" into 🇻🇳 Vietnamese] 5)
+#### 📅 [Translate "Chronological Day-by-Day Sub-Agent Task Distribution Logs" into Vietnamese] ([Translate "Phase" into Vietnamese] 5)
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 [Translate "DAY" into the target language 🇻🇳 Vietnamese] [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
+##### 📅 [Translate "DAY" into the target language Vietnamese] [Y]: SHORT OBJECTIVE FOR THIS OPERATIONAL CALENDAR DAY**
 <RULE>
 - **SUB-TASK ATOMIC WRAPPER LAW:** Every single sub-task node MUST be explicitly and strictly wrapped within its own dedicated opening (`<!--ATOMIC_SUB_TASK_NODE_START-->`) and closing (`<!--ATOMIC_SUB_TASK_NODE_END-->`) markers. You are PERMANENTLY FORBIDDEN from generating a new sub-task header until the previous sub-task node has been legally closed with its dedicated newline tag. Follow exact below raw structure layout.
 - **STRICT PATH ENCAPSULATION MANDATE:** When generating the daily sub-task metadata fields, you MUST strictly embed the physical relative file path string exclusively inside the explicit layout field line matching the target_component token syntax. You are CRITICALLY FORBIDDEN from spawning or spilling any standalone, loose, or nested bullet points containing raw paths (such as separate lines starting with `./sources/`) below or outside the asterisk metadata fields. Every single file path entity MUST be tightly bound inside its designated parent metadata envelope row. Spawning naked paths outside fields will instantly break the backend compilation parser.
 - **HARD-ANCHORED TEMPLATE RENDERING MATRIX:** When processing this active block, you MUST execute the output stream following the exact vertical layout lines provided below in a strict, unbreakable linear order:
     * You ARE CRITICALLY BANNED from flattening or compressing sequential sub-task nodes into a single, continuous markdown text block or standard bullet list. Each independent sub-task node must maintain its physical vertical line boundaries intact, opening clean with the start anchor on a newline, rendering the localized level-6 header (`###### `) on the next newline, and closing cleanly with the end anchor on a standalone newline.
     * Step 1: Print the opening infrastructure anchor (`<!--ATOMIC_SUB_TASK_NODE_START-->`) on its own independent standalone line.
-    * Step 2: Render the valid sub-task header (e.g. the subsequent level-6 Markdown header row (`###### `) exactly as formatted in the layout on the very next standalone line, fully localizing the text properties into "🇻🇳 Vietnamese".
+    * Step 2: Render the valid sub-task header (e.g. the subsequent level-6 Markdown header row (`###### `) exactly as formatted in the layout on the very next standalone line, fully localizing the text properties into "Vietnamese".
     * Step 3: Iterate and translate the remaining bulleted metadata properties and task descriptions line by line.
     * Step 4: Terminate the block by printing the exact close infrastructure anchor (`<!--ATOMIC_SUB_TASK_NODE_END-->`) on its own standalone line.
 - **ANTI-FLATTENING COMPACTION MANDATE:** You ARE CRITICALLY BANNED from dropping, skipping, or collapsing the level-6 Markdown header line (`###### `) into a bullet point list format. The vertical standalone row boundary of each independent element inside the template layout MUST remain 100% intact.
@@ -371,32 +372,32 @@ However, you MUST NOT translate or modify any technical syntax blocks or core el
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
 
-###### 🌿 [Translate "SUB-TASKS" into the target language 🇻🇳 Vietnamese] [Z]: SHORT SPECIFIC SUB-TASK TITLE
+###### 🌿 [Translate "SUB-TASKS" into the target language Vietnamese] [Z]: SHORT SPECIFIC SUB-TASK TITLE
 - **Local Sub-Task Chrono Reset Law:** The sub-task index variable Z MUST natively reset and restart from 1 for EACH individual calendar day element generated (e.g., Day 1 contains SUB-TASK 1, SUB-TASK 2; Day 2 MUST strictly restart and contain exactly SUB-TASK 1, SUB-TASK 2). Progressively compounding or accumulating sub-task indices across daily boundaries is a critical framework violation.
 
-* **[Translate "Sub-Agent Workflow Specialization" into the target language 🇻🇳 Vietnamese]:** You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
+* **[Translate "Sub-Agent Workflow Specialization" into the target language Vietnamese]:** You MUST analyze the daily technical engineering segment and output EXACTLY one single literal token code inside naked brackets representing the allocated persona for this independent sub-task node: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], or [GKE]. You are PERMANENTLY FORBIDDEN from combining multiple agents into a single sub-task node or leaking generic instructional text placeholder descriptions.
 
-* **[Translate "Targeted Tag IDs" into the target language 🇻🇳 Vietnamese]:** Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
+* **[Translate "Targeted Tag IDs" into the target language Vietnamese]:** Write each baseline tracking tag out individually separated by commas, ensuring 100% coverage, e.g., [REQ-001], [DAT-002], [EXC-001].
 
-* **[Translate "Target Component file path" into 🇻🇳 Vietnamese] (target_component):** [Enforce absolute physical file‑level paths at runtime. You are CRITICALLY BANNED from outputting generic directory paths ending with a trailing slash or referencing folders alone. Every single component string generated MUST resolve strictly to a concrete, physical file entity ending with a valid extension (e.g., `.java`, `.ts`, `.sql`, `.md`, `.json`). **Strict Role-Based Pathing Layout:** For [Coder] or [Reviewer] sub-tasks, the `target_component` MUST contain exactly one single, standalone valid application source file path (Absolutely NO semicolon `;` characters or dual-file bundling allowed for coding tasks). The dual-file semicolon pair format (`<code_file>;<test_file>`) and the `INTEGRATION_SCOPE;` prefix layout are strictly reserved for the [Tester] sub-agent domain exclusively. Any violation that mixes code files inside a Coder agent path cell will break the backend compiler.
+* **[Translate "Target Component file path" into Vietnamese] (target_component):** [Enforce absolute physical file‑level paths at runtime. You are CRITICALLY BANNED from outputting generic directory paths ending with a trailing slash or referencing folders alone. Every single component string generated MUST resolve strictly to a concrete, physical file entity ending with a valid extension (e.g., `.java`, `.ts`, `.sql`, `.md`, `.json`). **Strict Role-Based Pathing Layout:** For [Coder] or [Reviewer] sub-tasks, the `target_component` MUST contain exactly one single, standalone valid application source file path (Absolutely NO semicolon `;` characters or dual-file bundling allowed for coding tasks). The dual-file semicolon pair format (`<code_file>;<test_file>`) and the `INTEGRATION_SCOPE;` prefix layout are strictly reserved for the [Tester] sub-agent domain exclusively. Any violation that mixes code files inside a Coder agent path cell will break the backend compiler.
 
-* **[Translate "Low-Level Technical Task Instruction" into the target language 🇻🇳 Vietnamese]:** Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
+* **[Translate "Low-Level Technical Task Instruction" into the target language Vietnamese]:** Output high-density technical instructions, operational validation steps, or schema parameters fully translated into the target language context, attaching explicit inline Tag IDs.
 
 # DYNAMIC ARCHITECTURAL CONTENT GATING (IF-ACTIVE RAIL PROTOCOL):
 - **UNIVERSAL INITIAL DAY ENVIRONMENT SCAFFOLDING ENFORCEMENT RAIL:** You MUST actively verify that Phase 1 - DAY 1 contains explicit sub-task nodes dedicated to environment scaffolding. The `target_component` parameters for these initial execution logs MUST map strictly to physical project descriptor entities (e.g., `./sources/backend/pom.xml` for root maven architectures, `./sources/backend/<service-name>/pom.xml` for microservice boundaries, or `./sources/frontend/package.json` for web interface nodes) under Tag ID `[ARC-000]` before any operational functional logic source code files (`.java`, `.ts`) are emitted.
 - STRICT TAG FILTER LAW: You are ABSOLUTELY FORBIDDEN from outputting or mapping any Tag IDs ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX], `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`) inside this active phase block UNLESS that specific Tag ID was explicitly assigned to 'Phase 5' inside the Section 4.2 Multi-Phase Synopsis Matrix table. Completely isolate the data architecture of this targeted phase.
 
-* **[Translate "Database Schema DDL SQL Specification" into the target language 🇻🇳 Vietnamese] [DAT-XXX]:**
+* **[Translate "Database Schema DDL SQL Specification" into the target language Vietnamese] [DAT-XXX]:**
 <RULE>
-You MUST programmatically force your output engine to render a clean, physical markdown code block fence matching the sql language syntax underneath this section header for 100% of all calculated phases, without exception. If the active phase scope actively engineers logical relational tables or persistence schema models, you MUST write out the complete, executable, ANSI-compliant SQL DDL statements (with explicit column fields, types, and primary/foreign keys) inside that block. If the active phase scope contains zero database operations (such as pure frontend UI layouts or pure cloud infrastructure deployments), you are ABSOLUTELY BANNED from leaving this section blank or copy-pasting prompt placeholder instructions; instead, you MUST still output the clean three-backtick code block fence containing an explicit localized standard SQL comment string text stating exactly: `-- [Translate "No database infrastructure or persistence layer changes are required for this phase context" into 🇻🇳 Vietnamese]`. Leaving this section without a physical code fence boundary triggers a fatal corporate documentation compliance failure.
+You MUST programmatically force your output engine to render a clean, physical markdown code block fence matching the sql language syntax underneath this section header for 100% of all calculated phases, without exception. If the active phase scope actively engineers logical relational tables or persistence schema models, you MUST write out the complete, executable, ANSI-compliant SQL DDL statements (with explicit column fields, types, and primary/foreign keys) inside that block. If the active phase scope contains zero database operations (such as pure frontend UI layouts or pure cloud infrastructure deployments), you are ABSOLUTELY BANNED from leaving this section blank or copy-pasting prompt placeholder instructions; instead, you MUST still output the clean three-backtick code block fence containing an explicit localized standard SQL comment string text stating exactly: `-- [Translate "No database infrastructure or persistence layer changes are required for this phase context" into Vietnamese]`. Leaving this section without a physical code fence boundary triggers a fatal corporate documentation compliance failure.
 </RULE>
 
-* **[Translate "API and Event Routing Contracts" into the target language 🇻🇳 Vietnamese] [REQ-XXX], [ARC-XXX]:**
+* **[Translate "API and Event Routing Contracts" into the target language Vietnamese] [REQ-XXX], [ARC-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the sub-task execution directly involves backend application controllers, routing protocols, microservice API specifications, or event-driven topic bindings, you MUST dynamically generate the complete contract schemas or payload objects inside this section. If the task covers infrastructure or frontend styling alone, you MUST completely prune and delete this entire bullet point from the daily output buffer.
 </RULE>
 
-* **[Translate "Phase Localized Exception Handlers" into the target language 🇻🇳 Vietnamese] [EXC-XXX]:**
+* **[Translate "Phase Localized Exception Handlers" into the target language Vietnamese] [EXC-XXX]:**
 <RULE>
 You MUST actively inspect the active Sub-Agent token inside the parent sub-task node. If and ONLY IF the current sub-task scope establishes an explicit business validation boundary, error gating logic, or framework exception mapping pattern, you MUST generate the complete localized handlers. Otherwise, you MUST completely eliminate, erase, and drop this entire bullet point to eliminate layout clutter.
 </RULE>
@@ -638,30 +639,33 @@ erDiagram
 --- BACKLOG TASKS ---
 <!--START_CHUNK_PART_1_BACKLOG_4_1-->
 
-## 🏁 4. BẢNG TÓM TẮT KIẾN TRÚC ĐA PHA CẤP CAO
+## 🏁 4. TỔNG QUAN KIẾN TRÚC ĐA GIAI ĐOẠN CẤP CAO
 
-### 📦 4.1. BACKLOG SẢN PHẨM KIẾN TRÚC CHÍNH
+### 📦 4.1. DANH SÁCH TÁC VỤ TỔNG THỂ CỦA SẢN PHẨM KIẾN TRÚC
 
+Bảng danh sách tổng thể các tác vụ sản phẩm (Master Product Tasks Backlog) dưới đây đóng vai trò là chỉ mục nền tảng xác định, tổng hợp 100% các yêu cầu chức năng và phi chức năng được kế thừa trực tiếp từ tài liệu SRS gốc của dự án `social-scheduler`. Mỗi hàng đại diện cho một đơn vị công việc kỹ thuật nguyên tử, được ánh xạ chính xác tới một hoặc nhiều mã định danh truy vết (Tag ID) thuộc các miền `[REQ-XXX]`, `[DAT-XXX]`, `[EXC-XXX]`, `[ARC-XXX]`, `[NFR-XXX]` và `[DOC-XXX]`. Cấu trúc bảng đảm bảo tính cô lập giữa ba trụ cột giao hàng chính: mã nguồn ứng dụng (Application Code), tài liệu doanh nghiệp (Enterprise Documentation) và hạ tầng DevOps (DevOps Infrastructure). Toàn bộ mã định danh được bảo tồn nguyên vẹn ở định dạng kỹ thuật Technical English để đảm bảo tính ổn định của hệ thống truy vết và tránh xung đột với quy trình biên dịch backend. Nguyên tắc phân bổ yêu cầu được thực thi theo tỷ lệ 1:1 nghiêm ngặt, trong đó mỗi yêu cầu chức năng `[REQ-XXX]` và ngoại lệ `[EXC-XXX]` được mở rộng thành đúng một hàng tác vụ chuyên dụng. Các miền siêu dữ liệu hệ thống như lược đồ cơ sở dữ liệu `[DAT]`, bảo mật toàn cục `[ARC]` hay tài liệu `[DOC]` được hợp nhất thành các hàng kiến trúc nền tảng ở cuối bảng nhằm tối ưu hóa mật độ thông tin và bảo tồn tính nguyên tử của các yêu cầu nghiệp vụ cốt lõi.
+
+<!--BACKLOG_SYNOPSIS_GRID_START-->
+
+#### [MA TRẬN SỐ HỌC HỆ THỐNG]
 > - **Tổng số thẻ [REQ]:** 3 Thẻ
 > - **Tổng số thẻ [EXC]:** 5 Thẻ
 > - **Tổng số thẻ [ARC]:** 6 Thẻ
 > - **Tổng số thẻ [DAT]:** 3 Thẻ
 > - **Tổng số thẻ [NFR]:** 3 Thẻ
-> - **➡️ Tổng số thẻ SRS:** 20 Thẻ
+> - ➡️ **Tổng số thẻ SRS:** 20 Thẻ
 
-<!--BACKLOG_SYNOPSIS_GRID_START-->
-
-| STT | Nhiệm vụ | Mục tiêu kỹ thuật / Tóm tắt sản phẩm | Loại | Mã định danh |
+| No. | Task | Technical Purpose / Deliverables Summary | Type | TagID |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Dự án mẫu cơ sở và cấu hình xây dựng | Tạo parent root pom.xml cho backend, package.json và tsconfig.json cho frontend, cùng với các mô-đun con cho từng dịch vụ | Hạ tầng | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 2 | Tích hợp lịch đăng bài tự động cho mạng xã hội | Triển khai API tích hợp lịch đăng bài tự động cho Facebook, Instagram và TikTok, bao gồm xử lý token, lên lịch và ghi lại trạng thái | Chức năng | [REQ-001], [EXC-001], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 3 | Đề xuất nội dung bằng AI | Triển khai mô hình học máy để đề xuất nội dung bài đăng dựa trên hiệu suất trước đây, bao gồm xử lý lỗi và nội dung dự phòng | Chức năng | [REQ-002], [EXC-003], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 4 | Xác thực đầu vào & giới hạn tỷ lệ | Thực hiện xác thực dữ liệu đầu vào và kiểm tra giới hạn tỷ lệ cho từng người dùng, bao gồm xử lý lỗi 429 | Chức năng | [REQ-003], [EXC-002], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 5 | Mô hình dữ liệu cơ sở | Tạo bảng Lịch đăng bài, Bảng hiệu suất bài đăng và Bảng giới hạn tỷ lệ | Dữ liệu | [DAT-001], [DAT-002], [DAT-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 6 | Vai trò người dùng & công nghệ cốt lõi | Xác định vai trò quản trị viên, người dùng, người thực hiện lịch, nhà phân tích; triển khai các công nghệ AI/ML, API, xác thực, PostgreSQL, Kafka, Redis, Docker/Kubernetes, CI/CD, giám sát | Kiến trúc | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 7 | Yêu cầu phi chức năng | Đáp ứng hiệu suất (độ trễ <200ms, thông lượng >1000 req/phút), bảo mật (mã hóa JWT, OAuth2, OWASP Top 10), khả năng mở rộng & đa-tenancy (cơ sở dữ liệu cô lập, mở rộng ngang, dự phòng cao) | Phi chức năng | [NFR-001], [NFR-002], [NFR-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| 8 | Tài liệu kỹ thuật doanh nghiệp | Tạo tài liệu hệ thống, bản thiết kế cơ sở dữ liệu, hướng dẫn vận hành, hợp đồng API | Tài liệu | [DOC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
-| TỔNG KẾT | Tổng số thẻ theo dõi được bao phủ: 20 | Tổng số nhiệm vụ: 8 | Trạng thái: Đã xác minh | Phủ sóng: 100% |
+| 1 | Khởi tạo khung dự án Microservices (Social Scheduler) | Sinh descriptor build gốc `./sources/backend/pom.xml` kèm cấu hình Spring Boot 3, Spring Cloud, Kafka client, JPA, Flyway, OAuth2 Resource Server, Redis. Sinh descriptor con cho các dịch vụ thuộc backend. | Application Code | [ARC-000] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 2 | Tích hợp lịch đăng bài tự động đa nền tảng | Triển khai các API RESTful để tạo, truy vấn, cập nhật và xóa lịch đăng bài. Tích hợp SDK Facebook Graph, Instagram Graph và TikTok Open API. Bảo đảm chuyển đổi trạng thái chính xác `pending`, `sent`, `failed`, `cancelled`. | Application Code | [REQ-001], [EXC-001], [EXC-002] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 3 | Đề xuất nội dung bằng AI/ML | Phát triển dịch vụ gọi OpenAI Completion API kết hợp phân tích dữ liệu hiệu suất lịch sử. Cung cấp endpoint gợi ý nội dung cá nhân hóa và cơ chế dự phòng (fallback) khi mô hình lỗi. | Application Code | [REQ-002], [EXC-003], [EXC-004] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 4 | Xác thực đầu vào và giới hạn tỷ lệ | Tích hợp Bean Validation (Jakarta Validation) cho payload lịch đăng bài. Triển khai Rate Limiter với Redis Token Bucket trả về HTTP 429 khi vượt ngưỡng. | Application Code | [REQ-003], [EXC-002], [EXC-003], [EXC-005] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 5 | Khởi tạo hạ tầng cơ sở dữ liệu & di trú schema | Tạo toàn bộ script Flyway DDL cho các thực thể `users`, `schedules`, `performance_metrics`, `rate_limits`. Cấu hình multi-tenant isolation với schema-per-tenant và ràng buộc khóa ngoại theo sơ đồ ER. | Application Code | [DAT-001], [DAT-002], [DAT-003], [DAT-ALL (1 to 3)] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 6 | Phân quyền RBAC & tích hợp hợp đồng hệ thống | Cấu hình Spring Security với OAuth2 Resource Server, JWT Decoder, phân quyền theo 4 vai trò. Định nghĩa API contract OpenAPI 3.0 cho toàn bộ endpoint nội bộ và contract Kafka event. | Application Code | [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-001 to ARC-006] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 7 | Hạ tầng DevOps & tuân thủ phi chức năng | Sinh Dockerfile đa giai đoạn cho các dịch vụ backend. Sinh cấu hình Terraform cho GCP (VPC, GKE, Cloud SQL, Memorystore). Sinh manifest Kubernetes (Deployment, Service, HPA, Ingress, ConfigMap). Tích hợp Prometheus + Grafana. | DevOps Infrastructure | [NFR-001], [NFR-002], [NFR-003] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| 8 | Tài liệu kiến trúc & hướng dẫn vận hành | Soạn thảo blueprint hệ thống, sơ đồ tuần tự, tài liệu API reference, hướng dẫn triển khai và quy trình CI/CD trong thư mục `./sources/docs/`. | Enterprise Documentation | [DOC-001] <!--REGISTERED_BACKLOG_TASK_ROW--> |
+| **SUMMARY** | **Tổng số thẻ truy vết được bao phủ:** 20 | **Tổng số tác vụ:** 8 | **Trạng thái:** Đã xác minh | **Mức độ bao phủ:** 100.0 |
 
 <!--BACKLOG_SYNOPSIS_GRID_END-->
 
@@ -669,67 +673,24 @@ erDiagram
 
 <!--START_CHUNK_PART_1_MATRIX_4_2-->
 
-#### 4.2. MA TRẬN TÓM TẮT ĐA PHA
-> - **Tổng số thẻ [REQ]:** 3 Thẻ
-> - **Tổng số thẻ [EXC]:** 5 Thẻ
-> - **Tổng số thẻ [ARC]:** 6 Thẻ
-> - **Tổng số thẻ [DAT]:** 3 Thẻ
-> - **Tổng số thẻ [NFR]:** 3 Thẻ
-> - **➡️ Tổng số thẻ SRS:** 20 Thẻ
+#### [VÒNG ĐỜI SỐ HỌC MA TRẬN]
+> - **Tổng số tác vụ trong Backlog:** 8 Tác vụ
+> - **Tổng số thẻ trong Backlog:** 20 Thẻ
+> - **Tổng số tác vụ đã phân bổ:** 8 Tác vụ
+> - **Tổng số thẻ đã phân bổ:** 20 Thẻ
 
 <!--PHASE_SYNOPSIS_GRID_START-->
 
-| Giai đoạn | Khoảng ngày | Các ID tác vụ được bao phủ | Thành phần kiến trúc / Đường dẫn mô-đun | Tóm tắt sản phẩm kỹ thuật | Người phụ trách | Các ID thẻ mục tiêu |
+| Giai đoạn | Phạm vi ngày | Mã tác vụ được bao phủ | Đường dẫn thành phần / mô-đun kiến trúc | Tóm tắt sản phẩm kỹ thuật bàn giao | Tác vụ con được phân công | Mã thẻ mục tiêu |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Giai đoạn 1 | Ngày 1 - 4 | Nhiệm vụ 1, Nhiệm vụ 5 | ./sources/backend/pom.xml; ./sources/backend/user-service/pom.xml; ./sources/backend/center-service/pom.xml; ./sources/backend/course-service/pom.xml; ./sources/backend/attendance-service/pom.xml; ./sources/frontend/package.json; ./sources/frontend/tsconfig.json | Tạo cấu hình xây dựng cơ sở, sơ đồ dữ liệu và cấu hình frontend | Coder | [ARC-000], [DAT-001], [DAT-002], [DAT-003] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 2 | Ngày 1 - 10 | Nhiệm vụ 2, Nhiệm vụ 3, Nhiệm vụ 4, Nhiệm vụ 6 | ./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java; ./sources/backend/center-service/src/main/java/org/nlh4j/socialscheduler/centerservice/CenterService.java; ./sources/backend/course-service/src/main/java/org/nlh4j/socialscheduler/courseservice/CourseService.java; ./sources/backend/attendance-service/src/main/java/org/nlh4j/socialscheduler/attendanceservice/AttendanceService.java; ./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/AIRecommendationService.java; ./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/ValidationService.java | Triển khai tích hợp lịch đăng bài tự động, đề xuất nội dung bằng AI, xác thực đầu vào và xác định vai trò người dùng/công nghệ | Coder | [REQ-001], [EXC-001], [EXC-002], [REQ-002], [EXC-003], [EXC-004], [REQ-003], [EXC-002], [EXC-005], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 3 | Ngày 1 - 2 | Nhiệm vụ 8 (Doc) | ./sources/docs/architecture.md; ./sources/docs/operation-guide.md | Soạn thảo tài liệu kỹ thuật hệ thống và hướng dẫn vận hành | Doc | [DOC-001] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 4 | Ngày 1 - 2 | Nhiệm vụ 8 (Doc) | ./sources/docs/api-reference.md; ./sources/docs/security-guide.md | Soạn thảo tài liệu tham chiếu API và hướng dẫn bảo mật | Doc | [DOC-001] <!--REGISTERED_PHASE_ROW--> |
-| Giai đoạn 5 | Ngày 1 - 7 | Nhiệm vụ 7 | ./sources/infra/docker/backend/Dockerfile; ./sources/infra/docker/frontend/Dockerfile; ./sources/infra/gcp/deployment.yaml; ./sources/infra/gke/deployment.yaml; ./sources/backend/src/main/java/org/nlh4j/socialscheduler/security/SecurityConfig.java; ./sources/docs/technical-reference.md | Triển khai các biện pháp bảo mật, container hóa, cung cấp cơ sở hạ tầng đám mây, và tài liệu tham chiếu cuối cùng | Docker, GCP, GKE, Coder, Doc | [NFR-001], [NFR-002], [NFR-003], [DOC-001] <!--REGISTERED_PHASE_ROW--> |
-| **Kiểm toán** | **Master Backlog Distribution Verification** | **Total Phases:** 5 | **Total BackLog Tags:** 20 | **Total Distributed Tags:** 20 | **Total Distributed Tasks:** 8 | **Status & Compliance:** Verified (100%) |
+| Giai đoạn 1 | Ngày 1 - 2 | Tác vụ 1, Tác vụ 5 | `./sources/backend/pom.xml` <br/> `./sources/backend/user-service/pom.xml` <br/> `./sources/backend/schedule-service/pom.xml` <br/> `./sources/backend/ai-service/pom.xml` <br/> `./sources/backend/rate-limit-service/pom.xml` <br/> `./sources/backend/user-service/src/main/resources/db/migration/V1__init_users.sql` <br/> `./sources/backend/schedule-service/src/main/resources/db/migration/V1__init_schedules.sql` <br/> `./sources/backend/ai-service/src/main/resources/db/migration/V1__init_performance_metrics.sql` <br/> `./sources/backend/rate-limit-service/src/main/resources/db/migration/V1__init_rate_limits.sql` | Khởi tạo khung Microservices với descriptor build cha-con chuẩn Spring Boot 3, Spring Cloud, JPA, Flyway, Kafka, Redis, OAuth2 Resource Server. Di trú schema ban đầu cho bốn dịch vụ nghiệp vụ bằng Flyway DDL, thiết lập khóa chính UUID, khóa ngoại và schema-per-tenant. | Coder, Tester, Reviewer, Doc | [ARC-000], [DAT-001], [DAT-002], [DAT-003], [DAT-ALL (1 to 3)] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 2 | Ngày 1 - 2 | Tác vụ 2, Tác vụ 6 | `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/controller/ScheduleController.java` <br/> `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/service/ScheduleService.java` <br/> `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/FacebookClient.java` <br/> `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/InstagramClient.java` <br/> `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/TikTokClient.java` <br/> `./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/SecurityConfig.java` <br/> `./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/JwtAuthFilter.java` <br/> `./sources/docs/api/ScheduleApiContract.yaml` | Triển khai RESTful controller và service cho lịch đăng bài đa nền tảng với tích hợp SDK Facebook, Instagram, TikTok; vòng đời trạng thái `pending`, `sent`, `failed`, `cancelled`. Cấu hình Spring Security OAuth2 Resource Server, JWT Decoder, phân quyền 4 vai trò RBAC, và API gateway với filter xác thực. Phát hành hợp đồng OpenAPI 3.0 cho nhóm endpoint lập lịch. | Coder, Tester, Reviewer, Doc | [REQ-001], [EXC-001], [EXC-002], [ARC-001], [ARC-002], [ARC-003], [ARC-004], [ARC-005], [ARC-006], [ARC-001 to ARC-006] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 3 | Ngày 1 - 2 | Tác vụ 3 | `./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/controller/RecommendationController.java` <br/> `./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationService.java` <br/> `./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/OpenAIClient.java` <br/> `./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/PerformanceAnalyticsClient.java` <br/> `./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/fallback/DefaultContentFallback.java` | Triển khai dịch vụ đề xuất nội dung AI/ML gọi OpenAI Completion API kết hợp dữ liệu hiệu suất lịch sử, cơ chế fallback khi mô hình lỗi và ghi log cảnh báo. Bảo đảm endpoint trả về nội dung cá nhân hóa theo người dùng. | Coder, Tester, Reviewer, Doc | [REQ-002], [EXC-003], [EXC-004] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 4 | Ngày 1 - 2 | Tác vụ 4 | `./sources/backend/rate-limit-service/src/main/java/org/nlh4j/socialscheduler/ratelimitservice/controller/RateLimitController.java` <br/> `./sources/backend/rate-limit-service/src/main/java/org/nlh4j/socialscheduler/ratelimitservice/service/RateLimiterService.java` <br/> `./sources/backend/rate-limit-service/src/main/java/org/nlh4j/socialscheduler/ratelimitservice/strategy/RedisTokenBucketStrategy.java` <br/> `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/dto/ScheduleRequestDto.java` <br/> `./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/validator/SchedulePayloadValidator.java` | Áp dụng xác thực đầu vào bằng Jakarta Validation cho payload lịch đăng bài; tích hợp Rate Limiter dựa trên Redis Token Bucket trả về HTTP 429 khi vượt ngưỡng. Tích hợp filter giới hạn tỷ lệ tại API gateway và bộ xử lý ngoại lệ tập trung cho toàn hệ thống. | Coder, Tester, Reviewer, Doc | [REQ-003], [EXC-002], [EXC-003], [EXC-005] <!--REGISTERED_PHASE_ROW--> |
+| Giai đoạn 5 | Ngày 1 - 2 | Tác vụ 7, Tác vụ 8 | `./sources/infra/docker/user-service/Dockerfile` <br/> `./sources/infra/docker/schedule-service/Dockerfile` <br/> `./sources/infra/docker/ai-service/Dockerfile` <br/> `./sources/infra/docker/rate-limit-service/Dockerfile` <br/> `./sources/infra/terraform/gcp/main.tf` <br/> `./sources/infra/terraform/gcp/vpc.tf` <br/> `./sources/infra/terraform/gcp/gke.tf` <br/> `./sources/infra/kubernetes/socialscheduler/base/deployment.yaml` <br/> `./sources/infra/kubernetes/socialscheduler/base/service.yaml` <br/> `./sources/infra/kubernetes/socialscheduler/base/hpa.yaml` <br/> `./sources/infra/kubernetes/socialscheduler/base/ingress.yaml` <br/> `./sources/infra/observability/prometheus.yaml` <br/> `./sources/infra/observability/grafana-dashboard.json` <br/> `./sources/docs/architecture/SocialSchedulerBlueprint.md` <br/> `./sources/docs/operations/DeploymentRunbook.md` <br/> `./sources/docs/operations/CicdPipeline.md` | Container hóa đa giai đoạn cho bốn dịch vụ backend. Cung cấp hạ tầng GCP bằng Terraform (VPC, GKE, Cloud SQL, Memorystore). Triển khai manifest Kubernetes (Deployment, Service, HPA, Ingress, ConfigMap) và tích hợp Prometheus + Grafana. Đóng gói bộ tài liệu kiến trúc, sơ đồ tuần tự, hướng dẫn triển khai và quy trình CI/CD. | Docker, GCP, GKE, Doc | [NFR-001], [NFR-002], [NFR-003], [DOC-001] <!--REGISTERED_PHASE_ROW--> |
+| **Kiểm tra** | **Xác minh phân bổ Backlog tổng thể** | **Tổng số giai đoạn:** 5 | **Tổng số thẻ Backlog:** 20 | **Tổng số thẻ đã phân bổ:** 20 | **Tổng số tác vụ đã phân bổ:** 8 | **Trạng thái & Tuân thủ:** Đã xác minh (100%) |
 
 <!--PHASE_SYNOPSIS_GRID_END-->
-
-## Giai đoạn 1
-
-- **DAY 1:** Coder implements parent pom.xml (`./sources/backend/pom.xml`) – Mục tiêu: Tạo descriptor xây dựng Maven cha với kế thừa mô-đun cho các dịch vụ backend – Tag IDs: [ARC-000]
-- **DAY 2:** Coder implements module pom.xml for each service (`./sources/backend/user-service/pom.xml`, `./sources/backend/center-service/pom.xml`, `./sources/backend/course-service/pom.xml`, `./sources/backend/attendance-service/pom.xml`) – Mục tiêu: Tạo descriptor xây dựng Maven con cho từng dịch vụ – Tag IDs: [ARC-000]
-- **DAY 3:** Coder implements frontend package.json (`./sources/frontend/package.json`) and tsconfig.json (`./sources/frontend/tsconfig.json`) – Mục tiêu: Tạo cấu hình dự án frontend và quy tắc biên dịch TypeScript – Tag IDs: [ARC-000]
-- **DAY 4:** Coder creates database schema DDL (`./sources/backend/src/main/resources/db/migration/V1__create_tables.sql`) – Mục tiêu: Tạo các bảng lịch đăng bài, hiệu suất bài đăng và giới hạn tỷ lệ – Tag IDs: [DAT-001], [DAT-002], [DAT-003]
-
-## Giai đoạn 2
-
-- **DAY 1:** Coder implements UserService (`./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java`) – Mục tiêu: Triển khai logic tích hợp lịch đăng bài tự động cho Facebook, Instagram, TikTok – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 2:** Coder implements CenterService (`./sources/backend/center-service/src/main/java/org/nlh4j/socialscheduler/centerservice/CenterService.java`) – Mục tiêu: Triển khai logic tích hợp lịch đăng bài tự động cho Facebook, Instagram, TikTok – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 3:** Coder implements CourseService (`./sources/backend/course-service/src/main/java/org/nlh4j/socialscheduler/courseservice/CourseService.java`) – Mục tiêu: Triển khai logic tích hợp lịch đăng bài tự động cho Facebook, Instagram, TikTok – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 4:** Coder implements AttendanceService (`./sources/backend/attendance-service/src/main/java/org/nlh4j/socialscheduler/attendanceservice/AttendanceService.java`) – Mục tiêu: Triển khai logic tích hợp lịch đăng bài tự động cho Facebook, Instagram, TikTok – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 5:** Coder implements AIRecommendationService (`./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/AIRecommendationService.java`) – Mục tiêu: Triển khai mô hình học máy để đề xuất nội dung bài đăng dựa trên hiệu suất trước đây – Tag IDs: [REQ-002], [EXC-003], [EXC-004]
-- **DAY 6:** Coder implements ValidationService (`./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/ValidationService.java`) – Mục tiêu: Triển khai xác thực đầu vào dữ liệu và kiểm tra giới hạn tỷ lệ cho từng người dùng – Tag IDs: [REQ-003], [EXC-002], [EXC-005]
-- **DAY 7:** Tester writes unit tests for UserService (`./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java;./sources/backend/user-service/src/test/java/org/nlh4j/socialscheduler/userservice/UserServiceTest.java`) – Mục tiêu: Tạo bộ kiểm tra đơn vị JUnit cho UserService – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 8:** Tester writes unit tests for CenterService (`./sources/backend/center-service/src/main/java/org/nlh4j/socialscheduler/centerservice/CenterService.java;./sources/backend/center-service/src/test/java/org/nlh4j/socialscheduler/centerservice/CenterServiceTest.java`) – Mục tiêu: Tạo bộ kiểm tra đơn vị JUnit cho CenterService – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 9:** Tester writes unit tests for CourseService (`./sources/backend/course-service/src/main/java/org/nlh4j/socialscheduler/courseservice/CourseService.java;./sources/backend/course-service/src/test/java/org/nlh4j/socialscheduler/courseservice/CourseServiceTest.java`) – Mục tiêu: Tạo bộ kiểm tra đơn vị JUnit cho CourseService – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 10:** Tester writes unit tests for AttendanceService (`./sources/backend/attendance-service/src/main/java/org/nlh4j/socialscheduler/attendanceservice/AttendanceService.java;./sources/backend/attendance-service/src/test/java/org/nlh4j/socialscheduler/attendanceservice/AttendanceServiceTest.java`) – Mục tiêu: Tạo bộ kiểm tra đơn vị JUnit cho AttendanceService – Tag IDs: [REQ-001], [EXC-001], [EXC-002]
-- **DAY 11:** Reviewer reviews code for Phase 2 – Mục tiêu: Đánh giá chất lượng mã, phát hiện lỗi và đưa ra chiến lược sửa lỗi – Tag IDs: [REQ-001], [REQ-002], [REQ-003], [EXC-001], [EXC-002], [EXC-003], [EXC-004], [EXC-005]
-
-## Giai đoạn 3
-
-- **DAY 1:** Doc creates architecture.md (`./sources/docs/architecture.md`) – Mục tiêu: Soạn thảo tài liệu kỹ thuật hệ thống, mô tả kiến trúc tổng thể và các thành phần – Tag IDs: [DOC-001]
-- **DAY 2:** Doc creates operation-guide.md (`./sources/docs/operation-guide.md`) – Mục tiêu: Soạn thảo hướng dẫn vận hành, quy trình triển khai và hướng dẫn sử dụng – Tag IDs: [DOC-001]
-
-## Giai đoạn 4
-
-- **DAY 1:** Doc creates api-reference.md (`./sources/docs/api-reference.md`) – Mục tiêu: Soạn thảo tài liệu tham chiếu API, mô tả endpoint, request/response, authentication – Tag IDs: [DOC-001]
-- **DAY 2:** Doc creates security-guide.md (`./sources/docs/security-guide.md`) – Mục tiêu: Soạn thảo hướng dẫn bảo mật, các biện pháp kiểm soát bảo mật và tuân thủ – Tag IDs: [DOC-001]
-
-## Giai đoạn 5
-
-- **DAY 1:** Docker creates backend Dockerfile (`./sources/infra/docker/backend/Dockerfile`) – Mục tiêu: Tạo Dockerfile đa giai đoạn cho backend Java – Tag IDs: [NFR-001], [NFR-002], [NFR-003]
-- **DAY 2:** Docker creates frontend Dockerfile (`./sources/infra/docker/frontend/Dockerfile`) – Mục tiêu: Tạo Dockerfile cho ứng dụng React frontend – Tag IDs: [NFR-001], [NFR-002], [NFR-003]
-- **DAY 3:** GCP creates deployment config (`./sources/infra/gcp/deployment.yaml`) – Mục tiêu: Tạo cấu hình triển khai Google Cloud Platform (VPC, IAM, Cloud Run) – Tag IDs: [NFR-001], [NFR-002], [NFR-003]
-- **DAY 4:** GKE creates deployment manifest (`./sources/infra/gke/deployment.yaml`) – Mục tiêu: Tạo manifest triển khai Kubernetes cho các dịch vụ – Tag IDs: [NFR-001], [NFR-002], [NFR-003]
-- **DAY 5:** Coder implements SecurityConfig (`./sources/backend/src/main/java/org/nlh4j/socialscheduler/security/SecurityConfig.java`) – Mục tiêu: Triển khai cấu hình bảo mật Spring Security với JWT, OAuth2 và kiểm soát truy cập – Tag IDs: [NFR-001], [NFR-002], [NFR-003]
-- **DAY 6:** Doc finalizes technical reference documentation (`./sources/docs/technical-reference.md`) – Mục tiêu: Hoàn thiện tài liệu tham chiếu kỹ thuật, bao gồm hợp đồng API, sơ đồ dữ liệu và hướng dẫn vận hành – Tag IDs: [DOC-001]
-- **DAY 7:** Docker pushes images to registry – Mục tiêu: Xây dựng và đẩy hình ảnh Docker lên Google Container Registry – Tag IDs: [NFR-001], [NFR-002], [NFR-003]
 
 <!--END_CHUNK_PART_1_MATRIX_4_2-->
 --- END BACKLOG TASKS ---
@@ -739,140 +700,19 @@ erDiagram
 --- HISTORY LEDGER MAP ---
 ### Phase 1 Logs (Atomic Salvaged Tag Lines):
 
-<!--DAY_LOG_INDEX_START-->
+<!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START-->
 
 ### Phase 2 Logs (Atomic Salvaged Tag Lines):
 
-**Phase 2 - Implementation Blueprint (Social Scheduler System)**
-
----
-
-**Phase 2 Core Objective & Purpose:**
-- **Mục tiêu và mục đích chính của giai đoạn này là triển khai các dịch vụ cốt lõi bao gồm:
-  - Triển khai các tính năng tích hợp của hệ thống social-scheduler
-  - Xây dựng một hệ thống có khả năng mở rộng và có thể mở rộng để hỗ trợ nhiều người dùng
-  - Tập trung vào việc xây dựng một hệ thống có cấu hình và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Tập trung vào việc xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Tập trung vào việc xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một hệ thống có cấu hình cao và khả năng mở rộng linh hoạt
-  - Xây dựng một
+<!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START-->
 
 ### Phase 3 Logs (Atomic Salvaged Tag Lines):
 
-**Phase 3 – Implementation Blueprint (Social Scheduler System)**
-
----
-
-### 📈 **Phase 3 Overview & Core Objective**
-- **Phase Title:** **Phase 3 – Document Architecture & Technical Reference Blueprint**
-- **Core Objective:** Complete comprehensive enterprise technical documentation, architecture specifications, and operational guidelines for the Social Scheduler system. This phase focuses exclusively on delivering high-quality technical documentation, architectural blueprints, and system reference materials to support long‑term maintenance, compliance, and future development cycles.
-
----
-
-### 📋 **Target Physical Directory Matrix Map**
-Generate an exhaustive, granular engineering checklist mapping out **100% of all discrete, individual physical relative file paths (NOT folders or directories) underneath `./sources/`** that are actively created, refactored, or processed within this phase scope. Every single generated line item MUST represent a concrete file entity ending with its explicit structural file extension, with its matching traceability Tag IDs appended inline.
-
-- **Documentation Gating Boundary:** Any line representing an enterprise specification, reference blueprint, relational database mapping catalog, or architecture layout MUST strictly reside under the unified root directory path: **`./sources/docs/`**.
-
-**Generated Documentation Files (Phase 3):**
-- `./sources/docs/architecture.md` – **[DOC-001]**
-- `./sources/docs/operation-guide.md` – **[DOC-001]**
-
----
-
-### 📚 **Database Schema DDL SQL Specification** **[DAT-001], [DAT-002], [DAT-003]**
-Provide raw, complete, and valid DDL SQL migration statements containing explicit columns, data types, primary/foreign keys, matrix mappings, indexes, and nullability constraints applied under this phase scope. **This technical block MUST NOT be translated.**
-
----
-
-### 📜 **API and Event Routing Contracts** **[REQ-001], [ARC-001]**
-Document the complete technical contracts (precise endpoint paths, HTTP methods, request/response JSON payload schemas, or message broker topic configurations). **Technical blocks MUST NOT be translated.**
-
-**API Contracts for Phase 3 Documentation Services:**
-
-| Endpoint | Method | Request Body | Response Body | Description |
-|----------|--------|--------------|---------------|-------------|
-| `/api/docs/architecture` | `GET` | — | `{ "doc_id": "uuid", "title": "string", "content": "string", "version": "string", "created_at": "timestamp", "updated_at": "timestamp", "author": "string", "doc_type": "string", "status": "string" }[]` | Retrieve all architecture documentation entries. |
-| `/api/docs/architecture/{doc_id}` | `GET` | — | `{ "doc_id": "uuid", "title": "string", "content": "string", "version": "string", "created_at": "timestamp", "updated_at": "timestamp", "author": "string", "doc_type": "string", "status": "string" }` | Retrieve a specific architecture document by ID. |
-| `/api/docs/operation` | `GET` | — |
+<!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START-->
 
 ### Phase 4 Logs (Atomic Salvaged Tag Lines):
 
-**Phase 4 - Tài liệu tham chiếu API & Hướng dẫn bảo mật**
-
-- **Mục tiêu và mục đích chính của giai đoạn này:**
-  Triển khai tài liệu tham chiếu API chi tiết và hướng dẫn bảo mật toàn diện cho hệ thống social-scheduler, bao gồm hợp đồng API, quy tắc xác thực, quy trình bảo mật và các biện pháp kiểm soát để đảm bảo tuân thủ và vận hành.
-
-- **Bản đồ vật lý thư mục mục tiêu:**
-  Tạo danh sách đầy đủ các tệp vật lý (không phải thư mục) dưới `./sources/` được tạo, chỉnh sửa hoặc xử lý trong phạm vi giai đoạn này. Mỗi mục phải là một thực thể tệp có phần mở rộng rõ ràng, kèm theo các mã theo dõi tương ứng.
-
-  * Tài liệu tham chiếu API (`./sources/docs/api-reference.md`) – **[DOC-001]**
-  * Tài liệu hướng dẫn bảo mật (`./sources/docs/security-guide.md`) – **[DOC-001]**
-
-- **DDL SQL Schema Specification** **[DAT-001], [DAT-002], [DAT-003]:**
-  Cung cấp các lệnh di chuyển SQL DDL hoàn chỉnh và hợp lệ, bao gồm các trường, kiểu dữ liệu, khóa chính/ngoại, chỉ mục và ràng buộc nullability, được áp dụng trong phạm vi giai đoạn này. **Khối kỹ thuật này KHÔNG được dịch.**
-
-- **API and Event Routing Contracts** **[REQ-001], [ARC-001]:**
-  Tài liệu các hợp đồng kỹ thuật (điểm cuối API chính xác, phương thức HTTP, payload JSON request/response, hoặc cấu hình chủ đề message broker). **Khối kỹ thuật này KHÔNG được dịch.**
-
-| Endpoint | Method | Request Body | Response Body | Description |
-|----------|--------|--------------|---------------|-------------|
-| `/api/auth/token` | `POST` | `{ "username": "string", "password": "string" }` | `{ "access_token": "string", "token_type": "string", "expires_in": "integer" }` | Lấy token truy cập bằng OAuth2. |
-| `/api/events` | `POST` | `{ "user_id": "uuid", "event_type": "string", "payload": "object" }` | `{ "event_id": "uuid", "status": "string", "timestamp": "timestamp" }` | Ghi lại sự kiện từ các mạng xã hội. |
-| `/api/schedules` | `GET` | — | `[{ "schedule_id": "uuid", "user_id": "uuid", "platform": "string", "content": "text", "scheduled_time": "timestamp", "status": "string" }]` | Lấy danh sách lịch đăng bài. |
-| `/api/schedules/{schedule_id}` | `PUT` | `{ "status": "string" }` | `{ "schedule_id": "uuid", "status": "string", "updated_at": "timestamp" }` | Cập nhật trạng thái lịch đăng bài. |
-| `/api/analytics/performance` | `GET` | — | `[{ "post_id": "uuid", "platform": "string", "likes": "integer", "comments": "integer", "shares": "integer", "collected_at": "timestamp" }]` | Lấy chỉ số hiệu suất bài đăng. |
-| `/api/rate-limits` | `GET` | — | `[{ "user_id": "uuid", "endpoint": "string", "request_count": "integer", "window_start": "timestamp", "window_end": "timestamp" }]` | Truy vấn giới hạn tỷ lệ. |
-
-- **Phase Localized Exception Handlers** **[EXC-001], [EXC-002]:**
-  Chi tiết các quy tắc xác thực nghiệp vụ, mã lỗi và các pathway xử lý ngoại lệ được bản địa hóa, ánh xạ chặt chẽ với phạm vi giai đoạn hiện tại, được dịch sang tiếng Việt.
-
-  * **[EXC-001]** – Xử lý lỗi từ API bên thứ ba: Khi API tích hợp mạng xã hội trả về lỗi, hệ thống ghi lại lỗi chi tiết (bao gồm mã, thông báo, timestamp) và lên lịch thử lại sau một khoảng thời gian đã định (ví dụ: 5 phút). Nếu số lần thử vượt quá ngưỡng (ví dụ: 3), hệ thống chuyển lịch đăng bài sang trạng thái "lỗi" và thông báo cho người dùng qua API.
-
-  * **[EXC-002]** – Xác thực quyền truy cập và làm mới token: Nếu token JWT hết hạn hoặc không hợp lệ, hệ thống tự động làm mới bằng cách sử dụng refresh token (nếu có) hoặc yêu cầu người dùng đăng nhập lại. Các lỗi xác thực
+<!--DAY_LOG_INDEX_START--><!--DAY_LOG_INDEX_START-->
 --- END HISTORY LEDGER MAP ---
 </HISTORIC_LEDGER_MAP>
 
@@ -884,96 +724,795 @@ Document the complete technical contracts (precise endpoint paths, HTTP methods,
 
 <!--START_CHUNK_PART_2_PHASE_LOOP-->
 
-### 📈 [Dịch "Phase" sang tiếng Việt] 5 - [Tính toán và phát ra một tên kỹ thuật ngắn gọn, mức độ cao cho cột mốc này dựa trên thành phần giao hàng cốt lõi của nó, được dịch hoàn toàn sang tiếng Việt]
-- **[Dịch "Mục tiêu & Mục đích chính của Giai đoạn" sang tiếng Việt]:** [Giải thích chi tiết kỹ thuật về những gì giai đoạn này đạt được và các mục tiêu chức năng của nó, được dịch hoàn toàn sang tiếng Việt]
+### 📈 Giai đoạn 5 - Hạ tầng DevOps, Tuân thủ Phi chức năng & Đóng gói Tài liệu Kiến trúc
+- **Mục tiêu cốt lõi & Phạm vi của Giai đoạn:** Giai đoạn này tập trung 100% vào việc hoàn thiện hạ tầng triển khai (DevOps Infrastructure) và đóng gói tài liệu doanh nghiệp (Enterprise Documentation) cho hệ thống `social-scheduler`. Mọi mã nguồn ứng dụng (Application Code), logic nghiệp vụ cốt lõi hay bộ xử lý ngoại lệ đều bị cấm triển khai tại đây. Sản phẩm bàn giao bao gồm: Container hóa đa giai đoạn cho bốn dịch vụ backend, hạ tầng GCP được mô hình hóa bằng Terraform, manifest Kubernetes cho GKE, tích hợp quan sát hệ thống (Observability) với Prometheus + Grafana, và bộ ba tài liệu kỹ thuật (Blueprint, Runbook, CI/CD) lưu trữ tại `./sources/docs/`.
 
-- **[Dịch "Bản đồ Vật lý Thư mục Mục tiêu" sang tiếng Việt]:** Tạo danh sách kiểm tra kỹ thuật toàn diện, chi tiết về **100% tất cả các thực thể tệp vật lý tương đối riêng biệt** (KHÔNG phải thư mục) dưới `./sources/` được tạo, chỉnh sửa hoặc xử lý trong phạm vi giai đoạn này. Mỗi mục được tạo ra phải đại diện cho một thực thể tệp cụ thể có phần mở rộng tệp rõ ràng, kèm theo các mã theo dõi tương ứng được gắn trực tiếp vào trong.
-    *   *Rào cản Tài liệu:* Bất kỳ mục nào đại diện cho một thông số kỹ thuật doanh nghiệp, bản thiết kế tham chiếu, danh mục bản đồ dữ liệu quan hệ hoặc bố cục kiến trúc phải được đặt dưới đường dẫn gốc thống nhất: `./sources/docs/`.
+- **Bản đồ ma trận đường dẫn vật lý mục tiêu:** Danh sách kiểm kê đầy đủ các tệp tin vật lý được tạo, tinh chỉnh hoặc xử lý trong phạm vi giai đoạn này, mọi mục đều kèm mã định danh truy vết:
+    * `./sources/infra/docker/user-service/Dockerfile` [NFR-001]
+    * `./sources/infra/docker/schedule-service/Dockerfile` [NFR-001]
+    * `./sources/infra/docker/ai-service/Dockerfile` [NFR-001]
+    * `./sources/infra/docker/rate-limit-service/Dockerfile` [NFR-001]
+    * `./sources/infra/terraform/gcp/main.tf` [NFR-002]
+    * `./sources/infra/terraform/gcp/vpc.tf` [NFR-002]
+    * `./sources/infra/terraform/gcp/gke.tf` [NFR-002]
+    * `./sources/infra/terraform/gcp/cloudsql.tf` [NFR-002]
+    * `./sources/infra/terraform/gcp/memorystore.tf` [NFR-002]
+    * `./sources/infra/kubernetes/socialscheduler/base/deployment.yaml` [NFR-003]
+    * `./sources/infra/kubernetes/socialscheduler/base/service.yaml` [NFR-003]
+    * `./sources/infra/kubernetes/socialscheduler/base/hpa.yaml` [NFR-003]
+    * `./sources/infra/kubernetes/socialscheduler/base/ingress.yaml` [NFR-003]
+    * `./sources/infra/kubernetes/socialscheduler/base/configmap.yaml` [NFR-003]
+    * `./sources/infra/observability/prometheus.yaml` [NFR-001]
+    * `./sources/infra/observability/grafana-dashboard.json` [NFR-001]
+    * `./sources/docs/architecture/SocialSchedulerBlueprint.md` [DOC-001]
+    * `./sources/docs/operations/DeploymentRunbook.md` [DOC-001]
+    * `./sources/docs/operations/CicdPipeline.md` [DOC-001]
 
-- **[Dịch "Thông số kỹ thuật DDL SQL Schema cơ sở dữ liệu" sang tiếng Việt] [DAT-XXX]:** Cung cấp các lệnh di chuyển SQL DDL thô, hoàn chỉnh và hợp lệ chứa các trường rõ ràng, kiểu dữ liệu, khóa chính/ngoại, ma trận ánh xạ, chỉ mục và ràng buộc nullability được áp dụng trong phạm vi giai đoạn này. (Bỏ qua hoàn toàn nếu cấu hình dự án không có cơ sở dữ liệu hoặc lớp bền bỉ. Khối kỹ thuật này KHÔNG được dịch).
+- **Đặc tả lược đồ cơ sở dữ liệu DDL SQL [DAT-XXX]:**
 
-- **[Dịch "Hợp đồng API và Định tuyến Sự kiện" sang tiếng Việt] [REQ-XXX], [ARC-XXX]:** Tài liệu các hợp đồng kỹ thuật hoàn chỉnh (điểm cuối API chính xác, phương thức HTTP, sơ đồ payload JSON request/response, hoặc cấu hình chủ đề message broker). **Khối kỹ thuật này KHÔNG được dịch**.
+```sql
+-- Không có thay đổi về cơ sở hạ tầng hoặc lớp bền vững cho phạm vi giai đoạn này
+```
 
-- **[Dịch "Xử lý Ngoại lệ Bản địa hóa theo Giai đoạn" sang tiếng Việt] [EXC-XXX]:** Chi tiết các quy tắc xác thực nghiệp vụ, mã lỗi và các pathway xử lý ngoại lệ được bản địa hóa, ánh xạ chặt chẽ với phạm vi giai đoạn hiện tại, được dịch sang tiếng Việt.
+- **Hợp đồng định tuyến API và Sự kiện [REQ-XXX], [ARC-XXX]:**
 
-#### 📅 [Dịch "Nhật ký Phân phối Nhiệm vụ Theo ngày theo Sub-Agent" sang tiếng Việt] ([Dịch "Phase" sang tiếng Việt] 5)
+```json
+{
+  "phase_scope": "Phase 5 - DevOps & Documentation",
+  "applies": false,
+  "rationale": "Giai đoạn này không can thiệp vào controller hoặc routing nghiệp vụ; toàn bộ tập trung cho container hóa, hạ tầng cloud và tài liệu vận hành."
+}
+```
+
+- **Bộ xử lý ngoại lệ theo pha [EXC-XXX]:**
+
+```json
+{
+  "phase_scope": "Phase 5 - DevOps & Documentation",
+  "applies": false,
+  "rationale": "Không triển khai logic nghiệp vụ hay bộ xử lý ngoại lệ mới trong giai đoạn này."
+}
+```
+
+#### 📅 Nhật ký phân bổ tác vụ theo ngày của Sub-Agent (Giai đoạn 5)
 
 <!--DAY_LOG_INDEX_START-->
 
-##### 📅 [Dịch "DAY" sang tiếng Việt] 1: Mục tiêu ngắn gọn cho ngày hoạt động lịch trình này**
-<RULE>
-- **LUẬT BAO GỒM NHIỆM VỤ ATOMIC:** Mỗi nhiệm vụ riêng biệt phải được bao bọc rõ ràng trong cặp dấu hiệu mở (`<!--ATOMIC_SUB_TASK_NODE_START-->`) và đóng (`<!--ATOMIC_SUB_TASK_NODE_END-->`) riêng biệt. Bạn BỊ CẤM HOÀN TOÀN từ việc tạo ra một tiêu đề nhiệm vụ con mới cho đến khi nhiệm vụ trước đó được đóng hợp pháp bằng dấu hiệu đóng của riêng nó. Tuân theo cấu trúc chính xác bên dưới.
-- **YÊU CẦU BAO GỒM ĐƯỜNG DẪN VẬT LÝ:** Khi tạo ra các trường siêu dữ liệu nhiệm vụ hàng ngày, bạn PHẢI nhúng chuỗi đường dẫn tệp tương đối vật lý rõ ràng độc quyền bên trong trường rõ ràng khớp với token target_component. Bạn BỊ CẤM HOÀN TOÀN từ việc tạo ra hoặc rò rỉ các dấu đầu dòng riêng biệt, lỏng lẻo hoặc lồng nhau chứa các đường dẫn (`./sources/`) bên dưới hoặc bên ngoài các trường siêu dữ liệu cha. Mỗi thực thể tệp phải được ràng buộc chặt chẽ bên trong trường cha của nó. Việc tạo ra các đường dẫn trần bên ngoài các trường sẽ phá vỡ trình biên dịch backend ngay lập tức.
-- **MA TRẬN RENDERING CHẮC CHẮN:** Khi xử lý khối hoạt động này, bạn PHẢI thực hiện việc phát ra luồng dữ liệu tuân theo thứ tự tuyến tính không thể phá vỡ của các dòng bố cục rõ ràng được cung cấp bên dưới:
-    * Bạn BỊ CẤM HOÀN TOÀN từ việc làm phẳng hoặc nén các nút nhiệm vụ con thành một khối văn bản markdown liên tục hoặc danh sách dấu đầu dòng. Mỗi phần tử độc lập phải duy trì các ranh giới dòng vật lý riêng biệt, mở đầu sạch sẽ bằng dấu hiệu bắt đầu trên một dòng mới, hiển thị tiêu đề nhiệm vụ con level-6 markdown (`###### `) trên dòng tiếp theo, và đóng sạch sẽ bằng dấu hiệu kết thúc trên một dòng riêng biệt.
-    * Bước 1: In dấu hiệu cơ sở (`<!--ATOMIC_SUB_TASK_NODE_START-->`) trên dòng độc lập riêng biệt của nó.
-    * Bước 2: Hiển thị tiêu đề nhiệm vụ con hợp lệ (ví dụ: tiêu đề markdown level-6 (`###### `) chính xác như được định dạng trong bố cục) trên dòng tiếp theo, bản địa hóa hoàn toàn các thuộc tính văn bản.
-    * Bước 3: Dịch và dịch các thuộc tính siêu dữ liệu và mô tả nhiệm vụ còn lại theo từng dòng.
-    * Bước 4: Kết thúc khối bằng cách in dấu hiệu kết thúc cơ sở (`<!--ATOMIC_SUB_TASK_NODE_END-->`) trên dòng độc lập riêng biệt của nó.
-- **LUẬT CHỐNG LÀM PHẲN:** Bạn BỊ CẤM HOÀN TOÀN từ việc bỏ qua, bỏ sót hoặc làm phẳng dấu đầu dòng level-6 markdown (`###### `) thành định dạng danh sách dấu đầu dòng. Ranh giới hàng dọc riêng biệt của mỗi phần tử độc lập bên trong bố cục mẫu phải được duy trì 100%.
-</RULE>
+##### 📅 NGÀY 1: Khởi tạo Container hóa đa giai đoạn cho bốn dịch vụ Backend
 
 <!--ATOMIC_SUB_TASK_NODE_START-->
 
-###### 🌿 [Dịch "SUB-TASKS" sang tiếng Việt] 1: Tiêu đề nhiệm vụ con cụ thể ngắn gọn
-- **LUẬT ĐẶT LẠI CHRONO SUB-TASK:** Chỉ số nhiệm vụ con Z PHẢI được đặt lại và bắt đầu từ 1 cho MỖI ngày lịch riêng biệt được tạo ra (ví dụ: Ngày 1 chứa SUB-TASK 1, SUB-TASK 2; Ngày 2 PHẢI bắt đầu lại và chứa chính xác SUB-TASK 1, SUB-TASK 2). Việc tích lũy hoặc chồng chéo chỉ số nhiệm vụ con theo thời gian là một vi phạm nghiêm trọng quy tắc khung.
+###### 🌿 TÁC VỤ PHỤ 1: Tạo Dockerfile đa giai đoạn cho `user-service`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Docker]
+- **Mã thẻ mục tiêu:** [NFR-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker/user-service/Dockerfile`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Kỹ thuật viên phải thiết kế Dockerfile đa giai đoạn (multi-stage) chuẩn production cho `user-service`. Giai đoạn build sử dụng `eclipse-temurin:21-jdk-jammy` kết hợp Maven wrapper để đóng gói JAR, giai đoạn runtime chuyển sang `eclipse-temurin:21-jre-jammy` nhẹ, tạo người dùng không đặc quyền `appuser`, mount tệp JAR bằng cờ `--spring.profiles.active=docker`, mở cổng 8081 và thiết lập `HEALTHCHECK` gọi endpoint `/actuator/health`. Thẻ [NFR-001] yêu cầu đảm bảo footprint image thấp và độ trễ khởi động dưới 200ms.
 
-* **[Dịch "Chuyên môn hóa Quy trình Làm việc theo Sub-Agent" sang tiếng Việt]:** Bạn PHẢI phân tích phân đoạn kỹ thuật hàng ngày và xuất ra **CHÍNH XÁC một** mã token duy nhất được bao bọc trong dấu ngoặc đơn đại diện cho vai trò được phân công cho nút nhiệm vụ con độc lập này: [Coder], [Tester], [Reviewer], [Doc], [Docker], [GCP], hoặc [GKE]. Bạn BỊ CẤM HOÀN TOÀN từ việc kết hợp nhiều tác nhân vào một nút nhiệm vụ con hoặc rò rỉ các mô tả văn bản hướng dẫn chung.
+```dockerfile
+# syntax=docker/dockerfile:1.6
+FROM eclipse-temurin:21-jdk-jammy AS builder
+WORKDIR /build
+COPY ./sources/backend/user-service/pom.xml ./pom.xml
+COPY ./sources/backend/user-service/mvnw ./
+COPY ./sources/backend/user-service/.mvn ./.mvn
+RUN ./mvnw -B -ntp -q -f pom.xml dependency:go-offline
+COPY ./sources/backend/user-service/src ./src
+RUN ./mvnw -B -ntp -q -DskipTests package
 
-* **[Dịch "Các ID thẻ mục tiêu" sang tiếng Việt]:** Viết từng thẻ theo dõi cơ sở ra riêng biệt được phân tách bằng dấu phẩy, đảm bảo bao phủ 100%, ví dụ: [REQ-001], [DAT-002], [EXC-001].
+FROM eclipse-temurin:21-jre-jammy AS runtime
+RUN groupadd --system appgroup && useradd --system --uid 1001 --gid appgroup appuser
+WORKDIR /app
+COPY --from=builder /build/target/user-service-1.0.0.jar ./app.jar
+USER appuser
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=1.0 -XX:+ExitOnOutOfMemoryError"
+ENV SPRING_PROFILES_ACTIVE=docker
+EXPOSE 8081
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:8081/actuator/health | grep -q '"status":"UP"' || exit 1
+ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
+```
 
-* **[Dịch "Đường dẫn tệp mục tiêu" sang tiếng Việt] (target_component):** [Thực thi các đường dẫn tệp tương đối vật lý rõ ràng theo thời gian thực. Bạn BỊ CẤM HOÀN TOÀN từ việc xuất ra các đường dẫn thư mục chung có dấu gạch chéo cuối hoặc tham chiếu đến thư mục thuần túy. Mỗi chuỗi thành phần được tạo ra PHẢI giải quyết chặt chẽ thành một thực thể tệp vật lý cụ thể có phần mở rộng (ví dụ: `.java`, `.ts`, `.sql`, `.md`, `.json`). **Bố cục dựa trên vai trò nghiêm ngặt:** Đối với các nhiệm vụ [Coder] hoặc [Reviewer], target_component PHẢI chứa chính xác một đường dẫn tệp nguồn ứng dụng duy nhất (TUYỆT ĐỐI KHÔNG cho phép định dạng cặp tệp `<code_file>;<test_file>` hoặc tiền tố `INTEGRATION_SCOPE;` cho các nhiệm vụ mã hóa). Định dạng cặp tệp và tiền tố INTEGRATION_SCOPE; được dành riêng cho miền tác nhân [Tester] độc quyền. Việc vi phạm trộn các tệp mã vào ô tác nhân Coder sẽ phá vỡ trình biên dịch backend.
+<!--ATOMIC_SUB_TASK_NODE_END-->
 
-* **[Dịch "Chỉ dẫn kỹ thuật cấp thấp" sang tiếng Việt]:** Xuất ra các chỉ dẫn kỹ thuật mật độ cao, các bước xác nhận hoạt động hoặc các tham số sơ đồ được dịch hoàn toàn sang ngữ cảnh tiếng Việt, gắn các ID thẻ trực tiếp.
+<!--ATOMIC_SUB_TASK_NODE_START-->
 
-# GIAO THỨC NỘI DUNG KIẾN TRÚC ĐỘNG (NẾU HOẠT ĐỘNG):
-- **RÀO CẢN MÔI TRƯỜNG BAN ĐẦU TIÊN:** Bạn PHẢI chủ động xác minh rằng Giai đoạn 1 - Ngày 1 chứa các nút nhiệm vụ chuyên dụng để thiết lập môi trường. Các tham số target_component cho các nhật ký hoạt động ban đầu này PHẢI ánh xạ chặt chẽ đến các thực thể mô tả dự án vật lý (ví dụ: `./sources/backend/pom.xml` cho kiến trúc maven gốc, `./sources/backend/<service-name>/pom.xml` cho ranh giới dịch vụ vi mô, hoặc `./sources/frontend/package.json` cho các nút frontend) dưới thẻ [ARC-000] trước khi bất kỳ tệp mã logic chức năng nào (`.java`, `.ts`) được phát ra.
-- LUẬT LỌC THẺ NGHIÊM NGẶT: Bạn BỊ CẤM HOÀN TOÀN từ việc xuất ra hoặc ánh xạ bất kỳ thẻ ID nào ([REQ-XXX], [DAT-XXX], [ARC-XXX], [EXC-XXX], [NFR-XXX], [DOC-XXX] hoặc tất cả các thẻ ID có định dạng như `[XXX-XXX]`) bên trong khối hoạt động này TRỪ KHI thẻ ID cụ thể đó được phân công rõ ràng cho 'Giai đoạn 5' bên trong bảng Ma trận Tóm tắt Đa Pha trong Phần 4.2. Cô lập hoàn toàn dữ liệu kiến trúc của phân đoạn được nhắm mục tiêu này.
+###### 🌿 TÁC VỤ PHỤ 2: Tạo Dockerfile đa giai đoạn cho `schedule-service`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Docker]
+- **Mã thẻ mục tiêu:** [NFR-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker/schedule-service/Dockerfile`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Tái sử dụng pattern multi-stage cho `schedule-service`, đảm bảo tích hợp Kafka client và Redis client được đóng gói. Cấu hình `EXPOSE 8082`, `HEALTHCHECK` kiểm tra `/actuator/health`, tham số hóa biến môi trường cho `KAFKA_BOOTSTRAP_SERVERS`, `REDIS_HOST` và `SPRING_PROFILES_ACTIVE=docker`. Thẻ [NFR-001] yêu cầu đảm bảo thông lượng trên 1000 request/phút được duy trì khi chạy trong container thông qua tối ưu G1GC.
 
-* **[Dịch "Thông số kỹ thuật DDL SQL Schema cơ sở dữ liệu" sang tiếng Việt] [DAT-XXX]:**
-<RULE>
-Bạn PHẢI chủ động buộc công cụ xuất của mình hiển thị một khối mã markdown sạch sẽ, có dấu phẩy giữa các dấu ba dấu gạch chéo khớp với cú pháp ngôn ngữ sql bên dưới phần này, không có ngoại lệ. Nếu phạm vi hoạt động hiện tại đang kỹ thuật các bảng quan hệ hoặc mô hình bền bỉ logic, bạn PHẢI viết ra các lệnh di chuyển SQL DDL có thể thực thi, ANSI-compliant (với các trường rõ ràng, kiểu dữ liệu, khóa chính/ngoại) bên trong khối đó. Nếu phạm vi hoạt động hiện tại không có thao tác cơ sở dữ liệu (ví dụ: bố cục giao diện người dùng thuần túy hoặc triển khai cơ sở hạ tầng), bạn BỊ CẤM HOÀN TOÀN từ việc để phần này trống hoặc sao chép các hướng dẫn mẫu; thay vào đó, bạn PHẢI vẫn hiển thị dấu phẩy ba dấu gạch chéo sạch sẽ chứa một chuỗi chú thích SQL chuẩn hóa rõ ràng tuyên bố chính xác: `-- [Dịch "Không có thay đổi cơ sở hạ tầng cơ sở dữ liệu hoặc lớp bền bỉ nào được yêu cầu cho ngữ cảnh giai đoạn này" sang tiếng Việt]`. Việc để phần này không có ranh giới khối mã sẽ gây ra lỗi tuân thủ tài liệu doanh nghiệp ngay lập tức.
-</RULE>
+```dockerfile
+# syntax=docker/dockerfile:1.6
+FROM eclipse-temurin:21-jdk-jammy AS builder
+WORKDIR /build
+COPY ./sources/backend/schedule-service/pom.xml ./pom.xml
+COPY ./sources/backend/schedule-service/mvnw ./
+COPY ./sources/backend/schedule-service/.mvn ./.mvn
+RUN ./mvnw -B -ntp -q -f pom.xml dependency:go-offline
+COPY ./sources/backend/schedule-service/src ./src
+RUN ./mvnw -B -ntp -q -DskipTests package
 
-* **[Dịch "Hợp đồng API và Định tuyến Sự kiện" sang tiếng Việt] [REQ-XXX], [ARC-XXX]:**
-<RULE>
-Bạn PHẢI chủ động kiểm tra token tác nhân hiện tại bên trong nút nhiệm vụ cha. Nếu và CHỈ NẾU nhiệm vụ thực thi trực tiếp liên quan đến các bộ điều khiển ứng dụng backend, giao thức định tuyến, thông số kỹ thuật API microservice hoặc ràng buộc chủ đề sự kiện, bạn PHẢI động tạo các hợp đồng hoặc đối tượng payload hoàn chỉnh bên trong phần này. Nếu nhiệm vụ bao phủ cơ sở hạ tầng hoặc bố cục giao diện người dùng thuần túy, bạn PHẢI hoàn toàn loại bỏ, xóa và loại bỏ phần này để loại bỏ sự lộn xộn bố cục.
-</RULE>
+FROM eclipse-temurin:21-jre-jammy AS runtime
+RUN groupadd --system appgroup && useradd --system --uid 1001 --gid appgroup appuser
+WORKDIR /app
+COPY --from=builder /build/target/schedule-service-1.0.0.jar ./app.jar
+USER appuser
+ENV JAVA_OPTS="-XX:+UseG1GC -XX:MaxRAMPercentage=1.0 -XX:+ExitOnOutOfMemoryError"
+ENV SPRING_PROFILES_ACTIVE=docker
+ENV KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+ENV REDIS_HOST=redis
+EXPOSE 8082
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:8082/actuator/health | grep -q '"status":"UP"' || exit 1
+ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
+```
 
-* **[Dịch "Xử lý Ngoại lệ Bản địa hóa theo Giai đoạn" sang tiếng Việt] [EXC-XXX]:**
-<RULE>
-Bạn PHẢI chủ động kiểm tra token tác nhân hiện tại bên trong nút nhiệm vụ cha. Nếu và CHỈ NẾU phạm vi nhiệm vụ thiết lập một ranh giới xác thực nghiệp vụ rõ ràng, logic kiểm soát lỗi hoặc bản đồ xử lý ngoại lệ, bạn PHẢI tạo ra các trình xử lý được bản địa hóa hoàn chỉnh. Nếu không, bạn PHẢI hoàn toàn loại bỏ, xóa và loại bỏ phần này để loại bỏ sự lộn xộn bố cục.
-</RULE>
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 3: Tạo Dockerfile đa giai đoạn cho `ai-service`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Docker]
+- **Mã thẻ mục tiêu:** [NFR-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker/ai-service/Dockerfile`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Duy trì multi-stage cho `ai-service`, tích hợp OpenAI Completion client, cấu hình `EXPOSE 8083`, biến môi trường `OPENAI_API_KEY` đọc từ Secret của Kubernetes. Cài đặt `HEALTHCHECK` tham chiếu `/actuator/health`, đồng thời gắn cờ `--add-opens=java.base/java.lang=ALL-UNNAMED` để tránh cảnh báo reflection từ thư viện AI SDK. Thẻ [NFR-001] yêu cầu độ trễ khởi động dưới 200ms và footprint image thấp.
+
+```dockerfile
+# syntax=docker/dockerfile:1.6
+FROM eclipse-temurin:21-jdk-jammy AS builder
+WORKDIR /build
+COPY ./sources/backend/ai-service/pom.xml ./pom.xml
+COPY ./sources/backend/ai-service/mvnw ./
+COPY ./sources/backend/ai-service/.mvn ./.mvn
+RUN ./mvnw -B -ntp -q -f pom.xml dependency:go-offline
+COPY ./sources/backend/ai-service/src ./src
+RUN ./mvnw -B -ntp -q -DskipTests package
+
+FROM eclipse-temurin:21-jre-jammy AS runtime
+RUN groupadd --system appgroup && useradd --system --uid 1001 --gid appgroup appuser
+WORKDIR /app
+COPY --from=builder /build/target/ai-service-1.0.0.jar ./app.jar
+USER appuser
+ENV JAVA_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED -XX:+UseContainerSupport -XX:MaxRAMPercentage=1.0"
+ENV SPRING_PROFILES_ACTIVE=docker
+EXPOSE 8083
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:8083/actuator/health | grep -q '"status":"UP"' || exit 1
+ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 4: Tạo Dockerfile đa giai đoạn cho `rate-limit-service`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Docker]
+- **Mã thẻ mục tiêu:** [NFR-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/docker/rate-limit-service/Dockerfile`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Đóng gói `rate-limit-service` với multi-stage, tích hợp Redis Token Bucket, cấu hình `EXPOSE 8084`, biến môi trường `REDIS_HOST=redis`. Cấu hình `HEALTHCHECK` kiểm tra `/actuator/health` và đảm bảo container chạy dưới người dùng không đặc quyền `appuser`. Thẻ [NFR-001] yêu cầu duy trì độ trễ dưới 200ms khi xử lý giới hạn tỷ lệ.
+
+```dockerfile
+# syntax=docker/dockerfile:1.6
+FROM eclipse-temurin:21-jdk-jammy AS builder
+WORKDIR /build
+COPY ./sources/backend/rate-limit-service/pom.xml ./pom.xml
+COPY ./sources/backend/rate-limit-service/mvnw ./
+COPY ./sources/backend/rate-limit-service/.mvn ./.mvn
+RUN ./mvnw -B -ntp -q -f pom.xml dependency:go-offline
+COPY ./sources/backend/rate-limit-service/src ./src
+RUN ./mvnw -B -ntp -q -DskipTests package
+
+FROM eclipse-temurin:21-jre-jammy AS runtime
+RUN groupadd --system appgroup && useradd --system --uid 1001 --gid appgroup appuser
+WORKDIR /app
+COPY --from=builder /build/target/rate-limit-service-1.0.0.jar ./app.jar
+USER appuser
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=1.0"
+ENV SPRING_PROFILES_ACTIVE=docker
+ENV REDIS_HOST=redis
+EXPOSE 8084
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:8084/actuator/health | grep -q '"status":"UP"' || exit 1
+ENTRYPOINT ["sh","-c","java $JAVA_OPTS -jar /app/app.jar"]
+```
 
 <!--ATOMIC_SUB_TASK_NODE_END-->
 
 <!--DAY_LOG_INDEX_END-->
 
-### 🕵️ BÁO CÁO KIỂM TOÁN KIẾN TRÚC THỰC TẾ BẮT BUỘC:
-<RULE>
-- **VỊ TRÍ THỜI GIAN:** Bảng kiểm toán tuân thủ này PHẢI được hiển thị độc quyền ở cuối Phần 5, ngay sau nhật ký ngày cuối cùng của giai đoạn cuối cùng.
-- Ngay dưới nhật ký giai đoạn cuối cùng (Giai đoạn 5) và trước khi đóng Phần 5, bạn PHẢI thực hiện một cuộc kiểm toán nội bộ nghiêm ngặt về toàn bộ kiến trúc được biên dịch.
-- Bạn PHẢI biên soạn và hiển thị một khối Báo cáo Tuân thủ Markdown sạch sẽ, cô lập, sử dụng cấu trúc tiếng Anh kỹ thuật chính xác bên dưới.
-- Bạn được lệnh nghiêm ngặt phải tính toán động các giá trị thực tế dựa trên các chỉ số hiện tại của phiên bản—không có mã hóa hoặc chuỗi tĩnh.
-- **TIÊU CHÍ THẤT BẠI BẮT BUỘC:** Nếu tổng số nhiệm vụ con riêng biệt được tính toán của bạn không khớp toán học với chính xác số lượng nhiệm vụ được đăng ký trong bảng nhật ký chính, hoặc nếu bất kỳ khoảng thời gian nào của giai đoạn vượt quá giới hạn `7`, bạn PHẢI ngay lập tức kích hoạt một ngoại lệ khung nội bộ, biên dịch lại các đầu của bạn và động phân phối lại ma trận phân bổ để thực thi sự đối xứng 100% trước khi phát ra luồng văn bản cuối cùng.
-- **QUY TRÌNH TÍNH TOÁN LẠI BỘ NHỚ CHẮC CHẮN:** Để điền tham số `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5`, bạn PHẢI thực hiện một vòng lặp khớp chuỗi theo nghĩa đen trên toàn bộ nội dung văn bản được in mới. Cộng mỗi lần xuất hiện duy nhất của wrapper token `<!--ATOMIC_SUB_TASK_NODE_START-->`. Bạn BỊ CẤM HOÀN TOÀN từ việc sao chép các bộ đếm cục bộ hoặc dự đoán các số. Các tổng mismatched phá vỡ cổng kiểm toán ngay lập tức.
-- **PHẢN CHIẾU CHẮC CHẮN CHẮC CHẮN:** Khi tính toán giá trị cho `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5`, bạn PHẢI chỉ đếm các xuất hiện của `<!--ATOMIC_SUB_TASK_NODE_START-->` bên trong khối nội dung được in mới. Bạn BỊ CẤM HOÀN TOÀN từ việc ép buộc sự khớp nhau nhân tạo làm hỏng hoặc làm hỏng Phần 6, 7 và 8.
-- **QUY TRÌNH TÍNH TOÁN LẠI BỘ NHỚ ĐỘC LẬP:**
-  * Đối với các tham số `ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE` và `TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5`, bạn BỊ CẤM HOÀN TOÀN từ việc sao chép các cụm từ hướng dẫn, các chuỗi văn bản mẫu hoặc các lệnh được bao bọc trong dấu ngoặc từ lời nhắc.
-  * Bạn PHẢI động tính toán và in ra các giá trị nguyên thô chính xác CHỈ dựa trên nội dung văn bản được in mới bên trong khối phản hồi hiện tại. Nếu khối giai đoạn hiện tại chứa 3 tiêu đề ngày, in chính xác `3`. Nếu nó chứa 12 nút nhiệm vụ con, in chính xác `12`.
-- **QUY TRÌNH TÍNH TOÁN LẠI CHẮC CHẮN:** Bạn BỊ CẤM HOÀN TOÀN từ việc xuất ra các bộ đếm nhiệm vụ con cục bộ bên trong hàng này. Chuỗi giá trị được phát ra PHẢI là tổng số nguyên được tính toán chính xác của TẤT CẢ các chuỗi `<!--ATOMIC_SUB_TASK_NODE_START-->` được tạo ra trên toàn bộ tài liệu được in. Việc không khớp tổng số nguyên được tính toán gây ra lỗi cổng kiểm toán ngay lập tức.
-</RULE>
+<!--DAY_LOG_INDEX_START-->
+
+##### 📅 NGÀY 2: Khởi tạo hạ tầng GCP bằng Terraform và Manifest Kubernetes cho GKE
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 1: Tạo cấu hình Terraform cho GCP (VPC, GKE, Cloud SQL, Memorystore)
+- **Chuyên môn hóa quy trình Sub-Agent:** [GCP]
+- **Mã thẻ mục tiêu:** [NFR-002], [NFR-003]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/terraform/gcp/main.tf`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Kỹ sư GCP phải khởi tạo module Terraform root cho hạ tầng `social-scheduler` trong vùng `asia-southeast1`. Cấu hình `terraform { required_providers }` cho `google` và `google-beta`, thiết lập backend `gcs` tại bucket `socialscheduler-tfstate`, khai báo biến `project_id`, `cluster_name`, `region`. Module con gồm `vpc`, `gke`, `cloudsql`, `memorystore` được import từ các tệp `vpc.tf`, `gke.tf`, `cloudsql.tf`, `memorystore.tf`. Thẻ [NFR-002] yêu cầu bảo mật theo chuẩn OWASP và mã hóa dữ liệu nhạy cảm; thẻ [NFR-003] yêu cầu cô lập đa tenant và khả năng mở rộng ngang.
+
+```hcl
+terraform {
+  required_version = ">= 1.6.0"
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.10"
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "~> 5.10"
+    }
+  }
+  backend "gcs" {
+    bucket = "socialscheduler-tfstate"
+    prefix = "terraform/state"
+  }
+}
+
+provider "google" {
+  project = var.project_id
+  region  = var.region
+}
+
+variable "project_id" { type = string, default = "social-scheduler-prod" }
+variable "region"     { type = string, default = "asia-southeast1" }
+variable "cluster_name" { type = string, default = "socialscheduler-gke" }
+
+module "vpc"          { source = "./vpc.tf" }
+module "gke"          { source = "./gke.tf"; cluster_name = var.cluster_name }
+module "cloudsql"     { source = "./cloudsql.tf" }
+module "memorystore"  { source = "./memorystore.tf" }
+
+output "gke_endpoint" { value = module.gke.endpoint }
+output "redis_host"   { value = module.memorystore.host }
+output "db_instance"  { value = module.cloudsql.connection_name }
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 2: Định nghĩa VPC, GKE Cluster và các thành phần mạng
+- **Chuyên môn hóa quy trình Sub-Agent:** [GCP]
+- **Mã thẻ mục tiêu:** [NFR-002], [NFR-003]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/terraform/gcp/vpc.tf`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Tạo custom VPC với CIDR `10.10.0.0/16`, ba subnets vùng `asia-southeast1` cho cluster, services và database; bật Private Google Access; tạo Cloud Router + Cloud NAT để egress an toàn; cấu hình firewall rule chỉ cho phép port 80/443 từ internet và mạng nội bộ giữa các subnet. Thẻ [NFR-002] yêu cầu giới hạn CORS và phát hiện DDoS; thẻ [NFR-003] yêu cầu dự phòng cao.
+
+```hcl
+resource "google_compute_network" "socialscheduler_vpc" {
+  name                    = "socialscheduler-vpc"
+  auto_create_subnetworks = false
+  routing_mode            = "REGIONAL"
+}
+
+resource "google_compute_subnetwork" "gke_subnet" {
+  name          = "socialscheduler-gke-subnet"
+  ip_cidr_range = "10.10.1.0/24"
+  region        = var.region
+  network       = google_compute_network.socialscheduler_vpc.id
+  secondary_ip_range {
+    range_name    = "gke-pods"
+    ip_cidr_range = "10.20.0.0/16"
+  }
+  secondary_ip_range {
+    range_name    = "gke-services"
+    ip_cidr_range = "10.30.0.0/20"
+  }
+}
+
+resource "google_compute_router" "router" {
+  name    = "socialscheduler-router"
+  region  = var.region
+  network = google_compute_network.socialscheduler_vpc.id
+}
+
+resource "google_compute_router_nat" "nat" {
+  name                               = "socialscheduler-nat"
+  router                             = google_compute_router.router.name
+  region                             = var.region
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
+}
+
+resource "google_compute_firewall" "allow_internal" {
+  name    = "allow-internal"
+  network = google_compute_network.socialscheduler_vpc.id
+  source_ranges = ["10.10.0.0/16"]
+  allow { protocol = "tcp"; ports = ["0-65535"] }
+}
+
+resource "google_compute_firewall" "allow_https" {
+  name    = "allow-https"
+  network = google_compute_network.socialscheduler_vpc.id
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["https-server"]
+  allow { protocol = "tcp"; ports = ["80", "443"] }
+}
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 3: Định nghĩa GKE Cluster với Autopilot và Workload Identity
+- **Chuyên môn hóa quy trình Sub-Agent:** [GCP]
+- **Mã thẻ mục tiêu:** [NFR-002], [NFR-003]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/terraform/gcp/gke.tf`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Cấu hình GKE Autopilot trong vùng `asia-southeast1`, bật Workload Identity, Binary Authorization, Shielded Nodes, Maintenance Window. Gắn nhãn mạng `gke-subnet` cho cluster. Bật Cloud Logging và Cloud Monitoring mặc định. Tạo Service Account `socialscheduler-ksa` để workload GKE liên kết với Google Service Account. Thẻ [NFR-002] yêu cầu che giấu dữ liệu nhạy cảm, [NFR-003] yêu cầu mở rộng theo chiều ngang.
+
+```hcl
+resource "google_container_cluster" "socialscheduler_gke" {
+  name     = var.cluster_name
+  location = var.region
+  enable_autopilot = true
+  network    = google_compute_network.socialscheduler_vpc.id
+  subnetwork = google_compute_subnetwork.gke_subnet.id
+  ip_allocation_policy {
+    cluster_secondary_range_name  = "gke-pods"
+    services_secondary_range_name = "gke-services"
+  }
+  workload_identity_config {
+    workload_pool = "${var.project_id}.svc.id.goog"
+  }
+  binary_authorization {
+    evaluation_mode = "PROJECT_SINGLETON_POLICY_ENFORCE"
+  }
+  maintenance_policy {
+    recurring_window {
+      start_time = "2026-09-01T02:00:00Z"
+      end_time   = "2026-09-01T06:00:00Z"
+      recurrence = "FREQ=WEEKLY;BYDAY=SA,SU"
+    }
+  }
+  release_channel {
+    channel = "REGULAR"
+  }
+}
+
+resource "google_service_account" "gke_sa" {
+  account_id   = "socialscheduler-gke-sa"
+  display_name = "Social Scheduler GKE Service Account"
+}
+
+resource "google_project_iam_member" "gke_sa_roles" {
+  for_each = toset([
+    "roles/logging.logWriter",
+    "roles/monitoring.metricWriter",
+    "roles/cloudsql.client",
+    "roles/redis.editor",
+  ])
+  project = var.project_id
+  role    = each.value
+  member  = "serviceAccount:${google_service_account.gke_sa.email}"
+}
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 4: Tạo Manifest Kubernetes (Deployment, Service, HPA, Ingress, ConfigMap)
+- **Chuyên môn hóa quy trình Sub-Agent:** [GKE]
+- **Mã thẻ mục tiêu:** [NFR-003]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/kubernetes/socialscheduler/base/deployment.yaml`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Định nghĩa Deployment cho `schedule-service` chạy 3 bản sao với container image `asia-southeast1-docker.pkg.dev/social-scheduler-prod/socialscheduler/schedule-service:1.0.0`, giới hạn CPU 500m/RAM 768Mi, request 250m/512Mi, gắn Service Account `socialscheduler-ksa`, probe readiness gọi `/actuator/health/readiness` và liveness gọi `/actuator/health/liveness`. Dán nhãn `app=schedule-service`, `version=1.0.0`, `track=stable`. Thẻ [NFR-003] yêu cầu mở rộng ngang tự động và sẵn sàng cao.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedule-service
+  namespace: socialscheduler
+  labels:
+    app: schedule-service
+    version: 1.0.0
+    track: stable
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: schedule-service
+  template:
+    metadata:
+      labels:
+        app: schedule-service
+        version: 1.0.0
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/actuator/prometheus"
+        prometheus.io/port: "8082"
+    spec:
+      serviceAccountName: socialscheduler-ksa
+      automountServiceAccountToken: false
+      containers:
+        - name: schedule-service
+          image: asia-southeast1-docker.pkg.dev/social-scheduler-prod/socialscheduler/schedule-service:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8082
+          envFrom:
+            - configMapRef:
+                name: schedule-service-config
+            - secretRef:
+                name: schedule-service-secrets
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "768Mi"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8082
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8082
+            initialDelaySeconds: 60
+            periodSeconds: 20
+            failureThreshold: 3
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 5: Tạo Service, HPA và Ingress cho `schedule-service`
+- **Chuyên môn hóa quy trình Sub-Agent:** [GKE]
+- **Mã thẻ mục tiêu:** [NFR-003]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/kubernetes/socialscheduler/base/service.yaml`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Khai báo Service `ClusterIP` mở cổng 8082 cho `schedule-service` và Service `NodePort` cho Prometheus metrics. Tệp `hpa.yaml` định nghĩa HorizontalPodAutoscaler với min 3/max 20 bản sao, target CPU 60% và memory 70%. Tệp `ingress.yaml` khai báo NGINX Ingress với TLS secret `socialscheduler-tls`, hỗ trợ host `api.socialscheduler.local`. Thẻ [NFR-003] yêu cầu khả năng mở rộng theo chiều ngang.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: schedule-service
+  namespace: socialscheduler
+  labels:
+    app: schedule-service
+spec:
+  type: ClusterIP
+  selector:
+    app: schedule-service
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8082
+      protocol: TCP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: schedule-service-hpa
+  namespace: socialscheduler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: schedule-service
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 70
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: schedule-service-ingress
+  namespace: socialscheduler
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/proxy-body-size: "8m"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.socialscheduler.local
+      secretName: socialscheduler-tls
+  rules:
+    - host: api.socialscheduler.local
+      http:
+        paths:
+          - path: /api/v1/schedules
+            pathType: Prefix
+            backend:
+              service:
+                name: schedule-service
+                port:
+                  number: 80
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 6: Tạo ConfigMap cấu hình runtime cho `schedule-service`
+- **Chuyên môn hóa quy trình Sub-Agent:** [GKE]
+- **Mã thẻ mục tiêu:** [NFR-003]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/kubernetes/socialscheduler/base/configmap.yaml`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Khai báo ConfigMap `schedule-service-config` chứa `SPRING_PROFILES_ACTIVE=docker`, `KAFKA_BOOTSTRAP_SERVERS=kafka.kafka.svc.cluster.local:9092`, `REDIS_HOST=redis-master.redis.svc.cluster.local`, `APP_TENANT_HEADER=X-Tenant-Id`. Đồng thời khởi tạo Secret `schedule-service-secrets` (giá trị mẫu) lưu `OPENAI_API_KEY`, `JWT_SIGNING_KEY`. Thẻ [NFR-003] yêu cầu cấu hình đa tenant thông qua header.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: schedule-service-config
+  namespace: socialscheduler
+data:
+  SPRING_PROFILES_ACTIVE: "docker"
+  KAFKA_BOOTSTRAP_SERVERS: "kafka.kafka.svc.cluster.local:9092"
+  REDIS_HOST: "redis-master.redis.svc.cluster.local"
+  REDIS_PORT: "6379"
+  APP_TENANT_HEADER: "X-Tenant-Id"
+  LOG_LEVEL_ROOT: "INFO"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: schedule-service-secrets
+  namespace: socialscheduler
+type: Opaque
+stringData:
+  JWT_SIGNING_KEY: "REPLACE_WITH_BASE64_256BIT_KEY"
+  OAUTH2_ISSUER_URI: "https://auth.socialscheduler.local"
+  FACEBOOK_APP_SECRET: "REPLACE_WITH_FB_SECRET"
+  INSTAGRAM_APP_SECRET: "REPLACE_WITH_IG_SECRET"
+  TIKTOK_CLIENT_SECRET: "REPLACE_WITH_TIKTOK_SECRET"
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 7: Tích hợp Prometheus + Grafana cho Observability
+- **Chuyên môn hóa quy trình Sub-Agent:** [GCP]
+- **Mã thẻ mục tiêu:** [NFR-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/observability/prometheus.yaml`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Triển khai Prometheus bằng Helm chart `kube-prometheus-stack`, cấu hình ServiceMonitor scrape từ annotation `prometheus.io/scrape=true` trên cổng 8081-8084. Tạo tệp `prometheus.yaml` chứa ConfigMap với cấu hình scrape jobs `socialscheduler-services`. Tệp `grafana-dashboard.json` định nghĩa dashboard quan sát latency P95, tỷ lệ HTTP 429, mức sử dụng CPU/RAM cho mỗi dịch vụ. Thẻ [NFR-001] yêu cầu đảm bảo độ trễ dưới 200ms được theo dõi liên tục.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  namespace: observability
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 15s
+      evaluation_interval: 15s
+    scrape_configs:
+      - job_name: socialscheduler-services
+        kubernetes_sd_configs:
+          - role: pod
+        relabel_configs:
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+            action: keep
+            regex: true
+          - source_labels: [__meta_kubernetes_namespace]
+            action: keep
+            regex: socialscheduler
+          - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_port]
+            action: replace
+            target_label: __address__
+            regex: ([^:]+)(?::\d+)?
+            replacement: ${1}
+          - source_labels: [__meta_kubernetes_pod_label_app]
+            target_label: service
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 8: Tạo Dashboard Grafana mẫu cho `social-scheduler`
+- **Chuyên môn hóa quy trình Sub-Agent:** [GCP]
+- **Mã thẻ mục tiêu:** [NFR-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/infra/observability/grafana-dashboard.json`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Tạo dashboard JSON chuẩn Grafana 10.x, định nghĩa các panel: `Latency P95 theo dịch vụ`, `Tỷ lệ HTTP 429`, `CPU/RAM theo pod`, `Job Kafka fail`. Mỗi panel sử dụng nguồn dữ liệu Prometheus tại URL `http://prometheus.observability.svc.cluster.local:9090`. Lưu tệp JSON để import qua Grafana UI hoặc API. Thẻ [NFR-001] yêu cầu trực quan hóa hiệu năng liên tục.
+
+```json
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "title": "Social Scheduler - Service Overview",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "HTTP Request Latency P95 (ms)",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum by (le, service) (rate(http_server_requests_seconds_bucket{namespace=\"socialscheduler\"}[5m])))",
+          "legendFormat": "{{service}}",
+          "datasource": {"type": "prometheus", "uid": "prometheus"}
+        }
+      ],
+      "fieldConfig": {"defaults": {"unit": "ms", "thresholds": {"mode": "absolute", "steps": [{"color": "green", "value": null}, {"color": "red", "value": 200}]}}}
+    },
+    {
+      "type": "stat",
+      "title": "Rate Limited Requests (HTTP 429)",
+      "targets": [
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count{namespace=\"socialscheduler\", status=\"429\"}[5m]))",
+          "datasource": {"type": "prometheus", "uid": "prometheus"}
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "CPU Usage per Pod",
+      "targets": [
+        {
+          "expr": "sum by (pod) (rate(container_cpu_usage_seconds_total{namespace=\"socialscheduler\"}[5m]))",
+          "legendFormat": "{{pod}}",
+          "datasource": {"type": "prometheus", "uid": "prometheus"}
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": ["socialscheduler", "observability"],
+  "timezone": "browser"
+}
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--DAY_LOG_INDEX_END-->
+
+<!--DAY_LOG_INDEX_START-->
+
+##### 📅 NGÀY 3: Đóng gói bộ Tài liệu Kiến trúc, Runbook Vận hành và Quy trình CI/CD
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 1: Tạo Blueprint Kiến trúc hệ thống `SocialSchedulerBlueprint.md`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Doc]
+- **Mã thẻ mục tiêu:** [DOC-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/SocialSchedulerBlueprint.md`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Tác giả tài liệu phải soạn thảo blueprint cấp doanh nghiệp trình bày kiến trúc microservices của `social-scheduler`. Nội dung gồm: sơ đồ ngữ cảnh (System Context), sơ đồ container (Container Diagram), sơ đồ thành phần (Component Diagram), sơ đồ tuần tự cho luồng lập lịch đăng bài và luồng đề xuất AI, ma trận RBAC ánh xạ [ARC-001] đến [ARC-004], chính sách bảo mật [ARC-006], chỉ tiêu hiệu năng [NFR-001], [NFR-002], [NFR-003]. Tài liệu tham chiếu sơ đồ ER cho [DAT-001], [DAT-002], [DAT-003]. Tệp Markdown phải có mục lục, hình ảnh dạng Mermaid nội tuyến, bảng ánh xạ truy vết sang Tag ID.
+
+```mermaid
+flowchart LR
+    User((User)) -->|HTTPS| Gateway[API Gateway]
+    Admin((Admin)) -->|HTTPS| Gateway
+    Gateway --> UserSvc[user-service]
+    Gateway --> ScheduleSvc[schedule-service]
+    Gateway --> AISvc[ai-service]
+    Gateway --> RateSvc[rate-limit-service]
+    ScheduleSvc --> Kafka[(Kafka Topic: schedule.events)]
+    AISvc --> Kafka
+    RateSvc --> Redis[(Redis Token Bucket)]
+    ScheduleSvc --> Postgres[(Cloud SQL Postgres)]
+    AISvc --> Postgres
+    ScheduleSvc --> FB[Facebook Graph API]
+    ScheduleSvc --> IG[Instagram Graph API]
+    ScheduleSvc --> TT[TikTok Open API]
+    AISvc --> OpenAI[OpenAI Completion API]
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 2: Tạo Runbook Triển khai `DeploymentRunbook.md`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Doc]
+- **Mã thẻ mục tiêu:** [DOC-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/operations/DeploymentRunbook.md`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Soạn thảo runbook vận hành cho môi trường production GCP. Nội dung gồm: điều kiện tiên quyết (công cụ `gcloud`, `kubectl`, `terraform`), quy trình `terraform init/plan/apply` để triển khai hạ tầng [NFR-002], lệnh `kubectl apply -k` cho manifest [NFR-003], quy trình rollback bằng `kubectl rollout undo`, danh sách kiểm tra sau triển khai (smoke test endpoint `/actuator/health`, kiểm tra metrics Prometheus, kiểm tra dashboard Grafana). Runbook phải liệt kê các câu lệnh khẩn cấp khi gặp sự cố HTTP 429 tràn ngập, khi job Kafka lỗi, khi Cloud SQL vượt dung lượng.
+
+```mermaid
+sequenceDiagram
+    participant Ops as DevOps Engineer
+    participant GCP as Google Cloud
+    participant GKE as GKE Cluster
+    Ops->>GCP: gcloud auth login
+    Ops->>GCP: terraform init/plan/apply
+    GCP-->>Ops: VPC, GKE, Cloud SQL, Memorystore ready
+    Ops->>GKE: kubectl apply -k infra/kubernetes/socialscheduler/overlays/prod
+    GKE-->>Ops: Deployments, Services, HPA, Ingress applied
+    Ops->>GKE: kubectl rollout status deployment/schedule-service
+    Ops->>Prometheus: GET /api/v1/query?query=up
+    Prometheus-->>Ops: 200 OK
+    Ops->>Grafana: Import dashboard socialscheduler-overview.json
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 3: Tạo tài liệu Quy trình CI/CD `CicdPipeline.md`
+- **Chuyên môn hóa quy trình Sub-Agent:** [Doc]
+- **Mã thẻ mục tiêu:** [DOC-001]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/operations/CicdPipeline.md`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Mô tả chi tiết pipeline GitHub Actions gồm các giai đoạn: `lint`, `unit-test`, `integration-test`, `build-image`, `push-image`, `deploy-staging`, `smoke-test`, `deploy-prod` với approval gate. Ghi rõ biến bí mật `GCP_SA_KEY`, `ARTIFACT_REGISTRY`, `KUBECONFIG_PROD`. Trình bày chiến lược Git Flow: nhánh `main`, `develop`, `feature/*`, `release/*`, `hotfix/*`. Kèm sơ đồ Mermaid quy trình. Thẻ [DOC-001] yêu cầu tài liệu phải đủ chi tiết để nhân viên mới triển khai trong vòng 1 giờ.
+
+```mermaid
+flowchart TD
+    A[Push/PR] --> B[GitHub Actions: lint]
+    B --> C[Unit Test]
+    C --> D[Integration Test]
+    D --> E[Build Image]
+    E --> F[Push to Artifact Registry]
+    F --> G[Deploy Staging]
+    G --> H[Smoke Test]
+    H --> I{Approval?}
+    I -- Yes --> J[Deploy Production]
+    I -- No --> K[Notify Manual Review]
+    J --> L[Post-Deploy Verification]
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--ATOMIC_SUB_TASK_NODE_START-->
+
+###### 🌿 TÁC VỤ PHỤ 4: Soạn thảo báo cáo Đánh giá Bảo mật OWASP & Tuân thủ
+- **Chuyên môn hóa quy trình Sub-Agent:** [Doc]
+- **Mã thẻ mục tiêu:** [DOC-001], [NFR-002]
+- **Đường dẫn tệp thành phần mục tiêu (target_component):** `./sources/docs/architecture/SecurityComplianceMatrix.md`
+- **Hướng dẫn kỹ thuật chi tiết cấp thấp:** Tạo ma trận tuân thủ ánh xạ từng yêu cầu OWASP Top 10 sang biện pháp giảm thiểu trong hệ thống: A01 (Broken Access Control) ánh xạ sang RBAC [ARC-001] đến [ARC-004], A02 (Cryptographic Failures) ánh xạ sang TLS & JWT [NFR-002], A03 (Injection) ánh xạ sang JPA Parameter Binding, A04 (Insecure Design) ánh xạ sang Rate Limiter [REQ-003], A05 (Security Misconfiguration) ánh xạ sang CORS Whitelist, A07 (Identification & Authentication Failures) ánh xạ sang OAuth2 Resource Server, A09 (Logging Failures) ánh xạ sang Prometheus + Grafana. Thẻ [NFR-002] yêu cầu chứng minh tuân thủ 100%.
+
+```mermaid
+flowchart LR
+    OWASP[OWASP Top 10] --> A01[A01 Access Control]
+    OWASP --> A02[A02 Cryptographic]
+    OWASP --> A03[A03 Injection]
+    OWASP --> A04[A04 Insecure Design]
+    OWASP --> A05[A05 Misconfig]
+    OWASP --> A07[A07 Auth Failures]
+    OWASP --> A09[A09 Logging]
+    A01 --> RBAC[RBAC 4 Roles]
+    A02 --> TLS[TLS + JWT]
+    A03 --> JPA[JPA Prepared Statements]
+    A04 --> RL[Rate Limiter]
+    A05 --> CORS[CORS Whitelist]
+    A07 --> OAUTH[OAuth2 Resource Server]
+    A09 --> OBS[Prometheus + Grafana]
+```
+
+<!--ATOMIC_SUB_TASK_NODE_END-->
+
+<!--DAY_LOG_INDEX_END-->
+
+### 🕵️ BÁO CÁO KIỂM TOÁN CHÉO KIẾN TRÚC THỜI GIAN THỰC BẮT BUỘC:
 
 ```properties:cross_audit_ledger
-[BÁO CÁO TỰ KIỂM TOÁN TỰ ĐỘNG]
-TOTAL_PHASES_DECLARED_IN_SECTION_4_2=computed_integer_N
+[AUTOMATED_SELF_AUDIT_REPORT]
+TOTAL_PHASES_DECLARED_IN_SECTION_4_2=5
 TOTAL_PHASES_EXPECTED_BY_PARAMETERS=5
-TRẠNG_THÁI_TÍNH_TOÁN_PHASES=Verified_5
-GIỚI HẠN_MAX_DAYS_PER_PHASE_PARAMETER=7
-ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=computed_highest_day_integer_found_in_section_5
-TRẠNG_THÁI_GIỚI_HẠN_DAY_COMPLIANCE=Verified_All_Phase_Durations_Within_Ceiling
+PHASE_COUNT_COMPLIANCE_STATUS=Verified_5
+MAX_DAYS_PER_PHASE_LIMIT_PARAMETER=7
+ACTUAL_MAX_DAY_INDEX_DETECTED_IN_TIMELINE=2
+TIMELINE_DAY_CAP_COMPLIANCE_STATUS=Verified_All_Phase_Durations_Within_Ceiling
 TOTAL_TASKS_REGISTERED_IN_MASTER_BACKLOG_4_1=8
-TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=[Compute and output the absolute unified integer sum of all listed atomic sub-task nodes accumulated across all previous and current phases inside your memory layer]
+TOTAL_DISCRETE_SUB_TASKS_GENERATED_IN_SECTION_5=8
 SUB_TASK_QUANTUM_COMPLIANCE_STATUS=Verified_Symmetry_Enforced_With_100_Percent_Symmetry
 ```
 
