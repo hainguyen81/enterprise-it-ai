@@ -1,8 +1,8 @@
 {
     "phase_id": 3,
-    "phase_name": "Soạn thảo tài liệu kiến trúc và tham chiếu kỹ thuật",
-    "phase_description": "Hoàn thiện hệ thống tài liệu kỹ thuật doanh nghiệp, bao gồm bản thiết kế kiến trúc, hướng dẫn vận hành và các tài liệu tham chiếu hệ thống để đảm bảo tính tuân thủ và bảo trì lâu dài.",
-    "objectives": "Chuẩn hóa toàn bộ tài liệu kỹ thuật của hệ thống social-scheduler, tạo ra các tài liệu kiến trúc chi tiết, hướng dẫn vận hành hệ thống và các bản thiết kế tham chiếu kỹ thuật để hỗ trợ đội ngũ vận hành và phát triển.",
+    "phase_name": "Dịch vụ Đề xuất Nội dung AI và Tích hợp OpenAI",
+    "phase_description": "Triển khai hoàn chỉnh microservice ai-service cung cấp nội dung bài đăng được cá nhân hóa thông qua tích hợp OpenAI Completion API kết hợp phân tích hiệu suất lịch sử từ bảng performance_metrics, kèm cơ chế fallback an toàn khi mô hình AI không khả dụng, tuân thủ phân quyền RBAC 4 vai trò và tiêu chuẩn OWASP A04/A09",
+    "objectives": "Khởi tạo microservice ai-service với RESTful controller, DTO, enum, OpenAIClient tích hợp Resilience4j Circuit Breaker, PerformanceAnalyticsClient với Caffeine caching, RecommendationService thực thi prompt engineering kết hợp fallback orchestration, DefaultContentFallback an toàn, hợp đồng OpenAPI 3.0, và bộ kiểm thử JUnit5 đạt độ phủ 85%.",
     "project_name": "social-scheduler",
     "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -10,21 +10,58 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
-            "context_section": "Khởi tạo tài liệu kiến trúc hệ thống",
+            "context_section": "NGÀY 1: Khởi tạo Controller, DTO, Enum và Hợp đồng API cho Dịch vụ AI Recommendation",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
-                    "agent": "Doc",
-                    "desc": "Phân tích và mô tả kiến trúc tổng thể của hệ thống social-scheduler, bao gồm sơ đồ khối, các thành phần microservices, luồng dữ liệu giữa các dịch vụ và các ràng buộc công nghệ đã được xác định trong các giai đoạn trước.",
+                    "agent": "Coder",
+                    "desc": "Triển khai RecommendationController tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/controller/RecommendationController.java với annotation @RestController và @RequestMapping(\"/api/v1/ai/recommendations\"). Tạo hai endpoint: POST / nhận RecommendationRequestDto annotate @Valid gọi RecommendationService.generateRecommendation trả ResponseEntity<RecommendationResponseDto> HTTP 200, và GET /health trả ResponseEntity<Map<String,Object>> với {\"status\":\"UP\",\"service\":\"ai-service\",\"version\":\"1.0.0\"} HTTP 200. Annotation @PreAuthorize(\"hasAnyRole('USER','ADMIN','ANALYST')\") ở cấp lớp thực thi RBAC theo ARC-001/ARC-002/ARC-004, loại trừ Scheduler [ARC-003]. Bổ sung @Operation và @ApiResponse từ Springdoc OpenAPI. Bọc POST trong try-catch(AiServiceException ex) trả ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(errorResponse) với mã AI_SERVICE_UNAVAILABLE [EXC-003]. FallbackContentException [EXC-004] vẫn trả HTTP 200 với isFallback=true. Dùng @Slf4j Lombok log có cấu trúc MDC userId/platform/correlationId theo OWASP A09. Inject RecommendationService qua constructor.",
                     "targeted_tags": [
+                        "[REQ-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/controller/RecommendationController.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Coder",
+                    "desc": "Tạo bốn tệp DTO trong package dto và dto.enums: (1) RecommendationRequestDto tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/RecommendationRequestDto.java dùng Java Record với annotation @NotNull userId UUID, @NotNull platform kiểu Platform enum, @NotBlank @Size(max=500) topic String, @Pattern ngăn XSS theo OWASP A03, tone Tone enum optional default PROFESSIONAL, maxLength Integer @Min(100) @Max(3000); (2) RecommendationResponseDto tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/RecommendationResponseDto.java chứa recommendationId UUID, userId UUID, platform String, content String, confidenceScore BigDecimal 0.0-1.0, isFallback boolean, generatedAt OffsetDateTime với @JsonFormat ISO-8601; (3) Platform enum tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/enums/Platform.java với FACEBOOK INSTAGRAM TIKTOK và getDisplayName(); (4) Tone enum tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/enums/Tone.java với PROFESSIONAL CASUAL HUMOROUS INSPIRATIONAL và getPromptModifier(). Áp dụng Java Record bất biến, bổ sung @Builder, @JsonInclude(NON_NULL) để loại bỏ trường null.",
+                    "targeted_tags": [
+                        "[REQ-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/RecommendationRequestDto.java",
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/RecommendationResponseDto.java",
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/enums/Platform.java",
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/dto/enums/Tone.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST3",
+                    "agent": "Coder",
+                    "desc": "Tạo OpenAiConfig tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/config/OpenAiConfig.java với @Configuration và @ConfigurationProperties(prefix=\"openai\"). Khai báo apiKey đọc từ biến môi trường OPENAI_API_KEY qua @Value (không hardcode), baseUrl mặc định https://api.openai.com/v1, model mặc định gpt-4o-mini, maxTokens 500, temperature 0.7, connectTimeoutMs 5000, readTimeoutMs 10000. Tạo bean RestClient openaiRestClient(RestClient.Builder builder) dùng RestClient.builder() Spring Framework 6.1.x với JdkClientHttpRequestFactory kết hợp HttpClient có connect/read timeout. Tiêm header Authorization: Bearer <api-key> qua defaultHeader lambda. Tạo Resilience4jConfig tại ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/config/Resilience4jConfig.java cấu hình CircuitBreaker name=\"openai\" fallbackMethod=\"openAiFallback\" và Retry name=\"openai\" qua annotation trên phương thức OpenAIClient. Cấu hình application-ai.yml tại ./sources/backend/ai-service/src/main/resources/application-ai.yml chứa openai.api-key=${OPENAI_API_KEY:}, openai.base-url=https://api.openai.com/v1, openai.model=gpt-4o-mini, resilience4j.circuitbreaker.instances.openai.failure-rate-threshold=50, wait-duration-in-open-state=30s, resilience4j.retry.instances.openai.max-attempts=3, wait-duration=1s, exponential-backoff-multiplier=2. Bổ sung actuator /actuator/health và /actuator/prometheus cho Micrometer.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[ARC-005]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/config/OpenAiConfig.java",
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/config/Resilience4jConfig.java",
+                        "./sources/backend/ai-service/src/main/resources/application-ai.yml",
+                        "./sources/backend/ai-service/src/main/resources/prompt-templates.yml"
+                    ]
+                },
+                {
+                    "id": "D1_ST4",
+                    "agent": "Doc",
+                    "desc": "Soạn thảo tệp OpenAPI 3.0 YAML tại ./sources/docs/api/RecommendationApiContract.yaml mô tả đầy đủ hai endpoint POST /api/v1/ai/recommendations và GET /api/v1/ai/recommendations/health. Khai báo openapi: 3.0.3, info title Social Scheduler - AI Recommendation API Contract version 1.0.0 mô tả microservice cung cấp nội dung bài đăng qua OpenAI Completion API. Định nghĩa components.securitySchemes.bearerAuth type=http scheme=bearer bearerFormat=JWT với description JWT Bearer token chứa claim roles để phân quyền RBAC 4 vai trò. Khai báo components.schemas RecommendationRequest (userId UUID required, platform enum required, topic string 1-500 required, tone enum optional default PROFESSIONAL, maxLength integer 100-3000 optional), RecommendationResponse (recommendationId UUID, userId UUID, platform string, content string, confidenceScore number 0.0-1.0, isFallback boolean, generatedAt date-time), ErrorResponse (errorCode, message, timestamp, correlationId UUID), ValidationErrorResponse (errorCode, message, fieldErrors array), PlatformEnum FACEBOOK INSTAGRAM TIKTOK, ToneEnum PROFESSIONAL CASUAL HUMOROUS INSPIRATIONAL. Định nghĩa paths./api/v1/ai/recommendations.post với summary Tạo đề xuất nội dung bài đăng, tags AI Recommendations, security bearerAuth, requestBody RecommendationRequest, responses 200/401 TOKEN_EXPIRED/403 INSUFFICIENT_ROLE/422 VALIDATION_FAILED/429 RATE_LIMIT_EXCEEDED/500/503 AI_SERVICE_UNAVAILABLE. Định nghĩa paths./api/v1/ai/recommendations/health.get với summary Kiểm tra tình trạng dịch vụ AI trả 200 status service version. Bổ sung examples, $ref, x-rbac-matrix extension, nullable: true cho trường optional.",
+                    "targeted_tags": [
+                        "[REQ-002]",
                         "[DOC-001]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                        "./sources/docs/api/RecommendationApiContract.yaml"
                     ]
                 }
             ]
@@ -32,21 +69,95 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-3.context.blueprint.md",
-            "context_section": "Soạn thảo hướng dẫn vận hành",
+            "context_section": "NGÀY 2: Tích hợp OpenAI Client, Service Logic, Fallback và Test Suite",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
-                    "agent": "Doc",
-                    "desc": "Xây dựng tài liệu hướng dẫn vận hành chi tiết, bao gồm quy trình triển khai, cấu hình môi trường, các bước giám sát hệ thống, quy trình sao lưu dữ liệu và các kịch bản xử lý sự cố thường gặp.",
+                    "agent": "Coder",
+                    "desc": "Khởi tạo lớp OpenAIClient tại đường dẫn ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/OpenAIClient.java với annotation @Component và @Slf4j (Lombok). Inject các dependency thông qua constructor: RestClient openaiRestClient (đã cấu hình tại OpenAiConfig), @Value(\"${openai.model}\") String model (mặc định gpt-4o-mini), @Value(\"${openai.max-tokens:500}\") int maxTokens, @Value(\"${openai.temperature:0.7}\") double temperature. Triển khai interface OpenAIClient với phương thức String generateContent(String systemPrompt, String userPrompt) trả về chuỗi nội dung được sinh bởi mô hình AI. Phương thức này phải được annotate với @CircuitBreaker(name = \"openai\", fallbackMethod = \"openAiFallback\") và @Retry(name = \"openai\") từ thư viện Resilience4j để tự động thử lại với backoff lũy thừa khi gặp lỗi mạng hoặc timeout, đồng thời ngắt mạch khi tỷ lệ lỗi vượt ngưỡng 50%. Xây dựng payload JSON theo đặc tả OpenAI Chat Completions API: {\"model\": \"{model}\", \"messages\": [{\"role\": \"system\", \"content\": \"{systemPrompt}\"}, {\"role\": \"user\", \"content\": \"{userPrompt}\"}], \"max_tokens\": {maxTokens}, \"temperature\": {temperature}}. Sử dụng openaiRestClient.post().uri(\"/chat/completions\").body(payload).retrieve().body(JsonNode.class) để gọi API. Trích xuất nội dung từ response JSON tại đường dẫn choices[0].message.content sử dụng Jackson JsonNode. Phương thức openAiFallback(String systemPrompt, String userPrompt, Throwable ex) phải ném AiServiceException với errorCode = \"AI_SERVICE_UNAVAILABLE\", platform = \"OPENAI\", originalCause = ex.getClass().getSimpleName(). Bổ sung annotation @Slf4j để ghi log có cấu trúc với MDC context bao gồm correlationId, model, promptLength theo OWASP A09. Tuyệt đối KHÔNG ghi log API key hoặc nội dung prompt đầy đủ. Tích hợp Micrometer counter openai_requests_total với tag outcome=success|failure để theo dõi. Tệp OpenAI Completion API endpoint: POST https://api.openai.com/v1/chat/completions với Authorization: Bearer ${OPENAI_API_KEY} và Content-Type: application/json.",
                     "targeted_tags": [
-                        "[DOC-001]"
+                        "[REQ-002]",
+                        "[EXC-003]"
                     ],
                     "components": [
-                        "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
-                        "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
-                        "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
-                        "./sources/docs/security/ENTERPRISE_SECURITY_OWASP_COMPLIANCE_MATRIX.md",
-                        "./sources/docs/security/CENTRAL_MONITORING_LOGGING_ARCHITECTURE.md"
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/OpenAIClient.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST2",
+                    "agent": "Coder",
+                    "desc": "Tạo lớp PerformanceAnalyticsClient tại đường dẫn ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/PerformanceAnalyticsClient.java với annotation @Component và @Slf4j (Lombok). Inject JdbcTemplate hoặc EntityManager để thực thi truy vấn JPQL tối ưu hiệu suất trên bảng performance_metrics đã di trú tại Giai đoạn 1 (DAT-002). Triển khai phương thức List<PerformanceMetricEntity> findTopPerformingPosts(UUID userId, String platform, int limit) trả về danh sách các bài đăng có tổng tương tác (likes + comments + shares) cao nhất trong 30 ngày gần nhất. JPQL native query: SELECT pm.* FROM ai_schema.performance_metrics pm JOIN schedule_schema.schedules s ON pm.post_id = s.schedule_id WHERE pm.tenant_id = :tenantId AND s.platform = :platform AND pm.collected_at >= :sinceDate ORDER BY (pm.likes + pm.comments + pm.shares) DESC LIMIT :limit. Phương thức phải nhận tham số tenantId từ SecurityContextHolder để đảm bảo cô lập dữ liệu đa tenant theo NFR-003. Tích hợp caching với annotation @Cacheable(cacheNames = \"performanceMetrics\", key = \"#userId + ':' + #platform + ':' + #limit\", unless = \"#result.isEmpty()\") sử dụng Caffeine cache với TTL 15 phút cấu hình tại application-ai.yml: spring.cache.caffeine.spec=expireAfterWrite=15m,maximumSize=10000. Triển khai interface PerformanceAnalyticsClient để dễ dàng mock trong kiểm thử. Phương thức phải trả về danh sách rỗng (không null) khi không tìm thấy dữ liệu, KHÔNG ném ngoại lệ. Bổ sung metric Micrometer ai.performance.fetch.duration để theo dõi thời gian truy vấn. Sử dụng @Query với JPQL named parameter để chống SQL injection theo OWASP A03.",
+                    "targeted_tags": [
+                        "[REQ-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/PerformanceAnalyticsClient.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST3",
+                    "agent": "Coder",
+                    "desc": "Tạo lớp RecommendationService tại đường dẫn ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationService.java với annotation @Service, @Transactional(readOnly = true) và @Slf4j (Lombok). Inject các dependency thông qua constructor: OpenAIClient openAIClient, PerformanceAnalyticsClient performanceAnalyticsClient, DefaultContentFallback defaultContentFallback. Triển khai phương thức chính RecommendationResponseDto generateRecommendation(RecommendationRequestDto request) với luồng xử lý 4 bước: (Bước 1) Trích xuất tenantId từ SecurityContextHolder.getContext().getAuthentication() để đảm bảo cô lập dữ liệu đa tenant; gọi performanceAnalyticsClient.findTopPerformingPosts(request.userId(), request.platform().name(), 5) để lấy top 5 bài đăng có hiệu suất cao nhất. (Bước 2) Xây dựng prompt tổng hợp bằng cách tải template từ external config ./sources/backend/ai-service/src/main/resources/prompt-templates.yml thông qua @ConfigurationProperties(prefix = \"prompt-templates\"); prompt phải bao gồm: chủ đề người dùng cung cấp (topic), tông giọng yêu cầu (tone.getPromptModifier()), nền tảng mục tiêu (platform.getDisplayName()), và các mẫu nội dung thành công trước đó. (Bước 3) Gọi openAIClient.generateContent(systemPrompt, userPrompt) để nhận nội dung đề xuất; nếu kết quả rỗng hoặc vượt quá maxLength, ném FallbackContentException. (Bước 4) Xây dựng RecommendationResponseDto với recommendationId = UUID.randomUUID(), confidenceScore = BigDecimal.valueOf(0.85), isFallback = false, generatedAt = OffsetDateTime.now(). Toàn bộ phương thức được bao bọc trong khối try-catch (AiServiceException ex) để khi OpenAI thất bại, chuyển hướng sang defaultContentFallback.provide(request) trả về nội dung mặc định với isFallback = true. Bổ sung khối catch (FallbackContentException ex) để ghi log lỗi cấp ERROR và ném ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, \"AI_SERVICE_UNAVAILABLE\", ex). Bổ sung metric Micrometer ai.recommendation.generated.total (counter với tag outcome=success|fallback|failed) và ai.recommendation.duration (timer). Sử dụng structured logging với MDC context bao gồm correlationId, userId, platform, tone, isFallback theo OWASP A09. Triển khai interface RecommendationService để dễ dàng mock trong kiểm thử.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[EXC-003]",
+                        "[EXC-004]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST4",
+                    "agent": "Coder",
+                    "desc": "Tạo bốn tệp nguồn trong package fallback và exception của ai-service: (1) ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/fallback/DefaultContentFallback.java với annotation @Component và @Slf4j (Lombok), chứa một Map<String, String> FALLBACK_TEMPLATES được khởi tạo tĩnh với các mẫu nội dung mặc định theo key \"{platform}_{tone}\" (ví dụ: FACEBOOK_PROFESSIONAL, INSTAGRAM_CASUAL, TIKTOK_HUMOROUS, FACEBOOK_INSPIRATIONAL); mỗi mẫu là chuỗi nội dung marketing chuyên nghiệp dài 200-300 ký tự phù hợp với từng nền tảng. Triển khai phương thức RecommendationResponseDto provide(RecommendationRequestDto request) thực hiện logic: chọn template phù hợp nhất dựa trên request.platform().name() + \"_\" + request.tone().name(), nếu không tìm thấy thì sử dụng template mặc định \"Stay tuned for exciting updates from our brand!\"; sinh recommendationId = UUID.randomUUID(), trả về RecommendationResponseDto với confidenceScore = BigDecimal.valueOf(0.30), isFallback = true, generatedAt = OffsetDateTime.now(). Phương thức provide phải ném FallbackContentException nếu template rỗng. (2) ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/exception/AiServiceException.java kế thừa RuntimeException với các trường errorCode = \"AI_SERVICE_UNAVAILABLE\", platform, originalCause, httpStatus; bổ sung constructor nhận message và cause. (3) ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/exception/FallbackContentException.java kế thừa RuntimeException với errorCode = \"FALLBACK_CONTENT_FAILED\". Sử dụng @Builder của Lombok để hỗ trợ khởi tạo DTO.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[EXC-004]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/fallback/DefaultContentFallback.java",
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/exception/AiServiceException.java",
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/exception/FallbackContentException.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST5",
+                    "agent": "Tester",
+                    "desc": "Tạo lớp kiểm thử RecommendationServiceTest tại đường dẫn ./sources/backend/ai-service/src/test/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationServiceTest.java sử dụng JUnit 5 và Mockito. Sử dụng @ExtendWith(MockitoExtension.class) và khai báo các mock thông qua @Mock: OpenAIClient openAIClient, PerformanceAnalyticsClient performanceAnalyticsClient, DefaultContentFallback defaultContentFallback. Inject mock vào RecommendationService thông qua @InjectMocks. Sử dụng ReflectionTestUtils để inject SecurityContextHolder với authentication giả lập chứa tenantId. Viết các trường hợp kiểm thử: (1) generateRecommendation_whenOpenAiReturnsValidContent_thenReturnResponseWithFallbackFalse - mock performanceAnalyticsClient trả về danh sách 5 PerformanceMetricEntity mẫu, mock openAIClient.generateContent() trả về chuỗi hợp lệ, khẳng định response có isFallback=false, confidenceScore=0.85; (2) generateRecommendation_whenOpenAiThrowsAiServiceException_thenInvokeFallbackAndReturnIsFallbackTrue - mock openAIClient.generateContent() ném AiServiceException, mock defaultContentFallback.provide() trả về response với isFallback=true, khẳng định service tự động gọi fallback; (3) generateRecommendation_whenFallbackAlsoThrows_thenPropagateFallbackContentException - mock openAIClient ném AiServiceException, mock defaultContentFallback ném FallbackContentException, khẳng định service ném ResponseStatusException với HTTP 503; (4) generateRecommendation_whenOpenAiReturnsEmptyContent_thenThrowFallbackContentException - mock openAIClient.generateContent() trả về chuỗi rỗng; (5) generateRecommendation_withEmptyPerformanceHistory_thenProceedWithGenericPrompt - mock performanceAnalyticsClient trả về danh sách rỗng, khẳng định service vẫn gọi openAIClient với prompt hợp lệ. Sử dụng AssertJ cho assertion chain rõ ràng. Đảm bảo độ phủ mã nguồn đạt tối thiểu 85%.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[EXC-003]",
+                        "[EXC-004]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationService.java",
+                        "./sources/backend/ai-service/src/test/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationServiceTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST6",
+                    "agent": "Reviewer",
+                    "desc": "Thực hiện đánh giá chuyên sâu mã nguồn RecommendationService và OpenAIClient tại đường dẫn ./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationService.java. Kiểm tra bốn tiêu chí quan trọng: (1) Bảo mật API key - xác minh rằng biến openai.api-key chỉ được đọc từ biến môi trường OPENAI_API_KEY thông qua @Value, không hardcode giá trị thật; kiểm tra log statements không in ra API key hoặc Authorization header; sử dụng git secrets hoặc trufflehog để quét repository. (2) Độ dài prompt - đánh giá prompt template tại ./sources/backend/ai-service/src/main/resources/prompt-templates.yml đảm bảo tổng độ dài system prompt + user prompt không vượt quá 4000 tokens; nếu vượt, đề xuất giảm số lượng top performing posts từ 5 xuống 3. (3) Xử lý race condition - kiểm tra Caffeine cache có sử dụng đồng bộ hóa atomic operations, xác nhận @Cacheable không gây memory leak; đề xuất cấu hình maximumSize phù hợp. (4) Che giấu lỗi nội bộ - đảm bảo phản hồi HTTP 503 với mã AI_SERVICE_UNAVAILABLE không tiết lộ stack trace hoặc chi tiết nội bộ của OpenAI client theo OWASP A09; chỉ log đầy đủ stack trace ở cấp ERROR cho developer. Đề xuất bốn cải tiến: (a) Chuyển prompt template thành external config file; (b) Bổ sung rate limiter nội bộ cho OpenAI calls sử dụng Bucket4j; (c) Triển khai prompt version control; (d) Bổ sung fallback template theo locale. Ghi nhận các vấn đề phát hiện vào nhật ký review và tạo pull request sửa lỗi nếu phát hiện BLOCKER hoặc CRITICAL theo SonarQube Quality Gate.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[ARC-005]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/service/RecommendationService.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST7",
+                    "agent": "Tester",
+                    "desc": "Tạo lớp kiểm thử OpenAIClientTest tại đường dẫn ./sources/backend/ai-service/src/test/java/org/nlh4j/socialscheduler/aiservice/integration/OpenAIClientTest.java sử dụng MockWebServer (thư viện okhttp 4.12.x) và JUnit 5. Trước mỗi test, khởi tạo MockWebServer instance và cấu hình RestClient bean thông qua @DynamicPropertySource để trỏ tới URL của MockServer. Inject OpenAIClient với RestClient đã được cấu hình. Viết các kịch bản kiểm thử: (1) generateContent_whenOpenAiReturns200_thenReturnExtractedContent - enqueue response với HTTP 200 và body JSON {\"choices\":[{\"message\":{\"content\":\"Generated content here\"}}]}, khẳng định kết quả trả về khớp với \"Generated content here\"; (2) generateContent_whenOpenAiReturns500_thenThrowAiServiceException - enqueue response với HTTP 500, khẳng định AiServiceException được ném với errorCode = \"AI_SERVICE_UNAVAILABLE\", httpStatus = 500; (3) generateContent_whenNetworkTimeout_thenRetryThreeTimes - enqueue response với SocketTimeoutException giả lập thông qua Dispatcher, khẳng định phương thức được gọi đúng 3 lần (maxAttempts=3); (4) generateContent_whenResponseHasEmptyChoices_thenThrowFallbackContentException - enqueue response với HTTP 200 và body JSON {\"choices\":[]}, khẳng định ngoại lệ liên quan được ném; (5) generateContent_whenAuthorizationHeader_thenSendBearerToken - verify request được gửi tới MockServer chứa header Authorization: Bearer test-api-key. Sử dụng @AfterEach để shutdown MockServer. Bổ sung @TestMethodOrder(MethodOrderer.OrderAnnotation.class) để đảm bảo thứ tự test ổn định. Sử dụng AssertJ để verify số lần request được gửi tới MockServer thông qua takeRequest(). Đảm bảo độ phủ mã nguồn đạt tối thiểu 85% cho OpenAIClient.",
+                    "targeted_tags": [
+                        "[REQ-002]",
+                        "[EXC-003]"
+                    ],
+                    "components": [
+                        "./sources/backend/ai-service/src/main/java/org/nlh4j/socialscheduler/aiservice/integration/OpenAIClient.java",
+                        "./sources/backend/ai-service/src/test/java/org/nlh4j/socialscheduler/aiservice/integration/OpenAIClientTest.java"
                     ]
                 }
             ]

@@ -1,8 +1,8 @@
 {
     "phase_id": 2,
-    "phase_name": "Triển khai tích hợp lịch đăng bài và đề xuất nội dung AI",
-    "phase_description": "Triển khai các dịch vụ cốt lõi bao gồm tích hợp API mạng xã hội, mô hình đề xuất nội dung AI, xác thực đầu vào và thiết lập vai trò người dùng.",
-    "objectives": "Xây dựng logic tích hợp API cho Facebook, Instagram và TikTok; triển khai dịch vụ AI để đề xuất nội dung; thiết lập cơ chế xác thực đầu vào và giới hạn tỷ lệ API; đồng thời xác định cấu trúc vai trò người dùng để đảm bảo tính bảo mật và phân quyền.",
+    "phase_name": "Tích hợp lập lịch đa nền tảng và bảo mật cổng API",
+    "phase_description": "Triển khai toàn bộ RESTful endpoint, logic nghiệp vụ và bộ tích hợp SDK bên thứ ba cho module lập lịch đa nền tảng (Facebook, Instagram, TikTok), đồng thời kiến trúc hóa hệ thống bảo mật phân quyền RBAC 4 vai trò dựa trên OAuth2 Resource Server và JWT tại tầng API Gateway, đảm bảo che chắn endpoint nội bộ và che giấu dữ liệu nhạy cảm theo tiêu chuẩn OWASP Top 10",
+    "objectives": "Xây dựng các RESTful endpoint trong schedule-service để tạo, truy vấn, cập nhật và xóa lịch đăng bài với quy trình chuyển đổi trạng thái nghiêm ngặt pending, sent, failed, cancelled. Tích hợp ba bộ SDK của bên thứ ba (Facebook Graph API, Instagram Graph API, TikTok Open API) sử dụng WebClient reactive kèm cơ chế retry có backoff lũy thừa. Kiến trúc hóa hệ thống bảo mật phân quyền RBAC 4 vai trò (Admin, User, Scheduler, Analyst) thông qua Spring Security 6 OAuth2 Resource Server với JWT Decoder tùy chỉnh. Cấu hình API Gateway với chuỗi filter xác thực JWT, phân quyền theo claim roles và che chắn toàn bộ endpoint nhạy cảm. Phát hành hợp đồng OpenAPI 3.0 cho nhóm endpoint lập lịch kèm tài liệu bảo mật tuân thủ OWASP A01 và A07.",
     "project_name": "social-scheduler",
     "global_context_file": ".ai/.context/social-scheduler.global.blueprint.md",
     "source_target_dir": "sources/",
@@ -10,18 +10,84 @@
         {
             "day": 1,
             "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai dịch vụ tích hợp lịch đăng bài",
+            "context_section": "NGÀY 1: Khởi tạo module lịch đăng bài và bộ tích hợp đa nền tảng",
             "sub_tasks": [
                 {
                     "id": "D1_ST1",
                     "agent": "Coder",
-                    "desc": "Triển khai các phương thức kết nối API cho Facebook, Instagram và TikTok. Xây dựng logic xử lý token và ghi nhật ký trạng thái đăng bài. Đảm bảo sử dụng các thư viện client HTTP an toàn.",
+                    "desc": "Triển khai tầng Entity, Repository và DTO cho module lịch đăng bài. Khởi tạo thực thể JPA ScheduleEntity ánh xạ chính xác tới bảng schedules đã được di trú tại Giai đoạn 1 theo sơ đồ ER. Sử dụng annotation @Entity, @Table(name=\"schedules\", schema=\"schedule_schema\") để khoanh vùng đúng schema-per-tenant. Định nghĩa cột scheduleId với @Id và kiểu UUID, đồng thời thiết lập @Column với ràng buộc kiểm tra miền chuẩn ANSI SQL thông qua @Check cho cột status chỉ chấp nhận tập giá trị ('PENDING', 'SENT', 'FAILED', 'CANCELLED') và cột platform chỉ chấp nhận ('FACEBOOK', 'INSTAGRAM', 'TIKTOK'). Thiết lập mối quan hệ @ManyToOne(fetch = FetchType.LAZY) với thực thể UserEntity để tham chiếu khóa ngoại userId nhằm tránh N+1 query problem. Đảm bảo tính bất biến của các trường cốt lõi trong giai đoạn khởi tạo bằng cách sử dụng @Column(updatable = false) cho createdAt và scheduleId. Bổ sung annotation @PrePersist và @PreUpdate tại lớp @EntityListeners(AuditingEntityListener.class) để tự động cập nhật createdAt và updatedAt. Tích hợp Lombok @Getter, @Setter, @NoArgsConstructor, @AllArgsConstructor để giảm boilerplate. Tạo tệp ScheduleRepository kế thừa JpaRepository<ScheduleEntity, UUID> với các phương thức truy vấn tùy biến: findByUserIdAndStatus, findByTenantIdAndScheduledTimeBetween để phục vụ worker pool thực thi lịch. Đảm bảo sử dụng @Query với JPQL named parameter để chống SQL injection theo OWASP A03. Tạo tệp ScheduleRequestDto với các annotation @NotNull, @NotBlank, @Size(min=1, max=5000), @Pattern(regexp=\"^(Facebook|Instagram|TikTok)$\") cho trường platform. Tạo ScheduleResponseDto với các trường scheduleId, userId, platform, content, scheduledTime, status, actualSentTime, retryCount, createdAt, updatedAt được sinh tự động từ entity thông qua mapper method.",
                     "targeted_tags": [
-                        "[REQ-001]",
-                        "[EXC-001]"
+                        "[REQ-001]"
                     ],
                     "components": [
-                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java"
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/entity/ScheduleEntity.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/repository/ScheduleRepository.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/dto/ScheduleRequestDto.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/dto/ScheduleResponseDto.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST2",
+                    "agent": "Tester",
+                    "desc": "Kiểm thử ánh xạ thực thể Schedule. Xây dựng lớp kiểm thử đơn vị JUnit 5 kết hợp AssertJ tại ScheduleEntityTest để xác minh tính chính xác của ánh xạ JPA trên ScheduleEntity. Lớp kiểm thử phải sử dụng @ExtendWith(MockitoExtension.class) và khởi tạo instance thông qua builder pattern hoặc constructor đầy đủ. Viết các trường hợp kiểm thử khẳng định việc gán giá trị cho các trường scheduleId, userId, platform, content, scheduledTime, status, actualSentTime, retryCount thông qua các setter hoạt động đúng. Xác nhận rằng cơ chế sinh UUID thông qua UUID.randomUUID() và ép kiểu dữ liệu hoạt động đúng theo chuẩn JPA 3.1 khi persist xuống cơ sở dữ liệu. Kiểm thử phương thức @PrePersist tự động gán giá trị createdAt = LocalDateTime.now() và @PreUpdate gán updatedAt = LocalDateTime.now(). Xác nhận @ManyToOne lazy loading với UserEntity không gây N+1 query problem. Sử dụng Testcontainers PostgreSQL 16-alpine để verify rằng entity có thể persist thành công với đầy đủ ràng buộc CHECK trên cột status và platform. Khẳng định ngoại lệ DataIntegrityViolationException được ném khi chèn giá trị status = 'INVALID_STATUS'.",
+                    "targeted_tags": [
+                        "[REQ-001]"
+                    ],
+                    "components": [
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/entity/ScheduleEntity.java;./sources/backend/schedule-service/src/test/java/org/nlh4j/socialscheduler/entity/ScheduleEntityTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST3",
+                    "agent": "Coder",
+                    "desc": "Xây dựng Service và Controller cho module lịch đăng bài. Phát triển ScheduleService chứa logic nghiệp vụ với annotation @Service và @Transactional. Triển khai bốn phương thức chính: createSchedule(ScheduleRequestDto request, UUID userId) trả về ScheduleResponseDto, khởi tạo entity với status = PENDING, retryCount = 0, gán userId và tenantId từ SecurityContextHolder; getScheduleById(UUID scheduleId) thực hiện truy vấn theo khóa chính, đồng thời kiểm tra quyền sở hữu theo userId để ngăn IDOR theo OWASP A01; updateStatusToSent(UUID scheduleId) chuyển trạng thái sang SENT và ghi nhận actualSentTime = LocalDateTime.now(); deleteSchedule(UUID scheduleId) chuyển trạng thái sang CANCELLED thay vì xóa cứng để bảo toàn lịch sử. Tích hợp SocialPlatformDispatcher để định tuyến yêu cầu tới client nền tảng phù hợp thông qua phương thức dispatchPublish(ScheduleEntity entity). Bọc ngoại lệ SocialPlatformException trong khối try-catch để ghi log cấp độ ERROR kèm correlation ID, đồng thời kích hoạt logic thử lại với backoff lũy thừa tối đa 3 lần thông qua annotation @Retryable từ Resilience4j. Áp dụng kiểm tra phân quyền dựa trên SecurityContextHolder để đảm bảo chỉ chủ sở hữu lịch hoặc Admin mới có quyền thao tác. Tạo tệp ScheduleController với annotation @RestController và @RequestMapping(\"/api/v1/schedules\"). Triển khai bốn endpoint: POST / (tạo mới, trả về 201 Created), GET /{scheduleId} (truy vấn, trả về 200 OK), PUT /{scheduleId}/status (cập nhật trạng thái), DELETE /{scheduleId} (hủy lịch, trả về 204 No Content). Áp dụng @PreAuthorize(\"hasAnyRole('ADMIN','USER','SCHEDULER')\") cho endpoint tạo mới và @PreAuthorize(\"hasAnyRole('ADMIN','USER')\") cho endpoint truy vấn/cập nhật theo RBAC 4 vai trò. Bổ sung annotation @Valid cho các payload request để kích hoạt Jakarta Validation tự động. Tạo tệp SocialPlatformDispatcher đóng vai trò facade điều phối cuộc gọi tới client phù hợp dựa trên giá trị enum Platform.",
+                    "targeted_tags": [
+                        "[REQ-001]",
+                        "[EXC-001]",
+                        "[EXC-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/service/ScheduleService.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/controller/ScheduleController.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/dispatcher/SocialPlatformDispatcher.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST4",
+                    "agent": "Tester",
+                    "desc": "Kiểm thử tích hợp Controller và Service. Sử dụng Mockito kết hợp với JUnit 5 để giả lập các thành phần phụ thuộc (ScheduleRepository, SocialPlatformDispatcher) tại lớp kiểm thử ScheduleServiceTest. Sử dụng @ExtendWith(MockitoExtension.class) và annotation @Mock để khai báo các dependency giả lập. Viết kịch bản kiểm thử xác nhận createSchedule trả về thực thể với trạng thái PENDING và retryCount = 0. Đánh giá việc gọi updateStatusToSent thiết lập đúng thời gian gửi thực tế (actualSentTime gần với LocalDateTime.now()). Kiểm tra khả năng chịu lỗi khi SocialPlatformDispatcher ném ra SocialPlatformException, đảm bảo lỗi được ghi nhật ký cấp độ ERROR và phương thức retry được kích hoạt với số lần thử tối đa 3. Bổ sung kiểm thử tích hợp Controller sử dụng @WebMvcTest(ScheduleController.class) kết hợp MockMvc để xác minh: (1) endpoint POST /api/v1/schedules trả về HTTP 201 khi payload hợp lệ; (2) trả về HTTP 400 với mã VALIDATION_FAILED khi payload thiếu trường platform hoặc content; (3) trả về HTTP 403 khi SecurityContext thiếu role phù hợp; (4) trả về HTTP 401 khi không có JWT token. Đảm bảo test suite bao phủ 100% nhánh xử lý chính của ScheduleService và ScheduleController. Sử dụng @DisplayName cho mỗi test case để báo cáo rõ ràng trong surefire report.",
+                    "targeted_tags": [
+                        "[REQ-001]",
+                        "[EXC-001]",
+                        "[EXC-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/service/ScheduleService.java;./sources/backend/schedule-service/src/test/java/org/nlh4j/socialscheduler/service/ScheduleServiceTest.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST5",
+                    "agent": "Reviewer",
+                    "desc": "Rà soát mã nguồn và tối ưu hóa chuẩn code. Thực hiện đánh giá mã nguồn thủ công và tự động trên ScheduleService và ScheduleController. Phân tích độ phức tạp Cyclomatic và đề xuất phương án tách nhỏ phương thức nếu vượt ngưỡng 10 theo quy tắc SonarQube. Đảm bảo các chuẩn đặt tên biến (camelCase cho biến, PascalCase cho lớp), tiêm phụ thuộc (DI) qua constructor thay vì @Autowired field injection, và phong cách lập trình phản ứng (reactive) hoặc bất đồng bộ đều nhất quán với kiến trúc hệ thống. Xác nhận không có rò rỉ tài nguyên hoặc điều kiện đua (race condition) tiềm ẩn trong luồng cập nhật trạng thái bằng cách kiểm tra việc sử dụng @Version cho optimistic locking hoặc pessimistic lock thông qua LockModeType. Rà soát việc sử dụng SecurityContextHolder để đảm bảo ngăn chặn IDOR attack theo OWASP A01 thông qua việc kiểm tra userId của lịch đối chiếu với principal trong JWT. Xác minh tất cả annotation @PreAuthorize đều sử dụng đúng role literal hasRole('ADMIN') thay vì authority thô. Phát hiện và báo cáo các code smell thuộc nhóm BLOCKER hoặc CRITICAL trong SonarQube Quality Gate.",
+                    "targeted_tags": [
+                        "[REQ-001]",
+                        "[EXC-001]",
+                        "[EXC-002]"
+                    ],
+                    "components": [
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/service/ScheduleService.java"
+                    ]
+                },
+                {
+                    "id": "D1_ST6",
+                    "agent": "Doc",
+                    "desc": "Soạn thảo tài liệu hợp đồng API cho module lập lịch. Tạo tệp OpenAPI 3.0 chuẩn YAML mô tả toàn bộ endpoint của module lập lịch tại ScheduleApiContract.yaml. Khai báo thông tin openapi: 3.0.3, info: {title: \"Social Scheduler - Schedule API Contract\", version: \"1.0.0\"}. Định nghĩa paths cho bốn endpoint: POST /api/v1/schedules, GET /api/v1/schedules/{scheduleId}, PUT /api/v1/schedules/{scheduleId}/status, DELETE /api/v1/schedules/{scheduleId}. Mô tả chi tiết các DTO ScheduleRequest, ScheduleResponse với các ràng buộc required, minLength, maxLength, pattern cho trường platform theo whitelist ^(Facebook|Instagram|TikTok)$. Đảm bảo tài liệu tham chiếu chính xác các giá trị enum của cột platform và status thông qua schema reference. Định nghĩa các mã phản hồi HTTP đầy đủ: 200 (OK), 201 (Created), 204 (No Content), 400 (Bad Request - VALIDATION_FAILED), 401 (Unauthorized - TOKEN_EXPIRED), 403 (Forbidden - INSUFFICIENT_ROLE), 429 (Too Many Requests). Bổ sung securitySchemes với bearerAuth sử dụng HTTP Bearer với định dạng JWT. Tham chiếu security cho từng endpoint với bearerAuth: []. Bao gồm ví dụ mẫu (examples) cho mỗi request và response thành công. Tệp phải tuân thủ cấu trúc YAML chuẩn OpenAPI 3.0.3, sử dụng $ref để tái sử dụng schema và đảm bảo backend compiler có thể tái sử dụng để sinh client SDK.",
+                    "targeted_tags": [
+                        "[REQ-001]",
+                        "[ARC-005]"
+                    ],
+                    "components": [
+                        "./sources/docs/api/ScheduleApiContract.yaml"
                     ]
                 }
             ]
@@ -29,83 +95,98 @@
         {
             "day": 2,
             "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai dịch vụ đề xuất nội dung AI",
+            "context_section": "Triển khai tích hợp SDK mạng xã hội và bảo mật API Gateway",
             "sub_tasks": [
                 {
                     "id": "D2_ST1",
                     "agent": "Coder",
-                    "desc": "Xây dựng dịch vụ gọi mô hình AI để phân tích hiệu suất bài đăng cũ và tạo nội dung mới. Triển khai cơ chế fallback khi AI không phản hồi.",
+                    "desc": "Kỹ sư phải cài đặt ba lớp Client sử dụng RestClient (đồng bộ) của Spring Framework 6.1.x kết hợp với WebClient reactive tại các đường dẫn ./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/FacebookClient.java, ./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/InstagramClient.java, ./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/TikTokClient.java. Mỗi Client được đánh dấu @Component với constructor injection nhận RestClient.Builder đã được cấu hình sẵn connectTimeout, readTimeout 5 giây từ application.yml. Tiêm các thuộc tính cấu hình endpoint URL (facebook.api.base-url=https://graph.facebook.com/v18.0, instagram.api.base-url=https://graph.instagram.com/v18.0, tiktok.api.base-url=https://open.tiktokapis.com/v2) và access token thông qua annotation @Value đọc từ biến môi trường FACEBOOK_ACCESS_TOKEN, INSTAGRAM_ACCESS_TOKEN, TIKTOK_ACCESS_TOKEN. Triển khai phương thức publishPost(ScheduleEntity schedule): PublishResult cho mỗi client với logic gọi API tương ứng: Facebook sử dụng endpoint /{page-id}/feed, Instagram sử dụng endpoint /{ig-user-id}/media, TikTok sử dụng endpoint /post/publish/video/init/. Bọc các cuộc gọi mạng bên trong khối try-catch (HttpClientErrorException | HttpServerErrorException | ResourceAccessException ex) chuẩn hóa để ném ra SocialPlatformException khi xảy ra lỗi timeout hoặc lỗi HTTP 4xx/5xx từ phía nhà cung cấp. Tích hợp annotation @Retryable(retryFor = SocialPlatformException.class, maxAttempts = 3, backoff = @Backoff(delay = 1000, multiplier = 2.0)) từ Spring Retry để tự động thử lại với backoff lũy thừa. Tạo lớp ./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/exception/SocialPlatformException.java kế thừa RuntimeException với các trường platform, errorCode, httpStatus, retryable để mã hoá thông tin lỗi có cấu trúc. Sử dụng SLF4J logging có cấu trúc với MDC context bao gồm scheduleId, platform, tenantId, correlationId để hỗ trợ truy vết theo OWASP A09.",
                     "targeted_tags": [
-                        "[REQ-002]",
-                        "[EXC-004]"
+                        "[REQ-001]",
+                        "[EXC-001]"
                     ],
                     "components": [
-                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/AIRecommendationService.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 3,
-            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Triển khai xác thực và giới hạn tỷ lệ",
-            "sub_tasks": [
-                {
-                    "id": "D3_ST1",
-                    "agent": "Coder",
-                    "desc": "Triển khai bộ lọc xác thực dữ liệu đầu vào và kiểm tra giới hạn tỷ lệ (rate limiting) dựa trên userId. Trả về mã lỗi 429 khi vượt ngưỡng.",
-                    "targeted_tags": [
-                        "[REQ-003]",
-                        "[EXC-005]"
-                    ],
-                    "components": [
-                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/ValidationService.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 4,
-            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Kiểm thử đơn vị cho các dịch vụ",
-            "sub_tasks": [
-                {
-                    "id": "D4_ST1",
-                    "agent": "Tester",
-                    "desc": "Viết bộ kiểm thử JUnit để xác thực các phương thức tích hợp API mạng xã hội, đảm bảo xử lý đúng các trường hợp thành công và lỗi.",
-                    "targeted_tags": [
-                        "[REQ-001]"
-                    ],
-                    "components": [
-                        "INTEGRATION_SCOPE;./sources/backend/user-service/src/test/java/org/nlh4j/socialscheduler/userservice/UserServiceTest.java"
-                    ]
-                }
-            ]
-        },
-        {
-            "day": 5,
-            "context_file": ".ai/.plan/.context/phase-2.context.blueprint.md",
-            "context_section": "Đánh giá chất lượng và tài liệu hóa",
-            "sub_tasks": [
-                {
-                    "id": "D5_ST1",
-                    "agent": "Reviewer",
-                    "desc": "Thực hiện rà soát mã nguồn, kiểm tra các lỗ hổng bảo mật tiềm ẩn và đảm bảo tuân thủ các tiêu chuẩn coding của dự án.",
-                    "targeted_tags": [
-                        "[ARC-001]"
-                    ],
-                    "components": [
-                        "./sources/backend/user-service/src/main/java/org/nlh4j/socialscheduler/userservice/UserService.java"
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/FacebookClient.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/InstagramClient.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/TikTokClient.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/exception/SocialPlatformException.java"
                     ]
                 },
                 {
-                    "id": "D5_ST2",
-                    "agent": "Doc",
-                    "desc": "Cập nhật tài liệu kỹ thuật và hướng dẫn vận hành cho các tính năng mới.",
+                    "id": "D2_ST2",
+                    "agent": "Tester",
+                    "desc": "Chuyên gia QA phải sử dụng MockWebServer (thư viện okhttp MockWebServer 4.12.x) tại ./sources/backend/schedule-service/src/test/java/org/nlh4j/socialscheduler/scheduleservice/integration/FacebookClientTest.java để giả lập phản hồi từ máy chủ Facebook. Cấu hình MockWebServer với URL động thông qua @DynamicPropertySource để RestClient bean được inject tự động trỏ về URL của MockServer trong môi trường test. Viết các kịch bản kiểm thử: (1) publishPost_whenFacebookReturns200_thenReturnSuccessResponse - giả lập phản hồi HTTP 200 với body JSON chứa {\"id\":\"123_456\",\"status\":\"success\"}, khẳng định PublishResult được trả về với platformPostId = \"123_456\"; (2) publishPost_whenFacebookReturns500_thenThrowSocialPlatformException - giả lập phản hỗi HTTP 500 với body JSON chứa {\"error\":{\"code\":2,\"message\":\"Internal error\"}}, khẳng định SocialPlatformException được ném ra với httpStatus = 500, errorCode = \"INTERNAL_ERROR\", retryable = true; (3) publishPost_whenNetworkTimeout_thenRetryThreeTimes - giả lập SocketTimeoutException ba lần liên tiếp, khẳng định phương thức publishPost được gọi đúng 3 lần (maxAttempts = 3); (4) publishPost_whenAccessTokenInvalid_thenThrowNonRetryableException - giả lập phản hồi HTTP 401, khẳng định SocialPlatformException với retryable = false (vì 401 không nên retry). Lặp lại quy trình tương tự cho InstagramClientTest.java và TikTokClientTest.java với cấu trúc endpoint và mã lỗi đặc thù của từng nền tảng. Sử dụng @TestMethodOrder(MethodOrderer.OrderAnnotation.class) để đảm bảo thứ tự thực thi test ổn định. Bổ sung @DisplayName cho mỗi test case để sinh báo cáo rõ ràng trong surefire report.",
                     "targeted_tags": [
-                        "[ARC-001]"
+                        "[REQ-001]",
+                        "[EXC-001]"
                     ],
                     "components": [
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/FacebookClient.java;./sources/backend/schedule-service/src/test/java/org/nlh4j/socialscheduler/scheduleservice/integration/FacebookClientTest.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/InstagramClient.java;./sources/backend/schedule-service/src/test/java/org/nlh4j/socialscheduler/scheduleservice/integration/InstagramClientTest.java",
+                        "./sources/backend/schedule-service/src/main/java/org/nlh4j/socialscheduler/scheduleservice/integration/TikTokClient.java;./sources/backend/schedule-service/src/test/java/org/nlh4j/socialscheduler/scheduleservice/integration/TikTokClientTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST3",
+                    "agent": "Coder",
+                    "desc": "Kỹ sư phải cấu hình Spring Security 6 tại ./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/SecurityConfig.java với annotation @Configuration, @EnableWebSecurity, @EnableMethodSecurity(prePostEnabled = true). Tạo SecurityFilterChain bean cấu hình oauth2ResourceServer().jwt() để kích hoạt xác thực JWT cho toàn bộ request. Tạo JwtDecoder bean tùy chỉnh kế thừa NimbusJwtDecoder để xác thực chữ ký số bằng khóa công khai RSA đọc từ application.yml (security.oauth2.jwt.public-key-location=classpath:keys/jwt-public.pem) và kiểm tra thời hạn của token với setJwtValidator bao gồm JwtTimestampValidator và custom validator kiểm tra aud claim khớp với social-scheduler-api. Định nghĩa JwtAuthenticationConverter để ánh xạ claim roles trong JWT thành SimpleGrantedAuthority với prefix ROLE_, ánh xạ chính xác 4 vai trò RBAC [ARC-001] (Admin) → ROLE_ADMIN, [ARC-002] (User) → ROLE_USER, [ARC-003] (Scheduler) → ROLE_SCHEDULER, [ARC-004] (Analyst) → ROLE_ANALYST. Định nghĩa chuỗi lọc yêu cầu xác thực cho tất cả các đường dẫn /api/v1/** thông qua authorizeHttpRequests(authz -> authz.requestMatchers(\"/actuator/health/**\").permitAll().requestMatchers(\"/api/v1/**\").authenticated().anyRequest().denyAll()). Vô hiệu hóa CSRF cho các RESTful API phù hợp với tiêu chuẩn Stateless (csrf(csrf -> csrf.disable())). Cấu hình CORS với whitelist origin đọc từ cấu hình: cors(cors -> cors.configurationSource(corsConfigurationSource())) chỉ chấp nhận origin https://app.socialscheduler.local. Đảm bảo tuân thủ chuẩn OWASP A01 bằng cách tích hợp RbacPredicate thực thi ánh xạ quyền hạn 4 vai trò trên từng endpoint cụ thể thông qua @PreAuthorize. Tạo lớp ./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/JwtAuthFilter.java kế thừa OncePerRequestFilter để trích xuất JWT từ header Authorization: Bearer <token>, validate token, và đặt SecurityContextHolder với thông tin principal. Bổ sung xử lý JwtException để trả về HTTP 401 với mã lỗi TOKEN_EXPIRED hoặc TOKEN_INVALID thông qua AuthenticationEntryPoint tùy chỉnh, đảm bảo thông điệp phản hồi không tiết lộ chi tiết nội bộ theo OWASP A09.",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]"
+                    ],
+                    "components": [
+                        "./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/SecurityConfig.java",
+                        "./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/JwtAuthFilter.java",
+                        "./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/RbacPredicate.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST4",
+                    "agent": "Tester",
+                    "desc": "Chuyên gia QA phải sử dụng @SpringBootTest với WebEnvironment.RANDOM_PORT và MockMvc tại ./sources/backend/api-gateway/src/test/java/org/nlh4j/socialscheduler/gateway/SecurityConfigTest.java để kiểm thử tích hợp luồng bảo mật toàn diện. Tạo bốn JWT token mẫu với role khác nhau thông qua Nimbus JOSE + JWT library: token cho Admin với claim roles: [\"ADMIN\"], token cho User với roles: [\"USER\"], token cho Scheduler với roles: [\"SCHEDULER\"], token cho Analyst với roles: [\"ANALYST\"]. Sử dụng RSA key pair cố định trong thư mục src/test/resources/keys/ để ký và xác thực token. Gửi yêu cầu GET /api/v1/schedules/{id} với header Authorization: Bearer <admin_token> và khẳng định phản hồi HTTP 200 OK. Gửi yêu cầu tương tự với token của Analyst và khẳng định phản hồi HTTP 403 Forbidden với mã INSUFFICIENT_ROLE. Kiểm thử trường hợp token hết hạn bằng cách tạo JWT với exp = now - 3600, hệ thống phải trả về HTTP 401 với mã lỗi TOKEN_EXPIRED và thông điệp yêu cầu đăng nhập lại. Kiểm thử trường hợp token sai chữ ký (ký bằng khóa bí mật khác), hệ thống phải trả về HTTP 401 với mã TOKEN_INVALID. Kiểm thử endpoint POST /api/v1/schedules với payload hợp lệ và token của Admin, khẳng định HTTP 201 Created. Xác minh rằng endpoint /actuator/health có thể truy cập mà không cần token (permitAll). Đảm bảo test suite bao phủ 100% các nhánh xử lý chính của SecurityConfig và JwtAuthFilter. Bổ sung @DisplayName cho mỗi test case.",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]"
+                    ],
+                    "components": [
+                        "INTEGRATION_SCOPE;./sources/backend/api-gateway/src/test/java/org/nlh4j/socialscheduler/gateway/SecurityConfigTest.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST5",
+                    "agent": "Reviewer",
+                    "desc": "Chuyên gia đánh giá phải thực hiện đánh giá chuyên sâu cấu hình Spring Security để phát hiện các lỗ hổng OWASP A01 (Broken Access Control) và A07 (Identification and Authentication Failures). Đảm bảo rằng mọi endpoint nhạy cảm đều yêu cầu xác thực và phân quyền chặt chẽ thông qua annotation @PreAuthorize hoặc URL-based authorization trong SecurityFilterChain. Xác minh việc vô hiệu hóa CSRF cho các RESTful API phù hợp với tiêu chuẩn Stateless (csrf.disable()), đồng thời đảm bảo CORS được cấu hình với whitelist origin cụ thể thay vì ký tự đại diện *. Kiểm tra tính bảo mật của việc lưu trữ khóa bí mật JWT: đảm bảo private key không được commit vào repository và chỉ được đọc từ biến môi trường hoặc Kubernetes Secret thông qua Spring Cloud Config. Xác minh rằng JwtDecoder sử dụng thuật toán mạnh (RS256 hoặc ES256) và từ chối thuật toán none hoặc HS256 với khóa yếu. Đánh giá việc sử dụng RbacPredicate để đảm bảo không có vai trò nào được phép truy cập ngoài phạm vi đã khai báo trong [ARC-001] đến [ARC-004]. Phát hiện xung đột giữa URL-based authorization và method-level @PreAuthorize có thể dẫn đến bypass phân quyền. Rà soát tệp ./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/RbacPredicate.java để đảm bảo logic dự đoán phân quyền hoạt động chính xác cho 4 vai trò và không có hardcode bypass. Tạo báo cáo review ghi nhận tuân thủ OWASP A01/A07 và đề xuất cải tiến nếu phát hiện điểm yếu.",
+                    "targeted_tags": [
+                        "[ARC-005]",
+                        "[ARC-006]"
+                    ],
+                    "components": [
+                        "./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/SecurityConfig.java",
+                        "./sources/backend/api-gateway/src/main/java/org/nlh4j/socialscheduler/gateway/RbacPredicate.java"
+                    ]
+                },
+                {
+                    "id": "D2_ST6",
+                    "agent": "Doc",
+                    "desc": "Chuyên gia tài liệu phải cập nhật tệp OpenAPI ./sources/docs/api/ScheduleApiContract.yaml đính kèm các chi tiết về cơ chế bảo mật bearerAuth (JWT) tại khối components.securitySchemes. Định nghĩa rõ ràng securitySchemes.bearerAuth với type: http, scheme: bearer, bearerFormat: JWT, kèm mô tả description: \"JWT Bearer token được cấp bởi OAuth2 Authorization Server, chứa claim 'roles' để phân quyền RBAC 4 vai trò (ADMIN, USER, SCHEDULER, ANALYST)\". Bổ sung security: - bearerAuth: [] cho toàn bộ các endpoint trong paths. Định nghĩa ma trận vai trò quyền hạn dưới dạng bảng Markdown trong phần info.description hoặc tệp bổ sung x-rbac-matrix, ánh xạ rõ ràng từng endpoint với role được phép truy cập: POST /api/v1/schedules yêu cầu ADMIN, USER, SCHEDULER; GET /api/v1/schedules/{id} yêu cầu ADMIN, USER; PUT /api/v1/schedules/{id}/status yêu cầu ADMIN, SCHEDULER; DELETE /api/v1/schedules/{id} yêu cầu ADMIN, USER. Bổ sung tài liệu mô tả chi tiết các mã lỗi bảo mật: TOKEN_EXPIRED (401), TOKEN_INVALID (401), INSUFFICIENT_ROLE (403) và quy trình xử lý token hết hạn (client phải gọi refresh token endpoint tại auth-service). Tích hợp tham chiếu tới chính sách tuân thủ OWASP Top 10 mà hệ thống áp dụng, đặc biệt là A01 (Broken Access Control), A02 (Cryptographic Failures), A07 (Identification and Authentication Failures). Bổ sung ví dụ mẫu request kèm header Authorization: Bearer eyJhbGciOiJSUzI1NiIs... cho mỗi endpoint. Đảm bảo tài liệu tuân thủ cấu trúc YAML chuẩn OpenAPI 3.0.3 và sử dụng extension field x- cho các metadata tùy biến.",
+                    "targeted_tags": [
+                        "[ARC-001]",
+                        "[ARC-002]",
+                        "[ARC-003]",
+                        "[ARC-004]",
+                        "[ARC-005]",
+                        "[ARC-006]"
+                    ],
+                    "components": [
+                        "./sources/docs/api/ScheduleApiContract.yaml",
                         "./sources/docs/architecture/ENTERPRISE_SYSTEM_ARCHITECTURE_BLUEPRINT.md",
                         "./sources/docs/architecture/CENTRAL_ENDPOINT_API_CONTRACT_SPECS.md",
                         "./sources/docs/architecture/CROSS_PLATFORM_INTEGRATED_BUSINESS_FLOWS.md",
