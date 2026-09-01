@@ -1,0 +1,12 @@
+{
+    "project_name": "membership-hub",
+    "requirements": "docs/requirements/requirements.md",
+    "num_phases": 1,
+    "total_days": 0,
+    "phases": [
+        {
+            "phase": 1,
+            "days": 0
+        }
+    ]
+}

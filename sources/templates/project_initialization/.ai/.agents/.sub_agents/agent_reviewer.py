@@ -1,14 +1,12 @@
 # .ai/.agents/.sub-agents/agent-fixer.py
 import os
-import sys
-import json
-import re
-import argparse
 import subprocess
-import yaml
 import xml.etree.ElementTree as ET
-from jproperties import Properties
-from openai import OpenAI
+
+import yaml
+
+# super agent
+from _0d_ai._0d_agents._0d_sub_0u_agents.agent_0u_super import AbstractSubAgent
 
 # ==============================================================================
 # 🏢 ENTERPRISE INTER-PACKAGE ROUTING LAYER
@@ -18,20 +16,20 @@ from openai import OpenAI
 # ==============================================================================
 # request agent_helper from `.libs/project_agents_package_loader.py`
 from _0d_ai._0d_agents.agent_0u_helper import (
-    resolve_absolute_path,
     exception_stacktrace,
-    kwargs_by_key
+    kwargs_by_key,
+    parse_args,
+    resolve_absolute_path,
 )
-
-# super agent
-from _0d_ai._0d_agents._0d_sub_0u_agents.agent_0u_super import AbstractSubAgent
+from jproperties import Properties
 
 # ==============================================================================
 # GLOBAL CONFIGURATION PATHS - CONFIG HERE TO CUSTOMIZE DIRECTORY STRUCTURE
 # ==============================================================================
 AGENT_ID                    = "Reviewer"
-SYSTEM_PROMPT_FILE          = resolve_absolute_path(".ai/.agents/.sub_agents/agent_reviewer.prompt.system.md")
-USER_PROMPT_FILE            = resolve_absolute_path(".ai/.agents/.sub_agents/agent_reviewer.prompt.user.md")
+AGENT_NAME                  = "🤖🛠️ EnterpriseCodeReviewerAgent"
+SYSTEM_PROMPT_FILE          = resolve_absolute_path(".ai/.agents/.sub_agents/prompts/agent_reviewer.prompt.system.md")
+USER_PROMPT_FILE            = resolve_absolute_path(".ai/.agents/.sub_agents/prompts/agent_reviewer.prompt.user.md")
 BACKEND_WORKSPACE           = resolve_absolute_path("sources/backend")
 FRONTEND_WORKSPACE          = resolve_absolute_path("sources/frontend")
 
@@ -39,6 +37,7 @@ class BugFixerAgent(AbstractSubAgent):
     def __init__(self, phase_str, day_num):
         super().__init__(
             agent_id=AGENT_ID,
+            agent_name=AGENT_NAME,
             phase_str=phase_str,
             day_num=day_num
         )
@@ -54,7 +53,7 @@ class BugFixerAgent(AbstractSubAgent):
         if file_extension == '.sql':
             # use sqlfluff (linter to check SQL, need `pip install sqlfluff`)
             # --dialect ansi to check syntax SQL following global standards
-            result = subprocess.run([ "sqlfluff", "lint", target_path, "--dialect", "ansi" ], capture_output=True, text=True, timeout=120)
+            result = subprocess.run([ "sqlfluff", "lint", target_path, "--dialect", "ansi" ], capture_output=True, text=True, timeout=120, check=False)
             if not check_by_compile:
                 return (result.returncode == 0, result.stdout + "\n" + result.stderr)
         
@@ -108,13 +107,20 @@ class BugFixerAgent(AbstractSubAgent):
         package_path = os.path.join(FRONTEND_WORKSPACE, "package.json")
         if "backend" in target_path and os.path.exists(pom_path):
             # build to check error
-            result = subprocess.run(["mvn", "clean", "test-compile"], cwd=BACKEND_WORKSPACE, capture_output=True, text=True, timeout=120)
+            result = subprocess.run(["mvn", "clean", "test-compile"], cwd=BACKEND_WORKSPACE, capture_output=True, text=True, timeout=120, check=False)
             # return compile result
             return (result.returncode == 0, result.stdout + "\n" + result.stderr)
         
         elif "frontend" in target_path and os.path.exists(package_path):
             # build to check error
-            result = subprocess.run(["npm", "run", "build"], cwd=FRONTEND_WORKSPACE, capture_output=True, text=True, timeout=120)
+            result = subprocess.run(
+                ["npm", "run", "build"],
+                cwd=FRONTEND_WORKSPACE,
+                capture_output=True,
+                text=True,
+                timeout=120,
+                check=False,
+            )
             # return compile result
             return (result.returncode == 0, result.stdout + "\n" + result.stderr)
         
@@ -140,7 +146,7 @@ class BugFixerAgent(AbstractSubAgent):
 
     # @override
     def agent_log_file(self) -> str:
-        return resolve_absolute_path(f".ai/.history/agent-reviewer-day-{self.day_num}.md")
+        return resolve_absolute_path(f".ai/.history/agent-reviewer-phase-{self.phase_str}-day-{self.day_num}.md")
     
     # @override
     def system_prompt_template(self) -> str:
@@ -158,8 +164,8 @@ class BugFixerAgent(AbstractSubAgent):
         
         # check whether project had been initialized
         project_initialized, project_main_component = self.check_project_initialized(target_component)
-        print(f"[ ℹ️ {self.agent_id} Agent | F.Y.I ] Project {project_name} had been initialized?. {project_initialized} - Project Main Component: {project_main_component}")
-        print(f"            - Target Component: {target_component}")
+        self.logger.info(f"[ ℹ️ F.Y.I ] Project {project_name} had been initialized?. {project_initialized} - Project Main Component: {project_main_component}")
+        self.logger.info(f"            - Target Component: {target_component}")
         
         # execute super
         kwargs = {
@@ -173,7 +179,7 @@ class BugFixerAgent(AbstractSubAgent):
     def __execute__(self, **kwargs):
         # parse arguments
         project_initialized = kwargs_by_key(key="project_initialized", **kwargs)
-        source_component = kwargs_by_key(key="source_component", **kwargs)
+        # source_component = kwargs_by_key(key="source_component", **kwargs)
         target_component = kwargs_by_key(key="target_component", **kwargs)
         
         # build system prompt
@@ -188,18 +194,21 @@ class BugFixerAgent(AbstractSubAgent):
             # only compile project when it had been initialized
             is_clean, compiler_log = self.run_compile_check(target_component, project_initialized)
             if is_clean:
-                print(f"[ ✅ {self.agent_id} Agent | SUCCESS ] Target codebase component compiled cleanly on iteration loop: {iteration}!")
-                latest_response = f"Target codebase component {target_component} compiled cleanly on iteration loop {iteration}"
+                self.logger.info(f"✅ Target codebase component compiled cleanly on iteration loop: {iteration}!")
+                latest_response = f"✅ Target codebase component {target_component} compiled cleanly on iteration loop {iteration}"
                 success = True
                 break
             
             # build user prompt
-            print(f"[ ⚠️ {self.agent_id} Agent | WARNING ] Build check failed on validation loop: {iteration}. Ingesting raw error logs...")
+            self.logger.warning(f"⚠️ Build check failed on validation loop: {iteration}. Ingesting raw error logs...")
+            self.logger.warning(f"   |__ ⚠️ Compile Error: {compiler_log}")
             user_prompt = self.build_user_prompt(**kwargs)
             
             # build new values kwargs
             kwargs = {
                 **kwargs,
+                "existing_error_logs": compiler_log and len(compiler_log.strip()) > 0,
+                "compiler_error_logs": compiler_log,
                 "system_prompt": system_prompt,
                 "user_prompt": user_prompt
             }
@@ -210,7 +219,7 @@ class BugFixerAgent(AbstractSubAgent):
                 latest_response = kwargs_by_key(key="latest_response", **kwargs)
                 success = True
             except Exception as e:
-                print(f"[ 💀 {self.agent_id} Agent | RECOVERY ] API transaction exception caught. Swapping model: {exception_stacktrace(e)}")
+                self.logger.error(f"💀 API transaction exception caught. Swapping model: {exception_stacktrace(e)}")
                 latest_response = str(e) if not latest_response else latest_response
                 # rotate next model
                 if not self.__rotate_next_model__():
@@ -218,15 +227,26 @@ class BugFixerAgent(AbstractSubAgent):
                     break
         
         if not success:
-            print(f"[ 💀 {self.agent_id} Agent | CRITICAL ] Structural compiler repairs failed within maximum iteration bounds.")
-        return (success, system_prompt, user_prompt, latest_response)
+            self.logger.critical("💀 Structural compiler repairs failed within maximum iteration bounds.")
+        return {
+            **kwargs,
+            "success": success,
+            "system_prompt": system_prompt,
+            "user_prompt": user_prompt,
+            "latest_response": latest_response,
+        }
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--phase", required=True)
-    parser.add_argument("--day", required=True)
-    args = parser.parse_args()
-    print(f"🩹 Initiating compiler analysis and automated code healing routines for Phase { args.phase } Day { args.day }...")
+    def add_known_arguments(parser):
+        parser.add_argument("--phase", required=True)
+        parser.add_argument("--day", required=True)
+    
+    args, unknown_args = parse_args(
+        description=AGENT_ID,
+        parser_callback=add_known_arguments
+    )
+    
+    print(f"🛠️ Initiating compiler analysis and automated code healing routines for Phase { args.phase } Day { args.day }...")
     BugFixerAgent(
         phase_str=args.phase,
         day_num=args.day

@@ -1,12 +1,12 @@
 ### 🏢 ENTERPRISE SYSTEM DATA LAYER INJECTION
 *   Target Project Identity Safe Name: {{ project_name }}
-*   Enforced Java Package Prefix Base: org.nlh4j.saas.{{ project_name }}
+*   Enforced Java Package Prefix Base: org.nlh4j.{{ project_name | lower | replace(" ", "") | replace("_", "") | replace("-", "") }}
 *   Target Component Destination Path: `{{ target_component }}` (Must map to sources/backend/ or sources/frontend/)
 *   Context Module Context Reference Path: `{{ source_component }}`
 
 ### 📁 SOURCE CODE UNDER AUDIT (VERIFICATION TARGET)
 The following code block is the implementation that requires direct security review or immediate compilation patch:
-{{ source_payload }}
+{{ source_component_payload }}
 
 {% if compiler_error_logs and compiler_error_logs.strip() != "" %}
 ### ❌ REAL RAW COMPILER ERROR LOGS (CRITICAL FIX TARGET)

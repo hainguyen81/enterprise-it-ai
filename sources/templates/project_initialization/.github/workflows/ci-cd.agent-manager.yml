@@ -6,14 +6,16 @@
 # Directs parallel standalone executions or sequential cron schedules seamlessly.
 # ==============================================================================
 
-name: "🏢 Enterprise Project AI Agents Pipeline"
+name: "🏢 Enterprise Project AI Agents Management"
 
 on:
   schedule:
     # - cron: '0 0 * * *' # 🕒 Automated daily scheduler trigger executed exactly at 00:00 UTC
     
-    # Automated every 6 hours (0h, 6h, 12h, 18h UTC GMT+0).
-    - cron: '0 */6 * * *'
+    # Automated every 2 hours (0h, 6h, 12h, 18h UTC GMT+0).
+    # Should use more several minutes to avoid delay;
+    # because GitHub Shared Schedule Queue for many repositories on the world
+    - cron: '12 */2 * * *'
   
   workflow_dispatch:
     inputs:
@@ -191,6 +193,7 @@ jobs:
           AGENTS_PACKAGE_PATH: ${{ env.PROJECT_WORKSPACE }}/.ai
           
           # inputted values
+          TRIGGER_EVENT: ${{ github.event_name }}
           INPUT_EXEC_MODE: ${{ inputs.execution_mode == '🕒🔄📅 Auto Schedule' && 'auto_cron' || 'manual' }}
           INPUT_TARGET_SCOPE: ${{ inputs.target_scope == '🗓️ By Day' && 'by_day' || 'by_phase' }}
           INPUT_VALUE: ${{ inputs.input_value }}
@@ -443,6 +446,8 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_SECRETS_MANAGER }}
           SOURCE_BRANCH: 'features/development-phase-${{ needs.state_resolver_job.outputs.run_phase }}-day-${{ needs.state_resolver_job.outputs.run_day }}'
           TARGET_BRANCH: 'features/development'
+          RUN_DAY: ${{ needs.state_resolver_job.outputs.run_day }}
+          RUN_PHASE: ${{ needs.state_resolver_job.outputs.run_phase }}
         run: |
           echo "📣 Checking for existing Pull Requests from [ $SOURCE_BRANCH ] to [ $TARGET_BRANCH ]..."
           
@@ -459,10 +464,10 @@ jobs:
             gh pr create \
               --head "$SOURCE_BRANCH" \
               --base "$TARGET_BRANCH" \
-              --title "chore(pipeline): merge integration for Phase ${{ steps.resolver.outputs.run_phase }} Day ${{ steps.resolver.outputs.run_day }} [AI Loop]" \
+              --title "chore(pipeline): merge integration for Phase $RUN_PHASE Day $RUN_DAY [AI Loop]" \
               --body "### 🤖 Automated Development Cycle Pull Request
-              * **Origin Phase**: ${{ needs.state_resolver_job.outputs.run_phase }}
-              * **Origin Day**: ${{ needs.state_resolver_job.outputs.run_day }}
+              * **Origin Phase**: $RUN_PHASE
+              * **Origin Day**: $RUN_DAY
               * **Target Core Trunk**: $TARGET_BRANCH
               
               This PR was automatically provisioned by the AI pipeline workspace loop to synchronize daily code increments back into the stable mainline trunk." \

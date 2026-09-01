@@ -1,9 +1,10 @@
 # .ai/.agents/.sub-agents/agent-gcp.py
 import os
-import sys
-import json
-import argparse
 import subprocess
+import sys
+
+# super agent
+from _0d_ai._0d_agents._0d_sub_0u_agents.agent_0u_super import AbstractSubAgent
 
 # ==============================================================================
 # 🏢 ENTERPRISE INTER-PACKAGE ROUTING LAYER
@@ -13,18 +14,16 @@ import subprocess
 # ==============================================================================
 # request agent_helper from `.libs/project_agents_package_loader.py`
 from _0d_ai._0d_agents.agent_0u_helper import (
+    kwargs_by_key,
+    parse_args,
     resolve_absolute_path,
-    exception_stacktrace,
-    kwargs_by_key
 )
-
-# super agent
-from _0d_ai._0d_agents._0d_sub_0u_agents.agent_0u_super import AbstractSubAgent
 
 # ==============================================================================
 # GLOBAL CONFIGURATION PATHS - CONFIG HERE TO CUSTOMIZE DIRECTORY STRUCTURE
 # ==============================================================================
 AGENT_ID                    = "GCP"
+AGENT_NAME                  = "🤖☁️ EnterpriseGCPDeployerAgent"
 BACKEND_DOCKERFILE          = resolve_absolute_path("sources/backend/src/main/docker/Dockerfile.native")
 FRONTEND_DOCKERFILE         = resolve_absolute_path("sources/frontend/Dockerfile")
 
@@ -32,12 +31,13 @@ class GcpAgent(AbstractSubAgent):
     def __init__(self, phase_str, day_num):
         super().__init__(
             agent_id=AGENT_ID,
+            agent_name=AGENT_NAME,
             phase_str=phase_str,
             day_num=day_num
         )
 
     def authenticate_gcp(self):
-        print(f"[ {self.agent_id} Agent ] Authenticating context with Google Cloud Platform SDK...")
+        self.logger.info("ℹ️ Authenticating context with Google Cloud Platform SDK...")
         if self.gcp_sa_key and self.gcp_project and self.gcp_region:
             with open("gcp-key.json", "w", encoding="utf-8") as f:
                 f.write(self.gcp_sa_key)
@@ -46,7 +46,7 @@ class GcpAgent(AbstractSubAgent):
             subprocess.run(["gcloud", "auth", "configure-docker", f"{self.gcp_region}-docker.pkg.dev"], check=True)
             os.remove("gcp-key.json")
         else:
-            print(f"[ ⚠️ {self.agent_id} Agent | WARNING ] Missing parameters inside GCP_SECRETS. Relying on active local shell auth context.")
+            self.logger.warning("⚠️ Missing parameters inside GCP_SECRETS. Relying on active local shell auth context.")
     
     def gcp_cloud_repo(self) -> str:
         return os.environ.get("GCP_REPO")
@@ -83,7 +83,7 @@ class GcpAgent(AbstractSubAgent):
     
     # @override
     def agent_log_file(self) -> str:
-        return resolve_absolute_path(f".ai/.history/agent-gcp-day-{self.day_num}.md")
+        return resolve_absolute_path(f".ai/.history/agent-gcp-phase-{self.phase_str}-day-{self.day_num}.md")
     
     # @override
     def system_prompt_template(self) -> str:
@@ -97,7 +97,7 @@ class GcpAgent(AbstractSubAgent):
     def pre_execute(self, **kwargs):
         # validate repository
         if not self.gcp_repo or len(self.gcp_repo.strip()) <= 0:
-            print(f"[ ⚠️ {self.agent_id} Agent | SKIP ] Not found 'GCP_REPO' enviroment to publish image for deploying.")
+            self.logger.warning("⚠️ Not found 'GCP_REPO' enviroment to publish image for deploying.")
             sys.exit(0)
         
         # log-in repository
@@ -109,12 +109,7 @@ class GcpAgent(AbstractSubAgent):
     # @ override
     def __execute__(self, **kwargs):
         # extract arguments
-        project_name = kwargs_by_key(key="project_name", **kwargs)
-        global_context = kwargs_by_key(key="global_context", **kwargs)
-        day_context = kwargs_by_key(key="day_context", **kwargs)
-        source_component = kwargs_by_key(key="source_component", **kwargs)
         target_component = kwargs_by_key(key="target_component", **kwargs)
-        sub_tasks = kwargs_by_key(key="sub_tasks", **kwargs)
         
         # check task for backend or frontend
         is_backend = "backend" in target_component
@@ -122,30 +117,35 @@ class GcpAgent(AbstractSubAgent):
         workspace_path = resolve_absolute_path("sources/backend") if is_backend else resolve_absolute_path("sources/frontend")
         
         if not os.path.exists(dockerfile_path):
-            print(f"[ ⚠️ {self.agent_id} Agent | SKIP ] Target container instruction blueprint absent at: {dockerfile_path}")
-            return (True, None, None, f"[ ⚠️ {self.agent_id} Agent | SKIP ] Target container instruction blueprint absent at: {dockerfile_path}")
+            self.logger.warning(f"⚠️ Target container instruction blueprint absent at: {dockerfile_path}")
+            return (True, None, None, f"⚠️ Target container instruction blueprint absent at: {dockerfile_path}")
         
         # build image
-        print(f"[ {self.agent_id} Agent | BUILD ] Compiling multi-stage container artifact: {self.gcp_image}")
+        self.logger.info(f"ℹ️ Compiling multi-stage container artifact: {self.gcp_image}")
         subprocess.run(["docker", "build", "-t", self.gcp_image, "-f", dockerfile_path, workspace_path], check=True)
 
-        print(f"[ {self.agent_id} Agent | PUSH ] Uploading image binary up to Google Artifact Registry...")
+        self.logger.info("ℹ️ Uploading image binary up to Google Artifact Registry...")
         subprocess.run(["docker", "push", self.gcp_image], check=True)
-        print(f"[ ✅ {self.agent_id} Agent | SUCCESS ] Image version {self.image_tag} published safely to GAR!")
+        self.logger.info(f"✅ Image version {self.image_tag} published safely to GAR!")
         
         # result
         return {
             **kwargs,
             "system_prompt": None,
             "user_prompt": None,
-            "raw_response": f"Image version {self.image_tag} published safely to GAR!"
+            "raw_response": f"✅ Image version {self.image_tag} published safely to GAR!"
         }
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--phase", required=True)
-    parser.add_argument("--day", required=True)
-    args = parser.parse_args()
+    def add_known_arguments(parser):
+        parser.add_argument("--phase", required=True)
+        parser.add_argument("--day", required=True)
+    
+    args, unknown_args = parse_args(
+        description=AGENT_ID,
+        parser_callback=add_known_arguments
+    )
+    
     print(f"☁️ Connecting to Google Cloud SDK components to route compiled GAR assets for Phase { args.phase } Day { args.day }...")
     GcpAgent(
         phase_str=args.phase,

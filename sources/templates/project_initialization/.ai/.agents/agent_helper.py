@@ -5,14 +5,17 @@
 # using GitHub Actions infrastructure environment tokens instead of brittle backtracking.
 # ==============================================================================
 
-import os
-import sys
+import argparse
 import json
 import logging
+import os
 import re
-import json
+import sys
 import traceback
+from collections.abc import Generator
 from pathlib import Path
+
+from jinja2 import Environment, FileSystemLoader, meta
 
 # to load prompt template
 from jinja2 import Template as JinjaTemplate
@@ -30,18 +33,72 @@ PARENT_AGENTS_DIR  = os.path.abspath(os.path.join(CURRENT_SCRIPT_DIR, "../")) # 
 if PARENT_AGENTS_DIR not in sys.path:
     sys.path.insert(0, PARENT_AGENTS_DIR)
 
-# ==============================================================================
-# GLOBAL CONFIGURATION PATHS - CONFIG HERE TO CUSTOMIZE DIRECTORY STRUCTURE
-# ==============================================================================
-BLUEPRINT_WORKING_HISTORY_FILE = "sources/output/architecture-blueprint.md"
 
-# logging configuration
-# logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s]: %(message)s")
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S"
-)
+def merge_master_prompt(master_prompt: str, system_prompt: str) -> str:
+    return (
+        "<GLOBAL_GOVERNANCE_MATRIX>\n"
+        f"{master_prompt}\n"
+        "</GLOBAL_GOVERNANCE_MATRIX>\n\n"
+        "<ACTIVE_TASK_SYSTEM_INSTRUCTION>\n"
+        f"{system_prompt}\n"
+        "</ACTIVE_TASK_SYSTEM_INSTRUCTION>"
+    ) if master_prompt and system_prompt else system_prompt if not master_prompt else None
+
+
+def parse_unknown_args_to_dict(unknown_args):
+    if not unknown_args or not isinstance(unknown_args, list):
+        return {}
+
+    result = {}
+    iterator = iter(unknown_args)
+    for item in iterator:
+        # Case 1: `--key=value`
+        if '=' in item and item.startswith('-'):
+            key, value = item.split('=', 1)
+            result[key.lstrip('-')] = value
+            
+        # Case 2 & 3: starts with `-` (ex: --user or -u)
+        elif item.startswith('-'):
+            key = item.lstrip('-')
+            try:
+                # check next item whether is its value
+                next_item = next(iterator)
+                
+                # if next item is another arguments (ex: --debug --verbose)
+                if next_item.startswith('-'):
+                    result[key] = True  # default this argument is boolean flag as True
+                    # jump to next argument by creating new iterator mới
+                    unknown_args.insert(unknown_args.index(next_item), next_item)
+                    iterator = iter(unknown_args[unknown_args.index(next_item):])
+                
+                # else if next item is its value
+                else:
+                    result[key] = next_item
+            except StopIteration:
+                # if this's end item of list, default its value is boolean flag as True
+                result[key] = True
+    return result
+
+def parse_args(description=None, parser_callback=None):
+    """
+    - Init parser
+    - Execute `parser_callback` to `add_argument` if necessary
+    - Return (known_args, unknown_args_dict)
+    """
+    parser = argparse.ArgumentParser(description=description)
+    
+    # 2. callback for `add_argument``
+    if parser_callback and callable(parser_callback):
+        parser_callback(parser)
+        
+    # 3. parse known/un-known arguments
+    args, unknown_args = parser.parse_known_args()
+    
+    # 4. convert unknown_args from List to Dict
+    unknown_args = parse_unknown_args_to_dict(unknown_args)
+    
+    # 5. result (known_args, unknown_dict)
+    return args, unknown_args
 
 def resolve_absolute_path(relative_target_path):
     """
@@ -50,9 +107,9 @@ def resolve_absolute_path(relative_target_path):
     """
     # 🚀 CORE RAIL: Ingest the absolute repository root path straight from GitHub infrastructure
     # Fallback to current working directory (os.getcwd()) if executing on a local machine
-    current_directory_path = os.getcwd()
-    github_workspace = os.environ.get("GITHUB_WORKSPACE", '')
-    project_workspace = os.environ.get("PROJECT_WORKSPACE", '')
+    # current_directory_path = os.getcwd()
+    # github_workspace = os.environ.get("GITHUB_WORKSPACE", '')
+    # project_workspace = os.environ.get("PROJECT_WORKSPACE", '')
     # print(f"CURRENT WORKING DIR: { current_directory_path } | GITHUB_WORKSPACE: { github_workspace } | PROJECT_WORKSPACE: { project_workspace }")
     repo_root_path = os.environ.get("PROJECT_WORKSPACE", os.environ.get("GITHUB_WORKSPACE", os.getcwd()))
     
@@ -65,26 +122,73 @@ def resolve_absolute_path(relative_target_path):
     # full path from root workspace
     return absolute_hardware_path
 
+def json_tostring(json_data) -> str:
+    return json.dumps(json_data, indent=4, ensure_ascii=False) if json_data else "- No data (None)"
+
+def __fix_json__(data):
+    return re.sub(r'("(?:[^"\\]|\\.)*")', lambda m: m.group(1).replace('\n', '\\n'), str(data).strip())
+
+def __load_jsons__(data, silent=True):
+    try:
+        return json.loads(str(data))
+    except Exception as e:
+        if not silent:
+            raise e
+        else:
+            # print(f"Exception while loading JSON: {str(e)}")
+            return {}
+
+def json_loads(data, silent=False):
+    # try to parse json
+    if not data:
+        return None
+    
+    json_data = __load_jsons__(data=data, silent=True)
+    if not json_data:
+        json_data = __load_jsons__(data=__fix_json__(data), silent=silent)
+    return json_data
+
 def json_raw_content(raw_content):
     """Securely serialize input telemetry payloads into structural double-quoted strings."""
     # If the payload is already a memory object list or dictionary
+    cleaned_str = str(raw_content).strip() if raw_content else None
     if isinstance(raw_content, (dict, list)):
-        return json.dumps(raw_content, indent=4, ensure_ascii=False)
+        try:
+            return json.dumps(raw_content, indent=4, ensure_ascii=False)
+        except Exception:
+            pass
     
-    if isinstance(raw_content, str):
-        cleaned_str = raw_content.strip()
-        # If it is a stringified JSON layout, decode and encode with indentation rules
-        if (cleaned_str.startswith("{") or cleaned_str.startswith("[")) and '"' in cleaned_str:
-            try:
-                return json.dumps(json.loads(cleaned_str), indent=4, ensure_ascii=False)
-            except Exception:
-                pass
-    
-    return str(raw_content)
+    # try to parse json
+    cleaned_json = json_loads(cleaned_str, silent=True)
+    if cleaned_json:
+        try:
+            cleaned_str = json.dumps(cleaned_json, indent=4, ensure_ascii=False)
+        except Exception:
+            pass
+    return cleaned_str
 
 def exception_stacktrace(e) -> str:
-    stacktrace = traceback.format_exception(type(e), e, e.__traceback__) if isinstance(e, BaseException) or isinstance(e, Exception) else None
-    return None if not e else f"{str(e)}: {stacktrace}" if stacktrace else str(e)
+    stacktrace = traceback.format_exception(type(e), e, e.__traceback__) if isinstance(e, (BaseException, Exception)) else None
+    return None if not e else f"{e!s}: {stacktrace}" if stacktrace else str(e)
+
+def makedirs(path):
+    """
+    Safely resolves the absolute directory path from any given file or folder path
+    and creates the underlying directory tree structure on disk memory if it does not exist.
+    Fixed the latent bug where non-existent file paths were evaluated as directories.
+    """
+    # Convert the raw string path into a structured Path object boundary
+    target_path = Path(path)
+    
+    # CRITICAL FIX: If the path target explicitly contains a file extension suffix (e.g., .png, .svg)
+    # or if you explicitly know it represents a target file destination, safely extract its parent directory
+    if target_path.suffix or os.path.isfile(path):
+        resolved_dir = target_path.parent
+    else:
+        resolved_dir = target_path
+
+    # Execute atomic file system creation with native concurrency protections
+    resolved_dir.mkdir(parents=True, exist_ok=True)
 
 def write_file(file, data, dir=None, append=False):
     checked_dir = dir if dir else os.path.dirname(file)
@@ -93,7 +197,7 @@ def write_file(file, data, dir=None, append=False):
     os.makedirs(checked_dir, exist_ok=True)
     out_path = os.path.join(checked_dir, checked_file)
     with open(out_path, opts, encoding="utf-8") as f:
-        f.write(str(data))
+        f.write(str(data).replace('\\n', '\n'))
     return out_path # full path of file
 
 def write_json_file(file, json_data, dir=None, append=False):
@@ -122,41 +226,45 @@ def read_file_raw(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         return (file_path, f.read())
 
-def write_blueprint_log(phase_idx, instruction, prompt, raw_content, is_step, model_name=None, out_dir=None):
-    pattern = r"\{.*\}|\[.*\]"
-    raw_content = json_raw_content(raw_content)
-    is_json = bool(re.search(pattern, raw_content, re.DOTALL))
-    model_name_safe = f"AI Model: {model_name} - " if model_name and len(model_name) > 0 else ""
-    if phase_idx <= 0:
-        header_title = f"# {model_name_safe}Global Prompt:\n\n{prompt}\n\n"
-    elif not is_step:
-        header_title = f"# {model_name_safe}Phase {phase_idx} - Prompt:\n\n{prompt}\n\n"
-    else:
-        header_title = f"# {model_name_safe}Phase {phase_idx} STEPS - Prompt:\n\n{prompt}\n\n"
-    instruction_block = f"# System Instruction\n\n{instruction}\n\n"
-    if is_json:
-        response_block = f"# Raw Response / Exception:\n\n```json\n{raw_content}\n```\n\n"
-    else:
-        response_block = f"# Raw Response / Exception:\n\n```text\n{raw_content}\n```\n\n"
-    log_content = header_title + instruction_block + response_block
-    log_file = resolve_absolute_path(BLUEPRINT_WORKING_HISTORY_FILE)
-    if out_dir and len(out_dir) > 0:
-        log_file = os.path.join(out_dir, "architecture-blueprint.md")
-    write_file(os.path.dirname(log_file), os.path.basename(log_file), log_content, append=True)
-
 def delete_file(file):
     if os.path.exists(file):
         os.remove(file)
 
-def delete_log(out_dir=None):
-    log_file = resolve_absolute_path(BLUEPRINT_WORKING_HISTORY_FILE)
-    if out_dir and len(out_dir) > 0:
-        log_file = os.path.join(out_dir, "architecture-blueprint.md")
-    delete_file(file=log_file)
-
-def render_prompt(template: str, context: dict) -> str:
+def jinja2_required_variables(template: str) -> set[str]:
     if not os.path.exists(template):
         return None
+    
+    # detect template directory
+    template_dir = Path(template)
+    template_file = None
+    if template_dir.suffix or os.path.isfile(template):
+        template_file = template_dir.name
+        template_dir = template_dir.parent
+    
+    # due to template is directory
+    else:
+        return None
+    env = Environment(loader=FileSystemLoader(template_dir))
+
+    # 1. parse template to get required variables
+    template_source = env.loader.get_source(env, template_file)[0]
+    parsed_content = env.parse(template_source)
+
+    # 2. get all variables in template
+    return meta.find_undeclared_variables(parsed_content)
+
+def render_prompt(template: str, context: dict) -> str:
+    logger = get_logger()
+    if not os.path.exists(template):
+        logger.warning(f"[WARING] - Template {template} is MISSING/NOT_FOUND")
+        return None
+    
+    # for tracing
+    required_variables = jinja2_required_variables(template=template)
+    context_variables = set(context.keys())
+    missing_vars = [ var for var in required_variables if var not in context_variables ]
+    if missing_vars and len(missing_vars) > 0:
+        logger.warning(f"[WARING] - Render Template {template} maybe wrong, due to missing required variables: {missing_vars}")
     
     # read prompt template
     _, template_content = read_file_raw(template)
@@ -170,14 +278,39 @@ def render_prompt(template: str, context: dict) -> str:
 def render_kwargs_prompt(template: str, **kwargs) -> str:
     return render_prompt(template=template, context={ **kwargs })
 
+def regex_extract(pattern, data):
+    if not pattern or not data:
+        return (0, [])
+
+    reg_pattern = re.compile(
+        pattern,
+        re.DOTALL,
+    )
+    extracted_data = reg_pattern.findall(data)
+    return (len(extracted_data) if extracted_data else 0, extracted_data)
+
+def regex_extract_by_pair_tags(tag_start: str, tag_end: str, data):
+    if not tag_start and tag_end:
+        return regex_extract(pattern=rf"<!--\s*{tag_end}\s*-->", data=data)
+    elif tag_start:
+        return regex_extract(pattern=rf"<!--\s*{tag_start}\s*-->", data=data)
+    elif tag_start and tag_end:
+        return regex_extract(
+            pattern=rf"<!--\s*{tag_start}\s*-->(.*?)<!--\s*{tag_end}\s*-->", data=data
+        )
+    return (0, [])
+
+def regex_extract_by_tag(tag: str, data):
+    return regex_extract_by_pair_tags(tag_start=tag, tag_end=None, data=data)
+
 def validateAIResponse(response):
     if not response or not hasattr(response, 'choices') or not response.choices:
-        raise RuntimeError(f"[API Upstream Error 404]: No Response Found")
+        raise RuntimeError("[API Upstream Error 404]: No Response Found")
     
     # 1. Check response choices
     choices_data = response.choices
     if not isinstance(choices_data, list) or len(choices_data) <= 0:
-        raise RuntimeError(f"[API Upstream Error 404]: Response Choices is empty/None")
+        raise RuntimeError("[API Upstream Error 404]: Response Choices is empty/None")
     
     # parse first choice
     first_choice = choices_data[0]
@@ -199,7 +332,7 @@ def validateAIResponse(response):
         
     # 3. check content whether is None (although finish_reason is `stop`)
     if not hasattr(first_choice, 'message') or not first_choice.message or getattr(first_choice.message, 'content', None) is None:
-        raise ValueError(f"[API Upstream Error 404]: AI response content is empty/None.")
+        raise ValueError("[API Upstream Error 404]: AI response content is empty/None.")
     
     # Guard against malformed message blocks or unexpected payload closures
     return first_choice
@@ -219,7 +352,42 @@ def parseAIResponseData(response):
     # Safe fallback if choice format changes or breaks unexpectedly
     return str(first_choice).strip()
 
-def splitOpenAIResponseJsonData(raw_data):
+def __normalize_raw_data__(raw_data):
+    # normalize raw data by detecting the raw string type dynamically
+    if isinstance(raw_data, (str, bytes)):
+        raw_data = str(raw_data)
+    elif hasattr(raw_data, "raw"):
+        # Catches the standard static CrewOutput object
+        raw_data = raw_data.raw
+    elif isinstance(raw_data, (Generator, list)) or hasattr(raw_data, "__iter__"):
+        # Catches CrewStream / Generator loops and aggregates tokens into a flat string
+        raw_data = "".join(str(chunk) for chunk in raw_data)
+    else:
+        # Safe final boundary fallback
+        raw_data = str(raw_data)
+    return raw_data
+
+def splitAIResponseData(raw_data):
+    if not raw_data:
+        return None
+    
+    # normalize raw data
+    raw_data = __normalize_raw_data__(raw_data=raw_data)
+    
+    # extract by regex
+    match = re.search(
+        r"```(?:text|json|xml|mermaid|markdown|sql|python|code|yaml|properties|bash|java|ts|tsx)?\s*(.*?)\s*```",
+        raw_data,
+        re.DOTALL,
+    )
+    return match.group(1).strip() if match else raw_data.strip()
+
+def splitAIResponseJsonData(raw_data):
+    if not raw_data:
+        return None
+
+    # normalize raw data
+    raw_data = __normalize_raw_data__(raw_data=raw_data)
     clean_json_str = raw_data.strip()
     
     # 💡 Use find() to split json block
@@ -257,7 +425,7 @@ def parseAIResponseJsonData(response):
     if json_match:
         try:
             clean_json_str = json_match.group(1).strip()
-            return (raw_data, json.loads(clean_json_str))
+            return (raw_data, json_loads(clean_json_str))
         except Exception:
             pass # Continue evaluating alternative pattern structures if parsing breaks
             
@@ -266,20 +434,20 @@ def parseAIResponseJsonData(response):
     if json_match:
         try:
             clean_json_str = json_match.group(1).strip()
-            return (raw_data, json.loads(clean_json_str))
+            return (raw_data, json_loads(clean_json_str))
         except Exception:
             pass
 
     # Pattern 3: Hardened bracket boundary locator leveraging non-greedy isolation
     # Fixes the broken greedy regex logic to ensure text outside the curly braces is safely ignored
     try:
-        return (raw_data, json.loads(splitOpenAIResponseJsonData(raw_data)))
+        return (raw_data, json_loads(splitAIResponseJsonData(raw_data)))
     except Exception as e:
         json_match = re.search(r"(\{[\s\S]*\})", raw_data, re.DOTALL)
         if json_match:
             try:
                 clean_json_str = json_match.group(1).strip()
-                return (raw_data, json.loads(clean_json_str))
+                return (raw_data, json_loads(clean_json_str))
             except Exception:
                 pass
         
@@ -288,9 +456,9 @@ def parseAIResponseJsonData(response):
             
     # Final Fallback Layer: Treat the whole string as literal plain text payload
     try:
-        return (raw_data, json.loads(raw_data.strip()))
+        return (raw_data, json_loads(raw_data.strip()))
     except Exception as final_error:
-        print(f"⚠️  [PARSER WARNING] Local string-to-json mapping failed: {final_error}")
+        get_logger().warning(f"⚠️  [PARSER WARNING] Local string-to-json mapping failed: {final_error}")
         return (raw_data, None)
 
 def count_files_by_pattern(dir, file_filter_pattern) -> int:
@@ -303,3 +471,81 @@ def count_files_by_pattern(dir, file_filter_pattern) -> int:
 
 def kwargs_by_key(key: str, **kwargs):
     return (kwargs or {}).get(key) if key else None
+
+
+# ==============================================================================
+# GLOBAL CONFIGURATION LOGGER
+# ==============================================================================
+# Color ANSI table of log levels
+LOG_COLORS = {
+    'TRACE':    '\033[90m',     # Dark Gray (Highly detailed logs)
+    'DEBUG':    '\033[94m',     # Light Blue (Debugging information)
+    'INFO':     '\033[92m',     # Green (Normal operational messages)
+    'SUCCESS':  '\033[96m',     # Cyan (Successful operations)
+    'WARNING':  '\033[93m',     # Yellow (Warnings/non-critical issues)
+    'ERROR':    '\033[91m',     # Red (Errors/runtime exceptions)
+    'CRITICAL': '\033[95m',     # Magenta (Critical system failures)
+    'RESET':    '\033[0m'       # Reset to default terminal text color
+}
+LOG_EMOJIS = {
+    'TRACE':    '🔍',            # Magnifying glass for deep tracing
+    'DEBUG':    '⚙️',            # Gear for debugging details
+    'INFO':     'ℹ️',            # Information source icon
+    'SUCCESS':  '✅',            # Check mark for successful operations
+    'WARNING':  '⚠️',            # Warning sign for non-critical alerts
+    'ERROR':    '❌',            # Cross mark for runtime errors
+    'CRITICAL': '💀'             # Police car light for critical failures
+}
+
+# Define `TRACE` level because python doesn't have it
+TRACE_LEVEL_NUM = 5
+logging.addLevelName(TRACE_LEVEL_NUM, "TRACE")
+def trace(self, message, *args, **kws):
+    if self.isEnabledFor(TRACE_LEVEL_NUM):
+        self._log(TRACE_LEVEL_NUM, message, args, **kws)
+logging.Logger.trace = trace
+
+class FullColorFormatter(logging.Formatter):
+    def format(self, record):
+        color = LOG_COLORS.get(record.levelname, LOG_COLORS['RESET'])
+        reset = LOG_COLORS['RESET']
+        emoji = LOG_EMOJIS.get(record.levelname, '')
+        raw_level = f"{emoji} {record.levelname}" if emoji else record.levelname
+        emoji_level = f"{raw_level:<12}"
+        
+        # Place the color code at the very beginning and the reset code at the very end
+        # This forces the entire log line to inherit the level color
+        log_format = (
+            f"{color}%(asctime)s [ %(name)s | {emoji_level} ] %(message)s{reset}"
+        )
+        
+        formatter = logging.Formatter(log_format, datefmt='%Y-%m-%d %H:%M:%S')
+        return formatter.format(record)
+
+# logging configuration
+# logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s]: %(message)s")
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format="%(asctime)s [ %(name)s | %(levelname)s ] %(message)s",
+#     datefmt="%Y-%m-%d %H:%M:%S"
+# )
+def get_logger(logger_name="Helper"):
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logging.INFO) 
+    if not logger.handlers:
+        handler = logging.StreamHandler()
+        handler.setFormatter(FullColorFormatter())
+        logger.addHandler(handler)
+    return logger
+
+def enabledLogLevel(logger, level=logging.INFO):
+    try:
+        logger.setLevel(level)
+        return True
+    except Exception:
+        return False
+
+def enabledLogDebug(logger):
+    return enabledLogLevel(logger=logger, level=logging.DEBUG)
+
+
