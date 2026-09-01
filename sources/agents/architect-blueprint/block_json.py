@@ -567,7 +567,7 @@ def run_test_phase_steps_generation(callback, phase: int = 0, daysPerChunk: int 
     if not callback or not callable(callback):
         raise RuntimeError("Invalid test method!")
 
-    PROJECT_NAME = "membership-hub"
+    PROJECT_NAME = "social-scheduler"
     LANGUAGE = "Vietnamese"
     SOURCES_PATH = (
         "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources"
@@ -582,7 +582,9 @@ def run_test_phase_steps_generation(callback, phase: int = 0, daysPerChunk: int 
     )
 
     AI_BASE_URL = "https://openrouter.ai/api/v1"
-    AI_API_KEY = "sk-or-v1-*******"
+    AI_API_KEY = (
+        "sk-or-v1-*******"
+    )
     MODEL_NAME = "minimax/minimax-m3:free"
 
     # openAI

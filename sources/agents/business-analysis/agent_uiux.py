@@ -26,6 +26,7 @@ PROJECT_INFO_FILE           = "project-info.json"
 UI_UX_RAW_FILE              = "uiux.md"
 UI_UX_JSON_FILE             = "uiux.json"
 UI_UX_LOG_FILE              = "uiux_log.md"
+UI_UX_ALLOWED_DEVICES       = ["Web_Desktop", "Mobile_App_iOS", "Mobile_App_Android"]
 
 
 # 1. Define the Traceability Sync Schema between BA and UI/UX Layout
@@ -154,6 +155,7 @@ class EnterpriseUXUIArchitectAgent(AbstractSubAgent):
         # return merged new values
         return {
             **kwargs,
+            "allowed_devices": UI_UX_ALLOWED_DEVICES,
             "uiux_json_schema": json.dumps(
                 ProjectUXMockupPayload.model_json_schema(), indent=2
             ),
@@ -164,6 +166,7 @@ class EnterpriseUXUIArchitectAgent(AbstractSubAgent):
     def clean_response(self, raw_response, **kwargs):
         if not raw_response:
             raise RuntimeError("💀 Invalid AI raw response.")
+        self.logger.info("- Raw Response: %s", raw_response)
         return parseAIResponseJsonData(raw_response)
 
     # @override
