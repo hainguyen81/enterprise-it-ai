@@ -162,3 +162,82 @@ Error code: 410 - {'error': {'code': 'github_models_retirement_brownout', 'messa
 
 ---
 
+# Exception:
+
+Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1788307200000'}, 'limit_source': 'openrouter_free_tier_daily', 'remedy_hint': 'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_super.py", line 355, in __execute__
+    kwargs = self.__ai_execute__(**kwargs) or {}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\chief-solution\\agent_csro.py", line 584, in __ai_execute__
+    return super().__ai_execute__(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_super.py", line 323, in __ai_execute__
+    kwargs = self.communicate(**kwargs) or {}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_super.py", line 282, in communicate
+    response = self.__communicate_ai__(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\chief-solution\\agent_csro.py", line 576, in __communicate_ai__
+    return crew_ai.kickoff()
+           ^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\crewai\\crew.py", line 1046, in kickoff
+    result = self._run_sequential_process()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\crewai\\crew.py", line 1501, in _run_sequential_process
+    return self._execute_tasks(self.tasks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\crewai\\crew.py", line 1605, in _execute_tasks
+    task_output = task.execute_sync(
+                  ^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\crewai\\task.py", line 593, in execute_sync
+    return self._execute_core(agent, context, tools)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\crewai\\task.py", line 957, in _execute_core
+    raise e
+', "openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1788307200000'}, 'limit_source': 'openrouter_free_tier_daily', 'remedy_hint': 'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.', 'provider_name': None}}, 'user_id': 'user_3GLaJI6mihRMFQtSad72HqAhW95'}
+"]: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_super.py", line 398, in execute
+    return self.__do_execute__(**safe_kwargs) or {}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\chief-solution\\agent_csro.py", line 589, in __do_execute__
+    kwargs = super().__do_execute__(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_super.py", line 385, in __do_execute__
+    raise RuntimeError(exception) # response is exception stack-trace from `__execute__`
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', 'RuntimeError: Error code: 429 - {\'error\': {\'message\': \'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\', \'code\': 429, \'metadata\': {\'headers\': {\'X-RateLimit-Limit\': \'50\', \'X-RateLimit-Remaining\': \'0\', \'X-RateLimit-Reset\': \'1788307200000\'}, \'limit_source\': \'openrouter_free_tier_daily\', \'remedy_hint\': \'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.\', \'provider_name\': None}}, \'user_id\': \'user_3GLaJI6mihRMFQtSad72HqAhW95\'}: [\'Traceback (most recent call last):\
+\', \'  File "E:\\\\Java.Working\\\\16-4.saas.projects.jee-2026-03\\\\ai-scraper\\\\sources\\\\agents\\\\agent_super.py", line 355, in __execute__\
+    kwargs = self.__ai_execute__(**kwargs) or {}\
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\16-4.saas.projects.jee-2026-03\\\\ai-scraper\\\\sources\\\\agents\\\\chief-solution\\\\agent_csro.py", line 584, in __ai_execute__\
+    return super().__ai_execute__(**kwargs)\
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\16-4.saas.projects.jee-2026-03\\\\ai-scraper\\\\sources\\\\agents\\\\agent_super.py", line 323, in __ai_execute__\
+    kwargs = self.communicate(**kwargs) or {}\
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\16-4.saas.projects.jee-2026-03\\\\ai-scraper\\\\sources\\\\agents\\\\agent_super.py", line 282, in communicate\
+    response = self.__communicate_ai__(**kwargs)\
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\16-4.saas.projects.jee-2026-03\\\\ai-scraper\\\\sources\\\\agents\\\\chief-solution\\\\agent_csro.py", line 576, in __communicate_ai__\
+    return crew_ai.kickoff()\
+           ^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\1.tools\\\\python\\\\3.12.2\\\\Lib\\\\site-packages\\\\crewai\\\\crew.py", line 1046, in kickoff\
+    result = self._run_sequential_process()\
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\1.tools\\\\python\\\\3.12.2\\\\Lib\\\\site-packages\\\\crewai\\\\crew.py", line 1501, in _run_sequential_process\
+    return self._execute_tasks(self.tasks)\
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\1.tools\\\\python\\\\3.12.2\\\\Lib\\\\site-packages\\\\crewai\\\\crew.py", line 1605, in _execute_tasks\
+    task_output = task.execute_sync(\
+                  ^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\1.tools\\\\python\\\\3.12.2\\\\Lib\\\\site-packages\\\\crewai\\\\task.py", line 593, in execute_sync\
+    return self._execute_core(agent, context, tools)\
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\
+\', \'  File "E:\\\\Java.Working\\\\1.tools\\\\python\\\\3.12.2\\\\Lib\\\\site-packages\\\\crewai\\\\task.py", line 957, in _execute_core\
+    raise e\
+\', "openai.RateLimitError: Error code: 429 - {\'error\': {\'message\': \'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day\', \'code\': 429, \'metadata\': {\'headers\': {\'X-RateLimit-Limit\': \'50\', \'X-RateLimit-Remaining\': \'0\', \'X-RateLimit-Reset\': \'1788307200000\'}, \'limit_source\': \'openrouter_free_tier_daily\', \'remedy_hint\': \'Wait for the daily reset (see X-RateLimit-Reset), or purchase credits to raise your free-model daily limit.\', \'provider_name\': None}}, \'user_id\': \'user_3GLaJI6mihRMFQtSad72HqAhW95\'}\
+"]
+']
+
+---
+

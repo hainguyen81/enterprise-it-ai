@@ -150,6 +150,46 @@ class AbstractSubAgent(AbstractAgent):
     
     def __ideas_history_path__(self) -> str:
         return self.__storage_path__(storage_name="storage_ideas", file="history_ideas.json")
+    
+    def __try_to_detect_project_name__(self):
+        # if not found project info, trying to detect it again
+        if not hasattr("project_info", self) or not self.project_info:
+            self.initialize_projects()
+        if hasattr("project_info", self) and self.project_info:
+            return self.__current_project_name__()
+        
+        # check by idea file first
+        idea_file = self.__storage_path__(
+            storage_name="storage_ideas", file=f"{self.idea_id}.md"
+        )
+        
+        # if idea file existed; or not project_name due to not found project info
+        if os.path.exists(idea_file) or not self.project_name:
+            _, ideas_history = read_json_file(self.__ideas_history_path__())
+            if ideas_history:
+                idea_history = next(
+                    (
+                        idea
+                        for idea in ideas_history
+                        if "id" in idea
+                        and (
+                            idea.get("id") == self.idea_id
+                            or idea.get("technical_codename") == self.project_name
+                            or idea.get("brand_name") == self.project_name
+                        )
+                    ),
+                    None,
+                )
+                self.project_name = (
+                    idea_history.get("technical_codename")
+                    if idea_history and "technical_codename" in idea_history
+                    else idea_history.get("brand_name")
+                    if idea_history and "brand_name" in idea_history
+                    else idea_history.get("idea")
+                    if idea_history and "idea" in idea_history
+                    else None
+                )
+        return self.project_name
 
     def __read_idea__(self, ignore_not_found=False) -> str:
         return self.__read_storage_file__(storage_name="storage_ideas", file=f"{self.idea_id}.md", ignore_not_found=ignore_not_found)

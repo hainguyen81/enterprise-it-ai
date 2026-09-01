@@ -67,33 +67,11 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
             self.logger.critical("💀 Not found IDEA / Requirements file to process")
             sys.exit(1)
         
-        # check project name if it's idea from history ideas if necessary
-        detected_project_name = self.project_name if self.idea_is_project else None
-        if not self.idea_is_project:
-            _, ideas_history = read_json_file(self.__ideas_history_path__())
-            if ideas_history:
-                idea_history = next(
-                    (idea for idea in ideas_history if "id" in idea and idea.get("id") == self.idea_id),
-                    None,
-                )
-                detected_project_name = (
-                    idea_history.get("technical_codename")
-                    if idea_history and "technical_codename" in idea_history
-                    else idea_history.get("brand_name")
-                    if idea_history and "brand_name" in idea_history
-                    else idea_history.get("idea")
-                    if idea_history and "idea" in idea_history
-                    else None
-                )
-        self.logger.info(
-            f"⚙️ Detect Project Name `{detected_project_name}` to generate SRS Markdown Document"
-        )
-        
         # return merged new values
         _, idea_file = self.__idea_files__()
         return {
             **kwargs,
-            "project_name": detected_project_name if detected_project_name else "",
+            "project_name": self.__try_to_detect_project_name__(),
             "idea_file": idea_file,
             "raw_idea_content": file_content
         }

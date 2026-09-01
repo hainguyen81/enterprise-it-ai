@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
+    datetime_for_docid,
     parse_args,
     parseAIResponseJsonData,
     write_file,
@@ -21,8 +22,7 @@ from sources.agents.subagent_super import AbstractSubAgent
 SYSTEM_PROMPT_TEMPLATE      = "agent_uiux.prompt.system.md"
 USER_PROMPT_TEMPLATE        = "agent_uiux.prompt.user.md"
 
-SRS_FILE                    = "requirements.md"
-PROJECT_INFO_FILE           = "project-info.json"
+BA_UI_UX_AUDIT_RAW_FILE     = "ba_uiux_audit.md"
 UI_UX_RAW_FILE              = "uiux.md"
 UI_UX_JSON_FILE             = "uiux.json"
 UI_UX_LOG_FILE              = "uiux_log.md"
@@ -112,7 +112,7 @@ class EnterpriseUXUIArchitectAgent(AbstractSubAgent):
         return self.__output_storage_path__(
             storage_name="output_ba", file=UI_UX_RAW_FILE
         )
-    
+
     def uiux_output_json_file(self):
         return self.__output_storage_path__(storage_name="output_ba", file=UI_UX_JSON_FILE)
 
@@ -151,15 +151,25 @@ class EnterpriseUXUIArchitectAgent(AbstractSubAgent):
 
         # read ba/SRS
         raw_srs_content = self.__read_srs__(ignore_not_found=False)
+        
+        # read UI/UX audit
+        detected_project_name = self.__try_to_detect_project_name__()
+        raw_uiux_audit_content = self.__read_storage_file__(
+            storage_name="storage_ba",
+            file=f"{detected_project_name}/{BA_UI_UX_AUDIT_RAW_FILE}",
+            ignore_not_found=False,
+        )
 
         # return merged new values
         return {
             **kwargs,
+            "project_name": detected_project_name,
             "allowed_devices": UI_UX_ALLOWED_DEVICES,
             "uiux_json_schema": json.dumps(
                 ProjectUXMockupPayload.model_json_schema(), indent=2
             ),
             "raw_srs_content": raw_srs_content,
+            "raw_uiux_audit_content": raw_uiux_audit_content
         }
 
     # @override
@@ -177,9 +187,27 @@ class EnterpriseUXUIArchitectAgent(AbstractSubAgent):
                 "💀 Invalid AI raw response. Not a valid JSON format data."
             )
 
-        # export UI/UX json
+        # export storage UI/UX json
+        datetimeStr = datetime_for_docid()
+        defaultPrjName = f"project-{datetimeStr}"
+        project_name = (
+            self.project_name if self.idea_is_project and self.project_name else None
+        )
+        detected_project_name = self.get_kwargs_by_key(key="project_name", **kwargs)
+        project_name = project_name or detected_project_name or defaultPrjName
         write_json_file(
-            file=self.uiux_output_json_file(), json_data=response_data
+            file=self.__storage_path__(
+                storage_name="storage_ba", file=f"{project_name}/{UI_UX_JSON_FILE}"
+            ),
+            json_data=response_data,
+        )
+        
+        # export output UI/UX json
+        write_json_file(
+            file=self.__output_storage_path__(
+                storage_name="storage_ba", file=UI_UX_JSON_FILE
+            ),
+            json_data=response_data
         )
 
         # export raw response if necessary as log tracing

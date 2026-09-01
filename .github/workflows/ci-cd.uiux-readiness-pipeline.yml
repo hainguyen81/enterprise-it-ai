@@ -1,4 +1,4 @@
-name: 🎨 Agent - Execute AI UI/UX Specialist Generator
+name: 🎨 Agent - Execute AI UI/UX Readiness Audit Generator
 
 # Trigger the workflow when requirements change or via manual trigger
 on:
@@ -60,7 +60,7 @@ env:
 jobs:
   # 🏗️ System Architecture & Phase Planner
   generate-blueprint:
-    name: 🎨 Expert AI UI/UX Specialist Generation
+    name: 🎨 Expert AI UI/UX Readiness Audit Generation
     runs-on: ubuntu-latest
     
     steps:
@@ -87,7 +87,7 @@ jobs:
           pip install -r requirements.txt --upgrade
 
       # Step 4: Execute agent
-      - name: 🎨 Execute ExpertAI UI/UX Specialist Generation
+      - name: 🎨 Execute Expert AI UI/UX Readiness Audit Generation
         if: success()                             # if previous step is successful
         env:
           # Secrets contains the AI endpoint and AI API key JSON
@@ -101,8 +101,8 @@ jobs:
           INPUTS_LANGUAGE: ${{ inputs.language }}
           INPUTS_VERBOSE: ${{ inputs.verbose == true && '--verbose' || '' }}
         run: |
-          echo "⚡ Kicking off AI UI/UX Specialist Generation..."
-          python sources/agents/business-analysis/agent_uiux.py \
+          echo "⚡ Kicking off AI UI/UX Readiness Audit Generation..."
+          python sources/agents/business-analysis/agent_uiux_readiness.py \
               --idea "$INPUTS_IDEA" \
               --language "$INPUTS_LANGUAGE" \
               $INPUTS_VERBOSE
@@ -124,7 +124,7 @@ jobs:
           # 3. Use status to check file changes
           if [ -n "$(git status --porcelain)" ]; then
             echo "📝 Committing system state changes..."
-            git commit -m "chore(ai): auto-generate some expert UI/UX Mockup Architecture for [ $INPUTS_IDEA ] under [ $INPUTS_LANGUAGE ] [skip ci]"
+            git commit -m "chore(ai): auto-generate some expert UI/UX Readiness Audit for [ $INPUTS_IDEA ] under [ $INPUTS_LANGUAGE ] [skip ci]"
             
             # ✅ ENTERPRISE HOTFIX: Pull new changes and rebase to avoid conflicts fast-forward
             echo "🔄 Pulling latest upstream tree and executing explicit contextual rebase..."
