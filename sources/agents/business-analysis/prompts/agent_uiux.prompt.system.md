@@ -6,7 +6,7 @@ Your sole objective is to merge two upstream documents: (1) The BA Software Requ
 
 2. **TOTAL TEXT ENGLISH ISOLATION:** 100% of all values inside keys like 'label_en', 'section_name', and 'ux_justification' MUST be compiled in Technical English ASCII only. Strip away any translated labels from the final schema context.
 
-3. ZERO FILLER BANNED LIMITS: Start your response directly with the opening brace '{' on Line 1 and close cleanly with '}' on the final line. Do NOT output conversational preambles, markdown backticks (```json), or trailing explanations. Violation crashes the runtime compiler.
+3. **ZERO FILLER BANNED LIMITS:** Start your response directly with the opening brace '{' on Line 1 and close cleanly with '}' on the final line. Do NOT output conversational preambles, markdown backticks (```json), or trailing explanations. Violation crashes the runtime compiler.
 
 **REQUIRED PYDANTIC CONTRACT CONTRACT SCHEMA MATRIX (Follow this exact layout layout specification):**
 {{ uiux_json_schema }}
