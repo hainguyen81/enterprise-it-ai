@@ -29,6 +29,13 @@ on:
         required: false
         default: ''
         type: string
+      business_analysis:
+        description: |
+          🔏 Project Business Analysis Folder to Publish
+          (Ex: sources/storage/business-analysis)
+        required: false
+        default: ''
+        type: string
       template:
         description: "🎨 Project Initial Template"
         required: false
@@ -60,6 +67,13 @@ on:
         description: |
           🌐 Project BluePrint Folder to Publish
           (Ex: sources/storage/blueprint)
+        required: false
+        default: ''
+        type: string
+      business_analysis:
+        description: |
+          🔏 Project Business Analysis Folder to Publish
+          (Ex: sources/storage/business-analysis)
         required: false
         default: ''
         type: string
@@ -146,6 +160,7 @@ jobs:
           TARGET_OWNER: ${{ github.repository_owner }}
           TEMPLATE_DIR: ${{ inputs.template }}
           BLUEPRINT_DIR: ${{ inputs.blueprint }}
+          BA_DIR: ${{ inputs.business_analysis }}
           REQUIREMENTS_FILE: ${{ inputs.requirements_file }}
           LIBS_FOLDER: 'sources/libs'
           MODELS_FOLDER: 'sources/agents/models'
@@ -155,6 +170,7 @@ jobs:
           mkdir -p ../sync-workspace
           
           # 🖨️ Copy all recursive configuration items, scripts, and dotfiles into the synchronization sandbox
+          echo "🖨️ Copy all recursive configuration items, scripts, and dotfiles into the synchronization sandbox..."
           cp -r $TEMPLATE_DIR/. ../sync-workspace/
           if [ -d "$BLUEPRINT_DIR/${{ env.PROJECT_NAME }}" ]; then
             [ -d "$BLUEPRINT_DIR/${{ env.PROJECT_NAME }}/context" ] && \
@@ -168,15 +184,23 @@ jobs:
                 cp $BLUEPRINT_DIR/${{ env.PROJECT_NAME }}/plan/plan.spec.json ../sync-workspace/.ai/.plan/
           fi
           if [ -f "$REQUIREMENTS_FILE" ]; then
+            echo "🖨️ Copy all requirement files into the synchronization sandbox..."
             cp -r $REQUIREMENTS_FILE ../sync-workspace/docs/requirements/
           fi
+
+          # 🖨️ Copy all SRS documents if necessary
+          echo "🖨️ Copy all SRS Business Analysis Files into the synchronization sandbox..."
+          [ -d "$BA_DIR/${{ env.PROJECT_NAME }}" ] && \
+                cp -r $BA_DIR/${{ env.PROJECT_NAME }}/. ../sync-workspace/docs/requirements/
           
-          # Copy models for AI agents in new project
+          # 🖨️ Copy models for AI agents in new project
+          echo "🖨️ Copy models for AI agents into the synchronization sandbox..."
           if [ -d "$MODELS_FOLDER" ]; then
             cp -r $MODELS_FOLDER/ ../sync-workspace/.ai/.agents/.models
           fi
           
-          # Copy libs for AI agents in new project
+          # 🖨️ Copy libs for AI agents in new project
+          echo "🖨️ Copy libs for AI agents into the synchronization sandbox..."
           if [ -d "$LIBS_FOLDER" ]; then
             cp -r $LIBS_FOLDER ../sync-workspace/.libs
           fi
