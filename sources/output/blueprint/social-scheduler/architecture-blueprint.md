@@ -193278,3 +193278,59 @@ You are a high-performance Data Ingestion and Transformation Engine. Your sole o
 }
 ```
 
+# AI Model: codestral-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+No filter named 'text_recount_nodes' found.: ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 444, in generate_global_context_by_chunk
+    usr_prompt_p2 = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part2)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 338, in render_prompt
+    return re.sub(r\'\
+{2,}\', \'\
+\
+\', tmpl.render(**context).strip())
+                                     ^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\jinja2\\environment.py", line 1295, in render
+    self.environment.handle_exception()
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\jinja2\\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+', '  File "<template>", line 608, in top-level template code
+', "jinja2.exceptions.TemplateRuntimeError: No filter named 'text_recount_nodes' found.
+"]
+
+# AI Model: codestral-latest - Global Prompt:
+
+PIPELINE_CRASH
+
+# System Instruction
+
+SYSTEM_ERROR
+
+# Raw Response / Exception:
+
+expected token 'end of statement block', got 'string': ['Traceback (most recent call last):
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\architect-blueprint\\block_global.py", line 276, in generate_global_context_by_chunk
+    usr_prompt_p1a = render_prompt(GLOBAL_USER_PROMPT_TEMPLATE_PATH, ctx_part1a)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 325, in render_prompt
+    required_variables = jinja2_required_variables(template=template)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\16-4.saas.projects.jee-2026-03\\ai-scraper\\sources\\agents\\agent_helper.py", line 313, in jinja2_required_variables
+    parsed_content = env.parse(template_source)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\jinja2\\environment.py", line 616, in parse
+    self.handle_exception(source=source)
+', '  File "E:\\Java.Working\\1.tools\\python\\3.12.2\\Lib\\site-packages\\jinja2\\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+', '  File "<unknown>", line 116, in template
+', "jinja2.exceptions.TemplateSyntaxError: expected token 'end of statement block', got 'string'
+"]
+
