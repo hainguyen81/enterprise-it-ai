@@ -361,7 +361,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                 **base_prompt_context,
                 "target_segment": "PART_1_MATRIX_4_2",
                 "total_tasks_registered": actual_registered_tasks,
-                "master_backlog_context": chunk_1b,  # load master tasks backlog from chunk 4.1 to distribute phases
+                "master_backlog_context": f"{chunk_1a}\n\n{chunk_1b}",  # load master tasks backlog from chunk 4.1 to distribute phases
             }
             
             # build conversation
@@ -436,7 +436,7 @@ def generate_global_context_by_chunk(client: OpenAI, model_name: str, master_rul
                     # only using for latest phase for audit
                     "historic_ledger_map": "\n\n".join(immutable_tag_phase_summaries),
                     # inject synopsis table context for phase generation refer
-                    "master_backlog_context": f"{chunk_1b}\n\n{chunk_1c}",
+                    "master_backlog_context": f"{chunk_1a}\n\n{chunk_1b}\n\n{chunk_1c}",
                 }
                 
                 # build conversation
@@ -622,11 +622,9 @@ def run_test_global_generation(
         SOURCES_PATH, "storage", "business-analysis", PROJECT_NAME, "requirements.md"
     )
 
-    AI_BASE_URL = "https://openrouter.ai/api/v1"
-    AI_API_KEY = (
-        "sk-or-v1-*******"
-    )
-    MODEL_NAME = "minimax/minimax-m3:free"
+    AI_BASE_URL = "https://api.mistral.ai/v1"
+    AI_API_KEY = "**********"
+    MODEL_NAME = "codestral-latest"
 
     # openAI
     client = OpenAI(
