@@ -1,7 +1,7 @@
 {
     "technical_codename": "membership-hub",
-    "descriptive_name": "Hệ thống quản lý thành viên đa trung tâm",
-    "brand_name": "Hub Thành viên",
+    "descriptive_name": "membership-hub",
+    "brand_name": "membership-hub",
     "requirement_tags": [
         "[REQ-001]",
         "[REQ-002]",
@@ -65,6 +65,5 @@
     ],
     "idea": "idea_4688fa3cebd8",
     "location": "sources/storage/business-analysis/membership-hub",
-    "requirements": "sources/storage/business-analysis/membership-hub/requirements.md",
-    "project": "membership-hub"
+    "requirements": "sources/storage/business-analysis/membership-hub/requirements.md"
 }

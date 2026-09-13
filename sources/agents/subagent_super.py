@@ -189,6 +189,9 @@ class AbstractSubAgent(AbstractAgent):
                     if idea_history and "idea" in idea_history
                     else None
                 )
+                self.logger.info(
+                    f"ℹ️ Detect project name from ideas {self.idea_id}: {self.project_name}"
+                )
         return self.project_name
 
     def __read_idea__(self, ignore_not_found=False) -> str:
