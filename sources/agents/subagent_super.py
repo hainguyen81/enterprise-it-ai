@@ -153,9 +153,9 @@ class AbstractSubAgent(AbstractAgent):
     
     def __try_to_detect_project_name__(self):
         # if not found project info, trying to detect it again
-        if not hasattr("project_info", self) or not self.project_info:
+        if not hasattr(self, "project_info") or not self.project_info:
             self.initialize_projects()
-        if hasattr("project_info", self) and self.project_info:
+        if hasattr(self, "project_info") and self.project_info:
             return self.__current_project_name__()
         
         # check by idea file first
@@ -198,7 +198,7 @@ class AbstractSubAgent(AbstractAgent):
         return self.__read_storage_file__(storage_name="storage_requirements", file=f"{self.project_name}/requirements.md", ignore_not_found=ignore_not_found)
     
     def __read_idea_or_requirements__(self, ignore_not_found=False):
-        requirements = self.__read_idea__(ignore_not_found=ignore_not_found)
+        requirements = self.__read_idea__(ignore_not_found=True)
         idea_is_project = not requirements
         if not requirements:
             requirements = self.__read_requirements__(ignore_not_found=ignore_not_found)
