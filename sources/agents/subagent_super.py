@@ -115,10 +115,10 @@ class AbstractSubAgent(AbstractAgent):
         )
     
     def __current_project_name__(self) -> str:
-        return self.project_info.get("technical_codename", None) if self.project_info else None
+        return self.project_info.get("technical_codename", None) if hasattr(self, "project_info") and self.project_info else None
     
     def __current_project_description__(self) -> str:
-        return self.project_info.get("descriptive_name", None) if self.project_info else None
+        return self.project_info.get("descriptive_name", None) if hasattr(self, "project_info") and self.project_info else None
     
     def __idea_files__(self):
         absolute_file = self.__storage_path__(storage_name="relative_ideas", file=f"{self.idea_id}.md")

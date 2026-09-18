@@ -30,5 +30,138 @@
         "technical_codename": "social-scheduler",
         "brand_name": "SocialScheduler",
         "file": "sources/storage/ideas/idea_d066d15f9b52.md"
+    },
+    {
+        "id": "idea_b6aec7ce45dd",
+        "idea": "CopyCraft AI",
+        "technical_codename": "CopyCraft AI",
+        "brand_name": " Copy Craft  A I",
+        "file": "sources/storage/ideas/idea_b6aec7ce45dd.md"
+    },
+    {
+        "id": "idea_b1d62c655bde",
+        "idea": "AutoInvoice AI",
+        "technical_codename": "AutoInvoice AI",
+        "brand_name": " Auto Invoice  A I",
+        "file": "sources/storage/ideas/idea_b1d62c655bde.md"
+    },
+    {
+        "id": "idea_f7fbcc9399f8",
+        "idea": "BotForge Studio",
+        "technical_codename": "BotForge Studio",
+        "brand_name": " Bot Forge  Studio",
+        "file": "sources/storage/ideas/idea_f7fbcc9399f8.md"
+    },
+    {
+        "id": "idea_3bebd95d48da",
+        "idea": "SolarSense Pro",
+        "technical_codename": "SolarSense Pro",
+        "brand_name": " Solar Sense  Pro",
+        "file": "sources/storage/ideas/idea_3bebd95d48da.md"
+    },
+    {
+        "id": "idea_3ad31de23a7b",
+        "idea": "CryptoPortfolio Tracker – Trợ lý Danh mục Đầu tư Tiền điện tử cho Nhà đầu tư Cá nhân",
+        "technical_codename": "Tên kỹ thuật: CryptoPortTracker",
+        "brand_name": "Tên thương mại: FinTrack Pro",
+        "file": "sources/storage/ideas/idea_3ad31de23a7b.md"
+    },
+    {
+        "id": "idea_e8ce5e0ea975",
+        "idea": "AR Wayfinder – Trợ lý Định hướng Thực tế Tăng cường cho Tòa nhà Công cộng",
+        "technical_codename": "Tên kỹ thuật: ArWayfinder",
+        "brand_name": "Tên thương mại: SpaceNavi",
+        "file": "sources/storage/ideas/idea_e8ce5e0ea975.md"
+    },
+    {
+        "id": "idea_1b8cba6ab394",
+        "idea": "EnergyOptimizer – Trợ lý Tối ưu hóa Năng lượng cho Doanh nghiệp Sản xuất Nhỏ",
+        "technical_codename": "Tên kỹ thuật: EnergyOpti",
+        "brand_name": "Tên thương mại: EcoMFG Pro",
+        "file": "sources/storage/ideas/idea_1b8cba6ab394.md"
+    },
+    {
+        "id": "idea_3433dc63a435",
+        "idea": "AI Business Process Automation Assistant",
+        "technical_codename": "<!--TECHNICAL_CODENAME_START-->",
+        "brand_name": "<!--BRANCH_NAME_START-->",
+        "file": "sources/storage/ideas/idea_3433dc63a435.md"
+    },
+    {
+        "id": "idea_c8c8146d49b9",
+        "idea": "AR Indoor Navigation Assistant",
+        "technical_codename": "<!--TECHNICAL_CODENAME_START-->",
+        "brand_name": "<!--BRANCH_NAME_START-->",
+        "file": "sources/storage/ideas/idea_c8c8146d49b9.md"
+    },
+    {
+        "id": "idea_a089616ba619",
+        "idea": "EnergyInsight SaaS",
+        "technical_codename": "<!--TECHNICAL_CODENAME_START-->",
+        "brand_name": "<!--BRANCH_NAME_START-->",
+        "file": "sources/storage/ideas/idea_a089616ba619.md"
+    },
+    {
+        "id": "idea_7bc8f3fa31bf",
+        "idea": "AI Compliance Agent cho SMEs",
+        "technical_codename": "AI Compliance Agent cho SMEs",
+        "brand_name": "AI Compliance Agent cho SMEs",
+        "file": "sources/storage/ideas/idea_7bc8f3fa31bf.md"
+    },
+    {
+        "id": "idea_781f26a2533a",
+        "idea": "WebAR Assistant cho Cửa hàng Bán lẻ Nhỏ",
+        "technical_codename": "WebAR Assistant cho Cửa hàng Bán lẻ Nhỏ",
+        "brand_name": "WebAR Assistant cho Cửa hàng Bán lẻ Nhỏ",
+        "file": "sources/storage/ideas/idea_781f26a2533a.md"
+    },
+    {
+        "id": "idea_7309a7f644a3",
+        "idea": "Solar Monitoring Micro-SaaS cho Gia đình",
+        "technical_codename": "Solar Monitoring Micro-SaaS cho Gia đình",
+        "brand_name": "Solar Monitoring Micro-SaaS cho Gia đình",
+        "file": "sources/storage/ideas/idea_7309a7f644a3.md"
+    },
+    {
+        "id": "idea_cd2156170182",
+        "idea": "Trợ lý Tóm tắt Cuộc họp AI",
+        "technical_codename": "<!--TECHNICAL_CODENAME_START-->",
+        "brand_name": "<!--BRAND_NAME_START-->",
+        "file": "sources/storage/ideas/idea_cd2156170182.md"
+    },
+    {
+        "id": "idea_a26b67f95a1c",
+        "idea": "AI Quản lý Bảo trì Nhà ở",
+        "technical_codename": "<!--TECHNICAL_CODENAME_START-->",
+        "brand_name": "<!--BRAND_NAME_START-->",
+        "file": "sources/storage/ideas/idea_a26b67f95a1c.md"
+    },
+    {
+        "id": "idea_c821c8277a70",
+        "idea": "AI Phân tích Phản hồi Khách hàng",
+        "technical_codename": "<!--TECHNICAL_CODENAME_START-->",
+        "brand_name": "<!--BRAND_NAME_START-->",
+        "file": "sources/storage/ideas/idea_c821c8277a70.md"
+    },
+    {
+        "id": "idea_ce925a886a50",
+        "idea": "Trợ lý sắp xếp nội thất thực tế ảo",
+        "technical_codename": "ArFurniturePlacementAssistant",
+        "brand_name": "HomeSpace Advisor",
+        "file": "sources/storage/ideas/idea_ce925a886a50.md"
+    },
+    {
+        "id": "idea_1566870f4b02",
+        "idea": "AI LeadGen Automator cho môi giới bất động sản",
+        "technical_codename": "RealEstateLeadAutomator",
+        "brand_name": "PropelLead AI",
+        "file": "sources/storage/ideas/idea_1566870f4b02.md"
+    },
+    {
+        "id": "idea_a57277024641",
+        "idea": "Smart Home Energy Optimizer cho hộ gia đình",
+        "technical_codename": "HomeEnergyOptimizer",
+        "brand_name": "EcoSmart Home",
+        "file": "sources/storage/ideas/idea_a57277024641.md"
     }
 ]

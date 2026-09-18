@@ -1,8 +1,14 @@
 import hashlib
 import re
+from types import SimpleNamespace
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
-from sources.agents.agent_helper import parse_args, write_file, write_json_file
+from sources.agents.agent_helper import (
+    parse_args,
+    regex_extract_by_name_pair_tags,
+    write_file,
+    write_json_file,
+)
 
 # super agent
 from sources.agents.subagent_super import AbstractSubAgent
@@ -28,6 +34,14 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
             agent_name='💡 EnterpriseIdeaGeneratorAgent',
             **kwargs
         )
+
+    def __idea_history_names__(self):
+        history = self.history_ideas if self.history_ideas else []
+        return [
+            item["idea"]
+            for item in history
+            if isinstance(item, dict) and item.get("idea")
+        ]
     
     # @override
     def initialize(self):
@@ -51,11 +65,9 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
     
     # @override
     def build_system_prompt_context(self, **kwargs):
-        ideas_history = self.history_ideas if self.history_ideas else []
-        ideas = [ idea["idea"] for idea in ideas_history if idea and isinstance(idea, dict) and "idea" in idea ]
         return {
-            "ideas_history": ideas if ideas else None,
-            "language": self.language
+            "ideas_history": self.__idea_history_names__() or None,
+            "language": self.language,
         }
     
     # @override
@@ -64,13 +76,11 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
     
     # @override
     def build_user_prompt_context(self, **kwargs):
-        ideas_history = self.history_ideas if self.history_ideas else []
-        ideas = [ idea["idea"] for idea in ideas_history if idea and isinstance(idea, dict) and "idea" in idea ]
         return {
             "domain": self.domain,
             "quantity": self.quantity,
-            "ideas_history": ideas if ideas else None,
-            "language": self.language
+            "ideas_history": self.__idea_history_names__() or None,
+            "language": self.language,
         }
     
     # @override
@@ -88,10 +98,11 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
     # @override
     def clean_response(self, raw_response, **kwargs):
         # extract idea blocks
-        pattern_block = (
-            r"####\s*\[IDEA_\d+\]\s*(.*?)\n(.*?)(?=####\s*\[IDEA_\d+\]|$)"
+        pattern_block = re.compile(
+            r"^####\s+\[IDEA_(\d+)\]\s*(.*?)\r?\n(.*?)(?=^####\s+\[IDEA_\d+\]\s*|\Z)",
+            re.MULTILINE | re.DOTALL,
         )
-        ideas_blocks = re.findall(pattern_block, raw_response, re.DOTALL)
+        ideas_blocks = pattern_block.findall(raw_response)
         
         # check history ideas
         history_ideas = []
@@ -104,7 +115,7 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
         
         # find all idea names match prefix from AI response
         ideas = []
-        for raw_name, raw_desc in ideas_blocks:
+        for idea_index, raw_name, raw_desc in ideas_blocks:
             clean_idea_name = raw_name.replace("**", "").strip()
             clean_idea_desc = raw_desc.strip()
             if not clean_idea_name:
@@ -112,17 +123,22 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
             
             # Regex lines to dynamically capture technical_codename and brand_name values
             # Scans for the pattern line ending with the plain value payload
-            codename_match = re.search(r"-\s*\*\*.*?\*\*:\s*(.*)", clean_idea_desc)
-            brand_match = re.search(r"(?:.*\n){1}-\s*\*\*.*?\*\*:\s*(.*)", clean_idea_desc)
+            len_technical_codenames, technical_codenames = regex_extract_by_name_pair_tags(
+                tag_name="TECHNICAL_CODENAME", data=clean_idea_desc,
+            )
+            len_branch_names, branch_names = regex_extract_by_name_pair_tags(
+                tag_name="BRAND_NAME", data=clean_idea_desc,
+            )
             
             # Extract and fallback to clean_idea_name if AI omits the string token
-            technical_codename = codename_match.group(1).strip() if codename_match else clean_idea_name
-            brand_name = brand_match.group(1).strip() if brand_match else clean_idea_name
-            
-            # Clean dual asterisks from extracted values if any leak occurs
-            technical_codename = technical_codename.replace("**", "").strip()
-            brand_name = brand_name.replace("**", "").strip()
-            brand_name = " ".join(word.capitalize() for word in re.split(r"(?=[A-Z])", brand_name))
+            technical_codename = (
+                technical_codenames[0].strip()
+                if len_technical_codenames > 0
+                else clean_idea_name
+            )
+            brand_name = (
+                branch_names[0].strip() if len_branch_names > 0 else clean_idea_name
+            )
             
             # idea unique identity
             unique_id = hashlib.md5(clean_idea_name.encode("utf-8")).hexdigest()[:12]
@@ -175,18 +191,26 @@ class EnterpriseIdeaGeneratorAgent(AbstractSubAgent):
                 file=self.__output_storage_path__(storage_name="output_ideas", file=IDEAS_OUTPUT_FILE),
                 data=raw_response
             )
+            
+def execute_idea_generator(args: dict, **unknown_args):
+    # to simple object namespace
+    if isinstance(args, dict):
+        args = SimpleNamespace(**args)
 
+    # execute
+    EnterpriseIdeaGeneratorAgent(
+        domain=args.domain if hasattr(args, "domain") else DEFAULT_IDEAS_DOMAIN,
+        quantity=args.quantity if hasattr(args, "quantity") else DEFAULT_IDEAS_QUNATITY,
+        **unknown_args,
+    ).execute()
+    
 if __name__ == "__main__":
     def add_known_arguments(parser):
-        parser.add_argument("--domain", type=str, help="Domain to find ideas")
-        parser.add_argument("--quantity", type=int, help="The number of ideas")
+        parser.add_argument("--domain", default=DEFAULT_IDEAS_DOMAIN, type=str, help="Domain to find ideas")
+        parser.add_argument("--quantity", default=DEFAULT_IDEAS_QUNATITY, type=int, help="The number of ideas")
     
     args, unknown_args = parse_args(
         description="💡 EnterpriseIdeaGeneratorAgent",
         parser_callback=add_known_arguments
     )
-    EnterpriseIdeaGeneratorAgent(
-        domain=args.domain,
-        quantity=args.quantity,
-        **unknown_args
-    ).execute()
+    execute_idea_generator(args=args, unknown_args=unknown_args)
