@@ -1,63 +1,362 @@
 {% set target_language = language if language and language.strip() != "" else "English" %}
+
 # CONTEXT
-I have a raw, high-level product idea that needs to be engineered into a rigorous, Enterprise-grade Software Requirements Specification (SRS) document.
 
-# INPUTS
-- **Project Codename (Optional)**: {{ project_name }} (Note: This can be blank or omitted. If blank, apply the strict generation rule defined in the system prompt).
-- **Raw Idea & Requirements**: 
----------
+Transform the authoritative project source into an implementation-ready Software Requirements Specification (SRS).
+
+# RUNTIME INPUTS
+
+- **Project Codename (Optional):**
+  {{ project_name }}
+
+  If a valid technical codename is supplied, preserve its technical meaning.
+  If absent or insufficient, derive a concise English technical codename from the authoritative source block according to the active BA System Instruction.
+
+- **Target Language:**
+  {{ target_language }}
+
+## SOURCE PROJECT IDEA & REQUIREMENTS
+
+The following block is the single authoritative project source for this execution.
+
+---------------- SOURCE START ----------------
+
 {{ raw_idea_content }}
----------
-- **Target Language**: {{ target_language }}
 
-# ROLE AND OBJECTIVE
-Act as an Elite Principal Business Analyst and Enterprise Software Architect. Your sole mission is to decompose 100% of the raw text into an airtight, end-to-end spec document organized strictly by logical Functional Modules/Epics. You must map out all implicit technical gaps, business logic holes, infrastructure needs, and data structural linkages required to implement the features flawlessly.
+----------------- SOURCE END -----------------
 
-# BOUNDARIES & ANTI-LAZINESS DIRECTIVES (ZERO LOOPHOLES)
-1. **NO HALLUCINATION & ZERO WASTE**: Do NOT invent features, screens, or integrations outside the scope of the raw text. Do NOT include fluff, filler, or essays. Focus purely on technical and business specification details.
-2. 100% EXHAUSTIVE COVERAGE (NO SUMMARIZATION): You must programmatically process every single sentence, role, permission, structural logic, and technology framework provided in the input. You are STRICTLY FORBIDDEN from combining, compressing, or summarizing requirements. You MUST perform a sequential execution pass over 100% of the Tag IDs discovered inside `{{ raw_idea_content }}` (including all `[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[NFR-XXX]`, `[DOC-XXX]` or all tag IDs that their format patterns like this `[XXX-XXX]`). Each discovered entity MUST possess its own dedicated, standalone subsection unrolling its full acceptance criteria grid, validation parameters, and database structures without early truncation or early termination. Skipping or jumping any discovered source tag to prematurely render subsequent section ledgers triggers an immediate compliance reject.
-3. GRANULAR INLINE SPECIFICATION: You MUST structurally preserve the documentation hierarchy layout of the raw input. If the input references exceptions or data dictionaries in dedicated standalone sections, you MUST maintain those sections independently at their respective positions. You ARE STRICTLY FORBIDDEN from forcefully flattening or cross-bleeding semantic rows across separate sections unless a direct structural linkage is explicitly defined in the requirements.
-4. COMPACT TECHNICAL TELEGRAPHY: Use high-density technical engineering language. Eliminate decorative adjectives to maximize output capacity, but you ARE CRITICALLY BANNED from omitting, compressing, or deleting any logical predicates, specific field validations, user stories, or "Given-When-Then" acceptance criteria present in the raw input. Every single validation parameter must be preserved with 100% structural fidelity.
-5. **SUPREME GLOBAL MERMAID COMPILER COMPLIANCE LAW**: Whenever your emission engine generates a Mermaid.js `erDiagram` block anywhere inside the generated response document (regardless of whether it is generated inside standalone sections, sub-sections, or embedded inline under functional core modules), you MUST strictly enforce the native primitive layout sequence of the Mermaid compiler.
-  1. Every attribute row declared inside the entity braces `{}` MUST strictly conform to this exact naked layout architecture: `datatype field_name KEY "Localized Comment Description"`.
-  2. The KEY parameter is strictly restricted to valid native Mermaid compiler primitives: `PK`, `FK`, or `UK`. If no keys or indexes apply to the column row, the KEY slot MUST be left completely blank.
-  3. You ARE ABSOLUTELY AND PERMANENTLY BANNED from injecting custom tokens, system validation keywords, raw string constraints, or text qualifiers (including but not limited to: `NOT_NULL`, `NOT_NULL_UNIQUE`, `NOT NULL`, `not_null`, `OPTIONAL`, `optional`, `COMPUTED`, `computed`, `generated`, `default`, `DEFAULT`) as standalone independent words anywhere inside the entity attributes block `{}`.
-  4. All operational structural constraints and relational properties MUST be completely decoupled from the active syntax line and printed exclusively within Markdown property tables, or appended strictly as a plain text indicator inside the localized double-quote comment string at the absolute end of the line (e.g., `varchar title "Title text | NOT NULL"`, `int validity_days "Validity | NOT NULL"`, `int remaining_days "Remaining | COMPUTED"`). Any leakage of raw foreign tokens before the comment quote or directly before the closing brace `}` triggers an immediate structural validation framework failure.
+# TASK OBJECTIVE
 
-# SYSTEMATIC TRACEABILITY MATRIX (TAG ID RULES)
-- Every single line item, functional requirement, acceptance rule, exception handler, architectural trigger, and database column description MUST be strictly prefixed with a unique, incremental Tag ID. No token of information is allowed to exist without an identifier.
-- **GLOBAL MERMAID COMPILER ENFORCEMENT LAW**: Whenever you generate an `erDiagram` block anywhere inside the response document (including functional modules or data dictionaries), you ARE ABSOLUTELY AND PERMANENTLY BANNED from injecting custom tokens, custom definitions, or text constraints (such as `NOT_NULL`, `NOT_NULL_UNIQUE`, `NOT_NULL`, `COMPUTED`, `computed`) as standalone keywords inside the entity braces `{}`. Every single column row MUST strictly match the native template: `datatype field_name KEY "Optional Localized Comment Description"`. The KEY column can only accept pure Mermaid native primitives: `PK`, `FK`, or `UK` (or left completely blank). All structural parameters (e.g., NOT NULL, unique validation, generated values) MUST be decoupled and written exclusively inside markdown property tables, or appended directly as a plain text string inside the comment quote at the very end of the line (e.g., `"Field Description | NOT NULL"`). Any violation that triggers a `BLOCK_STOP` parsing error will cause an immediate framework deployment failure.
-- **TRACEABILITY COVERAGE LEDGER**: Prior to concluding the functional specifications, you MUST dynamically compile an automated text ledger formatted exactly as a standard Markdown matrix table. This table MUST perform a strict 1:1 cross-audit pass matching every pre-existing Tag ID inherited from `**Raw Idea & Requirements**` in the `INPUTS` section against the exact section title and line position where it is handled inside your generated document. If any source requirement tag is missing or collapsed, the audit status column MUST output `[FAILED]`, otherwise it MUST print `[VERIFIED]`.
+Transform the authoritative `SOURCE PROJECT IDEA & REQUIREMENTS` block into an implementation-ready SRS organized by logical Functional Modules/Epics.
 
-CRITICAL ID GENERATION & AUTO-TAGGING LAW: 
-1. TAG PRESERVATION & INHERITANCE: If a feature, requirement, exception, or data table in the raw input ALREADY has an explicit Tag ID (e.g., [REQ-001], [DAT-001] from the input text), you MUST preserve and use that EXACT Tag ID natively. You are STRICTLY FORBIDDEN from altering, re-indexing, or replacing existing IDs.
-2. STRICT ID UNIQUENESS & AUTO-GENERATION: For any elements or implicitly deduced technical specifications (such as new validation flows or table definitions) that LACK an explicit ID in the raw input, you MUST dynamically auto-generate a new incremental Tag ID. 
-3. ANTI-COLLISION CONSTRAINT: Every auto-generated Tag ID MUST be completely unique and MUST NOT collide or overlap with any pre-existing Tag IDs found in the raw input document.
-4. You are STRICTLY REQUIRED to systematically deduce and generate the necessary [EXC-XXX] (Exception Flows) and [DAT-XXX] (Database Schemas) to support every identified [REQ-XXX]. If the parent requirement already has an ID, nest the new deduced technical sub-elements under it using unique, non-colliding IDs.
-5. A single requirement, rule, trigger, or data field without its tracking Tag ID is a fatal structural failure. Tag IDs must cover the entire generated document comprehensively from top to bottom.
+The generated SRS MUST:
 
-You must use this exact taxonomy from top to bottom:
-- `[REQ-XXX]`: Functional Requirements, User Stories, Screen Interactions, and Feature Behaviors.
-- `[EXC-XXX]`: Business Rule Validations, Edge Cases, Error Codes, and Exception Flows.
-- `[DAT-XXX]`: Database Tables, Column Definitions, Keys (PK/FK), Constraints, and Data Mappings.
-  * To satisfy Enterprise Business Analysis standards with absolute structural traceability, you MUST implement a strict Multi-Tier Database Specification layout pattern for every identified persistence requirement:
-    1. TIER 1 (PRELIMINARY DATA DICTIONARY & GLOBAL ERD): You MUST preserve and generate the exact flat multi-column structure from the raw input. To prevent traceability matrix mismatch, you MUST auto-generate and prefix a unique incremental `[DAT-XXX]` tag code ONLY at the Entity/Table level rows inside this preliminary section. Column-level fields inside this preliminary table MUST remain flat without individual tag codes to establish a synchronized baseline index. Directly underneath this table, render the global system-wide `erDiagram` block enclosed within three backticks (```). To ensure context memory preservation and prevent token truncation, this global diagram MUST be an **Entity-Only Connectivity Graph**; it MUST textually map ONLY the structural relationship lines and cardinality tokens between table names (e.g., mapping primary-to-foreign table paths with structural connector syntax). You ARE CRITICALLY BANNED from unrolling or repeating inside this global block any interior attribute lists or field properties, which are strictly reserved for Tier 2.
-    2. TIER 2 (GRANULAR ENTITY DETAIL PARADIGM): Immediately after the global ERD, you MUST create a dedicated deep-dive subsection for EVERY single unique table entity discovered in Tier 1. Each entity detail block MUST follow a strict two-layer symmetrical layout:
-      A. LAYER A (PROPERTY MATRIX GRID): A comprehensive Markdown table grid detailing that table's internal fields, standard ANSI data types (e.g., UUID, VARCHAR, INT, TIMESTAMP), exact nullability constraints, and functional descriptions. Every entity and its column rows MUST be strictly tagged with incremental `[DAT-XXX]` codes.
-      B. LAYER B (ISOLATED ENTITY INTERACTION GRAPH): Directly underneath that entity's Markdown table layout, you MUST compile exactly one (1) isolated relational diagram executed inside a Technical English Mermaid.js `erDiagram` block enclosed strictly within five backticks (`````). You ARE SYSTEMATICALLY FORBIDDEN from jumping, consolidating, or skipping this graph asset to reach subsequent tracking ledgers. This block MUST comply with the following validation invariants:
-          - **CARDINALITY SYMMETRIC MAPPING LAW**: In your execution memory layer, you MUST verify that every inter-table cardinality relationship line printed in this isolated diagram matches with 100% mathematical precision with the connection network drawn in the Tier 1 Global ERD. Any contradiction in relationship notation types triggers an immediate structural validation failure.
-          - **RELATIONAL CARDINALITY INTEGRITY LAW**: The direction of every connection line, the placement of the primary key (PK) side, the foreign key (FK) side, and the specific cardinality operators printed in this sub-diagram MUST mathematically match 100% with the connection web drawn in the Tier 1 Global ERD. All entity names and internal database primitive attributes inside this block MUST remain completely frozen matching Tier 1 and Layer A with 100% string-level fidelity, using zero localization translation.
-          - **GRAPH EXTENSION AND TOKEN PURGING MANDATE**: If the active table possesses connecting lines linking directly to immediate adjacent neighbor tables based on Tier 1, you MUST explicitly draw those relationship lines. Every single attribute line inside the block MUST strictly match and execute the **SUPREME GLOBAL MERMAID COMPILER COMPLIANCE LAW** to completely purge text attributes. Leaving loose system tokens, custom constraints, or blank entity layouts without relationship lines or bracketed attributes is a fatal structural failure. Every generated graph block MUST contain structurally complete, compile-ready Mermaid syntax to ensure successful rendering.
-- `[ARC-XXX]`: Architectural Constraints, Tech Stack Specs, Infrastructure, and Integration Triggers.
-- `[NFR-XXX]`: Non-Functional Metrics (Security, Scalability, Performance, Multi-tenancy Isolation, Localization).
+- preserve all explicit source requirements and their semantic meaning;
+- identify logically necessary derived requirements without introducing speculative functionality;
+- decompose business capabilities into clear, testable functional requirements;
+- identify applicable business rules, validations, exceptions, data relationships, architectural constraints, integrations, and non-functional requirements;
+- preserve source traceability;
+- distinguish source-derived requirements from BA-derived specifications;
+- produce the terminal metadata payload required by the active BA System Instruction.
 
-CRITICAL POLICY: A single requirement, rule, trigger, or data field without its tracking Tag ID is a fatal structural failure. Tag IDs must cover the entire document comprehensively.
+# SOURCE ANALYSIS & DERIVATION
 
-# ZERO-THINKING OUTPUT CONFIGURATION
-- Do NOT output any introductory text, concluding notes, explanations, or conversational filler.
-- Do NOT include <think> tags or intermediate reasoning tokens.
-- **ABSOLUTE RAW EMISSION LAW (ZERO CODE-BLOCK WRAPPERS)**: You are STRICTLY FORBIDDEN from wrapping, encapsulating, or fencing the entire multi-line document response inside triple backticks markdown envelopes (i.e., do NOT write ```markdown ... ``` at the beginning and end of the stream). You MUST emit your structural text document directly into the token stream as pure, un-enveloped standard vertical layout markdown plain text starting immediately from Line 1.
-- **STRICT NON-TRUNCATION INVARIANT LAW**: To satisfy the strict requirements of enterprise compliance, you ARE ABSOLUTELY FORBIDDEN from using early termination filters, abbreviated summaries, or ellipsis indicators (`...`) when unrolling requirements. 100% of all discovered functional tags, acceptance criteria lines, and table rows must be fully evaluated and textually printed into the output buffer before generating the final remediation payload marker.
-- Your entire response MUST start directly on Line 1 with the primary Markdown header text: `# SOFTWARE REQUIREMENTS SPECIFICATION: [Apply POLYMORPHIC_SLUG_EXTRACTION_ENGINE here]`, after evaluting raw value, then translating it fully 100% into the requested target language "{{ target_language }}". You are strictly forbidden from leaving this header title with a blank trailing parameter or a mismatched codename variation.
-- Exhaustively detail and tag every single logical component from top to bottom.
-50 - Conclude the absolute final character of the response stream by explicitly printing the literal structural token line `[EXECUTION_REMEDIATION_PAYLOAD_START]` on its own standalone fresh line. On the immediate next line, you MUST stream a flat, valid, and minified single-line JSON metadata object structured precisely as: `{"project": "{{ project_name | lower | replace(' ', '') }}", "requirement_tags": [...]}` containing 100% of the individual traceability Tag IDs parsed throughout the document. You ARE CRITICALLY BANNED from using markdown code backticks around this final JSON payload, and you MUST terminate the output stream instantly the microsecond the closing curly brace `}` of the JSON object is printed.
+- Treat `SOURCE PROJECT IDEA & REQUIREMENTS` as the authoritative source for this execution.
+- Process the complete source block before finalizing the SRS.
+- Do not replace, silently rewrite, or reinterpret explicit source requirements.
+- Do not rely on cached, previously generated, unrelated, or inferred project content when the required information exists in the source block.
+- Preserve explicit source Tag IDs exactly.
+- A derived requirement MAY be created only when it is logically necessary to implement an explicitly defined source capability.
+- Every derived requirement MUST remain traceable to the source capability that necessitated it.
+- Do NOT introduce speculative features, integrations, roles, screens, reports, workflows, business policies, technology choices, infrastructure, or data entities without sufficient source support or logical implementation necessity.
+- Enterprise controls such as authentication, authorization, tenant isolation, auditability, secure data handling, session management, and API boundaries MUST NOT be represented as source-derived unless explicitly supported by the source.
+- When an enterprise control is inferred, classify it according to the active BA System Instruction.
+
+# SOURCE COVERAGE
+
+Every explicit source capability, requirement, role, workflow, validation, exception, data requirement, architectural constraint, technology reference, protected technical identifier, and source Tag ID MUST be handled.
+
+Each source element MUST be:
+
+- represented directly in the SRS;
+- decomposed into traceable child specifications; or
+- explicitly classified according to the applicable uncertainty or coverage rules.
+
+Do NOT silently omit, erase, overwrite, or replace source content.
+
+Multiple source statements MAY be consolidated when semantic meaning and traceability are preserved.
+
+Source Tag IDs are traceability references and MUST NOT automatically define module boundaries.
+
+# TAG ID HANDLING
+
+- Treat the project's Tag ID taxonomy as extensible rather than closed.
+- Preserve every explicitly declared source Tag ID exactly, regardless of prefix or taxonomy.
+- Do NOT alter, rename, translate, normalize, re-index, replace, or delete source Tag IDs.
+- Additional source-defined Tag ID families MUST remain preserved according to their source-defined semantics or the applicable Active Task System Instruction.
+- Do NOT assume that `[REQ-XXX]`, `[EXC-XXX]`, `[DAT-XXX]`, `[ARC-XXX]`, or `[NFR-XXX]` are an exhaustive whitelist.
+- If an explicit source Tag ID has an unknown semantic category, preserve it exactly and do not silently convert it into another taxonomy.
+- Generate a new Tag ID only when a new traceable specification requires one and no applicable source Tag ID exists.
+- Generated Tag IDs MUST use an applicable existing taxonomy whenever one is defined.
+- Generated Tag IDs MUST NOT collide with any source Tag ID.
+- The final traceability ledger and terminal metadata MUST account for applicable source-defined Tag IDs from all taxonomies.
+
+# ACCEPTANCE CRITERIA
+
+For each applicable `[REQ-XXX]` functional requirement:
+
+- Provide testable acceptance criteria.
+- Maintain direct traceability to the parent requirement.
+- Cover applicable user interaction, workflow, validation, state transition, success, failure, API, persistence, authorization, and integration behavior.
+- Follow the localization and technical-token preservation rules defined by the active BA System Instruction and Global Governance Rules.
+- Do NOT invent acceptance criteria that imply unsupported functionality.
+
+# DATABASE & MERMAID OUTPUT
+
+When persistence requirements are applicable, follow the database and Mermaid governance defined by the active BA System Instruction.
+
+The required database output sequence is:
+
+1. Tier 1 preliminary data dictionary.
+2. Tier 1 global system-wide `erDiagram`.
+3. Tier 2 Entity A property matrix.
+4. Tier 2 Entity A isolated `erDiagram`.
+5. Tier 2 Entity B property matrix.
+6. Tier 2 Entity B isolated `erDiagram`.
+7. Continue the same pattern for every remaining unique database entity.
+
+For every unique database entity identified in Tier 1:
+
+- provide its complete applicable property matrix;
+- provide its mandatory isolated entity-level `erDiagram`;
+- include the active entity;
+- include all directly connected neighboring entities required to represent its defined relationships;
+- maintain consistency with the Tier 1 global ERD and property matrix;
+- do NOT omit the isolated ERD merely because the global ERD already represents the relationship;
+- do NOT invent entities, fields, keys, or relationships solely for diagram completeness.
+
+Mermaid syntax, entity names, field names, database types, key tokens, relationship operators, and other protected technical artifacts MUST follow the active BA System Instruction and Global Governance Rules.
+
+# SRS DOCUMENT STRUCTURE
+
+Generate the SRS using the following logical structure unless the authoritative source clearly requires another structure.
+
+## DOCUMENT CONTROL
+
+When Document Control is applicable:
+
+- emit a visible Markdown section heading immediately before the Document Control table;
+- localize human-readable heading, labels, descriptions, and statuses according to `{{ target_language }}`;
+- preserve protected machine-readable values exactly;
+- keep the heading and table as one continuous structural unit.
+
+Use this structural baseline:
+
+| Item | Details |
+| :--- | :--- |
+| SRS ID | SRS-{{ doc_id }} |
+| Project Name | [Resolved canonical project technical codename] |
+| Version | 1.0 ([Localized baseline status]) |
+| Date Time | {{ current_timestamp }} |
+| Author | Principal Business Analyst (BA) / Product Strategist (BA Agent) |
+| Approval | [Localized governance-review status] |
+
+Do NOT emit instructional placeholders literally.
+
+## 1. PROJECT OVERVIEW & GLOBAL ARCHITECTURE
+
+Include applicable:
+
+- Product Objectives & Core Values.
+- Target User Personas.
+- Business Context.
+- System Scope.
+- Global Role-Based Access Control (RBAC) Matrix.
+- Global Architectural Constraints.
+- Technology Context.
+- Infrastructure Requirements.
+- Integration Requirements.
+
+Use only source-supported or logically necessary content.
+
+## 2. ENHANCED EPIC MODULES
+
+Organize the project into logical Functional Modules/Epics.
+
+For each applicable module include:
+
+### Core Functional Requirements
+
+- Distinct functional capabilities using applicable `[REQ-XXX]` identifiers.
+- Concise feature descriptions.
+- Clear User Stories.
+- Direct traceability to source requirements.
+
+### Acceptance Criteria & Interactions
+
+- Fine-grained acceptance criteria.
+- Applicable UI, workflow, validation, state, API, persistence, authorization, and integration behavior.
+- Direct traceability to the parent requirement.
+
+### Module Exception Flows
+
+- Applicable `[EXC-XXX]` exception flows.
+- Validation failures.
+- Invalid states.
+- Business rule violations.
+- Boundary conditions.
+- Integration failures.
+- Applicable fallback behavior.
+
+Do NOT create speculative exceptions.
+
+### Module Data Specification
+
+- Applicable database entities.
+- Fields.
+- Relationships.
+- Constraints.
+- Data mappings.
+- Required Tier 1 and Tier 2 database artifacts.
+
+## 3. GLOBAL NON-FUNCTIONAL REQUIREMENTS
+
+Include applicable `[NFR-XXX]` requirements for areas such as:
+
+- Performance.
+- Security.
+- Privacy.
+- Access Control.
+- Data Protection.
+- Scalability.
+- Availability.
+- Resilience.
+- Multi-Tenant Isolation.
+- Observability.
+- Maintainability.
+- Reliability.
+- Localization.
+
+Only include requirements supported by the source or logically necessary for the defined system capabilities.
+
+Do NOT invent arbitrary numeric targets, certifications, security standards, vendors, infrastructure technologies, or policies.
+
+# TRACEABILITY COVERAGE LEDGER
+
+Before finalizing the SRS, provide a traceability coverage ledger for every explicit source Tag ID.
+
+Use:
+
+| Source Tag ID | Generated Section or Module | Generated Traceability Tag(s) | Coverage Status |
+| :--- | :--- | :--- | :--- |
+| [SOURCE-TAG] | [Generated section/module] | [Generated tag(s)] | [VERIFIED / FAILED] |
+
+Rules:
+
+- `[VERIFIED]` means the source element is represented or appropriately decomposed.
+- `[FAILED]` means the source element has no valid representation or classification.
+- Every explicit source Tag ID MUST be accounted for regardless of taxonomy.
+- Do NOT use unstable generated line numbers as the primary traceability mechanism.
+- Traceability MUST be semantic and structural.
+
+# PROJECT IDENTITY
+
+Resolve one canonical project technical codename.
+
+- If `{{ project_name }}` contains a valid technical codename, preserve its technical meaning.
+- If it contains a mixed technical and descriptive phrase, extract the core technical identity.
+- If absent or insufficient, derive a concise English technical codename from the authoritative source block.
+- The canonical technical codename MUST use lowercase, hyphen-separated ASCII words only.
+- Do NOT append arbitrary suffixes such as `-system`, `-platform`, `-cms`, or `-app` unless required by the resolved identity.
+- Use the same canonical technical codename in the Document Control project identity and terminal metadata.
+
+# LOCALIZATION & TECHNICAL PRESERVATION
+
+Generate all human-readable SRS content in `{{ target_language }}`.
+
+Follow the Global Governance Rules and active BA System Instruction for:
+
+- heading localization;
+- table localization;
+- User Story localization;
+- acceptance-criteria localization;
+- business descriptions;
+- exception descriptions;
+- validation descriptions;
+- workflow descriptions;
+- data descriptions;
+- architectural explanations;
+- traceability descriptions;
+- uncertainty statements.
+
+Preserve protected machine-readable content exactly, including:
+
+- source Tag IDs;
+- generated Tag IDs;
+- technical identifiers;
+- variable names;
+- field names;
+- enum values;
+- status values;
+- state identifiers;
+- API paths;
+- HTTP methods;
+- file paths;
+- JSON keys;
+- schema keys;
+- Mermaid syntax;
+- Mermaid entity names;
+- Mermaid field names;
+- Mermaid types;
+- Mermaid key tokens;
+- Mermaid relationship operators;
+- terminal delimiters;
+- required HTML anchors;
+- other explicitly protected machine-readable tokens.
+
+Technical terminology MAY remain in canonical technical form when required for accuracy, but surrounding human-readable prose MUST follow `{{ target_language }}`.
+
+# SOURCE BLOCK REFERENCE
+
+- The `SOURCE PROJECT IDEA & REQUIREMENTS` block is the single authoritative source for this execution.
+- References to "the source", "source content", "source requirements", "source Tag IDs", or "source material" refer to that block.
+- Do NOT duplicate or re-inject the complete source block.
+- Do NOT rely on cached, previously generated, unrelated, or inferred project content when source information is available.
+- If information is genuinely absent, follow the uncertainty and missing-data rules of the active BA System Instruction.
+
+# OUTPUT CONTRACT
+
+The final response MUST contain exactly:
+
+1. The generated SRS Markdown document.
+2. One occurrence of:
+   `[EXECUTION_REMEDIATION_PAYLOAD_START]`
+3. One flat valid JSON metadata object immediately following the delimiter.
+
+The terminal JSON MUST contain exactly:
+
+{
+  "technical_codename": "string",
+  "descriptive_name": "string",
+  "brand_name": "string",
+  "requirement_tags": ["string"]
+}
+
+Rules:
+
+- `"technical_codename"` MUST contain the canonical lowercase-hyphenated project technical codename.
+- `"descriptive_name"` MUST contain the resolved descriptive or commercial project name.
+- `"brand_name"` MUST contain the supplied project brand name when available.
+- Do NOT invent a brand name merely to populate the field.
+- If no brand name exists, use the missing-data representation permitted by the active BA System Instruction.
+- `"requirement_tags"` MUST contain all applicable Tag IDs emitted throughout the SRS, including source-defined Tag IDs from taxonomies not explicitly listed in this prompt.
+- Preserve Tag IDs exactly, including square brackets.
+- Do NOT translate Tag IDs.
+- Do NOT add additional JSON keys.
+- Do NOT wrap the JSON object in Markdown code fences.
+- Do NOT emit any text between the delimiter and the JSON object.
+- Do NOT emit any character after the closing `}` of the terminal JSON object.
+
+# FINAL EXECUTION CHECK
+
+Before emission, verify only the following task-critical invariants:
+
+- The complete authoritative source block has been processed.
+- Every applicable source requirement is represented, decomposed, or classified.
+- Every explicit source Tag ID is preserved regardless of taxonomy.
+- Source-derived and BA-derived requirements remain distinguishable.
+- No unsupported functionality has been introduced.
+- Generated Tag IDs do not collide with source Tag IDs.
+- Acceptance criteria remain traceable to their parent requirements.
+- Database entities and fields remain consistent across their representations.
+- Every unique database entity has a Tier 2 property matrix.
+- Every unique database entity has its mandatory isolated entity-level `erDiagram`.
+- Tier 1 and Tier 2 database artifacts remain mutually consistent.
+- Mermaid artifacts comply with the active BA System Instruction.
+- Human-readable content follows `{{ target_language }}`.
+- Protected technical artifacts remain unchanged.
+- The canonical technical codename is consistent across the SRS and terminal metadata.
+- The terminal delimiter appears exactly once.
+- The terminal JSON contains exactly the four declared keys.
+- The terminal JSON is valid and flat.
+- No characters appear after the closing `}` of the terminal JSON object.

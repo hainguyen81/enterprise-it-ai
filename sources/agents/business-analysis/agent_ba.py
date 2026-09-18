@@ -67,10 +67,11 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
             sys.exit(1)
         
         # return merged new values
+        detected_project_name = self.__try_to_detect_project_name__()
         _, idea_file = self.__idea_files__()
         return {
             **kwargs,
-            "project_name": self.__try_to_detect_project_name__(),
+            "project_name": detected_project_name,
             "idea_file": idea_file,
             "raw_idea_content": file_content
         }

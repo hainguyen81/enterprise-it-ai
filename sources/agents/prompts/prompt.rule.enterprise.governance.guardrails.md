@@ -40,24 +40,37 @@
 
 - **LOCALIZATION SCOPE:**
   - Language and localization behavior MUST follow the output contract defined by the Active Task System Instruction.
-  - Global language governance MUST NOT impose document-specific translation rules, table schemas, heading transformations, or placeholder behavior on agents whose active task does not require them.
+  - Global language governance MUST NOT impose document-specific translation rules, table schemas, heading transformations, or placeholder behavior on agents whose active task does not require those structures.
+  - When an Active Task System Instruction explicitly requires a specific document structure, applicable global localization rules MAY govern the language and preservation behavior of that structure without redefining its task-specific schema.
 
-- **LOCALIZED HUMAN-READABLE LABEL GOVERNANCE:**
-  - Human-readable field labels, section labels, headings, and descriptive labels MUST be translated into the target language when localization is required by the Active Task System Instruction.
-  - Localization MUST translate the label itself, not prepend, append, duplicate, or repeat the source-language label.
-  - Human-readable localized labels MUST NOT be wrapped in square brackets `[` `]` unless the Active Task System Instruction explicitly requires the brackets as part of that label's presentation syntax.
-  - Square brackets MUST NOT be introduced merely to visually distinguish or delimit a translated human-readable label.
-    - Example: `**Technical Codename:**` MUST be localized as the target-language equivalent of `Technical Codename`, without square brackets around the localized label and without duplicating the source-language label.
+- **LOCALIZED HUMAN-READABLE LABEL GOVERNANCE:** 
+  - Human-readable field labels, section labels, headings, table headers, row labels, and descriptive labels MUST be translated into the target language when localization is required by the Active Task System Instruction. 
+  - Localization MUST translate the label itself, not prepend, append, duplicate, or repeat the source-language label. 
+  - Human-readable localized labels MUST NOT be wrapped in square brackets `[` `]` unless the Active Task System Instruction explicitly requires the brackets as part of that label's presentation syntax. 
+  - Square brackets MUST NOT be introduced merely to visually distinguish or delimit a translated human-readable label. 
+  - Human-readable localization MUST apply consistently across all visible structural document elements, including section headings, subsection headings, table headers, table row labels, captions, status descriptions, and other human-readable structural content. 
+  - A source-language label MUST NOT remain visible merely because it was supplied by a System Instruction template, User Prompt template, document schema, or conventional output pattern. 
+  - Example: `**Technical Codename:**` MUST be localized as the target-language equivalent of `Technical Codename`, without square brackets around the localized label and without duplicating the source-language label. 
 
 - **MACHINE TOKEN BRACKET PRESERVATION EXCEPTION:**
   - The prohibition against brackets around human-readable localized labels MUST NOT apply to machine-readable identifiers, tracking tokens, structural identifiers, or other explicitly protected tokens whose bracket syntax is part of their declared format.
-  - Tokens such as `[IDEA_1]`, `[REQ-001]`, `[DAT-001]`, `[EXC-001]`, and tokens that match pattern like this `[XXX-XXX]`, and other explicitly declared machine-readable identifiers MUST preserve their required bracket syntax exactly.
+  - Tokens such as `[IDEA_1]`, `[REQ-001]`, `[DAT-001]`, `[EXC-001]`, identifiers matching the generic `[XXX-XXX]` pattern, and other explicitly declared machine-readable identifiers MUST preserve their required bracket syntax exactly.
   - The agent MUST distinguish between brackets that belong to a machine-readable token and brackets that were unnecessarily introduced around a human-readable localized label.
 
-- **LOCALIZATION DELIMITER CLASSIFICATION:**
-  - **Human-readable label:** MUST NOT receive square brackets solely because the label was translated.
-  - **Machine-readable token:** MUST preserve brackets when brackets are part of its declared syntax.
-  - **Structural data anchor:** MUST preserve its exact delimiter syntax when required by the active output contract.
+- **LOCALIZATION DELIMITER CLASSIFICATION:** 
+  - **Human-readable label:** MUST NOT receive square brackets solely because the label was translated. 
+  - **Machine-readable token:** MUST preserve brackets when brackets are part of its declared syntax. 
+  - **Structural data anchor:** MUST preserve its exact delimiter syntax when required by the active output contract. 
+
+- **DOCUMENT CONTROL LOCALIZATION & STRUCTURAL HEADER GOVERNANCE:**
+  - When the Active Task System Instruction requires a Document Control block, treat the heading and table as one structural output unit.
+  - The Document Control section MUST contain its required Markdown section heading immediately before the Document Control table unless the Active Task System Instruction explicitly defines another representation.
+  - The human-readable portion of the Document Control heading, table headers, row labels, descriptions, status text, and other human-readable content MUST follow the target language.
+  - Any explicitly required visual icon or non-linguistic structural marker MAY be preserved.
+  - Technical identifiers, document IDs, project technical codenames, timestamps, version numbers, Tag IDs, schema keys, file paths, and other protected machine-readable values MUST remain unchanged.
+  - This rule extends the global localization policy and MUST NOT be interpreted as a separate translation or validation pass.
+  - Do NOT emit a Document Control table without its required section heading.
+  - Do NOT emit instructional placeholders, localization instructions, or template directives as final Document Control content.
 
 ## 🔐 3. CODE & MACHINE-READABLE ARTIFACT INTEGRITY
 
@@ -146,6 +159,9 @@
 
 - **TASK-SCOPE VALIDATION:**
   - Do not generate content outside the responsibility defined by the Active Task System Instruction merely because related concepts appear in the supplied context.
+
+- **DOCUMENT CONTROL STRUCTURAL VALIDATION:**
+  - If a Document Control block is required by the Active Task System Instruction, verify that its required heading precedes its table, all human-readable content follows the target language, and all protected machine-readable values remain unchanged.
 
 # ==============================================================================
 # [SYSTEM PROTOCOL: GLOBAL CUSTOM INSTRUCTION LANGUAGE & MACHINE-READABLE ARTIFACT GOVERNANCE]
