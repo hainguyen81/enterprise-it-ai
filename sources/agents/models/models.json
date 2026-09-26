@@ -586,7 +586,12 @@
         "api_endpoint": "https://api.cohere.ai/compatibility/v1"
     },
     {
-        "separator": "------------------ CLOUDFLARE ENDPOINTS BOUNDARY ------------------"
+        "separator": "------------------ CLOUDFLARE ENDPOINTS BOUNDARY - GMail ------------------"
+    },
+    {
+        "model_name": "@cf/nvidia/nemotron-3-120b-a12b",
+        "provider": "Cloudflare Workers AI",
+        "api_endpoint": "https://api.cloudflare.com/client/v4/accounts/0efe7c0dfd3fc020b99938f5618df8f4/ai/v1"
     },
     {
         "model_name": "@cf/qwen/qwen3.8-27b",
@@ -807,6 +812,14 @@
         "model_name": "google/gemini-3-flash",
         "provider": "Cloudflare Workers AI",
         "api_endpoint": "https://api.cloudflare.com/client/v4/accounts/0efe7c0dfd3fc020b99938f5618df8f4/ai/v1"
+    },
+    {
+        "separator": "------------------ CLOUDFLARE ENDPOINTS BOUNDARY - Proton! Mail ------------------"
+    },
+    {
+        "model_name": "@cf/nvidia/nemotron-3-120b-a12b",
+        "provider": "Cloudflare Workers AI",
+        "api_endpoint": "https://api.cloudflare.com/client/v4/accounts/a994896de4fc1bc781aeda913385b849/ai/v1"
     },
     {
         "separator": "------------------ AIONLABS ENDPOINTS BOUNDARY ------------------"

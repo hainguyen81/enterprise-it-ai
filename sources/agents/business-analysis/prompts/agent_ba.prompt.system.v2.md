@@ -679,88 +679,14 @@ The following MUST remain exactly unchanged when present as technical contract e
 - Do NOT translate, modify, duplicate, or omit the delimiter.
 - Do NOT emit any text between the delimiter and the terminal JSON object.
 
-# COMPACT SRS REGISTRY CONTRACT
-
-The same execution that generates the complete SRS MUST also generate one compact, machine-oriented SRS registry for downstream generation stages. This is an additional representation of the same source analysis; it is NOT a second SRS, a summary, or a replacement for the full SRS.
-
-The compact registry MUST:
-- preserve every source Tag ID exactly, including tags from all source taxonomies;
-- preserve generated/derived Tag IDs when they carry traceability needed downstream;
-- preserve source-derived versus BA-derived/distilled distinction;
-- preserve every implementation-relevant requirement, business rule, validation, exception, workflow/state transition, actor/role, interface/API identity, event identity, data entity/field/relationship/constraint, architecture decision, technology/version, NFR, dependency, and acceptance-critical behavior;
-- preserve exact numeric limits, thresholds, durations, versions, identifiers, enum/status values, API paths, file/path identifiers, and other protected machine-readable tokens;
-- preserve unresolved, ambiguous, contradictory, or missing information as such; NEVER resolve ambiguity merely to make the compact registry cleaner;
-- preserve enough traceability to map each compact record back to its source Tag ID(s) and relevant SRS scope.
-
-The compact registry MAY remove only presentation overhead that does not change meaning, including document-control prose, decorative wording, repeated explanations, repeated user-story phrasing, Markdown-only formatting, Mermaid visualization syntax when its underlying semantic facts are retained, and exact duplicate descriptions.
-
-The compact registry MUST NOT:
-- invent requirements, facts, values, technologies, dependencies, actors, workflows, or constraints;
-- merge distinct requirements merely because they are similar;
-- rename, normalize, or delete source Tag IDs;
-- silently resolve uncertainty or contradiction;
-- replace a concrete requirement with ellipsis, vague shorthand, or a lossy summary;
-- omit a requirement merely because it appears redundant in the full SRS.
-
-Use a deterministic high-density record form such as:
-
-<COMPACT_SRS_START>
-PROJECT
-codename=...
-
-REQ
-id=[REQ-001]
-statement=...
-actors=...
-behavior=...
-constraints=...
-derived=false
-
-EXC
-id=[EXC-001]
-parent=[REQ-001]
-statement=...
-derived=false
-
-DAT
-id=[DAT-001]
-entity=...
-fields=...
-relationships=...
-constraints=...
-
-ARC
-id=[ARC-001]
-statement=...
-
-NFR
-id=[NFR-001]
-statement=...
-
-DEP
-from=[REQ-001]
-to=[DAT-001];[ARC-001]
-
-TRACE
-[REQ-001]=...
-[EXC-001]=...
-[DAT-001]=...
-[ARC-001]=...
-[NFR-001]=...
-<COMPACT_SRS_END>
-
-Record types MAY be extended when required by the actual source taxonomy. Do not emit empty record types solely because the example contains them. Do not use `...` in the actual compact registry as an omission marker. The compact registry is machine-facing reference data, so preserve exact protected identifiers while keeping surrounding human-readable descriptions concise.
-
 # FINAL OUTPUT CONTRACT
 
 The final response MUST contain exactly:
 
 1. The generated SRS Markdown document.
-2. One complete `<COMPACT_SRS_START>` / `<COMPACT_SRS_END>` block containing the compact SRS registry generated from the same source analysis.
-3. One occurrence of the immutable terminal delimiter:
+2. One occurrence of the immutable terminal delimiter:
    `[EXECUTION_REMEDIATION_PAYLOAD_START]`
-4. One flat valid JSON metadata object immediately following the delimiter.
-
+3. One flat valid JSON metadata object immediately following the delimiter.
 
 The terminal JSON object MUST contain exactly these keys:
 

@@ -1,6 +1,6 @@
 {
     "technical_codename": "social-scheduler",
-    "descriptive_name": "SocialScheduler",
+    "descriptive_name": "LịchĐăngBài",
     "brand_name": "LịchĐăngBài",
     "requirement_tags": [
         "[REQ-001]",
@@ -10,15 +10,10 @@
         "[DAT-002]",
         "[EXC-001]",
         "[EXC-002]",
-        "[EXC-003]",
-        "[REQ-004]",
-        "[ARC-001]",
-        "[NFR-001]",
-        "[NFR-002]",
-        "[NFR-003]",
-        "[EXC-004]"
+        "[EXC-003]"
     ],
     "idea": "idea_d066d15f9b52",
     "location": "sources/storage/business-analysis/social-scheduler",
-    "requirements": "sources/storage/business-analysis/social-scheduler/requirements.md"
+    "requirements": "sources/storage/business-analysis/social-scheduler/requirements.md",
+    "compacted_requirements": "sources/storage/business-analysis/social-scheduler/compacted_requirements.md"
 }

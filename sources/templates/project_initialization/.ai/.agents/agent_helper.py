@@ -14,6 +14,7 @@ import sys
 import traceback
 from collections.abc import Generator
 from pathlib import Path
+from re import Pattern
 
 from jinja2 import Environment, FileSystemLoader, meta
 
@@ -278,27 +279,35 @@ def render_prompt(template: str, context: dict) -> str:
 def render_kwargs_prompt(template: str, **kwargs) -> str:
     return render_prompt(template=template, context={ **kwargs })
 
-def regex_extract(pattern, data):
+def custom_jinja_tojson_filter(*args, **kwargs):
+    # Jinja2 có thể truyền EvalContext hoặc Environment làm tham số đầu tiên tùy cấu hình template
+    # Chúng ta bốc phần tử cuối cùng trong args hoặc lọc ra đối tượng không phải là Context/Environment
+    target_obj = args[0] if len(args) == 1 else args[1]
+    return json.dumps(target_obj, ensure_ascii=False)
+
+def regex_extract(
+    pattern: str | Pattern[str], data: str, flags=re.MULTILINE | re.DOTALL
+):
     if not pattern or not data:
         return (0, [])
-
-    reg_pattern = re.compile(
-        pattern,
-        re.DOTALL,
-    )
+    
+    reg_pattern = re.compile(pattern, flags,)
     extracted_data = reg_pattern.findall(data)
     return (len(extracted_data) if extracted_data else 0, extracted_data)
 
-def regex_extract_by_pair_tags(tag_start: str, tag_end: str, data):
-    if not tag_start and tag_end:
-        return regex_extract(pattern=rf"<!--\s*{tag_end}\s*-->", data=data)
-    elif tag_start and not tag_end:
-        return regex_extract(pattern=rf"<!--\s*{tag_start}\s*-->", data=data)
-    elif tag_start and tag_end:
+def regex_extract_by_pair_tags(tag_start: str, tag_end: str, data: str):
+    if (not tag_start or len(tag_start) <= 0) and (tag_end and len(tag_end) > 0):
+        # extract whole line that contains tag
+        return regex_extract(pattern=rf"^.*<!--\s*{tag_end}\s*-->.*$", data=data, flags=re.MULTILINE)
+    elif (tag_start and len(tag_start) > 0) and (not tag_end or len(tag_end) <= 0):
+        # extract whole line that contains tag
+        return regex_extract(pattern=rf"^.*<!--\s*{tag_start}\s*-->.*$", data=data, flags=re.MULTILINE)
+    elif (tag_start and len(tag_start) > 0) and (tag_end and len(tag_end) > 0):
+        # extract betwwen tag start/end
         return regex_extract(pattern=rf"<!--\s*{tag_start}\s*-->(.*?)<!--\s*{tag_end}\s*-->", data=data)
     return (0, [])
 
-def regex_extract_by_name_pair_tags(tag_name: str, data):
+def regex_extract_by_name_pair_tags(tag_name: str, data: str):
     if not tag_name:
         return (0, []) 
     return regex_extract_by_pair_tags(
@@ -307,17 +316,100 @@ def regex_extract_by_name_pair_tags(tag_name: str, data):
         data=data,
     )
 
-def regex_extract_by_tag(tag: str, data):
+def regex_extract_by_tag(tag: str, data: str):
     return regex_extract_by_pair_tags(tag_start=tag, tag_end=None, data=data)
 
+def regex_remove(pattern: str | Pattern[str], data: str, flags=re.MULTILINE | re.DOTALL) -> str:
+    if not pattern or not data:
+        return data
+    return re.sub(pattern, "", data, flags)
+
+def regex_remove_by_pair_tags(tag_start: str, tag_end: str, data: str) -> str:
+    if not data:
+        return data
+    
+    if (not tag_start or len(tag_start) <= 0) and (tag_end and len(tag_end) > 0):
+        # remove whole line that contains tag
+        return regex_remove(
+            pattern=rf"^.*<!--\s*{tag_end}\s*-->.*$\n?", data=data, flags=re.MULTILINE
+        )
+    elif (tag_start and len(tag_start) > 0) and (not tag_end or len(tag_end) <= 0):
+        # remove whole line that contains tag
+        return regex_remove(
+            pattern=rf"^.*<!--\s*{tag_start}\s*-->.*$\n?", data=data, flags=re.MULTILINE
+        )
+    elif (tag_start and len(tag_start) > 0) and (tag_end and len(tag_end) > 0):
+        # remove between tag start/end
+        return regex_remove(
+            pattern=rf"<!--\s*{tag_start}\s*-->(.*?)<!--\s*{tag_end}\s*-->",
+            data=data,
+            flags=re.MULTILINE | re.DOTALL,
+        )
+    return data
+
+def regex_remove_by_name_pair_tags(tag_name: str, data: str) -> str:
+    if not tag_name:
+        return data
+    return regex_remove_by_pair_tags(
+        tag_start=f"{tag_name}_START",
+        tag_end=f"{tag_name}_END",
+        data=data,
+    )
+
+def regex_remove_by_tag(tag: str, data: str) -> str:
+    return regex_remove_by_pair_tags(tag_start=tag, tag_end=None, data=data)
+
 def validateAIResponse(response):
+    logger = get_logger()
     if not response or not hasattr(response, 'choices') or not response.choices:
-        raise RuntimeError("[API Upstream Error 404]: No Response Found")
+        # check whether exists error response
+        error_code = 404
+        error_meta_type = " | `NO_CHOICES`"
+        error_msg = f"[API Upstream Error {error_code}{error_meta_type}]: No Response Found."
+        if hasattr(response, 'error') and response.error:
+            if isinstance(response.error, dict):
+                error_code = response.error.get("code")
+                error_meta_type = (
+                    response.error.get("metadata").get("error_type") or error_meta_type
+                    if isinstance(response.error.get("metadata"), dict) else error_meta_type
+                )
+                error_meta_type = f" | `{error_meta_type}`" if error_meta_type else ""
+                resp_error_msg = response.error.get('message')
+                error_msg = f"[API Upstream Error {error_code}{error_meta_type}]: {resp_error_msg}." if resp_error_msg else error_msg
+        else:
+            error_code = response.error.code if hasattr(response.error, "code") else error_code
+            error_meta_type = (
+                response.error.metadata.error_type
+                if hasattr(response.error, "metadata")
+                and response.error.metadata
+                and hasattr(response.error.metadata, "error_type")
+                else error_meta_type
+            )
+            error_meta_type = f" | `{error_meta_type}`" if error_meta_type else ""
+            resp_error_msg = (
+                response.error.message
+                if hasattr(response.error, "message")
+                else str(response.error)
+            )
+            error_msg = f"[API Upstream Error {error_code}{error_meta_type}]: {resp_error_msg}." if resp_error_msg else error_msg
+        logger.error(
+            "💀 RAW AI RESPONSE TYPE = %s",
+            type(response).__name__ if response else "None",
+        )
+        logger.error("💀 RAW AI RESPONSE = %r", response)
+        raise RuntimeError(error_msg)
     
     # 1. Check response choices
     choices_data = response.choices
     if not isinstance(choices_data, list) or len(choices_data) <= 0:
-        raise RuntimeError("[API Upstream Error 404]: Response Choices is empty/None")
+        logger.error(
+            "💀 RAW AI RESPONSE TYPE = %s",
+            type(response).__name__ if response else "None",
+        )
+        logger.error("💀 RAW AI RESPONSE = %r", response)
+        raise RuntimeError(
+            "[API Upstream Error 404 | `EMPTY_CHOICES`]: Response Choices is empty/None."
+        )
     
     # parse first choice
     first_choice = choices_data[0]
@@ -335,11 +427,21 @@ def validateAIResponse(response):
         else:
             err_msg = getattr(err_detail, 'message', 'Unknown upstream error')
             err_code = getattr(err_detail, 'code', 500)
+        logger.error(
+            "💀 RAW AI RESPONSE TYPE = %s",
+            type(response).__name__ if response else "None",
+        )
+        logger.error("💀 RAW AI RESPONSE = %r", response)
         raise RuntimeError(f"[API Upstream Error {err_code}]: {err_msg}")
         
     # 3. check content whether is None (although finish_reason is `stop`)
     if not hasattr(first_choice, 'message') or not first_choice.message or getattr(first_choice.message, 'content', None) is None:
-        raise ValueError("[API Upstream Error 404]: AI response content is empty/None.")
+        logger.error(
+            "💀 RAW AI RESPONSE TYPE = %s",
+            type(response).__name__ if response else "None",
+        )
+        logger.error("💀 RAW AI RESPONSE = %r", response)
+        raise ValueError("[API Upstream Error 404 | `NO_CHOICE_CONTENT`]: AI response content is empty/None.")
     
     # Guard against malformed message blocks or unexpected payload closures
     return first_choice

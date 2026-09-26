@@ -1,6 +1,7 @@
 import hashlib
 import sys
 from types import SimpleNamespace
+from typing import Any
 
 # Now Python can seamlessly see and import the centralized helper utility cleanly!
 from sources.agents.agent_helper import (
@@ -21,11 +22,14 @@ SYSTEM_PROMPT_TEMPLATE      = "agent_ba.prompt.system.md"
 USER_PROMPT_TEMPLATE        = "agent_ba.prompt.user.md"
 
 SRS_FILE                    = "requirements.md"
+SRS_COMPACTED_FILE          = "compacted_requirements.md"
 PROJECT_INFO_FILE           = "project-info.json"
 BA_RAW_FILE                 = "ba.md"
 BA_LOG_FILE                 = "ba_log.md"
 
 BA_OUTPUT_DELIMITER         = "[EXECUTION_REMEDIATION_PAYLOAD_START]"
+BA_OUTPUT_COMPACT_START     = "<COMPACT_SRS_START>"
+BA_OUTPUT_COMPACT_END       = "<COMPACT_SRS_END>"
 
 
 class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
@@ -75,6 +79,161 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
             "idea_file": idea_file,
             "raw_idea_content": file_content
         }
+
+    def __split_response__(self, raw_response) -> tuple[str, str, dict[str, Any]]:
+        if not raw_response:
+            raise RuntimeError("💀 Invalid AI raw response.")
+
+        """
+        Split BA response into exactly 3 logical parts:
+
+        1. Full SRS
+        2. Compact SRS Registry
+        3. Terminal JSON metadata
+
+        Expected output:
+
+            <FULL SRS>
+
+            <COMPACT_SRS_START>
+            <COMPACT SRS>
+            <COMPACT_SRS_END>
+
+            [EXECUTION_REMEDIATION_PAYLOAD_START]
+            { ...JSON... }
+
+        Returns:
+            (
+                full_srs,
+                compact_srs,
+                metadata,
+            )
+
+        Raises:
+            ValueError: when the response violates the expected structure.
+        """
+        raw_response = (
+            str(raw_response).replace("\r\n", "\n").replace("\r", "\n").strip()
+        )
+
+        # ---------------------------------------------------------
+        # 1. Validate marker counts
+        # ---------------------------------------------------------
+        marker_counts = {
+            BA_OUTPUT_COMPACT_START: raw_response.count(BA_OUTPUT_COMPACT_START),
+            BA_OUTPUT_COMPACT_END: raw_response.count(BA_OUTPUT_COMPACT_END),
+            BA_OUTPUT_DELIMITER: raw_response.count(BA_OUTPUT_DELIMITER),
+        }
+        if marker_counts[BA_OUTPUT_COMPACT_START] != 1:
+            raise ValueError(
+                f"Expected exactly 1 {BA_OUTPUT_COMPACT_START}, got {marker_counts[BA_OUTPUT_COMPACT_START]}"
+            )
+        if marker_counts[BA_OUTPUT_COMPACT_END] != 1:
+            raise ValueError(
+                f"Expected exactly 1 {BA_OUTPUT_COMPACT_END}, got {marker_counts[BA_OUTPUT_COMPACT_END]}"
+            )
+        if marker_counts[BA_OUTPUT_DELIMITER] != 1:
+            raise ValueError(
+                f"Expected exactly 1 {BA_OUTPUT_DELIMITER}, "
+                f"got {marker_counts[BA_OUTPUT_DELIMITER]}"
+            )
+
+        # ---------------------------------------------------------
+        # 2. Locate markers
+        # ---------------------------------------------------------
+        compact_start = raw_response.index(BA_OUTPUT_COMPACT_START)
+        compact_end = raw_response.index(BA_OUTPUT_COMPACT_END)
+        remediation_start = raw_response.index(BA_OUTPUT_DELIMITER)
+
+        # Marker ordering is mandatory:
+        #
+        # FULL SRS
+        #   <
+        # COMPACT_START
+        #   <
+        # COMPACT_END
+        #   <
+        # REMEDIATION_DELIMITER
+        #
+        if not (compact_start < compact_end < remediation_start):
+            raise ValueError(
+                "Invalid marker order. Expected: "
+                f"{BA_OUTPUT_COMPACT_START} -> {BA_OUTPUT_COMPACT_END} -> "
+                f"{BA_OUTPUT_DELIMITER}"
+            )
+
+        # ---------------------------------------------------------
+        # 3. Extract Full SRS
+        # ---------------------------------------------------------
+        full_srs = raw_response[:compact_start].strip()
+        if not full_srs:
+            raise ValueError("Full SRS section is empty")
+
+        # ---------------------------------------------------------
+        # 4. Extract Compact SRS
+        # ---------------------------------------------------------
+        compact_content_start = compact_start + len(BA_OUTPUT_COMPACT_START)
+        compact_srs = raw_response[compact_content_start:compact_end].strip()
+        if not compact_srs:
+            raise ValueError("Compact SRS section is empty")
+
+        # ---------------------------------------------------------
+        # 5. Extract terminal payload
+        # ---------------------------------------------------------
+        json_text = raw_response[remediation_start + len(BA_OUTPUT_DELIMITER) :].strip()
+        if not json_text:
+            raise ValueError("Terminal JSON payload is empty")
+
+        # ---------------------------------------------------------
+        # 6. JSON must be the ONLY thing after delimiter
+        # ---------------------------------------------------------
+        metadata = json_loads(data=json_text, silent=False)
+        if not isinstance(metadata, dict):
+            raise ValueError("Terminal JSON payload must be a JSON object")  # noqa: TRY004
+
+        # ---------------------------------------------------------
+        # 7. Validate existing terminal JSON contract
+        # ---------------------------------------------------------
+        required_keys = {
+            "technical_codename",
+            "descriptive_name",
+            "brand_name",
+            "requirement_tags",
+        }
+        actual_keys = set(metadata.keys())
+        if actual_keys != required_keys:
+            missing = required_keys - actual_keys
+            extra = actual_keys - required_keys
+            errors = []
+            if missing:
+                errors.append(f"missing keys: {sorted(missing)}")
+            if extra:
+                errors.append(f"unexpected keys: {sorted(extra)}")
+            raise ValueError("Invalid terminal JSON contract: " + "; ".join(errors))
+        if not isinstance(metadata["technical_codename"], str):
+            raise ValueError('"technical_codename" must be a string')  # noqa: TRY004
+        if not isinstance(metadata["descriptive_name"], str):
+            raise ValueError('"descriptive_name" must be a string')  # noqa: TRY004
+        if not isinstance(metadata["brand_name"], str):
+            raise ValueError('"brand_name" must be a string')  # noqa: TRY004
+        if not isinstance(metadata["requirement_tags"], list):
+            raise ValueError('"requirement_tags" must be an array')  # noqa: TRY004
+        if not all(isinstance(tag, str) for tag in metadata["requirement_tags"]):
+            raise ValueError('Every "requirement_tags" item must be a string')
+
+        # ---------------------------------------------------------
+        # 8. Final structural check
+        # ---------------------------------------------------------
+        # There must be no compact/end/remediation marker accidentally
+        # embedded inside the extracted Full SRS / Compact SRS.
+        if BA_OUTPUT_COMPACT_END in full_srs:
+            raise ValueError(f"{BA_OUTPUT_COMPACT_END} leaked into Full SRS")
+        if BA_OUTPUT_DELIMITER in full_srs:
+            raise ValueError(f"{BA_OUTPUT_DELIMITER} leaked into Full SRS")
+        if BA_OUTPUT_DELIMITER in compact_srs:
+            raise ValueError(f"{BA_OUTPUT_DELIMITER} leaked into Compact SRS")
+
+        return (full_srs, compact_srs, metadata)
     
     # @override
     def clean_response(self, raw_response, **kwargs):
@@ -82,17 +241,9 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
             raise RuntimeError("💀 Invalid AI raw response.")
         
         # extract data
-        raw_srs_content = None
-        project_metadata = None
-        DELIMITER = BA_OUTPUT_DELIMITER
-        if DELIMITER in raw_response:
-            srs_markdown_payload, metadata_json_payload = raw_response.split(DELIMITER, 1)
-            # Clean and load the pure harvested metadata JSON object
-            raw_srs_content = srs_markdown_payload.strip()
-            project_metadata = json_loads(metadata_json_payload.strip(), silent=True)
-        else:
-            raw_srs_content = raw_response.strip()
-            project_metadata = {}
+        raw_srs_content, raw_compacted_srs_content, project_metadata = (
+            self.__split_response__(raw_response=raw_response)
+        )
         
         # check srss summary
         projects = []
@@ -133,14 +284,19 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
         project_info = {
             # old info
             **project_info,
-            
             # new info
             **project_metadata,
-            
             # custom built info
             "idea": idea_id,
-            "location": self.__storage_path__(storage_name="relative_ba", file=project_name),
-            "requirements": self.__storage_path__(storage_name="relative_ba", file=f"{project_name}/{SRS_FILE}")
+            "location": self.__storage_path__(
+                storage_name="relative_ba", file=project_name
+            ),
+            "requirements": self.__storage_path__(
+                storage_name="relative_ba", file=f"{project_name}/{SRS_FILE}"
+            ),
+            "compacted_requirements": self.__storage_path__(
+                storage_name="relative_ba", file=f"{project_name}/{SRS_COMPACTED_FILE}"
+            ),
         }
         
         # append as new project info if not found in the summary
@@ -150,9 +306,17 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
         # return cleaned/prepared data
         return {
             "raw_srs_content": raw_srs_content,
-            "project_info": { **project_info },
-            "requirements_file": self.__storage_path__(storage_name="storage_ba", file=f"{project_name}/{SRS_FILE}"),
-            "project_info_file": self.__storage_path__(storage_name="storage_ba", file=f"{project_name}/{PROJECT_INFO_FILE}")
+            "raw_compacted_srs_content": raw_compacted_srs_content,
+            "project_info": {**project_info},
+            "requirements_file": self.__storage_path__(
+                storage_name="storage_ba", file=f"{project_name}/{SRS_FILE}"
+            ),
+            "compacted_requirements_file": self.__storage_path__(
+                storage_name="storage_ba", file=f"{project_name}/{SRS_COMPACTED_FILE}"
+            ),
+            "project_info_file": self.__storage_path__(
+                storage_name="storage_ba", file=f"{project_name}/{PROJECT_INFO_FILE}"
+            ),
         }
     
     # @override
@@ -167,6 +331,14 @@ class PrincipalBusinessAnalysisAgent(AbstractSubAgent):
         write_file(file=requirements_file, data=requirements_content)
         self.logger.info(
             f"🎉 [ SUCCESS ] Received/Saved SRS Markdown Document: {requirements_file}"
+        )
+        
+        # export compacted requirements
+        compacted_requirements_file = response_data.get("compacted_requirements_file")
+        compacted_requirements_content = response_data.get("raw_compacted_srs_content")
+        write_file(file=compacted_requirements_file, data=compacted_requirements_content)
+        self.logger.info(
+            f"🎉 [ SUCCESS ] Received/Saved COMPACTED SRS Markdown Document: {compacted_requirements_file}"
         )
         
         # export project info

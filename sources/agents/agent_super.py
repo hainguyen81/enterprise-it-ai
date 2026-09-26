@@ -148,7 +148,7 @@ class AbstractAgent(ABC):
             
             # If endpoint is missing, None, empty "", or just whitespaces "   ", skip it cleanly
             if not target_model_name or not target_model_endpoint or not str(target_model_endpoint).strip():
-                self.logger.info(f"⚠️ Ignore this config due to invalid 'model_name': {target_model_name} or 'model_endpoint': {target_model_endpoint}")
+                self.logger.warning(f"⚠️ Ignore this config due to invalid 'model_name': {target_model_name} or 'model_endpoint': {target_model_endpoint}")
                 self.active_model_index += 1
                 continue # 🔄 Immediately jumps to the next iteration of the while loop
             
@@ -272,6 +272,7 @@ class AbstractAgent(ABC):
     def communicate(self, **kwargs):
         response = None
         raw_response = None
+        model = self.config_model_name()
         
         # only rotate on communitating with AI
         success= False
@@ -286,10 +287,13 @@ class AbstractAgent(ABC):
                 raw_response = self.__parse_ai_response__(response=response) if response else None
                 success = True   # success
             except Exception as e:
-                self.logger.error(f"💀 Exception caught on model {self.config_model_name()}: {e!s}")
+                self.logger.error(f"💀 Exception caught on model {model}: {e!s}")
                 # rotate next model
                 if not self.__rotate_next_model__():
-                    raise # re-throw exception to super
+                    ex_stack = exception_stacktrace(e)
+                    raise RuntimeError(
+                        model, ex_stack, response, e, **kwargs
+                    ) # re-throw exception to super
         
         # remove old raw_response if existing
         clean_response = None
@@ -371,13 +375,21 @@ class AbstractAgent(ABC):
         }
     
     def __handle_execute_exception__(self, e, **kwargs):
-        ex_stack = exception_stacktrace(e)
-        model = self.config_model_name()
-        raw_response = self.get_kwargs_by_key("raw_response", **kwargs)
+        model = e.args[0] if hasattr(e, "args") and len(e.args) > 0 and e.args[0] else self.config_model_name()
+        ex_stack = (
+            exception_stacktrace(e.args[1])
+            if hasattr(e, "args") and len(e.args) > 1 and e.args[1]
+            else exception_stacktrace(e)
+        )
+        response = (
+            e.args[2]
+            if hasattr(e, "args") and len(e.args) > 2 and e.args[2]
+            else self.get_kwargs_by_key("raw_response", **kwargs)
+        )
         self.logger.error(f"💀 Exception caught on model {model}: {ex_stack}")
         # write log
         self.write_log(
-            data=f"# 💀 Exception caught on model {model}:\n\n{ex_stack}\n\n---\n\n# 📥 Raw Response:\n\n{raw_response}\n\n---\n\n",
+            data=f"# 💀 Exception caught on model {model}:\n\n{ex_stack}\n\n---\n\n# 📥 Raw Response:\n\n{response!s}\n\n---\n\n",
             append=True,
         )
     

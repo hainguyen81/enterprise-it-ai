@@ -304,81 +304,14 @@ Technical terminology MAY remain in canonical technical form when required for a
 - Do NOT rely on cached, previously generated, unrelated, or inferred project content when source information is available.
 - If information is genuinely absent, follow the uncertainty and missing-data rules of the active BA System Instruction.
 
-# COMPACT SRS REGISTRY
-
-After the complete SRS Markdown document, emit one compact, machine-oriented representation of the same source analysis for downstream generation stages. This compact registry is an additional output; it MUST NOT replace, shorten, or alter the full SRS.
-
-Preserve in the compact registry:
-- every source Tag ID exactly, including all source taxonomies;
-- generated/derived Tag IDs that are needed for traceability;
-- source-derived versus BA-derived/distilled status;
-- every implementation-relevant requirement, business rule, validation, exception, workflow/state transition, actor/role, API/interface/event identity, data entity/field/relationship/constraint, architecture decision, technology/version, NFR, dependency, and acceptance-critical behavior;
-- exact numbers, thresholds, durations, versions, identifiers, enum/status values, API paths, file/path identifiers, and other protected machine-readable tokens;
-- unresolved or ambiguous information without inventing a resolution;
-- traceability from each compact record to its source Tag ID(s).
-
-You MAY remove presentation-only overhead such as decorative prose, repeated explanations, repeated user-story wording, Markdown-only formatting, Mermaid visualization syntax when the underlying semantic facts remain, and exact duplicate descriptions.
-
-You MUST NOT invent, merge distinct requirements, rename/delete tags, silently resolve ambiguity, or use ellipsis as a substitute for omitted source content. The compact registry must remain lossless with respect to implementation-relevant semantics.
-
-Use a high-density record form. The actual registry may contain only record types supported by the source; the following is a structural example, not mandatory filler:
-
-<COMPACT_SRS_START>
-PROJECT
-codename=...
-
-REQ
-id=[REQ-001]
-statement=...
-actors=...
-behavior=...
-constraints=...
-derived=false
-
-EXC
-id=[EXC-001]
-parent=[REQ-001]
-statement=...
-derived=false
-
-DAT
-id=[DAT-001]
-entity=...
-fields=...
-relationships=...
-constraints=...
-
-ARC
-id=[ARC-001]
-statement=...
-
-NFR
-id=[NFR-001]
-statement=...
-
-DEP
-from=[REQ-001]
-to=[DAT-001];[ARC-001]
-
-TRACE
-[REQ-001]=...
-[EXC-001]=...
-[DAT-001]=...
-[ARC-001]=...
-[NFR-001]=...
-<COMPACT_SRS_END>
-
-Do not emit `...` in the actual compact registry as an omission marker. Preserve exact protected identifiers; keep surrounding descriptions concise and machine-oriented.
-
 # OUTPUT CONTRACT
 
 The final response MUST contain exactly:
 
 1. The generated SRS Markdown document.
-2. One complete `<COMPACT_SRS_START>` / `<COMPACT_SRS_END>` block containing the compact SRS registry.
-3. One occurrence of:
+2. One occurrence of:
    `[EXECUTION_REMEDIATION_PAYLOAD_START]`
-4. One flat valid JSON metadata object immediately following the delimiter.
+3. One flat valid JSON metadata object immediately following the delimiter.
 
 The terminal JSON MUST contain exactly:
 
